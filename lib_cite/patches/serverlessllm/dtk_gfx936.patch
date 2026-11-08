@@ -1,0 +1,65 @@
+diff --git a/sllm_store/CMakeLists.txt b/sllm_store/CMakeLists.txt
+index 2de80e8..86beb4a 100644
+--- a/sllm_store/CMakeLists.txt
++++ b/sllm_store/CMakeLists.txt
+@@ -23,11 +23,22 @@ FetchContent_Declare(
+ )
+ set(FETCHCONTENT_QUIET OFF)
+ 
+-FetchContent_MakeAvailable(glog)
+-FetchContent_MakeAvailable(googletest)
++option(SLLM_USE_SYSTEM_GLOG "Use an existing glog package without network fetch" OFF)
++if(SLLM_USE_SYSTEM_GLOG)
++  find_package(glog REQUIRED)
++else()
++  FetchContent_MakeAvailable(glog)
++endif()
++if(BUILD_SLLM_TESTS)
++  FetchContent_MakeAvailable(googletest)
++endif()
+ 
+ find_package(CUDAToolkit QUIET)
+ find_package(HIP QUIET)
++if(NOT HIP_FOUND)
++  find_package(hip CONFIG QUIET)
++  set(HIP_FOUND ${hip_FOUND})
++endif()
+ 
+ # set CUDA or HIP
+ if (CUDAToolkit_FOUND)
+@@ -37,7 +48,7 @@ if (CUDAToolkit_FOUND)
+   enable_language(CUDA)
+ elseif (HIP_FOUND)
+   message(STATUS "HIP found")
+-  set(HIP_SUPPORTED_ARCHS "gfx906;gfx908;gfx90a;gfx940;gfx941;gfx942;gfx1030;gfx1100")
++  set(HIP_SUPPORTED_ARCHS "gfx906;gfx908;gfx90a;gfx936;gfx940;gfx941;gfx942;gfx1030;gfx1100")
+   set(SLLM_STORE_GPU_LANG "HIP")
+   enable_language(HIP)
+ else()
+@@ -235,4 +246,4 @@ if(BUILD_SLLM_TESTS)
+     endif()
+ 
+     add_subdirectory(tests/cpp)
+-endif()
+\ No newline at end of file
++endif()
+diff --git a/sllm_store/csrc/checkpoint/checkpoint.cpp b/sllm_store/csrc/checkpoint/checkpoint.cpp
+index 58c3b6b..824eae7 100644
+--- a/sllm_store/csrc/checkpoint/checkpoint.cpp
++++ b/sllm_store/csrc/checkpoint/checkpoint.cpp
+@@ -17,8 +17,6 @@
+ //  ----------------------------------------------------------------------------
+ #include "checkpoint.h"
+ 
+-#include <ATen/cuda/CUDABlas.h>
+-#include <cublas_v2.h>
+ #include <cuda_runtime_api.h>
+ #include <errno.h>
+ #include <fcntl.h>
+@@ -247,4 +245,4 @@ std::unordered_map<int, std::string> GetDeviceUuidMap() {
+     device_uuid_map[p.second] = p.first;
+   }
+   return device_uuid_map;
+-}
+\ No newline at end of file
++}

@@ -1,0 +1,189 @@
+【
+上一轮信息：
+
+1. 当前项目、日期与任务边界
+
+- 仓库根目录：/home/zhujianian/zhujianian/fluidckpt_zjn。
+- 阶段：v0.1-init-project；开发编号固定v0.1.23.3 / task2。用户没有授权递增，恢复上下文也不递增。
+- 本次归档日期2026-10-23；最近一次本主线GPU实验完成于2026-10-12。10月23日只回顾、读本地证据和归档，没有新增GPU/SSH/Docker实验或fresh资源检查。
+- 用户现在明确授权完整归档、覆盖history-chat.txt并保存历史副本。本次授权不代表以后每轮可自动覆盖历史。
+- 本次新历史副本：/home/zhujianian/zhujianian/fluidckpt_zjn/code_building/history_chat/v0.1-init-project/v0.1.23.3-task2_outer_calibration_recovery_20261023.txt。
+- 覆盖前467行旧history已逐字节备份：/home/zhujianian/zhujianian/fluidckpt_zjn/code_building/history_chat/v0.1-init-project/v0.1.23.3-task2_pre_archive_history_20261023.txt；SHA256=f96f1d897e2264d3fac16e8f1b0cb16419f87d4a5200b99ff8509f17c902a729。它包含更早v0.1.23.2的GLM/并行工作交接，不丢弃、不当当前机器状态。
+
+2. 开发规范、协作与用户偏好
+
+先读AGENTS.md、docx/next_step.txt、docx/debug_philosophy.md。用户最新指示与AGENTS优先于历史快照；旧文档中的.2、旧模型配置或“正在运行”字样不能覆盖顶部最新记录。
+
+- 主agent负责问题定义、拆分、资源协调、审查、验收和沟通；具体代码、baseline适配、测试与实验脚本由子agent建设。主可以维护文档。
+- 子agent使用gpt-6.1-sol/high；显式覆盖时fork_turns=none，提供必读文档、接口、独立可写范围和验收条件。GPU资源、run ID、启动和清理由主统一协调，代码任务不自动授权GPU实验。恢复后先核可用agent，旧名字不保证仍存活。
+- 产品代码main_lib/；实验源codex_coding/src/v0.1.23.3/task2/；结果codex_coding/results/v0.1.23.3/task2/；外部仓库lib_cite/，来源和版本见README.md及baselines.lock.json。
+- 新代码注释英文，说明中文。实验写独立脚本，禁止inline Python跑实验；启动GPU进程必须ulimit -c 0。每配置通常一次，必要两次，不默认五轮。
+- 原始结果、失败和重试保留不同目录，不覆盖旧run、不修改门槛来救结果。控制变量，先核真实执行路径和实验设置，再解释机制。
+- 每个进展同步code_building/progress_diff_summary.md，包含关键命令；重要文件同步key_files_index.md，结论同步key_conclusion.md与context_index。
+- 原厂/shared XML及默认mapping保持；尤其/usr/local/built-in-508-topo-input-tj-default.xml不动。自有XML按新进程显式NCCL_TOPO_FILE，输入和dump分开，不改全局环境。
+- 不上传GitHub；不清理其他团队工作。旧node29访问阻塞、node27 KFD扫描风险留在历史，未获新依据前不要重启这些调查。未来新实验先fresh、有限、针对目标资源的准入。
+- 向用户用初学者能理解的语言解释，围绕真实权重可用时间。用户接受约10%整体预测误差，达标后应转向方案价值。
+
+3. 论文主张与组件关系
+
+论文定位：面向暂停大模型，在分布不均的保活预算与共享通信资源约束下，联合组织权重块的驻留和恢复，改善保活空间与权重可用时延之间的权衡。
+
+直观问题：模型暂停后，把哪些权重块放在本地/远端显存、不同NUMA的CPU内存或SSD；恢复时从哪些有效副本取数、怎样安排搬运，才能在预算内更早使所有目标rank的权重可用。
+
+主指标：开始加载/恢复→全部必要权重可用，包含必要在线规划、inventory、准备、接管、搬运和同步。保活布局建立成本另列；HTTP ready、filled、published、weights_ready和first token不能混用。完整SHA等实验正确性检查在ready之后，不混入在线恢复成本。
+
+六部分已有底座：权重目录/生命周期；资源拓扑地图；成本模型；预算下联合规划；搬运与模型接管；统一实验对照。现有Catalog/owner/lease、NUMA注册内存、HBM/DRAM/SSD、HIP/RCCL、IPC/layout/handoff、nearest/fastest/LP/MILP/managed接口可复用。下一步重点在同预算决策收益，不从零重建通信、缓存或solver。
+
+FluidCKPT始终为系统主体。SGLang、Janus为核心对照，BlitzScale/ServerlessLLM按问题纳入；原版系统、硬件适配和共同执行器机制必须分开。Janus复用按Fluid实际缺口提取成熟代码，保留出处许可；不转成给Janus做拓扑扩展或替换Fluid底座。10月11日组件审查时未迁入新Janus代码、未运行原版Janus。先看最新实验记录再陈述其他baseline运行状态，不能只读10月6日的初始计划。
+
+4. 前期已做的建设及对应证据层级
+
+- e1–e6已有历史测量/IPC/集中分散/预算曲线等执行记录，e4/e5曾出现强简单策略与联合策略同解。e7/e8没有因早先“做到e6”而自动完成。正式状态按总实验记录具体节次，不把所有eN统称已验收。
+- 基础场景及对照已有实际运行；SGLang原生加载、Blitz单目标适配、ServerlessLLM Store HIP的历史完整验收见总记录第21节；Janus式host/D2D机制不等于原版Janus系统复现。
+- 已建立三节点必要物理资源图，核GPU/NUMA/HCA/SSD与RCCL实际路径差异，自有XML与共享配置分开，部分GDR/并发差异已定位。标称400Gb/s不能当实际产品路径容量。
+- 三节点六GPU/六NUMA/三个SSD角色的合成TP4式恢复已跑通，23条必要serial路径有证据。该场景主要是32MiB八块、四目标合成权重；不是这套拓扑下完整live TP4模型的同预算规划胜出。
+- 此外旧并行GLM工作已有真实大模型三节点生命周期与时间线证据，保存在旧history备份及v0.1.23.2文档。它与当前合成场景、当前两节点Qwen校准分别编号、分别计时，不能混并资格，也不要重建已有能力。
+- “块大反而更快”诊断发现首操作主机项、状态和仪表开销会影响斜率；未证明负物理带宽，也未识别普适thread/request统一首项。首操作A8完成、B按预登记门跳过，不能当待自动补完任务。
+- 成本账本八请求完成；局部worker模型通过不等于完整请求模型通过。之后按用户要求把目标收敛为真实在线整体10%。
+
+5. IPC与实际暂停修复：已完成，不要重复探索
+
+实验封装曾两次消费同一HIP IPC凭证，RPC暂停成功但显存未真正释放。32MiB对照证实一次导入释放全部、同凭证两次导入保留全部。实际Torch2.10.0；旧探针计数槽偏移有误，不能声称测得引用计数下溢。
+
+修复为唯一映射内校验，capture新增可选verify_full_sha参数并保留默认行为；全量验证后置。完整Qwen TP2实测每rank allocated从36,496,468,480降到1,315,722,240B，整卡free增加35,213,279,232B。每次park均检查allocated下降与整卡free增长各达到逻辑权重90%，同时检查DRAM保活与数据正确。
+
+线程库已限1，避免OpenBLAS耗尽pids512。监督器subreaper/最终owned closure明确收养回收本任务进程，旧清理竞态false不回填。完整问题与修复过程见2026-10-12_online_ready_cost_validation_report.md第7节及总记录50.5–50.6。
+
+6. 最近为什么简化为两节点，实际配置是什么
+
+用户批准资源不足时先两节点，资源恢复再回复杂拓扑。当前通过的实际配置是：node27 GPU4/5作为两个目标rank，node30 GPU4作为唯一sender，两个远端完整DRAM分片分别在NUMA4/7；目标GPU对应NUMA4/7。单sender远端操作串行，用既有DAG表达。
+
+- 模型路径：/data/node28/shared/zhujianian/Qwen3.6-35B-A3B；Qwen TP2。
+- 处理后总权重70,329,718,112B，每rank35,164,859,056B；66extent，块1GiB、每rank尾块805,120,688B；32MiB chunk共2096操作块内分段。
+- 目标DRAM任务192GiB/hard224GiB，初始每卡free≥52GiB，运行整卡used≤48GiB。
+- helper DRAM任务96GiB/hard128GiB；GPU初始free≥4GiB、运行free≥2GiB；已知tensor/Torchreserved≤2GiB另列。完整driver/RCCL归属unknown，不能把整卡其他任务占用当本任务占用，也不用差量伪造精确归属。
+- C0混合布局：每rank首1GiB来自HBM，后16GiB远端，其余本地；Hnear首1GiB同样HBM，其余本地；Hremote首1GiB HBM，其余远端。
+
+7. 预测模型的演进及当前最终结果
+
+simple r01：512MiB远端样本73.126ms、1GiB66.851ms，正斜率拟合拒绝，尚未执行C0/留出。原失败保留。
+
+simple r02在采新数据前登记exact_extent_service_points_v1：六路径各一次1GiB预热，两个实际尺寸各采一次，得到12个服务成本点；复用原DAG，不拟斜率、不插值/外推。完整C0=3.287488677s，outer=.8080300058204s。Hnear预测1.596965948/实际1.312200619s，+21.701%未过；Hremote4.957028519/4.560261343s，+8.701%过。DAG偏差仅9.992/7.472ms，外层占总误差约96.49%/98.12%。旧C0和留出controller不同，首次/控制器状态混杂。
+
+用户授权继续校准外层后，新run为online_outer_two_node_r01。复用全部12点及19件旧preouter证据，不重测带宽/拓扑。四个完整请求同一controller、同engine/keeper incarnation，顺序固定prime→cal→冻结两预测→remote→near：
+
+| 请求 | 实际在线秒 | 事前预测秒 | 有符号误差 | 用途 |
+| --- | ---: | ---: | ---: | --- |
+| C0_prime | 3.024892887 | — | — | 首次恢复单列，不拟合 |
+| C0_cal | 2.903039095 | — | — | 唯一后续outer校准 |
+| Hremote | 4.581127216 | 4.572578937 | −0.186598% | 独立留出，通过10% |
+| Hnear | 1.290400136 | 1.212516366 | −6.035629% | 独立留出，通过10% |
+
+新共同outer=2.903039095−2.4794586711796=.4235804238204s。prime与新旧holdouts都没有参与拟合，两预测在任何新holdout之前冻结；没有第五次恢复、没有按布局加常数。控制器PID7613只在本次run和容器内表示连续性，不能拿同数字PID与历史容器等同。
+
+两留出搬运DAG偏差remote+9.339ms/near+8.380ms；外层偏差−17.888/−86.264ms。Hnear最后导出→最后映射170.178ms，cal83.086ms、remote90.808ms，交换顺序后Hnear映射仍较长。其原因不能简化为第二次请求尚未预热；整体已达标，停止微项调优。
+
+预测布局差3.360062571s、实际差3.290727080s，排序正确。共同outer修改不会改变候选预测差值；本次成果是绝对预测校准，手工指定布局差不计为规划器或新加载算法收益。
+
+8. 验收、适用范围和运行终态
+
+- 核心41/ops31 CPU检查、冻结179资产独审16项通过；最终outer_analysis_actual_r02独立73项全过。
+- 四次完整70.33GB全SHA、固定参考输出、实际物理park、源NUMA/epoch、sender串行、预算、冻结与清理通过。
+- 实测资格为post_one_fullrestore_samecontroller：当前固定物理路径/模型/尺寸与同controller首次完整恢复后的后续请求。首次预测、任意新controller、新尺寸、三节点/SSD/多NIC共享域仍需对应验证。
+- helper1846个0.5s配置采样，最低free6,958,350,336B、最大reserved69,206,016B；连续峰值和完整driver/RCCL任务占用未知。
+- host passed=true、failure=null、cleanup_failure=null；Catalog空、三keeper加engine共四owned closure通过，两节点归集且quiet pids1。
+- 10月12日主精确停止两个本轮容器：node27 fd8fcf443d1a443d88cfdd8f8d3f628e481d4812075c8a72397b999642cfaca3；node30 09fd630f233cc8b26cb83a5318a7cdfa53fbbc68d8cf911f5c8d02c22edf5814。after均Running=false/PID0/OOMKilled=false，137为sleep PID1限时stop。
+- 上述是10月12日终态；10月23日没有重新查现场，不代表当前整个集群无任务，也不授权清理旧GLM/其他owner。
+- 审计r01因本机Python无hashlib.file_digest失败，原failure.json保留；审计改分块SHA后r02通过，原实验数据和模型没变。
+
+9. 最相关的源码与原始证据
+
+源码根：/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/。
+
+- execution/outer_model.py：继承原路径成本、当前状态绑定、单次outer拟合与冻结检查。
+- execution/outer_controller.py：一个进程完成四完整恢复，首次/校准/留出角色分开。
+- execution/outer_bundle.py、outer_prepare.py、outer_host.py：19原件白名单、179资产冻结、新会话部署与回收。
+- execution/orchestrate.py：仅追加RUN_PHASES钩子；默认bootstrap/calibrate/validate保持，Outer为bootstrap/sequence再cleanup。
+- execution/simple_controller.py、simple_model.py、simple_contracts.py：被复用的完整计时、实际尺寸服务表与布局合同。
+- review/outer_actual_review.py：只读归集tar的独立验收，重建DAG和同主机时间账。
+
+产品入口位于/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/：cluster/{catalog,planning,joint,multi_joint,managed,service_cost,worker}.py；serving/{lifecycle,keeper,layout,ipc_attach,handoff}.py；memory/与topology/。本轮outer校准未改产品加载算法。
+
+结果根：/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/。
+
+- outer_analysis_actual_r02/{report.md,qualification.json,breakdown.json}：最终独审与误差分解，首读。
+- execution_host_outer_run_r01/：run_summary.json、collection_qualification.json及两个collection_node*.tar，全量原件已收回。
+- collection_node27.tar内直接是phase_sequence/：四请求*_raw.json、*_record.json、*_physical_park.json，以及注册、model、calibration、frozen_prediction、independent_validation、sequence。归集前它位于运行目录execution_runtime_online_outer_two_node_r01/下，解读tar时不加这个前缀。
+- execution_setup_outer_two_node_r01/和execution_host_outer_{setup,admission,bind}_r01/：资产、准入、容器身份与计划。
+- outer_ops_source_bundle_r01/：checkpoint_path_model加18warm/cal原件，19件14,982,843B。outer_ops_cpu_r01/commands.txt含完整prepare/setup/admission/bind/run命令。
+- outer_analysis_existing_r04/：旧控制/接管分析；review_simple_actual_r02/：旧21.70%失败与分解；outer_analysis_actual_r01/：审计兼容失败。
+- outer_owned_stop_r01/：两个容器停止前后原件。
+
+关键指纹：路径checkpoint SHA=04febed84e3cda9fd937cf8aa5d958ab530832305919861b5dbbed7e2db42b1a；12点摘要=58eaacf941ce431e42f4b44ce2500138f962a882fc55d60097f7020eafdae644；冻结预测payload SHA=d2b4f7f7c353d5a299fa6dc7e428180417a910eb9df871369c64076625a79db0；bound plan SHA=5e6c2dd6a61dd6a8aa5e9cf973dc85951f6a80d2cf9b03a45cd1f1f8ec0896f4。
+
+10. 本轮命令与避免重复的事项
+
+以下是已完成的历史GPU入口，恢复时只读，不原名重跑：
+python3 codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_host.py run --setup-dir codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_outer_two_node_r01 --plan codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_outer_bind_r01/launch_plan.json --out codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_outer_run_r01 --execute
+
+文档检查：python3 codex_coding/src/v0.1.23.3/task2/paper_e1_e8/check_documents.py；git diff --check。完整独审历史命令在outer报告第7节。正常测试已过后不反复扩大测试。
+
+不要重复搭环境、全面扫拓扑、探索已完成IPC一次/两次实验、补首操作B、重跑四请求来追微小误差，或换新solver制造复杂度。共同误差项不能证明选择更优；不同预算手工布局不能证明同预算联合规划胜出；单流/小块/合成场景资格不能替代真实完整模型。简单策略足够时就采用简单策略。
+
+11. 最重要的恢复记忆句
+
+FluidCKPT已有保活、资源图、搬运、接管和多种规划底座；最新两节点三GPU完整Qwen后续恢复预测误差remote0.19%、near6.04%，达到用户10%目标，正确性与回收均过。当前应结束这一域的精度建设，围绕同预算强简单策略与现有规划器的真实权重可用时间，建立论文的决策收益证据；复杂拓扑仍是目标，资源恢复后按决策需要扩域。本次归档没有启动下一轮规划实验。
+
+这一轮：
+请你先回顾一下上一轮我们做了什么，然后，这一轮你的任务如下：
+
+1. 按顺序阅读以下必读文档，先恢复事实再与用户讨论。
+
+规范与当前总进度：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/AGENTS.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/next_step.txt（顶部最新块优先）
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/debug_philosophy.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/progress_diff_summary.md（末尾最新增量）
+
+本次结果与完整过程：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/experiments/2026-10-12_outer_online_calibration_report.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-10-12_outer_online_calibration_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/process_docs/v0.1-init-project/v0.1.23.3-task2_basic_scenarios_20261006.md（最后两段：10/12外层实验与10/23归档交接）
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/experiments/2026-10-12_simple_two_node_online_report.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/experiments/2026-10-12_online_ready_cost_validation_report.md（IPC/物理park问题查第7节）
+
+论文方向、范围与下一步计划：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/01_paper_scope_management_guide.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-10-11_fluidckpt_paper_system_goal_components_and_status.md（组件定位有效；10/11实验状态由10/12报告更新）
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-10-06_baselines_delta_and_research_roadmap.md（原版/适配/机制身份；具体运行状态看总记录）
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-10-04_v0.1.23.3_task2_paper_e1_e8_plan.md（18.35及末尾后续）
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/experiments/2026-10-04_v0.1.23.3_task2_paper_e1_e8_records.md（50.7/50.8为当前主线；旧e1–e6看18节，baseline看21节）
+
+准备讨论复杂布局/复用时补读：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-10-10_joint_planning_necessity_and_boundaries.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-10-06_weight_placement_and_topology_literature.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-10-11_janus_retention_reuse_audit.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-10-10_multiple_placement_competition.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-10-10_three_node_multitier_scenario.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-10-10_tp4_layered_scenario_contract.md
+
+旧GLM能力和复用线索按需读：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/history_chat/v0.1-init-project/v0.1.23.3-task2_pre_archive_history_20261023.txt
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_glm_three_node_execution_20261004.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/experiments/2026-10-04_meld_figure4_restore_timeline.md
+这些旧资源会话不能直接复启；使用前核原件与现场，不用旧serving字样推断当前状态。
+
+2. 再读最终证据与代码。
+
+先打开结果根online_cost/outer_analysis_actual_r02/report.md、qualification.json、breakdown.json；核hostrun summary、collection和outer_owned_stop记录。按需读上文列出的outer_model/controller、simple_model、现有planning/joint/multi_joint及managed代码。先确认现有接口能做什么，再提出最小修改。
+
+3. 与用户讨论下一阶段的具体场景和验收问题。
+
+建议顺序：固定同内容/同目标/同预算场景→比较强简单与现有联合策略是否产生不同合法布局→用当前可信成本检查差异是否值得实测→同执行器恢复完整权重→计入必要在线规划准备开销→按真实weights_ready判断增益。资源允许时恢复三节点、多卡、DRAM/SSD和共享链路，优先补会改变决策的测量。
+
+10%是当前有限样本验收尺度，不是所有未来请求的保证，也不是统计置信区间。差距很小的布局先说明无法可靠排序；共同outer不能制造排序优势。只有新的实际瓶颈影响决策时才补成本项。
+
+4. 下一轮若用户继续授权实施，按主/子agent约定拆分：一名接口与规划接入、一名场景/测量脚本、一名独立审计，主统一资源、run ID和验收。写入范围不重叠，先CPU合同和源码审查，再由主协调有限GPU验证。旧agent名字和旧运行会话不作为可用资源承诺。
+
+5. 当前用户要求是完成归档并在恢复后先讨论下一步；本次没有启动新规划实验。保持v0.1.23.3/task2，不自动重跑已完成校准或启动未决定的新组件。后续获得明确执行任务后持续推进，不为已有授权重复请求许可。
+】

@@ -1,0 +1,15 @@
+{
+  "model": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+  "topology": "codex_coding/results/task2/build01/topology.json",
+  "profile": "codex_coding/results/task2/build01/profile.json",
+  "port": 31822,
+  "keeper_port": 39820,
+  "chunk_bytes": 268435456,
+  "repeats": 5,
+  "backends": ["numa_registered"],
+  "variants": [
+    {"executor": "staged", "planner": "fixed_local"},
+    {"executor": "direct", "planner": "fixed_local"},
+    {"executor": "direct", "planner": "resource_lp"}
+  ]
+}

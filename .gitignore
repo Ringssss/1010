@@ -9,9 +9,24 @@ __pycache__/
 *.gz
 *.nsys-rep
 *.sqlite
-/codex_coding/results/
-/codex_coding/long_results/
+/codex_coding/results/glm_three_node/diagnostic*/checkpoint/*.safetensors
 /data/full_datasets/
+
+# GPU core dumps: a single crash writes 8 x ~20 GB (one per rank) and fills /home.
+# Prevent with `ulimit -c 0` before launching experiments (see build principle 17).
+core
+core.*
+core.[0-9]*
+
+# timing markers written by the launchers
+*.t0
+
+# inherited dllm_wh originals (kept for provenance only)
+.spec_backup/
+
+# NOTE: /codex_coding/results/ IS tracked here, unlike the dllm_wh template.
+# The bandwidth / resource-profile / tensor-size JSONs are the inputs to the planner and
+# the resource model, and the raw evidence behind insights I1-I13. See BACKUP_SCOPE.md.
 
 # Virtual env
 .venv/
@@ -52,6 +67,12 @@ temp/
 # Your local ignored directory
 /lib_cite/*
 /others/*
+
+# Keep baseline provenance; external source checkouts remain independent repositories.
+!/lib_cite/README.md
+!/lib_cite/baselines.lock.json
+!/lib_cite/patches/
+!/lib_cite/patches/**
 
 # keep this repo/subdir tracked
 !/lib_cite/dInfer/

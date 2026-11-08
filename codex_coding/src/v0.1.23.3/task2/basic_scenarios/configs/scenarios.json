@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "development_stage": "v0.1.23.3/task2",
+  "status": "contracts_only",
+  "说明": "S编号是环境维度，正式实验仍沿用e1–e8；本文件不含运行现场、mock时延或GPU启动授权。",
+  "scenarios": [
+    {"scenario_id": "S1", "source_roles": ["ipc"], "driver": "codex_coding/src/v0.1.23.3/task2/paper_e1_e8/e1/run_ipc_gate.py", "required": "目标HBM完整兼容权重及owner存活；不生成copy plan"},
+    {"scenario_id": "S2", "source_roles": ["base"], "required": "完整DRAM底本；无active来源"},
+    {"scenario_id": "S3", "source_roles": ["base", "active"], "required": "单logical active实例、完整TP对应、EPDT与存活/复制保护证据；Janus源不能是目标实例或重合workers；缺active时目标主机完整host后备"},
+    {"scenario_id": "S4", "source_roles": ["base", "extra"], "extra_hbm_bytes": 8589934592, "required": "完整DRAM底本；至少两处分散位置预算，每处小于8GiB"},
+    {"scenario_id": "S5", "source_roles": ["base", "extra", "active", "ipc"], "required": "当前topology/executor下真实共享资源并发测量文件；profile容量或measured布尔值不够"}
+  ],
+  "implemented_methods": ["sglang_ipc_hip", "janus_host", "janus_d2d", "fastest", "resource_lp"],
+  "original_systems_pending": ["sglang_original", "janus_original", "blitzscale_original", "serverlessllm_original"],
+  "method_adaptations_unsupported": ["blitzscale_distribution", "serverlessllm_locality"],
+  "baseline_lock": "lib_cite/baselines.lock.json",
+  "Janus_warm范围": "每个TP rank只使用目标主机上一个worker的完整host缓存，近似本地NUMA/H2D；任意跨节点host搬运保留为Fluid合法来源，不称Janus warm。",
+  "统一字段": ["scenario_id", "workers", "replicas", "targets", "profile", "format_contract", "budget"],
+  "计量规则": "physical allocation aliases只计一次；底本、额外cache、IPC owner、既有/新增active、目标与staging分栏；active额外存活时间与干扰单列；适用性和测量完成状态分离。"
+}

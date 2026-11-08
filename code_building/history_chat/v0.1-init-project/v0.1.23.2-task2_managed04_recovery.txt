@@ -1,0 +1,212 @@
+【2026-09-29 晚间续作更新，优先于下方旧交接】
+
+开发编号仍为v0.1.23.2/task2。用户已明确要求开始，并授权停止此前列明的三个占卡容器：
+node27 zhujianian-agentx-multi-node271、node28 zhujianian-agentx-multi-node280、
+node29 zhujianian-agentx-nonempty。已停止并保留容器本体；其他服务未停止。
+
+最新完成：单模型单目标联合控制层真实验收managed04。
+- 接手时managed.py/managed_control.py及RPC已存在，本次新增测试、配置驱动、NUMA容量选择、端口检查和验收报告。
+- 42项相关CPU测试通过；400全模型候选、520 flow、MILP gap=0，求解294ms，plan_joint整体378ms。
+- 总预算8 GiB HBM＋2 GiB DRAM，单目标卡HBM上限8 GiB（已放开原4 GiB限制），选4+4 HBM＋1+1 DRAM。
+- 10个实体副本，14动作；零临时预算，有node28完整底本保护。第1个已提交动作后中断，持久journal续作和重复应用通过。
+- 旧/新加载2.034551148/1.722078996s，搬运1.379845336/1.221304783s；分别下降15.36%/11.49%，每布局仅1次，准备差异单列。
+- 每次完整70,329,718,112 bytes哈希和3条生成对比通过；源码指纹零差异；cleanup_errors=[]；实验GPU回到6～10 MiB，临时容器已移除。
+- apply变更27.312727s包含首次apply/中断/续作，后续幂等重放另算，不混进加载窗口。
+
+必须记住的失败和修复：
+- managed01端口绑定冲突；preflight原只查LISTEN，漏CLOSE-WAIT。现记录全部TCP本地端口占用。
+- managed02的24100系列已有其他服务，预检查拒绝，未停止它；最新默认25100系列、master25200。
+- managed03成功capture，但node28 NUMA2只有25.0 GB可用，放不下35.16 GB/rank底本；保持failed，不算恢复性能样本。
+- 新topology/placement.py先保留可行本地分配，再按容量/距离回退；managed04 node28 GPU2实际用NUMA3，GPU3用NUMA1。实际分配仍检查容量/页面位置。GPU空闲不代表NUMA足够。
+
+恢复优先读：
+1. code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md 附录I（新增完整过程）
+2. codex_coding/results/task2/cluster/managed04/managed_analysis.json、placement_plan.json、placement_journal.json、summary.json
+3. main_lib/fluidckpt/cluster/managed.py、managed_control.py；main_lib/fluidckpt/topology/placement.py
+4. codex_coding/src/task2/cluster/run_managed_placement.py、analyze_managed_placement.py；task2/configs/managed_single_target.json
+5. codex_coding/src/tests/test_managed_placement.py、test_numa_placement.py
+
+当前没有要接续的活跃GPU进程。下方“七步尚未实施”的旧状态已由此次单目标首交付更新；
+仍未做多目标、可迁移完整底本、通用节点/网络崩溃恢复、在线自适应及严格SGLang保活对照。
+checkpoint注入是提交动作之后的中断，不是节点崩溃；每卡允许集中后求解选均分，不是另做了集中布局的GPU对照。
+新run不可覆盖旧目录；GPU前core=0；通常每方案1次，保持编号，不重复做已完成的全链路。
+
+【以下保留此前完整交接作为历史，当前状态以上方更新和附录I为准】
+【
+上一轮信息：
+
+1. 先恢复项目身份、规范与用户约束。
+
+- 项目根目录：/home/zhujianian/zhujianian/fluidckpt_zjn
+- 项目：FluidCKPT；阶段：v0.1-init-project；开发编号固定为v0.1.23.2；任务task2，名称“保活闭环”。
+- 用户明确要求：在其再次指示前不要改变开发编号。该要求覆盖next_step中的通用跨会话递增规则，压缩恢复、日期变化均不自动加号。
+- 主目标：优化模型启动中“权重开始加载→所有目标GPU权重可用”的时间。不是进程启动、HTTP健康、首token或持续推理吞吐。
+- 代码注释英文，过程与理解文档中文；产品核心放main_lib/fluidckpt，实验脚本放codex_coding/src，结果放codex_coding/results，图源放src/plt、图放results/plt。
+- 不用python -c等inline实验；GPU启动必须ulimit -c 0并设置RLIMIT_CORE，历史曾产生203 GB core。
+- 基建阶段通常每方案测一次，必要时两次，不再做五轮重复。早期结果中的5次是历史数据，不是当前要求。
+- 用户喜欢初学者能理解的直观解释；控制变量、先确认实际路径、保留失败与负结果，不夸大加速。
+- 不修改/停止其他服务；只清理自己启动且记录身份的进程/容器；仓库有大量已有修改/未跟踪文件，不能reset或清理掉。
+- 用户此前要求暂缓归档；2026-09-29明确授权本次完整归档、覆盖history-chat并保存历史副本，本次已按此执行。不要把此前“未归档”当作现在仍未完成归档。
+- 本次最新动作是文档归档，未启动新GPU实验；最近讨论的七步联合控制层尚未实施。
+
+2. 必须优先阅读的文档，按顺序：
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/next_step.txt
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/debug_philosophy.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-09-29_task2_joint_placement_findings.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-09-29_task2_joint_planning_control_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/progress_diff_summary.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/key_conclusion.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/context_index/01_stage_summary.md
+
+过程文档按动机、实现、命令、数据、结论记录从NUMA闭环、单机多源、三节点八阶段，到策略/控制/流水比较、profiling失败链、MILP与真实placement的全部主线。需要细节先读它，不要依据老恢复文件重搭环境。
+
+用户随后要求参考v0.1.19.10-dsv4_dual_scope_integration_and_cudagraph_debug.md的信息量，过程文档已进一步增强：附录A～G包含端到端调用链、数据对象/偏移、内存与lease生命周期、transfer提交边界、serial/双缓冲依赖、MILP变量和数值单位、布局区间账本、计时归因、profiler排错、假设矩阵、开关状态和下一步代码落点。附录H由原始JSON/日志自动摘录，含逐op字节/耗时、SHA256、时间线及原始GPU标签证据。
+
+新增恢复重点：求解candidate不是已发布实体副本；现有transfer不是完整布局跨节点全有或全无提交；底层worker.retire不自行保证全局覆盖，实验直接退休由完整底本前提保护。这些是本次源码复核说明，不是新GPU故障实验。只读证据包：codex_coding/results/task2/archive_20260929/detailed_evidence.json。
+
+历史设计按需补读：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-09-28_task2_numa_flow_loading_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-09-28_task2_stage2_replica_multipath_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/00_docx_storage_and_lookup_guide.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/key_files_index.md
+
+3. 当前硬件、模型和运行方式。
+
+- 主验证模型是/data/node28/shared/zhujianian/Qwen3.6-35B-A3B，TP=2。完整处理后快照70,329,718,112 bytes，约65.49965 GiB；每rank35,164,859,056 bytes，1009个storage区域。
+- GLM-5.3的gfx936 NSA/VMFault问题是历史旁线，不能再把它当当前Qwen系统建设阻塞；尚未宣称GLM适配解决。
+- 三节点：node27=12.11.3.27、node28=12.11.3.28、node29=12.11.3.29。每台物理8卡，当前实验mesh只用8个worker。
+- mesh：node27:0-3,node28:2-3,node29:0-1。
+- worker0/1=node27 GPU0/1，capture；worker2/3=node27 GPU2/3，原远端HBM；worker4/5=node28 GPU2/3，完整DRAM底本；worker6/7=node29 GPU0/1，恢复目标。
+- 最近node28 GPU0/1各占53,694 MiB，属其他业务，未触碰。后续重新preflight，不把历史占用当永久事实。
+- 运行时拓扑报告1 socket、8 NUMA，不用历史两socket假设。node27 GPU0/1/2/3最近分别邻近NUMA0/3/2/1，远端映射以各自探针为准。
+- 常驻已有容器：node27 zhujianian-fluidckpt；node28 zjn-fluidckpt-n28；node29 zjn-fluidckpt-n29。SystemRun为远端实验创建带SYS_NICE的临时容器，保证mbind；完成后回收，不改已有服务。
+- 容器source /opt/dtk/env.sh。worker AMD_SERIALIZE_KERNEL=0，SGLang=3；不要误统一为3，曾导致跨节点collective挂起。
+- NCCL_NET_PLUGIN=librccl-net-shca.so。跨节点send/recv在当前平台不可用，实际使用pair-group broadcast，IB/GDRDMA曾由日志验证。
+- worker端口46100+本地GPU号；master 12.11.3.27:46200；测试模型server 31942。
+- 集群runner从宿主机运行，node27容器root没有远端SSH密钥；需要SciPy的求解放到容器/worker，现有SciPy 1.15.3。
+- 最近placement01完全结束：cleanup_errors=[]，测试卡空闲，无待续跑的实验会话；不要尝试恢复旧PID或复用已有run目录。
+
+4. 已完成的系统，不要从头重建。
+
+- 主动NUMA DRAM分配、实际触页、GPU注册、显式释放；不是依赖Linux自动page cache保活。
+- 处理后权重capture、GPU模型释放、从Keeper恢复、全量字节和真实生成校验。
+- 三节点统一资源目录、容量/覆盖检查、DRAM/HBM副本、BUILDING/VALID/RETIRING/RELEASED生命周期、generation/epoch/leases保护。
+- prepare→execute→verify/publish→finish闭环；模型live恢复的全量SHA256放在weights_ready之后，避免混入主计时。
+- system02已经通过用户要求的第1到第8项系统任务：目录、放置、生命周期、HBM来源、双机、多源、联合启发式、三机验收。
+- 固定布局resource_lp已真实执行，后续有联合MILP；不要把早期joint_greedy的阶段7通过说成当时已有全局MILP。
+- compact控制面、10ms handoff轮询；可选double_buffer实现及故障注入/重试通过。
+- 当前默认：control_mode=compact、executor=serial、plan_restore策略nearest、place策略nearest。实验显式传resource_lp才启用LP，joint MILP还不是全局默认placement RPC。
+
+5. 必须记住的实验结果与限制。
+
+（1）早期单机结果，历史已有5次，不要重跑：
+- build01_validation：普通文件加载中位19.644s；NUMA staged 1.744s；direct 1.620s。
+- 这约12倍是保活恢复相对文件加载整体效果，不是最大流收益。文件页驻留94.8%～97.7%，不是严格冷盘实验。
+- stage2/model01：single_source中位1.431s、balanced 1.576s、resource_lp 1.405s，各5次；多来源不自动更快。
+
+（2）三节点及控制面：
+- system02：双机恢复2.300545s，三机2.730521s，八阶段通过。
+- policy01：primary_only 2.180202s、nearest 2.259574s、balanced 2.258084s、LP 2.336553s，各1次，不能作稳定排名；LP/nearest字节计划一致。
+- control01：legacy 2.305257→compact 1.955185s；plan约217.94→8.24ms；JSON约13.64→0.654 MB；执行约1.384s未变。这是控制面收益，不是LP收益。
+
+（3）流水与profiling：
+- pipeline01：serial加载2.105821s，double_buffer 2.090150s；执行1.606232/1.595941s。每种1次，没有显著双缓冲加速证据；两者相同LP字节计划、无回退。
+- 每worker两块32 MiB staging，两种模式都占64 MiB；serial每块同步；double_buffer两stream和ready/free events、异常drain，失败重试验证通过。
+- 已纠正计时：正常serial 2.105821s中，搬运约1.598505s（76%），全卡拷完后的收尾仅0.028267s。原先约0.25s completion等待主要是快卡等慢卡，不能重复算作独立控制瓶颈。
+- 慢rank在不同样本之间会交换，差异集中在远端DRAM大尾段；尚未证明固定某GPU慢。
+- profile01真实模型带采样2.439570s、字节和生成通过，但GPU trace在初次collector退出时未正常提交。CPU/阶段记录可用，不能假装存在完整模型GPU trace。
+- bulk_profile01补测每rank 8 GiB+17到连续目标：源H2D约0.182～0.184s，通信kernel约0.130～0.133s，间隙约0.024～0.028s，目标显存copy约0.013s。源H2D活动速率约47 GB/s。
+- bulk_profile01原summary.status=failed，因为运行期间修改离线analyze_restore_profile.py触发指纹检查；执行库/启动器未变、17,179,869,218 bytes与trace覆盖校验通过，cleanup无误。报告只标diagnostic_usable，不篡改failed，也不作为干净性能验收。
+- 停profiler的修复：只先终止受记录的worker子进程，等hipprof提交，再清理wrapper。厂商首个D2D标签误为D2H，已根据双方Device内存类型和关联kind=3校正分类，保留raw_names。
+- 同步函数/通信kernel驻留含等待，不能直接断言CPU计算慢或网卡饱和；event区间重叠也不等于DMA同时工作。
+
+（4）最新placement01，最重要：
+- 前提：固定完整node28 DRAM底本；恢复node29 TP2；额外8 GiB HBM＋2 GiB DRAM；serial执行器；每目标GPU HBM上限预设4 GiB。
+- 校准有效路径GB/s：远端DRAM 25.1038、远端HBM 33.5998、本地DRAM 44.8395、本地HBM 370.9458。各单测1 GiB、两rank同时、连续目标；不是全硬件普适容量。
+- 单场景联合MILP，36候选，gap=0，求解阶段约8.7ms。成对贪心约165ms达到同值；单副本贪心因minimax平台选0个副本。简单目标侧均衡布局与模型内最优值相同，实际选择balanced_local。
+- 新布局：node29 GPU0/1各存4 GiB HBM，对应NUMA DRAM各存另1 GiB，区间不重叠；node28底本保留。
+- 旧布局8 GiB HBM在node27，与node29的2 GiB DRAM重叠部分覆盖；新布局额外缓存唯一覆盖8→10 GiB。
+- 跨机搬运63.5→55.5 GiB，减少8 GiB。
+- 预测传输1.358008→1.222444s；实测execute 1.361813→1.255519s，省0.106294s，约7.8%。
+- 完整加载2.133549→1.812675s，样本下降15.0%；其中还有首次规划/映射与rank错峰变化，不能全部归因placement。
+- 旧检测规划派发0.201220s、映射0.187919s；新0.042266s、0.071879s。新rank入口错峰更大，分段见analysis。
+- 两次各完整SHA256校验70,329,718,112 bytes并对比3条生成结果；summary/analysis均passed，source_hash_mismatches=[]，cleanup_errors=[]。
+- 新布局建立约18.880737s，含复制/协调/全量校验，不在live加载计时内；不能直接拿此数算精确回本次数。
+- 预算扫描只是离线预测：HBM/DRAM额外GiB为0/0→1.400780s，0/2→1.381954s，4/0→1.321025s，8/0→1.241270s，8/2→1.222444s。
+- 最后相关CPU测试31 passed，包括MILP对穷举、serial成本、零预算、非法来源/容量。不是本轮归档重新跑出来的成绩。
+
+6. 联合规划与tradeoff的最新共识。
+
+- 本质是容量约束副本放置＋共享资源下的数据分配＋最小化最后完成时间；placement含离散选择，用MILP；固定布局下恢复用资源LP。不能简单将所有权重当一种可互换流体。
+- HBM更近、更快，但占推理显存；DRAM容量相对宽裕却仍有H2D；远端副本保留目标空间却要通信；冗余可能服务其他目标/故障场景，也可能在当前目标下无额外价值。
+- 目标是max(T_gpu0,T_gpu1)，只改善一张卡可能不降总时间，所以单副本贪心可能失败，联合/成对决策有价值。
+- 不能宣称均分普遍最优：本次每卡4 GiB上限是预设，尚未在放开上限后实测8+0集中vs4+4分散。
+- 目前只优化固定底本、单目标、有限候选。多目标需求、完整底本迁移、并发恢复及更多模型均未给出全局最优实证。
+- 长期目标包括严格比较SGLang自身保活，但不能说已经全面超越所有SGLang保活机制。
+
+7. 压缩后优先回看的核心代码。
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/joint.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/planning.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/control.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/catalog.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/wire.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/pipeline.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/profiling.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/measure.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/keeper.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/run_system.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/run_placement_comparison.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/solve_placement_case.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/tests/test_joint_placement.py
+
+joint.py新增MILP；planning.py新增按来源层path_rates和可选serial目标约束；worker/profiling增加按需诊断；run/solve/sweep/analyze脚本实现实验闭环。核心能力虽可调用，但需求、候选和变更动作仍部分由实验脚本拼接。
+
+8. 最相关结果，先读已保存JSON，不急着重跑分析覆盖历史。
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/placement_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/placement_solutions.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/placement_case.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/budget_sweep.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/summary.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/profile01/profiling_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/bulk_profile01/profiling_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/pipeline01/pipeline_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/control01/control_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/system02/analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/plt/task2_placement01.png
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/plt/task2_restore_profile01.png
+
+所有run入口已有目录都会拒绝重用。某些旧analyzer会对照当前源码与旧hash，跨版本重跑会改变验收报告；先看存量证据。运行开始后冻结记录中的源码，分析新需求放在实验结束后处理。
+
+9. 最重要的恢复记忆句。
+
+我们已用Qwen TP2在三节点上跑通完整保活恢复系统，并完成profiling和有限候选联合placement验证。当前目标不是重新搭环境、重跑GLM、默认启用双缓冲或证明均分永远最优，而是把离线MILP＋恢复LP＋副本生命周期接成统一控制层：明确需求和真实预算，自动生成候选，输出可执行且迁移过程不超预算的布局，再用实际恢复反馈验证。最新新布局传输省7.8%，完整窗口样本省15%但含准备差异；每卡4 GiB是预设，下一步要让真实预算决定它。
+
+这一轮：
+请你先回顾一下上一轮我们做了什么，然后，这一轮你的任务如下：
+
+1. 按第2节顺序阅读规范、完整过程文档、技术认识和最新联合控制层计划；再核对第8节placement/profile结果。
+
+2. 优先阅读joint.py、planning.py、control.py、catalog.py、worker.py及run_placement_comparison.py，确认哪些已经是核心接口、哪些仍写在实验驱动中。
+
+3. 先向用户用直观语言恢复现场：已完成什么、数据支持什么、哪些尚未证明。明确七步计划待实施，不把讨论当成交付。
+
+4. 接下来建议的七步建设顺序：
+   （1）统一资源快照、恢复需求与预算契约，纳入推理预留、通信缓冲和临时迁移空间。
+   （2）从完整权重清单自动生成候选，真实比较集中、分散、不对称；保留精确覆盖与尾字节。
+   （3）成本模型匹配serial/流水执行器和共享资源，准备与传输分别预测，标记有效范围。
+   （4）统一联合求解接口，先单目标再多互斥场景，输出可行性/最优界限/gap和显式回退。
+   （5）建设布局变更执行器，检查中间峰值容量，维持完整覆盖，发布前校验，保护leases，失败可重试。
+   （6）恢复请求使用真实已发布副本和版本，再运行快速资源LP，拒绝失效计划。
+   （7）建立预测—实测反馈；先离线报告，再考虑收益门槛、保持时间和迁移量上限，避免抖动。
+
+5. 第一交付收敛为“单模型单目标，自动候选→联合求解→变更→真实恢复验证”的完整链路；之后再做不对称预算、多恢复目标。互斥未来场景与同时多请求必须区分；改变TP需要另建重分片支持。
+
+6. 验收以少量区分性案例为主：对称、非对称、真正允许集中8 GiB、两目标、迁移临时空间不足、worker代次变化/中途失败。优先小规模穷举和故障注入；真实模型通常一次、必要时两次。双方控制面/IPC预热状态应对齐，完整时间和搬运时间分别报告。
+
+7. 当前用户请求仅是归档与压缩交接，所以恢复后先阅读和讨论下一步。用户后续明确要求开始建设时，就沿上述已验证环境继续，保持v0.1.23.2/task2，不重复请求已有授权，不擅自启动无关实验或新一轮归档。
+】

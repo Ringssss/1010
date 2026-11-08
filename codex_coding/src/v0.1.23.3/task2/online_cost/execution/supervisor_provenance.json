@@ -1,0 +1,25 @@
+{
+  "upstream": "codex_coding/src/v0.1.23.3/task2/multitier_runtime/operations/supervise.py",
+  "upstream_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+  "derived": "derived_supervisor.py",
+  "derived_sha256": "fae687b7fdfc672b03c957af0fba128af4c5229e840d0d28a6987ef8e74e16bf",
+  "changes": [
+    {
+      "before": "plan['aggregate_budget']['dram']",
+      "after": "plan['aggregate_budget_by_node'][row['node']]['dram']",
+      "reason": "explicit per-node operational cap; original plan SHA and exact owner cleanup unchanged"
+    },
+    {
+      "reason": "Read host MemAvailable every existing 250ms shared-cgroup sample; abort when explicit ongoing node reserve falls below floor; no planned-allocation double count. Controller guards additional allocation."
+    },
+    {
+      "reason": "Reuse runtime_worker private-cgroup namespace mount fallback and reject unavailable required memory counters; exact child/process-group cleanup remains original."
+    },
+    {
+      "reason": "Enable verified Linux PR_SET_CHILD_SUBREAPER before exact owned child starts, then bounded waitpid of only this supervisor adopted children after original exactgroup cleanup; no new signals or unrelated ownership; success requires no pending children."
+    },
+    {
+      "reason": "Preserve original exact signal cleanup unchanged; after bounded subreaping record independent same-boot/namespace/registered-child final group closure and ECHILD. Reconcile only the original before-KILL exit race with exact pre-signal owner and terminal waitpid record of the registered direct child; no new signals, reject reuse or pending ownership."
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+【
+上一轮信息：
+
+1. 先看的开发规范仍然是：
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/next_step.txt
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/00_docx_storage_and_lookup_guide.md
+
+关键规范总结（根路径已从 /home/zhujianian/fluidckpt 迁到 fluidckpt_zjn，务必用新路径）：
+
+- 当前阶段代号：v0.1-init-project
+- 项目根目录：/home/zhujianian/zhujianian/fluidckpt_zjn
+- **核心库（会被 import 的产品代码）放：main_lib/fluidckpt** ← 本轮新确立，见原则 16
+- 测试脚本放：codex_coding/src
+- 测试结果放：codex_coding/results
+- 理解层文档（为什么做）放：docx，其下 articles / cites / context_index
+- 过程文档放：code_building/process_docs/v0.1-init-project
+- 每次进展同步到：code_building/progress_diff_summary.md
+- 关键文件同步到：code_building/key_files_index.md
+- 关键结论同步到：code_building/key_conclusion.md
+- 压缩前归档同时写入：code_building/history_chat/v0.1-init-project/<轮次>-<主题>.txt 与本文件
+- 代码注释用英文；归档说明用中文
+- 不要随意回滚用户已有改动
+- 如果感到盲目，就先搜代码，不要硬猜
+
+建设原则（本轮新增两条，务必记住）：
+
+- **原则 12**：禁止 inline script（python3 -c "..."）。所有实验必须写成独立 .py 文件放进 codex_coding/src。
+- **原则 15**：编号 vX.Y.Z.N，N 每轮必须 +1。新会话或上下文恢复**也算新一轮**，即使上一轮任务没完。
+- **原则 16（本轮新增）**：核心库进 main_lib/，一次性脚本进 codex_coding/src/。
+  判据一句话：**会被 import 的进 main_lib/，跑一次看结果的进 codex_coding/src/**。
+- **原则 17（本轮新增）**：跑 GPU 实验前必须 `ulimit -c 0`。理由见第 3 节 core dump 事故。
+
+现场偏差（容易踩）：
+
+- 文档里有时写成 code-building / codex-coding，实际目录是 code_building / codex_coding。
+- 本仓库继承自 dllm_wh 的规范模板，但 **main_lib/ 与 codex_coding/results/ 是纳入项而非排除项**，
+  与模板相反（见 BACKUP_SCOPE.md）。不要照模板把它们 ignore 掉。
+
+用户长期约束（跨轮有效）：
+
+- **"安全问题先不管"**（用户原话，数据仓库管理员身份）
+- 机器：node27 / node28 / node29 可用，**node30 排除**（GPU 已被占用）
+- **工作目录保持在 /home/zhujianian/zhujianian/fluidckpt_zjn，不要挪到 /data/node28 那种大盘**
+- 最终判据（用户原话）：**全面胜过 SGLang 自身的保活**
+
+2. 【整体任务信息 —— FLUIDCKPT 在做什么】
+
+**使命**：让一个已经加载并后处理完毕的模型实例，在多节点集群中作为**可流动、可保活的对象**
+存在，使任意节点都能在远低于冷启动的时间内把它拉起来。流动面覆盖 SSD / DRAM / HBM。
+
+**问题定义**：GLM-5.3 从"进程不存在"到"可以服务"是分钟级冷启动，而现实需求
+（A/B 测试、多租户、故障转移、训练-推理交替）是秒级切换。一次切换付几分钟脚手架
+代价不可接受。
+
+**核心技术抽象**（详见 docx/cites/2026-09-27_fluidckpt_scope_and_positioning.md）：
+
+- 模型实例 = 一组可寻址的存储对象（每个 TP rank 的每个参数，用 HIP IPC handle 标识，零拷贝）
+  + 一份派生属性清单（post-processing 产生、无法从结构推断的量，如 MLA 的 w_kc/w_vc）。
+- 流动 = 带容量约束的 max-flow。每条边是一段实测带宽，每个 rank 是 sink，keeper 是中间节点。
+
+**POC 的三条边界（为什么收敛到这里）**：
+
+1. 不走 NVMe 刷盘。本地 NVMe 2.5 GB/s、NFS 0.27 GB/s；703.7 GiB 走 NFS 是 47 分钟级。
+   所以保活必须在 DRAM/HBM 层做，SSD 只作无其它副本时的兜底。
+2. 不修改推理引擎源码。SGLang 在本环境是厂商深度定制版，改源码会让结果无法与官方对比，
+   且随版本升级失效。因此用 **import 期 hook**（利用 SGLang spawn 的 re-import 语义）。
+3. 只用集合通信。本 fabric 跨节点 send/recv 不可用，流动规划必须建模成集合通信问题——
+   这正好与 max-flow 算法契合。
+
+**硬件与模型**：
+
+- node27/28/29 各 8 卡（gfx936，DTK），跨节点 fabric 只支持 collectives。
+- 目标模型 GLM-5.3：GlmMoeDsaForCausalLM，**703.7 GiB**，78 层 + MTP=1，256 experts top-8，
+  hidden 6144，fp8 e4m3 block[128,128]，tp_size=16，141 个 safetensors，118,629 个张量。
+  路径：/data/node28/shared/zhujianian/GLM-5.3
+- 备用模型 Qwen3.6-35B-A3B（已迁到 /data/node28/shared/zhujianian/Qwen3.6-35B-A3B，
+  67G / 43 文件，26 个 safetensors，1045 条 weight_map）。**这个模型在 gfx936 上能跑起来。**
+
+3. 当前技术阻塞（外部原因，不是我们的 bug —— 这一点必须记住）
+
+**GLM-5.3 在本硬件上无法启动**，根因在 SGLang 自家 NSA path，与 FluidCKPT 无关。
+已用**完全无 hook 的纯 `sglang.launch_server`**（FLUIDCKPT_MODE=""，进程 cmdline 与日志双重确认）
+复现出**完全相同的**崩溃：20:03:43 启动 → 20:34:28 KERNEL VMFault（17 次），栈完全一致。
+
+完整根因链：
+
+1. `is_hcu()` 为 True（gfx936 在支持列表 ["gfx936","gfx938","gfx928"] 内）
+2. `is_hcu_native_fp8_supported()` 要求字面量 `gfx938` → **恒为 False**
+3. → `use_fp8_index_k_cache` 恒 False → `index_k_buffer_dtype = bfloat16`
+4. → `_use_hcu_bf16_index_cache()` True → `_get_q_k_bf16`
+5. → `lightop_attention.fuse_layernorm_rotary_embedding`（nsa_indexer.py:438）崩溃
+
+**翻任何 flag 都绕不过去**：NSA 的**两条** HCU 分支都调用同一个 `_get_q_k_bf16`
+（nsa_indexer.py:1573-1576），因此 `--kv-cache-dtype` 无法路由到别的路径。
+vendor builtin 也不可内省（`inspect.signature` 报 no signature found for builtin），无 env 开关。
+
+**平台本身是健康的**：同一硬件上 Qwen3.6 用 triton attention backend 成功 fired up
+（2026-09-22 日志）；GLM-5.2 / GLM-5.3 **从未成功启动过**。
+
+4. 上一轮（v0.1.23.1）完成了什么
+
+主题：**项目仓库规范化迁移 + 规范体系重建 + core dump 磁盘事故处置**。
+三件事按发生顺序：① 盘满事故取证与清理；② keep2 悬案改判；③ 工程规范化迁移。
+
+**完整过程文档（失忆后必读，1,570 行 / 64 KB，14 个实验 + 13 个附录 A–M）：**
+`code_building/process_docs/v0.1-init-project/v0.1.23.1-project_restructure_and_spec_migration.md`
+—— 看完这一篇等于看完本轮全部有效信息。它包含：
+每实验的设计动机/实现方式/命令/数据/结论、6 条纠错、
+附录 A 时间线（16 个阶段）、附录 B 假设→实验→结论映射（H1–H14）、
+附录 C 原始日志片段、附录 E 下一步实验设计（E1–E6 矩阵）、
+附录 G 不要重复清单、附录 H 状态总表、附录 I 核心库文件职责速查、
+附录 K 文件操作清单（逐条可复核）。
+
+实验清单（14 个）：
+
+- 实验 1-4：磁盘取证 → core dump 三重归属验证 → 机制定量 → 清理恢复
+- 实验 5：Qwen3.6-35B-A3B 迁移完整性四层验证
+- 实验 6-7：仓库规范化迁移（核心库 / 脚本·结果·文档）
+- 实验 8-9：抢救 6 个散落脚本 / ROOT 自定位改造
+- 实验 10-11：pytest 回归修复 / 全量 6 项验证
+- 实验 12-13：规范文档层重写 / 三处自相矛盾修补
+- 实验 14：过程文档自身质量校准（用户两次退回）
+
+核心成果明细：
+
+(a) **磁盘事故处置**：/home 被 32 个 core dump 写满（共 203 GB，单文件 17.6–22 GB），
+    可用只剩 1.3 G。三重验证后清空，/home 恢复至 204 G。
+
+(b) **core dump 三重验证**（缺一不可，这是删除 203 GB 的唯一授权依据）：
+    - 崩溃栈已完整落盘（日志含全部 stack、FOR DEVICE 0x... 地址、[BLASPLT] 提示）
+    - 32 个 core 与 32 个日志 PID **双向零差集**（comm -23 与 comm -13 都为空）→ 无孤儿 core
+    - 三批时间戳（17:47 / 17:49 / 20:34）一一对应三次已知崩溃，无未知来源
+    另外：core 文件是 root:root 0600，**我们根本读不了**（file core.* → no read permission），
+    读它需要 gdb + 对应 DTK 版本。所以 core dump 对本案零增量信息，留着的唯一理由是防孤儿，
+    已排除。归档清单在 codex_coding/results/logs/core_inventory/core_list.txt。
+
+(c) **core dump 机制定量**：core_pattern=core（相对路径，落进程 CWD）、core_uses_pid=1、
+    ulimit -c = unlimited。8 个 rank 同时崩溃 → 8 × ~22 GB ≈ 176 GB/次崩溃。
+    203 GB = 2 次完整 + 1 次被截断（20:34 那批 5.4–8.8 GB，是 ENOSPC 截断的现场证据）。
+    防复发不是"勤清理"（60 秒产生 176 GB，人来不及），而是源头关掉：ulimit -c 0。
+
+(d) **附带定性 keep2 悬案为 ENOSPC**：keep2 跑在 19:25–19:35，此时 /home 已被 17:47 两批
+    core 写满；keep2_resume.log 为 **0 字节**（文件创建成功、写入失败），与
+    「worker 起不来被回收」（resource_tracker: 8 leaked semaphore objects）形态一致。
+    **此前怀疑的「keeper 重启干扰」在机制上不成立**——ctl.stop() 只 pkill
+    fluidckpt.serving.keeper，不碰 SGLang 进程。
+    **注意**：这条归因状态是 `Supported` 而非 `Strongly supported`，
+    因为缺 keep2 运行当时的 df 快照，且这条证据已不可补。
+
+(e) **Qwen3.6-35B-A3B 迁移完整性确认**：源 0 文件、目标 43 文件 / 67G、26 个 safetensors、
+    index 的 weight_map 1045 条、metadata total_size 71.90 GB（= 67 GiB，量纲自洽）、
+    权限 755/664 已正确。
+
+(f) **仓库规范化迁移（本轮主体）**：确立四层归属，核心库**零代码改动**搬入 main_lib/
+    （唯一例外是剥离 __pycache__，因为它记录旧路径）。21 文件 / 2,768 行 / 6 子包。
+    23 个脚本分 5 类、32 个结果分 7 类、4 篇 findings 迁入 docx/articles/。
+    关键判断：**fluidckpt 是"库"不是"脚本"**，keeper.py / sglang_hook.py 是要长期演进的
+    产品部件——若误判成脚本放进 codex_coding/src/，后续所有 import fluidckpt 都会失败。
+
+(g) **抢救 6 个散落脚本**：原本躺在 logs/ 里（形态符合原则 12、位置错），
+    处置原则是**修正位置，不修正形态**。迁入 src/ 并改路径：
+    logs/flowtest.py → src/transport/flowplan_smoke.py
+    logs/flowtest2.py → src/transport/flowplan_mesh_solve.py
+    logs/mesh_up.py → src/serving/mesh_up_timing.py
+    logs/probe_kvb{,2,3}.py → src/serving/probe_kv_b_{loader,modelconfig,weights}.py
+
+(h) **ROOT 硬编码改为自定位**：glm_e2e.py / glm_keepalive.py 的 ROOT 从写死
+    "/home/zhujianian/fluidckpt" 改为自 __file__ 上溯 4 层推导，sys.path 指向 <ROOT>/main_lib。
+    **硬编码绝对路径是搬迁的唯一致命脆弱点**，此后新增驱动脚本一律自定位，不写绝对路径。
+
+(i) **修复迁移引入的真实回归**：库搬到 main_lib 后 pytest 报
+    ModuleNotFoundError: No module named 'fluidckpt'。候选方案对比过三种
+    （PYTHONPATH / sitecustomize / conftest），选定新增 codex_coding/src/conftest.py
+    （pytest 收集阶段自动加载）。**调用者的记忆不是接口的一部分。**
+    结果 5 passed in 0.33s。这是唯一一个被自动化验证捕获的迁移回归。
+
+(j) **规范文档层全部重写**：context_index 五份、next_step.txt（新增原则 16、17）、
+    00_docx_storage_and_lookup_guide.md 第 8 节、code_building 三本账 + 过程文档 + 本文件。
+    继承自 dllm_wh 的原文备份在 .spec_backup/*.dllm_wh.bak（8 份），仅作来源追溯。
+
+(k) **新建 docx/cites/ 首篇**：2026-09-27_fluidckpt_scope_and_positioning.md，
+    定义问题、三条边界、核心抽象、判据表（头条就是「全面胜过 SGLang 自身的保活」）。
+
+(l) **修补三处自相矛盾**：
+    - BACKUP_SCOPE.md 原把 main_lib/ 列为排除项（继承自 dllm_wh 模板，那里它是独立
+      嵌套仓库）→ 改为纳入项，并写明与模板的两处刻意差异及理由
+    - .gitignore 原忽略 /codex_coding/results/ → 删除该行（否则 I1–I13 的原始证据脱离
+      版本控制），加入 core.* / core.[0-9]* / *.t0 / .spec_backup/
+    - glm_serve.sh 补上 `ulimit -c 0`。**这条最值得注意：规范写了不等于执行了**——
+      原则 17 若只存在于文档里，下次跑实验还是会生成 core dump。嵌进启动脚本才闭环。
+
+(m) **过程文档自身质量校准**：用户两次指出深度不足。首版 173 行（参考 v0.1.15.16 是 278 行）
+    → 第二版 431 行（用户给出 v0.1.19.10 是 1,211 行）→ 本版 1,570 行 / 64 KB。
+    缺的 4 类"过程性"信息已补：时间线、假设映射、原始日志片段、下一步实验设计。
+    它们的共同特征：**不增加新事实，但让已有事实可被重建**。
+    结论：**归档深度是被用户验证的对象，不是自我声明的东西。**
+
+5. 验证结果（6 项全部匹配预期，迁移零回归）
+
+| 验证项 | 预期（改前写定） | 实测 |
+| --- | --- | --- |
+| compileall main_lib codex_coding/src | 退出码 0 | 0 |
+| 6 子包 import | 全成功 | 全成功 |
+| pytest tests/test_planner.py | 5 passed | 5 passed (0.33s) |
+| 旧路径残留（代码侧） | 0 | 0 |
+| 核心库行数 | 2,768 | 2,768 |
+| fluidckpt 子包数 | 6 | 6 |
+
+残留的 "/home/zhujianian/fluidckpt" 字样只在过程文档的叙述性文字里（描述"迁移前在哪"、
+"复现命令"），是应当保留的历史记录，不是活路径。判定时要区分
+"代码中引用的路径"与"文档中提及的路径"。
+
+6. 关键机制洞察（canonical 账本：docx/context_index/04_insight_ledger.md，I1–I13）
+
+**方向选择前必须先读这张表**，避免重走已排除的路。
+
+- **I1**：per-tensor 逐张量集合通信被固定开销主导。每次广播 ~99.3 µs 固定成本，
+  与字节数无关；256 次广播 = 25.43 ms 仅传 1.32 GB/s。**必须 bucketing**：
+  同样字节打成 bucket 后 0.91 ms / 36.73 GB/s，**27.8× 提升**。
+  ← **这是对 SGLang 逐张量远程加载的核心优势所在。**
+  来源：results/bw/bucket_27_29_r8.json、src/bench/bucket_bw.py
+- **I2**：跨节点 fabric 只支持 collectives。send/recv 报
+  ncclSocketInit: connecting to address with family 0；collectives 正常。
+  → 传输层设计只能用 broadcast/allgather/reduce-scatter。来源：results/diag/
+- **I3**：跨节点聚合带宽远高于单流。单流 25.7 GB/s；8 rank/节点 N 流聚合 205.8 GB/s
+  （64 MiB 时 230）。→ 规划器按聚合带宽估算，尽量多流并行。
+  来源：results/bw/multi_rank_27_29_r8.json
+- **I4**：单节点 tmpfs 装不下一个节点的 TP shard。/dev/shm 252 GiB < 8 rank × 44 GB = 352 GB。
+  → per-node tmpfs 持久化不可行，保活必须落在 keeper 的 pinned DRAM。
+- **I5**：gfx936 上 SGLang 的 fp8 index cache 恒不可用（见第 3 节根因链）。
+  ← **GLM-5.3 无法启动的根因**，且 NSA 两条 HCU 分支共用 _get_q_k_bf16，翻 flag 无解。
+- **I6**：权重字节高度集中在大张量上。118,629 个张量中，58,776 个（8–16 MiB）占 **97.9%** 字节；
+  中位数仅 12 KiB。→ ~60,000 个小张量字节占比极小但个数极多，**正是 I1 的受害面**，
+  bucketing 应优先合并它们。来源：results/model/glm53_tensor_sizes.json
+- **I7**：HIP IPC 可零拷贝跨进程交接权重。t.untyped_storage()._share_cuda_() 返回 8-tuple，
+  consumer 用 _new_shared_cuda(*h) + set_() 重建。→ keeper 与推理进程间不需经磁盘或 host 拷贝；
+  consumer 峰值 HBM 仅 0.01 GiB。来源：src/transport/ipc_probe.py
+- **I8**：spawn 启动模式让 import 期 hook 覆盖所有 worker。SGLang 用
+  mp.set_start_method("spawn", force=True)，launcher 的 __main__ 在每个子进程重新 import。
+  → **可以在不修改 SGLang 源码的前提下给全部 16 个 worker 装 hook。**
+- **I9**：冷启动时间绝大部分与权重无关。122 s 端到端中权重读取仅 14.24 s（12%）；
+  import 链 29.17 s（sgl_kernel 单模块 self time 14.47 s）；Load weight begin 前 41.2 s。
+  → **修正过**：早期"保活只省 12%"的框架已被用户纠正。保活的正确定位是与"进程常驻"叠加，
+  省掉整条 disk → decode → shard → quantize 路径。
+- **I10**：NFS 是数量级更慢的通道。NFS 0.27 GB/s vs 本地 NVMe 2.5 GB/s vs H2D 46 GB/s
+  vs 跨节点聚合 205.8 GB/s。→ 多节点权重分发绝不能走 NFS（GLM-5.3 量级是 47 分钟级）。
+- **I11**：node27 的 H2D/D2H 对称且远快于本地盘。H2D 46 / D2H 47 GB/s，本地 NVMe 仅 2.5（约 18×）。
+  → DRAM ↔ HBM 之间流动远比落盘便宜；SSD 层只作"无其它副本时"的兜底。
+- **I12**：单节点资源模型在特定区间内精确，越界即失效。冻结的 V9 模型在 held-out 上
+  median 4.4% / max 8.9%；但 V10 的"共享 PCIe switch 容量"假设被否决（拟合给它零容量，
+  且 h2d + NVMe 合计 52 GB/s）。→ 规划器必须停留在单节点 root port、无 NUMA fan-out 的区间内；
+  **同一 root port 跨两个 NUMA 节点会塌陷**（h2d 掉到 29.5）。
+- **I13**：core dump 可单次耗尽整个 /home。core_pattern=core、core_uses_pid=1，
+  内核对每个崩溃 GPU 进程 dump 整个显存；8 卡 = 8 × 18–22 GB ≈ 180 GB。
+  → 跑 GPU 实验前必须 ulimit -c 0。**2026-09-27 实际发生过**（203 GB）。
+
+7. 当前活跃线程（详见 docx/context_index/02_active_threads.md）
+
+- **T1 三节点 keeper mesh 的保活与跨节点流动** —— active，但被 I5 阻塞（GLM-5.3 起不来）
+- **T2 与 SGLang 自身保活的对比** —— active，同上被阻塞
+- **T3 keep2 保活实验** —— warm / 已定性为 ENOSPC（Supported 级）
+- **T4 NSA path 的 vendor 依赖** —— warm，等 vendor 修 gfx936 的 fp8 支持
+
+8. Do Not Repeat 清单（7 条，完整版见过程文档附录 G）
+
+不要重复做的事：
+
+1. 不要再怀疑是 FluidCKPT 导致 GLM-5.3 崩溃 —— 已用纯 SGLang 复现，与此无关
+2. 不要再尝试翻 flag 绕过 NSA path —— 两条 HCU 分支共用同一函数，无解
+3. 不要再把 NFS 当作权重分发通道 —— 比 NVMe 慢 9 倍、比跨节点聚合慢 760 倍
+4. 不要再在 node28 上用 du -xsh / 判断盘满 —— overlay2 merged 挂载点对 -x 不可见，
+   会严重低估（实测 80G vs df 的 414G）；要查就直接查 docker system df -v
+5. 不要再排查 keep2 的"keeper 重启干扰" —— 机制上不成立，已定性为 ENOSPC
+6. 不要再重搭 conda 环境 / 重装依赖 —— 环境是通的（sglang 环境已验证，pytest 可跑）
+7. 不要再清理 node28 的 root 盘 —— 那是别人的镜像/容器（7 镜像 156 GB、17 容器 225 GB），
+   不阻塞我们，未经许可不动
+
+9. 下一步最合理的方向（详见过程文档附录 E 的实验矩阵 E1–E6）
+
+**推荐方案 A：不等 vendor，用 Qwen3.6 打通保活全链路。**
+
+理由：保活链路的价值**不依赖具体模型**。Qwen3.6 已证明能在本硬件上 fired up，
+用它做三节点 keeper mesh 的 export → 跨节点流动 → import → fired up 端到端计时，
+能立刻拿到有意义的端到端数字。GLM-5.3 可用后直接换模型即可。
+
+预备好的实验矩阵：
+
+| # | 实验 | 目的 | 预期产物 |
+| --- | --- | --- | --- |
+| E1 | Qwen3.6 三节点 keeper mesh 建立 | 验证 mesh 能拉起且稳定 | mesh up 计时日志 |
+| E2 | capture 侧 manifest 完整性 | 验证 post-processing 派生量被完整记录 | manifest 与模型结构对账 |
+| E3 | export → 跨节点 bucket 传输 → import | 验证 max-flow 计划可执行 | 分段耗时 + 与规划器预测的偏差 |
+| E4 | import 后 fired up 端到端计时 | **主判据**：restore 到可用状态的时间 | 与冷启动基线对比 |
+| E5 | 同场景 SGLang 自身保活 | apples-to-apples 对比 | 判据表全部四项 |
+| E6 | I7 在真实 mesh 下的扩展性 | 零拷贝交接在多节点是否仍成立 | HBM 峰值占用 |
+
+每一步必须坚持：改前写预期具体数值 / 跑 GPU 前 ulimit -c 0 / 脚本落成独立 .py /
+结果落 results/<主题>/ / 新结论更新 04_insight_ledger.md / 不要在 node28 root 盘写大文件。
+
+**但必须先和用户确认下一轮重点做什么、是否允许开始执行，得到同意后再动手。**
+
+10. 失忆后建议的恢复顺序（按这个顺序读，读完再讨论下一步）
+
+**第一步：规范与状态（必读，先建立坐标系）**
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/next_step.txt
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/context_index/01_stage_summary.md
+  ← **尤其要看里面的 Do Not Repeat 清单**
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/progress_diff_summary.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/key_conclusion.md
+
+**第二步：本轮的完整过程（1,570 行 / 64 KB，看完这篇等于看完本轮全部有效信息）**
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/process_docs/v0.1-init-project/v0.1.23.1-project_restructure_and_spec_migration.md
+  ← 14 个实验 / 6 条纠错 / 13 个附录。若时间紧，优先读：
+    附录 A（时间线，16 阶段）、附录 B（假设映射 H1–H14）、
+    附录 G（不要重复清单）、附录 E（下一步设计）
+
+**第三步：机制洞察账本（方向选择前必查）**
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/context_index/04_insight_ledger.md
+  ← canonical 活账本 I1–I13 + Status Legend + Source Index
+
+**第四步：立项依据与活跃线程**
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/cites/2026-09-27_fluidckpt_scope_and_positioning.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/context_index/02_active_threads.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/context_index/03_current_required_process_docs.md
+
+**第五步：技术细节（按需深挖）**
+
+- docx/articles/2026-09-27_glm53_startup_vmfault_forensics.md ← 崩溃定性的完整取证
+- docx/articles/2026-09-27_multinode_transport_findings.md ← 传输能力数字（规划器输入）
+- docx/articles/2026-09-27_node27_resource_profile.md ← 资源画像
+- docx/articles/2026-09-27_glm53_model_freeze.md ← 资源模型冻结
+- codex_coding/results/logs/base2_n0.log ← 纯 SGLang 复现崩溃的原始证据
+
+**第六步：关键代码（理解了上面再看代码）**
+
+核心库（main_lib/fluidckpt/，会被 import 的产品代码）：
+
+- main_lib/fluidckpt/serving/keeper.py（454 行）← keeper 主力，保活链路的服务端
+- main_lib/fluidckpt/serving/sglang_hook.py（230 行）← import 期 hook，靠 I8 的 spawn 语义
+- main_lib/fluidckpt/serving/ctl.py（85 行）← keeper 控制客户端
+- main_lib/fluidckpt/transport/flowplan.py（147 行）← max-flow 规划器
+- main_lib/fluidckpt/transport/bucket.py（130 行）← 张量打包，对 I1 的核心应对
+- main_lib/fluidckpt/transport/stream.py（115 行）← 多流并发，对应 I3
+- main_lib/fluidckpt/planner/plans.py（274 行）← 计划生成
+- main_lib/fluidckpt/executor/run_plans.py（185 行）← 计划执行
+- main_lib/fluidckpt/model/fit.py（214 行）← 资源模型拟合（I12）
+- main_lib/fluidckpt/profiler/workers.py（376 行）← 节点探针，最大单文件
+
+驱动脚本（codex_coding/src/，跑一次看结果）：
+
+- codex_coding/src/serving/glm_e2e.py（217 行）← 端到端驱动
+- codex_coding/src/serving/glm_keepalive.py（164 行）← 保活实验驱动
+- codex_coding/src/bench/bucket_bw.py ← I1 的测量脚本（外推段有已知 bug，未修）
+- codex_coding/src/bench/multi_rank_bw.py ← I3 的测量脚本
+- codex_coding/src/transport/ipc_probe.py ← I7 的验证脚本
+- codex_coding/src/transport/glm_histogram.py ← I6 的测量脚本
+- codex_coding/src/conftest.py ← pytest 接线（本轮新增）
+
+11. 本轮遗留（尚未处理，别当成已完成）
+
+| # | 项 | 影响 | 优先级 |
+| --- | --- | --- | --- |
+| 1 | bucket_bw.py 外推段有已知 bug | 规划器可能用到错的外推值 | 中 |
+| 2 | hostrd 测量是 180 GB/s **占位值** | 资源模型少一个真实参数 | 中 |
+| 3 | node28 / node29 的 gpu_numa 未测 | 三节点规划缺两个节点的 NUMA 拓扑 | 中 |
+| 4 | flowplan 未统一进 keeper | 架构上仍是两块 | 低 |
+| 5 | 多副本 fanout 未支持 | 一份副本只能供一个 sink | 低 |
+| 6 | keep2 缺当时 df 快照 | 归因停在 Supported 而非 Strongly | 低（不可补） |
+| 7 | 40+ 份原始日志未纳入仓库 | 留在 /home/zhujianian/fluidckpt/logs/ | 低 |
+
+12. 最重要的恢复记忆句
+
+**本轮做完的是"工程规范化 + 磁盘事故处置"，技术线本身没有推进。** 具体是：
+把散落在 /home/zhujianian/fluidckpt 的全部成果按四层规范（main_lib / codex_coding /
+docx / code_building）迁进 fluidckpt_zjn，核心库零改动（21 文件 2,768 行）、
+6 项验证全过、pytest 5 passed；同时清掉了 32 个 core dump（203 GB）把 /home 从 1.3 G
+恢复到 204 G，顺带把 keep2 悬案定性为 ENOSPC 而非 keeper 干扰。
+
+**下一轮不要再做迁移、不要再整理目录、不要再清磁盘、不要再重搭环境。** 技术侧唯一真正的
+阻塞是 GLM-5.3 在 gfx936 上起不来（I5，SGLang 自家 NSA path 缺陷，等 vendor 或换卡），
+所以最合理的方向是**用平台能跑的 Qwen3.6 先打通三节点 keeper mesh 的保活全链路拿端到端数字**
+（附录 E 的 E1–E6 矩阵），因为保活链路的价值不依赖具体模型。
+
+**但在动手之前，先和用户确认下一轮的重点方向并取得同意。**
+
+补充一条关于"归档"本身的记忆：本轮我因为过程文档写得太浅被用户**退回两次**
+（173 行 → 431 行 → 1,570 行）。教训是 **归档深度是被验证的对象，不是自我声明的东西**——
+判据是"如果一份文档能让一个只知道任务名称、不知道过程的人重建出过程，它才是够的"。
+以后写过程文档，参考同目录下信息量最大的那篇（当前是 v0.1.19.10，1,211 行），
+逐项比对结构元素，缺什么补什么。
+】

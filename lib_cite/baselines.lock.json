@@ -1,0 +1,203 @@
+{
+  "schema_version": 1,
+  "project_stage": "v0.1.23.3/task2",
+  "recorded_at_utc": "2026-10-06T12:01:34Z",
+  "status": "checked_out_only",
+  "status_scope": "original frozen checkouts and acquisition-time snapshot; runtime adaptations are separate below",
+  "runtime_validation_2026_10_07": {
+    "development": "v0.1.23.3/task2",
+    "original_heads_unchanged_and_clean": true,
+    "sglang_vendor_native": {
+      "status": "full_model_gate_passed",
+      "package": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+      "packaged_revision": "cbf025",
+      "full_installed_commit": null,
+      "frozen_upstream_original": false,
+      "result": "codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/summary.json"
+    },
+    "blitz_scale_single_target_hip": {
+      "status": "full_model_gate_passed",
+      "worktree": "lib_cite/blitz-scale-hip",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "identity": "upstream source-selection and single-target TP distribution policy; common HIP/RCCL executor",
+      "scope": "no original CUDA/RDMA backend, multi-target pipeline or live-serving reproduction",
+      "provenance": "lib_cite/patches/blitz-scale/README.md",
+      "result": "codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/summary.json"
+    },
+    "serverless_store_hip": {
+      "status": "full_model_gate_passed",
+      "worktree": "lib_cite/ServerlessLLM-hip",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "identity": "actual upstream Store C++ HIP data plane targeting external engine IPC storages",
+      "scope": "processed TP snapshot; no scheduler/frontend whole-system reproduction",
+      "provenance": "lib_cite/patches/serverlessllm/README.md",
+      "result": "codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/summary.json"
+    },
+    "Janus": {
+      "status": "original_system_not_reproduced",
+      "measured_scope": "host and D2D mechanism controls in the common executor"
+    }
+  },
+  "version_policy": "研究起点；正式论文baseline版本及适配期间上游变化待准入核查，禁止静默更新",
+  "acquisition_policy": {
+    "depth": 1,
+    "detached_head": true,
+    "recursive_submodules": false,
+    "lfs_smudge": false,
+    "model_weights_downloaded": false,
+    "dependencies_installed": false,
+    "built": false,
+    "models_loaded": false,
+    "gpu_experiments_run": false,
+    "system_reproduction_completed": false,
+    "independent_object_databases": true,
+    "temporary_directory_dependency": false
+  },
+  "repositories": [
+    {
+      "name": "SGLang",
+      "path": "lib_cite/sglang",
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "selection": "previously_reviewed_reference_commit",
+      "paper_artifact_version_verified": false,
+      "purpose": "原生checkpoint加载与Weight Cache / IPC源码参照；优先映射现有组件",
+      "license_files": ["lib_cite/sglang/LICENSE"],
+      "upstream_head_observation": {
+        "date_utc": "2026-10-06",
+        "command": "git ls-remote --symref https://github.com/sgl-project/sglang.git HEAD",
+        "symbolic_ref": "refs/heads/main",
+        "commit": "1291f3175d3b7614821884e9653985fcd3c3dae8",
+        "raw_output": "ref: refs/heads/main\tHEAD\n1291f3175d3b7614821884e9653985fcd3c3dae8\tHEAD\n",
+        "matches_frozen_commit": false
+      },
+      "acquisition": {
+        "method": "official_remote_exact_sha_shallow_fetch",
+        "commands": [
+          "git init lib_cite/sglang",
+          "git -C lib_cite/sglang remote add origin https://github.com/sgl-project/sglang.git",
+          "git -C lib_cite/sglang -c submodule.recurse=false fetch --depth=1 origin 70f0b7351e74b372cc928db533824d3993d65922",
+          "GIT_LFS_SKIP_SMUDGE=1 git -C lib_cite/sglang -c submodule.recurse=false checkout --detach FETCH_HEAD"
+        ],
+        "submodule_state": "no_gitlink_entries"
+      },
+      "key_paths": ["lib_cite/sglang/python/sglang/srt/weight_cache", "lib_cite/sglang/python/sglang/srt/model_executor"],
+      "validation": {"head_matches_lock": true, "origin_matches_source": true, "worktree_clean": true, "shallow": true, "alternates_present": false, "key_paths_exist": true, "license_files_exist": true, "disk_bytes": 199565312},
+      "status": "checked_out_only",
+      "adaptation_status": "unmodified_upstream",
+      "reproduction_status": "not_started"
+    },
+    {
+      "name": "Janus",
+      "path": "lib_cite/Janus",
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "selection": "previously_reviewed_reference_commit",
+      "paper_artifact_version_verified": false,
+      "purpose": "warm / D2D fork、模型生命周期与xTensor源码参照；优先复用既有目录、lease及执行器",
+      "license_files": ["lib_cite/Janus/LICENSE"],
+      "upstream_head_observation": {
+        "date_utc": "2026-10-06",
+        "command": "git ls-remote --symref https://github.com/Janus2026/Janus.git HEAD",
+        "symbolic_ref": "refs/heads/main",
+        "commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+        "raw_output": "ref: refs/heads/main\tHEAD\nec1beca2dbef5628b38e266fdc9afa0dba451678\tHEAD\n",
+        "matches_frozen_commit": true
+      },
+      "acquisition": {
+        "method": "local_review_repository_file_transport_shallow_copy_then_official_origin",
+        "initial_object_source": "/tmp/janus_code_review_20261006",
+        "commands": [
+          "GIT_LFS_SKIP_SMUDGE=1 git -c submodule.recurse=false clone --no-checkout --depth=1 --no-local --no-recurse-submodules file:///tmp/janus_code_review_20261006 lib_cite/Janus",
+          "git -C lib_cite/Janus remote set-url origin https://github.com/Janus2026/Janus.git",
+          "GIT_LFS_SKIP_SMUDGE=1 git -C lib_cite/Janus -c submodule.recurse=false checkout --detach ec1beca2dbef5628b38e266fdc9afa0dba451678"
+        ],
+        "independent_objects": true,
+        "initial_object_source_needed_after_acquisition": false,
+        "restore_source": "https://github.com/Janus2026/Janus.git",
+        "submodule_state": "no_gitlink_entries; tracked_third_party_sources_present"
+      },
+      "key_paths": ["lib_cite/Janus/janus_engine", "lib_cite/Janus/janus_service", "lib_cite/Janus/third_party"],
+      "validation": {"head_matches_lock": true, "origin_matches_source": true, "worktree_clean": true, "shallow": true, "alternates_present": false, "key_paths_exist": true, "license_files_exist": true, "disk_bytes": 443527168},
+      "status": "checked_out_only",
+      "adaptation_status": "unmodified_upstream",
+      "reproduction_status": "not_started"
+    },
+    {
+      "name": "BlitzScale",
+      "path": "lib_cite/blitz-scale",
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "selection": "official_head_at_acquisition",
+      "paper_artifact_version_verified": false,
+      "purpose": "参数池、来源组织和拓扑分发策略核查；共同执行器中的策略适配需单独标注",
+      "license_files": ["lib_cite/blitz-scale/LICENSES/Apache-2.0.txt", "lib_cite/blitz-scale/NOTICE"],
+      "upstream_head_observation": {
+        "date_utc": "2026-10-06",
+        "command": "git ls-remote --symref https://github.com/blitz-serving/blitz-scale.git HEAD",
+        "symbolic_ref": "refs/heads/main",
+        "commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+        "raw_output": "ref: refs/heads/main\tHEAD\n594e91127714349c183d935ac68d7b0eb63fc1ed\tHEAD\n",
+        "matches_frozen_commit": true
+      },
+      "acquisition": {
+        "method": "official_remote_exact_sha_shallow_fetch",
+        "commands": [
+          "git init lib_cite/blitz-scale",
+          "git -C lib_cite/blitz-scale remote add origin https://github.com/blitz-serving/blitz-scale.git",
+          "git -C lib_cite/blitz-scale -c submodule.recurse=false fetch --depth=1 origin 594e91127714349c183d935ac68d7b0eb63fc1ed",
+          "GIT_LFS_SKIP_SMUDGE=1 git -C lib_cite/blitz-scale -c submodule.recurse=false checkout --detach FETCH_HEAD"
+        ],
+        "submodule_state": "all_uninitialized",
+        "uninitialized_submodules": [
+          {"path": "request-sim", "commit": "71dd6301aa9078677fabe2d7fc0ebc8d3878e142"},
+          {"path": "src/kernel/flashinfer", "commit": "06e767ec0b0511cb91d532f01ed91b7021e8e349"},
+          {"path": "third_party/argparse", "commit": "d924b84eba1f0f0adf38b20b7b4829f6f65b6570"},
+          {"path": "third_party/fmt", "commit": "18e160eb4c2e9f5c750f5eb11ab13be44aa8de78"},
+          {"path": "third_party/googletest", "commit": "7917641ff965959afae189afb5f052524395525c"},
+          {"path": "third_party/json", "commit": "867127c2f49ba238c6f6345c4b3cff72fdd96aec"},
+          {"path": "third_party/pickle", "commit": "6a5db94ba09f30ca1653d9c77651746cc5d0e3ce"}
+        ]
+      },
+      "key_paths": ["lib_cite/blitz-scale/src", "lib_cite/blitz-scale/router_v2", "lib_cite/blitz-scale/config"],
+      "upstream_readme_notes": "冻结README标明构建/运行WIP，以及模型token正确性已知问题；本项目未验证这些问题",
+      "validation": {"head_matches_lock": true, "origin_matches_source": true, "worktree_clean": true, "shallow": true, "alternates_present": false, "key_paths_exist": true, "license_files_exist": true, "disk_bytes": 2551808},
+      "status": "checked_out_only",
+      "adaptation_status": "unmodified_upstream",
+      "reproduction_status": "not_started"
+    },
+    {
+      "name": "ServerlessLLM",
+      "path": "lib_cite/ServerlessLLM",
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "selection": "official_head_at_acquisition",
+      "paper_artifact_version_verified": false,
+      "purpose": "多层加载、缓存局部性、加载代价和选址机制源码参照",
+      "license_files": ["lib_cite/ServerlessLLM/LICENSE"],
+      "upstream_head_observation": {
+        "date_utc": "2026-10-06",
+        "command": "git ls-remote --symref https://github.com/ServerlessLLM/ServerlessLLM.git HEAD",
+        "symbolic_ref": "refs/heads/main",
+        "commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+        "raw_output": "ref: refs/heads/main\tHEAD\n9f50241baa5386e06a9321c51f19a9ef5f964c2b\tHEAD\n",
+        "matches_frozen_commit": true
+      },
+      "acquisition": {
+        "method": "official_remote_exact_sha_shallow_fetch",
+        "commands": [
+          "git init lib_cite/ServerlessLLM",
+          "git -C lib_cite/ServerlessLLM remote add origin https://github.com/ServerlessLLM/ServerlessLLM.git",
+          "git -C lib_cite/ServerlessLLM -c submodule.recurse=false fetch --depth=1 origin 9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+          "GIT_LFS_SKIP_SMUDGE=1 git -C lib_cite/ServerlessLLM -c submodule.recurse=false checkout --detach FETCH_HEAD"
+        ],
+        "submodule_state": "no_gitlink_entries"
+      },
+      "key_paths": ["lib_cite/ServerlessLLM/sllm", "lib_cite/ServerlessLLM/sllm_store", "lib_cite/ServerlessLLM/benchmarks"],
+      "validation": {"head_matches_lock": true, "origin_matches_source": true, "worktree_clean": true, "shallow": true, "alternates_present": false, "key_paths_exist": true, "license_files_exist": true, "disk_bytes": 9121792},
+      "status": "checked_out_only",
+      "adaptation_status": "unmodified_upstream",
+      "reproduction_status": "not_started"
+    }
+  ]
+}

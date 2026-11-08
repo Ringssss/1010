@@ -1,0 +1,467 @@
+【最新：已读本地Meld Figure4，完整GLM新恢复时间线fig4_lanes11通过】
+
+用户提供PDF=/home/zhujianian/fluidckpt/3830418.3843857.pdf。已完整读取Figure4图注/第2.2节并渲染PDF第5页（印刷1074）：X Time GPU cycles/K、Y Thread Block ID，绿色splitKV蓝色combine，原文39%GPU idle，ShareGPT batch16 H100。用户要的风格是逐任务时间条带/等待空洞。原PDF指纹、page5.png、figure4.png见results/motivation/meld_figure4_reference。无需再联网找PDF。
+
+fig4_lanes11（run_restore_lane_trace.py）已passed：16rank全部784,208,680,448B恢复SHA、native输出一致，首token12.119393s。logs8,052事件和完整flow/clock校准保存。对应图restore_lanes.png/pdf/svg由plot_restore_lane_trace.py生成并目视核对；X请求后秒，Y TP rank/目标DCU，颜色区分layout、localDRAM、remoteDRAM、SSD、data-ready后等待。
+测得transmission开始2.774s，9纯localDRAM ranks3.929–4.067s到齐，最后rank10.950s、weights_ready10.981s，跨度7.021s；post-data wait69.916rank·s，占16×transfer窗口53.45%。是rank等待量，不是GPU/SM闲置比例或潜在加速比。跨host通过前后最小RTTmonotonic校准，误差node27±8.02ms/node29±2.95ms/node28±3.69ms。trace_validation.json验证逐rank覆盖/nonnegative/nonoverlap/data-before-ready。
+6个remote ranks0/1/2/3/8/9来自node28，共294,078,255,168B；rank4含node28SSD1GiB（node27GPUproxy，不要把proxy当SSD位置）。只均摊rank不能绕过共享source网络瓶颈，后续同预算放置消融应实测改变瓶颈资源负载。
+报告docx/experiments/2026-10-04_meld_figure4_restore_timeline.md。此前两报告追加了原图已核对的更新，不抹掉历史403。主张三组件：独立权重对象→恢复瓶颈驱动放置/取数→维持覆盖的分块迁移/召回。
+最新active_session.json已指向results/motivation/fig4_lanes11/session.json；GLM A继续serving，Qwen Bparked，所有owners/workers/SSD保留。无本轮controller在运行，不要再等旧exec24683。
+PDF读取依赖隔离安装/tmp/fluidckpt_pdf_reader(pymupdf)、/tmp/fluidckpt_pdf_text(pypdf)，conda sglang python运行，未改全局环境。本会话继续v0.1.23.2。
+
+【当前最终：本轮动机图/真实生命周期/执行模型配对都完成，GLM在服务】
+
+优先入口：codex_coding/results/glm_roundtrip/full_distributed02/active_session.json，指向最新models/slots/processes的results/motivation/owner_verify10/session.json。不要拿旧root session.json的source_ids恢复模型，它早于迁移；root session仅仍记录nodes、transport和owner启动句柄。
+本轮没有仍在跑的controller。22worker、三CPU owners、GLM/Qwen warm engines和两个SSD服务为后续保活实验保留。A=GLM TP16正在服务，B=Qwen TP2已park。node28GPU0/1继续不碰。
+
+已完成：
+1) anti-defensive-writing安装并读用：/home/zhujianian/.codex/skills/anti-defensive-writing/SKILL.md。
+2) capacity03完整3节点GLM/Qwen生命周期passed，25/50/75%中途召回、最终CPU/SSD混合恢复全部正确，GLM和Qwen全量SHA见lifecycle_analysis.json。
+3) 主动机配对点：本地DRAM保留100/50.38/0%，localDRAM优先+SSD vsclusterDRAM分别2.113/1.736、32.617/3.007、67.349/3.214s。数据来自cpu_first03的已验证0/50点及cpu_first08的100点，组合provenance在motivation/verified_pressure/summary.json。03的100返迁曾OOM，原失败保留；新100在owner重建、NUMA修正后测得。local_pressure02完整先导原始曲线也保留。
+4) serial_cost09配对ABBA：完整DRAM+SSD皆可用，仅切换serial_target_execution。并行路径假设2.582/2.562s且选498,936,496B SSD；匹配串行目标1.780/1.782s且SSD0。均正确，平均减少30.76%。这是执行模型/取数决策实验，非MILP放置消融。
+5) owner_verify10恢复完整GLM，首token13.588s，784,208,680,448B全量SHA和输出passed，最后留A服务。
+
+核心修复与运行版本：
+- Cluster现在默认serial_target_execution=True；序列执行器此前被functional profile当并行来源，导致100%DRAM也读少量SSD。27项cluster/wire/block_migration测试passed。
+- prepare以前丢弃target.numa覆盖worker默认，造成返迁node27 NUMA0 OOM。已修worker.prepare及wire.target_header保留numa，新增实际分配回归。numa_prepare_fix/summary.json证明22个idle live worker已装入修正prepare，保留所有数据，无需重启。
+- node27旧CPU owner PID118已死，已从8个live worker的898个memfd映射/inode和租约原地重建240,612,455,808B；新PID175211，原socket/dev/shm/fluid-owner-full_distributed02-node27.sock。spec=full_distributed02/owner_recovery01/cpu_owner_node27.process.json。CPU实际容器2项重建/guard测试passed；其后完整GLM再SHA通过。新owner设置逐次1GiB free-page guard，新压力恢复用free-pages-only绑定，实际target numa已传到分配。其它owner仍原进程。
+- 新node27 owner的恢复目录依赖当前worker的fd，但服务已成功启动并持有自己的fd，勿盲目用旧恢复文件重启。CPU leases/数据当前都有效。
+- SSD服务29790(node28)保留GLM1GiB，29791(node27)保留Qwen65.5GiB。SSDstores并发stat计数源已加锁，live实例仍旧计数代码；committed_bytes曾因统计竞态少报，catalog覆盖/file/SHA独立正确。CPU/SSD恢复对象已含最新名字，见active_session。
+- 与原run源码hash有明确后续修正，不能把新版本套到旧数字。
+
+图：results/motivation/figures/motivation.png/pdf/svg，3栏为局部容量、执行模型、迁移中召回。plot_motivation_evidence.py可复现；配套sources.json有全部原始来源。Meld DOI10.1145/3830418.3843857仅核对作者/公开实现，ACM全文403，Figure4原图尚未取得；图为独立设计不能声称照搬了原图。
+报告：docx/experiments/2026-10-04_motivation_and_recall_results.md；主张/三组件计划：docx/plans/2026-10-04_recall_pressure_motivation.md。
+下一步：同预算简单/联合放置×简单/资源LP的2x2消融，持续前台负载、允许目标选择的强基线。当前固定计算设备组，未做GLM不同计算布局完整迁移。原生CPU backup第二轮错误仍未解决。完整HIP IPC teardown新导出策略只小probe通过，full baseline旧结果保留其退出回收缺陷，不算已完成官方daemon容量管理对照。
+保持v0.1.23.2，其他会话v0.1.23.3文档不覆盖。
+
+【紧急当前：node27 CPU owner被NUMA OOM杀，所有GPU workers务必保留】
+
+cpu_first03复测在100%返迁第38/130块后失败：owner socket EOF。容器zjn-fluid-glm-full_distributed02 node27 PID118已Z，memory.events oom_kill1/max0/oom0，cgroup.current344GB<472GB max，疑NUMA局部OOM。原live GPUworker43465等仍有完整memfd fd+mmap（worker0可重开/proc/43465/fd的memfd并读字节；目录dram27,917,287,424B）；不要重启任何GPUworker，否则node27所持唯一CPU副本会丢。其它node28/29 CPU owner未受此事波及。后续先从worker现存Mapping.fd/metadata恢复CPU owner目录，复用原socket，不重新分配或复制整模型。
+
+已完成：capacity03完整三节点GLM/Qwen轨迹passed（25/50/75% GLM11.84/11.52/13.22s，final11.68s，Qwen约2s；全SHA/输出正确）。local_pressure02完整先导M1 passed：localDRAM+SSD vsclusterDRAM，100%3.072/1.869s、50.38%31.439/2.606s、0%63.328/3.286s。cpu_first03强CPU优先复测0%67.349/3.214s，50.38%32.617/3.007s通过，100%返迁OOM，session保存实际已迁38块。serial_cost04因前置失败未运行。所有controller已结束；watcher正常终止；没有新的重启操作。
+
+发现且修源：旧functional profile缺serial_target_execution，LP把同一GPU上不同source当并行，100%也选498,936,496B SSD。Cluster.__init__现在默认该约束True；26项CPU回归passed。active worker代码未变；03进程在此修改前已import，实际使用旧profile但CPUfirst候选不重叠。已写serial_cost_counterexample.py打算做ABBA负控制/匹配执行模型实机，尚无数据。SSDstores统计committed_bytes的os.stat RMW竞态已源修加锁，旧live SSD服务仍旧统计；源文件和数据完整性不受统计计数影响。
+
+技能已装读用。原图Meld Figure4仍403未见；不要说照搬了图。所有图真实数据，plot_glm_migration_recalls/plot_recall_pressure已输出。更多上一条history。
+
+【最新：skill已安装；capacity03在恢复GLM；动机实验已排队】
+
+用户本轮授权安装Kiterlin/anti-defensive-writing，重写动机和三组件，参考Meld Figure4设计动机实验并直接开跑。
+已安装/home/zhujianian/.codex/skills/anti-defensive-writing/SKILL.md并完整读用，next turn自动可用；provenance results/motivation/skill_installation.json。论文DOI10.1145/3830418.3843857，作者主页及tilelang.dataflow已核对，但ACM PDF/HTML403，尚未看到Figure4；不得捏造原图坐标/样式。
+reclaim01（recover_owned_glm_transport.py，exec10338已passed）：停止并重启22个GPU worker，独立CPU owners原PID不变，全2,928块784,208,680,448B接管成功。session.json已更新worker路径，node27GPU0/1free约58GiB。未冷加载GLM。
+reclaim02初次B启动成功加载权重，但CPU后备65.5GiB超过当时local NUMA可用余量，lifecycle_failed；B进程仍活着等captured。capacity03（exec95943）复用它，先将GLM rank2的183块45.65GiB真实迁到node28worker20，全SHA逐块publish/retire；迁移345s。现在B两rank已capture完成并正常生成Paris，B park0.698s，GLM bootstrap从新布局恢复已返回生成，正在全量SHA确认。
+命令continue_glm_ab.py --session ABS/results/glm_roundtrip/full_distributed02/session.json --attempt capacity03 --resume-export life_B_capture_reclaim02 --pre-spill-rank 2。启动B的process名model_B_node27_reclaim02，捕获tag life_B_capture_reclaim02。下一步A→B、剩余rank3+rank4的1GiBSSD迁移、25/50/75%召回、最终A。不要重启owners/mesh。
+动机local_pressure02（exec41031）已等待lifecycle_passed：run_recall_pressure_motivation.py --run-dir ABS/results/glm_roundtrip/full_distributed02 --run local_pressure02 --route-result ABS/results/transport_validation/pressure_pairs01/summary.json。对真实Qwen，X本地DRAM保留比例100/约50/0%，Y恢复首正确token秒；相同对象/预算/格式/引擎，localDRAM+本地SSD vs local+remoteDRAM。将B块从node27 GPU0/1移node29 GPU0/1；full SSD底本放本repo results/motivation/local_pressure02/ssd_data（/home本地NVMe余212GB），port29791；fsync/FADV_DONTNEED并记录kernel read_bytes。该实验是容量/位置动机，非MILP消融。local_pressure01保留prerequisite_failed。
+pressure_pairs01四临时worker独立mesh双向32MiB+17B检查已passed且清理（exec2654已结束）；未在真实mesh上试未知路径。plot_recall_pressure.py已写，等有samples后用conda sglang Python输出PDF/SVG/PNG及plot_data.json，尚无数据图。
+本轮cluster+wire+block_migration测试25passed（exec71856结束）。新脚本AST已过；core SSDstatus加kernel_io，live旧SSD尚未启动。设计归docx/plans/2026-10-04_recall_pressure_motivation.md。本会话v0.1.23.2，别覆盖另一会话v0.1.23.3计划。
+
+【最新审计：三节点GLM/Qwen lifecycle_failed，CPU快照保留】
+
+full_distributed02的完整GLM单模型roundtrip仍通过；后续Qwen在10:14:41权重分配HIP OOM，等待导出1800s后失败，moves/recalls/switches均0。不能继续称A/B正在运行或通过。IPC owner退役后目录HBM0但worker0 torch allocated49,080,151,552B，free约12GiB，影响B入场。
+新增probe_ipc_reclaim.py在独立64MiB进程复现：重用一次导出三次import，退出后仍留64MiB；每次重新export最终归零。probe02_run_environment与GLM同环境，probe01为旧base环境。glm_ipc_baseline.py已改每次fresh export（计入请求窗口）+退役实际分配检查；worker.retire已加set_device/ipc_collect，inventory加reserved。完整GLM未重跑，新源码尚未注入live workers，不把新版本行为套到历史数字。lifecycle_failure_audit.json记录证据。
+不要重启CPU owners或直接重启有数据mesh。所有GLM快照仍在CPU owners。现无活跃生命周期driver；下一步先完成IPC出口物理回收，再恢复B启动，不重新冷加载GLM。用户本次在问论文定位与solid程度，审计见docx/cites/2026-10-04_fluidckpt_paper_claim_audit.md。保持本会话v0.1.23.2，其他会话v0.1.23.3计划不覆盖。
+
+【最新：full_distributed02完整GLM往返+IPC已passed，真实A/B正在运行】
+
+完整730.351GiB runtime权重全量SHA、输出与原生reference一致；release1.471650s，恢复首token11.452932s，传输4.827152s。适配resident HIP IPC三次1.733868/1.362555/1.363223s，全部正确；IPC常驻全部权重，没有证明Fluid快于IPC。原roundtrip结果保存在results/glm_roundtrip/full_distributed02/roundtrip_result.json；progress_snapshot.json为紧凑证据，图physical_memory/lifecycle_memory已生成。
+continue_glm_full_validation（exec1639）成功结束；continue_glm_lifecycle_validation（exec99308）自动启动continue_glm_ab.py，正在真实B=Qwen启动。日志glm_followup/full_distributed02/lifecycle.log、driver.json；summary.json转running_lifecycle。保留三节点CPU owners/mesh，node28GPU0/1不碰。A/B迁移中途召回未验收，异计算位置远端恢复/强基线/严格pagecache预算/MILP消融仍待做。
+
+【当前正在完整GLM捕获，后续A/B已排队】
+
+native_hca0_full05已generated_repeatably并清理，完整GLM新HCA0参考在results/glm_three_node/native_hca0_full05/summary.json（startup2393.319s，含只读栈采集，不作性能结论）。
+full_distributed02正在跑，exec1639由continue_glm_full_validation.py管理，子日志results/glm_followup/full_distributed02/roundtrip.log；资源容器zjn-fluid-glm-full_distributed02，ports29700/29800/29900/32253，22worker顺序27:0-7、29:0-7、28:2-7，CPU owners各socket带run名。keep-running和keep-on-failure已开。当前0/1/8每份45.65GiB已捕获并全SHA迁往node28的worker16/17/18，9迁往19进行中；剩余12rank接着并行capture。不要重启持有data的CPU owners。
+exec99308运行continue_glm_lifecycle_validation.py等待full roundtrip成功，再调用continue_glm_ab.py进行GLM/Qwen真实切换、rank2/3搬到N28G6/7、1GiB SSD、25/50/75%中途local recall。驱动新写未验收；固定功能压力轨迹，不是算法比较，不包含新计算布局远端恢复。新线路已用独立lifecycle_pairs04验证，结果passed已清理。
+profiling脚本profile_glm_warm_restore.py已写但未运行，无前向trace。HLL文章新增owner/gateway分离假设、库强基线及可执行迁移约束；不把假设当实现。
+
+【当前唯一主线GPU任务：完整GLM native_hca0_full05，exec41677】
+
+node27+29 TP16，base容器zjn-keep-v02-n27/n29，port32153/dist26453，HCA=shca_0，FP8 triton、AITER_MOE=0、serialize0。等待新匹配HCA原生reference，之后full staged capture/restore。node27文件141/141不等于GPU加载结束，rank0栈在FP8 CPU copy/hipMemcpyWithStream，已存Python/native栈。
+原生CPU备份qwen35b03整体failed并清理：first restore正确，第二次乱码。第一轮release22.27/firsttoken3.738s；第二轮release1.96但错误，绝不能当成功性能。64MiB gpu6_repeat04五次CPU/GPU比对通过，模型失败原因仍待定。TMS库两个兼容修复+VA池配置已验证小粒度，非模型成功。
+新增schedule_block_moves可行分块交换顺序（共享预算/临时空间），4项CPU测试passed；未集成主模型轨迹。小模型完整三节点权重保活仍以diagnostic_distributed06为成功证据。
+
+【当前唯一活跃：原生SGLang CPU-backup qwen35b03】
+
+run_sglang_cpu_backup.py --run qwen35b03，exec见工具；node27GPU0/1，base容器zjn-keep-v02-n27，端口32540，spec results/native_cpu_backup/qwen35b03/server.process.json。
+fixed2 foreign-free回归passed；qwen35b02在VMM预留OOM而非HBM容量失败（当时free62.48GiB）。独立VA探针确认默认累计2GiB上限；HSA_VMEM_POOL_SIZE=8192让8GiB单次/累计均通过。03设置131072MiB虚拟地址池、隔离TMS fixed2、每轮release前flush_cache。等待真实Qwen生成及3次CPU备份恢复；完成后CPU备份强基线才能算模型验证过。无其他活跃GLM/mesh。
+
+【当前：只跑TMS foreign-free修复后回归；3host诊断已结束】
+
+diagnostic_three_host01 generated并清理：3物理host、4启动组（29GPU0-3/29GPU4-7/28GPU2-5/27GPU4-7），两个诊断输出和2host参考不同，all_outputs_match=false；只证生成，远端恢复需其本拓扑reference。
+TMS flags0修复后GPU4 preload/torch回归2 passed、GPU6 64MiB探针passed。真实Qwen原生CPU备份qwen35b01启动失败并清理：legacy rocm_free拒绝RCCL的非TMS指针。现新增foreign_allocation回归，旧包failed；fixed2补回原生HIP free转发（与非legacy分支一致），正跑修复后回归。build/package/source/patch/provenance见results/tms_dtk_fixed2；全局环境未安装。成功后用run_sglang_cpu_backup.py --run qwen35b02复测真实模型。
+没有活跃GLM/keeper mesh。8层完整保活成功证据仍diagnostic_distributed06。完整GLM的shca0原生参考与full三节点恢复尚待执行；后续profiling需捕捉F generation 2.97s vsIPC0.112s差异。
+
+【当前：8层roundtrip已通过；仅TMS基线探针在跑】
+
+diagnostic_distributed06 passed并清理（原exec52802已结束）。三节点60,123,788,288B后备→释放→恢复全SHA且同HCA原生输出一致。release0.9917s；F首token3.6068s，其中generation等待2.970s，拷贝仅0.3569s；resident HIP IPC三次0.183/0.162/0.161s，生成等待约0.112s，cached-token=0。需要profiling/重复控制定位该差异，不能以此作公平性能比。仍是8层截断模型，完整GLM/三节点A/B强基线消融未完成。
+当前独立TMS CPU备份验证：隔离编译原库GPU2通过64MiB物理释放/地址保持/全字节。GPU6因VMM reserve flags传1失败；按DTK必须0的API契约修单行，增加上游tests中的GPU4回归。正在跑修复后测试exec81371(node27GPU4 preload+torch)与71910(node28GPU6 preload)。目录results/tms_dtk_fixed（wheel、patch、source archive、provenance），未全局安装。
+下一步：结束以上小探针后，验证probe_glm_three_host_placement.py（8层、HCA0、3物理节点4launch groups端口已分开）；完整GLM需要新的相同shca_0 native reference，再使用spill2/host的roundtrip与独立CPU owners。源码已修id复用/惰性alias，13项目标测试通过。若继续profiling，skill主文件已读，但缺upstream-source-contracts参考；本地SGLang ProfileReq API已核对。
+
+【当前唯一实机诊断：diagnostic_distributed06，exec52802】
+
+05已清理：首次生成匹配同shca_0原生参考、释放0.966s，但prepare发现新增16个惰性attn_mha别名；rank15更有错误layer3.w_vc→layer2.w_vc。已明确复现并修复Python id复用：bind保留旧Tensor直到整个引用替换完成；修复前新增测试view66被误换为view33，修复后storage+IPC+lazyalias共13 passed。允许新增名字仅精确重复已有storage视图，其他布局差异仍拒绝。
+06使用同命令，--keep-on-failure，完整捕获/跨三节点备份/释放恢复/IPC基线重测。若失败CPU数据保留；driver不再在prepare异常后等待resume RPC20分钟，而停止这次模型进程后归档。
+CPU-only旁路任务：在base容器zjn-keep-v02-n27的/tmp/fluidckpt_tms_source_20261004构建torch_memory_saver，commit118b09b3bc7b0cf386745db1eac2601d4aa7e681；未安装到任何现有环境。构建日志results/tms_dtk_build*.log，当前C++17/gfx936显式flags尝试。用于后续原生CPU-backup强基线，不是已完成性能结果。
+
+【当前唯一活跃：diagnostic_distributed05，匹配HCA参考后重测】
+
+run_glm_roundtrip.py --run diagnostic_distributed05 --model .../diagnostic8/checkpoint --native-result .../diagnostic8_hca0_native02/summary.json --timeout1200 --spill-ranks-per-node2 --ib-hca shca_0 --monitor-memory --ipc-baseline。对应exec session见工具；容器zjn-fluid-glm-diagnostic_distributed05。
+distributed04已failed并清理：captured生成与旧auto-HCA原生reference不同，未release。新原生diagnostic8_hca0_native02已重复输出一致，且确与旧auto参考不同；startup271.048s。新driver在比较前保存实际text并在启动前强制HCA配置一致。IPC attach已用新的packed-offset/属性/alias统一binding，5个CPU测试通过，实机IPC baseline未验收。
+图形脚本analyze_glm_roundtrip.py用conda sglang/python运行；必须使用保存的topology映射HIP→DRM（GPU0实际上card1）。distributed04图/analysis明确failed，不能当恢复成功。full GLM再次跑前还需相同shca_0的full native reference。更多见过程文档E20。
+
+【当前：diagnostic_distributed04实机运行中，session2634】
+
+先前owner03在首次forward前因RCCL wrong magic停滞，主动中断并清理。独立routes_recall02定位到node29GPU0→node28GPU4自动选不同HCA时停滞；固定NCCL_IB_HCA=shca_0的routes_hca0_03已通过四条双向路径和25/50/75%三节点混合位置召回（64MiB合成数据，全SHA256），全部清理。不能宣称自动HCA根因已确定。
+当前diagnostic_distributed04：8层GLM TP16，两计算节点+node28缓存，三节点CPU owner，固定shca_0，spills=2/host，四条路径预检再次通过，现正分阶段capture/spill。容器zjn-fluid-glm-diagnostic_distributed04，端口29700/29800/29900/32253，CPU监控随runner清理。源码冻结到启动指纹；新IPC helper/baseline/analysis脚本不影响当前运行。此前owner02布局遍历bug已修，4项layout测试passed；新IPC打包helper1项CPU测试passed，但未接入attach，也未有IPC实机结果。完整GLM仍未通过Fluid恢复。
+
+【2026-10-04当前状态更新：diagnostic_owner03正在运行】
+
+owner01的Unix backlog并发问题已修。owner02已捕获16rank并匹配8层原生输出，但release失败：别名遍历重建platform.uname tuple。已修遍历范围及tuple memo，4项layout测试passed。owner02自动清理。当前唯一运行diagnostic_owner03，exec39044，三节点容器zjn-fluid-glm-diagnostic_owner03。8层诊断通过前不启动完整GLM。新增glm_distributed_capture.py、run_glm_transport_validation.py准备独立路径/召回验证及完整模型分阶段捕获，尚未验收。其余旧状态以下文最新完成事实为准，旧session不要续跑。
+
+【2026-10-04 06:12最新：full01已失效清理，正在验证新owner】
+
+重要：下文full01的CPU副本现在已经全部丢失，容器已删除，不能再连接或续跑。原始GLM权重文件完好。terminal_state.json记录真实结局。
+full01：补齐16rank捕获之后，hybrid01第一次forward失败，TopKConfig.correction_bias仍引用旧meta参数。layout.bind现会沿非Module的配置对象/list/dict/tuple替换原Tensor引用；对应routing-config单测通过（3 passed）。
+我在同一真实keeper mesh上运行block_recall01合成探针，这是实验隔离错误：新用到的node28 GPU6→node27 GPU0路径广播超时，worker0/20先退出，480秒后的watchdog把其它keeper也杀掉，私有DRAM快照丢失。此探针failed，绝不作为中途召回成功证据。新网络路径应在独立mesh验证。
+此前有效证据仍保留：原生完整GLM native_triton04生成Paris和5、重复一致；730.351GiB runtime snapshot曾逐rank补齐；rank0迁往node28全量49,013,042,528B校验通过；生产者死亡后13rank共637,169,552,864B从CPU恢复并全量SHA256通过，prepare3.015s/copy1.940s/hash+publish133.133s。完整GLM恢复生成尚未通过。
+已清理full01三个自建容器和独立监控，包括失败重建尝试生成的空worker0。没有full01数据还活着。旧native/诊断进程也已结束。
+当前唯一活跃新任务：run_glm_roundtrip.py --run diagnostic_owner01 --model /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_three_node/diagnostic8/checkpoint --native-result /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_three_node/diagnostic8_native01/summary.json --timeout 1200，exec session16042。
+这是8层诊断，不是完整GLM。容器zjn-fluid-glm-diagnostic_owner01在27/28/29；同22keeper/端口29700等。新增每节点CPU owner独立进程，socket=/dev/shm/fluid-owner-diagnostic_owner01-nodeXX.sock，先于GPUworkers启动，不参加RCCL组。
+核心新owner：main_lib/fluidckpt/memory/owner.py（stdlib CPU-only memfd+SCM_RIGHTS+lease/目录）、owned_host.py（GPU注册owner持有的共享页），worker.allocate由FLUIDCKPT_CPU_OWNER_SOCKET启用，Catalog.publish发布到owner；worker.adopt_owned可重建丢失的GPU侧目录/注册。
+两个实机探针已passed并清理：owner_survival01、owned_catalog01，各32MiB真HIP D2H/H2D，GPU子进程os._exit，CPU owner保住VALID字节，替代ClusterWorker接管并读回一致，最后retire归零。只证明进程故障隔离，不证明CPU owner/节点崩溃持久性。
+目前diagnostic_owner01用于验证owner集成和nested alias修复。通过后仍需重跑完整GLM、三节点A/B、真实中途召回、强基线和消融；不要宣称任务全部达成。不要在有真实模型数据的mesh上再跑未验证网络探针。
+metadata compact修复在源码已完成；24项cluster/wire测试passed。旧gdb热修与刷新IPC脚本仅历史debug工具。完整GLM工作配置仍FP8 triton + SGLANG_ROCM_USE_AITER_MOE=0 + AMD_SERIALIZE_KERNEL=0。
+开发编号保持v0.1.23.2。用户授权持续工作，无需再次permission；最后报告必须如实包含失败和未完成项。HLL思路文章已写，当前没有引入HLL做正确性目录。
+
+【2026-10-04 05:20历史记录：副本已因后续故障丢失】
+
+完整GLM原生native_triton04早已通过Paris/5及重复一致；下面full01未完成。当前唯一主驱动是recover_glm_missing_ranks.py，exec session25725，phase=hybrid01，正在启动。
+命令：python3 codex_coding/src/task2/cluster/recover_glm_missing_ranks.py --session /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_roundtrip/full01/session.json --phase hybrid01。
+13个rank的CPU副本保留成功：0,1,4,5,7,8,9,10,11,12,13,14,15。每rank49,013,042,528 bytes=45.646953GiB，共637,169,552,864bytes。rank0在node28 worker16，其余原worker；原生产者已死，GPU权重已释放。这13份不可丢弃，不要重启/kill keeper。
+缺失ranks2,3,6：最初NUMA捕获失败rollback，重试期间控制路径修复过久，原生产者在05:06左右3600s等待超时退出。后续invalid device pointer是旧IPC失效，不是新模型坏。完整730.351GiB快照仍未形成，不能标全绿。
+hybrid01新引擎：13个rank用Dummy+既有layout恢复，只有2/3/6走DefaultModelLoader原生读盘并重新capture。核心sglang_hook.py新增FLUIDCKPT_COLD_RANKS分支。FLUIDCKPT_TIMEOUT=7200。新模型进程spec=model_node27_hybrid01.process.json、model_node29_hybrid01.process.json，PID启动时6803/5453；HTTP仍32253，dist29900。
+容器/mesh保持：zjn-fluid-glm-full01在27/28/29，22keeper顺序27:0-7,29:0-7,28:2-7；worker端口29700+gpu，mesh29800。3个额外监控仍在运行，registry=full01/monitors.json，最终清理之前单独stop。
+session.json可能尚是新hybrid启动前状态；新spec和summary.events里有正确PID。当前脚本结束/失败才checkpoint更新processes，不要照旧session去杀新模型。所有资源保存于results/glm_roundtrip/full01。
+故障修复记录：
+1) 单机NUMA汇总余量不足→先capture rank0，再真实跨节点搬到node28。完整45.65GiB SHA256通过，准备64.14s、实际传输8.06s、验证/发布52.57s，总124.77s；本地rank0副本已全retire。
+2) 控制端retire之前读取完整manifest，worker.retire也返回完整inventory，造成每块重复巨大JSON。control.py现compact=True，worker.py现返回compact；已有worker0经gdb注入同等修复（patch_keeper_retire.py，已成功），其余21keeper仍是旧retire返回实现，未来退役前需补活体修复或避免使用全量响应。不要重启有数据的keeper。
+3) 三rank因NUMA余量漂移失败，计划guard已从2GiB增到4GiB；其它13capture成功。
+4) refresh_waiting_export.py曾对仍活着的2/3/6用gdb重新export handles，但其后producer超时死亡，旧句柄全部作废，别再用旧capture pkl做GPU import。旧layout/meta可作CPU恢复清单。
+5) handoff和capture目录原root:755使host写captured marker失败，现这两个本次实验目录已chmod777。hybrid01目录是host创建，777。不要因此再等权限问题。
+先前执行session4666、52964、22461、60818、29708、20088都已结束/失败；不能续等。当前25725才有效。hot patch/capture续作都在日志中保留，full01只能作调试恢复run，需给最终性能样本独立标清版本/窗口。
+有效配置仍：--fp8-gemm-backend triton, SGLANG_ROCM_USE_AITER_MOE=0, AMD_SERIALIZE_KERNEL=0。原生3组失败和diagnostic8成功文件保留。完整native正确性通过，完整checkpoint生命周期、强基线/MILP消融/严格pagecache预算仍未完成。
+目标不变：先把GLM完整capture/restore做到输出一致和全量哈希，再A/B三节点流动/中途召回/同预算基线；user已授权，不要再次问permission。HLL思路已在文章归档，不强塞当前小集群。
+
+【2026-10-04 03:50历史记录】
+
+完整GLM原生已通过！native_triton04状态generated_repeatably，France先回答Paris、2+3先回答5，两条32token输出各重复一次逐字一致。startup1722.170256s，总1789.963518s。父/子服务全部清理，session61048已结束。配置：FP8 GEMM triton + SGLANG_ROCM_USE_AITER_MOE=0 + AMD_SERIALIZE_KERNEL=0。
+现在唯一活跃主任务是GLM roundtrip full01，exec session4666。命令python3 codex_coding/src/task2/cluster/run_glm_roundtrip.py --run full01 --native-result /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_three_node/native_triton04/summary.json --keep-running --keep-on-failure。
+三台容器均zjn-fluid-glm-full01，memory440GiB/swap0；22keeper mesh于03:46:44ready。成员顺序27:0-7,29:0-7,28:2-7；端口29700+gpu/master29800；模型dist29900/HTTP32253。模型在27+29 TP16从原始权重加载，随后256MiB块捕获、释放、恢复、首token比对、全量哈希。当前源代码已冻结，不要无因改动运行核心。
+模型process specs/results均在codex_coding/results/glm_roundtrip/full01。模型容器PID启动时node29=1148,node27=1149；模型自身还会spawn16 TP子进程。不要混用宿主机PID。通过或失败都保留资源（CLI flags），有session.json后可接下阶段或调试，不能误杀快照造成重新30min冷加载。
+三个额外内存监控也在上述容器，registry=full01/monitors.json，独立于主驱动processes列表。最终清理容器前用python3 codex_coding/src/diag/monitor_cluster_memory.py stop --run-dir /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_roundtrip/full01。监控物理HBM、host内存、cgroup；无memory.peak文件，只可用样本最大值。粗时钟offsets已测，仅绘图用。
+下一步full01通过后，先park A保留CPU快照，验证候选远端布局：probe_glm_three_host_placement.py --run <new> --model <diagnostic8/checkpoint绝对路径> --reference <diagnostic8_native01/summary.json绝对路径>。TP16四组四卡放3物理节点：(29,base0),(29,base4),(28,base2),(27,base4)，HIP_VISIBLE全0..7；给B留27GPU0/1，不动28别人的0/1。此布局尚未实测。
+源快照/模型endpoint保活后接B(Qwen3.6 TP2)和三节点迁移/召回。全量A约734GiB，单机DRAM不足；captured blocks可独立跨NUMA，model索引/版本/别名精确，CPU缓存容量与物理释放已有小探针证明。仍未完成GLM生命周期、强基线/消融/P99/严格全局pagecache预算，勿宣称全绿。
+过程文档E11：code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_glm_three_node_execution_20261004.md。HLL洞察文新增“最终能放下、中间拷贝放不下”的交换例子及同块粒度贪心消融要求。
+
+【2026-10-04 03:12历史记录】
+
+native_triton03已失败并清理，不再续等session80356。完整权重读完node29约1417–1441s/node27约1775s，45.86GiB/rank；首次前向在默认AITER MoE无可用配置处失败，非VMFault。
+发现SGLANG_ROCM_USE_AITER_MOE默认true，会覆盖外层triton runner。设0后独立MoE测试M6/1/32/128全过，CPU参考L2约4%；完整native和Fluid均用该环境。
+8层诊断权重已生成于results/glm_three_node/diagnostic8/checkpoint，54,379,690,240 bytes/60文件，原模型未动。diagnostic8_native01已生成并重复一致、清理；截断模型文本乱码，只算backend执行通过。
+当前唯一活跃模型：native_triton04，exec session61048。命令python3 codex_coding/src/serving/run_glm_native.py --run native_triton04 --timeout 3600 --disable-aiter-moe --extra --fp8-gemm-backend triton；HTTP32153/dist26453，使用原703.7GiB模型，仍在初始化/加载。继续到实际回答，不能把诊断8层当原生GLM正确性通过。
+新增capture_regions：真实HIP IPC独立生产者48MiB+17字节切4块，生产者退出后数据校验通过；释放首块RSS精确少16MiB。segments02跨NUMA2/1/2/1逐块实测落点100%，SHA256通过，进程清理。
+新增block_migration.migrate_blocks：逐块verify/publish/retire后yield给召回，journal重放不重传已VALID目标；只有CPU测试通过，真实模型中途召回未跑。
+新增choose_block_bindings和捕获逐块NUMA表；不再要求一整个47GiB分片能落单一NUMA。core：cluster/capture.py,block_migration.py,worker.py; serving/keeper.py; memory/bindings.py。新增CPU用例1+1+4全过；FP8属性最终2过。
+run_glm_roundtrip.py已就绪未跑。现在初始mesh22worker含node28 GPU2–7，模型在27+29 TP16；默认256MiB独立capture，实际导出后测NUMA按块配；模型路径必须等于native reference。--keep-running可保留暖引擎和快照继续三节点阶段，session保存所有端点、模型、源块。
+下一步native_triton04真正生成正确后运行roundtrip新run --native-result完整run/summary.json --keep-running，修复真实问题再接A/B与迁移召回。原始Qwen final03不重跑；没有完成全面预算/强基线/消融。
+参考新过程文档E7–E10：code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_glm_three_node_execution_20261004.md。HLL论文分析已归档；当前不引入HLL控制正确性。
+
+【2026-10-04 较早实施记录，状态由上文覆盖】
+
+用户明确让严格按原生生成→FP8/TP16捕获恢复→三节点生命周期→中途召回→同预算强基线执行，并问HLL思想。勿停于建议；无须再次授权。仍v0.1.23.2。
+关键新发现：NSA fuse_layernorm_rotary_embedding独立1/6/32/128 token未崩；默认HCU FP8 GEMM在M6,N2624,K6144独立VMFault（results/glm_gemm_auto01.log）。Triton四形状通过，L2误差2.4–2.6%。历史“唯一NSA根因/翻flag无解”不成立；--fp8-gemm-backend triton无需改vendor源码。
+native01默认FP8/serialize3被主动中断并清理，summary改superseded_before_generation，不是完整失败。native_triton02用triton/serialize3，TP0/7/8栈停首次pynccl allreduce，已中断清理（summary interrupted）。
+正在跑 native_triton03：exec session80356，脚本python3 codex_coding/src/serving/run_glm_native.py --run native_triton03 --serialize 0 --extra --fp8-gemm-backend triton。使用zjn-keep-v02-n27/n29，HTTP32153，dist26453；process specs/PIDs在results/glm_three_node/native_triton03。
+serialize0后通信成功，02:23:08开始加载，141分片约4m29s读完，当前后处理/预热，尚无首token。继续监控summary及logs，成功后driver会自动清理两组；不要重复启动。
+next：run_glm_roundtrip.py已写但未运行，原生成功后用--native-result .../native_triton03/summary.json。默认16keeper/两个计算节点、port29700/master29800/modeldist29900/HTTP32253、新容器440GiB内存限制；不是完成三节点迁移，也不宣称global pagecache预算公平已解决。
+code改动：run_lifecycle.py SSD可配置默认node28本地/data/node28/shared/zhujianian独立目录（旧session回退node30）；报告脚本动态节点日期。node28_01实际16MiB写/commit/read SHA256通过，已清理。
+keeper._my_pkls加host筛选防跨主机同GPU误导入；layout.scalar_attributes与export_storages捕获FP8标量属性，防meta重建丢scale格式。CPU测试3+2通过。comments English/docs Chinese/core=0。
+阅读code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_glm_three_node_execution_20261004.md及docx/articles/2026-10-04_hll_and_recall_planning.md。
+HLL不强塞当前3节点：需求摘要可近似、正确性目录精确；优先慢路径块保留价值。分块迁移必须按独立allocation才能物理释放，不能逻辑retire冒充。
+待完成：GLM原生和roundtrip、三节点真实A/B、分块召回、严格公平预算、强CPU/独立缓存基线与MILP/LP消融。原Qwen final03已完成，不重复那条四节点跑分。
+
+【2026-10-03 三节点/GLM状态追问核查】
+
+用户问全部目标是否实现、是否SGLang保活基线、GLM能否用，并允许本轮三个节点。
+本轮只读审计，无新GPU实验、无Qwen重跑。最终实测仍是下方final03四节点记录。
+明确：2.29–3.75x是逐出后SGLang磁盘loader对照；resident HIP IPC0.828s另列。尚缺严格同预算CPU backup/独立缓存、MILP消融及迁移中召回。
+GLM路径有效，索引703.7233GiB/141分片。base2_n0.log:392起有历史纯SGLang VMFault；当前镜像NSA仍有相关调用，本轮未重新复现或证明修复。
+node27/29各8卡空闲，可候选TP16；node28 GPU0/1约52.4GiB已占用。后备DRAM跨27/28/29；SSD服务应在node28的/data/node28/shared/zhujianian独立目录，该盘本地NVMe，根/tmp近满。
+现runner仍TP2且SSD固定node30，GLM及三节点配置未实现。不要直接改--model后开跑，也不要重试旧session。
+读取docx/plans/2026-10-03_three_node_glm_followup.md；只读命令python3 codex_coding/src/diag/audit_three_node_glm.py --out codex_coding/results/three_node_glm_audit_20261003，全部查询成功。
+下一步先验证GLM原生TP16首token，再适配rank/FP8/layout与三节点SSD、分块迁移召回、同预算对照。编号仍v0.1.23.2。
+
+【2026-10-03 最终恢复入口：生命周期第一轮已完成】
+
+用户授权的真实A→B→远端A→本地A和重复切换已完成。硬件海光DCU/HIP；接受自写HIP IPC作为适配基线；保持v0.1.23.2。
+最终run为 codex_coding/results/lifecycle/final03，status=passed，零失败事件，执行源码指纹变化=[]，cleanup_errors=[]。
+最终端到端（首正确token，切换含释放）：A→B4.771356→1.270834s(3.75x)，B→A16.558624→7.236737s(2.29x)，远端A14.617184→4.701272s(3.11x)。
+纯resident IPC hit0.82775s仍更快；首次单独A磁盘回载76.38s不用于放大配对速度比。单条TP2/eager轨迹，不是P99或MILP独立收益证明。
+A=Qwen3.6-35B-A3B，B=9g_8b_thinking_llama；node27本地服务，28 DRAM，29远端A，30 CPU/本地NVMe SSD。
+A本地保活权重HBM/DRAM均0；远端DRAM69,255,976,288B+SSD1,073,741,824B完整覆盖70,329,718,112B，两阶段全量SHA256通过。
+B后台22次均正确，TTFT中位205.72→213.48ms。迁移58.999s含13.758s准备、5.613s执行、39.628s校验/发布。初始化仍为分钟级，只支付一次。
+final03自建容器、模型、worker、监控和SSD服务均已清理；/tmp/fluidckpt-final03已删除；没有待续跑的进程。下方所有session/PID均为历史，不要继续。
+入口：docx/articles/2026-10-03_lifecycle_results.md；过程：code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_lifecycle_execution_20261003.md。
+源码主入口：codex_coding/src/task2/cluster/run_lifecycle.py；main_lib/fluidckpt/serving/{layout,lifecycle}.py；cluster/eviction.py；memory/ssd.py；serving/ssd_store.py。
+修复：storage alias、TP释放同步、packed IPC单allocation只导入一次、磁盘重建前清RoPE全局meta缓存；初始NUMA预算同时计A+B+8GiB余量。
+最终源绑定：node27 GPU0→NUMA1、GPU1→NUMA3；node28 GPU2→NUMA2、GPU3→NUMA1。每本地GPU22GiB实际压力预留，真实KV/runtime另计。
+复现须新run：python3 codex_coding/src/task2/cluster/run_lifecycle.py --run <new> --local-dram-gib 0 --port-base 29100。
+出图用host conda sglang Python（有matplotlib）；analyze_lifecycle.py、plot_lifecycle.py、write_lifecycle_report.py均已运行。最终结果目录有paired/lifecycle PNG/SVG。
+后续研究：同预算贪心/独立缓存消融；慢路径关键区域缓存；SSD代理分解与registered staging；迁移分段提交及中途召回；严格全局RSS/page-cache峰值预算。
+
+【以下为实施期间历史，当前状态以上方完成说明为准】
+
+【2026-10-03 生命周期实施，历史进行中记录】
+
+【03:04最新】full03已从migration阶段续跑并完整passed，所有实验进程已清理，node30/tmp/fluidckpt-full03临时1GiB也已删除。
+full03结果：A→B 9.60996→1.56124s(6.155x)，B→A17.50471→7.47951s(2.340x)，远端A14.53230→4.80612s(3.024x)。IPC hit0.92284s。
+A最终node27权重HBM/DRAM均0；node28DRAM69,255,976,288 bytes，node30SSD1,073,741,824bytes，完整70.33GB迁移/恢复SHA256通过。
+B后台23次生成全一致，TTFT中位0.20285→0.21300s。迁移64.87s含prepare15.34、copy6.78、verify/publish42.75。
+full03最初4GiB本地副本目标因NUMA0临时余量不足失败，使用 --resume-stage migration --local-dram-gib 0 续跑；不能把它称完全未中断的实验。
+正在做固定配置清洁重放 final03（注意是final03，不是full03）：session=88408，/tmp/fluidckpt_final03.log，结果codex_coding/results/lifecycle/final03。
+新端口worker29100+gpu，master29200，SSD29190，SGLang32040/32041。容器zjn-fluid-life-final03在27/28/29。
+final01：B capture时NUMA0放不下8.25GB，failed并已手动清理。初始NUMA需求已改为A+B+8GiB运行时余量。
+final02：40300体系的master40400碰到临时TCP连接，preflight failed并清理。固定端口改到ephemeral范围以下29100。
+final03初始source绑定node27 GPU0→NUMA1，GPU1→NUMA3；node28 GPU2→NUMA2，GPU3→NUMA1。不要再改动产品代码打断清洁重放。
+清洁重放后运行analyze_lifecycle.py和plot_lifecycle.py，补最终报告、四份索引、history-chat归档、清理自身SSD临时目录。
+已经修复disk resume的全局RoPE缓存持有meta buffer问题：lifecycle.py在原生磁盘loader前清factory._ROPE_DICT。
+已支持checkpoint/resume-stage，--keep-on-failure只在失败时保留实验进程；成功自动清理。full03的session.json是旧已结束会话，不再续跑。
+
+最新用户已授权完整实施 A→B→远端A→本地A，同预算端到端对比；接受自写 HIP IPC baseline。
+节点是海光DCU/DTK/HIP，27/28/29 GPU worker +30 CPU本地SSD；不要重新争论零拷贝物理下界而停止实现。
+已新增 storage alias 布局、warm engine release/resume、SSD extent与MILP eviction、真实双模型runner与画图工具。
+源码/过程入口：code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_lifecycle_execution_20261003.md。
+warm01已passed：每卡HBM约37→4GiB，释放0.728s，warm恢复首个正确token1.776s，70.33GB SHA256通过。
+full01在bootstrap全部通过后，24GiB service reserve导致rank0距分配器2GiB余量差22MiB而failed，已清理。
+已将双方预留统一22GiB（A+B仍放不下），release/resume补TP CPU barrier，避免rank0应答时rank1尚未完成。
+full02正在运行：unified exec session=88016；日志/tmp/fluidckpt_full02.log；结果codex_coding/results/lifecycle/full02。
+容器zjn-fluid-life-full02分别在node27/28/29；A/B端口32040/32041；worker40300+gpu；master40400；SSD40390。
+实际模型A=/data/node28/shared/zhujianian/Qwen3.6-35B-A3B；B=/data/node28/shared/models/9g_8b_thinking_llama。
+主runner：python3 codex_coding/src/task2/cluster/run_lifecycle.py --run full02。用系统python，求解在worker容器。
+继续跟踪直到完整通过，真实问题修复后用新run；不能把warm01当作完成整个用户目标。
+生成图使用conda sglang环境python（容器没有matplotlib）：codex_coding/src/plt/plot_lifecycle.py --run-dir ...。
+最终需要端到端表、物理HBM时间图、SSD/跨节点字节证据、B服务影响、成功/失败与初始化/校验成本说明。
+现有相关测试26项一次通过，MILP数值单位修正后另2项通过；不要无必要重跑整套。
+用户允许kill其本人任务，但此次不需要动其他服务；node30 GPU占用约81%，仅使用其CPU和/tmp本地NVMe。
+
+【2026-09-29 晚间续作更新，优先于下方旧交接】
+
+开发编号仍为v0.1.23.2/task2。用户已明确要求开始，并授权停止此前列明的三个占卡容器：
+node27 zhujianian-agentx-multi-node271、node28 zhujianian-agentx-multi-node280、
+node29 zhujianian-agentx-nonempty。已停止并保留容器本体；其他服务未停止。
+
+最新完成：单模型单目标联合控制层真实验收managed04。
+- 接手时managed.py/managed_control.py及RPC已存在，本次新增测试、配置驱动、NUMA容量选择、端口检查和验收报告。
+- 42项相关CPU测试通过；400全模型候选、520 flow、MILP gap=0，求解294ms，plan_joint整体378ms。
+- 总预算8 GiB HBM＋2 GiB DRAM，单目标卡HBM上限8 GiB（已放开原4 GiB限制），选4+4 HBM＋1+1 DRAM。
+- 10个实体副本，14动作；零临时预算，有node28完整底本保护。第1个已提交动作后中断，持久journal续作和重复应用通过。
+- 旧/新加载2.034551148/1.722078996s，搬运1.379845336/1.221304783s；分别下降15.36%/11.49%，每布局仅1次，准备差异单列。
+- 每次完整70,329,718,112 bytes哈希和3条生成对比通过；源码指纹零差异；cleanup_errors=[]；实验GPU回到6～10 MiB，临时容器已移除。
+- apply变更27.312727s包含首次apply/中断/续作，后续幂等重放另算，不混进加载窗口。
+
+必须记住的失败和修复：
+- managed01端口绑定冲突；preflight原只查LISTEN，漏CLOSE-WAIT。现记录全部TCP本地端口占用。
+- managed02的24100系列已有其他服务，预检查拒绝，未停止它；最新默认25100系列、master25200。
+- managed03成功capture，但node28 NUMA2只有25.0 GB可用，放不下35.16 GB/rank底本；保持failed，不算恢复性能样本。
+- 新topology/placement.py先保留可行本地分配，再按容量/距离回退；managed04 node28 GPU2实际用NUMA3，GPU3用NUMA1。实际分配仍检查容量/页面位置。GPU空闲不代表NUMA足够。
+
+恢复优先读：
+1. code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md 附录I（新增完整过程）
+2. codex_coding/results/task2/cluster/managed04/managed_analysis.json、placement_plan.json、placement_journal.json、summary.json
+3. main_lib/fluidckpt/cluster/managed.py、managed_control.py；main_lib/fluidckpt/topology/placement.py
+4. codex_coding/src/task2/cluster/run_managed_placement.py、analyze_managed_placement.py；task2/configs/managed_single_target.json
+5. codex_coding/src/tests/test_managed_placement.py、test_numa_placement.py
+
+当前没有要接续的活跃GPU进程。下方“七步尚未实施”的旧状态已由此次单目标首交付更新；
+仍未做多目标、可迁移完整底本、通用节点/网络崩溃恢复、在线自适应及严格SGLang保活对照。
+checkpoint注入是提交动作之后的中断，不是节点崩溃；每卡允许集中后求解选均分，不是另做了集中布局的GPU对照。
+新run不可覆盖旧目录；GPU前core=0；通常每方案1次，保持编号，不重复做已完成的全链路。
+
+【以下保留此前完整交接作为历史，当前状态以上方更新和附录I为准】
+【
+上一轮信息：
+
+1. 先恢复项目身份、规范与用户约束。
+
+- 项目根目录：/home/zhujianian/zhujianian/fluidckpt_zjn
+- 项目：FluidCKPT；阶段：v0.1-init-project；开发编号固定为v0.1.23.2；任务task2，名称“保活闭环”。
+- 用户明确要求：在其再次指示前不要改变开发编号。该要求覆盖next_step中的通用跨会话递增规则，压缩恢复、日期变化均不自动加号。
+- 主目标：优化模型启动中“权重开始加载→所有目标GPU权重可用”的时间。不是进程启动、HTTP健康、首token或持续推理吞吐。
+- 代码注释英文，过程与理解文档中文；产品核心放main_lib/fluidckpt，实验脚本放codex_coding/src，结果放codex_coding/results，图源放src/plt、图放results/plt。
+- 不用python -c等inline实验；GPU启动必须ulimit -c 0并设置RLIMIT_CORE，历史曾产生203 GB core。
+- 基建阶段通常每方案测一次，必要时两次，不再做五轮重复。早期结果中的5次是历史数据，不是当前要求。
+- 用户喜欢初学者能理解的直观解释；控制变量、先确认实际路径、保留失败与负结果，不夸大加速。
+- 不修改/停止其他服务；只清理自己启动且记录身份的进程/容器；仓库有大量已有修改/未跟踪文件，不能reset或清理掉。
+- 用户此前要求暂缓归档；2026-09-29明确授权本次完整归档、覆盖history-chat并保存历史副本，本次已按此执行。不要把此前“未归档”当作现在仍未完成归档。
+- 本次最新动作是文档归档，未启动新GPU实验；最近讨论的七步联合控制层尚未实施。
+
+2. 必须优先阅读的文档，按顺序：
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/next_step.txt
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/debug_philosophy.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-09-29_task2_joint_placement_findings.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-09-29_task2_joint_planning_control_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/progress_diff_summary.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/key_conclusion.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/context_index/01_stage_summary.md
+
+过程文档按动机、实现、命令、数据、结论记录从NUMA闭环、单机多源、三节点八阶段，到策略/控制/流水比较、profiling失败链、MILP与真实placement的全部主线。需要细节先读它，不要依据老恢复文件重搭环境。
+
+用户随后要求参考v0.1.19.10-dsv4_dual_scope_integration_and_cudagraph_debug.md的信息量，过程文档已进一步增强：附录A～G包含端到端调用链、数据对象/偏移、内存与lease生命周期、transfer提交边界、serial/双缓冲依赖、MILP变量和数值单位、布局区间账本、计时归因、profiler排错、假设矩阵、开关状态和下一步代码落点。附录H由原始JSON/日志自动摘录，含逐op字节/耗时、SHA256、时间线及原始GPU标签证据。
+
+新增恢复重点：求解candidate不是已发布实体副本；现有transfer不是完整布局跨节点全有或全无提交；底层worker.retire不自行保证全局覆盖，实验直接退休由完整底本前提保护。这些是本次源码复核说明，不是新GPU故障实验。只读证据包：codex_coding/results/task2/archive_20260929/detailed_evidence.json。
+
+历史设计按需补读：
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-09-28_task2_numa_flow_loading_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-09-28_task2_stage2_replica_multipath_plan.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/docx/00_docx_storage_and_lookup_guide.md
+- /home/zhujianian/zhujianian/fluidckpt_zjn/code_building/key_files_index.md
+
+3. 当前硬件、模型和运行方式。
+
+- 主验证模型是/data/node28/shared/zhujianian/Qwen3.6-35B-A3B，TP=2。完整处理后快照70,329,718,112 bytes，约65.49965 GiB；每rank35,164,859,056 bytes，1009个storage区域。
+- GLM-5.3的gfx936 NSA/VMFault问题是历史旁线，不能再把它当当前Qwen系统建设阻塞；尚未宣称GLM适配解决。
+- 三节点：node27=12.11.3.27、node28=12.11.3.28、node29=12.11.3.29。每台物理8卡，当前实验mesh只用8个worker。
+- mesh：node27:0-3,node28:2-3,node29:0-1。
+- worker0/1=node27 GPU0/1，capture；worker2/3=node27 GPU2/3，原远端HBM；worker4/5=node28 GPU2/3，完整DRAM底本；worker6/7=node29 GPU0/1，恢复目标。
+- 最近node28 GPU0/1各占53,694 MiB，属其他业务，未触碰。后续重新preflight，不把历史占用当永久事实。
+- 运行时拓扑报告1 socket、8 NUMA，不用历史两socket假设。node27 GPU0/1/2/3最近分别邻近NUMA0/3/2/1，远端映射以各自探针为准。
+- 常驻已有容器：node27 zhujianian-fluidckpt；node28 zjn-fluidckpt-n28；node29 zjn-fluidckpt-n29。SystemRun为远端实验创建带SYS_NICE的临时容器，保证mbind；完成后回收，不改已有服务。
+- 容器source /opt/dtk/env.sh。worker AMD_SERIALIZE_KERNEL=0，SGLang=3；不要误统一为3，曾导致跨节点collective挂起。
+- NCCL_NET_PLUGIN=librccl-net-shca.so。跨节点send/recv在当前平台不可用，实际使用pair-group broadcast，IB/GDRDMA曾由日志验证。
+- worker端口46100+本地GPU号；master 12.11.3.27:46200；测试模型server 31942。
+- 集群runner从宿主机运行，node27容器root没有远端SSH密钥；需要SciPy的求解放到容器/worker，现有SciPy 1.15.3。
+- 最近placement01完全结束：cleanup_errors=[]，测试卡空闲，无待续跑的实验会话；不要尝试恢复旧PID或复用已有run目录。
+
+4. 已完成的系统，不要从头重建。
+
+- 主动NUMA DRAM分配、实际触页、GPU注册、显式释放；不是依赖Linux自动page cache保活。
+- 处理后权重capture、GPU模型释放、从Keeper恢复、全量字节和真实生成校验。
+- 三节点统一资源目录、容量/覆盖检查、DRAM/HBM副本、BUILDING/VALID/RETIRING/RELEASED生命周期、generation/epoch/leases保护。
+- prepare→execute→verify/publish→finish闭环；模型live恢复的全量SHA256放在weights_ready之后，避免混入主计时。
+- system02已经通过用户要求的第1到第8项系统任务：目录、放置、生命周期、HBM来源、双机、多源、联合启发式、三机验收。
+- 固定布局resource_lp已真实执行，后续有联合MILP；不要把早期joint_greedy的阶段7通过说成当时已有全局MILP。
+- compact控制面、10ms handoff轮询；可选double_buffer实现及故障注入/重试通过。
+- 当前默认：control_mode=compact、executor=serial、plan_restore策略nearest、place策略nearest。实验显式传resource_lp才启用LP，joint MILP还不是全局默认placement RPC。
+
+5. 必须记住的实验结果与限制。
+
+（1）早期单机结果，历史已有5次，不要重跑：
+- build01_validation：普通文件加载中位19.644s；NUMA staged 1.744s；direct 1.620s。
+- 这约12倍是保活恢复相对文件加载整体效果，不是最大流收益。文件页驻留94.8%～97.7%，不是严格冷盘实验。
+- stage2/model01：single_source中位1.431s、balanced 1.576s、resource_lp 1.405s，各5次；多来源不自动更快。
+
+（2）三节点及控制面：
+- system02：双机恢复2.300545s，三机2.730521s，八阶段通过。
+- policy01：primary_only 2.180202s、nearest 2.259574s、balanced 2.258084s、LP 2.336553s，各1次，不能作稳定排名；LP/nearest字节计划一致。
+- control01：legacy 2.305257→compact 1.955185s；plan约217.94→8.24ms；JSON约13.64→0.654 MB；执行约1.384s未变。这是控制面收益，不是LP收益。
+
+（3）流水与profiling：
+- pipeline01：serial加载2.105821s，double_buffer 2.090150s；执行1.606232/1.595941s。每种1次，没有显著双缓冲加速证据；两者相同LP字节计划、无回退。
+- 每worker两块32 MiB staging，两种模式都占64 MiB；serial每块同步；double_buffer两stream和ready/free events、异常drain，失败重试验证通过。
+- 已纠正计时：正常serial 2.105821s中，搬运约1.598505s（76%），全卡拷完后的收尾仅0.028267s。原先约0.25s completion等待主要是快卡等慢卡，不能重复算作独立控制瓶颈。
+- 慢rank在不同样本之间会交换，差异集中在远端DRAM大尾段；尚未证明固定某GPU慢。
+- profile01真实模型带采样2.439570s、字节和生成通过，但GPU trace在初次collector退出时未正常提交。CPU/阶段记录可用，不能假装存在完整模型GPU trace。
+- bulk_profile01补测每rank 8 GiB+17到连续目标：源H2D约0.182～0.184s，通信kernel约0.130～0.133s，间隙约0.024～0.028s，目标显存copy约0.013s。源H2D活动速率约47 GB/s。
+- bulk_profile01原summary.status=failed，因为运行期间修改离线analyze_restore_profile.py触发指纹检查；执行库/启动器未变、17,179,869,218 bytes与trace覆盖校验通过，cleanup无误。报告只标diagnostic_usable，不篡改failed，也不作为干净性能验收。
+- 停profiler的修复：只先终止受记录的worker子进程，等hipprof提交，再清理wrapper。厂商首个D2D标签误为D2H，已根据双方Device内存类型和关联kind=3校正分类，保留raw_names。
+- 同步函数/通信kernel驻留含等待，不能直接断言CPU计算慢或网卡饱和；event区间重叠也不等于DMA同时工作。
+
+（4）最新placement01，最重要：
+- 前提：固定完整node28 DRAM底本；恢复node29 TP2；额外8 GiB HBM＋2 GiB DRAM；serial执行器；每目标GPU HBM上限预设4 GiB。
+- 校准有效路径GB/s：远端DRAM 25.1038、远端HBM 33.5998、本地DRAM 44.8395、本地HBM 370.9458。各单测1 GiB、两rank同时、连续目标；不是全硬件普适容量。
+- 单场景联合MILP，36候选，gap=0，求解阶段约8.7ms。成对贪心约165ms达到同值；单副本贪心因minimax平台选0个副本。简单目标侧均衡布局与模型内最优值相同，实际选择balanced_local。
+- 新布局：node29 GPU0/1各存4 GiB HBM，对应NUMA DRAM各存另1 GiB，区间不重叠；node28底本保留。
+- 旧布局8 GiB HBM在node27，与node29的2 GiB DRAM重叠部分覆盖；新布局额外缓存唯一覆盖8→10 GiB。
+- 跨机搬运63.5→55.5 GiB，减少8 GiB。
+- 预测传输1.358008→1.222444s；实测execute 1.361813→1.255519s，省0.106294s，约7.8%。
+- 完整加载2.133549→1.812675s，样本下降15.0%；其中还有首次规划/映射与rank错峰变化，不能全部归因placement。
+- 旧检测规划派发0.201220s、映射0.187919s；新0.042266s、0.071879s。新rank入口错峰更大，分段见analysis。
+- 两次各完整SHA256校验70,329,718,112 bytes并对比3条生成结果；summary/analysis均passed，source_hash_mismatches=[]，cleanup_errors=[]。
+- 新布局建立约18.880737s，含复制/协调/全量校验，不在live加载计时内；不能直接拿此数算精确回本次数。
+- 预算扫描只是离线预测：HBM/DRAM额外GiB为0/0→1.400780s，0/2→1.381954s，4/0→1.321025s，8/0→1.241270s，8/2→1.222444s。
+- 最后相关CPU测试31 passed，包括MILP对穷举、serial成本、零预算、非法来源/容量。不是本轮归档重新跑出来的成绩。
+
+6. 联合规划与tradeoff的最新共识。
+
+- 本质是容量约束副本放置＋共享资源下的数据分配＋最小化最后完成时间；placement含离散选择，用MILP；固定布局下恢复用资源LP。不能简单将所有权重当一种可互换流体。
+- HBM更近、更快，但占推理显存；DRAM容量相对宽裕却仍有H2D；远端副本保留目标空间却要通信；冗余可能服务其他目标/故障场景，也可能在当前目标下无额外价值。
+- 目标是max(T_gpu0,T_gpu1)，只改善一张卡可能不降总时间，所以单副本贪心可能失败，联合/成对决策有价值。
+- 不能宣称均分普遍最优：本次每卡4 GiB上限是预设，尚未在放开上限后实测8+0集中vs4+4分散。
+- 目前只优化固定底本、单目标、有限候选。多目标需求、完整底本迁移、并发恢复及更多模型均未给出全局最优实证。
+- 长期目标包括严格比较SGLang自身保活，但不能说已经全面超越所有SGLang保活机制。
+
+7. 压缩后优先回看的核心代码。
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/joint.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/planning.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/control.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/catalog.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/wire.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/pipeline.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/profiling.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/measure.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/keeper.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/run_system.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/run_placement_comparison.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/solve_placement_case.py
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/tests/test_joint_placement.py
+
+joint.py新增MILP；planning.py新增按来源层path_rates和可选serial目标约束；worker/profiling增加按需诊断；run/solve/sweep/analyze脚本实现实验闭环。核心能力虽可调用，但需求、候选和变更动作仍部分由实验脚本拼接。
+
+8. 最相关结果，先读已保存JSON，不急着重跑分析覆盖历史。
+
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/placement_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/placement_solutions.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/placement_case.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/budget_sweep.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/placement01/summary.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/profile01/profiling_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/bulk_profile01/profiling_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/pipeline01/pipeline_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/control01/control_analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/system02/analysis.json
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/plt/task2_placement01.png
+- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/plt/task2_restore_profile01.png
+
+所有run入口已有目录都会拒绝重用。某些旧analyzer会对照当前源码与旧hash，跨版本重跑会改变验收报告；先看存量证据。运行开始后冻结记录中的源码，分析新需求放在实验结束后处理。
+
+9. 最重要的恢复记忆句。
+
+我们已用Qwen TP2在三节点上跑通完整保活恢复系统，并完成profiling和有限候选联合placement验证。当前目标不是重新搭环境、重跑GLM、默认启用双缓冲或证明均分永远最优，而是把离线MILP＋恢复LP＋副本生命周期接成统一控制层：明确需求和真实预算，自动生成候选，输出可执行且迁移过程不超预算的布局，再用实际恢复反馈验证。最新新布局传输省7.8%，完整窗口样本省15%但含准备差异；每卡4 GiB是预设，下一步要让真实预算决定它。
+
+这一轮：
+请你先回顾一下上一轮我们做了什么，然后，这一轮你的任务如下：
+
+1. 按第2节顺序阅读规范、完整过程文档、技术认识和最新联合控制层计划；再核对第8节placement/profile结果。
+
+2. 优先阅读joint.py、planning.py、control.py、catalog.py、worker.py及run_placement_comparison.py，确认哪些已经是核心接口、哪些仍写在实验驱动中。
+
+3. 先向用户用直观语言恢复现场：已完成什么、数据支持什么、哪些尚未证明。明确七步计划待实施，不把讨论当成交付。
+
+4. 接下来建议的七步建设顺序：
+   （1）统一资源快照、恢复需求与预算契约，纳入推理预留、通信缓冲和临时迁移空间。
+   （2）从完整权重清单自动生成候选，真实比较集中、分散、不对称；保留精确覆盖与尾字节。
+   （3）成本模型匹配serial/流水执行器和共享资源，准备与传输分别预测，标记有效范围。
+   （4）统一联合求解接口，先单目标再多互斥场景，输出可行性/最优界限/gap和显式回退。
+   （5）建设布局变更执行器，检查中间峰值容量，维持完整覆盖，发布前校验，保护leases，失败可重试。
+   （6）恢复请求使用真实已发布副本和版本，再运行快速资源LP，拒绝失效计划。
+   （7）建立预测—实测反馈；先离线报告，再考虑收益门槛、保持时间和迁移量上限，避免抖动。
+
+5. 第一交付收敛为“单模型单目标，自动候选→联合求解→变更→真实恢复验证”的完整链路；之后再做不对称预算、多恢复目标。互斥未来场景与同时多请求必须区分；改变TP需要另建重分片支持。
+
+6. 验收以少量区分性案例为主：对称、非对称、真正允许集中8 GiB、两目标、迁移临时空间不足、worker代次变化/中途失败。优先小规模穷举和故障注入；真实模型通常一次、必要时两次。双方控制面/IPC预热状态应对齐，完整时间和搬运时间分别报告。
+
+7. 当前用户请求仅是归档与压缩交接，所以恢复后先阅读和讨论下一步。用户后续明确要求开始建设时，就沿上述已验证环境继续，保持v0.1.23.2/task2，不重复请求已有授权，不擅自启动无关实验或新一轮归档。
+】
