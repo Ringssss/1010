@@ -1,0 +1,31 @@
+{
+  "device": "_CudaDeviceProperties(name='BW', major=9, minor=3, gcnArchName='gfx936:sramecc+:xnack-', total_memory=65520MB, multi_processor_count=80, uuid=30303134-6331-6162-3562-313832383231, pci_bus_id=9, pci_device_id=0, pci_domain_id=0, L2_cache_size=8MB)",
+  "torch": "2.10.0",
+  "operation_doc": "fuse_layernorm_rotary_embedding(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: typing.SupportsInt, arg4: torch.Tensor, arg5: bool, arg6: torch.Tensor | None, arg7: torch.Tensor | None, arg8: torch.Tensor | None, arg9: torch.Tensor | None, arg10: torch.Tensor | None, arg11: torch.Tensor | None, arg12: typing.SupportsFloat) -> None\n\nfuse_layernorm_rotary_embedding\n",
+  "cases": [
+    {
+      "tokens": 1,
+      "q_max_abs": 0.0,
+      "k_max_abs": 0.007809877395629883,
+      "finite": true
+    },
+    {
+      "tokens": 6,
+      "q_max_abs": 0.014258384704589844,
+      "k_max_abs": 0.015564441680908203,
+      "finite": true
+    },
+    {
+      "tokens": 32,
+      "q_max_abs": 0.01708984375,
+      "k_max_abs": 0.030401229858398438,
+      "finite": true
+    },
+    {
+      "tokens": 128,
+      "q_max_abs": 0.01955413818359375,
+      "k_max_abs": 0.03574943542480469,
+      "finite": true
+    }
+  ]
+}

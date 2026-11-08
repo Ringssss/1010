@@ -1,0 +1,33 @@
+{
+  "status": "prerequisite_failed",
+  "development": "v0.1.23.2",
+  "run": "local_pressure01",
+  "events": [],
+  "memory_samples": [],
+  "samples": [],
+  "lifecycle": {
+    "recalls": []
+  },
+  "axes": {
+    "x": "Measured local DRAM bytes / complete Qwen runtime weight bytes",
+    "y": "Restore request to first correct token, seconds"
+  },
+  "protocol": {
+    "fractions": [
+      1.0,
+      0.5,
+      0.0
+    ],
+    "policies": [
+      "local_dram_ssd",
+      "cluster_dram"
+    ],
+    "local_dram_ssd": "same warm engine and processed format; local DRAM plus local SSD fallback",
+    "cluster_dram": "same warm engine and processed format; local and remote DRAM",
+    "comparison": "same allocated backing objects and physical environment; policy changes eligible sources",
+    "ssd_policy": "fsync and file-specific FADV_DONTNEED; record actual kernel read_bytes",
+    "repetitions": 1,
+    "role": "capacity-locality motivation; placement/LP benefit is evaluated separately"
+  },
+  "error": "MemoryError('NUMA capacity cannot cover all capture blocks')"
+}

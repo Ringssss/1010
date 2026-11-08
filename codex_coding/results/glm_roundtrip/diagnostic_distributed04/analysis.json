@@ -1,0 +1,94 @@
+{
+  "status": "failed",
+  "diagnostic_model": true,
+  "scope": "GLM FP8 TP16 capture and local-DRAM warm restore across two compute hosts; not a three-node migration or performance comparison",
+  "ib_hca": "shca_0",
+  "logical_bytes": 60123788288,
+  "release_s": null,
+  "request_to_first_token_s": null,
+  "output_matches_native_and_pre_release": false,
+  "verification": {
+    "passed": null,
+    "checked_bytes": null,
+    "algorithm": null
+  },
+  "memory": {
+    "node27": {
+      "sampled_hbm_peak_bytes": 54914203648,
+      "sampled_cgroup_peak_bytes": 96378118144,
+      "sample_count": 603,
+      "drm_devices": [
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "card7",
+        "card8"
+      ],
+      "logical_gpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "node29": {
+      "sampled_hbm_peak_bytes": 54917877760,
+      "sampled_cgroup_peak_bytes": 91922923520,
+      "sample_count": 598,
+      "drm_devices": [
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "card7",
+        "card8"
+      ],
+      "logical_gpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "node28": {
+      "sampled_hbm_peak_bytes": 6492184576,
+      "sampled_cgroup_peak_bytes": 27096244224,
+      "sample_count": 593,
+      "drm_devices": [
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "card7",
+        "card8"
+      ],
+      "logical_gpus": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "limitations": [
+    "Truncated eight-layer model; generated text is not full GLM semantic validation.",
+    "No same-budget baseline or latency distribution in this roundtrip.",
+    "Wall-clock alignment across hosts is approximate; token latency uses the controller clock.",
+    "cgroup memory.current includes charged pages; shared page-cache attribution remains unresolved."
+  ]
+}

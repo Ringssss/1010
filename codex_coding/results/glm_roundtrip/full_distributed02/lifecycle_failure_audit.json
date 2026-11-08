@@ -1,0 +1,26 @@
+{
+  "as_of": "2026-10-04T11:12:49.317660+08:00",
+  "full_roundtrip_passed": true,
+  "lifecycle_status": "failed",
+  "cause_evidence": "Qwen HIP OOM at weight allocation after IPC baseline; export wait then timed out",
+  "ipc_retirement_worker0": {
+    "used_bytes": {
+      "dram": 0,
+      "hbm": 0,
+      "ssd": 0
+    },
+    "hbm_allocated_bytes": 49080151552,
+    "headroom_bytes": {
+      "hbm": 12910592000,
+      "dram": 33555537920
+    }
+  },
+  "isolated_probe": "codex_coding/results/ipc_reclaim/probe02_run_environment",
+  "source_changes": [
+    "fresh export per IPC import; export RPC included in timing",
+    "retire sets device and collects IPC; inventory includes reserved bytes",
+    "IPC adapter checks actual allocated bytes after retirement"
+  ],
+  "full_model_fix_verified": false,
+  "live_data_policy": "retain CPU owners and current transport processes; no mesh restart was performed"
+}

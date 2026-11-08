@@ -1,0 +1,94 @@
+{
+  "status": "passed",
+  "diagnostic_model": true,
+  "scope": "GLM FP8 TP16 capture, staged three-node DRAM backing, release and warm restore; not an A/B lifecycle or a same-budget policy comparison",
+  "ib_hca": "shca_0",
+  "logical_bytes": 60123788288,
+  "release_s": 0.9917157553136349,
+  "request_to_first_token_s": 3.6067906208336353,
+  "output_matches_native_and_pre_release": true,
+  "verification": {
+    "passed": true,
+    "checked_bytes": 60123788288,
+    "algorithm": "SHA256 of every logical byte per operation"
+  },
+  "memory": {
+    "node27": {
+      "sampled_hbm_peak_bytes": 58305171456,
+      "sampled_cgroup_peak_bytes": 97551667200,
+      "sample_count": 641,
+      "drm_devices": [
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "card7",
+        "card8"
+      ],
+      "logical_gpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "node29": {
+      "sampled_hbm_peak_bytes": 58307235840,
+      "sampled_cgroup_peak_bytes": 92688691200,
+      "sample_count": 636,
+      "drm_devices": [
+        "card1",
+        "card2",
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "card7",
+        "card8"
+      ],
+      "logical_gpus": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    "node28": {
+      "sampled_hbm_peak_bytes": 6477676544,
+      "sampled_cgroup_peak_bytes": 27541221376,
+      "sample_count": 630,
+      "drm_devices": [
+        "card3",
+        "card4",
+        "card5",
+        "card6",
+        "card7",
+        "card8"
+      ],
+      "logical_gpus": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    }
+  },
+  "limitations": [
+    "Truncated eight-layer model; generated text is not full GLM semantic validation.",
+    "No same-budget baseline or latency distribution in this roundtrip.",
+    "Wall-clock alignment across hosts is approximate; token latency uses the controller clock.",
+    "cgroup memory.current includes charged pages; shared page-cache attribution remains unresolved."
+  ]
+}

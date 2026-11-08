@@ -1,0 +1,16 @@
+{
+  "status": "failed_and_cleaned",
+  "model_snapshot_live": false,
+  "containers_removed": ["node27:zjn-fluid-glm-full01", "node28:zjn-fluid-glm-full01", "node29:zjn-fluid-glm-full01"],
+  "original_model_files_modified": false,
+  "verified_milestones": {
+    "native_full_glm_generation": "../../glm_three_node/native_triton04/summary.json",
+    "rank0_migration_verified_bytes": 49013042528,
+    "surviving_rank_restore_verified_bytes": 637169552864,
+    "all_rank_capture_eventually_completed": true,
+    "full_glm_restored_generation_passed": false
+  },
+  "model_restore_failure": "MoE TopKConfig retained a meta-device reference to correction_bias after registered parameters were rebound.",
+  "transport_failure": "An added synthetic test on the same mesh timed out on the node28 GPU6 to node27 GPU0 path. The watchdog subsequently terminated all keeper processes, losing their private DRAM backing.",
+  "followup": "Nested tensor references were repaired. Independent CPU ownership using memfd regions was implemented and validated with an abruptly exiting HIP client and a replacement ClusterWorker. Full GLM lifecycle must be rerun before claiming success."
+}

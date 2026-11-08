@@ -1,0 +1,49 @@
+{
+  "as_of": "2026-10-04T10:14:15.310030+08:00",
+  "development": "v0.1.23.2",
+  "roundtrip_status": "passed",
+  "current_status": "running_lifecycle",
+  "model": "/data/node28/shared/zhujianian/GLM-5.3",
+  "nodes": [
+    "node27",
+    "node28",
+    "node29"
+  ],
+  "runtime_weight_bytes": 784208680448,
+  "full_byte_verification": true,
+  "restored_output_correct": true,
+  "release_s": 1.471650100313127,
+  "restoration_first_token_s": 11.452931760810316,
+  "restore_transfer_s": 4.827151763252914,
+  "device_free_increase_bytes": 786012569600,
+  "ipc_hit_first_token_s": [
+    1.7338680671527982,
+    1.3625552989542484,
+    1.3632228495553136
+  ],
+  "ipc_median_s": 1.3632228495553136,
+  "ipc_scope": "adapted HIP IPC HBM-resident hit; owner setup is measured separately; not a capacity-pressure policy or upstream daemon implementation",
+  "ipc_owner_weight_bytes": 784208680448,
+  "ipc_owner_setup_s": 212.74342724587768,
+  "lifecycle_driver": {
+    "status": "running",
+    "command": [
+      "/usr/bin/python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/continue_glm_ab.py",
+      "--session",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_roundtrip/full_distributed02/session.json"
+    ],
+    "started": 1791079964.0364552
+  },
+  "remaining": [
+    "Three-node full GLM/Qwen A/B migration and mid-migration recall acceptance",
+    "Full GLM recovery at a different compute placement",
+    "Strict same-resource-budget strong baselines including page-cache accounting",
+    "Repeated workloads, tail latency, service interference and MILP/flow ablations"
+  ],
+  "limits": [
+    "One Fluid roundtrip and three adapted resident HIP IPC hits; no tail-latency or equal-budget superiority claim",
+    "Full SHA validation performed after generation; initial capture, snapshot provisioning and later SHA scans are outside the reported restoration TTFT",
+    "Older 2.29-3.75x gains compare disk fallback in a four-node trace, not resident IPC or this full GLM run"
+  ]
+}

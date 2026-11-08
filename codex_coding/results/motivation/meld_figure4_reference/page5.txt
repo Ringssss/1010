@@ -1,0 +1,155 @@
+GPU kernel
+Scenario
+Description
+Dynamism
+Execution phases
+Attention (MHA,
+GQA, MLA [58])
+Inference Batched attention in inference
+(decoding)
+Batch size and
+sequence lengths
+Partial: attention of subsequences;
+Reduce: merge intermediate results (rescale, accumulate, normalize).
+MoE forward
+Infer.
+& train
+Batched expert activation, local
+reduction to save bandwidth
+Batch size and
+each expert’s load
+Partial-1/2: each expert’s FFN computations (grouped execution of
+multiple tokens); Partial-1: GEMM-1 and activation; Partial-2: GEMM-2;
+Reduce: (optional) weighted accumulation of each token’s expert outputs.
+DeepSeek NSA [45]
+lightning indexer
+Infer. &
+train
+Choose top-K relative tokens
+from the whole sequence
+Batch size and
+sequence lengths
+Partial: score and sort within the subsequence;
+Reduce: sort the intermediate top-K results to get the final top-K.
+Cross-entropy loss Training
+(SFT/RL)
+Calculate per-sequence loss
+using per-token loss
+Batch size and
+sequence lengths
+Partial: calculate the mean loss of each subsequence;
+Reduce: merging intermediate results with normalization.
+Top-K and top-P
+sampling
+Infer.
+& train
+Sample top-K/top-P tokens
+from vocabulary
+Batch size
+Partial: sort and select top-K/top-P tokens from local subsequence;
+Reduce: merge intermediate results to get final top-K/top-P.
+LayerNorm &
+RMSNorm [59]
+Infer.
+& train
+Normalize the input before
+each layer
+Batch size and
+sequence lengths
+Partial-1: subsequence processing;
+Reduce: accumulated inverse RMS calculation or Welford [60, 61] merge;
+Partial-2: normalizing subsequences using reduction results in parallel.
+Cluster probing
+Vector
+search
+Each query probes several
+clusters and traverses the points
+Batch size and
+each cluster’s size
+Partial: traverse the data points in each cluster;
+Reduce: sort and merge local top-K results to get the k-nearest neighbors.
+Table 1. DNN programs with dynamic workloads, and their execution stages.
+0
+18
+36
+54
+72
+Time (GPU cycles/K)
+0
+50
+100
+150
+200
+Thread Block ID
+Total GPU idle: 39%
+Figure 4. GPU utilization for decoding attention under real
+workloads (vLLM). Each green band shows a split-KV attention
+block, with each blue band indicating the combine of a sequence.
+in shared memory, enabling fine-grained cross-SM synchro-
+nization. Furthermore, with TMA (§2.1), the interconnect-
+based data transfer and status signaling can be made asyn-
+chronous and offloaded to hardware. To expose this capability,
+the thread block cluster abstraction is introduced. Each ker-
+nel specifies a single, uniform cluster size6, and blocks within
+each cluster can utilize the interconnect.
+However, the underlying interconnect topology remains
+undisclosed, precluding its effective utilization by software
+systems. Its practical adoption is hindered by two issues.
+First, strict locality. The maximum cluster size is limited to
+16, restricting the interconnect to only a small group of ad-
+jacent SMs. Second, SM underutilization and fragmentation.
+For instance, on H100 GPUs, configuring a cluster size of
+10–16 renders 62–20 SMs incapable of hosting thread blocks,
+leaving them idle. Full SM utilization is achievable only when
+cluster size is restricted to 2, leaving the interconnect frag-
+mented. Consequently, it remains overlooked by mainstream
+hand-optimized kernels and all compilers.
+3
+Overview
+3.1 Observations and Insights
+Meld is motivated by two insights. First, disentangling de-
+pendency via SM-level cooperation. Modern GPUs’ on-chip
+interconnects provide sufficient bandwidth and fine-grained
+synchronization, transforming the GPU into a cooperative
+system with highly flexible state exchange across the SMs.
+6Blackwell relaxes this with a fallback size, but constraints persist (§4.2).
+This unlocks fine-grained SM cooperation: by decomposing
+coarse-grained, kernel-level dependencies into sub-task-level
+ones, it transforms traditional multi-kernel execution into
+flexible, sub-task-level pipelines. It also enables absorption
+of redundant memory traffic with cooperative loading.
+This SM cooperation further unlocks just-in-time reduc-
+tion. Leveraging hardware-offloaded asynchronous trans-
+mission and signaling (§2.4), the intermediate states can be
+asynchronously delivered to the target SM’s shared memory,
+ready before they are needed for reduction (i.e., just-in-time).
+Once the target SM finishes its sub-task, it performs the re-
+duction directly within its local SRAM in a wait-free manner,
+thereby further enhancing pipeline efficiency.
+Second, dynamic coordination via decoupled execution.
+Existing programming frameworks fail to adapt to dynamic
+workloads due to the coupling of computation logic and hard-
+ware mapping. This inherent coupling constrains general-
+purpose frameworks (e.g., Triton) to static parallelism (e.g.,
+split-K), while restricting expert-optimized kernels to uni-
+form tiling strategies. With decoupled programming and
+execution, developers declaratively define the computation
+logic, while the runtime dynamically determines paralleliza-
+tion and cooperation strategies according to input shapes.
+Together, these two insights enable cross-SM kernel fusion
+for GPU programs with dynamic workloads. As Fig. 3 (d)
+shows, after finishing a split-KV sub-task, instead of mate-
+rializing the intermediate results, the producer SM (asyn-
+chronously) forwards them to the consumer SM’s shared
+memory and proceeds to the next sub-task, while the con-
+sumer SM performs reduction directly. The hardware barri-
+ers (mbarrier) ensure pipeline correctness. With decoupled
+execution, the runtime dynamically adapts the parallelization
+and cooperation plan to input shapes. This dynamic coop-
+eration further enables adaptive copy absorption. In many
+cases, multiple SMs load identical data, e.g., many sequences
+share a prefix in attention [68–71], and multiple SMs load
+the same hidden states (GEMM-1) and intermediate states
+(GEMM-2) in MoE forward. Via on-chip interconnects, we
+use one SM to load data and broadcast it to others.
+1074

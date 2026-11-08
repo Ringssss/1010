@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "attempt": "capacity03",
+  "as_of": "2026-10-04T12:41:17.211688+08:00",
+  "models": [
+    "GLM-5.3 TP16",
+    "Qwen3.6-35B-A3B TP2"
+  ],
+  "pre_spill_bytes": 49013042528,
+  "subsequent_migration_bytes": 50086784352,
+  "pressure": {
+    "node": "node27",
+    "GLM_dram_before_bytes": 245065212640,
+    "requested_GLM_dram_budget_bytes": 194978428288,
+    "scope": "synthetic budget reduction; actual weight migration and source allocation release",
+    "placement_policy": "fixed trace for lifecycle acceptance, not MILP optimality evidence",
+    "GLM_dram_after_bytes": 194978428288
+  },
+  "recalls": [
+    {
+      "model": "A",
+      "reason": "bootstrap",
+      "request_to_first_token_s": 14.586511393077672,
+      "correct": true,
+      "checked_bytes": 784208680448
+    },
+    {
+      "model": "B",
+      "reason": "first_switch",
+      "request_to_first_token_s": 2.1410335525870323,
+      "correct": true,
+      "checked_bytes": 70329718112
+    },
+    {
+      "model": "A",
+      "reason": "mid_migration_46",
+      "request_to_first_token_s": 11.840436594560742,
+      "correct": true,
+      "checked_bytes": null
+    },
+    {
+      "model": "B",
+      "reason": "continue_after_46",
+      "request_to_first_token_s": 2.0207868618890643,
+      "correct": true,
+      "checked_bytes": null
+    },
+    {
+      "model": "A",
+      "reason": "mid_migration_93",
+      "request_to_first_token_s": 11.517439672723413,
+      "correct": true,
+      "checked_bytes": null
+    },
+    {
+      "model": "B",
+      "reason": "continue_after_93",
+      "request_to_first_token_s": 2.0383846210315824,
+      "correct": true,
+      "checked_bytes": null
+    },
+    {
+      "model": "A",
+      "reason": "mid_migration_140",
+      "request_to_first_token_s": 13.222161856479943,
+      "correct": true,
+      "checked_bytes": null
+    },
+    {
+      "model": "B",
+      "reason": "continue_after_140",
+      "request_to_first_token_s": 2.032911096699536,
+      "correct": true,
+      "checked_bytes": null
+    },
+    {
+      "model": "A",
+      "reason": "return_after_migration",
+      "request_to_first_token_s": 11.680031056515872,
+      "correct": true,
+      "checked_bytes": 784208680448
+    }
+  ],
+  "switches": [
+    {
+      "from": "A",
+      "to": "B",
+      "reason": "first_switch",
+      "release_s": 1.5972209060564637,
+      "switch_to_first_token_s": 11.64025403931737
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "reason": "mid_migration_46",
+      "release_s": 0.9900379562750459,
+      "switch_to_first_token_s": 21.35635268781334
+    },
+    {
+      "from": "A",
+      "to": "B",
+      "reason": "continue_after_46",
+      "release_s": 1.3143368745222688,
+      "switch_to_first_token_s": 12.586996119469404
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "reason": "mid_migration_93",
+      "release_s": 0.7667846046388149,
+      "switch_to_first_token_s": 22.263732193037868
+    },
+    {
+      "from": "A",
+      "to": "B",
+      "reason": "continue_after_93",
+      "release_s": 1.3103650957345963,
+      "switch_to_first_token_s": 13.563508388586342
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "reason": "mid_migration_140",
+      "release_s": 0.6853018058463931,
+      "switch_to_first_token_s": 25.070770741440356
+    },
+    {
+      "from": "A",
+      "to": "B",
+      "reason": "continue_after_140",
+      "release_s": 1.3547857068479061,
+      "switch_to_first_token_s": 14.833049460314214
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "reason": "return_after_migration",
+      "release_s": 1.0288408193737268,
+      "switch_to_first_token_s": 24.80093223322183
+    }
+  ],
+  "scope": "same compute placements; live models, real 256MiB block moves and node28 SSD; one functional trace"
+}

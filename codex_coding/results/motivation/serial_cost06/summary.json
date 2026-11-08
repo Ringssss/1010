@@ -1,0 +1,33 @@
+{
+  "status": "prerequisite_failed",
+  "development": "v0.1.23.2",
+  "run": "serial_cost06",
+  "events": [],
+  "memory_samples": [],
+  "samples": [],
+  "lifecycle": {
+    "recalls": []
+  },
+  "axes": {
+    "x": "Measured local DRAM bytes / complete Qwen runtime weight bytes",
+    "y": "Restore request to first correct token, seconds"
+  },
+  "protocol": {
+    "fractions": [
+      1.0
+    ],
+    "cpu_first_ssd": false,
+    "policies": [
+      "local_dram_ssd",
+      "cluster_dram"
+    ],
+    "local_dram_ssd": "same warm engine and processed format; local DRAM plus local SSD fallback",
+    "cluster_dram": "same warm engine and processed format; local and remote DRAM",
+    "comparison": "same allocated backing objects and physical environment; policy changes eligible sources",
+    "ssd_policy": "fsync and file-specific FADV_DONTNEED; record actual kernel read_bytes",
+    "repetitions": 1,
+    "role": "capacity-locality motivation; placement/LP benefit is evaluated separately"
+  },
+  "route_evidence": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/transport_validation/pressure_pairs01/summary.json",
+  "error": "RuntimeError('prepare failed: [\\'http://12.11.3.27:29700/prepare: {\"error\": \"RuntimeError(\\\\\\\\\"MemoryError(\\\\\\'NUMA free-page reserve would be crossed; select another binding\\\\\\')\\\\\\\\\")\", \"traceback\": \"Traceback (most recent call last):\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py\\\\\\\\\", line 430, in do_POST\\\\\\\\n    result = getattr(worker, op)(body)\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py\\\\\\\\\", line 178, in prepare\\\\\\\\n    buf = self.catalog.reserve(desc, lambda: self.allocate(desc))\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/catalog.py\\\\\\\\\", line 29, in reserve\\\\\\\\n    tensor, owner = allocate()\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py\\\\\\\\\", line 178, in <lambda>\\\\\\\\n    buf = self.catalog.reserve(desc, lambda: self.allocate(desc))\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py\\\\\\\\\", line 100, in allocate\\\\\\\\n    owner = OwnedHostAllocation(socket_path, desc[\\\\\\'id\\\\\\'], desc[\\\\\\'n\\\\\\'],\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/memory/owned_host.py\\\\\\\\\", line 20, in __init__\\\\\\\\n    self.mapping = Mapping(socket_path, key, nbytes, numa, metadata)\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/memory/owner.py\\\\\\\\\", line 171, in __init__\\\\\\\\n    store.entries[key] = {\\\\\\'fd\\\\\\': fd, \\\\\\'mapping\\\\\\': mapping, \\\\\\'nbytes\\\\\\': desc[\\\\\\'n\\\\\\'],\\\\\\\\n  File \\\\\\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/memory/owner.py\\\\\\\\\", line 59, in call\\\\\\\\n    raise RuntimeError(result[\\\\\\'error\\\\\\'])\\\\\\\\nRuntimeError: MemoryError(\\\\\\'NUMA free-page reserve would be crossed; select another binding\\\\\\')\\\\\\\\n\"}\\']')"
+}
