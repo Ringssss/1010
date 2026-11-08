@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "kind": "CPU-only offline analysis validation",
+  "tests_passed": 8,
+  "new_gpu_samples": 0,
+  "development_failures": [
+    {"issue": "测试类的run属性遮蔽unittest.TestCase.run", "fix": "改为run_dir"},
+    {"issue": "network操作kind不携带HBM/DRAM来源层，初版层汇总错误", "fix": "从plan.ops.path的明确tier字段提取；真实来源字节回归测试通过"},
+    {"issue": "测试预期百分比末位手写值不准确", "fix": "按原rank事件计算并核对23.917190333269016%"}
+  ],
+  "hardware_experiment_failures": [],
+  "notes": "以上是新增离线脚本开发期错误，均在审计run产出前修正；不改历史测量或增加样本。"
+}

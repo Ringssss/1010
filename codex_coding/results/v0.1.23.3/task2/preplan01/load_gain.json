@@ -1,0 +1,69 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "passed": true,
+  "cases": [
+    {
+      "variant": "baseline",
+      "load_s": 1.748662094,
+      "segments_s": {
+        "entry_and_start_skew": 0.01426873,
+        "layout": 0.321090034,
+        "export": 0.040364537,
+        "detect_plan_dispatch": 0.061997368,
+        "map": 0.057927395,
+        "execute_dispatch": 0.00892604,
+        "last_copy_worker_execute": 1.214730774,
+        "after_all_copies_until_ready": 0.029357216
+      },
+      "execute_s": 1.2237640442326665,
+      "preplanning_s": 0,
+      "dispatch_to_ready_s": 1.346748416312039,
+      "byte_plan_sha256": "d891310cd8158fbe0f21943dc84ad59b09a6a9c620f363f8229a1373add9da65",
+      "verified_bytes": 70329718112,
+      "generation_checks": 3
+    },
+    {
+      "variant": "preplanned",
+      "load_s": 1.700245932,
+      "segments_s": {
+        "entry_and_start_skew": 0.002546495,
+        "layout": 0.314898359,
+        "export": 0.036101882,
+        "detect_plan_dispatch": 0.048465263,
+        "map": 0.058578739,
+        "execute_dispatch": 0.008032065,
+        "last_copy_worker_execute": 1.204758978,
+        "after_all_copies_until_ready": 0.026864151
+      },
+      "execute_s": 1.2117245253175497,
+      "preplanning_s": 0.05236724764108658,
+      "dispatch_to_ready_s": 1.3096515806391835,
+      "byte_plan_sha256": "d891310cd8158fbe0f21943dc84ad59b09a6a9c620f363f8229a1373add9da65",
+      "verified_bytes": 70329718112,
+      "generation_checks": 3
+    }
+  ],
+  "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+  "load_saved_s": 0.048416161999999874,
+  "load_reduction_pct": 2.768754590502376,
+  "preplanning_cost_s": 0.05236724764108658,
+  "saved_minus_preplanning_s": -0.003951085641086705,
+  "segment_saved_s": {
+    "entry_and_start_skew": 0.011722235000000001,
+    "layout": 0.006191675000000008,
+    "export": 0.004262654999999997,
+    "detect_plan_dispatch": 0.013532104999999996,
+    "map": -0.0006513439999999981,
+    "execute_dispatch": 0.000893975,
+    "last_copy_worker_execute": 0.009971795999999866,
+    "after_all_copies_until_ready": 0.002493064999999999
+  },
+  "limitations": [
+    "one observation per variant; fixed baseline then preplanned order",
+    "same source generations and byte routes; both communication-warm",
+    "one-shot ticket consumes the same transactional prepare checks; not a stale-plan bypass",
+    "advance planning is possible only when the target and placement are known",
+    "negative saved time is a regression; prediction accuracy is not a success criterion"
+  ]
+}

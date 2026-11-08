@@ -1,0 +1,114 @@
+{
+  "counters_exported": [
+    1,
+    1,
+    1
+  ],
+  "capture": [
+    {
+      "ev": "capture",
+      "snap": "smoke",
+      "tp": 0,
+      "GiB": 0.0039100805297493935,
+      "n": 3,
+      "map_s": 0.0006933212280273438,
+      "pin_s": 0.02533745765686035,
+      "d2h_s": 0.03881549835205078,
+      "d2h_GBps": 0.10816341869221888,
+      "memory": {
+        "backend": "numa_registered",
+        "numa": 2,
+        "logical_bytes": 4198417,
+        "allocation_bytes": 4202496,
+        "sampled_page_distribution": {
+          "2": 1.0
+        },
+        "placement_samples": 256,
+        "timings": {
+          "allocate_bind_touch_s": 0.024235832039266825,
+          "register_s": 0.0010782219469547272,
+          "total_s": 0.025316499173641205
+        }
+      }
+    }
+  ],
+  "counters_after_capture": [
+    1,
+    1,
+    1
+  ],
+  "capture_verify": {
+    "checked_bytes": 4198417,
+    "expected_bytes": 4198417,
+    "mismatched_bytes": 0,
+    "storages": 3,
+    "passed": true,
+    "elapsed_s": 0.04922847310081124
+  },
+  "counters_after_verify": [
+    1,
+    1,
+    1
+  ],
+  "counters_after_release": [
+    0,
+    0,
+    0
+  ],
+  "before_restore": {
+    "checked_bytes": 4198417,
+    "expected_bytes": 4198417,
+    "mismatched_bytes": 3862093,
+    "storages": 3,
+    "passed": false,
+    "elapsed_s": 0.0018390119075775146
+  },
+  "missing_storage_rejected": true,
+  "local_failure_propagated": true,
+  "restore": {
+    "ev": "flow",
+    "into": "hbm",
+    "dst_tps": [
+      0
+    ],
+    "prep_s": 0.0001342296600341797,
+    "ib_s": 2.09808349609375e-05,
+    "total_s": 0.02068328857421875,
+    "executor": "direct",
+    "chunk_bytes": 268435456,
+    "local": {
+      "buffer_prepare_s": 2.9333867132663727e-05,
+      "copy_and_sync_s": 0.020245963241904974
+    },
+    "ib_bytes": 0,
+    "ssd_bytes": 0,
+    "h2d_bytes": 4198417
+  },
+  "restore_verify": {
+    "checked_bytes": 4198417,
+    "expected_bytes": 4198417,
+    "mismatched_bytes": 0,
+    "storages": 3,
+    "passed": true,
+    "elapsed_s": 0.001007263083010912
+  },
+  "restore_counters_after_release": [
+    0,
+    0,
+    0
+  ],
+  "drop": {
+    "dropped": "smoke"
+  },
+  "reload": {
+    "ev": "load",
+    "snap": "smoke",
+    "tp": 0,
+    "GiB": 0.0039100805297493935,
+    "pin_s": 0.0022497177124023438,
+    "read_s": 0.0006225109100341797,
+    "GBps": 6.713472061291651
+  },
+  "truncated_snapshot_rejected": true,
+  "status": "passed"
+}

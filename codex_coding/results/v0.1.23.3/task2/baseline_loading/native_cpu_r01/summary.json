@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "measurement_status": "not_measured",
+  "gpu_experiment_started": false,
+  "scope": "CPU test/build and read-only existing four-worker platform inspection",
+  "tests": {"passed": 12, "log": "unittest_r04.log"},
+  "registration": "registration_r02/summary.json",
+  "preflight": "read_only_preflight_r03/summary.json",
+  "prior_failures": [
+    {"artifact": "read_only_preflight/summary.json", "cause": "Vendor import stdout preceded JSON; final-JSON parser fixed, no GPU work"},
+    {"artifact": "unittest_r01.log", "cause": "mincore sample spacing denominator used requested sample count rather than available page count for tiny files; corrected, regression passes"}
+  ],
+  "baseline_identity": "海光vendor SGLang原生checkpoint路径，不是lib_cite冻结upstream原版daemon",
+  "native_source_commit_limit": "安装目录无.git；包版本包含cbf025构建标识；完整commit没有认证",
+  "cache_scope": "Linux文件页缓存驻留采样；正式warm预读尚未执行；不是显式pinned host warm baseline",
+  "primary_window": "same-host max(weights_ready)-min(load_begin)",
+  "startup_scope": "fresh engine startup包含权重窗口及ready后完整SHA/layout验证；验证耗时单列",
+  "execution": "由主agent统一运行单case；不自动启动GPU、重启现有parked引擎或删除保活底本"
+}

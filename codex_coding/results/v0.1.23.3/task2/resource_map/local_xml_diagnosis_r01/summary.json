@@ -1,0 +1,166 @@
+{
+  "metadata_only": true,
+  "gpu_payload_bytes": 0,
+  "communicators": 0,
+  "sysfs_process": {
+    "argv": [
+      "python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/local_xml/diagnose_admission.py",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01",
+      "--sysfs-child"
+    ],
+    "pid": 3972121,
+    "start_time": "476868417",
+    "returncode": 0,
+    "timed_out": false,
+    "cleanup": {
+      "passed": true,
+      "already_exited": true
+    },
+    "elapsed_ns": 163741967,
+    "timeout_seconds": 12,
+    "actual_after": {
+      "pid": 3972121,
+      "live": false
+    },
+    "log": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01/sysfs_owner.log"
+  },
+  "container_process": {
+    "argv": [
+      "docker",
+      "exec",
+      "zjn-fluid-basic-1bce3897a2075b",
+      "bash",
+      "-lc",
+      "ulimit -c 0\nsource /opt/dtk/env.sh >/dev/null 2>&1\nexec timeout --signal=TERM --kill-after=2s 35s python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/local_xml/diagnose_admission.py --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01 --trials"
+    ],
+    "pid": 3972126,
+    "start_time": "476868434",
+    "returncode": 0,
+    "timed_out": false,
+    "cleanup": {
+      "passed": true,
+      "already_exited": true
+    },
+    "elapsed_ns": 10731708211,
+    "timeout_seconds": 40,
+    "actual_after": {
+      "pid": 3972126,
+      "live": false
+    },
+    "log": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01/container_trials.log"
+  },
+  "keepers": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "gpu": 0,
+      "headroom_bytes": {
+        "hbm": 4974968832,
+        "dram": 643108864
+      },
+      "headroom_sample_ns": 4768684344068674,
+      "rpc_elapsed_ns": 6037080,
+      "epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+      "transactions": []
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "gpu": 1,
+      "headroom_bytes": {
+        "hbm": 4767350784,
+        "dram": 6836903936
+      },
+      "headroom_sample_ns": 4768684343986819,
+      "rpc_elapsed_ns": 4672574,
+      "epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+      "transactions": []
+    }
+  ],
+  "gpu_startup_authorized": false,
+  "admission_replaced": false,
+  "hip_trials": {
+    "cases": [
+      {
+        "argv": [
+          "python3",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/local_xml/diagnose_admission.py",
+          "--out",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01",
+          "--hip-child",
+          "--case",
+          "all_visible"
+        ],
+        "pid": 13691,
+        "start_time": "476868455",
+        "returncode": 1,
+        "timed_out": false,
+        "cleanup": {
+          "passed": true,
+          "already_exited": true
+        },
+        "elapsed_ns": 10131525101,
+        "timeout_seconds": 12,
+        "actual_after": {
+          "pid": 13691,
+          "live": false
+        },
+        "log": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01/all_visible.log"
+      },
+      {
+        "argv": [
+          "python3",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/local_xml/diagnose_admission.py",
+          "--out",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01",
+          "--hip-child",
+          "--case",
+          "gpu01_visible"
+        ],
+        "pid": 13698,
+        "start_time": "476869468",
+        "returncode": -11,
+        "timed_out": false,
+        "cleanup": {
+          "passed": true,
+          "already_exited": true
+        },
+        "elapsed_ns": 364167579,
+        "timeout_seconds": 12,
+        "actual_after": {
+          "pid": 13698,
+          "live": false
+        },
+        "log": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_diagnosis_r01/gpu01_visible.log"
+      }
+    ],
+    "metadata_only": true,
+    "gpu_payload_bytes": 0,
+    "communicators": 0,
+    "passed_cleanup": true
+  },
+  "free_comparison": [
+    {
+      "gpu": 0,
+      "bdf": "0000:09:00.0",
+      "sysfs_total_minus_used_bytes": 5009002496,
+      "keeper_physical_free_bytes": 4974968832,
+      "sysfs_minus_keeper_bytes": 34033664,
+      "same_metric": false,
+      "scope": "total-minus-used is not automatically HIP Available/free"
+    },
+    {
+      "gpu": 1,
+      "bdf": "0000:36:00.0",
+      "sysfs_total_minus_used_bytes": 5555335168,
+      "keeper_physical_free_bytes": 4767350784,
+      "sysfs_minus_keeper_bytes": 787984384,
+      "same_metric": false,
+      "scope": "total-minus-used is not automatically HIP Available/free"
+    }
+  ],
+  "old_explicit_code_records_preserved": true,
+  "old_raw_summary_preserved": true
+}

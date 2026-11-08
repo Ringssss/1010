@@ -1,0 +1,557 @@
+{
+  "case": {
+    "label": "native_2_16MiB",
+    "mode": "native",
+    "nbytes": 16777216,
+    "operations": 1,
+    "order_index": 2,
+    "source_offset": 0
+  },
+  "clock_scope": "controller single monotonic clock for request; worker durations independently recorded",
+  "fit": null,
+  "flow": {
+    "control_mode": "compact",
+    "controller_timing": {
+      "all_targets_filled_ns": 195889159835556,
+      "all_targets_published_ns": 195889204019148,
+      "clock_domain": "controller/m03r2n07/984745/d59261dc2552486991cda635f5370c1f",
+      "load_begin_ns": 195889144651102
+    },
+    "coordinator_wall_s": 0.0593663559993729,
+    "epoch_snapshot_reused": false,
+    "execute_wall_s": 0.0048051839985419065,
+    "execution": [
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 8.089467883110046e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 0
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 6.51087611913681e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 1
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 8.990056812763214e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 2
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 7.459893822669983e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 3
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 0.0011558050173334777,
+        "execute_thread": {
+          "ident": 140213879830080,
+          "name": "Thread-47 (process_request_thread)",
+          "native_tid": 6188,
+          "sampled_after_native_execute": true
+        },
+        "executor": "serial",
+        "executor_source": "unchanged native ClusterWorker._execute",
+        "local_slope_prepare": {
+          "bytes": 16777216,
+          "manifest_is_copy_path": false,
+          "memory_after_target_allocate": {
+            "allocated_bytes": 100663296,
+            "hip_free_bytes": 67744301056,
+            "hip_total_bytes": 68702699520,
+            "reserved_bytes": 100663296
+          },
+          "metadata_outside_service": true,
+          "mode": "native",
+          "pid": 6037,
+          "prepare_native_tid": 6186,
+          "prepare_thread_ident": 140213879830080,
+          "prepare_thread_name": "Thread-46 (process_request_thread)",
+          "source": {
+            "alignment_remainders": {
+              "2097152": 0,
+              "256": 0,
+              "4096": 0
+            },
+            "contiguous": true,
+            "data_ptr": 140210956402688,
+            "device": "cuda:0",
+            "dtype": "torch.uint8",
+            "numel": 16777216,
+            "shape": [
+              16777216
+            ],
+            "storage_offset": 0,
+            "stride": [
+              1
+            ]
+          },
+          "source_identity": {
+            "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+            "generation": 1,
+            "id": "local_slope_runtime_r01/source0/hbm",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "n": 16777216,
+            "off": 0
+          },
+          "source_offset": 0,
+          "target": {
+            "alignment_remainders": {
+              "2097152": 0,
+              "256": 0,
+              "4096": 0
+            },
+            "contiguous": true,
+            "data_ptr": 140210933334016,
+            "device": "cuda:0",
+            "dtype": "torch.uint8",
+            "numel": 16777216,
+            "shape": [
+              16777216
+            ],
+            "storage_offset": 0,
+            "stride": [
+              1
+            ]
+          },
+          "target_offset": 0,
+          "tensor_manifest_index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          }
+        },
+        "records": [
+          {
+            "bytes": 16777216,
+            "elapsed_s": 0.0010371239914093167,
+            "kind": "local_hbm",
+            "op_id": 0,
+            "pipeline": {},
+            "replica_id": "local_slope_runtime_r01/source0/hbm",
+            "role": "both"
+          }
+        ],
+        "staging_bytes": 67108864,
+        "worker": 4
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 1.2829987099394202e-05,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 5
+      }
+    ],
+    "executor": "serial",
+    "inventory_rpc_s": 0.005782477994216606,
+    "plan": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "local_slope_label": "native_2_16MiB",
+      "local_slope_mode": "native",
+      "ops": [
+        {
+          "dst_w": 4,
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "kind": "local_hbm",
+          "n": 16777216,
+          "off": 0,
+          "op_id": 0,
+          "path": "4:hbm:0->4",
+          "replica_id": "local_slope_runtime_r01/source0/hbm",
+          "resources": [],
+          "source_epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "source_offset": 0,
+          "src_w": 4,
+          "target": "local_slope_runtime_r01/native_2_16MiB/target0",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "local_slope_runtime_r01/native_2_16MiB/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "local_slope_runtime_r01/native_2_16MiB/target0",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 16777216,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      ]
+    },
+    "prepare_rpc_s": 0.004595392005285248,
+    "prepare_s": 0.010377869999501854,
+    "rpc": {
+      "execute": [
+        {
+          "deserialize_s": 3.3370975870639086e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.7780985217541456e-05,
+          "transport_and_server_s": 0.002150948013877496
+        },
+        {
+          "deserialize_s": 2.484000287950039e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 137,
+          "serialize_s": 1.4049990568310022e-05,
+          "transport_and_server_s": 0.0024023120058700442
+        },
+        {
+          "deserialize_s": 2.3280008463189006e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.5950005035847425e-05,
+          "transport_and_server_s": 0.0023250709928106517
+        },
+        {
+          "deserialize_s": 2.0490988390520215e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.7349986592307687e-05,
+          "transport_and_server_s": 0.0018138840096071362
+        },
+        {
+          "deserialize_s": 5.7060999097302556e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 1819,
+          "serialize_s": 1.593999331817031e-05,
+          "transport_and_server_s": 0.002355761011131108
+        },
+        {
+          "deserialize_s": 2.1650019334629178e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 139,
+          "serialize_s": 1.6420002793893218e-05,
+          "transport_and_server_s": 0.0010766249906737357
+        }
+      ],
+      "inventory": [
+        {
+          "deserialize_s": 0.00011694099521264434,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2930,
+          "serialize_s": 8.500064723193645e-07,
+          "transport_and_server_s": 0.004057115002069622
+        },
+        {
+          "deserialize_s": 0.00010941197979263961,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2931,
+          "serialize_s": 8.299830369651318e-07,
+          "transport_and_server_s": 0.003502977022435516
+        },
+        {
+          "deserialize_s": 9.810097981244326e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2930,
+          "serialize_s": 5.099864210933447e-07,
+          "transport_and_server_s": 0.0030122700263746083
+        },
+        {
+          "deserialize_s": 8.276099106296897e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2930,
+          "serialize_s": 5.300098564475775e-07,
+          "transport_and_server_s": 0.003249564004363492
+        },
+        {
+          "deserialize_s": 9.951199172064662e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 4832,
+          "serialize_s": 5.500041879713535e-07,
+          "transport_and_server_s": 0.003477736987406388
+        },
+        {
+          "deserialize_s": 6.856099935248494e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2930,
+          "serialize_s": 5.00003807246685e-07,
+          "transport_and_server_s": 0.003286494000349194
+        }
+      ],
+      "prepare": [
+        {
+          "deserialize_s": 1.7331010894849896e-05,
+          "operation": "prepare",
+          "request_bytes": 1415,
+          "response_bytes": 31,
+          "serialize_s": 6.51709851808846e-05,
+          "transport_and_server_s": 0.002627745008794591
+        },
+        {
+          "deserialize_s": 1.466000685468316e-05,
+          "operation": "prepare",
+          "request_bytes": 1415,
+          "response_bytes": 31,
+          "serialize_s": 5.715098814107478e-05,
+          "transport_and_server_s": 0.002718617004575208
+        },
+        {
+          "deserialize_s": 1.3120006769895554e-05,
+          "operation": "prepare",
+          "request_bytes": 1415,
+          "response_bytes": 31,
+          "serialize_s": 4.9489986849948764e-05,
+          "transport_and_server_s": 0.0019009160168934613
+        },
+        {
+          "deserialize_s": 1.366998185403645e-05,
+          "operation": "prepare",
+          "request_bytes": 1415,
+          "response_bytes": 31,
+          "serialize_s": 4.7690991777926683e-05,
+          "transport_and_server_s": 0.0018595750152599066
+        },
+        {
+          "deserialize_s": 3.888100036419928e-05,
+          "operation": "prepare",
+          "request_bytes": 1564,
+          "response_bytes": 1327,
+          "serialize_s": 6.676101475022733e-05,
+          "transport_and_server_s": 0.0023191710060928017
+        },
+        {
+          "deserialize_s": 1.4290999388322234e-05,
+          "operation": "prepare",
+          "request_bytes": 1415,
+          "response_bytes": 31,
+          "serialize_s": 4.33000095654279e-05,
+          "transport_and_server_s": 0.001430978998541832
+        }
+      ],
+      "publish": [
+        {
+          "deserialize_s": 1.4299992471933365e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.963999238796532e-05,
+          "transport_and_server_s": 0.002715976006584242
+        },
+        {
+          "deserialize_s": 1.7820013454183936e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.6180012607946992e-05,
+          "transport_and_server_s": 0.0021793489868286997
+        },
+        {
+          "deserialize_s": 1.5300000086426735e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.4890014426782727e-05,
+          "transport_and_server_s": 0.002362311992328614
+        },
+        {
+          "deserialize_s": 1.4460005331784487e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.7700018361210823e-05,
+          "transport_and_server_s": 0.00215590899460949
+        },
+        {
+          "deserialize_s": 1.5099998563528061e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.6390025848522782e-05,
+          "transport_and_server_s": 0.0017354829760733992
+        },
+        {
+          "deserialize_s": 1.7480022506788373e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.5320023521780968e-05,
+          "transport_and_server_s": 0.001568630977999419
+        }
+      ]
+    },
+    "source_bytes": {
+      "local_slope_runtime_r01/source0/hbm": 16777216
+    },
+    "timing_scope": "coordinator wall; excludes model layout before handoff",
+    "tx": "97bca7a7ab6c4a89887a9b4bf2a4302e",
+    "verification": {
+      "algorithm": "SHA256 of every logical byte per operation",
+      "checked_bytes": 16777216,
+      "operations": {
+        "0": {
+          "n": 16777216,
+          "op_id": 0,
+          "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+          "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+        }
+      },
+      "passed": true
+    },
+    "verify_and_publish_s": 0.04418330200132914
+  },
+  "fresh_query_rpc": [
+    {
+      "deserialize_s": 8.378099300898612e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2932,
+      "serialize_s": 8.300121407955885e-07,
+      "transport_and_server_s": 0.0035901179944630712
+    },
+    {
+      "deserialize_s": 8.32210062071681e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2931,
+      "serialize_s": 5.199981387704611e-07,
+      "transport_and_server_s": 0.003089840989559889
+    },
+    {
+      "deserialize_s": 7.256100070662796e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2931,
+      "serialize_s": 8.299830369651318e-07,
+      "transport_and_server_s": 0.0032250230142381042
+    },
+    {
+      "deserialize_s": 6.943100015632808e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2930,
+      "serialize_s": 8.200004231184721e-07,
+      "transport_and_server_s": 0.0035050369915552437
+    },
+    {
+      "deserialize_s": 0.00012543200864456594,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 4831,
+      "serialize_s": 9.399955160915852e-07,
+      "transport_and_server_s": 0.003232773015042767
+    },
+    {
+      "deserialize_s": 7.034098962321877e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2931,
+      "serialize_s": 4.3999170884490013e-07,
+      "transport_and_server_s": 0.00354413699824363
+    }
+  ],
+  "gate": {
+    "node27": {
+      "dram_current_bytes": 4295421952,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1826619392,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 320864256,
+      "require_idle": true,
+      "transactions": {
+        "4": [],
+        "5": []
+      }
+    },
+    "node28": {
+      "dram_current_bytes": 3470143488,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1119879168,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 1027604480,
+      "require_idle": true,
+      "transactions": {
+        "0": [],
+        "1": []
+      }
+    },
+    "node30": {
+      "dram_current_bytes": 3978850304,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1277165568,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 870318080,
+      "require_idle": true,
+      "transactions": {
+        "2": [],
+        "3": []
+      }
+    }
+  },
+  "inventory_end_ns": 195889143508927,
+  "model_frozen_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "prediction": null,
+  "preregistration_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/preregistration.json",
+    "sha256": "ccada1ac67eafb4277556813794a0648d63ef6f1e8e0044af4b54d8b68dc1a1f"
+  },
+  "request_begin_ns": 195889137233363,
+  "request_to_filled_s": 0.022602193,
+  "request_to_published_s": 0.066785785,
+  "service_s": 0.0010371239914093167,
+  "worker_execute_s": 0.0011558050173334777
+}

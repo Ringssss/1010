@@ -1,0 +1,477 @@
+{
+  "recorded_at": "2026-10-03T04:42:42.173037+00:00",
+  "scope": "read-only audit; no new GLM inference or lifecycle measurements",
+  "model": {
+    "path": "/data/node28/shared/zhujianian/GLM-5.3",
+    "architecture": [
+      "GlmMoeDsaForCausalLM"
+    ],
+    "layers": 78,
+    "attention_heads": 64,
+    "index_heads": 32,
+    "quantization": {
+      "activation_scheme": "dynamic",
+      "fmt": "e4m3",
+      "quant_method": "fp8",
+      "weight_block_size": [
+        128,
+        128
+      ]
+    },
+    "index_tensor_bytes": 755617140416,
+    "safetensor_file_bytes": 755632050320,
+    "shards": 141,
+    "tensor_keys": 118629,
+    "config_sha256": "3ac72612095574542f7fff847ada8e59d9199dd8af44bdf625d7e02615572e69"
+  },
+  "nodes": {
+    "node27": {
+      "hostname": {
+        "command": [
+          "hostname"
+        ],
+        "returncode": 0,
+        "stdout": "m03r2n07\n",
+        "stderr": ""
+      },
+      "devices": {
+        "command": [
+          "/opt/hyhal/bin/hy-smi",
+          "--showmeminfo",
+          "vram",
+          "--showuse"
+        ],
+        "returncode": 0,
+        "stdout": "\n================================= System Management Interface ==================================\n================================================================================================\nHCU[0]\t\t: HCU use (%): 0.0\nHCU[1]\t\t: HCU use (%): 0.0\nHCU[2]\t\t: HCU use (%): 0.0\nHCU[3]\t\t: HCU use (%): 0.0\nHCU[4]\t\t: HCU use (%): 0.0\nHCU[5]\t\t: HCU use (%): 0.0\nHCU[6]\t\t: HCU use (%): 0.0\nHCU[7]\t\t: HCU use (%): 0.0\n================================================================================================\n================================================================================================\nHCU[0]\t\t: vram Total Memory (MiB): 65520\nHCU[0]\t\t: vram Total Used Memory (MiB): 656\nHCU[1]\t\t: vram Total Memory (MiB): 65520\nHCU[1]\t\t: vram Total Used Memory (MiB): 656\nHCU[2]\t\t: vram Total Memory (MiB): 65520\nHCU[2]\t\t: vram Total Used Memory (MiB): 656\nHCU[3]\t\t: vram Total Memory (MiB): 65520\nHCU[3]\t\t: vram Total Used Memory (MiB): 656\nHCU[4]\t\t: vram Total Memory (MiB): 65520\nHCU[4]\t\t: vram Total Used Memory (MiB): 656\nHCU[5]\t\t: vram Total Memory (MiB): 65520\nHCU[5]\t\t: vram Total Used Memory (MiB): 656\nHCU[6]\t\t: vram Total Memory (MiB): 65520\nHCU[6]\t\t: vram Total Used Memory (MiB): 656\nHCU[7]\t\t: vram Total Memory (MiB): 65520\nHCU[7]\t\t: vram Total Used Memory (MiB): 656\n================================================================================================\n======================================== End of SMI Log ========================================\n\n",
+        "stderr": ""
+      },
+      "memory": {
+        "command": [
+          "cat",
+          "/proc/meminfo"
+        ],
+        "returncode": 0,
+        "stdout": "MemTotal:       528095244 kB\nMemFree:        285949848 kB\nMemAvailable:   445491216 kB\nBuffers:         2813912 kB\nCached:         187601112 kB\nSwapCached:       595840 kB\nActive:         131202972 kB\nInactive:       85861192 kB\nActive(anon):    1775756 kB\nInactive(anon): 59653088 kB\nActive(file):   129427216 kB\nInactive(file): 26208104 kB\nUnevictable:         224 kB\nMlocked:             224 kB\nSwapTotal:       8388604 kB\nSwapFree:           3976 kB\nDirty:               132 kB\nWriteback:             0 kB\nAnonPages:      26033568 kB\nMapped:          2125400 kB\nShmem:          34780368 kB\nKReclaimable:    7673104 kB\nSlab:            9989032 kB\nSReclaimable:    7673104 kB\nSUnreclaim:      2315928 kB\nKernelStack:      153200 kB\nPageTables:       494400 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272436224 kB\nCommitted_AS:   249920084 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      731924 kB\nVmallocChunk:          0 kB\nPercpu:           514560 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:  18659328 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    14387848 kB\nDirectMap2M:    431009792 kB\nDirectMap1G:    91226112 kB\n",
+        "stderr": ""
+      },
+      "filesystems": {
+        "command": [
+          "df",
+          "-T",
+          "/tmp",
+          "/home/zhujianian",
+          "/data/node28/shared"
+        ],
+        "returncode": 0,
+        "stdout": "Filesystem              Type  1K-blocks       Used Available Use% Mounted on\n/dev/nvme1n1p3          ext4  457270504  380857444  53111480  88% /\n/dev/nvme0n1p1          ext4 1844812308 1474232276 276794996  85% /home\nnode28-ib0:/data/node28 nfs4 1844812800  858652672 892375040  50% /data/node28\n",
+        "stderr": ""
+      },
+      "containers": {
+        "command": [
+          "docker",
+          "ps",
+          "--format",
+          "{{.Names}} {{.Image}}"
+        ],
+        "returncode": 0,
+        "stdout": "zjn-keep-v02-n27 ee3b9807d9e9\nglm-5.2-int harbor.sourcefind.cn:5443/dcu/admin/base/vllm:0.18.1-ubuntu22.04-dtk26.04-py3.10-release-glm5.2\nzhujianian-glm53-sglang harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10-sf_b075\nduan-fm9g4bv-align harbor.sourcefind.cn:5443/dcu/admin/base/custom:sglang-deepseek-v4-dev-zkjh\nzhuyue-model-manager harbor.sourcefind.cn:5443/dcu/admin/base/custom:sglang-deepseek-v4-dev-zkjh\nzhuyue-hygon-9g-static-dev f5f4addd37de\nlzm lzm-preserved-before-shmfix:20260902-132106\nsglang-0512-test harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10-sf_b075\nvllm-glm52-dev harbor.sourcefind.cn:5443/dcu/admin/base/custom:vllm0.18.1-ubuntu22.04-dtk26.04-py3.10-20260617-glm5.2\nsglang-das-dev f5f4addd37de\nsgl-dev-shichengyu f5f4addd37de\nyaowenxuan_megatron harbor.sourcefind.cn:5443/dcu/admin/base/pytorch:2.7.1-ubuntu22.04-dtk26.04-py3.11\nfgw-hygon-dev-zsm fgw-hygon-dev:zsm-mkfd-20260724-1426\nzhuyue-hygon-cudagraph-dev harbor.sourcefind.cn:5443/dcu/admin/base/custom:sglang-deepseek-v4-dev-zkjh\nwangpengcheng_sglang a66213989cdc\npepe a66213989cdc\n",
+        "stderr": ""
+      },
+      "nsa_sha256": {
+        "command": [
+          "docker",
+          "exec",
+          "zjn-keep-v02-n27",
+          "sha256sum",
+          "/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py"
+        ],
+        "returncode": 0,
+        "stdout": "f803e875c84c6bf55656123981134f5538bd0474bf8f97bbb2b3bc03532d0bd8  /usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\n",
+        "stderr": ""
+      },
+      "sglang_metadata": {
+        "command": [
+          "docker",
+          "exec",
+          "zjn-keep-v02-n27",
+          "bash",
+          "-lc",
+          "head -n 4 /usr/local/lib/python3.10/dist-packages/sglang-*/METADATA"
+        ],
+        "returncode": 0,
+        "stdout": "Metadata-Version: 2.1\nName: sglang\nVersion: 0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025\nSummary: SGLang is a fast serving framework for large language models and vision language models.\n",
+        "stderr": ""
+      }
+    },
+    "node28": {
+      "hostname": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "hostname"
+        ],
+        "returncode": 0,
+        "stdout": "m03r2n08\n",
+        "stderr": ""
+      },
+      "devices": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "/opt/hyhal/bin/hy-smi --showmeminfo vram --showuse"
+        ],
+        "returncode": 0,
+        "stdout": "\n================================= System Management Interface ==================================\n================================================================================================\nHCU[0]\t\t: HCU use (%): 0.0\nHCU[1]\t\t: HCU use (%): 0.0\nHCU[2]\t\t: HCU use (%): 0.0\nHCU[3]\t\t: HCU use (%): 0.0\nHCU[4]\t\t: HCU use (%): 0.0\nHCU[5]\t\t: HCU use (%): 0.0\nHCU[6]\t\t: HCU use (%): 0.0\nHCU[7]\t\t: HCU use (%): 0.0\n================================================================================================\n================================================================================================\nHCU[0]\t\t: vram Total Memory (MiB): 65520\nHCU[0]\t\t: vram Total Used Memory (MiB): 53694\nHCU[1]\t\t: vram Total Memory (MiB): 65520\nHCU[1]\t\t: vram Total Used Memory (MiB): 53694\nHCU[2]\t\t: vram Total Memory (MiB): 65520\nHCU[2]\t\t: vram Total Used Memory (MiB): 656\nHCU[3]\t\t: vram Total Memory (MiB): 65520\nHCU[3]\t\t: vram Total Used Memory (MiB): 656\nHCU[4]\t\t: vram Total Memory (MiB): 65520\nHCU[4]\t\t: vram Total Used Memory (MiB): 656\nHCU[5]\t\t: vram Total Memory (MiB): 65520\nHCU[5]\t\t: vram Total Used Memory (MiB): 656\nHCU[6]\t\t: vram Total Memory (MiB): 65520\nHCU[6]\t\t: vram Total Used Memory (MiB): 656\nHCU[7]\t\t: vram Total Memory (MiB): 65520\nHCU[7]\t\t: vram Total Used Memory (MiB): 656\n================================================================================================\n======================================== End of SMI Log ========================================\n\n",
+        "stderr": ""
+      },
+      "memory": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "cat /proc/meminfo"
+        ],
+        "returncode": 0,
+        "stdout": "MemTotal:       528095244 kB\nMemFree:        269588400 kB\nMemAvailable:   477708496 kB\nBuffers:          800408 kB\nCached:         203091152 kB\nSwapCached:      1552524 kB\nActive:         164458788 kB\nInactive:       69588600 kB\nActive(anon):    2789112 kB\nInactive(anon): 27375200 kB\nActive(file):   161669676 kB\nInactive(file): 42213400 kB\nUnevictable:         128 kB\nMlocked:             128 kB\nSwapTotal:       8388604 kB\nSwapFree:           6668 kB\nDirty:              1232 kB\nWriteback:             0 kB\nAnonPages:      28571608 kB\nMapped:          1659744 kB\nShmem:              9092 kB\nKReclaimable:    7707556 kB\nSlab:            9506576 kB\nSReclaimable:    7707556 kB\nSUnreclaim:      1799020 kB\nKernelStack:      139680 kB\nPageTables:       268488 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272436224 kB\nCommitted_AS:   126470332 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      721952 kB\nVmallocChunk:          0 kB\nPercpu:           607232 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:  22966272 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     9089672 kB\nDirectMap2M:    237078528 kB\nDirectMap1G:    290455552 kB\n",
+        "stderr": ""
+      },
+      "filesystems": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "df -T /tmp /home/zhujianian /data/node28/shared"
+        ],
+        "returncode": 0,
+        "stdout": "Filesystem       Type  1K-blocks       Used Available Use% Mounted on\n/dev/nvme1n1p3   ext4  457270504  433764596    204328 100% /\nnode27-ib0:/home nfs4 1844812800 1474232320 276795392  85% /home\n/dev/nvme0n1p1   ext4 1844812308  858652764 892374508  50% /data/node28\n",
+        "stderr": ""
+      },
+      "containers": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "docker ps --format '{{.Names}} {{.Image}}'"
+        ],
+        "returncode": 0,
+        "stdout": "zjn-keep-v02-n28 ee3b9807d9e9\nbaoming_infiniops_hygon accelerator-dev/hygon:latest\nlzm lzm-preserved-before-shmfix:20260902-132107\nsglang-glm52 harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10-sf_b075\nyaowenxuan_megatron harbor.sourcefind.cn:5443/dcu/admin/base/pytorch:2.7.1-ubuntu22.04-dtk26.04-py3.11\npepe pepe_wip:v1\nwangpengcheng e21f9041ba4f\n",
+        "stderr": ""
+      },
+      "nsa_sha256": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "docker exec zjn-keep-v02-n28 sha256sum /usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py"
+        ],
+        "returncode": 0,
+        "stdout": "f803e875c84c6bf55656123981134f5538bd0474bf8f97bbb2b3bc03532d0bd8  /usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\n",
+        "stderr": ""
+      },
+      "sglang_metadata": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.28",
+          "docker exec zjn-keep-v02-n28 bash -lc 'head -n 4 /usr/local/lib/python3.10/dist-packages/sglang-*/METADATA'"
+        ],
+        "returncode": 0,
+        "stdout": "Metadata-Version: 2.1\nName: sglang\nVersion: 0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025\nSummary: SGLang is a fast serving framework for large language models and vision language models.\n",
+        "stderr": ""
+      }
+    },
+    "node29": {
+      "hostname": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "hostname"
+        ],
+        "returncode": 0,
+        "stdout": "m03r2n09\n",
+        "stderr": ""
+      },
+      "devices": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "/opt/hyhal/bin/hy-smi --showmeminfo vram --showuse"
+        ],
+        "returncode": 0,
+        "stdout": "\n================================= System Management Interface ==================================\n================================================================================================\nHCU[0]\t\t: HCU use (%): 0.0\nHCU[1]\t\t: HCU use (%): 0.0\nHCU[2]\t\t: HCU use (%): 0.0\nHCU[3]\t\t: HCU use (%): 0.0\nHCU[4]\t\t: HCU use (%): 0.0\nHCU[5]\t\t: HCU use (%): 0.0\nHCU[6]\t\t: HCU use (%): 0.0\nHCU[7]\t\t: HCU use (%): 0.0\n================================================================================================\n================================================================================================\nHCU[0]\t\t: vram Total Memory (MiB): 65520\nHCU[0]\t\t: vram Total Used Memory (MiB): 655\nHCU[1]\t\t: vram Total Memory (MiB): 65520\nHCU[1]\t\t: vram Total Used Memory (MiB): 655\nHCU[2]\t\t: vram Total Memory (MiB): 65520\nHCU[2]\t\t: vram Total Used Memory (MiB): 655\nHCU[3]\t\t: vram Total Memory (MiB): 65520\nHCU[3]\t\t: vram Total Used Memory (MiB): 655\nHCU[4]\t\t: vram Total Memory (MiB): 65520\nHCU[4]\t\t: vram Total Used Memory (MiB): 655\nHCU[5]\t\t: vram Total Memory (MiB): 65520\nHCU[5]\t\t: vram Total Used Memory (MiB): 655\nHCU[6]\t\t: vram Total Memory (MiB): 65520\nHCU[6]\t\t: vram Total Used Memory (MiB): 655\nHCU[7]\t\t: vram Total Memory (MiB): 65520\nHCU[7]\t\t: vram Total Used Memory (MiB): 655\n================================================================================================\n======================================== End of SMI Log ========================================\n\n",
+        "stderr": ""
+      },
+      "memory": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "cat /proc/meminfo"
+        ],
+        "returncode": 0,
+        "stdout": "MemTotal:       528095244 kB\nMemFree:        122687820 kB\nMemAvailable:   493001988 kB\nBuffers:          665800 kB\nCached:         368598480 kB\nSwapCached:       178756 kB\nActive:         246165428 kB\nInactive:       139243348 kB\nActive(anon):     690800 kB\nInactive(anon): 15463484 kB\nActive(file):   245474628 kB\nInactive(file): 123779864 kB\nUnevictable:          64 kB\nMlocked:              64 kB\nSwapTotal:       8388604 kB\nSwapFree:        5726444 kB\nDirty:              1924 kB\nWriteback:             0 kB\nAnonPages:      15979568 kB\nMapped:          1471716 kB\nShmem:             10112 kB\nKReclaimable:    4149284 kB\nSlab:            5505812 kB\nSReclaimable:    4149284 kB\nSUnreclaim:      1356528 kB\nKernelStack:       95088 kB\nPageTables:       163044 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272436224 kB\nCommitted_AS:   54071024 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      660664 kB\nVmallocChunk:          0 kB\nPercpu:           558080 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:  14520320 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:    10623624 kB\nDirectMap2M:    332013568 kB\nDirectMap1G:    193986560 kB\n",
+        "stderr": ""
+      },
+      "filesystems": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "df -T /tmp /home/zhujianian /data/node28/shared"
+        ],
+        "returncode": 0,
+        "stdout": "Filesystem              Type  1K-blocks       Used Available Use% Mounted on\n/dev/nvme1n1p3          ext4  457270504  353538128  80430796  82% /\nnode27-ib0:/home        nfs4 1844812800 1474232320 276795392  85% /home\nnode28-ib0:/data/node28 nfs4 1844812800  858652672 892375040  50% /data/node28\n",
+        "stderr": ""
+      },
+      "containers": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "docker ps --format '{{.Names}} {{.Image}}'"
+        ],
+        "returncode": 0,
+        "stdout": "zjn-keep-v02-n29 ee3b9807d9e9\nglm-5.2-int harbor.sourcefind.cn:5443/dcu/admin/base/vllm:0.18.1-ubuntu22.04-dtk26.04-py3.10-release-glm5.2\nzhujianian-glm53-sglang harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10-sf_b075\nvllm-glm52-dev harbor.sourcefind.cn:5443/dcu/admin/base/custom:vllm0.18.1-ubuntu22.04-dtk26.04-py3.10-20260617-glm5.2\nyaowenxuan_megatron harbor.sourcefind.cn:5443/dcu/admin/base/pytorch:2.7.1-ubuntu22.04-dtk26.04-py3.11\nwangpengcheng e21f9041ba4f\npzz pepe_wip:v1\npepe pepe_wip:v1\n",
+        "stderr": ""
+      },
+      "nsa_sha256": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "docker exec zjn-keep-v02-n29 sha256sum /usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py"
+        ],
+        "returncode": 0,
+        "stdout": "f803e875c84c6bf55656123981134f5538bd0474bf8f97bbb2b3bc03532d0bd8  /usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\n",
+        "stderr": ""
+      },
+      "sglang_metadata": {
+        "command": [
+          "ssh",
+          "-o",
+          "BatchMode=yes",
+          "-o",
+          "ConnectTimeout=8",
+          "12.11.3.29",
+          "docker exec zjn-keep-v02-n29 bash -lc 'head -n 4 /usr/local/lib/python3.10/dist-packages/sglang-*/METADATA'"
+        ],
+        "returncode": 0,
+        "stdout": "Metadata-Version: 2.1\nName: sglang\nVersion: 0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025\nSummary: SGLang is a fast serving framework for large language models and vision language models.\n",
+        "stderr": ""
+      }
+    }
+  },
+  "historical_native_failures": {
+    "codex_coding/results/logs/base2_n0.log": {
+      "sha256": "70ca2467815464a7671095681a79c3aef0512b7b70d211fa5f6c4d8acec0f947",
+      "vmfault_count": 17,
+      "evidence_lines": [
+        [
+          517,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          558,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          606,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          638,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          665,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          756,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          770,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          908,
+          "  File \"/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\", line 438 in _get_q_k_bf16"
+        ],
+        [
+          909,
+          "  File \"/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\", line 1574 in forward_cuda"
+        ],
+        [
+          1048,
+          "  File \"/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\", line 438 in _get_q_k_bf16"
+        ],
+        [
+          1049,
+          "  File \"/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\", line 1574 in forward_cuda"
+        ],
+        [
+          1087,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ]
+      ]
+    },
+    "codex_coding/results/logs/base2_n1.log": {
+      "sha256": "45c272a99251648c415335eba7d2b28d88f6a4a504352738a3b768c01b67407a",
+      "vmfault_count": 18,
+      "evidence_lines": [
+        [
+          355,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          378,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          425,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          479,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          517,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          547,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          571,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          586,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          782,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          829,
+          ">>>>>>>> KERNEL VMFault !!!! <<<<<<"
+        ],
+        [
+          946,
+          "  File \"/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\", line 438 in _get_q_k_bf16"
+        ],
+        [
+          947,
+          "  File \"/usr/local/lib/python3.10/dist-packages/sglang/srt/layers/attention/nsa/nsa_indexer.py\", line 1574 in forward_cuda"
+        ]
+      ]
+    }
+  },
+  "completed_lifecycle": {
+    "source": "codex_coding/results/lifecycle/final03/analysis.json",
+    "passed": true,
+    "nodes_used": [
+      27,
+      28,
+      29,
+      30
+    ],
+    "comparisons": [
+      {
+        "baseline": "baseline_A_to_B_disk",
+        "candidate": "fluid_A_to_B",
+        "metric": "switch_to_first_token_s",
+        "baseline_s": 4.771355758421123,
+        "candidate_s": 1.2708340100944042,
+        "ratio": 3.75450744984916
+      },
+      {
+        "baseline": "baseline_B_to_A_disk",
+        "candidate": "fluid_B_to_A",
+        "metric": "switch_to_first_token_s",
+        "baseline_s": 16.558623971417546,
+        "candidate_s": 7.236737308092415,
+        "ratio": 2.2881339015720545
+      },
+      {
+        "baseline": "baseline_remote_A_disk",
+        "candidate": "fluid_remote_A",
+        "metric": "first_correct_token_s",
+        "baseline_s": 14.617183550260961,
+        "candidate_s": 4.701271961443126,
+        "ratio": 3.109197610804459
+      }
+    ],
+    "comparison_baseline": "HBM eviction followed by SGLang disk reload in a warm engine",
+    "resident_ipc_s": 0.8277498884126544
+  },
+  "candidate_three_node_configuration": {
+    "status": "proposed, not validated for GLM generation",
+    "compute_nodes": [
+      "node27",
+      "node29"
+    ],
+    "tp": 16,
+    "gpus_per_compute_node": 8,
+    "backing_dram_nodes": [
+      "node27",
+      "node28",
+      "node29"
+    ],
+    "ssd_node": "node28",
+    "ssd_parent": "/data/node28/shared/zhujianian",
+    "notes": [
+      "Serve SSD extents on node28, where this filesystem is local NVMe.",
+      "One DRAM host cannot hold the full model; reserve runtime and transfer peaks.",
+      "The existing lifecycle driver hardcodes TP2 and node30 SSD; it needs adaptation.",
+      "Validate native generation before FP8/NSA capture, alias and TP16 restore."
+    ]
+  }
+}

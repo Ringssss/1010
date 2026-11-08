@@ -1,0 +1,83 @@
+{
+  "upstream": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/inventory/fresh_host.py",
+  "upstream_sha256": "b4ffcd57635391064a22a18acdec2e6224f42710f94ef24d0bb6ddc9b05cb735",
+  "derived_sha256": "84366e42ceebafb07e770cb8345979a296b1591cc70199e7567cffcb60095009",
+  "changes": [
+    {
+      "before": "(\"node28\",\"node30\")",
+      "after": "(\"node27\",\"node30\")",
+      "occurrences": 1
+    },
+    {
+      "before": "(28|30)",
+      "after": "(27|30)",
+      "occurrences": 2
+    },
+    {
+      "before": "\"--memory\",\"8g\"",
+      "after": "\"--memory\",str(spec[\"container_hard_cap_bytes\"]),\"--memory-swap\",str(spec[\"container_hard_cap_bytes\"])",
+      "occurrences": 1
+    },
+    {
+      "before": "\"--cap-add\",\"IPC_LOCK\",\"--ulimit\"",
+      "after": "\"--cap-add\",\"IPC_LOCK\",\"--cap-add\",\"SYS_NICE\",\"--ulimit\"",
+      "occurrences": 1
+    },
+    {
+      "before": "not str(rel).startswith(\"codex_coding/\")",
+      "after": "not str(rel).startswith((\"codex_coding/\", \"main_lib/fluidckpt/\"))",
+      "occurrences": 1
+    },
+    {
+      "before": "\"--workdir\",PROJECT,IMAGE,\"infinity\"]",
+      "after": "\"--workdir\",PROJECT,IMAGE,\"infinity\"]",
+      "occurrences": 1
+    },
+    {
+      "before": "if mode==\"guard\":\n        result=guard(spec)",
+      "after": "if mode==\"guard\":\n        raise SystemExit(\"use online review metadata collector\")\n        result=guard(spec)",
+      "occurrences": 1
+    }
+  ],
+  "model_mount": "explicit read-only original model directory",
+  "GPU_launches": 0,
+  "remote_writes": 0,
+  "asset_count": 179,
+  "inherited_path_artifact_count": 19,
+  "outer_protocol": {
+    "schema": "post_prime_outer_protocol_v1",
+    "source_checkpoint_path_model_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_simple_two_node_r02/phase_calibrate/checkpoint_path_model.json",
+      "sha256": "04febed84e3cda9fd937cf8aa5d958ab530832305919861b5dbbed7e2db42b1a"
+    },
+    "source_frozen_plan_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_simple_two_node_r02/launch_plan.unbound.json",
+      "sha256": "a65fd6765f45e384849e905bd702a6c224190799a7c68f14e9f941a36faef402"
+    },
+    "source_bundle_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/outer_ops_source_bundle_r01/manifest.json",
+      "sha256": "aac9013ce58a2b43e64d2d1563076dea20df400e426795bd3bddbb2c9cff28fc"
+    },
+    "prime_run_id": "C0_prime",
+    "outer_calibration_run_id": "C0_cal",
+    "complete_request_order": [
+      "C0_prime",
+      "C0_cal",
+      "Hremote",
+      "Hnear"
+    ],
+    "validation_order": [
+      "Hremote",
+      "Hnear"
+    ],
+    "max_complete_requests": 4,
+    "outer_domain": "post_one_fullrestore_samecontroller",
+    "path_calibration_requests": 0,
+    "topology_calibration_requests": 0,
+    "inherited_path_evidence": "original r02 exact bytes/context/session retained; current runtime identity independently rebound"
+  },
+  "frozen_parameter_source_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_simple_two_node_r02/launch_plan.unbound.json",
+    "sha256": "a65fd6765f45e384849e905bd702a6c224190799a7c68f14e9f941a36faef402"
+  }
+}

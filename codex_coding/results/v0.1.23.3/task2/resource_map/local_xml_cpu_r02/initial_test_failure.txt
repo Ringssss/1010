@@ -1,0 +1,6 @@
+Initial CPU invocation ran 16 cases: 15 passed, 1 ERROR.
+test_base_nonvalid_or_any_lease_rejected failed with NameError: name 'new' is not defined.
+Cause: added test methods split the existing free-check method and left its tail
+inside the new catalog test. Moved the tail back to the original method, without
+changing the free-recovery threshold or implementation, then reran CPU checks.
+No GPU or remote action occurred during this source revision.

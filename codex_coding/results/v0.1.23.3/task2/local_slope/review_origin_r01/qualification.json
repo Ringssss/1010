@@ -1,0 +1,387 @@
+{
+  "batch_first_record_evidence": [
+    {
+      "causality": "Request position, handler state, target and source offset change together.",
+      "first_ms": 0.3389950143173337,
+      "label": "p0_warm_batch",
+      "ratio": 4.355153633488653,
+      "subsequent_mean_ms": 0.07783767068758607
+    },
+    {
+      "causality": "Request position, handler state, target and source offset change together.",
+      "first_ms": 0.25858399749267846,
+      "label": "p0_warm_batch_retry1",
+      "ratio": 3.0566208482625874,
+      "subsequent_mean_ms": 0.08459799573756754
+    }
+  ],
+  "checks": [
+    {
+      "name": "preserved chronological order",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small: same local single-worker primitive",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small: replica HBM targets",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small: full-byte verification",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small: one bounded chunk per op",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small: service is longest record, not batch sum",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small: execute includes record intervals",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large: same local single-worker primitive",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large: replica HBM targets",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large: full-byte verification",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large: one bounded chunk per op",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large: service is longest record, not batch sum",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large: execute includes record intervals",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: same local single-worker primitive",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: replica HBM targets",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: full-byte verification",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: one bounded chunk per op",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: service is longest record, not batch sum",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: execute includes record intervals",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: same local single-worker primitive",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: replica HBM targets",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: full-byte verification",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: one bounded chunk per op",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: service is longest record, not batch sum",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: execute includes record intervals",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large_retry1: same local single-worker primitive",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large_retry1: replica HBM targets",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large_retry1: full-byte verification",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large_retry1: one bounded chunk per op",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large_retry1: service is longest record, not batch sum",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_large_retry1: execute includes record intervals",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small_retry1: same local single-worker primitive",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small_retry1: replica HBM targets",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small_retry1: full-byte verification",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small_retry1: one bounded chunk per op",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small_retry1: service is longest record, not batch sum",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_small_retry1: execute includes record intervals",
+      "passed": true
+    },
+    {
+      "name": "single-op lineage, offsets and manifest identical",
+      "passed": true
+    },
+    {
+      "name": "negative service slope p0_warm_small",
+      "passed": true
+    },
+    {
+      "name": "negative service slope p0_warm_small_retry1",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch: first record exceeds each subsequent record",
+      "passed": true
+    },
+    {
+      "name": "p0_warm_batch_retry1: first record exceeds each subsequent record",
+      "passed": true
+    },
+    {
+      "name": "frozen local coefficient is all four preserved points mean",
+      "passed": true
+    },
+    {
+      "name": "frozen local bandwidth remains unidentified",
+      "passed": true
+    }
+  ],
+  "chronology": [
+    {
+      "begin_ns": 121794609545004,
+      "bytes": 4194304,
+      "controller_execute_ms": 3.160013002343476,
+      "label": "p0_warm_small",
+      "operations": 1,
+      "outside_record_ms": 0.04870099655818194,
+      "record_ms": [
+        0.32950400782283396
+      ],
+      "source_offsets": [
+        0
+      ],
+      "target_bytes": [
+        4194304
+      ],
+      "worker_ms": 0.3782050043810159
+    },
+    {
+      "begin_ns": 121794670426461,
+      "bytes": 16777216,
+      "controller_execute_ms": 3.330874998937361,
+      "label": "p0_warm_large",
+      "operations": 1,
+      "outside_record_ms": 0.040400991565547884,
+      "record_ms": [
+        0.24040300922933966
+      ],
+      "source_offsets": [
+        0
+      ],
+      "target_bytes": [
+        16777216
+      ],
+      "worker_ms": 0.28080400079488754
+    },
+    {
+      "begin_ns": 121794758894959,
+      "bytes": 4194304,
+      "controller_execute_ms": 3.2046730048023164,
+      "label": "p0_warm_batch",
+      "operations": 4,
+      "outside_record_ms": 0.1400019827997312,
+      "record_ms": [
+        0.3389950143173337,
+        0.083381004515104,
+        0.07734099926892668,
+        0.07279100827872753
+      ],
+      "source_offsets": [
+        0,
+        1048576,
+        2097152,
+        3145728
+      ],
+      "target_bytes": [
+        1048576,
+        1048576,
+        1048576,
+        1048576
+      ],
+      "worker_ms": 0.7125100091798231
+    },
+    {
+      "begin_ns": 121795320025495,
+      "bytes": 4194304,
+      "controller_execute_ms": 3.15848299942445,
+      "label": "p0_warm_batch_retry1",
+      "operations": 4,
+      "outside_record_ms": 0.12617101310752332,
+      "record_ms": [
+        0.25858399749267846,
+        0.0893019896466285,
+        0.09144099021796137,
+        0.07305100734811276
+      ],
+      "source_offsets": [
+        0,
+        1048576,
+        2097152,
+        3145728
+      ],
+      "target_bytes": [
+        1048576,
+        1048576,
+        1048576,
+        1048576
+      ],
+      "worker_ms": 0.6385489978129044
+    },
+    {
+      "begin_ns": 121795393763685,
+      "bytes": 16777216,
+      "controller_execute_ms": 3.208102993085049,
+      "label": "p0_warm_large_retry1",
+      "operations": 1,
+      "outside_record_ms": 0.05442000110633671,
+      "record_ms": [
+        0.21949299843981862
+      ],
+      "source_offsets": [
+        0
+      ],
+      "target_bytes": [
+        16777216
+      ],
+      "worker_ms": 0.27391299954615533
+    },
+    {
+      "begin_ns": 121795482163292,
+      "bytes": 4194304,
+      "controller_execute_ms": 3.2836449972819537,
+      "label": "p0_warm_small_retry1",
+      "operations": 1,
+      "outside_record_ms": 0.0507119984831661,
+      "record_ms": [
+        0.333784002577886
+      ],
+      "source_offsets": [
+        0
+      ],
+      "target_bytes": [
+        4194304
+      ],
+      "worker_ms": 0.3844960010610521
+    }
+  ],
+  "contrasts": [
+    {
+      "large": "p0_warm_large",
+      "large_minus_small_ms": -0.0891009985934943,
+      "raw_service_slope_s_per_byte": -7.081111160397076e-12,
+      "small": "p0_warm_small"
+    },
+    {
+      "large": "p0_warm_large_retry1",
+      "large_minus_small_ms": -0.11429100413806736,
+      "raw_service_slope_s_per_byte": -9.083032936896274e-12,
+      "small": "p0_warm_small_retry1"
+    }
+  ],
+  "frozen_constant_ms": 0.28079600451746956,
+  "new_8mib_record_ms": 0.26865399559028447,
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small.json",
+      "sha256": "14c6a885ba85abcb12327cbd14e50da16edae3f9e63043204822236a9cd495fe"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_large.json",
+      "sha256": "6428df4d4d65b0a088b1a0cf31d06be2f49090dab12f44866cab49a26500df0a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_batch.json",
+      "sha256": "431f8f218d08378a6055440a8e25c5d6489bb71d003448a4ca83c6dee4c827a1"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_batch_retry1.json",
+      "sha256": "729494229e3bc86c3c92ed0eaf29dc995056a3cd0ce58edcb67e2a8f86fbf841"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_large_retry1.json",
+      "sha256": "98890c102f746340aeab8457f5c56f2ab27cf82720a13159bb4f3cfa25817ea6"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small_retry1.json",
+      "sha256": "e0c405a01a0d17b1b83026f810e1550a60cd0f7837286001d8acb63534e948d6"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/local_novel8.json",
+      "sha256": "e43f92eff5a3c14f4bc85cc881effc47be7b84ca13611886d1614ea3ea44b35f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+      "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+      "sha256": "267429220f7a3f2fe46d9a3ab36bdf1822e3f2d0604a4924244b61c2b1a752d9"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/keeper.py",
+      "sha256": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/execution/runner.py",
+      "sha256": "21f45e85f524089ecaea8a9ed77937dbc1582894e1ca9cd8cb1e7cde8a0d6ecf"
+    }
+  ],
+  "status": "prior_origin_review_passed_mechanism_unidentified"
+}

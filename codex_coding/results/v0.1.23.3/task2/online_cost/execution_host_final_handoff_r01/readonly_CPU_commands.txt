@@ -1,0 +1,5 @@
+timeout 10s docker ps -a --no-trunc --format '{{.ID}} {{.Names}} {{.Status}}'
+
+timeout 10s docker inspect 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0 9b0cfde0c777e5126d8441a4b73b3456881655dac595e3a1915d26c5a186c27c --format '{{.Id}} {{.Name}} {{json .State}}'
+
+timeout 10s docker top 9b0cfde0c777e5126d8441a4b73b3456881655dac595e3a1915d26c5a186c27c -eo pid,ppid,pgid,sid,lstart,args

@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "docker",
+    "exec",
+    "-i",
+    "30b7c7e9e03a40d03690feac3ba12153bac682e499c47b637b1eb07165476665",
+    "python3",
+    "-c",
+    "from pathlib import Path;import sys,hashlib;raw=sys.stdin.buffer.read(131073);assert len(raw)<=131072 and hashlib.sha256(raw).hexdigest()==sys.argv[2];p=Path(sys.argv[1]);assert p.parent.is_dir();p.open('xb').write(raw)",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/local_pause.py",
+    "f572a9fcfd51ce433d8686161a1153d768b8da122b8e60ccd2eea3c8f58ca835"
+  ],
+  "timeout_s": 15,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_s": 0.12026745604816824
+}

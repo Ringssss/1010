@@ -1,0 +1,753 @@
+{
+  "started_utc": "2026-10-09T15:28:52.258351+00:00",
+  "hostname": "m03r2n10",
+  "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+  "host_memory": "MemTotal:       528095244 kB\nMemFree:        132108728 kB\nMemAvailable:   480837592 kB\nBuffers:         1101644 kB\nCached:         344551524 kB\nSwapCached:       104864 kB\nActive:         269972908 kB\nInactive:       105058344 kB\nActive(anon):     394180 kB\nInactive(anon): 28993704 kB\nActive(file):   269578728 kB\nInactive(file): 76064640 kB\nUnevictable:          64 kB\nMlocked:              64 kB\nSwapTotal:       8388604 kB\nSwapFree:        7712880 kB\nDirty:              3776 kB\nWriteback:             0 kB\nAnonPages:      29212184 kB\nMapped:          2190720 kB\nShmem:              9948 kB\nKReclaimable:    6203776 kB\nSlab:            7618836 kB\nSReclaimable:    6203776 kB\nSUnreclaim:      1415060 kB\nKernelStack:       70448 kB\nPageTables:       156988 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272436224 kB\nCommitted_AS:   83222984 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      632028 kB\nVmallocChunk:          0 kB\nPercpu:           287744 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:  26734592 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     4264584 kB\nDirectMap2M:    184231936 kB\nDirectMap1G:    348127232 kB",
+  "selected_gpu_sysfs": {
+    "mem_info_vram_total": "68702699520",
+    "mem_info_vram_used": "3842048",
+    "numa_node": "4"
+  },
+  "container_cgroup": {
+    "proc_cgroup": "0::/system.slice/docker-7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1.scope",
+    "files": {
+      "memory.current": "33386496",
+      "memory.max": "8589934592",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "1",
+      "pids.max": "512"
+    }
+  },
+  "container": {
+    "id": "7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1",
+    "name": "/zjn-fluid-three-node-minimal_measure_r01-n30",
+    "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "created": "2026-10-09T10:57:42.035624083Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 3249004,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-09T10:57:42.068061805Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "HostConfig": {
+      "Privileged": false,
+      "NetworkMode": "host",
+      "IpcMode": "private",
+      "Memory": 8589934592,
+      "PidsLimit": 512,
+      "ShmSize": 1073741824,
+      "CapAdd": [
+        "IPC_LOCK",
+        "SYS_NICE"
+      ],
+      "Devices": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "Ulimits": [
+        {
+          "Name": "core",
+          "Hard": 0,
+          "Soft": 0
+        },
+        {
+          "Name": "memlock",
+          "Hard": -1,
+          "Soft": -1
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/opt/hyhal",
+        "Destination": "/opt/hyhal",
+        "RW": false
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/fluidckpt_three_node/minimal_measure_r01_n30/project",
+        "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "RW": true
+      }
+    ],
+    "command": {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-three-node-minimal_measure_r01-n30"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  "protected_containers": [],
+  "owners": [
+    {
+      "pid": 3152797,
+      "start_time_ticks": "486284133",
+      "state": "S",
+      "comm": "vllm",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32768",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153233,
+      "start_time_ticks": "486286927",
+      "state": "S",
+      "comm": "VLLM::EngineCor",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32769",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153602,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "55589330944",
+        "pasid": "32771",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153603,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "55589330944",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32770",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153604,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32778",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "55589330944",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153605,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "55589330944",
+        "vram_22078": "0",
+        "pasid": "32780",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    }
+  ],
+  "visibility_errors": [],
+  "source_assets": {
+    "main_lib/fluidckpt/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/benchmarks/__init__.py": {
+      "sha256": "143e6705a6027bc4bdd2cd75633204b6dd66d0cd921391ba6b7b2eec633f0d8d",
+      "expected_sha256": "143e6705a6027bc4bdd2cd75633204b6dd66d0cd921391ba6b7b2eec633f0d8d"
+    },
+    "main_lib/fluidckpt/benchmarks/baseline_scope.py": {
+      "sha256": "96470f050c9d86d6109b87009f72a76a8b6d68176db20ed71c73559fb54eb7d8",
+      "expected_sha256": "96470f050c9d86d6109b87009f72a76a8b6d68176db20ed71c73559fb54eb7d8"
+    },
+    "main_lib/fluidckpt/benchmarks/basic_scenarios.py": {
+      "sha256": "6c75cd8a09f1fe7f378f0f2937cdac62531a6092369457e4cf1ccde665b5837c",
+      "expected_sha256": "6c75cd8a09f1fe7f378f0f2937cdac62531a6092369457e4cf1ccde665b5837c"
+    },
+    "main_lib/fluidckpt/benchmarks/blitz_adapter.py": {
+      "sha256": "fd80537fc91020c56a4c0a157665540d40370c324e2a84db4b010143a7dcf651",
+      "expected_sha256": "fd80537fc91020c56a4c0a157665540d40370c324e2a84db4b010143a7dcf651"
+    },
+    "main_lib/fluidckpt/benchmarks/calibrated_recovery.py": {
+      "sha256": "fe9b7b17bffbacbaf3e9fe091193d58dbe99056f6a4c2e1a450b73b3978a4c84",
+      "expected_sha256": "fe9b7b17bffbacbaf3e9fe091193d58dbe99056f6a4c2e1a450b73b3978a4c84"
+    },
+    "main_lib/fluidckpt/benchmarks/frozen_layout.py": {
+      "sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64",
+      "expected_sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+    },
+    "main_lib/fluidckpt/benchmarks/keeper_bridge.py": {
+      "sha256": "ee597e6dad12d1ae4204a11cc7ec9566bfc57cafa362c2e9487d7eb35865b47e",
+      "expected_sha256": "ee597e6dad12d1ae4204a11cc7ec9566bfc57cafa362c2e9487d7eb35865b47e"
+    },
+    "main_lib/fluidckpt/benchmarks/serverless_adapter.py": {
+      "sha256": "aa8bbe64869c9e190ed6e91c9eac9785c5d667dbbe2d0d69feafb8ba29e92677",
+      "expected_sha256": "aa8bbe64869c9e190ed6e91c9eac9785c5d667dbbe2d0d69feafb8ba29e92677"
+    },
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": {
+      "sha256": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+      "expected_sha256": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c"
+    },
+    "main_lib/fluidckpt/benchmarks/topology_cases.py": {
+      "sha256": "9ea2287c7f3748ebf43adbd44d24b3002b22ca359399152af9fb0c728755fc39",
+      "expected_sha256": "9ea2287c7f3748ebf43adbd44d24b3002b22ca359399152af9fb0c728755fc39"
+    },
+    "main_lib/fluidckpt/cluster/__init__.py": {
+      "sha256": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c",
+      "expected_sha256": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c"
+    },
+    "main_lib/fluidckpt/cluster/block_migration.py": {
+      "sha256": "0c63dd9d696ef732346b9ae29d85035a08a5179a529f7c6c786a436e84d77f24",
+      "expected_sha256": "0c63dd9d696ef732346b9ae29d85035a08a5179a529f7c6c786a436e84d77f24"
+    },
+    "main_lib/fluidckpt/cluster/capture.py": {
+      "sha256": "fa09825191a4aa54c7307f923c265c135e29579fcb7f26e65200a1af28f780f2",
+      "expected_sha256": "fa09825191a4aa54c7307f923c265c135e29579fcb7f26e65200a1af28f780f2"
+    },
+    "main_lib/fluidckpt/cluster/catalog.py": {
+      "sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d",
+      "expected_sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d"
+    },
+    "main_lib/fluidckpt/cluster/control.py": {
+      "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed",
+      "expected_sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed"
+    },
+    "main_lib/fluidckpt/cluster/eviction.py": {
+      "sha256": "2abfa96049c831ddbb54a7d886c894c7253fedc2f9b8b891c1599d494d747601",
+      "expected_sha256": "2abfa96049c831ddbb54a7d886c894c7253fedc2f9b8b891c1599d494d747601"
+    },
+    "main_lib/fluidckpt/cluster/feedback.py": {
+      "sha256": "f53b48d2ab6b8af93bf0397d27af81198cf7d8e3925049997b61d6dad42a8879",
+      "expected_sha256": "f53b48d2ab6b8af93bf0397d27af81198cf7d8e3925049997b61d6dad42a8879"
+    },
+    "main_lib/fluidckpt/cluster/joint.py": {
+      "sha256": "fa6ef74c6ef631c190e0c04a30005e1e109860856dd42cb87016a7932b51c1cd",
+      "expected_sha256": "fa6ef74c6ef631c190e0c04a30005e1e109860856dd42cb87016a7932b51c1cd"
+    },
+    "main_lib/fluidckpt/cluster/managed.py": {
+      "sha256": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e",
+      "expected_sha256": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e"
+    },
+    "main_lib/fluidckpt/cluster/managed_control.py": {
+      "sha256": "06a332fad0b0f0159e8bd685240a007bf6adba03a202586af01a54bd0ebf8f97",
+      "expected_sha256": "06a332fad0b0f0159e8bd685240a007bf6adba03a202586af01a54bd0ebf8f97"
+    },
+    "main_lib/fluidckpt/cluster/multi_joint.py": {
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657",
+      "expected_sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657"
+    },
+    "main_lib/fluidckpt/cluster/path_catalog.py": {
+      "sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+      "expected_sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43"
+    },
+    "main_lib/fluidckpt/cluster/planning.py": {
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024",
+      "expected_sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024"
+    },
+    "main_lib/fluidckpt/cluster/service_cost.py": {
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14",
+      "expected_sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+    },
+    "main_lib/fluidckpt/cluster/wire.py": {
+      "sha256": "95c8846b3023688a5ce0d207c624bf46fb9f8aa6df47c86018ba4358fa79ff28",
+      "expected_sha256": "95c8846b3023688a5ce0d207c624bf46fb9f8aa6df47c86018ba4358fa79ff28"
+    },
+    "main_lib/fluidckpt/cluster/worker.py": {
+      "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6",
+      "expected_sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6"
+    },
+    "main_lib/fluidckpt/executor/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/executor/chunks.py": {
+      "sha256": "7e4852838302adeb02ecc973976474a8ca833ce5ec928fbf6f647c355ac52973",
+      "expected_sha256": "7e4852838302adeb02ecc973976474a8ca833ce5ec928fbf6f647c355ac52973"
+    },
+    "main_lib/fluidckpt/executor/pipeline.py": {
+      "sha256": "9e21412ea32c27bf2806d90b2cc2ec3494ccd9a56aee1ec67f76e0075fe916ec",
+      "expected_sha256": "9e21412ea32c27bf2806d90b2cc2ec3494ccd9a56aee1ec67f76e0075fe916ec"
+    },
+    "main_lib/fluidckpt/executor/profiling.py": {
+      "sha256": "75234718e56ce0c787fa609319c8d5b9245c7e6354106941825a4a65918c3039",
+      "expected_sha256": "75234718e56ce0c787fa609319c8d5b9245c7e6354106941825a4a65918c3039"
+    },
+    "main_lib/fluidckpt/executor/regions.py": {
+      "sha256": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d",
+      "expected_sha256": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d"
+    },
+    "main_lib/fluidckpt/executor/run_plans.py": {
+      "sha256": "bb41f9c53196dd5ab96d3c6843b6bef9a6fd2b6dfa54647f278f554fbff773ff",
+      "expected_sha256": "bb41f9c53196dd5ab96d3c6843b6bef9a6fd2b6dfa54647f278f554fbff773ff"
+    },
+    "main_lib/fluidckpt/memory/__init__.py": {
+      "sha256": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08",
+      "expected_sha256": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08"
+    },
+    "main_lib/fluidckpt/memory/bindings.py": {
+      "sha256": "2807f529a7ebf7d1e824535cb8773e02745611580b0f2534fe6df0e8f00115e9",
+      "expected_sha256": "2807f529a7ebf7d1e824535cb8773e02745611580b0f2534fe6df0e8f00115e9"
+    },
+    "main_lib/fluidckpt/memory/host.py": {
+      "sha256": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc",
+      "expected_sha256": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc"
+    },
+    "main_lib/fluidckpt/memory/numa.py": {
+      "sha256": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+      "expected_sha256": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9"
+    },
+    "main_lib/fluidckpt/memory/owned_host.py": {
+      "sha256": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15",
+      "expected_sha256": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15"
+    },
+    "main_lib/fluidckpt/memory/owner.py": {
+      "sha256": "aeb05db3d19ffba814f7b78c4ad75fdfffc776873e14b012a0b7091ebe324383",
+      "expected_sha256": "aeb05db3d19ffba814f7b78c4ad75fdfffc776873e14b012a0b7091ebe324383"
+    },
+    "main_lib/fluidckpt/memory/ssd.py": {
+      "sha256": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5",
+      "expected_sha256": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5"
+    },
+    "main_lib/fluidckpt/model/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/model/fit.py": {
+      "sha256": "bf032dba09b232acc7c2c580a239088c93e4d4c1260964ebe8babcd78b9c225a",
+      "expected_sha256": "bf032dba09b232acc7c2c580a239088c93e4d4c1260964ebe8babcd78b9c225a"
+    },
+    "main_lib/fluidckpt/model/fluid.py": {
+      "sha256": "1ee4033e30e02271b847d17899434a7f8b7759a1449382be8485b7af5e9df00a",
+      "expected_sha256": "1ee4033e30e02271b847d17899434a7f8b7759a1449382be8485b7af5e9df00a"
+    },
+    "main_lib/fluidckpt/model/ingest.py": {
+      "sha256": "be52d33acaefb8a20b06c623d602ba852e6dfe85ad2d21f68a6c0d9f7d012a0f",
+      "expected_sha256": "be52d33acaefb8a20b06c623d602ba852e6dfe85ad2d21f68a6c0d9f7d012a0f"
+    },
+    "main_lib/fluidckpt/model/resources.py": {
+      "sha256": "f08dda76b915665b07e38658fec5762033a2566b4859ec886c1c8285ad8f9915",
+      "expected_sha256": "f08dda76b915665b07e38658fec5762033a2566b4859ec886c1c8285ad8f9915"
+    },
+    "main_lib/fluidckpt/model/score_frozen.py": {
+      "sha256": "cb1f6b3b0cf81ec9e52305ec2e6b1502fbebe8830b747cc34c33bfcd3aa65ab3",
+      "expected_sha256": "cb1f6b3b0cf81ec9e52305ec2e6b1502fbebe8830b747cc34c33bfcd3aa65ab3"
+    },
+    "main_lib/fluidckpt/planner/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/planner/loading.py": {
+      "sha256": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010",
+      "expected_sha256": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010"
+    },
+    "main_lib/fluidckpt/planner/plans.py": {
+      "sha256": "6e01d118714bc08262fd03c98d19e15ea0df96a2acca22d0f0f3e26a40ed5ccb",
+      "expected_sha256": "6e01d118714bc08262fd03c98d19e15ea0df96a2acca22d0f0f3e26a40ed5ccb"
+    },
+    "main_lib/fluidckpt/planner/regions.py": {
+      "sha256": "bb416a8ad667f93caf6b87f3b273246f7199e20cecb7eed71901774e69fff0d0",
+      "expected_sha256": "bb416a8ad667f93caf6b87f3b273246f7199e20cecb7eed71901774e69fff0d0"
+    },
+    "main_lib/fluidckpt/profiler/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/profiler/numa.py": {
+      "sha256": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+      "expected_sha256": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5"
+    },
+    "main_lib/fluidckpt/profiler/run.py": {
+      "sha256": "6cab12fd102196ffa6e68b87abb8206fbed3b9bdfff4ec9bb0980c39d1d361a6",
+      "expected_sha256": "6cab12fd102196ffa6e68b87abb8206fbed3b9bdfff4ec9bb0980c39d1d361a6"
+    },
+    "main_lib/fluidckpt/profiler/workers.py": {
+      "sha256": "7b9fc98576e75e17b9e8d888dd457f5097705606f2d0542afc1a33663b67e4c8",
+      "expected_sha256": "7b9fc98576e75e17b9e8d888dd457f5097705606f2d0542afc1a33663b67e4c8"
+    },
+    "main_lib/fluidckpt/serving/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/serving/ctl.py": {
+      "sha256": "5d1f54a0e52138266d074582decc2211c400a5a3635dd00b1803079ae2b5e7b9",
+      "expected_sha256": "5d1f54a0e52138266d074582decc2211c400a5a3635dd00b1803079ae2b5e7b9"
+    },
+    "main_lib/fluidckpt/serving/handoff.py": {
+      "sha256": "43619da2af5eabfeafe1108ab86c2021b05e1c2296239213d8b4253b90418f42",
+      "expected_sha256": "43619da2af5eabfeafe1108ab86c2021b05e1c2296239213d8b4253b90418f42"
+    },
+    "main_lib/fluidckpt/serving/ipc_attach.py": {
+      "sha256": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4",
+      "expected_sha256": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4"
+    },
+    "main_lib/fluidckpt/serving/ipc_layout.py": {
+      "sha256": "19df6275ea35ea3ea008831310cd0aa1fad01cfc51364b6624c0fdbac4cb8f54",
+      "expected_sha256": "19df6275ea35ea3ea008831310cd0aa1fad01cfc51364b6624c0fdbac4cb8f54"
+    },
+    "main_lib/fluidckpt/serving/keeper.py": {
+      "sha256": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250",
+      "expected_sha256": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250"
+    },
+    "main_lib/fluidckpt/serving/layout.py": {
+      "sha256": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156",
+      "expected_sha256": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156"
+    },
+    "main_lib/fluidckpt/serving/lifecycle.py": {
+      "sha256": "fe2b035eff0c5e5ce9feef6d67ca11857767fed410beb54798f239b506f890a9",
+      "expected_sha256": "fe2b035eff0c5e5ce9feef6d67ca11857767fed410beb54798f239b506f890a9"
+    },
+    "main_lib/fluidckpt/serving/measure.py": {
+      "sha256": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a",
+      "expected_sha256": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a"
+    },
+    "main_lib/fluidckpt/serving/prepare_trace.py": {
+      "sha256": "32d18810810aaea0a8b19655fcc22529225eb7a8ed6aced5b304757ddb2bf889",
+      "expected_sha256": "32d18810810aaea0a8b19655fcc22529225eb7a8ed6aced5b304757ddb2bf889"
+    },
+    "main_lib/fluidckpt/serving/replicas.py": {
+      "sha256": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566",
+      "expected_sha256": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566"
+    },
+    "main_lib/fluidckpt/serving/sglang_hook.py": {
+      "sha256": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a",
+      "expected_sha256": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a"
+    },
+    "main_lib/fluidckpt/serving/ssd_store.py": {
+      "sha256": "ae8674271eb83fc1d2d78f88cfe0f422b5aa8ec0a9037a8854b4bb5d8ab0d164",
+      "expected_sha256": "ae8674271eb83fc1d2d78f88cfe0f422b5aa8ec0a9037a8854b4bb5d8ab0d164"
+    },
+    "main_lib/fluidckpt/topology/__init__.py": {
+      "sha256": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c",
+      "expected_sha256": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c"
+    },
+    "main_lib/fluidckpt/topology/discover.py": {
+      "sha256": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+      "expected_sha256": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66"
+    },
+    "main_lib/fluidckpt/topology/placement.py": {
+      "sha256": "435a3652111c9584c6b6abc564952e892b083749728fd64e74a7f52597971d94",
+      "expected_sha256": "435a3652111c9584c6b6abc564952e892b083749728fd64e74a7f52597971d94"
+    },
+    "main_lib/fluidckpt/topology/rccl_xml.py": {
+      "sha256": "8f1eaba98d409d826a4c57083962514bca37d5f18b7f592d76aecaef193d2f15",
+      "expected_sha256": "8f1eaba98d409d826a4c57083962514bca37d5f18b7f592d76aecaef193d2f15"
+    },
+    "main_lib/fluidckpt/topology/resource_map.py": {
+      "sha256": "88dde80e3ac43e2a4973f70a4ae9e1f79c64a68c9983bf16c8f49e888d7f45e4",
+      "expected_sha256": "88dde80e3ac43e2a4973f70a4ae9e1f79c64a68c9983bf16c8f49e888d7f45e4"
+    },
+    "main_lib/fluidckpt/transport/__init__.py": {
+      "sha256": "24fc75327a4783864f10cc0b4280595f0971a0365e1d69a5053cd38772158563",
+      "expected_sha256": "24fc75327a4783864f10cc0b4280595f0971a0365e1d69a5053cd38772158563"
+    },
+    "main_lib/fluidckpt/transport/bucket.py": {
+      "sha256": "0d5ec16c7f4dbeee76f105d91d8ca7461e07dcee90dcafe7155a6576c249343a",
+      "expected_sha256": "0d5ec16c7f4dbeee76f105d91d8ca7461e07dcee90dcafe7155a6576c249343a"
+    },
+    "main_lib/fluidckpt/transport/flowplan.py": {
+      "sha256": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103",
+      "expected_sha256": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103"
+    },
+    "main_lib/fluidckpt/transport/stream.py": {
+      "sha256": "5c5c3a36e90caff8398b23b80f34f3d96257acb6dc4203a46de305df53d6c05d",
+      "expected_sha256": "5c5c3a36e90caff8398b23b80f34f3d96257acb6dc4203a46de305df53d6c05d"
+    },
+    "codex_coding/src/v0.1.23.3/task2/three_node_recovery/admission28/runtime_gate_r03.py": {
+      "sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058",
+      "expected_sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/measurement_driver.py": {
+      "sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9",
+      "expected_sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9"
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_xml_2830_gdr0_r01/node30.physical.gdr0.xml": {
+      "sha256": "b0d2633711e3779784265aaa80c44f4ad0beaaf95728c0e6bef555b99503e9b5",
+      "expected_sha256": "b0d2633711e3779784265aaa80c44f4ad0beaaf95728c0e6bef555b99503e9b5"
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_xml_2830_gdr0_r01/node30.manifest.json": {
+      "sha256": "d2e928320a5128e4ef30d694d1d092cb688082c1a173b09faeac11b938ae38d9",
+      "expected_sha256": "d2e928320a5128e4ef30d694d1d092cb688082c1a173b09faeac11b938ae38d9"
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_driver_deploy_r01/local64_node30_r01.config.json": {
+      "sha256": "a23f62521fc4e661e7d1d7ead7aebd1c42420de4c66a012e613a3ab71c5bda9d",
+      "expected_sha256": "a23f62521fc4e661e7d1d7ead7aebd1c42420de4c66a012e613a3ab71c5bda9d"
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_driver_deploy_r01/remote64_node30_r01.config.json": {
+      "sha256": "36a4242d33e592685ccf62134025ac2590bad907f7a34f5f699d7c9fd00e8fe0",
+      "expected_sha256": "36a4242d33e592685ccf62134025ac2590bad907f7a34f5f699d7c9fd00e8fe0"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/build_contract.py": {
+      "sha256": "2507a54f8932f0d865518c3e5fa1cc695a5235bdcb791e3e0b21388b4ec13cc9",
+      "expected_sha256": "2507a54f8932f0d865518c3e5fa1cc695a5235bdcb791e3e0b21388b4ec13cc9"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/run_session.py": {
+      "sha256": "42e15919480e57020f7a6dce3ebd1b41f1748d0148ef7b2f39cfab7c7583dae1",
+      "expected_sha256": "42e15919480e57020f7a6dce3ebd1b41f1748d0148ef7b2f39cfab7c7583dae1"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/supervise_worker.py": {
+      "sha256": "6f0e7345264968f72fce35206191cab081858d1bf3902e7d05b3aed1535cdb2e",
+      "expected_sha256": "6f0e7345264968f72fce35206191cab081858d1bf3902e7d05b3aed1535cdb2e"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/test_integration.py": {
+      "sha256": "c8279cf72d20189f184e2c1238aa452f9af63daf69b9cf851a03a86fbcdaaef5",
+      "expected_sha256": "c8279cf72d20189f184e2c1238aa452f9af63daf69b9cf851a03a86fbcdaaef5"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/README.md": {
+      "sha256": "12e119beb6c8ded281cb1c1d89a8e2066492f3bb7d13d38a54c6ae3a85cd079f",
+      "expected_sha256": "12e119beb6c8ded281cb1c1d89a8e2066492f3bb7d13d38a54c6ae3a85cd079f"
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_launch_cpu_r05/launch_plan.json": {
+      "sha256": "d068c07c0911baad0e1bd97fb4b2e45d1795b6998a336ddfff5e56703165941b",
+      "expected_sha256": "d068c07c0911baad0e1bd97fb4b2e45d1795b6998a336ddfff5e56703165941b"
+    }
+  },
+  "gpu_api_calls": 0,
+  "keeper_rpc_calls": 0,
+  "keepers": [],
+  "keeper_process_discovery": [],
+  "scope": "metadata/catalog only; canonical catalog excludes dynamic free/sample fields; no model-content reread; additional keep-v02 six identities have no catalog RPC",
+  "container_identity_checks": {
+    "id": true,
+    "started": true,
+    "running": true
+  },
+  "cpu": {
+    "loadavg": "3.07 3.09 3.03 2/4309 3296835",
+    "stat": "cpu  43642408 769 23487820 62398197104 9550508 0 290036 0 0 0\ncpu0 781793 14 262463 486626701 62735 0 10443 0 0 0\ncpu1 440340 11 264498 487278283 93349 0 874 0 0 0\ncpu2 316431 3 281038 486367267 45966 0 145207 0 0 0\ncpu3 470528 3 276378 487013263 54886 0 34840 0 0 0\ncpu4 425466 13 237552 487428917 49949 0 1081 0 0 0\ncpu5 306078 8 221030 487004123 552758 0 1560 0 0 0\ncpu6 272427 3 213998 487568128 58593 0 760 0 0 0\ncpu7 257801 9 206632 487584657 84993 0 636 0 0 0\ncpu8 923491 0 251816 486926058 77491 0 1340 0 0 0\ncpu9 587380 14 240673 487267562 79727 0 1019 0 0 0\ncpu10 367372 14 218166 487498400 87715 0 763 0 0 0\ncpu11 360349 10 200754 487546476 60813 0 855 0 0 0\ncpu12 394124 12 204192 487518536 64080 0 872 0 0 0\ncpu13 372916 4 197866 487535618 70781 0 890 0 0 0\ncpu14 349883 12 200062 487576711 57381 0 779 0 0 0\ncpu15 382644 6 262656 487487631 50096 0 828 0 0 0\ncpu16 410524 9 291179 487234386 63873 0 2656 0 0 0\ncpu17 285740 21 227561 487494450 50904 0 2492 0 0 0\ncpu18 245090 4 195960 487604271 42022 0 2198 0 0 0\ncpu19 213624 0 153779 487715667 35767 0 2384 0 0 0\ncpu20 225210 0 150343 487631466 38736 0 5530 0 0 0\ncpu21 233706 0 143884 487724303 43502 0 2188 0 0 0\ncpu22 217145 4 144328 487730181 45780 0 2175 0 0 0\ncpu23 224578 4 142508 487725179 39561 0 1521 0 0 0\ncpu24 358955 0 160103 487620004 47369 0 1754 0 0 0\ncpu25 278787 0 139866 487724471 43564 0 1607 0 0 0\ncpu26 237679 1 139751 487394861 421113 0 1600 0 0 0\ncpu27 202882 0 130917 487815085 36302 0 1678 0 0 0\ncpu28 219348 0 138198 487797359 42190 0 1765 0 0 0\ncpu29 223944 8 134719 487279041 536930 0 8650 0 0 0\ncpu30 222753 16 139516 487801286 38415 0 1745 0 0 0\ncpu31 248538 10 140918 487758644 44151 0 1785 0 0 0\ncpu32 710650 17 226512 487152580 88540 0 643 0 0 0\ncpu33 412336 3 193263 487478169 93366 0 661 0 0 0\ncpu34 313266 15 174166 487596353 110664 0 671 0 0 0\ncpu35 247313 12 153144 487722665 72881 0 524 0 0 0\ncpu36 242154 3 144948 487738512 81317 0 625 0 0 0\ncpu37 232688 0 144823 487752018 81538 0 616 0 0 0\ncpu38 233842 22 133002 487776896 70496 0 588 0 0 0\ncpu39 239114 2 129343 487791210 56887 0 616 0 0 0\ncpu40 501676 0 150562 487563308 40023 0 618 0 0 0\ncpu41 374448 2 137488 487708735 37622 0 1053 0 0 0\ncpu42 253150 0 134441 487839585 41706 0 621 0 0 0\ncpu43 217742 3 126577 487896974 42098 0 608 0 0 0\ncpu44 220815 10 124332 487886833 41465 0 604 0 0 0\ncpu45 221233 0 122916 487878979 41710 0 670 0 0 0\ncpu46 267396 3 124043 487817121 37387 0 580 0 0 0\ncpu47 247056 6 128999 487803419 53109 0 1716 0 0 0\ncpu48 369652 10 202988 487560396 20530 0 302 0 0 0\ncpu49 271818 0 164222 487693706 21784 0 262 0 0 0\ncpu50 211115 0 162010 487752440 24397 0 218 0 0 0\ncpu51 203911 2 136341 487783138 24094 0 211 0 0 0\ncpu52 204777 0 142078 487802680 23780 0 237 0 0 0\ncpu53 197279 0 126125 487831610 14299 0 351 0 0 0\ncpu54 197163 0 144111 487818492 16868 0 320 0 0 0\ncpu55 198974 5 130824 487847948 21320 0 208 0 0 0\ncpu56 324146 0 151284 487655859 34995 0 276 0 0 0\ncpu57 239611 6 133912 487768462 26592 0 269 0 0 0\ncpu58 228993 16 132369 487778518 18077 0 293 0 0 0\ncpu59 218871 3 120818 487813394 18916 0 329 0 0 0\ncpu60 223135 0 130229 487830685 21533 0 266 0 0 0\ncpu61 234278 14 127001 487814123 19254 0 236 0 0 0\ncpu62 203493 20 126254 487834321 24736 0 253 0 0 0\ncpu63 247862 0 130104 487772463 26087 0 46 0 0 0\ncpu64 1054152 0 394854 486035109 74360 0 362 0 0 0\ncpu65 604481 7 299836 486731974 66806 0 174 0 0 0\ncpu66 461510 0 271616 486938313 61513 0 176 0 0 0\ncpu67 399756 0 256640 487054685 52216 0 208 0 0 0\ncpu68 399439 2 241222 487097764 38022 0 162 0 0 0\ncpu69 401754 17 234111 487109583 41029 0 142 0 0 0\ncpu70 373281 2 232306 487022341 65238 0 15296 0 0 0\ncpu71 445645 0 243406 487040179 51186 0 257 0 0 0\ncpu72 1011596 4 245394 486655041 54075 0 199 0 0 0\ncpu73 629433 0 225014 487048877 51648 0 126 0 0 0\ncpu74 491484 0 208157 487230490 42715 0 129 0 0 0\ncpu75 437963 1 192748 487317372 32716 0 155 0 0 0\ncpu76 451881 2 187903 487304885 34856 0 88 0 0 0\ncpu77 441447 0 187538 487325818 40035 0 106 0 0 0\ncpu78 446723 2 190592 487318065 37189 0 116 0 0 0\ncpu79 419601 0 186816 487343879 32395 0 134 0 0 0\ncpu80 452207 15 306843 487000893 29343 0 434 0 0 0\ncpu81 314108 0 239448 487281925 22047 0 184 0 0 0\ncpu82 295162 0 200937 487382579 22490 0 133 0 0 0\ncpu83 255907 18 177748 487472082 17691 0 179 0 0 0\ncpu84 269062 0 171899 487486304 18168 0 168 0 0 0\ncpu85 251079 1 165803 487556144 16551 0 150 0 0 0\ncpu86 243140 5 164396 487271972 304432 0 128 0 0 0\ncpu87 234343 5 160032 487093447 488736 0 151 0 0 0\ncpu88 405081 8 175658 487423745 19996 0 5281 0 0 0\ncpu89 326060 2 170012 487589199 17946 0 300 0 0 0\ncpu90 294762 10 160311 487636062 16256 0 184 0 0 0\ncpu91 282618 16 154513 487643475 22861 0 128 0 0 0\ncpu92 277418 0 155238 487654837 20855 0 127 0 0 0\ncpu93 269714 0 154116 487655872 22871 0 107 0 0 0\ncpu94 273676 2 148303 487662612 22219 0 193 0 0 0\ncpu95 274820 2 152262 487166421 518439 0 143 0 0 0\ncpu96 730137 6 268112 486982215 75393 0 222 0 0 0\ncpu97 432186 3 230465 487323312 83458 0 203 0 0 0\ncpu98 365061 12 213155 487459148 53124 0 95 0 0 0\ncpu99 300384 0 186171 487553067 45365 0 128 0 0 0\ncpu100 319497 2 182466 487559530 37485 0 64 0 0 0\ncpu101 274362 2 178836 487590658 64699 0 89 0 0 0\ncpu102 271442 2 176812 487625650 34035 0 72 0 0 0\ncpu103 266169 2 170338 487599032 55379 0 62 0 0 0\ncpu104 673201 12 229799 487074928 45074 0 339 0 0 0\ncpu105 361679 28 202361 487390152 55389 0 167 0 0 0\ncpu106 330515 8 199108 487353734 114579 0 152 0 0 0\ncpu107 323916 18 186154 487477077 48160 0 138 0 0 0\ncpu108 338152 2 248382 487378703 46631 0 90 0 0 0\ncpu109 366718 9 184095 487405167 59206 0 112 0 0 0\ncpu110 355574 4 185557 487444269 40715 0 100 0 0 0\ncpu111 319819 14 226460 487327951 95258 0 404 0 0 0\ncpu112 597264 4 289503 486275573 572832 0 119 0 0 0\ncpu113 372772 0 296763 487186294 64032 0 141 0 0 0\ncpu114 299778 6 205015 486992555 536651 0 126 0 0 0\ncpu115 235138 23 162393 487646512 38246 0 133 0 0 0\ncpu116 213806 9 150917 487716798 42900 0 134 0 0 0\ncpu117 295440 4 144262 487650542 37481 0 88 0 0 0\ncpu118 204885 5 136426 487755170 30543 0 87 0 0 0\ncpu119 253318 0 131529 487715242 22799 0 96 0 0 0\ncpu120 325345 2 152998 487832075 49076 0 158 0 0 0\ncpu121 222116 0 136167 487940905 42927 0 105 0 0 0\ncpu122 305087 4 138669 487828384 79861 0 96 0 0 0\ncpu123 230384 8 133389 487921347 72527 0 82 0 0 0\ncpu124 218072 5 131116 487967630 45483 0 99 0 0 0\ncpu125 244398 17 132717 487937030 50307 0 106 0 0 0\ncpu126 231424 6 128824 487956009 44886 0 72 0 0 0\ncpu127 407526 0 170608 487737861 39481 0 122 0 0 0\nintr 42055144449 44 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 137 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 134 0 0 0 0 0 0 0 0 0 134 0 0 0 0 0 0 0 0 0 0 131 0 0 0 0 0 0 0 0 0 0 0 0 73 0 0 0 10 0 0 1 2 0 0 2 1 0 0 0 27 0 0 0 1 107 241 0 45 0 30 0 0 0 0 0 0 0 0 0 0 0 4 706 0 1 0 13 0 2 0 0 0 14338 0 30 0 0 0 0 0 0 0 0 0 799 7 0 1 10 0 0 0 0 474772 218719 159075 154484 113651 92042 104885 96529 161993 104646 140882 60002 336100 274224 150564 126120 447971 375305 277434 337776 225538 128194 132238 123055 360967 266997 140628 120486 120953 91676 90622 109782 170677 84502 52165 47109 39803 40598 68551 33796 353099 185068 205556 172126 174851 164310 138704 210879 685535 305354 177364 105677 84680 57447 78450 110862 265237 271840 286543 230966 271090 267662 233573 179240 0 33906934 3915213 4128311 11910630 4715236 5988692 4297943 3215591 4950926 5496463 4398635 6442078 3668855 4216421 3264331 3548774 3003764 3150439 2805017 2984696 3098821 2963305 2984308 2999171 2800113 2864199 2815022 2880951 2858979 2919484 2951309 3153355 2738096 2780723 3733755 2815575 2847927 2934280 3031537 2781949 3054225 4488379 3540001 3366786 3116583 3021412 3675063 2751858 2954938 3956712 2959748 2742614 2753880 3451059 2885009 2718028 3766943 3213118 3014844 3048628 3489523 2743311 2768477 38 0 0 0 5 0 0 0 0 0 0 57002887 3198827 3313444 3278669 3260558 3424318 3426580 3224962 3219547 3187575 3251823 3242721 3326928 3299849 3217745 3117355 8337537 8306742 7672329 7802469 7449107 6785457 6851813 5470692 5725730 5509003 5467834 5672962 5933473 21523678 5857889 6033750 3391551 3344860 3311466 3280988 3339042 3315208 3302555 3349770 3258478 3521132 3325230 3321916 3362361 3407967 3358662 5329224 2736942 2769018 2754010 2757506 2768607 2893865 2874103 2744077 2706764 2728181 2737192 2765696 2775244 2737243 2759436 1 0 0 0 8 0 0 0 0 0 1671432 0 744018440 708432059 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 12 0 0 1205640 1479197 0 0 0 94952903 186 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 0 0 998857 1480600 0 0 0 0 0 95022454 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 14 0 0 999380 1668479 0 0 0 0 0 0 0 96894180 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 0 0 1199085 3974 3974 3974 3974 3974 3974 3974 12430199 8085802 8080762 8108626 4880892 4888328 4871141 4868889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\nctxt 87989735515\nbtime 1786674100\nprocesses 11679489\nprocs_running 2\nprocs_blocked 0\nsoftirq 12674227095 10 1733858618 425719154 2337039525 6606 474720 1748746845 2671177052 902077 3756302488",
+    "online": "0-127"
+  },
+  "numa": {
+    "node0": {
+      "meminfo": "Node 0 MemTotal:       65759924 kB\nNode 0 MemFree:        14974592 kB\nNode 0 MemUsed:        50785332 kB\nNode 0 SwapCached:        16444 kB\nNode 0 Active:         32814456 kB\nNode 0 Inactive:       14721708 kB\nNode 0 Active(anon):      67608 kB\nNode 0 Inactive(anon):  7531804 kB\nNode 0 Active(file):   32746848 kB\nNode 0 Inactive(file):  7189904 kB\nNode 0 Unevictable:           0 kB\nNode 0 Mlocked:               0 kB\nNode 0 Dirty:              2588 kB\nNode 0 Writeback:             0 kB\nNode 0 FilePages:      39956164 kB\nNode 0 Mapped:           242016 kB\nNode 0 AnonPages:       7568696 kB\nNode 0 Shmem:              2988 kB\nNode 0 KernelStack:       24068 kB\nNode 0 PageTables:        33096 kB\nNode 0 NFS_Unstable:          0 kB\nNode 0 Bounce:                0 kB\nNode 0 WritebackTmp:          0 kB\nNode 0 KReclaimable:     846980 kB\nNode 0 Slab:            1095732 kB\nNode 0 SReclaimable:     846980 kB\nNode 0 SUnreclaim:       248752 kB\nNode 0 AnonHugePages:   7112704 kB\nNode 0 ShmemHugePages:        0 kB\nNode 0 ShmemPmdMapped:        0 kB\nNode 0 FileHugePages:        0 kB\nNode 0 FilePmdMapped:        0 kB\nNode 0 HugePages_Total:     0\nNode 0 HugePages_Free:      0\nNode 0 HugePages_Surp:      0",
+      "cpulist": "0-15"
+    },
+    "node1": {
+      "meminfo": "Node 1 MemTotal:       66019108 kB\nNode 1 MemFree:        14580200 kB\nNode 1 MemUsed:        51438908 kB\nNode 1 SwapCached:        16296 kB\nNode 1 Active:         39746912 kB\nNode 1 Inactive:        8401040 kB\nNode 1 Active(anon):      45596 kB\nNode 1 Inactive(anon):  4004572 kB\nNode 1 Active(file):   39701316 kB\nNode 1 Inactive(file):  4396468 kB\nNode 1 Unevictable:           0 kB\nNode 1 Mlocked:               0 kB\nNode 1 Dirty:               936 kB\nNode 1 Writeback:             0 kB\nNode 1 FilePages:      44114568 kB\nNode 1 Mapped:           166084 kB\nNode 1 AnonPages:       4027992 kB\nNode 1 Shmem:               488 kB\nNode 1 KernelStack:        7064 kB\nNode 1 PageTables:        14588 kB\nNode 1 NFS_Unstable:          0 kB\nNode 1 Bounce:                0 kB\nNode 1 WritebackTmp:          0 kB\nNode 1 KReclaimable:    1053392 kB\nNode 1 Slab:            1246772 kB\nNode 1 SReclaimable:    1053392 kB\nNode 1 SUnreclaim:       193380 kB\nNode 1 AnonHugePages:   3837952 kB\nNode 1 ShmemHugePages:        0 kB\nNode 1 ShmemPmdMapped:        0 kB\nNode 1 FileHugePages:        0 kB\nNode 1 FilePmdMapped:        0 kB\nNode 1 HugePages_Total:     0\nNode 1 HugePages_Free:      0\nNode 1 HugePages_Surp:      0",
+      "cpulist": "16-31"
+    },
+    "node2": {
+      "meminfo": "Node 2 MemTotal:       66053624 kB\nNode 2 MemFree:        23431412 kB\nNode 2 MemUsed:        42622212 kB\nNode 2 SwapCached:        10544 kB\nNode 2 Active:         33308300 kB\nNode 2 Inactive:        6294968 kB\nNode 2 Active(anon):      19472 kB\nNode 2 Inactive(anon):  3946776 kB\nNode 2 Active(file):   33288828 kB\nNode 2 Inactive(file):  2348192 kB\nNode 2 Unevictable:           0 kB\nNode 2 Mlocked:               0 kB\nNode 2 Dirty:               232 kB\nNode 2 Writeback:             0 kB\nNode 2 FilePages:      35649428 kB\nNode 2 Mapped:           176684 kB\nNode 2 AnonPages:       3948536 kB\nNode 2 Shmem:              1864 kB\nNode 2 KernelStack:        5728 kB\nNode 2 PageTables:        12892 kB\nNode 2 NFS_Unstable:          0 kB\nNode 2 Bounce:                0 kB\nNode 2 WritebackTmp:          0 kB\nNode 2 KReclaimable:    1049916 kB\nNode 2 Slab:            1235344 kB\nNode 2 SReclaimable:    1049916 kB\nNode 2 SUnreclaim:       185428 kB\nNode 2 AnonHugePages:   3801088 kB\nNode 2 ShmemHugePages:        0 kB\nNode 2 ShmemPmdMapped:        0 kB\nNode 2 FileHugePages:        0 kB\nNode 2 FilePmdMapped:        0 kB\nNode 2 HugePages_Total:     0\nNode 2 HugePages_Free:      0\nNode 2 HugePages_Surp:      0",
+      "cpulist": "32-47"
+    },
+    "node3": {
+      "meminfo": "Node 3 MemTotal:       66053624 kB\nNode 3 MemFree:        20364520 kB\nNode 3 MemUsed:        45689104 kB\nNode 3 SwapCached:        17648 kB\nNode 3 Active:         32029088 kB\nNode 3 Inactive:       11341396 kB\nNode 3 Active(anon):     117272 kB\nNode 3 Inactive(anon):  5301064 kB\nNode 3 Active(file):   31911816 kB\nNode 3 Inactive(file):  6040332 kB\nNode 3 Unevictable:           0 kB\nNode 3 Mlocked:               0 kB\nNode 3 Dirty:                12 kB\nNode 3 Writeback:             0 kB\nNode 3 FilePages:      37970444 kB\nNode 3 Mapped:           686836 kB\nNode 3 AnonPages:       5396228 kB\nNode 3 Shmem:               656 kB\nNode 3 KernelStack:        3652 kB\nNode 3 PageTables:        26640 kB\nNode 3 NFS_Unstable:          0 kB\nNode 3 Bounce:                0 kB\nNode 3 WritebackTmp:          0 kB\nNode 3 KReclaimable:     438636 kB\nNode 3 Slab:             563556 kB\nNode 3 SReclaimable:     438636 kB\nNode 3 SUnreclaim:       124920 kB\nNode 3 AnonHugePages:   4751360 kB\nNode 3 ShmemHugePages:        0 kB\nNode 3 ShmemPmdMapped:        0 kB\nNode 3 FileHugePages:        0 kB\nNode 3 FilePmdMapped:        0 kB\nNode 3 HugePages_Total:     0\nNode 3 HugePages_Free:      0\nNode 3 HugePages_Surp:      0",
+      "cpulist": "48-63"
+    },
+    "node4": {
+      "meminfo": "Node 4 MemTotal:       66053624 kB\nNode 4 MemFree:        15280636 kB\nNode 4 MemUsed:        50772988 kB\nNode 4 SwapCached:        10672 kB\nNode 4 Active:         41778492 kB\nNode 4 Inactive:        6464088 kB\nNode 4 Active(anon):      46988 kB\nNode 4 Inactive(anon):  1158824 kB\nNode 4 Active(file):   41731504 kB\nNode 4 Inactive(file):  5305264 kB\nNode 4 Unevictable:           0 kB\nNode 4 Mlocked:               0 kB\nNode 4 Dirty:                 4 kB\nNode 4 Writeback:             0 kB\nNode 4 FilePages:      47048692 kB\nNode 4 Mapped:           147260 kB\nNode 4 AnonPages:       1182224 kB\nNode 4 Shmem:              1324 kB\nNode 4 KernelStack:        6352 kB\nNode 4 PageTables:         9872 kB\nNode 4 NFS_Unstable:          0 kB\nNode 4 Bounce:                0 kB\nNode 4 WritebackTmp:          0 kB\nNode 4 KReclaimable:     774116 kB\nNode 4 Slab:             953148 kB\nNode 4 SReclaimable:     774116 kB\nNode 4 SUnreclaim:       179032 kB\nNode 4 AnonHugePages:   1077248 kB\nNode 4 ShmemHugePages:        0 kB\nNode 4 ShmemPmdMapped:        0 kB\nNode 4 FileHugePages:        0 kB\nNode 4 FilePmdMapped:        0 kB\nNode 4 HugePages_Total:     0\nNode 4 HugePages_Free:      0\nNode 4 HugePages_Surp:      0",
+      "cpulist": "64-79"
+    },
+    "node5": {
+      "meminfo": "Node 5 MemTotal:       66048092 kB\nNode 5 MemFree:        19930172 kB\nNode 5 MemUsed:        46117920 kB\nNode 5 SwapCached:         9120 kB\nNode 5 Active:         31020872 kB\nNode 5 Inactive:       12901480 kB\nNode 5 Active(anon):      28000 kB\nNode 5 Inactive(anon):   194052 kB\nNode 5 Active(file):   30992872 kB\nNode 5 Inactive(file): 12707428 kB\nNode 5 Unevictable:           0 kB\nNode 5 Mlocked:               0 kB\nNode 5 Dirty:                 0 kB\nNode 5 Writeback:             0 kB\nNode 5 FilePages:      43709780 kB\nNode 5 Mapped:           156304 kB\nNode 5 AnonPages:        202204 kB\nNode 5 Shmem:               380 kB\nNode 5 KernelStack:        4320 kB\nNode 5 PageTables:         3984 kB\nNode 5 NFS_Unstable:          0 kB\nNode 5 Bounce:                0 kB\nNode 5 WritebackTmp:          0 kB\nNode 5 KReclaimable:     548072 kB\nNode 5 Slab:             691728 kB\nNode 5 SReclaimable:     548072 kB\nNode 5 SUnreclaim:       143656 kB\nNode 5 AnonHugePages:    106496 kB\nNode 5 ShmemHugePages:        0 kB\nNode 5 ShmemPmdMapped:        0 kB\nNode 5 FileHugePages:        0 kB\nNode 5 FilePmdMapped:        0 kB\nNode 5 HugePages_Total:     0\nNode 5 HugePages_Free:      0\nNode 5 HugePages_Surp:      0",
+      "cpulist": "80-95"
+    },
+    "node6": {
+      "meminfo": "Node 6 MemTotal:       66053624 kB\nNode 6 MemFree:        17340592 kB\nNode 6 MemUsed:        48713032 kB\nNode 6 SwapCached:         9356 kB\nNode 6 Active:         26383020 kB\nNode 6 Inactive:       20005760 kB\nNode 6 Active(anon):      39856 kB\nNode 6 Inactive(anon):  2558248 kB\nNode 6 Active(file):   26343164 kB\nNode 6 Inactive(file): 17447512 kB\nNode 6 Unevictable:          64 kB\nNode 6 Mlocked:              64 kB\nNode 6 Dirty:                 4 kB\nNode 6 Writeback:             0 kB\nNode 6 FilePages:      43800988 kB\nNode 6 Mapped:           362744 kB\nNode 6 AnonPages:       2576824 kB\nNode 6 Shmem:               984 kB\nNode 6 KernelStack:        6464 kB\nNode 6 PageTables:        17972 kB\nNode 6 NFS_Unstable:          0 kB\nNode 6 Bounce:                0 kB\nNode 6 WritebackTmp:          0 kB\nNode 6 KReclaimable:     896052 kB\nNode 6 Slab:            1076216 kB\nNode 6 SReclaimable:     896052 kB\nNode 6 SUnreclaim:       180164 kB\nNode 6 AnonHugePages:   2349056 kB\nNode 6 ShmemHugePages:        0 kB\nNode 6 ShmemPmdMapped:        0 kB\nNode 6 FileHugePages:        0 kB\nNode 6 FilePmdMapped:        0 kB\nNode 6 HugePages_Total:     0\nNode 6 HugePages_Free:      0\nNode 6 HugePages_Surp:      0",
+      "cpulist": "96-111"
+    },
+    "node7": {
+      "meminfo": "Node 7 MemTotal:       66053624 kB\nNode 7 MemFree:         6206604 kB\nNode 7 MemUsed:        59847020 kB\nNode 7 SwapCached:        14784 kB\nNode 7 Active:         32891768 kB\nNode 7 Inactive:       24927904 kB\nNode 7 Active(anon):      29388 kB\nNode 7 Inactive(anon):  4298364 kB\nNode 7 Active(file):   32862380 kB\nNode 7 Inactive(file): 20629540 kB\nNode 7 Unevictable:           0 kB\nNode 7 Mlocked:               0 kB\nNode 7 Dirty:                 0 kB\nNode 7 Writeback:             0 kB\nNode 7 FilePages:      53507968 kB\nNode 7 Mapped:           252792 kB\nNode 7 AnonPages:       4309480 kB\nNode 7 Shmem:              1264 kB\nNode 7 KernelStack:       12800 kB\nNode 7 PageTables:        37944 kB\nNode 7 NFS_Unstable:          0 kB\nNode 7 Bounce:                0 kB\nNode 7 WritebackTmp:          0 kB\nNode 7 KReclaimable:     596612 kB\nNode 7 Slab:             756340 kB\nNode 7 SReclaimable:     596612 kB\nNode 7 SUnreclaim:       159728 kB\nNode 7 AnonHugePages:   3698688 kB\nNode 7 ShmemHugePages:        0 kB\nNode 7 ShmemPmdMapped:        0 kB\nNode 7 FileHugePages:        0 kB\nNode 7 FilePmdMapped:        0 kB\nNode 7 HugePages_Total:     0\nNode 7 HugePages_Free:      0\nNode 7 HugePages_Surp:      0",
+      "cpulist": "112-127"
+    }
+  },
+  "all_gpu_sysfs": {
+    "0000:09:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "55595384832",
+      "numa_node": "0"
+    },
+    "0000:36:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "55595368448",
+      "numa_node": "3"
+    },
+    "0000:55:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "55595376640",
+      "numa_node": "2"
+    },
+    "0000:77:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "55595380736",
+      "numa_node": "1"
+    },
+    "0000:85:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "3842048",
+      "numa_node": "4"
+    },
+    "0000:b5:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "3842048",
+      "numa_node": "7"
+    },
+    "0000:d5:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "3842048",
+      "numa_node": "6"
+    },
+    "0000:f5:00.0": {
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "3842048",
+      "numa_node": "5"
+    }
+  },
+  "kfd_gpu_nodes": {
+    "0": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "1": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 64\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "10": {
+      "gpu_id": "20902",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147487920\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 21760\ndomain 0\ndrm_render_minor 130\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5842446519113953\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 0\nmax_engine_clk_ccompute 0"
+    },
+    "11": {
+      "gpu_id": "20996",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147488008\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 30464\ndomain 0\ndrm_render_minor 131\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5843289971759329\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 3\nmax_engine_clk_ccompute 0"
+    },
+    "12": {
+      "gpu_id": "60191",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147488096\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 34048\ndomain 0\ndrm_render_minor 132\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5842441247537409\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 5\nmax_engine_clk_ccompute 0"
+    },
+    "13": {
+      "gpu_id": "1268",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147488184\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 46336\ndomain 0\ndrm_render_minor 133\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5840959025592481\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 6\nmax_engine_clk_ccompute 0"
+    },
+    "14": {
+      "gpu_id": "32229",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147488272\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 54528\ndomain 0\ndrm_render_minor 134\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5842441246613697\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 4\nmax_engine_clk_ccompute 0"
+    },
+    "15": {
+      "gpu_id": "45786",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147488360\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 62720\ndomain 0\ndrm_render_minor 135\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5840959025594625\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 7\nmax_engine_clk_ccompute 0"
+    },
+    "2": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 128\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "3": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 192\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "4": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 256\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "5": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 320\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "6": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 384\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "7": {
+      "gpu_id": "0",
+      "properties": "cpu_cores_count 16\nsimd_count 0\nmem_banks_count 1\ncaches_count 0\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 448\nsimd_id_base 0\nmax_waves_per_simd 0\nlds_size_in_kb 0\ngds_size_in_kb 0\nnum_gws 0\nwave_front_size 0\narray_count 0\nsimd_arrays_per_engine 0\ncu_per_simd_array 0\nsimd_per_cu 0\nmax_slots_scratch_cu 0\ngfx_target_version 0\nvendor_id 0\ndevice_id 0\nsubsystem_vendor 0\nsubsystem_device 0\nlocation_id 0\ndomain 0\ndrm_render_minor 0\nhive_id 0\nnum_sdma_engines 0\nnum_sdma_xgmi_engines 0\nnum_sdma_queues_per_engine 0\nnum_cp_queues 0\nmax_engine_clk_ccompute 0"
+    },
+    "8": {
+      "gpu_id": "22078",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147487744\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 2304\ndomain 0\ndrm_render_minor 128\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5842446519646401\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 1\nmax_engine_clk_ccompute 0"
+    },
+    "9": {
+      "gpu_id": "34430",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147487832\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 13824\ndomain 0\ndrm_render_minor 129\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5843289971108097\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 2\nmax_engine_clk_ccompute 0"
+    }
+  },
+  "storage": {
+    "/": {
+      "available_bytes": 123287560192,
+      "free_bytes": 147148378112
+    },
+    "/tmp": {
+      "available_bytes": 123287560192,
+      "free_bytes": 147148378112
+    },
+    "/dev/shm": {
+      "available_bytes": 270380105728,
+      "free_bytes": 270380105728
+    },
+    "/var/lib/docker": {
+      "available_bytes": 123287560192,
+      "free_bytes": 147148378112
+    }
+  },
+  "sampled_at_utc": "2026-10-09T15:28:52.270963+00:00",
+  "fresh_hip_free_bytes": null,
+  "formal_performance_ready": false
+}

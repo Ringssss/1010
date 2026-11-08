@@ -1,0 +1,190 @@
+{
+  "schema_version": "decision_dependency_audit.v1",
+  "checks": {
+    "A_bound_equals_dependency": true,
+    "B_bound_misses_local_before_network": true,
+    "C_bound_misses_network_before_local": true,
+    "D_dependency_is_twice_bound": true
+  },
+  "passed": true,
+  "layouts": {
+    "A": {
+      "resource_target_bound_s": 0.0016777216,
+      "worker_dependency_s": 0.0016777216,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "0:hbm:0->0",
+          "start_s": 0.0,
+          "end_s": 0.0016777216,
+          "service_s": 0.0016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 1,
+          "path": "1:hbm:0->1",
+          "start_s": 0.0,
+          "end_s": 0.0016777216,
+          "service_s": 0.0016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        }
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_hbm",
+          "n": 16777216
+        },
+        {
+          "op_id": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_hbm",
+          "n": 16777216
+        }
+      ]
+    },
+    "B": {
+      "resource_target_bound_s": 0.016777216,
+      "worker_dependency_s": 0.018454937600000002,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "0:hbm:0->0",
+          "start_s": 0.0,
+          "end_s": 0.0016777216,
+          "service_s": 0.0016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 1,
+          "path": "0:hbm:0->1",
+          "start_s": 0.0016777216,
+          "end_s": 0.018454937600000002,
+          "service_s": 0.016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0016777216
+        }
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_hbm",
+          "n": 16777216
+        },
+        {
+          "op_id": 1,
+          "src_w": 0,
+          "dst_w": 1,
+          "kind": "network",
+          "n": 16777216
+        }
+      ]
+    },
+    "C": {
+      "resource_target_bound_s": 0.016777216,
+      "worker_dependency_s": 0.018454937600000002,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "1:hbm:0->0",
+          "start_s": 0.0,
+          "end_s": 0.016777216,
+          "service_s": 0.016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 1,
+          "path": "1:hbm:0->1",
+          "start_s": 0.016777216,
+          "end_s": 0.018454937600000002,
+          "service_s": 0.0016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        }
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "src_w": 1,
+          "dst_w": 0,
+          "kind": "network",
+          "n": 16777216
+        },
+        {
+          "op_id": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_hbm",
+          "n": 16777216
+        }
+      ]
+    },
+    "D": {
+      "resource_target_bound_s": 0.016777216,
+      "worker_dependency_s": 0.033554432,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "1:hbm:0->0",
+          "start_s": 0.0,
+          "end_s": 0.016777216,
+          "service_s": 0.016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 1,
+          "path": "0:hbm:0->1",
+          "start_s": 0.016777216,
+          "end_s": 0.033554432,
+          "service_s": 0.016777216,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        }
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "src_w": 1,
+          "dst_w": 0,
+          "kind": "network",
+          "n": 16777216
+        },
+        {
+          "op_id": 1,
+          "src_w": 0,
+          "dst_w": 1,
+          "kind": "network",
+          "n": 16777216
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "main_lib/fluidckpt/cluster/planning.py": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024",
+    "main_lib/fluidckpt/cluster/service_cost.py": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14",
+    "main_lib/fluidckpt/cluster/worker.py": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6",
+    "main_lib/fluidckpt/cluster/multi_joint.py": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657",
+    "main_lib/fluidckpt/benchmarks/frozen_layout.py": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+  },
+  "measured": false,
+  "GPU_or_SSH_mutations": false,
+  "conclusion": "Two-worker serial pair operations have dependency cost absent from resource/target bounds. This countermodel verifies scope, not hardware performance."
+}

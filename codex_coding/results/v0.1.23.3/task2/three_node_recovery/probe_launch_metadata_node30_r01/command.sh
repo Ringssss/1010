@@ -1,0 +1,6 @@
+#!/bin/bash
+set -eu
+ulimit -c 0
+timeout 10s scp -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o Hostname=12.11.3.30 codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/runtime_metadata.py node30:/tmp/fluidckpt_three_node/isolated_r01_n30/project/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/runtime_metadata.py
+timeout 12s ssh -T -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o Hostname=12.11.3.30 node30 'docker exec 7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695 python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/runtime_metadata.py --expected-hostname m03r2n10 --expected-boot d9d6a6fb-013f-49ac-98f9-e77eca67952e --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_runtime_metadata_node30_r01'
+timeout 10s scp -r -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o Hostname=12.11.3.30 node30:/tmp/fluidckpt_three_node/isolated_r01_n30/project/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_runtime_metadata_node30_r01 codex_coding/results/v0.1.23.3/task2/three_node_recovery/

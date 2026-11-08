@@ -1,0 +1,133 @@
+{
+  "development": "v0.1.23.3/task2",
+  "reviewed_at_utc": "2026-10-10T08:39:34.782264+00:00",
+  "status": "passed_under_stated_symbolic_assumptions",
+  "arithmetic_check_count": 27,
+  "manual_review_items": [
+    {
+      "id": "separable_top_k",
+      "passed": true,
+      "finding": "等大块、固定可分收益、单基数预算下交换论证有效。"
+    },
+    {
+      "id": "scarce_coverage_cut",
+      "passed": true,
+      "finding": "16GiB唯一需求与16GiB缓存完整coverage使S1必须输出8GiB，cut=4/3s。"
+    },
+    {
+      "id": "direct_greedy_scope",
+      "passed": true,
+      "finding": "8s只针对按P/Q顺序不可回溯的整块direct路径规则。"
+    },
+    {
+      "id": "fractional_interval",
+      "passed": true,
+      "finding": "T(a)完整路径及egress约束可化为max(4/3,a)，a∈[0,4/3]均最优。"
+    },
+    {
+      "id": "fallback_and_relay",
+      "passed": true,
+      "finding": "独立慢fallback会改变cut；relay能改变坏布局代价，但未必消除唯一源cut。"
+    },
+    {
+      "id": "plateau_serial_service",
+      "passed": true,
+      "finding": "不同source/target对独立推进，local4GiB/s先行后remote1GiB/s，8→5成立。"
+    },
+    {
+      "id": "existing_baseline_rules",
+      "passed": true,
+      "finding": "strong_simple gain>1e−9及joint_greedy gain<=1e−12停止已核源代码。"
+    },
+    {
+      "id": "shared_cut_witness",
+      "passed": true,
+      "finding": "U8/V6与目标入口7、各池容量可达h=64/7,T=8/7。"
+    },
+    {
+      "id": "uniform_content_and_memory",
+      "passed": true,
+      "finding": "块身份、区间coverage及公共底本/目标/runtime/staging账本边界明确。"
+    },
+    {
+      "id": "unicast_multicast_scope",
+      "passed": true,
+      "finding": "一般式限定无压缩编码unicast；组播须共享prefix/tree变量，不挪用下界。"
+    },
+    {
+      "id": "finite_dag_bound_scope",
+      "passed": true,
+      "finding": "流体总负载只给下界，启动/因果/worker顺序及relay暂存未被当作自动满足。"
+    },
+    {
+      "id": "algorithm_and_novelty_scope",
+      "passed": true,
+      "finding": "不证明普通算法失败或MILP必要；assignment、均衡、交换是强baseline。"
+    },
+    {
+      "id": "proof_fixture_scope",
+      "passed": true,
+      "finding": "16subset原算法CPU结果只验证symbolic目标评分，8worker未部署，公共暂存非物理零。"
+    },
+    {
+      "id": "variant_preservation",
+      "passed": true,
+      "finding": "r01 8→4是不同parallel模型；r02和主文§4使用8→5有序模型。"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/docx/articles/2026-10-10_joint_planning_necessity_and_boundaries.md",
+      "sha256": "ac0e4b67fb6edefef28378049528b2d912e58e00e969b7858f86cb14ed29406a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/theory_validation/proofs/validate_proofs.py",
+      "sha256": "7e756ded1fb177f39cf3c79a0b20e0b3c9c406f55b1a1a9ad79f84f45b559c79"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/theory_validation/proofs_cpu_r01/validation.json",
+      "sha256": "5682c2fa923cc7a0ece0b2d0ede2d788a1ddf66915182fabd75d613d70dea63c"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/theory_validation/review/adversarial_checks.py",
+      "sha256": "0041bf9df6b9cce960d604f20e5f5b069adcabc09acc873b6009e73a608d44e2"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/theory_validation/review_boundaries_r02/checks.json",
+      "sha256": "e91fcb01206b0ec7ef8681205d1bcf776dce9631c029a94cd7beb3d79ae24d03"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/benchmarks/frozen_layout.py",
+      "sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/planning.py",
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/multi_joint.py",
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657"
+    }
+  ],
+  "proof_output_consistency": {
+    "worker_count": 8,
+    "subset_count": 16,
+    "strong_simple_empty_s": 8,
+    "joint_all_four_s": 5,
+    "balanced_reference_s": 5,
+    "product_source_sha_match": true
+  },
+  "qualifications": {
+    "theory_valid_under_stated_assumptions": true,
+    "hardware_rate_certification": false,
+    "current_hardware_solver_advantage": false,
+    "MILP_necessity": false,
+    "ordinary_algorithm_impossibility": false,
+    "novelty_review": false,
+    "literature_and_hardware_mapping": "outside this independent mathematical review"
+  },
+  "gpu_launches": 0,
+  "remote_operations": 0,
+  "product_changes": 0,
+  "unresolved_theory_blockers": []
+}

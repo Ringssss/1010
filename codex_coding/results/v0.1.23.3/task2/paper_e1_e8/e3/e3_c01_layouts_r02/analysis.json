@@ -1,0 +1,137 @@
+{
+  "experiment_id": "e3",
+  "execution_status": "completed",
+  "functional_status": "pass",
+  "scientific_status": "execution_only_exploratory",
+  "rows": [
+    {
+      "layout": "concentrated",
+      "data_fill_s": {
+        "A": 0.013390403240919113,
+        "B": 0.019219214096665382
+      },
+      "equal_weight_mean_s": 0.016304808668792248,
+      "worst_s": 0.019219214096665382,
+      "steady_bytes": {
+        "dram": 536879104,
+        "hbm": 268435456
+      },
+      "unique_cache_bytes": 268435456,
+      "build_s": 0.7319924980401993,
+      "source_bytes": {
+        "A": {
+          "cache/concentrated/0": 134217728,
+          "paper/base/0": 134217745,
+          "paper/base/1": 268435473
+        },
+        "B": {
+          "cache/concentrated/0": 134217728,
+          "paper/base/0": 134217745,
+          "cache/concentrated/1": 134217728,
+          "paper/base/1": 134217745
+        }
+      }
+    },
+    {
+      "layout": "distributed",
+      "data_fill_s": {
+        "B": 0.01491659227758646,
+        "A": 0.011034629307687283
+      },
+      "equal_weight_mean_s": 0.012975610792636871,
+      "worst_s": 0.01491659227758646,
+      "steady_bytes": {
+        "dram": 536879104,
+        "hbm": 268435456
+      },
+      "unique_cache_bytes": 268435456,
+      "build_s": 0.8929979111999273,
+      "source_bytes": {
+        "B": {
+          "cache/distributed/0": 134217728,
+          "paper/base/0": 134217745,
+          "cache/distributed/1": 134217728,
+          "paper/base/1": 134217745
+        },
+        "A": {
+          "cache/distributed/0": 134217728,
+          "paper/base/0": 134217745,
+          "cache/distributed/1": 134217728,
+          "paper/base/1": 134217745
+        }
+      }
+    },
+    {
+      "layout": "replicated",
+      "data_fill_s": {
+        "A": 0.013509063981473446,
+        "B": 0.014626119285821915
+      },
+      "equal_weight_mean_s": 0.01406759163364768,
+      "worst_s": 0.014626119285821915,
+      "steady_bytes": {
+        "dram": 536879104,
+        "hbm": 268435456
+      },
+      "unique_cache_bytes": 134217728,
+      "build_s": 0.7162701385095716,
+      "source_bytes": {
+        "A": {
+          "cache/replicated/0": 67108864,
+          "paper/base/0": 201326609,
+          "cache/replicated/2": 67108864,
+          "paper/base/1": 201326609
+        },
+        "B": {
+          "cache/replicated/1": 67108864,
+          "paper/base/0": 201326609,
+          "cache/replicated/3": 67108864,
+          "paper/base/1": 201326609
+        }
+      }
+    },
+    {
+      "layout": "hybrid",
+      "data_fill_s": {
+        "B": 0.015190583653748035,
+        "A": 0.0122359124943614
+      },
+      "equal_weight_mean_s": 0.013713248074054718,
+      "worst_s": 0.015190583653748035,
+      "steady_bytes": {
+        "dram": 536879104,
+        "hbm": 268435456
+      },
+      "unique_cache_bytes": 201326592,
+      "build_s": 0.8137492183595896,
+      "source_bytes": {
+        "B": {
+          "cache/hybrid/0": 134217728,
+          "paper/base/0": 134217745,
+          "cache/hybrid/2": 67108864,
+          "paper/base/1": 201326609
+        },
+        "A": {
+          "cache/hybrid/0": 134217728,
+          "paper/base/0": 134217745,
+          "cache/hybrid/1": 67108864,
+          "paper/base/1": 201326609
+        }
+      }
+    }
+  ],
+  "baseline_data_fill_s": [
+    0.018522818572819233,
+    0.01692790538072586
+  ],
+  "baseline_range_s": 0.0015949131920933723,
+  "layout_mean_range_s": 0.0033291978761553764,
+  "signal_larger_than_baseline_range": true,
+  "full_model_primary_metric_validated": false,
+  "limitations": [
+    "one host and synthetic contiguous targets; not SGLang weights_ready",
+    "one sample per layout/target; baseline range is a diagnostic, not a confidence interval",
+    "fixed layout order and co-resident protected keepers; no statistical ranking claim",
+    "CPU complete bases charged equally; build costs and verification outside data-fill shown separately"
+  ]
+}

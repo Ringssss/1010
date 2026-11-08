@@ -1,0 +1,11 @@
+# 最小执行衔接交付
+
+开发编号v0.1.23.3/task2。104冻结机会、5配置见证以及补充SSD_only资格recipe已转为原serial执行器合法描述符和save/restore事务，未改产品或原contract。默认无绑定拒绝执行；物理运行还需外部主协调可信准入callback。完整SSD底本由活Catalog持有，构造重开不受支持，cleanup精确避开底本并核当前generation/epoch/VALID与lease。
+
+native adapter_cpu_r02共79检查通过：实际调用产品Cluster/Worker/Catalog/wire，CPU全字节搬运SHA通过，真实本地HTTP/RemoteExtent文件协议通过。GPU设备/分配/collective与worker控制调用为mock，GPU_calls=0，不构成三node6GPU或SSD介质性能。journal_cpu_r02另7项验证保存已成功、恢复部分发布失败时12拟建ID提前journal、9当前对象回收/3缺项跳过和8底本保留。
+
+r01负路径FileExistsError来自RemoteExtent重新create同名底本，服务关闭请求连接，客户端RemoteDisconnected。六阶段CPU已完成，但测试只捕ValueError/MemoryError而漏HTTP异常，原failure/log/8个base文件保留。projection首次补充SSD_only漏block字段导致KeyError，随后字段修正，未写有效projection；失败增量记录保留。
+
+原serial每worker staging64MiB，六worker384MiB；C0已知HBM项448MiB，其他5配置432MiB，SSD_only416MiB，均非完整物理peak。保存读取/写入与恢复SSD供给字节分列，完整SSD32MiB始终存在。actual runtime、buffer/pagecache、transition/full peak、physical rates、model ready未测。新的node预算由主协调任务批准，本adapter不硬编码旧2GiB。
+
+最终源快照和SHA见delivery.json。native_cpu源码hash保留测试时原值，随后只新增worker预算一致与cleanup后身份核验，journal_cpu_r02覆盖最终driver/cleanup；未把旧hash改写为最终源码。所有CPU原结果未覆盖。

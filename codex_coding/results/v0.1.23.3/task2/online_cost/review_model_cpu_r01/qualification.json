@@ -1,0 +1,229 @@
+{
+  "actual_model_online_qualified": false,
+  "check_count": 25,
+  "checks": [
+    {
+      "name": "isolated disjoint worker DAG overlaps",
+      "passed": true
+    },
+    {
+      "name": "shared paired factor alters DAG rather than adding a whole floor",
+      "passed": true
+    },
+    {
+      "name": "outer residual added exactly once",
+      "passed": true
+    },
+    {
+      "name": "near layout is transferable without whole-layout fit",
+      "passed": true
+    },
+    {
+      "name": "reject subcalibration operation bytes",
+      "passed": true
+    },
+    {
+      "name": "reject unconfirmed warm pair",
+      "passed": true
+    },
+    {
+      "name": "reject old incarnation state",
+      "passed": true
+    },
+    {
+      "name": "reject isolated-only shared prediction",
+      "passed": true
+    },
+    {
+      "name": "reject empty readiness calibration",
+      "passed": true
+    },
+    {
+      "name": "reject calibration clock mismatch",
+      "passed": true
+    },
+    {
+      "name": "exact ten percent inclusive boundary passes",
+      "passed": true
+    },
+    {
+      "name": "CPU fixtures never qualify actual model",
+      "passed": true
+    },
+    {
+      "name": "per-scenario failure cannot average away",
+      "passed": true
+    },
+    {
+      "name": "reject training session backfill",
+      "passed": true
+    },
+    {
+      "name": "reject different clock domain",
+      "passed": true
+    },
+    {
+      "name": "reject SHA inside online clock",
+      "passed": true
+    },
+    {
+      "name": "reject prediction mutation after freeze",
+      "passed": true
+    },
+    {
+      "name": "reject calibration incarnation reuse",
+      "passed": true
+    },
+    {
+      "name": "ranking reversals reported independently",
+      "passed": true
+    },
+    {
+      "name": "near-tie ranking abstains",
+      "passed": true
+    },
+    {
+      "name": "new requests may reuse explicitly registered incarnation",
+      "passed": true
+    },
+    {
+      "name": "same-incarnation CPU freeze does not certify real model",
+      "passed": true
+    },
+    {
+      "name": "same incarnation still rejects calibration request reuse",
+      "passed": true
+    },
+    {
+      "name": "wrong output cannot qualify despite weights usable",
+      "passed": true
+    },
+    {
+      "name": "wrong output cannot calibrate outer despite full SHA",
+      "passed": true
+    }
+  ],
+  "evaluation_fixture": {
+    "actual_model_online_qualified": false,
+    "all_nonabstained_rank_claims_agree": true,
+    "all_pairwise_rankings_agree": false,
+    "all_scenario_error_gates_passed": true,
+    "calibration_sessions": [
+      "CPU_train"
+    ],
+    "evidence_kind": "CPU_or_nonmodel_fixture",
+    "holdouts_used_for_fitting": false,
+    "independence_mode": "fresh_session",
+    "physical_capacity_certified": false,
+    "prediction_payload_sha256": "fa568dcdd76cac9ebabcd9163af451ae4339eefe727fd9ed4a76045d7547078b",
+    "rank_abstention_scope": "Overlapping intervals implied by the protocol's 10% scale abstain; this is not a confidence interval or certified future error bound.",
+    "ranking": [
+      {
+        "left": "near",
+        "observed_delta_ns": 0,
+        "ordering_agrees": false,
+        "predicted_delta_ns": 10,
+        "rank_claim": "abstain",
+        "rank_claim_agrees": null,
+        "right": "remote"
+      }
+    ],
+    "ranking_claims_made": 0,
+    "scenario_results": {
+      "near": {
+        "observations": [
+          {
+            "absolute_error_ns": 10,
+            "actual_online_ns": 100,
+            "error_gate_passed": true,
+            "estimated_online_ns": 110,
+            "relative_error": 0.1,
+            "run_id": "CPU_run_near",
+            "session": "CPU_holdout",
+            "signed_error_ns": 10,
+            "source_refs": [
+              {
+                "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/review_model_cpu_r01/CPU_FIXTURE_raw.json",
+                "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+              }
+            ]
+          }
+        ],
+        "scenario_gate_passed": true
+      },
+      "remote": {
+        "observations": [
+          {
+            "absolute_error_ns": 0,
+            "actual_online_ns": 100,
+            "error_gate_passed": true,
+            "estimated_online_ns": 100,
+            "relative_error": 0.0,
+            "run_id": "CPU_run_remote",
+            "session": "CPU_holdout",
+            "signed_error_ns": 0,
+            "source_refs": [
+              {
+                "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/review_model_cpu_r01/CPU_FIXTURE_raw.json",
+                "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+              }
+            ]
+          }
+        ],
+        "scenario_gate_passed": true
+      }
+    },
+    "schema": "online_cost_validation_v1",
+    "scope": "Only preregistered complete online scenarios; ranking is reported separately from per-scenario accuracy.",
+    "validation_incarnation_digests": [
+      "CPU_holdout_epochs"
+    ]
+  },
+  "model_fixture_prediction": {
+    "estimated_online_ns": 70000000,
+    "estimated_transfer_service_s": 0.05000000000000001,
+    "isolated_worker_dag_s": 0.018,
+    "online_outer_s": 0.019999999999999997,
+    "online_qualified": false,
+    "physical_capacity_certified": false,
+    "scope": "Preregistered transferable aggregate-path hypothesis; qualification requires every independent whole-model holdout within 10%.",
+    "shared_phase_qualifiers": {
+      "target_HCA": {
+        "concurrent_service_factor": 2.777777777777778,
+        "paths": [
+          "remote0",
+          "remote1"
+        ],
+        "phase_begin": 0,
+        "phase_bytes_per_flow": 1073741824,
+        "phase_ops_per_flow": 1
+      }
+    },
+    "shared_score_interpretation": "Empirical concurrent factor applied only to registered matched contiguous two-flow phases, then original worker DAG reused.",
+    "timeline": [
+      {
+        "end_s": 0.05000000000000001,
+        "first_pair_s": 0.0,
+        "op_id": 0,
+        "path": "remote0",
+        "service_s": 0.05000000000000001,
+        "source_wait_s": 0.0,
+        "start_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "end_s": 0.05000000000000001,
+        "first_pair_s": 0.0,
+        "op_id": 1,
+        "path": "remote1",
+        "service_s": 0.05000000000000001,
+        "source_wait_s": 0.0,
+        "start_s": 0.0,
+        "target_wait_s": 0.0
+      }
+    ],
+    "worker_dag_s": 0.05000000000000001
+  },
+  "new_GPU_samples": 0,
+  "status": "CPU_passed"
+}

@@ -1,0 +1,269 @@
+{
+  "source_node": "node28",
+  "identity": {
+    "hostname": "m03r2n08",
+    "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b"
+  },
+  "started_at": "2026-10-08T07:18:43.754618+00:00",
+  "signals": 0,
+  "gpu_operations": 0,
+  "observations": [
+    {
+      "kind": "icmp",
+      "target": "10.211.3.29",
+      "source_node": "node28",
+      "resolved_address": "10.211.3.29",
+      "started_at": "2026-10-08T07:18:43.757319+00:00",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:43.754665+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "elapsed_s": 0.0026448285207152367,
+        "finished_at": "2026-10-08T07:18:43.757306+00:00"
+      },
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "10.211.3.29"
+      ],
+      "timeout_s": 3,
+      "returncode": 1,
+      "stdout": "PING 10.211.3.29 (10.211.3.29) 56(84) bytes of data.\n\n--- 10.211.3.29 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n",
+      "stderr": "",
+      "elapsed_s": 2.0026291236281395,
+      "finished_at": "2026-10-08T07:18:45.759952+00:00",
+      "status": "no_reply"
+    },
+    {
+      "kind": "tcp22_banner",
+      "target": "10.211.3.29",
+      "source_node": "node28",
+      "resolved_address": "10.211.3.29",
+      "started_at": "2026-10-08T07:18:45.759980+00:00",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:45.759985+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "elapsed_s": 0.0015681171789765358,
+        "finished_at": "2026-10-08T07:18:45.761555+00:00"
+      },
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "",
+      "stderr": "OSError(113, 'No route to host')",
+      "connect_ok": false,
+      "banner_ok": false,
+      "status": "connect_error",
+      "elapsed_s": 0.0006446875631809235,
+      "finished_at": "2026-10-08T07:18:45.762229+00:00"
+    },
+    {
+      "kind": "icmp",
+      "target": "12.11.3.29",
+      "source_node": "node28",
+      "resolved_address": "12.11.3.29",
+      "started_at": "2026-10-08T07:18:45.763956+00:00",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:45.762244+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "elapsed_s": 0.0016976892948150635,
+        "finished_at": "2026-10-08T07:18:45.763944+00:00"
+      },
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "12.11.3.29"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 12.11.3.29 (12.11.3.29) 56(84) bytes of data.\n64 bytes from 12.11.3.29: icmp_seq=1 ttl=64 time=0.080 ms\n\n--- 12.11.3.29 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.080/0.080/0.080/0.000 ms\n",
+      "stderr": "",
+      "elapsed_s": 0.00249501783400774,
+      "finished_at": "2026-10-08T07:18:45.766452+00:00",
+      "status": "reply"
+    },
+    {
+      "kind": "tcp22_banner",
+      "target": "12.11.3.29",
+      "source_node": "node28",
+      "resolved_address": "12.11.3.29",
+      "started_at": "2026-10-08T07:18:45.766464+00:00",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:45.766468+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "elapsed_s": 0.0012427940964698792,
+        "finished_at": "2026-10-08T07:18:45.767713+00:00"
+      },
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "",
+      "stderr": "TimeoutError('timed out')",
+      "connect_ok": true,
+      "banner_ok": false,
+      "connected_after_s": 0.00012904033064842224,
+      "actual_local_address": [
+        "12.11.3.28",
+        54900
+      ],
+      "actual_peer_address": [
+        "12.11.3.29",
+        22
+      ],
+      "status": "banner_timeout",
+      "elapsed_s": 3.000364661216736,
+      "finished_at": "2026-10-08T07:18:48.768095+00:00"
+    },
+    {
+      "kind": "http_inventory",
+      "source_node": "node28",
+      "target": "12.11.3.29",
+      "port": 33000,
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:48.768125+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "elapsed_s": 0.001896400935947895,
+        "finished_at": "2026-10-08T07:18:48.770023+00:00"
+      },
+      "argv": [
+        "curl",
+        "--noproxy",
+        "*",
+        "--connect-timeout",
+        "4",
+        "--max-time",
+        "4",
+        "-sS",
+        "-D",
+        "-",
+        "-w",
+        "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+        "http://12.11.3.29:33000/inventory?compact=1"
+      ],
+      "started_at": "2026-10-08T07:18:48.770036+00:00",
+      "timeout_s": 5,
+      "returncode": 28,
+      "stdout": "\nhttp_status=000\nlocal_ip=12.11.3.28\nremote_ip=12.11.3.29\n",
+      "stderr": "curl: (28) Operation timed out after 4001 milliseconds with 0 bytes received\n",
+      "elapsed_s": 4.00806855969131,
+      "finished_at": "2026-10-08T07:18:52.778108+00:00",
+      "status": "http_failed"
+    },
+    {
+      "kind": "http_inventory",
+      "source_node": "node28",
+      "target": "12.11.3.29",
+      "port": 33001,
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:52.778139+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "elapsed_s": 0.0014093751087784767,
+        "finished_at": "2026-10-08T07:18:52.779550+00:00"
+      },
+      "argv": [
+        "curl",
+        "--noproxy",
+        "*",
+        "--connect-timeout",
+        "4",
+        "--max-time",
+        "4",
+        "-sS",
+        "-D",
+        "-",
+        "-w",
+        "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+        "http://12.11.3.29:33001/inventory?compact=1"
+      ],
+      "started_at": "2026-10-08T07:18:52.779581+00:00",
+      "timeout_s": 5,
+      "returncode": 28,
+      "stdout": "\nhttp_status=000\nlocal_ip=12.11.3.28\nremote_ip=12.11.3.29\n",
+      "stderr": "curl: (28) Operation timed out after 4001 milliseconds with 0 bytes received\n",
+      "elapsed_s": 4.0073156505823135,
+      "finished_at": "2026-10-08T07:18:56.786899+00:00",
+      "status": "http_failed"
+    }
+  ],
+  "finished_at": "2026-10-08T07:18:56.786917+00:00",
+  "neighbors": {
+    "argv": [
+      "ip",
+      "-j",
+      "neigh",
+      "show"
+    ],
+    "started_at": "2026-10-08T07:18:56.786922+00:00",
+    "timeout_s": 2,
+    "returncode": 0,
+    "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"state\":[\"FAILED\"]},{\"dst\":\"13.107.253.49\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"10.211.1.254\",\"dev\":\"eth0\",\"lladdr\":\"00:00:5e:00:01:01\",\"state\":[\"REACHABLE\"]},{\"dst\":\"13.69.109.130\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"12.11.3.27\",\"dev\":\"ib0\",\"lladdr\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:86:9a\",\"state\":[\"REACHABLE\"]},{\"dst\":\"13.69.116.109\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.107.226.49\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.89.179.15\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.69.116.105\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"10.211.1.51\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4a:9e:65\",\"state\":[\"STALE\"]},{\"dst\":\"10.211.5.2\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4b:7a:84\",\"state\":[\"STALE\"]},{\"dst\":\"12.11.3.30\",\"dev\":\"ib0\",\"lladdr\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:86:a0\",\"state\":[\"REACHABLE\"]},{\"dst\":\"13.225.117.65\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.69.116.108\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.69.116.104\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"10.211.1.50\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4b:2c:e0\",\"state\":[\"STALE\"]},{\"dst\":\"13.225.117.34\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"lladdr\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:86:9e\",\"state\":[\"REACHABLE\"]},{\"dst\":\"10.211.3.27\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4b:42:8e\",\"state\":[\"REACHABLE\"]},{\"dst\":\"13.225.117.85\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.69.239.69\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.107.5.93\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.69.116.107\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"10.211.1.49\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4b:41:9a\",\"state\":[\"STALE\"]},{\"dst\":\"11.211.1.254\",\"dev\":\"eth1\",\"lladdr\":\"00:00:5e:00:01:01\",\"state\":[\"REACHABLE\"]},{\"dst\":\"15.11.3.27\",\"dev\":\"ib3\",\"lladdr\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:86:98\",\"state\":[\"STALE\"]},{\"dst\":\"13.69.109.131\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.89.179.12\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"10.211.5.72\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4a:a3:9b\",\"state\":[\"STALE\"]},{\"dst\":\"172.17.0.2\",\"dev\":\"docker0\",\"lladdr\":\"02:42:ac:11:00:02\",\"state\":[\"STALE\"]},{\"dst\":\"14.11.3.27\",\"dev\":\"ib2\",\"lladdr\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:28:32\",\"state\":[\"STALE\"]},{\"dst\":\"13.11.3.27\",\"dev\":\"ib1\",\"lladdr\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:28:2c\",\"state\":[\"STALE\"]},{\"dst\":\"10.211.1.52\",\"dev\":\"eth0\",\"lladdr\":\"e8:61:1a:4a:8f:83\",\"state\":[\"STALE\"]},{\"dst\":\"13.107.13.93\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]},{\"dst\":\"13.225.117.92\",\"dev\":\"ib1\",\"state\":[\"FAILED\"]}]\n",
+    "stderr": "",
+    "elapsed_s": 0.0025991294533014297,
+    "finished_at": "2026-10-08T07:18:56.789524+00:00"
+  }
+}

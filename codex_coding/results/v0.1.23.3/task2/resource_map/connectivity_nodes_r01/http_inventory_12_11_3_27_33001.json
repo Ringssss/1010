@@ -1,0 +1,53 @@
+{
+  "kind": "http_inventory",
+  "node": "node27",
+  "target": "12.11.3.27",
+  "started_at": "2026-10-08T07:15:47.106886+00:00",
+  "resolved_address": "12.11.3.27",
+  "route": {
+    "argv": [
+      "ip",
+      "-j",
+      "route",
+      "get",
+      "12.11.3.27"
+    ],
+    "started_at": "2026-10-08T07:15:47.093403+00:00",
+    "timeout_s": 2,
+    "returncode": 0,
+    "stdout": "[{\"type\":\"local\",\"dst\":\"12.11.3.27\",\"dev\":\"lo\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+    "stderr": "",
+    "finished_at": "2026-10-08T07:15:47.106831+00:00",
+    "elapsed_s": 0.013444251380860806
+  },
+  "source_node": "node27",
+  "port": 33001,
+  "url": "http://12.11.3.27:33001/inventory?compact=1",
+  "argv": [
+    "curl",
+    "--noproxy",
+    "*",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "4",
+    "-sS",
+    "-D",
+    "-",
+    "-o",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/node27_33001.inventory.raw",
+    "-w",
+    "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+    "http://12.11.3.27:33001/inventory?compact=1"
+  ],
+  "timeout_s": 5,
+  "returncode": 0,
+  "stdout": "HTTP/1.0 200 OK\nServer: BaseHTTP/0.6 Python/3.10.12\nDate: Thu, 08 Oct 2026 07:15:47 GMT\nContent-Length: 4561\nContent-Type: application/json\n\n\nhttp_status=200\nlocal_ip=12.11.3.27\nremote_ip=12.11.3.27\n",
+  "stderr": "",
+  "finished_at": "2026-10-08T07:15:47.121782+00:00",
+  "elapsed_s": 0.014909469522535801,
+  "status": "http_ok",
+  "body_file": "node27_33001.inventory.raw",
+  "body_sha256": "ab50821ff5136d2da2b921333c0b168ad0babe22db03e02f942a39c72087c26d",
+  "body_bytes": 4561
+}

@@ -1,0 +1,40 @@
+{
+  "host_source_sha256": "b4ffcd57635391064a22a18acdec2e6224f42710f94ef24d0bb6ddc9b05cb735",
+  "original_spec_sha256": "b50a41a4a524f0878652838ce33d6c4905ed551e626db4eec7dd6a39c3b36485",
+  "effective_spec_sha256": "b50a41a4a524f0878652838ce33d6c4905ed551e626db4eec7dd6a39c3b36485",
+  "execute": true,
+  "commands": [
+    {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.28",
+        "node28",
+        "mktemp -d /tmp/fluidckpt_three_node_bootstrap.node28.XXXXXX"
+      ],
+      "timeout_s": 8,
+      "started_utc": "2026-10-08T08:23:18.516798+00:00",
+      "status": "timeout",
+      "returncode": null,
+      "stdout": "partial",
+      "stderr": "synthetic deadline",
+      "error": "TimeoutExpired(['ssh'], 8)",
+      "ended_utc": "2026-10-08T08:23:18.516979+00:00"
+    }
+  ]
+}

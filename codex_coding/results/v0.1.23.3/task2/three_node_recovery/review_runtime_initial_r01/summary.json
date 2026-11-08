@@ -1,0 +1,58 @@
+{
+  "evidence_consistent": true,
+  "checks": {
+    "old30_refs_unchanged": true,
+    "old30_failed_runtime_preserved": true,
+    "old30_cleanup_not_runtime_pass": true,
+    "new28_metadata_only": true,
+    "new28_protected_containers": true,
+    "new28_protected_processes": true,
+    "new28_six_catalogs_idle": true,
+    "new28_sysfs_not_fresh_hipfree": true,
+    "new28_selected_bdf": true,
+    "new28_docker_root": true
+  },
+  "old_node30_runtime_passed": false,
+  "node28_fresh_runtime_init": null,
+  "node28_copy": null,
+  "xml_runtime_accepted": null,
+  "performance_ready": false,
+  "node28_sample_utc": "2026-10-09T06:17:34.133404+00:00",
+  "node28_df": {
+    "argv": [
+      "df",
+      "-l",
+      "-B1",
+      "-T",
+      "/",
+      "/tmp",
+      "/var/lib/docker",
+      "/data/node28"
+    ],
+    "returncode": 0,
+    "stdout": "Filesystem     Type     1B-blocks         Used    Available Use% Mounted on\n/dev/nvme1n1p3 ext4  468244996096 379994906624  64389271552  86% /\n/dev/nvme1n1p3 ext4  468244996096 379994906624  64389271552  86% /\n/dev/nvme1n1p3 ext4  468244996096 379994906624  64389271552  86% /\n/dev/nvme0n1p1 ext4 1889087803392 950664843264 842387083264  54% /data/node28\n",
+    "stderr": ""
+  },
+  "node28_protected_process_count": 13,
+  "node28_replica_count": 1098,
+  "node28_catalog_digests": {
+    "http://12.11.3.28:29702": "83b294ba2f717b4ef3caf3bed89c221d7c6919a11921fd288190e261bd4e06c0",
+    "http://12.11.3.28:29703": "10a9b519dedad119688ea99390fbe4c471b70cbb6bbd95dc30f810477ed70f80",
+    "http://12.11.3.28:29704": "64d804af345572efb1cb54769af0165f15a1161fb50fefb0baa580e90c93238c",
+    "http://12.11.3.28:29705": "ac736eceda8b8bc27a5e98d39e16e955c14f07e4f4c20e3228c56bf775e29f7c",
+    "http://12.11.3.28:29706": "6c19e3b57bb11a06298dc82e47dde737a030c816345c00c924afd0285a6cd9db",
+    "http://12.11.3.28:29707": "b71eaa24219c082ab34658804af8be93a55db98ab9d28378b196641f249029cf"
+  },
+  "input_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/admission28_refresh_r01/stdout.json",
+      "sha256": "ba8415c8d659fb62a490c33994a8b83d249b9ac5870ef454ed14a51526a8e2aa"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/audit_failed_node30_init_r01/summary.json",
+      "sha256": "4549727fedc5f3968b9c1b9cafc318f4f7af7792a503158951c50a92f72bab81"
+    }
+  ],
+  "scope": "Local original evidence review; no SSH, Docker, GPU or signals. Metadata does not certify fresh init or full weight content.",
+  "review_note": "Old node30 command fixed OMP_NUM_THREADS and MKL_NUM_THREADS to 1; new comparisons must preserve them. The existing host wrapper had omitted these exec overrides."
+}

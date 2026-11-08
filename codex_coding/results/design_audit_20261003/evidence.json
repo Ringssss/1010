@@ -1,0 +1,240 @@
+{
+  "kind": "historical_artifact_audit",
+  "new_gpu_experiment": false,
+  "root": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+  "runs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cluster06/summary.json",
+      "sha256": "3bf93b3cf19fd2fdf13d1fbef1980853dad8dfb39cee302542c3186d50df34e1",
+      "status": "passed",
+      "scope": "automated full-manifest candidates, joint RPC, bounded transition and one model restore; not a matched speedup benchmark",
+      "current_source_differs": [
+        "main_lib/fluidckpt/serving/keeper.py",
+        "main_lib/fluidckpt/serving/sglang_hook.py",
+        "main_lib/fluidckpt/cluster/worker.py",
+        "main_lib/fluidckpt/cluster/managed.py",
+        "main_lib/fluidckpt/cluster/control.py",
+        "main_lib/fluidckpt/cluster/planning.py",
+        "main_lib/fluidckpt/cluster/wire.py",
+        "main_lib/fluidckpt/cluster/managed_control.py",
+        "codex_coding/src/task2/cluster/run_system.py"
+      ],
+      "restores": [
+        {
+          "phase": "managed_restore",
+          "passed": true,
+          "load_s": 1.836311949,
+          "dispatch_to_ready_s": null,
+          "verified": true,
+          "checked_bytes": 70329718112,
+          "generation_count": 3,
+          "first_token_latency_recorded": false
+        }
+      ]
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/local01/summary.json",
+      "sha256": "76e3bea2f7692a2d2dfe34776ebdda2770b068d91405e402be40847f558db100",
+      "status": "passed",
+      "scope": "automated full-manifest candidates, joint RPC, bounded transition and one model restore; not a matched speedup benchmark",
+      "current_source_differs": [
+        "main_lib/fluidckpt/serving/keeper.py",
+        "main_lib/fluidckpt/serving/sglang_hook.py",
+        "main_lib/fluidckpt/cluster/worker.py",
+        "main_lib/fluidckpt/cluster/managed.py",
+        "main_lib/fluidckpt/cluster/control.py",
+        "main_lib/fluidckpt/cluster/planning.py",
+        "main_lib/fluidckpt/cluster/wire.py",
+        "main_lib/fluidckpt/cluster/managed_control.py",
+        "codex_coding/src/task2/cluster/run_system.py",
+        "codex_coding/src/v0.1.23.3/task2/run_managed.py",
+        "codex_coding/src/v0.1.23.3/task2/test_managed.py"
+      ],
+      "restores": [
+        {
+          "phase": "managed_restore",
+          "passed": true,
+          "load_s": 1.468972743,
+          "dispatch_to_ready_s": null,
+          "verified": true,
+          "checked_bytes": 70329718112,
+          "generation_count": 3,
+          "first_token_latency_recorded": false
+        }
+      ]
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/baselocation03/summary.json",
+      "sha256": "79b75d62f1194514ac1fda5599ffd390932c8ccd5bd8acaf6043a68e282b94d8",
+      "status": "passed",
+      "scope": "same 67.5GiB DRAM + 8GiB HBM steady allocation; same model, targets, caches and serial32 executor; only full-base owner changes",
+      "current_source_differs": [
+        "main_lib/fluidckpt/serving/keeper.py",
+        "main_lib/fluidckpt/serving/sglang_hook.py",
+        "main_lib/fluidckpt/cluster/worker.py",
+        "codex_coding/src/v0.1.23.3/task2/run_base_location_idle.py"
+      ],
+      "restores": [
+        {
+          "phase": "load_remote_base",
+          "passed": true,
+          "load_s": 2.572175391,
+          "dispatch_to_ready_s": null,
+          "verified": true,
+          "checked_bytes": 70329718112,
+          "generation_count": 3,
+          "first_token_latency_recorded": false
+        },
+        {
+          "phase": "load_local_base",
+          "passed": true,
+          "load_s": 4.647307896,
+          "dispatch_to_ready_s": null,
+          "verified": true,
+          "checked_bytes": 70329718112,
+          "generation_count": 3,
+          "first_token_latency_recorded": false
+        }
+      ]
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/preplan01/summary.json",
+      "sha256": "657ce6eb8b0e512d6f5f205f2c2c13dda5239be0c40dbda53c6fe0d2cc7aac51",
+      "status": "passed",
+      "scope": "same Qwen TP2 model, layout, routes, 32MiB chunks, warm pairs and memory budget; one run per planning placement in time",
+      "current_source_differs": [
+        "main_lib/fluidckpt/serving/keeper.py",
+        "main_lib/fluidckpt/serving/sglang_hook.py",
+        "main_lib/fluidckpt/cluster/worker.py",
+        "codex_coding/src/task2/cluster/run_system.py"
+      ],
+      "restores": [
+        {
+          "phase": "load_baseline",
+          "passed": true,
+          "load_s": 1.748662094,
+          "dispatch_to_ready_s": 1.346748416312039,
+          "verified": true,
+          "checked_bytes": 70329718112,
+          "generation_count": 3,
+          "first_token_latency_recorded": false
+        },
+        {
+          "phase": "load_preplanned",
+          "passed": true,
+          "load_s": 1.700245932,
+          "dispatch_to_ready_s": 1.3096515806391835,
+          "verified": true,
+          "checked_bytes": 70329718112,
+          "generation_count": 3,
+          "first_token_latency_recorded": false
+        }
+      ]
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multi03/summary.json",
+      "sha256": "90c18edabb01155dd3409681ae86a910d2a01f211b00864f90ef0419675b56bb",
+      "status": "passed",
+      "scope": "fixed Qwen TP2 layout; DRAM/HBM sources on three nodes; no performance optimization claim",
+      "current_source_differs": [
+        "main_lib/fluidckpt/serving/keeper.py",
+        "main_lib/fluidckpt/serving/sglang_hook.py",
+        "main_lib/fluidckpt/cluster/worker.py",
+        "main_lib/fluidckpt/cluster/feedback.py",
+        "main_lib/fluidckpt/cluster/managed.py",
+        "main_lib/fluidckpt/cluster/control.py",
+        "main_lib/fluidckpt/cluster/managed_control.py",
+        "codex_coding/src/task2/cluster/run_system.py"
+      ],
+      "restores": []
+    }
+  ],
+  "historical_commands": [
+    {
+      "timestamp": "2026-10-02T14:40:14.481Z",
+      "command": "cd /home/zhujianian/zhujianian/fluidckpt_zjn; nohup timeout 1800 python3 codex_coding/src/task2/cluster/keepctl.py start > /tmp/mesh_restart.log 2>&1 &\necho \"launched pid $!\"; sleep 60; echo \"=== log ===\"; cat /tmp/mesh_restart.log | tail -20"
+    },
+    {
+      "timestamp": "2026-10-02T08:07:08.165Z",
+      "command": "kill -9 1090561 3032835 2>/dev/null; sleep 2\ncd /home/zhujianian/zhujianian/fluidckpt_zjn\nsetsid nohup python3 codex_coding/src/task2/cluster/xfer.py node27 codex_coding/src/task2/cluster/arm_b2.py /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.2.0/compare06_b2fix 0.68 0.30 > /tmp/b2fix.log 2>&1 < /dev/null &\ndisown; sleep 30; echo \"--- log ---\"; tail -4 /tmp/b2fix.log; echo \"--- dir ---\"; ls codex_coding/results/v0.2.0/compare06_b2fix/ 2>/dev/null"
+    },
+    {
+      "timestamp": "2026-10-02T14:41:29.820Z",
+      "command": "cd /home/zhujianian/zhujianian/fluidckpt_zjn; timeout 900 python3 codex_coding/src/task2/cluster/mesh_init_run.py 2>&1 | tail -10"
+    },
+    {
+      "timestamp": "2026-10-02T14:46:04.218Z",
+      "command": "cd /home/zhujianian/zhujianian/fluidckpt_zjn; CONDA=/home/zhujianian/spack/opt/spack/linux-x86_64_v4/miniconda3-25.5.1-iszegyxvurvtr57qc54q7txr3g2oaxng/envs/sglang/bin/python\nOUT=codex_coding/results/v0.2.0/armf12; rm -f $OUT/summary.json $OUT/*.pid.json 2>/dev/null\nnohup env PYTHONPATH=main_lib:codex_coding/src/task2/cluster $CONDA codex_coding/src/task2/cluster/arm_f_keepalive.py --out $OUT --snap qwen36cap --tag restore_f5 > /tmp/armf12.log 2>&1 &\necho \"driver pid $!\"; sleep 45; echo \"=== log ===\"; tail -15 /tmp/armf12.log; echo \"=== summary ===\"; cat $OUT/summary.json 2>/dev/null"
+    }
+  ],
+  "ipc_comparison": {
+    "path": "codex_coding/results/v0.2.0/compare06_b2fix/summary.json",
+    "sha256": "88e80dab847bef176adce8f77dfc38ff1952d36564f802b2631358c28e031616",
+    "implementation": "FluidCKPT capture/attach hook; not upstream Weight Cache Daemon",
+    "producer_load_s": 16.963188083,
+    "consumer_load_s": 0.341205494,
+    "producer_ready_s": 124.17418113723397,
+    "consumer_ready_s": 125.1740004690364,
+    "outputs_match": [
+      true,
+      true
+    ],
+    "passed": true
+  },
+  "arm_f_plan": {
+    "path": "codex_coding/results/v0.2.0/armf02_plan/summary.json",
+    "sha256": "8f9572d3c06741d8d08a789ff9a7e9560d687aeeacb1da36671c6e448b2aa61f",
+    "snapshot": "qwen36",
+    "shard_GiB": {
+      "0": 33.93,
+      "1": 33.93
+    },
+    "plan": {
+      "lp_T_s": 0.7919463673043478,
+      "ops": 2,
+      "split_GB": [
+        [
+          0,
+          0,
+          36.43
+        ],
+        [
+          1,
+          0,
+          36.43
+        ]
+      ],
+      "route_of": [
+        [
+          0,
+          "ib"
+        ],
+        [
+          1,
+          "ib"
+        ]
+      ],
+      "load_GBps": {
+        "gpuin:node29:0": 46.0,
+        "gpuin:node29:1": 46.0,
+        "h2d:node27:0": 46.0,
+        "h2d:node27:1": 46.0,
+        "hostrd:node27": 92.0,
+        "ibin:node29": 92.0,
+        "ibout:node27": 92.0,
+        "pair:node27:0->node29:0": 46.0,
+        "pair:node27:1->node29:1": 46.0
+      }
+    },
+    "measured_restore": false,
+    "layout": "ingest/raw layout; not the processed capture layout"
+  },
+  "arm_f_latest": {
+    "path": "codex_coding/results/v0.2.0/armf12/producer.log",
+    "sha256": "85f5734eb9085938cc56c3c48a80f87a40152412b069fbe0442d0b37f3a1d51d",
+    "capture_timeout": true,
+    "summary_present": false
+  },
+  "history_source": "/home/zhujianian/.claude/projects/-home-zhujianian/da166fb7-2956-4a24-a03c-f40ab10649a8.jsonl",
+  "historical_commands_notice": "Recorded commands, including failed runs; do not replay cleanup or reuse run directories."
+}

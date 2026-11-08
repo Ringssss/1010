@@ -1,0 +1,155 @@
+{
+  "cross_returncode": 0,
+  "alternate_observations": [
+    {
+      "kind": "icmp",
+      "node": "node29",
+      "target": "11.211.3.29",
+      "started_at": "2026-10-08T07:18:56.796185+00:00",
+      "resolved_address": "11.211.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "11.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:56.792096+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"11.211.3.29\",\"dev\":\"eth1\",\"prefsrc\":\"11.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:18:56.796142+00:00",
+        "elapsed_s": 0.004078289493918419
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "11.211.3.29"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 11.211.3.29 (11.211.3.29) 56(84) bytes of data.\n64 bytes from 11.211.3.29: icmp_seq=1 ttl=64 time=0.156 ms\n\n--- 11.211.3.29 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.156/0.156/0.156/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:18:56.800103+00:00",
+      "elapsed_s": 0.003941048868000507,
+      "status": "reply"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node29",
+      "target": "11.211.3.29",
+      "started_at": "2026-10-08T07:18:56.800452+00:00",
+      "resolved_address": "11.211.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "11.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:56.800464+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"11.211.3.29\",\"dev\":\"eth1\",\"prefsrc\":\"11.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:18:56.803642+00:00",
+        "elapsed_s": 0.003189338371157646
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "Exceeded MaxStartups\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": false,
+      "connected_after_s": 0.00020198430866003036,
+      "actual_local_address": [
+        "11.211.3.27",
+        51888
+      ],
+      "actual_peer_address": [
+        "11.211.3.29",
+        22
+      ],
+      "status": "closed_or_nonssh_banner",
+      "elapsed_s": 0.0004092752933502197,
+      "finished_at": "2026-10-08T07:18:56.804068+00:00"
+    },
+    {
+      "kind": "ssh",
+      "node": "node29",
+      "target": "11.211.3.29",
+      "started_at": "2026-10-08T07:18:56.807399+00:00",
+      "resolved_address": "11.211.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "11.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:18:56.804286+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"11.211.3.29\",\"dev\":\"eth1\",\"prefsrc\":\"11.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:18:56.807376+00:00",
+        "elapsed_s": 0.0031055985018610954
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=11.211.3.29",
+        "node29",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 11.211.3.29 [11.211.3.29] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\nConnection timed out during banner exchange\nConnection to 11.211.3.29 port 22 timed out\n",
+      "finished_at": "2026-10-08T07:19:01.821031+00:00",
+      "elapsed_s": 5.013657203875482,
+      "status": "banner_timeout"
+    }
+  ],
+  "known_hosts_before": {
+    "/home/zhujianian/.ssh/known_hosts": "0e0a8728b26410df714a16f7ded83b98853b1aa39efa88d037f1c44204910ab6",
+    "/home/zhujianian/.ssh/known_hosts2": null
+  },
+  "known_hosts_after": {
+    "/home/zhujianian/.ssh/known_hosts": "0e0a8728b26410df714a16f7ded83b98853b1aa39efa88d037f1c44204910ab6",
+    "/home/zhujianian/.ssh/known_hosts2": null
+  },
+  "known_hosts_unchanged": true,
+  "signals": 0,
+  "gpu_operations": 0,
+  "finished_at": "2026-10-08T07:19:01.821552+00:00",
+  "alternate_address_evidence": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/local_network_snapshot.json"
+}

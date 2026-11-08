@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "kind": "analysis_of_existing_lifecycle_run",
+  "transitions": [
+    {
+      "phase": "A_local_smoke",
+      "model": "A",
+      "node": "node27",
+      "mode": "restore",
+      "first_correct_token_s": 1.7763458527624607,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_dram",
+          "n": 35164859056,
+          "replica_id": "A/base/0"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_dram",
+          "n": 35164859056,
+          "replica_id": "A/base/1"
+        }
+      ]
+    }
+  ],
+  "scope": "Hygon DCU; adapted HIP IPC and warm disk fallback; eager mode; one trace, not a P99 study",
+  "paired_observations": [],
+  "B_samples": {
+    "idle_count": 0,
+    "during_movement_count": 0,
+    "errors": []
+  },
+  "migration": {},
+  "ssd": null,
+  "service_reserve_bytes_per_gpu": null,
+  "changed_source_files_since_start": [
+    "main_lib/fluidckpt/serving/ipc_attach.py",
+    "main_lib/fluidckpt/serving/lifecycle.py",
+    "main_lib/fluidckpt/serving/sglang_hook.py",
+    "main_lib/fluidckpt/cluster/worker.py",
+    "main_lib/fluidckpt/cluster/planning.py",
+    "main_lib/fluidckpt/cluster/wire.py",
+    "codex_coding/src/task2/cluster/run_lifecycle.py"
+  ],
+  "cleanup_errors": [],
+  "passed": true
+}

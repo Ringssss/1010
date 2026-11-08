@@ -1,0 +1,1088 @@
+{
+  "replicas": [],
+  "ssd": {
+    "n0": {
+      "committed_bytes": 0,
+      "files": 0,
+      "kernel_io": {
+        "cancelled_write_bytes": 0,
+        "rchar": 1595454,
+        "read_bytes": 0,
+        "syscr": 240,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "policy": "buffered IO; fsync and POSIX_FADV_DONTNEED",
+      "read_bytes": 0,
+      "root": "/task_ssd",
+      "written_bytes": 0
+    },
+    "n1": {
+      "committed_bytes": 0,
+      "files": 0,
+      "kernel_io": {
+        "cancelled_write_bytes": 0,
+        "rchar": 1595454,
+        "read_bytes": 0,
+        "syscr": 240,
+        "syscw": 0,
+        "wchar": 0,
+        "write_bytes": 0
+      },
+      "policy": "buffered IO; fsync and POSIX_FADV_DONTNEED",
+      "read_bytes": 0,
+      "root": "/task_ssd",
+      "written_bytes": 0
+    },
+    "n2": {
+      "committed_bytes": 16777216,
+      "files": 0,
+      "kernel_io": {
+        "cancelled_write_bytes": 0,
+        "rchar": 35149953,
+        "read_bytes": 18087936,
+        "syscr": 243,
+        "syscw": 1,
+        "wchar": 16777216,
+        "write_bytes": 16777216
+      },
+      "policy": "buffered IO; fsync and POSIX_FADV_DONTNEED",
+      "read_bytes": 33554432,
+      "root": "/task_ssd",
+      "written_bytes": 16777216
+    }
+  },
+  "workers": [
+    {
+      "budget_bytes": {
+        "dram": 3221225472,
+        "hbm": 1006632960,
+        "ssd": 67108864
+      },
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "local_ssd",
+        "peer",
+        "network"
+      ],
+      "epoch": "bounded_cost_runtime_r03/node28/0/5838/d590b8321ffd41be8a2ccc8bf978af27",
+      "gpu": 0,
+      "hbm_allocated_bytes": 67108864,
+      "hbm_reserved_bytes": 67108864,
+      "hbm_total_bytes": 68702699520,
+      "headroom_bytes": {
+        "dram": 52284153856,
+        "hbm": 68142759936
+      },
+      "headroom_sample_ns": 5034316843290038,
+      "host_allocations": [],
+      "host_allocations_scope": "historical successful allocations; not a current residency ledger",
+      "inventory_diagnosis": {
+        "cache_origin_sequence": 1,
+        "cache_scope": "resolved library path and CDLL handle only; guarded by current PID",
+        "clock_domain": "worker process monotonic_ns; do not subtract controller timestamps",
+        "fresh_fields": [
+          "native_inventory",
+          "HIP BDF",
+          "PCI NUMA",
+          "HCA metadata",
+          "boot/PID/start",
+          "cgroup path/namespace/current/max",
+          "environment/RSS",
+          "host allocation history"
+        ],
+        "library_cache_hit": true,
+        "library_path": "libgalaxyhip.so.5",
+        "mode": "cached",
+        "residual_ns": 52870,
+        "schema_version": 1,
+        "segment_sum_ns": 1809010,
+        "segments_ns": {
+          "cdll_load": 490,
+          "cgroup_metadata": 182552,
+          "environment_and_rss": 60680,
+          "hca_metadata": 799929,
+          "hip_bdf": 12860,
+          "library_resolution": 720,
+          "mode_file_read": 85921,
+          "native_inventory": 520586,
+          "pci_metadata": 44021,
+          "proc_identity": 101251
+        },
+        "sequence": 34,
+        "serialization_in_timer": false,
+        "timer_boundary": "inventory entry through complete original inventory and identity fields; diagnosis assembly and HTTP serialization excluded",
+        "worker_inventory_elapsed_ns": 1861880,
+        "worker_inventory_end_ns": 5034316844541571,
+        "worker_inventory_start_ns": 5034316842679691
+      },
+      "node": "node28",
+      "numa": 0,
+      "pid": 5838,
+      "replicas": [],
+      "runtime_identity": {
+        "actual_bdf": "0000:09:00.0",
+        "actual_hca_transport_requires_nccl_logs": true,
+        "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+        "cgroup_memory_current_bytes": 3483271168,
+        "cgroup_memory_max_bytes": 8589934592,
+        "cgroup_mount_root": "/sys/fs/cgroup",
+        "cgroup_namespace": "cgroup:[4026541427]",
+        "cgroup_path": "/",
+        "communication_environment": {
+          "LD_PRELOAD": null,
+          "NCCL_IB_HCA": "shca_0",
+          "NCCL_NET": "IBext_v8",
+          "NCCL_NET_GDR_LEVEL": null,
+          "NCCL_SOCKET_IFNAME": "ib0",
+          "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node28.physical.gdr0.xml"
+        },
+        "pci_numa_node": 0,
+        "pid": 5838,
+        "process_rss_bytes": 2933571584,
+        "selected_hca_metadata": {
+          "exists": true,
+          "name": "shca_0",
+          "pci_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+          "ports": {
+            "1": {
+              "phys_state": "5: LinkUp",
+              "rate": "400 Gb/sec (4X NDR)",
+              "state": "4: ACTIVE"
+            }
+          }
+        },
+        "start_ticks": 503426934
+      },
+      "session": "bounded_cost_runtime_r03",
+      "staging_bytes": 67108864,
+      "transaction_phases": {},
+      "transactions": [],
+      "used_bytes": {
+        "dram": 0,
+        "hbm": 0,
+        "ssd": 0
+      },
+      "worker": 0
+    },
+    {
+      "budget_bytes": {
+        "dram": 3221225472,
+        "hbm": 1006632960,
+        "ssd": 67108864
+      },
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "local_ssd",
+        "peer",
+        "network"
+      ],
+      "epoch": "bounded_cost_runtime_r03/node28/1/5839/adf0a3c654b54c7589bdab17fd2ade6c",
+      "gpu": 1,
+      "hbm_allocated_bytes": 67108864,
+      "hbm_reserved_bytes": 67108864,
+      "hbm_total_bytes": 68702699520,
+      "headroom_bytes": {
+        "dram": 56856764416,
+        "hbm": 68142759936
+      },
+      "headroom_sample_ns": 5034316843080976,
+      "host_allocations": [],
+      "host_allocations_scope": "historical successful allocations; not a current residency ledger",
+      "inventory_diagnosis": {
+        "cache_origin_sequence": 1,
+        "cache_scope": "resolved library path and CDLL handle only; guarded by current PID",
+        "clock_domain": "worker process monotonic_ns; do not subtract controller timestamps",
+        "fresh_fields": [
+          "native_inventory",
+          "HIP BDF",
+          "PCI NUMA",
+          "HCA metadata",
+          "boot/PID/start",
+          "cgroup path/namespace/current/max",
+          "environment/RSS",
+          "host allocation history"
+        ],
+        "library_cache_hit": true,
+        "library_path": "libgalaxyhip.so.5",
+        "mode": "cached",
+        "residual_ns": 52040,
+        "schema_version": 1,
+        "segment_sum_ns": 1944232,
+        "segments_ns": {
+          "cdll_load": 490,
+          "cgroup_metadata": 174292,
+          "environment_and_rss": 66351,
+          "hca_metadata": 862639,
+          "hip_bdf": 13280,
+          "library_resolution": 690,
+          "mode_file_read": 127132,
+          "native_inventory": 547236,
+          "pci_metadata": 49050,
+          "proc_identity": 103072
+        },
+        "sequence": 30,
+        "serialization_in_timer": false,
+        "timer_boundary": "inventory entry through complete original inventory and identity fields; diagnosis assembly and HTTP serialization excluded",
+        "worker_inventory_elapsed_ns": 1996272,
+        "worker_inventory_end_ns": 5034316844399370,
+        "worker_inventory_start_ns": 5034316842403098
+      },
+      "node": "node28",
+      "numa": 3,
+      "pid": 5839,
+      "replicas": [],
+      "runtime_identity": {
+        "actual_bdf": "0000:36:00.0",
+        "actual_hca_transport_requires_nccl_logs": true,
+        "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+        "cgroup_memory_current_bytes": 3483271168,
+        "cgroup_memory_max_bytes": 8589934592,
+        "cgroup_mount_root": "/sys/fs/cgroup",
+        "cgroup_namespace": "cgroup:[4026541427]",
+        "cgroup_path": "/",
+        "communication_environment": {
+          "LD_PRELOAD": null,
+          "NCCL_IB_HCA": "shca_0",
+          "NCCL_NET": "IBext_v8",
+          "NCCL_NET_GDR_LEVEL": null,
+          "NCCL_SOCKET_IFNAME": "ib0",
+          "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node28.physical.gdr0.xml"
+        },
+        "pci_numa_node": 3,
+        "pid": 5839,
+        "process_rss_bytes": 2934992896,
+        "selected_hca_metadata": {
+          "exists": true,
+          "name": "shca_0",
+          "pci_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+          "ports": {
+            "1": {
+              "phys_state": "5: LinkUp",
+              "rate": "400 Gb/sec (4X NDR)",
+              "state": "4: ACTIVE"
+            }
+          }
+        },
+        "start_ticks": 503426934
+      },
+      "session": "bounded_cost_runtime_r03",
+      "staging_bytes": 67108864,
+      "transaction_phases": {},
+      "transactions": [],
+      "used_bytes": {
+        "dram": 0,
+        "hbm": 0,
+        "ssd": 0
+      },
+      "worker": 1
+    },
+    {
+      "budget_bytes": {
+        "dram": 3221225472,
+        "hbm": 1006632960,
+        "ssd": 67108864
+      },
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "local_ssd",
+        "peer",
+        "network"
+      ],
+      "epoch": "bounded_cost_runtime_r03/node30/4/5839/70ebd3229a85427dbf66da6d435f37f9",
+      "gpu": 4,
+      "hbm_allocated_bytes": 67108864,
+      "hbm_reserved_bytes": 67108864,
+      "hbm_total_bytes": 68702699520,
+      "headroom_bytes": {
+        "dram": 59219161088,
+        "hbm": 67983376384
+      },
+      "headroom_sample_ns": 5034324851176317,
+      "host_allocations": [
+        {
+          "allocation_bytes": 16777216,
+          "backend": "numa_registered",
+          "logical_bytes": 16777216,
+          "numa": 4,
+          "placement_samples": 256,
+          "registered": true,
+          "sampled_page_distribution": {
+            "4": 1.0
+          },
+          "timings": {
+            "allocate_bind_touch_s": 0.026358640752732754,
+            "register_s": 0.005332568660378456,
+            "total_s": 0.03169271908700466
+          }
+        }
+      ],
+      "host_allocations_scope": "historical successful allocations; not a current residency ledger",
+      "inventory_diagnosis": {
+        "cache_origin_sequence": 1,
+        "cache_scope": "resolved library path and CDLL handle only; guarded by current PID",
+        "clock_domain": "worker process monotonic_ns; do not subtract controller timestamps",
+        "fresh_fields": [
+          "native_inventory",
+          "HIP BDF",
+          "PCI NUMA",
+          "HCA metadata",
+          "boot/PID/start",
+          "cgroup path/namespace/current/max",
+          "environment/RSS",
+          "host allocation history"
+        ],
+        "library_cache_hit": true,
+        "library_path": "libgalaxyhip.so.5",
+        "mode": "cached",
+        "residual_ns": 49190,
+        "schema_version": 1,
+        "segment_sum_ns": 2234672,
+        "segments_ns": {
+          "cdll_load": 470,
+          "cgroup_metadata": 162893,
+          "environment_and_rss": 57641,
+          "hca_metadata": 769304,
+          "hip_bdf": 47791,
+          "library_resolution": 680,
+          "mode_file_read": 86692,
+          "native_inventory": 968978,
+          "pci_metadata": 45061,
+          "proc_identity": 95162
+        },
+        "sequence": 35,
+        "serialization_in_timer": false,
+        "timer_boundary": "inventory entry through complete original inventory and identity fields; diagnosis assembly and HTTP serialization excluded",
+        "worker_inventory_elapsed_ns": 2283862,
+        "worker_inventory_end_ns": 5034324852402109,
+        "worker_inventory_start_ns": 5034324850118247
+      },
+      "node": "node30",
+      "numa": 4,
+      "pid": 5839,
+      "replicas": [
+        {
+          "allocated_bytes": 16777216,
+          "epoch": "bounded_cost_runtime_r03/node30/4/5839/70ebd3229a85427dbf66da6d435f37f9",
+          "generation": 1,
+          "gpu": 4,
+          "id": "bounded_cost_runtime_r03/source1/dram",
+          "identity": "c4762e0576175160b3863aaba985842727996ddef01e9a918b098269dccf9a31",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3101",
+            "synthetic": true,
+            "tp_rank": 1,
+            "tp_size": 4
+          },
+          "n": 16777216,
+          "node": "node30",
+          "numa": 4,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "dram",
+          "tp": 1,
+          "worker": 2
+        }
+      ],
+      "runtime_identity": {
+        "actual_bdf": "0000:85:00.0",
+        "actual_hca_transport_requires_nccl_logs": true,
+        "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+        "cgroup_memory_current_bytes": 3994546176,
+        "cgroup_memory_max_bytes": 8589934592,
+        "cgroup_mount_root": "/sys/fs/cgroup",
+        "cgroup_namespace": "cgroup:[4026541312]",
+        "cgroup_path": "/",
+        "communication_environment": {
+          "LD_PRELOAD": null,
+          "NCCL_IB_HCA": "shca_0",
+          "NCCL_NET": "IBext_v8",
+          "NCCL_NET_GDR_LEVEL": null,
+          "NCCL_SOCKET_IFNAME": "ib0",
+          "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node30.physical.gdr0.xml"
+        },
+        "pci_numa_node": 4,
+        "pid": 5839,
+        "process_rss_bytes": 3489648640,
+        "selected_hca_metadata": {
+          "exists": true,
+          "name": "shca_0",
+          "pci_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+          "ports": {
+            "1": {
+              "phys_state": "5: LinkUp",
+              "rate": "400 Gb/sec (4X NDR)",
+              "state": "4: ACTIVE"
+            }
+          }
+        },
+        "start_ticks": 503427733
+      },
+      "session": "bounded_cost_runtime_r03",
+      "staging_bytes": 67108864,
+      "transaction_phases": {},
+      "transactions": [],
+      "used_bytes": {
+        "dram": 0,
+        "hbm": 0,
+        "ssd": 0
+      },
+      "worker": 2
+    },
+    {
+      "budget_bytes": {
+        "dram": 3221225472,
+        "hbm": 1006632960,
+        "ssd": 67108864
+      },
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "local_ssd",
+        "peer",
+        "network"
+      ],
+      "epoch": "bounded_cost_runtime_r03/node30/5/5838/597bb989d0b048b8b3c41f778a650c1f",
+      "gpu": 5,
+      "hbm_allocated_bytes": 67108864,
+      "hbm_reserved_bytes": 67108864,
+      "hbm_total_bytes": 68702699520,
+      "headroom_bytes": {
+        "dram": 58515177472,
+        "hbm": 68142759936
+      },
+      "headroom_sample_ns": 5034324850674798,
+      "host_allocations": [],
+      "host_allocations_scope": "historical successful allocations; not a current residency ledger",
+      "inventory_diagnosis": {
+        "cache_origin_sequence": 1,
+        "cache_scope": "resolved library path and CDLL handle only; guarded by current PID",
+        "clock_domain": "worker process monotonic_ns; do not subtract controller timestamps",
+        "fresh_fields": [
+          "native_inventory",
+          "HIP BDF",
+          "PCI NUMA",
+          "HCA metadata",
+          "boot/PID/start",
+          "cgroup path/namespace/current/max",
+          "environment/RSS",
+          "host allocation history"
+        ],
+        "library_cache_hit": true,
+        "library_path": "libgalaxyhip.so.5",
+        "mode": "cached",
+        "residual_ns": 50210,
+        "schema_version": 1,
+        "segment_sum_ns": 1739642,
+        "segments_ns": {
+          "cdll_load": 400,
+          "cgroup_metadata": 189953,
+          "environment_and_rss": 59231,
+          "hca_metadata": 730714,
+          "hip_bdf": 12660,
+          "library_resolution": 650,
+          "mode_file_read": 88261,
+          "native_inventory": 512480,
+          "pci_metadata": 43511,
+          "proc_identity": 101782
+        },
+        "sequence": 34,
+        "serialization_in_timer": false,
+        "timer_boundary": "inventory entry through complete original inventory and identity fields; diagnosis assembly and HTTP serialization excluded",
+        "worker_inventory_elapsed_ns": 1789852,
+        "worker_inventory_end_ns": 5034324851861209,
+        "worker_inventory_start_ns": 5034324850071357
+      },
+      "node": "node30",
+      "numa": 7,
+      "pid": 5838,
+      "replicas": [],
+      "runtime_identity": {
+        "actual_bdf": "0000:b5:00.0",
+        "actual_hca_transport_requires_nccl_logs": true,
+        "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+        "cgroup_memory_current_bytes": 3994546176,
+        "cgroup_memory_max_bytes": 8589934592,
+        "cgroup_mount_root": "/sys/fs/cgroup",
+        "cgroup_namespace": "cgroup:[4026541312]",
+        "cgroup_path": "/",
+        "communication_environment": {
+          "LD_PRELOAD": null,
+          "NCCL_IB_HCA": "shca_0",
+          "NCCL_NET": "IBext_v8",
+          "NCCL_NET_GDR_LEVEL": null,
+          "NCCL_SOCKET_IFNAME": "ib0",
+          "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node30.physical.gdr0.xml"
+        },
+        "pci_numa_node": 7,
+        "pid": 5838,
+        "process_rss_bytes": 2933096448,
+        "selected_hca_metadata": {
+          "exists": true,
+          "name": "shca_0",
+          "pci_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+          "ports": {
+            "1": {
+              "phys_state": "5: LinkUp",
+              "rate": "400 Gb/sec (4X NDR)",
+              "state": "4: ACTIVE"
+            }
+          }
+        },
+        "start_ticks": 503427733
+      },
+      "session": "bounded_cost_runtime_r03",
+      "staging_bytes": 67108864,
+      "transaction_phases": {},
+      "transactions": [],
+      "used_bytes": {
+        "dram": 0,
+        "hbm": 0,
+        "ssd": 0
+      },
+      "worker": 3
+    },
+    {
+      "budget_bytes": {
+        "dram": 3221225472,
+        "hbm": 1006632960,
+        "ssd": 67108864
+      },
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "local_ssd",
+        "peer",
+        "network"
+      ],
+      "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+      "gpu": 0,
+      "hbm_allocated_bytes": 67108864,
+      "hbm_reserved_bytes": 67108864,
+      "hbm_total_bytes": 68702699520,
+      "headroom_bytes": {
+        "dram": 62200270848,
+        "hbm": 67777855488
+      },
+      "headroom_sample_ns": 192277859352564,
+      "host_allocations": [
+        {
+          "allocation_bytes": 16777216,
+          "backend": "numa_registered",
+          "logical_bytes": 16777216,
+          "numa": 0,
+          "placement_samples": 256,
+          "registered": true,
+          "sampled_page_distribution": {
+            "0": 1.0
+          },
+          "timings": {
+            "allocate_bind_touch_s": 0.027065612986916676,
+            "register_s": 0.00724774700938724,
+            "total_s": 0.03431494999676943
+          }
+        },
+        {
+          "allocation_bytes": 16777216,
+          "backend": "numa_registered",
+          "logical_bytes": 16777216,
+          "numa": 0,
+          "placement_samples": 256,
+          "registered": true,
+          "sampled_page_distribution": {
+            "0": 1.0
+          },
+          "timings": {
+            "allocate_bind_touch_s": 0.006109971989644691,
+            "register_s": 0.007235786993987858,
+            "total_s": 0.013347118976525962
+          }
+        }
+      ],
+      "host_allocations_scope": "historical successful allocations; not a current residency ledger",
+      "inventory_diagnosis": {
+        "cache_origin_sequence": 1,
+        "cache_scope": "resolved library path and CDLL handle only; guarded by current PID",
+        "clock_domain": "worker process monotonic_ns; do not subtract controller timestamps",
+        "fresh_fields": [
+          "native_inventory",
+          "HIP BDF",
+          "PCI NUMA",
+          "HCA metadata",
+          "boot/PID/start",
+          "cgroup path/namespace/current/max",
+          "environment/RSS",
+          "host allocation history"
+        ],
+        "library_cache_hit": true,
+        "library_path": "libgalaxyhip.so.5",
+        "mode": "cached",
+        "residual_ns": 51530,
+        "schema_version": 1,
+        "segment_sum_ns": 2360092,
+        "segments_ns": {
+          "cdll_load": 590,
+          "cgroup_metadata": 200683,
+          "environment_and_rss": 61831,
+          "hca_metadata": 980393,
+          "hip_bdf": 14330,
+          "library_resolution": 670,
+          "mode_file_read": 84921,
+          "native_inventory": 860762,
+          "pci_metadata": 50311,
+          "proc_identity": 105601
+        },
+        "sequence": 38,
+        "serialization_in_timer": false,
+        "timer_boundary": "inventory entry through complete original inventory and identity fields; diagnosis assembly and HTTP serialization excluded",
+        "worker_inventory_elapsed_ns": 2411622,
+        "worker_inventory_end_ns": 192277860816264,
+        "worker_inventory_start_ns": 192277858404642
+      },
+      "node": "node27",
+      "numa": 0,
+      "pid": 5786,
+      "replicas": [
+        {
+          "allocated_bytes": 16777216,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/source0/dram",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "n": 16777216,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "dram",
+          "tp": 0,
+          "worker": 4
+        },
+        {
+          "allocated_bytes": 16777216,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "n": 16777216,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        {
+          "allocated_bytes": 16777216,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/source2/dram",
+          "identity": "e5d80a080d0c81bf403f5e644691daf38c0b681ac4d7c3f86e91a34a1ab8c15d",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3102",
+            "synthetic": true,
+            "tp_rank": 2,
+            "tp_size": 4
+          },
+          "n": 16777216,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "dram",
+          "tp": 2,
+          "worker": 4
+        },
+        {
+          "allocated_bytes": 16777216,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/source2/ssd",
+          "identity": "e5d80a080d0c81bf403f5e644691daf38c0b681ac4d7c3f86e91a34a1ab8c15d",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3102",
+            "synthetic": true,
+            "tp_rank": 2,
+            "tp_size": 4
+          },
+          "n": 16777216,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "storage_node": "node27",
+          "store_endpoint": "http://12.11.3.27:35402",
+          "tier": "ssd",
+          "tp": 2,
+          "worker": 4
+        },
+        {
+          "allocated_bytes": 8388608,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/local_novel8/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "n": 8388608,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        {
+          "allocated_bytes": 8388608,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/mixed_novel8/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "n": 8388608,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        {
+          "allocated_bytes": 8388608,
+          "epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "generation": 1,
+          "gpu": 0,
+          "id": "bounded_cost_runtime_r03/mixed_novel8/target1",
+          "identity": "c4762e0576175160b3863aaba985842727996ddef01e9a918b098269dccf9a31",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3101",
+            "synthetic": true,
+            "tp_rank": 1,
+            "tp_size": 4
+          },
+          "n": 8388608,
+          "node": "node27",
+          "numa": 0,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "hbm",
+          "tp": 1,
+          "worker": 4
+        }
+      ],
+      "runtime_identity": {
+        "actual_bdf": "0000:09:00.0",
+        "actual_hca_transport_requires_nccl_logs": true,
+        "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+        "cgroup_memory_current_bytes": 4301234176,
+        "cgroup_memory_max_bytes": 8589934592,
+        "cgroup_mount_root": "/sys/fs/cgroup",
+        "cgroup_namespace": "cgroup:[4026541137]",
+        "cgroup_path": "/",
+        "communication_environment": {
+          "LD_PRELOAD": null,
+          "NCCL_IB_HCA": "shca_0",
+          "NCCL_NET": "IBext_v8",
+          "NCCL_NET_GDR_LEVEL": null,
+          "NCCL_SOCKET_IFNAME": "ib0",
+          "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml"
+        },
+        "pci_numa_node": 0,
+        "pid": 5786,
+        "process_rss_bytes": 3573358592,
+        "selected_hca_metadata": {
+          "exists": true,
+          "name": "shca_0",
+          "pci_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+          "ports": {
+            "1": {
+              "phys_state": "5: LinkUp",
+              "rate": "400 Gb/sec (4X NDR)",
+              "state": "4: ACTIVE"
+            }
+          }
+        },
+        "start_ticks": 19223018
+      },
+      "session": "bounded_cost_runtime_r03",
+      "staging_bytes": 67108864,
+      "transaction_phases": {},
+      "transactions": [],
+      "used_bytes": {
+        "dram": 0,
+        "hbm": 0,
+        "ssd": 0
+      },
+      "worker": 4
+    },
+    {
+      "budget_bytes": {
+        "dram": 3221225472,
+        "hbm": 1006632960,
+        "ssd": 67108864
+      },
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "local_ssd",
+        "peer",
+        "network"
+      ],
+      "epoch": "bounded_cost_runtime_r03/node27/4/5788/192109ea1cfb41d5bb58c4c9e93985e5",
+      "gpu": 4,
+      "hbm_allocated_bytes": 67108864,
+      "hbm_reserved_bytes": 67108864,
+      "hbm_total_bytes": 68702699520,
+      "headroom_bytes": {
+        "dram": 63577022464,
+        "hbm": 67817701376
+      },
+      "headroom_sample_ns": 192277859338814,
+      "host_allocations": [],
+      "host_allocations_scope": "historical successful allocations; not a current residency ledger",
+      "inventory_diagnosis": {
+        "cache_origin_sequence": 1,
+        "cache_scope": "resolved library path and CDLL handle only; guarded by current PID",
+        "clock_domain": "worker process monotonic_ns; do not subtract controller timestamps",
+        "fresh_fields": [
+          "native_inventory",
+          "HIP BDF",
+          "PCI NUMA",
+          "HCA metadata",
+          "boot/PID/start",
+          "cgroup path/namespace/current/max",
+          "environment/RSS",
+          "host allocation history"
+        ],
+        "library_cache_hit": true,
+        "library_path": "libgalaxyhip.so.5",
+        "mode": "cached",
+        "residual_ns": 48750,
+        "schema_version": 1,
+        "segment_sum_ns": 2044498,
+        "segments_ns": {
+          "cdll_load": 470,
+          "cgroup_metadata": 196752,
+          "environment_and_rss": 62051,
+          "hca_metadata": 980053,
+          "hip_bdf": 12581,
+          "library_resolution": 660,
+          "mode_file_read": 80551,
+          "native_inventory": 563107,
+          "pci_metadata": 48291,
+          "proc_identity": 99982
+        },
+        "sequence": 32,
+        "serialization_in_timer": false,
+        "timer_boundary": "inventory entry through complete original inventory and identity fields; diagnosis assembly and HTTP serialization excluded",
+        "worker_inventory_elapsed_ns": 2093248,
+        "worker_inventory_end_ns": 192277860785704,
+        "worker_inventory_start_ns": 192277858692456
+      },
+      "node": "node27",
+      "numa": 4,
+      "pid": 5788,
+      "replicas": [
+        {
+          "allocated_bytes": 8388608,
+          "epoch": "bounded_cost_runtime_r03/node27/4/5788/192109ea1cfb41d5bb58c4c9e93985e5",
+          "generation": 1,
+          "gpu": 4,
+          "id": "bounded_cost_runtime_r03/mixed_novel8/target2",
+          "identity": "e5d80a080d0c81bf403f5e644691daf38c0b681ac4d7c3f86e91a34a1ab8c15d",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "leases": 0,
+          "meta": {
+            "model_identity": "fixture:3102",
+            "synthetic": true,
+            "tp_rank": 2,
+            "tp_size": 4
+          },
+          "n": 8388608,
+          "node": "node27",
+          "numa": 4,
+          "off": 0,
+          "state": "RELEASED",
+          "tier": "hbm",
+          "tp": 2,
+          "worker": 5
+        }
+      ],
+      "runtime_identity": {
+        "actual_bdf": "0000:85:00.0",
+        "actual_hca_transport_requires_nccl_logs": true,
+        "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+        "cgroup_memory_current_bytes": 4301234176,
+        "cgroup_memory_max_bytes": 8589934592,
+        "cgroup_mount_root": "/sys/fs/cgroup",
+        "cgroup_namespace": "cgroup:[4026541137]",
+        "cgroup_path": "/",
+        "communication_environment": {
+          "LD_PRELOAD": null,
+          "NCCL_IB_HCA": "shca_0",
+          "NCCL_NET": "IBext_v8",
+          "NCCL_NET_GDR_LEVEL": null,
+          "NCCL_SOCKET_IFNAME": "ib0",
+          "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml"
+        },
+        "pci_numa_node": 4,
+        "pid": 5788,
+        "process_rss_bytes": 3193118720,
+        "selected_hca_metadata": {
+          "exists": true,
+          "name": "shca_0",
+          "pci_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+          "ports": {
+            "1": {
+              "phys_state": "5: LinkUp",
+              "rate": "400 Gb/sec (4X NDR)",
+              "state": "4: ACTIVE"
+            }
+          }
+        },
+        "start_ticks": 19223018
+      },
+      "session": "bounded_cost_runtime_r03",
+      "staging_bytes": 67108864,
+      "transaction_phases": {},
+      "transactions": [],
+      "used_bytes": {
+        "dram": 0,
+        "hbm": 0,
+        "ssd": 0
+      },
+      "worker": 5
+    }
+  ]
+}

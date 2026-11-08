@@ -1,0 +1,129 @@
+{
+  "owned_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_startup_owned_r02",
+  "execute": true,
+  "gpu_workloads": 0,
+  "source_summary_sha": "b55ccc7865ec3bbf25a1ce33fbbecabd40d1e1e83121ac4013cdac79c7ce7fb0",
+  "exact_targets": {
+    "stop_sha": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "specs": {
+      "2": {
+        "spec_sha": "dc7f60b513d02f0f7fa9feadef298c18b6a7694f39a7d28921f906bcc059d9de",
+        "state_sha": "18f95242d6de2a9d5fec59678b1439b1e000081417a87500d10ac8147fe1226d"
+      },
+      "3": {
+        "spec_sha": "021e16018f57a058f6c4a082d822bc863369454c83767902e438e862163795da",
+        "state_sha": "a97431a7adce38cd52ed27f9f778199e75bd30aeb783510b9046536afa2d006c"
+      }
+    },
+    "protected_specs": [
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.json",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/worker_node29_0.process.json",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/worker_node29_1.process.json"
+    ]
+  },
+  "ssh_attempts": [
+    {
+      "path": "node29",
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "node29",
+        "docker exec -i zjn-fluid-basic-1bce3897a2075b python3 - --worker --expected '{\"stop_sha\": \"445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb\", \"specs\": {\"2\": {\"spec_sha\": \"dc7f60b513d02f0f7fa9feadef298c18b6a7694f39a7d28921f906bcc059d9de\", \"state_sha\": \"18f95242d6de2a9d5fec59678b1439b1e000081417a87500d10ac8147fe1226d\"}, \"3\": {\"spec_sha\": \"021e16018f57a058f6c4a082d822bc863369454c83767902e438e862163795da\", \"state_sha\": \"a97431a7adce38cd52ed27f9f778199e75bd30aeb783510b9046536afa2d006c\"}}, \"protected_specs\": [\"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.json\", \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/worker_node29_0.process.json\", \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/worker_node29_1.process.json\"]}'"
+      ],
+      "returncode": 255,
+      "elapsed_s": 5.013768863864243
+    },
+    {
+      "path": "12.11.3.29",
+      "argv": [
+        "ssh",
+        "-F",
+        "/dev/null",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "12.11.3.29",
+        "docker exec -i zjn-fluid-basic-1bce3897a2075b python3 - --worker --expected '{\"stop_sha\": \"445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb\", \"specs\": {\"2\": {\"spec_sha\": \"dc7f60b513d02f0f7fa9feadef298c18b6a7694f39a7d28921f906bcc059d9de\", \"state_sha\": \"18f95242d6de2a9d5fec59678b1439b1e000081417a87500d10ac8147fe1226d\"}, \"3\": {\"spec_sha\": \"021e16018f57a058f6c4a082d822bc863369454c83767902e438e862163795da\", \"state_sha\": \"a97431a7adce38cd52ed27f9f778199e75bd30aeb783510b9046536afa2d006c\"}}, \"protected_specs\": [\"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.json\", \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/worker_node29_0.process.json\", \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/worker_node29_1.process.json\"]}'"
+      ],
+      "returncode": 255,
+      "elapsed_s": 5.013850298710167
+    }
+  ],
+  "script_sha256": "4fcd21555ee6498d8436702c95065ad47f63bd359b269f1a3c223a387bf1b7d2",
+  "http": [
+    {
+      "endpoint": "http://12.11.3.29:33000",
+      "passed": false,
+      "elapsed_s": 4.007310751825571,
+      "error": "TimeoutError('timed out')"
+    },
+    {
+      "endpoint": "http://12.11.3.29:33001",
+      "passed": false,
+      "elapsed_s": 4.00364027172327,
+      "error": "TimeoutError('timed out')"
+    }
+  ],
+  "icmp": [
+    {
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "10.211.3.29"
+      ],
+      "returncode": 0,
+      "stdout": "PING 10.211.3.29 (10.211.3.29) 56(84) bytes of data.\n64 bytes from 10.211.3.29: icmp_seq=1 ttl=64 time=0.090 ms\n\n--- 10.211.3.29 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.090/0.090/0.090/0.000 ms\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "12.11.3.29"
+      ],
+      "returncode": 0,
+      "stdout": "PING 12.11.3.29 (12.11.3.29) 56(84) bytes of data.\n64 bytes from 12.11.3.29: icmp_seq=1 ttl=64 time=0.051 ms\n\n--- 12.11.3.29 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.051/0.051/0.051/0.000 ms\n",
+      "stderr": ""
+    }
+  ],
+  "exact_remote_cleanup_passed": false,
+  "original_summary_unchanged": true,
+  "pending_exact_targets": [
+    {
+      "rank": 2,
+      "pid": 21883,
+      "start_time": "475875814",
+      "node": "node29"
+    },
+    {
+      "rank": 3,
+      "pid": 21901,
+      "start_time": "475875846",
+      "node": "node29"
+    }
+  ]
+}

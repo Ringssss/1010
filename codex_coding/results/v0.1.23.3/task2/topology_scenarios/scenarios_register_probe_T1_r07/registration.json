@@ -1,0 +1,42 @@
+{
+  "schema_version": "topology_registration.v1",
+  "status": "CPU_registered_only",
+  "frozen_manifest_sha256": "482479dced4571ff2b53b87ba757317885dae25e084a00a8a158d70ef176eada",
+  "case_sha256": "d05531e099ba5c8c7ca992e4e6797e60034d8da38113408e2e268c845768bab1",
+  "case_id": "T1_simple_control",
+  "layout": "rank_local_4plus4",
+  "scenario": "target_a",
+  "method": "fastest",
+  "profile_source": "functional_provisional_assumption",
+  "readiness": {
+    "contract_valid": true,
+    "plan_adapter_ready": true,
+    "restore_runner_ready": false,
+    "snapshot_restore_admissible": true,
+    "empirical_full_model_execution": "separate e4/e5 phase; runtime adapter and fresh preflight required",
+    "prediction_ready": false,
+    "physical_contention_claim_ready": false,
+    "GPU_execution_authorized_by_freeze": false
+  },
+  "candidate_state": "hypothetical; runtime must build and rebind IDs/epochs before reuse",
+  "runtime_slot": {
+    "model": "B",
+    "endpoint": "http://12.11.3.27:33240",
+    "workers": [
+      0,
+      1
+    ],
+    "command": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/node27_engine.command.json",
+    "parked": true,
+    "ownership_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01",
+    "metrics": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/metrics/capture",
+    "handoff": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff",
+    "manifest": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff/capture/derived.json"
+  },
+  "runtime_adapter_changes": [
+    "accept frozen rank_interleaved common schedule"
+  ],
+  "full_model_gate": "new owned run, current endpoint preflight, build fullSHA, content/output/cleanup and peak ledger",
+  "new_GPU_samples": 0,
+  "GPU_or_SSH_mutations": false
+}

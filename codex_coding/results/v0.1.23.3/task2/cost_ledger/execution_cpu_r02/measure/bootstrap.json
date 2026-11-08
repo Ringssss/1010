@@ -1,0 +1,786 @@
+{
+  "begin_ns": 222814135204394,
+  "end_ns": 222814989688040,
+  "fit_sample": false,
+  "flow": {
+    "control_mode": "compact",
+    "controller_timing": {
+      "all_targets_filled_ns": 222814726151587,
+      "all_targets_published_ns": 222814988596495,
+      "clock_domain": "controller/m03r2n07/1257642/6c86ef92ac0840848542e57c6915092d",
+      "load_begin_ns": 222814470521382
+    },
+    "coordinator_wall_s": 0.5180709430132993,
+    "cost_ledger_controller": {
+      "clock_domain": "controller/m03r2n07/1257642/6c86ef92ac0840848542e57c6915092d",
+      "controller_execute_ns": 219593171,
+      "inventory_checked_ns": 222814471870390,
+      "native_clocks": [
+        [
+          222814.470522042,
+          222814470522632
+        ],
+        [
+          222814.47187019,
+          222814471870390
+        ],
+        [
+          222814.506558286,
+          222814506558416
+        ],
+        [
+          222814.726147147,
+          222814726147307
+        ],
+        [
+          222814.988592985,
+          222814988593175
+        ]
+      ],
+      "native_execute_wall_ns": 219588861,
+      "prepared_ns": 222814506558416,
+      "transfer_method_span": {
+        "begin_ns": 222814470511102,
+        "end_ns": 222814989678780
+      }
+    },
+    "epoch_snapshot_reused": false,
+    "execute_wall_s": 0.2195888610149268,
+    "execution": [
+      {
+        "chunk_bytes": 33554432,
+        "cost_ledger": {
+          "CUDA_events": 0,
+          "actor": {
+            "birth": "8dc07ad751b54c5fa775079727e38d44",
+            "born_ns": 222814507226145,
+            "clock_domain": "worker/m03r2n07/1257642/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+            "generation": 12,
+            "ident": 22786523936320,
+            "name": "Thread-13 (process_request_thread)",
+            "native_tid": 1257679,
+            "pid": 1257642
+          },
+          "actual": {
+            "K": 1,
+            "N_mib": 96.0,
+            "chunk_mib": [
+              32.0,
+              32.0,
+              32.0
+            ],
+            "copy_count": 3,
+            "land_count": 3,
+            "logical_bytes": 100663296,
+            "submitted_copy_bytes": 100663296,
+            "sync_count": 3
+          },
+          "actual_op_chunk_bytes": {
+            "0": [
+              33554432,
+              33554432,
+              33554432
+            ]
+          },
+          "clock_domain": "worker/m03r2n07/1257642/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+          "copy_submit_spans": [
+            {
+              "begin_ns": 222814507558689,
+              "bytes": 33554432,
+              "chunk_index": 0,
+              "end_ns": 222814580004613,
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580059954,
+              "bytes": 33554432,
+              "chunk_index": 1,
+              "end_ns": 222814652278995,
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652329385,
+              "bytes": 33554432,
+              "chunk_index": 2,
+              "end_ns": 222814724913921,
+              "op_id": 0
+            }
+          ],
+          "identities": [
+            {
+              "sources": [
+                {
+                  "epoch": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/node27/0/1257642/6f9733d7f72e42fbabdddab235e640db",
+                  "generation": 1,
+                  "history": null,
+                  "identity": "b8fa8a24737bce61d9ea8d76a884abb3a658ceff08c5adbe51fcd63fc2ead26c",
+                  "replica_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/dram"
+                }
+              ],
+              "target": {
+                "allocate_begin_ns": 222814472698191,
+                "allocate_end_ns": 222814505839856,
+                "allocation_birth": "3abe49a0e5a843f1b75c65f57a610d85",
+                "allocation_generation": 1,
+                "clock_domain": "worker/m03r2n07/1257642/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+                "id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/hbm",
+                "initialization": "no_task_target_write",
+                "n": 100663296,
+                "owner": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/node27/0/1257642/6f9733d7f72e42fbabdddab235e640db",
+                "strategy": "native_torch_empty_exact_size",
+                "tier": "hbm",
+                "writes": []
+              },
+              "target_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/hbm"
+            }
+          ],
+          "metadata_begin_ns": 222814725084963,
+          "metadata_end_ns": 222814725247435,
+          "native_execute_s": 0.21764142499887384,
+          "native_service_ns": 217503443,
+          "original_copy_path": "inherited fluidckpt.cluster.worker.ClusterWorker.execute/_execute/land",
+          "partition": [
+            {
+              "begin_ns": 222814507423057,
+              "end_ns": 222814507431827,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222814507431827,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222814507433557,
+              "name": "set_device",
+              "op_id": null
+            },
+            {
+              "begin_ns": 222814507433557,
+              "end_ns": 222814507453798,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222814507453798,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222814507534249,
+              "name": "begin_log",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814507534249,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222814507548679,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814507548679,
+              "bytes": 33554432,
+              "chunk_index": 0,
+              "end_ns": 222814580012733,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580012733,
+              "end_ns": 222814580022303,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222814580022303,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222814580030464,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580030464,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222814580050644,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580050644,
+              "bytes": 33554432,
+              "chunk_index": 1,
+              "end_ns": 222814652286185,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652286185,
+              "end_ns": 222814652294295,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222814652294295,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222814652301945,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652301945,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222814652320095,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652320095,
+              "bytes": 33554432,
+              "chunk_index": 2,
+              "end_ns": 222814724921111,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814724921111,
+              "end_ns": 222814724931591,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222814724931591,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222814724940491,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814724940491,
+              "end_ns": 222814724957101,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222814724957101,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222814725072273,
+              "name": "end_log",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814725072273,
+              "end_ns": 222814725083743,
+              "name": "unattributed_gap"
+            }
+          ],
+          "primary_span": {
+            "begin_ns": 222814507423057,
+            "end_ns": 222814725083743,
+            "name": "complete_native_execute_method"
+          },
+          "primitive_spans": [
+            {
+              "begin_ns": 222814507431827,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222814507433557,
+              "name": "set_device",
+              "op_id": null
+            },
+            {
+              "begin_ns": 222814507453798,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222814507534249,
+              "name": "begin_log",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814507534249,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222814507548679,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814507548679,
+              "bytes": 33554432,
+              "chunk_index": 0,
+              "end_ns": 222814580012733,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580022303,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222814580030464,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580030464,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222814580050644,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814580050644,
+              "bytes": 33554432,
+              "chunk_index": 1,
+              "end_ns": 222814652286185,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652294295,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222814652301945,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652301945,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222814652320095,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814652320095,
+              "bytes": 33554432,
+              "chunk_index": 2,
+              "end_ns": 222814724921111,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814724931591,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222814724940491,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222814724957101,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222814725072273,
+              "name": "end_log",
+              "op_id": 0
+            }
+          ],
+          "raw_log_bounded_service_ns": 217503303,
+          "raw_service_ns": 217503813,
+          "raw_tape": {
+            "chunk": 2,
+            "copies": [
+              [
+                0,
+                0,
+                222814507558689,
+                222814580004613,
+                33554432
+              ],
+              [
+                0,
+                1,
+                222814580059954,
+                222814652278995,
+                33554432
+              ],
+              [
+                0,
+                2,
+                222814652329385,
+                222814724913921,
+                33554432
+              ]
+            ],
+            "lands": [
+              [
+                0,
+                0,
+                0,
+                33554432
+              ],
+              [
+                0,
+                1,
+                33554432,
+                33554432
+              ],
+              [
+                0,
+                2,
+                67108864,
+                33554432
+              ]
+            ],
+            "native_clock_samples": [
+              [
+                222814.507437318,
+                222814507437498
+              ],
+              [
+                222814.507443968,
+                222814507444148
+              ],
+              [
+                222814.724947411,
+                222814724947961
+              ],
+              [
+                222814.724954081,
+                222814724954361
+              ],
+              [
+                222814.725078743,
+                222814725078853
+              ]
+            ],
+            "op": 0,
+            "op_begins": [
+              [
+                0,
+                222814507453798,
+                100663296
+              ]
+            ],
+            "op_ends": [
+              [
+                0,
+                222814724957101
+              ]
+            ],
+            "source_bundle_begin": 222814724940491,
+            "spans": [
+              [
+                "set_device",
+                null,
+                null,
+                222814507431827,
+                222814507433557,
+                0
+              ],
+              [
+                "begin_log",
+                0,
+                null,
+                222814507453798,
+                222814507534249,
+                0
+              ],
+              [
+                "source_slice_and_loop",
+                0,
+                0,
+                222814507534249,
+                222814507548679,
+                0
+              ],
+              [
+                "land_submit",
+                0,
+                0,
+                222814507548679,
+                222814580012733,
+                33554432
+              ],
+              [
+                "device_sync",
+                0,
+                0,
+                222814580022303,
+                222814580030464,
+                0
+              ],
+              [
+                "source_slice_and_loop",
+                0,
+                1,
+                222814580030464,
+                222814580050644,
+                0
+              ],
+              [
+                "land_submit",
+                0,
+                1,
+                222814580050644,
+                222814652286185,
+                33554432
+              ],
+              [
+                "device_sync",
+                0,
+                1,
+                222814652294295,
+                222814652301945,
+                0
+              ],
+              [
+                "source_slice_and_loop",
+                0,
+                2,
+                222814652301945,
+                222814652320095,
+                0
+              ],
+              [
+                "land_submit",
+                0,
+                2,
+                222814652320095,
+                222814724921111,
+                33554432
+              ],
+              [
+                "device_sync",
+                0,
+                2,
+                222814724931591,
+                222814724940491,
+                0
+              ],
+              [
+                "end_log",
+                0,
+                null,
+                222814724957101,
+                222814725072273,
+                0
+              ]
+            ],
+            "syncs": [
+              [
+                0,
+                0,
+                222814580022303,
+                222814580030464
+              ],
+              [
+                0,
+                1,
+                222814652294295,
+                222814652301945
+              ],
+              [
+                0,
+                2,
+                222814724931591,
+                222814724940491
+              ]
+            ]
+          },
+          "service_spans": [
+            {
+              "begin_ns": 222814507444148,
+              "elapsed_s": 0.2175034430110827,
+              "end_ns": 222814724947961,
+              "native_float_difference_ns": -370,
+              "op_id": 0
+            }
+          ],
+          "setup_span": {
+            "begin_ns": 222814507378337,
+            "end_ns": 222814507423057
+          },
+          "target_histories_after": [
+            {
+              "allocate_begin_ns": 222814472698191,
+              "allocate_end_ns": 222814505839856,
+              "allocation_birth": "3abe49a0e5a843f1b75c65f57a610d85",
+              "allocation_generation": 1,
+              "clock_domain": "worker/m03r2n07/1257642/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+              "id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/hbm",
+              "initialization": "no_task_target_write",
+              "n": 100663296,
+              "owner": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/node27/0/1257642/6f9733d7f72e42fbabdddab235e640db",
+              "strategy": "native_torch_empty_exact_size",
+              "tier": "hbm",
+              "writes": [
+                {
+                  "copy_chunks": [
+                    {
+                      "chunk_index": 0,
+                      "n": 33554432,
+                      "off": 0,
+                      "op_id": 0
+                    },
+                    {
+                      "chunk_index": 1,
+                      "n": 33554432,
+                      "off": 33554432,
+                      "op_id": 0
+                    },
+                    {
+                      "chunk_index": 2,
+                      "n": 33554432,
+                      "off": 67108864,
+                      "op_id": 0
+                    }
+                  ],
+                  "method_begin_ns": 222814507423057,
+                  "method_end_ns": 222814725083743,
+                  "tx": "7e73b9e9660e4d8b8c385e9f00c60f7d"
+                }
+              ]
+            }
+          ],
+          "worker_ns": 217660686,
+          "wrapper_observed_end_ns": 222814725248345
+        },
+        "execute_s": 0.21764142499887384,
+        "executor": "serial",
+        "records": [
+          {
+            "bytes": 100663296,
+            "elapsed_s": 0.2175034430110827,
+            "kind": "local_dram",
+            "op_id": 0,
+            "pipeline": {},
+            "replica_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/dram",
+            "role": "both"
+          }
+        ],
+        "staging_bytes": 67108864,
+        "worker": 0
+      }
+    ],
+    "executor": "serial",
+    "inventory_rpc_s": 0.0013481480127666146,
+    "plan": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "ops": [
+        {
+          "dst_w": 0,
+          "generation": 1,
+          "identity": "b8fa8a24737bce61d9ea8d76a884abb3a658ceff08c5adbe51fcd63fc2ead26c",
+          "kind": "local_dram",
+          "n": 100663296,
+          "off": 0,
+          "op_id": 0,
+          "replica_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/dram",
+          "resources": [],
+          "source_epoch": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/node27/0/1257642/6f9733d7f72e42fbabdddab235e640db",
+          "source_offset": 0,
+          "src_w": 0,
+          "target": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/hbm",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/hbm",
+          "identity": "b8fa8a24737bce61d9ea8d76a884abb3a658ceff08c5adbe51fcd63fc2ead26c",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              50331648
+            ],
+            "t2": [
+              51380224,
+              32505856
+            ],
+            "t3": [
+              83886080,
+              14680064
+            ],
+            "t4": [
+              98566144,
+              2097152
+            ]
+          },
+          "key": "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/hbm",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 100663296,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 0
+        }
+      ]
+    },
+    "prepare_rpc_s": 0.03468809599871747,
+    "prepare_s": 0.036036244011484087,
+    "rpc": {
+      "execute": [
+        {
+          "deserialize_s": 0.00015429200720973313,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 9196,
+          "serialize_s": 1.6170000890269876e-05,
+          "transport_and_server_s": 0.21916862597572617
+        }
+      ],
+      "inventory": [
+        {
+          "deserialize_s": 3.570099943317473e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 1325,
+          "serialize_s": 4.160014213994145e-06,
+          "transport_and_server_s": 0.0010528939892537892
+        }
+      ],
+      "prepare": [
+        {
+          "deserialize_s": 3.291098983027041e-05,
+          "operation": "prepare",
+          "request_bytes": 1260,
+          "response_bytes": 31,
+          "serialize_s": 4.1220017010346055e-05,
+          "transport_and_server_s": 0.034335881005972624
+        }
+      ],
+      "publish": [
+        {
+          "deserialize_s": 1.703997259028256e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 3.1539995688945055e-05,
+          "transport_and_server_s": 0.0011168650235049427
+        }
+      ]
+    },
+    "source_bytes": {
+      "cost_ledger_runtime_C1_cpu_execution_cpu_r02/source/dram": 100663296
+    },
+    "timing_scope": "coordinator wall; excludes model layout before handoff",
+    "tx": "7e73b9e9660e4d8b8c385e9f00c60f7d",
+    "verification": {
+      "algorithm": "SHA256 of every logical byte per operation",
+      "checked_bytes": 100663296,
+      "operations": {
+        "0": {
+          "n": 100663296,
+          "op_id": 0,
+          "source_sha256": "70ad706673615ec2a63eb3dc59c354854edda0b19b3bd1f789ba58037707c7d2",
+          "target_sha256": "70ad706673615ec2a63eb3dc59c354854edda0b19b3bd1f789ba58037707c7d2"
+        }
+      },
+      "passed": true
+    },
+    "verify_and_publish_s": 0.26244583798688836
+  }
+}

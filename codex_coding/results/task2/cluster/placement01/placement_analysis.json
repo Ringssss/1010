@@ -1,0 +1,884 @@
+{
+  "development": "v0.1.23.2",
+  "status": "passed",
+  "scope": "known node29 TP2 destination; identical complete node28 DRAM base plus at most 8GiB HBM and 2GiB DRAM; one restore per layout",
+  "selected_policy": "balanced_local",
+  "summary_sha256": "c78a56db38ccde7a04a23d9a5b2aa12d5ec6c4fbbbbc3f72905c1dad24912b31",
+  "calibration": [
+    {
+      "path": "network:dram",
+      "rank_bytes": 1073741824,
+      "target_seconds": [
+        0.042663185857236385,
+        0.042772137094289064
+      ],
+      "GBps": 25.103768409630533
+    },
+    {
+      "path": "network:hbm",
+      "rank_bytes": 1073741824,
+      "target_seconds": [
+        0.030656709801405668,
+        0.031956837978214025
+      ],
+      "GBps": 33.59975178808377
+    },
+    {
+      "path": "local_dram:dram",
+      "rank_bytes": 1073741824,
+      "target_seconds": [
+        0.023762471973896027,
+        0.02394634298980236
+      ],
+      "GBps": 44.83949070875904
+    },
+    {
+      "path": "local_hbm:hbm",
+      "rank_bytes": 1073741824,
+      "target_seconds": [
+        0.002878525760024786,
+        0.002894605975598097
+      ],
+      "GBps": 370.94576362094966
+    }
+  ],
+  "predicted_policies": [
+    {
+      "policy": "base_only",
+      "predicted_transfer_s": 1.4007800933388845,
+      "tier_bytes": {
+        "dram": 0,
+        "hbm": 0
+      },
+      "solve_wall_s": null,
+      "mip_gap": null,
+      "dual_bound_s": null,
+      "selected": []
+    },
+    {
+      "policy": "existing",
+      "predicted_transfer_s": 1.3580079562445957,
+      "tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "solve_wall_s": null,
+      "mip_gap": null,
+      "dual_bound_s": null,
+      "selected": [
+        {
+          "id": "model/gpu/0",
+          "worker": 2,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 4294967296
+        },
+        {
+          "id": "model/gpu/1",
+          "worker": 3,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 4294967296
+        },
+        {
+          "id": "model/joint/0",
+          "worker": 6,
+          "tier": "dram",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "model/joint/1",
+          "worker": 7,
+          "tier": "dram",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 1073741824
+        }
+      ]
+    },
+    {
+      "policy": "single_greedy",
+      "predicted_transfer_s": 1.4007800933388845,
+      "tier_bytes": {
+        "dram": 0,
+        "hbm": 0
+      },
+      "solve_wall_s": 0.07055887300521135,
+      "mip_gap": null,
+      "dual_bound_s": null,
+      "selected": []
+    },
+    {
+      "policy": "paired_greedy",
+      "predicted_transfer_s": 1.222444174759634,
+      "tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "solve_wall_s": 0.16483248490840197,
+      "mip_gap": null,
+      "dual_bound_s": null,
+      "selected": [
+        {
+          "id": "candidate/0/1/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 2147483665,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/1/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 2147483665,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/0/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/0/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/2/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 3221225489,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/2/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 3221225489,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/4/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 5368709137,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/4/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 5368709137,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/3/local_dram",
+          "worker": 6,
+          "tier": "dram",
+          "tp": 0,
+          "off": 4294967313,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/3/local_dram",
+          "worker": 7,
+          "tier": "dram",
+          "tp": 1,
+          "off": 4294967313,
+          "n": 1073741824
+        }
+      ]
+    },
+    {
+      "policy": "milp",
+      "predicted_transfer_s": 1.222444174759634,
+      "tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "solve_wall_s": 0.008717828895896673,
+      "mip_gap": 0.0,
+      "dual_bound_s": 1.222444174759634,
+      "selected": [
+        {
+          "id": "candidate/0/0/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/2/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 3221225489,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/3/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 4294967313,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/4/local_dram",
+          "worker": 6,
+          "tier": "dram",
+          "tp": 0,
+          "off": 5368709137,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/5/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 6442450961,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/0/local_dram",
+          "worker": 7,
+          "tier": "dram",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/1/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 2147483665,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/2/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 3221225489,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/3/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 4294967313,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/5/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 6442450961,
+          "n": 1073741824
+        }
+      ]
+    },
+    {
+      "policy": "balanced_local",
+      "predicted_transfer_s": 1.222444174759634,
+      "tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "solve_wall_s": null,
+      "mip_gap": null,
+      "dual_bound_s": null,
+      "selected": [
+        {
+          "id": "candidate/0/0/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/1/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 2147483665,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/2/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 3221225489,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/3/local_hbm",
+          "worker": 6,
+          "tier": "hbm",
+          "tp": 0,
+          "off": 4294967313,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/0/4/local_dram",
+          "worker": 6,
+          "tier": "dram",
+          "tp": 0,
+          "off": 5368709137,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/0/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/1/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 2147483665,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/2/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 3221225489,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/3/local_hbm",
+          "worker": 7,
+          "tier": "hbm",
+          "tp": 1,
+          "off": 4294967313,
+          "n": 1073741824
+        },
+        {
+          "id": "candidate/1/4/local_dram",
+          "worker": 7,
+          "tier": "dram",
+          "tp": 1,
+          "off": 5368709137,
+          "n": 1073741824
+        }
+      ]
+    }
+  ],
+  "measured": [
+    {
+      "phase": "placement_existing",
+      "load_s": 2.133549089,
+      "last_copy_rank": "1",
+      "segments_s": {
+        "entry_and_start_skew": 0.003083107,
+        "layout": 0.318216568,
+        "export": 0.034879113,
+        "detect_plan_dispatch": 0.201219648,
+        "map": 0.187918773,
+        "execute_dispatch": 0.007210971,
+        "last_copy_worker_execute": 1.353961939,
+        "after_all_copies_until_ready": 0.02705897
+      },
+      "workers": [
+        {
+          "worker": 2,
+          "execute_s": 0.1790248155593872,
+          "ops": [
+            {
+              "op_id": 2,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.178920682054013
+            }
+          ]
+        },
+        {
+          "worker": 3,
+          "execute_s": 0.18617944000288844,
+          "ops": [
+            {
+              "op_id": 6,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.18600015388801694
+            }
+          ]
+        },
+        {
+          "worker": 4,
+          "execute_s": 1.3386474018916488,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 1073741841,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.045159013010561466
+            },
+            {
+              "op_id": 3,
+              "bytes": 29796149919,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 1.2933813370764256
+            }
+          ]
+        },
+        {
+          "worker": 5,
+          "execute_s": 1.3527404861524701,
+          "ops": [
+            {
+              "op_id": 4,
+              "bytes": 1073741841,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.0463040447793901
+            },
+            {
+              "op_id": 7,
+              "bytes": 29796149919,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 1.3063294887542725
+            }
+          ]
+        },
+        {
+          "worker": 6,
+          "execute_s": 1.3404630338773131,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 1073741841,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.042918217834085226
+            },
+            {
+              "op_id": 1,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.02396379318088293
+            },
+            {
+              "op_id": 2,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.10878238407894969
+            },
+            {
+              "op_id": 3,
+              "bytes": 29796149919,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 1.1617194111458957
+            }
+          ]
+        },
+        {
+          "worker": 7,
+          "execute_s": 1.355986800044775,
+          "ops": [
+            {
+              "op_id": 4,
+              "bytes": 1073741841,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.04463777784258127
+            },
+            {
+              "op_id": 5,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.024214704986661673
+            },
+            {
+              "op_id": 6,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.11424434371292591
+            },
+            {
+              "op_id": 7,
+              "bytes": 29796149919,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 1.1690022321417928
+            }
+          ]
+        }
+      ],
+      "copy_finish_skew_s": 0.014905903,
+      "predicted_transfer_s": 1.3580079562445957,
+      "execute_wall_s": 1.3618125161156058,
+      "actual_planner": "resource_lp",
+      "fallback_reason": null,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      }
+    },
+    {
+      "phase": "placement_optimized",
+      "load_s": 1.812675486,
+      "last_copy_rank": "1",
+      "segments_s": {
+        "entry_and_start_skew": 0.076077562,
+        "layout": 0.305098325,
+        "export": 0.034776522,
+        "detect_plan_dispatch": 0.042266295,
+        "map": 0.07187877,
+        "execute_dispatch": 0.008381256,
+        "last_copy_worker_execute": 1.248007481,
+        "after_all_copies_until_ready": 0.026189275
+      },
+      "workers": [
+        {
+          "worker": 4,
+          "execute_s": 1.2244326160289347,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 1073741841,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.04424357321113348
+            },
+            {
+              "op_id": 3,
+              "bytes": 28722408095,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 1.1800713711418211
+            }
+          ]
+        },
+        {
+          "worker": 5,
+          "execute_s": 1.2463671150617301,
+          "ops": [
+            {
+              "op_id": 4,
+              "bytes": 1073741841,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.044503006152808666
+            },
+            {
+              "op_id": 7,
+              "bytes": 28722408095,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 1.2017470076680183
+            }
+          ]
+        },
+        {
+          "worker": 6,
+          "execute_s": 1.2283828812651336,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 1073741841,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.04227706417441368
+            },
+            {
+              "op_id": 1,
+              "bytes": 4294967296,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.0360583602450788
+            },
+            {
+              "op_id": 2,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.023937482852488756
+            },
+            {
+              "op_id": 3,
+              "bytes": 28722408095,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 1.1211564769037068
+            }
+          ]
+        },
+        {
+          "worker": 7,
+          "execute_s": 1.2495845286175609,
+          "ops": [
+            {
+              "op_id": 4,
+              "bytes": 1073741841,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.04366385191679001
+            },
+            {
+              "op_id": 5,
+              "bytes": 4294967296,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.039479659870266914
+            },
+            {
+              "op_id": 6,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.024236893747001886
+            },
+            {
+              "op_id": 7,
+              "bytes": 28722408095,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 1.1391470259986818
+            }
+          ]
+        }
+      ],
+      "copy_finish_skew_s": 0.02335365,
+      "predicted_transfer_s": 1.222444174759634,
+      "execute_wall_s": 1.2555186613462865,
+      "actual_planner": "resource_lp",
+      "fallback_reason": null,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "source_bytes": {
+        "model/remote/0": 29796149936,
+        "optimized/1": 4294967296,
+        "optimized/0": 1073741824,
+        "model/remote/1": 29796149936,
+        "optimized/3": 4294967296,
+        "optimized/2": 1073741824
+      }
+    }
+  ],
+  "layouts": {
+    "existing": {
+      "base_bytes": 70329720832,
+      "extra_tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "replicas": [
+        {
+          "id": "model/gpu/0",
+          "worker": 2,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "epoch": "cluster/placement01/node27/2/569451/355347429e6440f7959fdaca445da740",
+          "generation": 1,
+          "tier": "hbm",
+          "numa": 2,
+          "off": 1073741841,
+          "n": 4294967296,
+          "allocated_bytes": 4294967296
+        },
+        {
+          "id": "model/gpu/1",
+          "worker": 3,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "epoch": "cluster/placement01/node27/3/569469/799bbc2da6be48f8a5325e4573245aad",
+          "generation": 1,
+          "tier": "hbm",
+          "numa": 1,
+          "off": 1073741841,
+          "n": 4294967296,
+          "allocated_bytes": 4294967296
+        },
+        {
+          "id": "model/joint/0",
+          "worker": 6,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "epoch": "cluster/placement01/node29/0/100/2747a34a88c642d9bf1b0fbb13b176e3",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 0,
+          "off": 1073741841,
+          "n": 1073741824,
+          "allocated_bytes": 1073741824
+        },
+        {
+          "id": "model/joint/1",
+          "worker": 7,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "epoch": "cluster/placement01/node29/1/118/2b098a1e319d4130afd04955c3ba38fb",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 3,
+          "off": 1073741841,
+          "n": 1073741824,
+          "allocated_bytes": 1073741824
+        },
+        {
+          "id": "model/remote/0",
+          "worker": 4,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "epoch": "cluster/placement01/node28/2/100/60a8f6f4a88b4198b0a3696f91a59364",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 2,
+          "off": 0,
+          "n": 35164859056,
+          "allocated_bytes": 35164860416
+        },
+        {
+          "id": "model/remote/1",
+          "worker": 5,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "epoch": "cluster/placement01/node28/3/118/e7a7128d1dda4e2594e442cd65e504ae",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 1,
+          "off": 0,
+          "n": 35164859056,
+          "allocated_bytes": 35164860416
+        }
+      ]
+    },
+    "optimized": {
+      "base_bytes": 70329720832,
+      "extra_tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "replicas": [
+        {
+          "id": "model/remote/0",
+          "worker": 4,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "epoch": "cluster/placement01/node28/2/100/60a8f6f4a88b4198b0a3696f91a59364",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 2,
+          "off": 0,
+          "n": 35164859056,
+          "allocated_bytes": 35164860416
+        },
+        {
+          "id": "model/remote/1",
+          "worker": 5,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "epoch": "cluster/placement01/node28/3/118/e7a7128d1dda4e2594e442cd65e504ae",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 1,
+          "off": 0,
+          "n": 35164859056,
+          "allocated_bytes": 35164860416
+        },
+        {
+          "id": "optimized/0",
+          "worker": 6,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "epoch": "cluster/placement01/node29/0/100/2747a34a88c642d9bf1b0fbb13b176e3",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 0,
+          "off": 5368709137,
+          "n": 1073741824,
+          "allocated_bytes": 1073741824
+        },
+        {
+          "id": "optimized/1",
+          "worker": 6,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "epoch": "cluster/placement01/node29/0/100/2747a34a88c642d9bf1b0fbb13b176e3",
+          "generation": 1,
+          "tier": "hbm",
+          "numa": 0,
+          "off": 1073741841,
+          "n": 4294967296,
+          "allocated_bytes": 4294967296
+        },
+        {
+          "id": "optimized/2",
+          "worker": 7,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "epoch": "cluster/placement01/node29/1/118/2b098a1e319d4130afd04955c3ba38fb",
+          "generation": 1,
+          "tier": "dram",
+          "numa": 3,
+          "off": 5368709137,
+          "n": 1073741824,
+          "allocated_bytes": 1073741824
+        },
+        {
+          "id": "optimized/3",
+          "worker": 7,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "epoch": "cluster/placement01/node29/1/118/2b098a1e319d4130afd04955c3ba38fb",
+          "generation": 1,
+          "tier": "hbm",
+          "numa": 3,
+          "off": 1073741841,
+          "n": 4294967296,
+          "allocated_bytes": 4294967296
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "one observation per layout, existing first then optimized",
+    "calibration uses contiguous targets; model scatter and scheduling can add cost",
+    "MILP optimum applies only to the finite 1GiB candidates and approximate single-scenario model",
+    "HBM reservations compete with future inference capacity; target-worker allowance was limited to 4GiB each",
+    "base DRAM replicas and verification/build work are outside the live weight-loading timer"
+  ],
+  "observed_difference": {
+    "load_s_saved": 0.3208736030000001,
+    "load_reduction_fraction": 0.1503942912091113,
+    "execute_s_saved": 0.1062938547693193,
+    "execute_reduction_fraction": 0.07805322209294185
+  },
+  "optimized_build_wall_s": 18.880736846942455,
+  "cleanup_errors": [],
+  "source_hash_mismatches": [],
+  "passed": true
+}

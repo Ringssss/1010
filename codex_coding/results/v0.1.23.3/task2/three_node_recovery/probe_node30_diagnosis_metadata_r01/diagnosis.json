@@ -1,0 +1,27 @@
+{
+  "node": "node30",
+  "container_id": "7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695",
+  "container_started_at": "2026-10-08T08:19:06.916290051Z",
+  "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+  "root_cause": "unknown",
+  "copy_nccl_stopped": true,
+  "fresh_core_environment_present": true,
+  "actual_sourced_env_delta_measured": false,
+  "historical_worker_additional_library_paths": ["/opt/dtk/.hyhal/rocm_smi/lib", "/usr/local/lib/", "/usr/local/lib64/"],
+  "hypotheses_not_supported_by_current_metadata": ["missing kfd/mkfd/render device nodes", "current simple device DAC denied", "currently missing hylog directory", "current simple hylog DAC write denied", "missing core DTK/HIP/hyhal library-path prefixes", "container OOM event"],
+  "hylog_after_sampling": {"exists": true, "uid": 0, "gid": 0, "mode": "0777", "read_access": true, "write_access": true, "execute_access": true, "failure_errno_observed": false, "unique_cause_proven": false},
+  "security_metadata": {"uid": 0, "gid": 0, "groups": [0], "cap_eff": "00000000a80465fb", "ipc_lock_present": true, "sys_nice_present": false, "seccomp": 2, "seccomp_filters": 1, "no_new_privs": 0, "denied_syscall_observed": false},
+  "limits_metadata": {"core": 0, "memlock": "unlimited", "nofile": 1048576, "ipc": "private", "shm_bytes": 1073741824},
+  "after_guard": {"identity_continuous": true, "oom_killed": false, "memory_event_max": 0, "memory_event_oom": 0, "memory_event_oom_kill": 0, "pids_current": 1, "pids_max": 512},
+  "unresolved_candidates": ["runtime syscall/device-cgroup/seccomp behavior", "SYS_NICE or IPC configuration effect", "conditional env.sh compatibility-path effect", "HIP/driver state independent of container", "hylog open errno/flags/callsite and sample-time difference"],
+  "scope": "post-failure CPU-only metadata comparison; os.access is not actual device open/ioctl admission; no source or GPU retrial",
+  "source_refs": [
+    {"path": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_runtime_metadata_node30_r01/metadata.json"},
+    {"path": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_runtime_metadata_node30_r01/source.py"},
+    {"path": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_guard_node30_after_init_r01/stdout.json"},
+    {"path": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node27/container.json"}
+  ],
+  "new_gpu_runs_by_analysis": 0,
+  "new_remote_operations_by_analysis": 0,
+  "environment_script_executions": 0
+}

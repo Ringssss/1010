@@ -1,0 +1,266 @@
+{
+  "schema_version": "decision_validation.finite_cpu.v1",
+  "development": "v0.1.23.3/task2",
+  "workers": [
+    {
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "network"
+      ],
+      "session": "symbolic_only",
+      "epoch": "symbolic_epoch_0"
+    },
+    {
+      "worker": 1,
+      "node": "node30",
+      "gpu": 4,
+      "numa": 4,
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "network"
+      ],
+      "session": "symbolic_only",
+      "epoch": "symbolic_epoch_1"
+    }
+  ],
+  "base": [
+    {
+      "id": "base/0",
+      "identity": "two16MiB_fixture",
+      "tp": 0,
+      "off": 0,
+      "n": 16777216,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "tier": "dram",
+      "state": "VALID",
+      "generation": 1,
+      "leases": 0
+    },
+    {
+      "id": "base/1",
+      "identity": "two16MiB_fixture",
+      "tp": 1,
+      "off": 0,
+      "n": 16777216,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "tier": "dram",
+      "state": "VALID",
+      "generation": 1,
+      "leases": 0
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cache/0/0",
+      "identity": "two16MiB_fixture",
+      "tp": 0,
+      "off": 0,
+      "n": 16777216,
+      "tier": "hbm",
+      "state": "VALID",
+      "generation": 1,
+      "leases": 0,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "id": "cache/0/1",
+      "identity": "two16MiB_fixture",
+      "tp": 0,
+      "off": 0,
+      "n": 16777216,
+      "tier": "hbm",
+      "state": "VALID",
+      "generation": 1,
+      "leases": 0,
+      "worker": 1,
+      "node": "node30",
+      "gpu": 4,
+      "numa": 4
+    },
+    {
+      "id": "cache/1/0",
+      "identity": "two16MiB_fixture",
+      "tp": 1,
+      "off": 0,
+      "n": 16777216,
+      "tier": "hbm",
+      "state": "VALID",
+      "generation": 1,
+      "leases": 0,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "id": "cache/1/1",
+      "identity": "two16MiB_fixture",
+      "tp": 1,
+      "off": 0,
+      "n": 16777216,
+      "tier": "hbm",
+      "state": "VALID",
+      "generation": 1,
+      "leases": 0,
+      "worker": 1,
+      "node": "node30",
+      "gpu": 4,
+      "numa": 4
+    }
+  ],
+  "targets": [
+    {
+      "key": "target/0",
+      "identity": "two16MiB_fixture",
+      "tp": 0,
+      "off": 0,
+      "n": 16777216,
+      "worker": 0,
+      "tier": "hbm"
+    },
+    {
+      "key": "target/1",
+      "identity": "two16MiB_fixture",
+      "tp": 1,
+      "off": 0,
+      "n": 16777216,
+      "worker": 1,
+      "tier": "hbm"
+    }
+  ],
+  "tier_budget_bytes": {
+    "hbm": 33554432
+  },
+  "location_budget_bytes": {
+    "0:hbm": 16777216,
+    "1:hbm": 16777216
+  },
+  "budget_scope": "prescribed application cache caps; not measured physical free capacity",
+  "ledger": {
+    "base_dram_bytes": 33554432,
+    "max_cache_hbm_bytes": 33554432,
+    "target_hbm_bytes": 33554432,
+    "staging_hbm_bytes_per_worker": 67108864,
+    "runtime_bytes": "unknown/fresh guard required"
+  },
+  "scenario_scope": "one fixed restore; no simultaneous restore/scenario claims",
+  "candidate_freeze": "all four block/location candidates, including duplicate-placement opportunity",
+  "fairness": "existing strong_simple and joint share original LP objective; diagnostic marginal and finite oracle share existing ordered scorer",
+  "symbolic_profiles": [
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      3,
+      2
+    ]
+  ],
+  "budget_insufficient_profiles": {
+    "local_hbm_ms": 0.5,
+    "dram_remote_hbm_ms": [
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "targets": [
+      {
+        "key": "target/0",
+        "identity": "two16MiB_fixture",
+        "tp": 0,
+        "off": 0,
+        "n": 16777216,
+        "worker": 0,
+        "tier": "hbm"
+      },
+      {
+        "key": "target/1",
+        "identity": "two16MiB_fixture",
+        "tp": 1,
+        "off": 0,
+        "n": 16777216,
+        "worker": 0,
+        "tier": "hbm"
+      }
+    ],
+    "actual_costs": "unknown"
+  },
+  "unknowns": [
+    "same-primitive calibrated service",
+    "fresh budgets",
+    "physical peaks",
+    "real decision delta"
+  ],
+  "stop_conditions": [
+    "Real calibrated same signatures: stop strategy GPU comparison.",
+    "No real ordered-service benefit over strong simple: stop candidate expansion.",
+    "Unknown path/capacity: do not fill with symbolic rates or assert performance.",
+    "Symbolic-only mismatch: record model boundary; do not launch GPU to chase it."
+  ],
+  "measured_costs": null,
+  "performance_ready": false,
+  "gpu_launches": 0,
+  "source_refs": [
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/decision_validation/case/inspect_finite.py",
+      "sha256": "34154235eb394ba424e49abeab4d8525f0a65b4e9374386d593b0c462ea955be"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/planning.py",
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/multi_joint.py",
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/service_cost.py",
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/managed.py",
+      "sha256": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/control.py",
+      "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6"
+    },
+    {
+      "path": "main_lib/fluidckpt/benchmarks/frozen_layout.py",
+      "sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+    }
+  ],
+  "contract_sha256": "09677ccf4c7c5f2f12a1406f2e6d3957ac348be49489afd8eeaa3cc1e56dc67d"
+}

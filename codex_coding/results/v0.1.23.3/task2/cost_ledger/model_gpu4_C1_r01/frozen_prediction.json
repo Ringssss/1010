@@ -1,0 +1,1720 @@
+{
+  "artifact_type": "cost-calibration-frozen-v1",
+  "protocol": {
+    "protocol_version": "cost-identification-predeclared-v1",
+    "schema_version": "cost-ledger-v1",
+    "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+    "calibration_order": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5",
+      "L3_repeat"
+    ],
+    "fit_samples": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5"
+    ],
+    "expected_state_contract": {
+      "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+      "path": "local_hbm",
+      "executor": "serial",
+      "chunk_bytes": 33554432,
+      "source_bytes": 100663296,
+      "source_worker": 0,
+      "target_worker": 0,
+      "source_tier": "hbm",
+      "target_tier": "hbm",
+      "target_mode": "replica",
+      "topology": "single_worker_node27_gpu4_world1",
+      "inventory_mode": "cached",
+      "control_mode": "compact",
+      "target_allocation": "fresh_exact_size_each_request",
+      "target_writes_before": 0,
+      "handler": "native_ThreadingHTTPServer_request_thread",
+      "queues": 0,
+      "pretouch": false,
+      "CUDA_events": 0,
+      "copy_rounds": 1,
+      "logger": "native_json_stdout",
+      "profile_execute": false
+    },
+    "expected_configuration": {
+      "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+      "path": "local_hbm",
+      "executor": "serial",
+      "chunk_bytes": 33554432,
+      "source_bytes": 100663296,
+      "source_worker": 0,
+      "target_worker": 0,
+      "source_tier": "hbm",
+      "target_tier": "hbm",
+      "target_mode": "replica",
+      "topology": "single_worker_node27_gpu4_world1",
+      "inventory_mode": "cached",
+      "control_mode": "compact",
+      "target_allocation": "fresh_exact_size_each_request",
+      "target_writes_before": 0,
+      "handler": "native_ThreadingHTTPServer_request_thread",
+      "queues": 0,
+      "pretouch": false,
+      "CUDA_events": 0,
+      "copy_rounds": 1,
+      "logger": "native_json_stdout",
+      "profile_execute": false,
+      "measurement_mode": "native_serial_thread_scoped_noevents_v1"
+    },
+    "drift_only_samples": [
+      "L3_repeat"
+    ],
+    "holdout_order": [
+      "V2",
+      "V1"
+    ],
+    "max_requests": 8,
+    "cases": {
+      "L1": {
+        "operation_mib": [
+          32
+        ],
+        "chunk_mib": [
+          32
+        ],
+        "row": [
+          1,
+          32,
+          1,
+          1
+        ]
+      },
+      "L2": {
+        "operation_mib": [
+          64
+        ],
+        "chunk_mib": [
+          32,
+          32
+        ],
+        "row": [
+          1,
+          64,
+          1,
+          2
+        ]
+      },
+      "L3": {
+        "operation_mib": [
+          32,
+          32
+        ],
+        "chunk_mib": [
+          32,
+          32
+        ],
+        "row": [
+          1,
+          64,
+          2,
+          2
+        ]
+      },
+      "L4": {
+        "operation_mib": [
+          48,
+          16
+        ],
+        "chunk_mib": [
+          32,
+          16,
+          16
+        ],
+        "row": [
+          1,
+          64,
+          2,
+          3
+        ]
+      },
+      "L5": {
+        "operation_mib": [
+          96
+        ],
+        "chunk_mib": [
+          32,
+          32,
+          32
+        ],
+        "row": [
+          1,
+          96,
+          1,
+          3
+        ]
+      },
+      "L3_repeat": {
+        "operation_mib": [
+          32,
+          32
+        ],
+        "chunk_mib": [
+          32,
+          32
+        ],
+        "row": [
+          1,
+          64,
+          2,
+          2
+        ]
+      },
+      "V1": {
+        "operation_mib": [
+          16,
+          16,
+          16
+        ],
+        "chunk_mib": [
+          16,
+          16,
+          16
+        ],
+        "row": [
+          1,
+          48,
+          3,
+          3
+        ]
+      },
+      "V2": {
+        "operation_mib": [
+          40,
+          24,
+          16
+        ],
+        "chunk_mib": [
+          32,
+          8,
+          24,
+          16
+        ],
+        "row": [
+          1,
+          80,
+          3,
+          4
+        ]
+      }
+    },
+    "primary": "complete_native_execute_method_outer_wall_ns",
+    "diagnostic": "sum_op_service_ns",
+    "candidates": {
+      "a_bN": [
+        0,
+        1
+      ],
+      "a_bN_cK": [
+        0,
+        1,
+        2
+      ],
+      "a_bN_cK_dC": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "fit": "unconstrained_exact_OLS_no_clamping_first_five_only",
+    "coefficient_units": [
+      "ns",
+      "ns_per_logical_MiB",
+      "ns_per_op",
+      "ns_per_chunk"
+    ],
+    "coefficient_meaning": "conditional_effective_cost_not_physical_bandwidth",
+    "scale": {
+      "fixed_floor_ns": 5000,
+      "clock": "clock_extra_p95_ns",
+      "logger": "dummy_log_scale_ns",
+      "drift": "abs(L3_repeat-L3)",
+      "formula": "max"
+    },
+    "drift_gate": {
+      "bound_ns": 20000,
+      "anchor_mean_fraction": 0.1,
+      "required_layers": [
+        "worker_ns",
+        "service_ns"
+      ]
+    },
+    "structure": {
+      "c": "L3-L2 > 2E and positive",
+      "d": "L4-L3 > 2E and positive",
+      "32b": "L2-L1-d > 4E and positive",
+      "fifth": "abs(L5-2L2+L1)<=4E",
+      "candidate_max_training_residual": "<=2E",
+      "simple_candidates": "own residual and raw nonnegative coefficients suffice"
+    },
+    "nonnegative_validity": "All included raw OLS coefficients, including intercept, must be >=0; this is a predeclared modeling choice, never a clamp",
+    "outer": "first-five medians(controller_execute-worker,full_filled-controller_execute), each once",
+    "independent_limits_ns": {
+      "service_ns": 50000,
+      "worker_ns": 250000,
+      "controller_execute_ns": 1000000,
+      "full_filled_ns": 2000000
+    },
+    "independent_relative_limit": 0.2,
+    "independent_rule": "absolute AND relative for every point and layer; never grow absolute limits with E",
+    "selection_before_holdout": "simplest admissible worker candidate; service independently simplest admissible",
+    "selection_after_holdout": "retain the preregistered simplest if qualified; any finer qualified candidate requires >the corresponding layer E improvement in absolute error versus preregistered simplest at every holdout point/layer, even if preregistered simplest fails; otherwise complexity_increment_unproven",
+    "failure": "any worker or service drift failure or no admissible worker candidate skips holdout explicitly",
+    "domain": {
+      "path": "local_hbm",
+      "executor": "native",
+      "scheduler": "serial",
+      "chunk_mib": 32,
+      "targets": "fresh_same_allocation_policy_nonoverlap",
+      "events": false,
+      "source_bootstrap_mib_per_session": 96
+    },
+    "rejection": [
+      "schema",
+      "mode",
+      "configuration",
+      "state_contract",
+      "stale_session",
+      "incomplete_or_unverified",
+      "counts",
+      "source_hash_change",
+      "missing_raw_evidence"
+    ],
+    "published_prediction": null,
+    "live_prediction": null,
+    "training_goodness": "qualification_only_not_independent_validation",
+    "ledger": {
+      "exact_ns_partitions": true,
+      "float_compatibility_tolerance_ns": 1000,
+      "raw_audit_required": true,
+      "flags_alone_do_not_authorize_GPU": true
+    }
+  },
+  "CPU_REPLAY_ONLY": false,
+  "protocol_sha256": "a230680f3942e51c1e04c2656bc7d6359c038fa1533fd6ea20d779342b64a6a2",
+  "predeclared": {
+    "artifact_type": "cost-predeclared-v1",
+    "protocol": {
+      "protocol_version": "cost-identification-predeclared-v1",
+      "schema_version": "cost-ledger-v1",
+      "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+      "calibration_order": [
+        "L3",
+        "L1",
+        "L4",
+        "L2",
+        "L5",
+        "L3_repeat"
+      ],
+      "fit_samples": [
+        "L3",
+        "L1",
+        "L4",
+        "L2",
+        "L5"
+      ],
+      "expected_state_contract": {
+        "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+        "path": "local_hbm",
+        "executor": "serial",
+        "chunk_bytes": 33554432,
+        "source_bytes": 100663296,
+        "source_worker": 0,
+        "target_worker": 0,
+        "source_tier": "hbm",
+        "target_tier": "hbm",
+        "target_mode": "replica",
+        "topology": "single_worker_node27_gpu4_world1",
+        "inventory_mode": "cached",
+        "control_mode": "compact",
+        "target_allocation": "fresh_exact_size_each_request",
+        "target_writes_before": 0,
+        "handler": "native_ThreadingHTTPServer_request_thread",
+        "queues": 0,
+        "pretouch": false,
+        "CUDA_events": 0,
+        "copy_rounds": 1,
+        "logger": "native_json_stdout",
+        "profile_execute": false
+      },
+      "expected_configuration": {
+        "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+        "path": "local_hbm",
+        "executor": "serial",
+        "chunk_bytes": 33554432,
+        "source_bytes": 100663296,
+        "source_worker": 0,
+        "target_worker": 0,
+        "source_tier": "hbm",
+        "target_tier": "hbm",
+        "target_mode": "replica",
+        "topology": "single_worker_node27_gpu4_world1",
+        "inventory_mode": "cached",
+        "control_mode": "compact",
+        "target_allocation": "fresh_exact_size_each_request",
+        "target_writes_before": 0,
+        "handler": "native_ThreadingHTTPServer_request_thread",
+        "queues": 0,
+        "pretouch": false,
+        "CUDA_events": 0,
+        "copy_rounds": 1,
+        "logger": "native_json_stdout",
+        "profile_execute": false,
+        "measurement_mode": "native_serial_thread_scoped_noevents_v1"
+      },
+      "drift_only_samples": [
+        "L3_repeat"
+      ],
+      "holdout_order": [
+        "V2",
+        "V1"
+      ],
+      "max_requests": 8,
+      "cases": {
+        "L1": {
+          "operation_mib": [
+            32
+          ],
+          "chunk_mib": [
+            32
+          ],
+          "row": [
+            1,
+            32,
+            1,
+            1
+          ]
+        },
+        "L2": {
+          "operation_mib": [
+            64
+          ],
+          "chunk_mib": [
+            32,
+            32
+          ],
+          "row": [
+            1,
+            64,
+            1,
+            2
+          ]
+        },
+        "L3": {
+          "operation_mib": [
+            32,
+            32
+          ],
+          "chunk_mib": [
+            32,
+            32
+          ],
+          "row": [
+            1,
+            64,
+            2,
+            2
+          ]
+        },
+        "L4": {
+          "operation_mib": [
+            48,
+            16
+          ],
+          "chunk_mib": [
+            32,
+            16,
+            16
+          ],
+          "row": [
+            1,
+            64,
+            2,
+            3
+          ]
+        },
+        "L5": {
+          "operation_mib": [
+            96
+          ],
+          "chunk_mib": [
+            32,
+            32,
+            32
+          ],
+          "row": [
+            1,
+            96,
+            1,
+            3
+          ]
+        },
+        "L3_repeat": {
+          "operation_mib": [
+            32,
+            32
+          ],
+          "chunk_mib": [
+            32,
+            32
+          ],
+          "row": [
+            1,
+            64,
+            2,
+            2
+          ]
+        },
+        "V1": {
+          "operation_mib": [
+            16,
+            16,
+            16
+          ],
+          "chunk_mib": [
+            16,
+            16,
+            16
+          ],
+          "row": [
+            1,
+            48,
+            3,
+            3
+          ]
+        },
+        "V2": {
+          "operation_mib": [
+            40,
+            24,
+            16
+          ],
+          "chunk_mib": [
+            32,
+            8,
+            24,
+            16
+          ],
+          "row": [
+            1,
+            80,
+            3,
+            4
+          ]
+        }
+      },
+      "primary": "complete_native_execute_method_outer_wall_ns",
+      "diagnostic": "sum_op_service_ns",
+      "candidates": {
+        "a_bN": [
+          0,
+          1
+        ],
+        "a_bN_cK": [
+          0,
+          1,
+          2
+        ],
+        "a_bN_cK_dC": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "fit": "unconstrained_exact_OLS_no_clamping_first_five_only",
+      "coefficient_units": [
+        "ns",
+        "ns_per_logical_MiB",
+        "ns_per_op",
+        "ns_per_chunk"
+      ],
+      "coefficient_meaning": "conditional_effective_cost_not_physical_bandwidth",
+      "scale": {
+        "fixed_floor_ns": 5000,
+        "clock": "clock_extra_p95_ns",
+        "logger": "dummy_log_scale_ns",
+        "drift": "abs(L3_repeat-L3)",
+        "formula": "max"
+      },
+      "drift_gate": {
+        "bound_ns": 20000,
+        "anchor_mean_fraction": 0.1,
+        "required_layers": [
+          "worker_ns",
+          "service_ns"
+        ]
+      },
+      "structure": {
+        "c": "L3-L2 > 2E and positive",
+        "d": "L4-L3 > 2E and positive",
+        "32b": "L2-L1-d > 4E and positive",
+        "fifth": "abs(L5-2L2+L1)<=4E",
+        "candidate_max_training_residual": "<=2E",
+        "simple_candidates": "own residual and raw nonnegative coefficients suffice"
+      },
+      "nonnegative_validity": "All included raw OLS coefficients, including intercept, must be >=0; this is a predeclared modeling choice, never a clamp",
+      "outer": "first-five medians(controller_execute-worker,full_filled-controller_execute), each once",
+      "independent_limits_ns": {
+        "service_ns": 50000,
+        "worker_ns": 250000,
+        "controller_execute_ns": 1000000,
+        "full_filled_ns": 2000000
+      },
+      "independent_relative_limit": 0.2,
+      "independent_rule": "absolute AND relative for every point and layer; never grow absolute limits with E",
+      "selection_before_holdout": "simplest admissible worker candidate; service independently simplest admissible",
+      "selection_after_holdout": "retain the preregistered simplest if qualified; any finer qualified candidate requires >the corresponding layer E improvement in absolute error versus preregistered simplest at every holdout point/layer, even if preregistered simplest fails; otherwise complexity_increment_unproven",
+      "failure": "any worker or service drift failure or no admissible worker candidate skips holdout explicitly",
+      "domain": {
+        "path": "local_hbm",
+        "executor": "native",
+        "scheduler": "serial",
+        "chunk_mib": 32,
+        "targets": "fresh_same_allocation_policy_nonoverlap",
+        "events": false,
+        "source_bootstrap_mib_per_session": 96
+      },
+      "rejection": [
+        "schema",
+        "mode",
+        "configuration",
+        "state_contract",
+        "stale_session",
+        "incomplete_or_unverified",
+        "counts",
+        "source_hash_change",
+        "missing_raw_evidence"
+      ],
+      "published_prediction": null,
+      "live_prediction": null,
+      "training_goodness": "qualification_only_not_independent_validation",
+      "ledger": {
+        "exact_ns_partitions": true,
+        "float_compatibility_tolerance_ns": 1000,
+        "raw_audit_required": true,
+        "flags_alone_do_not_authorize_GPU": true
+      }
+    },
+    "protocol_sha256": "a230680f3942e51c1e04c2656bc7d6359c038fa1533fd6ea20d779342b64a6a2",
+    "source_refs": [
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/analyze.py",
+        "sha256": "79fc370a3b20dbf82a089e5130cb48d0f97d9942e2c1012b68d170004001ae09"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/test_analysis.py",
+        "sha256": "1830064515260c1713784cc00187906c4586eba79a5c4bde355ca717eef479dd"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/common.py",
+        "sha256": "1ba465667cea0907858be0955d6f80f4c391ca164288573d2fe22e4adf9a47f1"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/controller.py",
+        "sha256": "8c072819b60a7347675a7718f946d8d12549a72839c73d411b2cb62679f6940d"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/cpu_check.py",
+        "sha256": "e9ce555e8176c3e3eefe0263668f8857670499e52f3b7349550f8c37eac3f357"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/gate.py",
+        "sha256": "459904c2e152e8813e7dccaa6e465038728c86a3483041e8e3c23dc16a77fc54"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/mode_file.py",
+        "sha256": "5055fbbd3bc74c36202adac9135cb9a7228a5148bb4b78bf1960fc8718f50aad"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/prepare.py",
+        "sha256": "c8c6a5836c64d8066ad6a9584f3d38d4f9abb90960a55b6ed9eb979b94aa087d"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/protocol.py",
+        "sha256": "c65e222bef4bdaba0a63190bedfd0e455a526cf700f3dd807021327b5db8f07c"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/runner.py",
+        "sha256": "f188e12897a6781e923f3b0d2f412e6fef1e7803540765a70fc19ae37cc33e6b"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/session.py",
+        "sha256": "ae0ff58c03d24d37846d630816e92537249fae27b9d06d619481b2de9a9de511"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/worker.py",
+        "sha256": "af243c14eaba39cd6aea0704b34b507165c68cc57d538cca33bd012b9431f3bc"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/catalog.py",
+        "sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/control.py",
+        "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+        "sha256": "267429220f7a3f2fe46d9a3ab36bdf1822e3f2d0604a4924244b61c2b1a752d9"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/chunks.py",
+        "sha256": "7e4852838302adeb02ecc973976474a8ca833ce5ec928fbf6f647c355ac52973"
+      }
+    ],
+    "created_before_calibration": true,
+    "hardware_measurements": false
+  },
+  "calibration_bundle_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_actual_C1_r01/measure/stage_measurements.json",
+    "sha256": "ae1857c25ca1ff77d4fd0bcae20f445a883e845a2cde28f7ee2ccbc8f7cb5394"
+  },
+  "calibration_session_id": "cost_ledger_runtime_gpu4_C1_r01",
+  "configuration": {
+    "CUDA_events": 0,
+    "chunk_bytes": 33554432,
+    "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+    "control_mode": "compact",
+    "copy_rounds": 1,
+    "executor": "serial",
+    "handler": "native_ThreadingHTTPServer_request_thread",
+    "inventory_mode": "cached",
+    "logger": "native_json_stdout",
+    "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+    "path": "local_hbm",
+    "pretouch": false,
+    "profile_execute": false,
+    "queues": 0,
+    "source_bytes": 100663296,
+    "source_tier": "hbm",
+    "source_worker": 0,
+    "target_allocation": "fresh_exact_size_each_request",
+    "target_mode": "replica",
+    "target_tier": "hbm",
+    "target_worker": 0,
+    "target_writes_before": 0,
+    "topology": "single_worker_node27_gpu4_world1"
+  },
+  "state_contract": {
+    "CUDA_events": 0,
+    "chunk_bytes": 33554432,
+    "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+    "control_mode": "compact",
+    "copy_rounds": 1,
+    "executor": "serial",
+    "handler": "native_ThreadingHTTPServer_request_thread",
+    "inventory_mode": "cached",
+    "logger": "native_json_stdout",
+    "path": "local_hbm",
+    "pretouch": false,
+    "profile_execute": false,
+    "queues": 0,
+    "source_bytes": 100663296,
+    "source_tier": "hbm",
+    "source_worker": 0,
+    "target_allocation": "fresh_exact_size_each_request",
+    "target_mode": "replica",
+    "target_tier": "hbm",
+    "target_worker": 0,
+    "target_writes_before": 0,
+    "topology": "single_worker_node27_gpu4_world1"
+  },
+  "configuration_sha256": "9caf2d83b7fe3e8159d1975279f989e0dd321d87612a71511f7f8b5388dc557b",
+  "state_sha256": "0d3d701424a709e28fb05febca4b8a549f7fe844ecc3302822f750beeae60dc8",
+  "request_ids": [
+    "ddf1c877cd674f6d99a22472147043fd",
+    "0e728e358dd34339b4373da87d0c5a3f",
+    "73767cfe75dc4f4ebb013c11ca04cf0c",
+    "b110793106b24640a727606598a5fdc6",
+    "efbbcae27a5a41819d7345b7a836f1cc",
+    "34f9cccb5df641eba512a8c30bd9958e"
+  ],
+  "target_ids": [
+    "cost_ledger_runtime_gpu4_C1_r01/L3/target",
+    "cost_ledger_runtime_gpu4_C1_r01/L1/target",
+    "cost_ledger_runtime_gpu4_C1_r01/L4/target",
+    "cost_ledger_runtime_gpu4_C1_r01/L2/target",
+    "cost_ledger_runtime_gpu4_C1_r01/L5/target",
+    "cost_ledger_runtime_gpu4_C1_r01/L3_repeat/target"
+  ],
+  "layers": {
+    "worker_ns": {
+      "raw_cost_ns": {
+        "L3": {
+          "numerator": 575768,
+          "denominator": 1,
+          "value": 575768.0
+        },
+        "L1": {
+          "numerator": 430086,
+          "denominator": 1,
+          "value": 430086.0
+        },
+        "L4": {
+          "numerator": 663269,
+          "denominator": 1,
+          "value": 663269.0
+        },
+        "L2": {
+          "numerator": 518466,
+          "denominator": 1,
+          "value": 518466.0
+        },
+        "L5": {
+          "numerator": 623648,
+          "denominator": 1,
+          "value": 623648.0
+        },
+        "L3_repeat": {
+          "numerator": 614179,
+          "denominator": 1,
+          "value": 614179.0
+        }
+      },
+      "E_ns": {
+        "numerator": 83030,
+        "denominator": 1,
+        "value": 83030.0
+      },
+      "drift_ns": {
+        "numerator": 38411,
+        "denominator": 1,
+        "value": 38411.0
+      },
+      "drift_limit_ns": {
+        "numerator": 1189947,
+        "denominator": 20,
+        "value": 59497.35
+      },
+      "drift_pass": true,
+      "differences_ns": {
+        "c_L3_minus_L2": {
+          "numerator": 57302,
+          "denominator": 1,
+          "value": 57302.0
+        },
+        "d_L4_minus_L3": {
+          "numerator": 87501,
+          "denominator": 1,
+          "value": 87501.0
+        },
+        "b32_L2_minus_L1_minus_d": {
+          "numerator": 879,
+          "denominator": 1,
+          "value": 879.0
+        },
+        "fifth_L5_minus_2L2_plus_L1": {
+          "numerator": 16802,
+          "denominator": 1,
+          "value": 16802.0
+        }
+      },
+      "structural_gates": {
+        "c_signal": false,
+        "d_signal": false,
+        "b32_signal": false,
+        "fifth_consistency": true
+      },
+      "candidates": {
+        "a_bN": {
+          "columns": [
+            0,
+            1
+          ],
+          "raw_coefficients": [
+            {
+              "numerator": 1843427,
+              "denominator": 5,
+              "value": 368685.4
+            },
+            {
+              "numerator": 96781,
+              "denominator": 32,
+              "value": 3024.40625
+            }
+          ],
+          "coefficient_status": [
+            "conditional_aggregate",
+            "unresolved"
+          ],
+          "rank": 2,
+          "training_residual_ns": {
+            "L3": {
+              "numerator": 67603,
+              "denominator": 5,
+              "value": 13520.6
+            },
+            "L1": {
+              "numerator": -176902,
+              "denominator": 5,
+              "value": -35380.4
+            },
+            "L4": {
+              "numerator": 505108,
+              "denominator": 5,
+              "value": 101021.6
+            },
+            "L2": {
+              "numerator": -218907,
+              "denominator": 5,
+              "value": -43781.4
+            },
+            "L5": {
+              "numerator": -176902,
+              "denominator": 5,
+              "value": -35380.4
+            }
+          },
+          "training_max_abs_residual_ns": {
+            "numerator": 505108,
+            "denominator": 5,
+            "value": 101021.6
+          },
+          "nonnegative_pass": true,
+          "residual_pass": true,
+          "structure_pass": true,
+          "admissible": true,
+          "training_is_validation": false,
+          "predictions": {
+            "V2": {
+              "numerator": 6106379,
+              "denominator": 10,
+              "value": 610637.9
+            },
+            "V1": {
+              "numerator": 5138569,
+              "denominator": 10,
+              "value": 513856.9
+            }
+          }
+        },
+        "a_bN_cK": {
+          "columns": [
+            0,
+            1,
+            2
+          ],
+          "raw_coefficients": [
+            {
+              "numerator": 1410317,
+              "denominator": 6,
+              "value": 235052.83333333334
+            },
+            {
+              "numerator": 96781,
+              "denominator": 32,
+              "value": 3024.40625
+            },
+            {
+              "numerator": 572711,
+              "denominator": 6,
+              "value": 95451.83333333333
+            }
+          ],
+          "coefficient_status": [
+            "conditional_aggregate",
+            "unresolved",
+            "conditional_aggregate"
+          ],
+          "rank": 3,
+          "training_residual_ns": {
+            "L3": {
+              "numerator": -87501,
+              "denominator": 2,
+              "value": -43750.5
+            },
+            "L1": {
+              "numerator": 8401,
+              "denominator": 3,
+              "value": 2800.3333333333335
+            },
+            "L4": {
+              "numerator": 87501,
+              "denominator": 2,
+              "value": 43750.5
+            },
+            "L2": {
+              "numerator": -16802,
+              "denominator": 3,
+              "value": -5600.666666666667
+            },
+            "L5": {
+              "numerator": 8401,
+              "denominator": 3,
+              "value": 2800.3333333333335
+            }
+          },
+          "training_max_abs_residual_ns": {
+            "numerator": 87501,
+            "denominator": 2,
+            "value": 43750.5
+          },
+          "nonnegative_pass": true,
+          "residual_pass": true,
+          "structure_pass": true,
+          "admissible": true,
+          "training_is_validation": false,
+          "predictions": {
+            "V2": {
+              "numerator": 4580165,
+              "denominator": 6,
+              "value": 763360.8333333334
+            },
+            "V1": {
+              "numerator": 3999479,
+              "denominator": 6,
+              "value": 666579.8333333334
+            }
+          }
+        },
+        "a_bN_cK_dC": {
+          "columns": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "raw_coefficients": [
+            {
+              "numerator": 836410,
+              "denominator": 3,
+              "value": 278803.3333333333
+            },
+            {
+              "numerator": 290,
+              "denominator": 1,
+              "value": 290.0
+            },
+            {
+              "numerator": 155104,
+              "denominator": 3,
+              "value": 51701.333333333336
+            },
+            {
+              "numerator": 87501,
+              "denominator": 1,
+              "value": 87501.0
+            }
+          ],
+          "coefficient_status": [
+            "unresolved",
+            "unresolved",
+            "unresolved",
+            "unresolved"
+          ],
+          "rank": 4,
+          "training_residual_ns": {
+            "L3": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "L1": {
+              "numerator": 8401,
+              "denominator": 3,
+              "value": 2800.3333333333335
+            },
+            "L4": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "L2": {
+              "numerator": -16802,
+              "denominator": 3,
+              "value": -5600.666666666667
+            },
+            "L5": {
+              "numerator": 8401,
+              "denominator": 3,
+              "value": 2800.3333333333335
+            }
+          },
+          "training_max_abs_residual_ns": {
+            "numerator": 16802,
+            "denominator": 3,
+            "value": 5600.666666666667
+          },
+          "nonnegative_pass": true,
+          "residual_pass": true,
+          "structure_pass": false,
+          "admissible": false,
+          "training_is_validation": false,
+          "predictions": {
+            "V2": {
+              "numerator": 2421334,
+              "denominator": 3,
+              "value": 807111.3333333334
+            },
+            "V1": {
+              "numerator": 2130991,
+              "denominator": 3,
+              "value": 710330.3333333334
+            }
+          }
+        }
+      },
+      "selected_before_holdout": "a_bN"
+    },
+    "service_ns": {
+      "raw_cost_ns": {
+        "L3": {
+          "numerator": 461177,
+          "denominator": 1,
+          "value": 461177.0
+        },
+        "L1": {
+          "numerator": 352925,
+          "denominator": 1,
+          "value": 352925.0
+        },
+        "L4": {
+          "numerator": 534798,
+          "denominator": 1,
+          "value": 534798.0
+        },
+        "L2": {
+          "numerator": 423666,
+          "denominator": 1,
+          "value": 423666.0
+        },
+        "L5": {
+          "numerator": 540047,
+          "denominator": 1,
+          "value": 540047.0
+        },
+        "L3_repeat": {
+          "numerator": 491027,
+          "denominator": 1,
+          "value": 491027.0
+        }
+      },
+      "E_ns": {
+        "numerator": 83030,
+        "denominator": 1,
+        "value": 83030.0
+      },
+      "drift_ns": {
+        "numerator": 29850,
+        "denominator": 1,
+        "value": 29850.0
+      },
+      "drift_limit_ns": {
+        "numerator": 238051,
+        "denominator": 5,
+        "value": 47610.2
+      },
+      "drift_pass": true,
+      "differences_ns": {
+        "c_L3_minus_L2": {
+          "numerator": 37511,
+          "denominator": 1,
+          "value": 37511.0
+        },
+        "d_L4_minus_L3": {
+          "numerator": 73621,
+          "denominator": 1,
+          "value": 73621.0
+        },
+        "b32_L2_minus_L1_minus_d": {
+          "numerator": -2880,
+          "denominator": 1,
+          "value": -2880.0
+        },
+        "fifth_L5_minus_2L2_plus_L1": {
+          "numerator": 45640,
+          "denominator": 1,
+          "value": 45640.0
+        }
+      },
+      "structural_gates": {
+        "c_signal": false,
+        "d_signal": false,
+        "b32_signal": false,
+        "fifth_consistency": true
+      },
+      "candidates": {
+        "a_bN": {
+          "columns": [
+            0,
+            1
+          ],
+          "raw_coefficients": [
+            {
+              "numerator": 1377003,
+              "denominator": 5,
+              "value": 275400.6
+            },
+            {
+              "numerator": 93561,
+              "denominator": 32,
+              "value": 2923.78125
+            }
+          ],
+          "coefficient_status": [
+            "conditional_aggregate",
+            "unresolved"
+          ],
+          "rank": 2,
+          "training_residual_ns": {
+            "L3": {
+              "numerator": -6728,
+              "denominator": 5,
+              "value": -1345.6
+            },
+            "L1": {
+              "numerator": -80183,
+              "denominator": 5,
+              "value": -16036.6
+            },
+            "L4": {
+              "numerator": 361377,
+              "denominator": 5,
+              "value": 72275.4
+            },
+            "L2": {
+              "numerator": -194283,
+              "denominator": 5,
+              "value": -38856.6
+            },
+            "L5": {
+              "numerator": -80183,
+              "denominator": 5,
+              "value": -16036.6
+            }
+          },
+          "training_max_abs_residual_ns": {
+            "numerator": 361377,
+            "denominator": 5,
+            "value": 72275.4
+          },
+          "nonnegative_pass": true,
+          "residual_pass": true,
+          "structure_pass": true,
+          "admissible": true,
+          "training_is_validation": false,
+          "predictions": {
+            "V2": {
+              "numerator": 5093031,
+              "denominator": 10,
+              "value": 509303.1
+            },
+            "V1": {
+              "numerator": 4157421,
+              "denominator": 10,
+              "value": 415742.1
+            }
+          }
+        },
+        "a_bN_cK": {
+          "columns": [
+            0,
+            1,
+            2
+          ],
+          "raw_coefficients": [
+            {
+              "numerator": 1155895,
+              "denominator": 6,
+              "value": 192649.16666666666
+            },
+            {
+              "numerator": 93561,
+              "denominator": 32,
+              "value": 2923.78125
+            },
+            {
+              "numerator": 354649,
+              "denominator": 6,
+              "value": 59108.166666666664
+            }
+          ],
+          "coefficient_status": [
+            "conditional_aggregate",
+            "unresolved",
+            "conditional_aggregate"
+          ],
+          "rank": 3,
+          "training_residual_ns": {
+            "L3": {
+              "numerator": -73621,
+              "denominator": 2,
+              "value": -36810.5
+            },
+            "L1": {
+              "numerator": 22820,
+              "denominator": 3,
+              "value": 7606.666666666667
+            },
+            "L4": {
+              "numerator": 73621,
+              "denominator": 2,
+              "value": 36810.5
+            },
+            "L2": {
+              "numerator": -45640,
+              "denominator": 3,
+              "value": -15213.333333333334
+            },
+            "L5": {
+              "numerator": 22820,
+              "denominator": 3,
+              "value": 7606.666666666667
+            }
+          },
+          "training_max_abs_residual_ns": {
+            "numerator": 73621,
+            "denominator": 2,
+            "value": 36810.5
+          },
+          "nonnegative_pass": true,
+          "residual_pass": true,
+          "structure_pass": true,
+          "admissible": true,
+          "training_is_validation": false,
+          "predictions": {
+            "V2": {
+              "numerator": 3623257,
+              "denominator": 6,
+              "value": 603876.1666666666
+            },
+            "V1": {
+              "numerator": 3061891,
+              "denominator": 6,
+              "value": 510315.1666666667
+            }
+          }
+        },
+        "a_bN_cK_dC": {
+          "columns": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "raw_coefficients": [
+            {
+              "numerator": 688379,
+              "denominator": 3,
+              "value": 229459.66666666666
+            },
+            {
+              "numerator": 4985,
+              "denominator": 8,
+              "value": 623.125
+            },
+            {
+              "numerator": 66893,
+              "denominator": 3,
+              "value": 22297.666666666668
+            },
+            {
+              "numerator": 73621,
+              "denominator": 1,
+              "value": 73621.0
+            }
+          ],
+          "coefficient_status": [
+            "unresolved",
+            "unresolved",
+            "unresolved",
+            "unresolved"
+          ],
+          "rank": 4,
+          "training_residual_ns": {
+            "L3": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "L1": {
+              "numerator": 22820,
+              "denominator": 3,
+              "value": 7606.666666666667
+            },
+            "L4": {
+              "numerator": 0,
+              "denominator": 1,
+              "value": 0.0
+            },
+            "L2": {
+              "numerator": -45640,
+              "denominator": 3,
+              "value": -15213.333333333334
+            },
+            "L5": {
+              "numerator": 22820,
+              "denominator": 3,
+              "value": 7606.666666666667
+            }
+          },
+          "training_max_abs_residual_ns": {
+            "numerator": 45640,
+            "denominator": 3,
+            "value": 15213.333333333334
+          },
+          "nonnegative_pass": true,
+          "residual_pass": true,
+          "structure_pass": false,
+          "admissible": false,
+          "training_is_validation": false,
+          "predictions": {
+            "V2": {
+              "numerator": 1922060,
+              "denominator": 3,
+              "value": 640686.6666666666
+            },
+            "V1": {
+              "numerator": 1641377,
+              "denominator": 3,
+              "value": 547125.6666666666
+            }
+          }
+        }
+      },
+      "selected_before_holdout": "a_bN"
+    }
+  },
+  "observed_layer_scales_ns": {
+    "service_ns": {
+      "numerator": 83030,
+      "denominator": 1,
+      "value": 83030.0
+    },
+    "worker_ns": {
+      "numerator": 83030,
+      "denominator": 1,
+      "value": 83030.0
+    },
+    "controller_execute_ns": {
+      "numerator": 83030,
+      "denominator": 1,
+      "value": 83030.0
+    },
+    "full_filled_ns": {
+      "numerator": 575449,
+      "denominator": 1,
+      "value": 575449.0
+    }
+  },
+  "outer": {
+    "method": "median_first_five_only_no_additional_fit",
+    "controller_minus_worker_raw_ns": [
+      1898746,
+      1686063,
+      1855055,
+      1762735,
+      1740074
+    ],
+    "filled_minus_controller_raw_ns": [
+      6980824,
+      6071212,
+      6651909,
+      6166163,
+      6164133
+    ],
+    "controller_residual_ns": {
+      "numerator": 1762735,
+      "denominator": 1,
+      "value": 1762735.0
+    },
+    "filled_residual_ns": {
+      "numerator": 6166163,
+      "denominator": 1,
+      "value": 6166163.0
+    }
+  },
+  "layered_raw_breakdown": [
+    {
+      "case_id": "L3",
+      "measured": {
+        "controller_execute_ns": 2474514,
+        "full_filled_ns": 9455338,
+        "published_ns": 222268659,
+        "raw_service_ns": 460817,
+        "request_return_ns": 223486475,
+        "service_ns": 461177,
+        "worker_ns": 575768
+      },
+      "worker_minus_service_ns": 114591,
+      "controller_minus_worker_ns": 1898746,
+      "filled_minus_controller_ns": 6980824
+    },
+    {
+      "case_id": "L1",
+      "measured": {
+        "controller_execute_ns": 2116149,
+        "full_filled_ns": 8187361,
+        "published_ns": 118404502,
+        "raw_service_ns": 352545,
+        "request_return_ns": 119702510,
+        "service_ns": 352925,
+        "worker_ns": 430086
+      },
+      "worker_minus_service_ns": 77161,
+      "controller_minus_worker_ns": 1686063,
+      "filled_minus_controller_ns": 6071212
+    },
+    {
+      "case_id": "L4",
+      "measured": {
+        "controller_execute_ns": 2518324,
+        "full_filled_ns": 9170233,
+        "published_ns": 218536937,
+        "raw_service_ns": 535088,
+        "request_return_ns": 219779364,
+        "service_ns": 534798,
+        "worker_ns": 663269
+      },
+      "worker_minus_service_ns": 128471,
+      "controller_minus_worker_ns": 1855055,
+      "filled_minus_controller_ns": 6651909
+    },
+    {
+      "case_id": "L2",
+      "measured": {
+        "controller_execute_ns": 2281201,
+        "full_filled_ns": 8447364,
+        "published_ns": 207946326,
+        "raw_service_ns": 423336,
+        "request_return_ns": 209287314,
+        "service_ns": 423666,
+        "worker_ns": 518466
+      },
+      "worker_minus_service_ns": 94800,
+      "controller_minus_worker_ns": 1762735,
+      "filled_minus_controller_ns": 6166163
+    },
+    {
+      "case_id": "L5",
+      "measured": {
+        "controller_execute_ns": 2363722,
+        "full_filled_ns": 8527855,
+        "published_ns": 313435244,
+        "raw_service_ns": 540367,
+        "request_return_ns": 314679321,
+        "service_ns": 540047,
+        "worker_ns": 623648
+      },
+      "worker_minus_service_ns": 83601,
+      "controller_minus_worker_ns": 1740074,
+      "filled_minus_controller_ns": 6164133
+    },
+    {
+      "case_id": "L3_repeat",
+      "measured": {
+        "controller_execute_ns": 2543154,
+        "full_filled_ns": 8879889,
+        "published_ns": 206879291,
+        "raw_service_ns": 491337,
+        "request_return_ns": 208179119,
+        "service_ns": 491027,
+        "worker_ns": 614179
+      },
+      "worker_minus_service_ns": 123152,
+      "controller_minus_worker_ns": 1928975,
+      "filled_minus_controller_ns": 6336735
+    }
+  ],
+  "diagnostic_candidate_predictions": {
+    "a_bN": {
+      "V2": {
+        "worker_ns": {
+          "numerator": 6106379,
+          "denominator": 10,
+          "value": 610637.9
+        },
+        "controller_execute_ns": {
+          "numerator": 23733729,
+          "denominator": 10,
+          "value": 2373372.9
+        },
+        "full_filled_ns": {
+          "numerator": 85395359,
+          "denominator": 10,
+          "value": 8539535.9
+        },
+        "published_ns": null,
+        "live_ns": null
+      },
+      "V1": {
+        "worker_ns": {
+          "numerator": 5138569,
+          "denominator": 10,
+          "value": 513856.9
+        },
+        "controller_execute_ns": {
+          "numerator": 22765919,
+          "denominator": 10,
+          "value": 2276591.9
+        },
+        "full_filled_ns": {
+          "numerator": 84427549,
+          "denominator": 10,
+          "value": 8442754.9
+        },
+        "published_ns": null,
+        "live_ns": null
+      }
+    },
+    "a_bN_cK": {
+      "V2": {
+        "worker_ns": {
+          "numerator": 4580165,
+          "denominator": 6,
+          "value": 763360.8333333334
+        },
+        "controller_execute_ns": {
+          "numerator": 15156575,
+          "denominator": 6,
+          "value": 2526095.8333333335
+        },
+        "full_filled_ns": {
+          "numerator": 52153553,
+          "denominator": 6,
+          "value": 8692258.833333334
+        },
+        "published_ns": null,
+        "live_ns": null
+      },
+      "V1": {
+        "worker_ns": {
+          "numerator": 3999479,
+          "denominator": 6,
+          "value": 666579.8333333334
+        },
+        "controller_execute_ns": {
+          "numerator": 14575889,
+          "denominator": 6,
+          "value": 2429314.8333333335
+        },
+        "full_filled_ns": {
+          "numerator": 51572867,
+          "denominator": 6,
+          "value": 8595477.833333334
+        },
+        "published_ns": null,
+        "live_ns": null
+      }
+    },
+    "a_bN_cK_dC": {
+      "V2": {
+        "worker_ns": {
+          "numerator": 2421334,
+          "denominator": 3,
+          "value": 807111.3333333334
+        },
+        "controller_execute_ns": {
+          "numerator": 7709539,
+          "denominator": 3,
+          "value": 2569846.3333333335
+        },
+        "full_filled_ns": {
+          "numerator": 26208028,
+          "denominator": 3,
+          "value": 8736009.333333334
+        },
+        "published_ns": null,
+        "live_ns": null
+      },
+      "V1": {
+        "worker_ns": {
+          "numerator": 2130991,
+          "denominator": 3,
+          "value": 710330.3333333334
+        },
+        "controller_execute_ns": {
+          "numerator": 7419196,
+          "denominator": 3,
+          "value": 2473065.3333333335
+        },
+        "full_filled_ns": {
+          "numerator": 25917685,
+          "denominator": 3,
+          "value": 8639228.333333334
+        },
+        "published_ns": null,
+        "live_ns": null
+      }
+    }
+  },
+  "predictions": [
+    {
+      "case_id": "V2",
+      "worker_and_outer": {
+        "worker_ns": {
+          "numerator": 6106379,
+          "denominator": 10,
+          "value": 610637.9
+        },
+        "controller_execute_ns": {
+          "numerator": 23733729,
+          "denominator": 10,
+          "value": 2373372.9
+        },
+        "full_filled_ns": {
+          "numerator": 85395359,
+          "denominator": 10,
+          "value": 8539535.9
+        },
+        "published_ns": null,
+        "live_ns": null
+      },
+      "service_ns": {
+        "numerator": 5093031,
+        "denominator": 10,
+        "value": 509303.1
+      }
+    },
+    {
+      "case_id": "V1",
+      "worker_and_outer": {
+        "worker_ns": {
+          "numerator": 5138569,
+          "denominator": 10,
+          "value": 513856.9
+        },
+        "controller_execute_ns": {
+          "numerator": 22765919,
+          "denominator": 10,
+          "value": 2276591.9
+        },
+        "full_filled_ns": {
+          "numerator": 84427549,
+          "denominator": 10,
+          "value": 8442754.9
+        },
+        "published_ns": null,
+        "live_ns": null
+      },
+      "service_ns": {
+        "numerator": 4157421,
+        "denominator": 10,
+        "value": 415742.1
+      }
+    }
+  ],
+  "selected_worker_before_holdout": "a_bN",
+  "frozen_scope": "admitted_C1_candidates",
+  "product_admission": false,
+  "holdout_authorized_by_analysis": true,
+  "holdout_status": "conditional_new_session_pending",
+  "frozen": true,
+  "hardware_admission": false,
+  "independently_validated": false,
+  "published_prediction": null,
+  "live_prediction": null
+}

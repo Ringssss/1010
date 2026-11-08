@@ -1,0 +1,159 @@
+{
+  "status": "failed_incomplete",
+  "reviewed_at_utc": "2026-10-06T16:32:30.399078+00:00",
+  "input_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01",
+  "summary_status": "failed",
+  "error": "RemoteDisconnected('Remote end closed connection without response')",
+  "checks": {
+    "pinned_upstream_commit": true,
+    "full_source_frozen_S2_SHA": true,
+    "rank0_prepared_exact_layout": true,
+    "rank0_prepared_partition_size": true,
+    "rank0_full_IPC_geometry": true,
+    "rank0_IPC_frame66_and_offsets_exercised": true,
+    "rank1_prepared_exact_layout": true,
+    "rank1_prepared_partition_size": true,
+    "rank1_full_IPC_geometry": true,
+    "rank1_IPC_frame66_and_offsets_exercised": true,
+    "66GiB_pool_before_request": true,
+    "actual_upstream_backend_from_isolated_worktree": true,
+    "actual_disk_pinned_dispatch_device_log": true,
+    "separate_frame66_gate_passed": true,
+    "code_freeze_equal_at_failed_run_end": true,
+    "protected_catalog_unchanged_at_snapshot": true,
+    "complete_engine_weights_ready": false,
+    "full_destination_SHA_proven": false,
+    "exact_32token_output_proven": false,
+    "target_release_and_physical_cleanup_completed": false,
+    "temporary_loader_container_removed": false
+  },
+  "source_logical_bytes": 70329718112,
+  "upstream_partition_bytes": 70329720832,
+  "frozen_source_rank_SHA": {
+    "0": "50886ec38c6a85911072eba148e0717dfd34144f99e1863bc016757eb5ea67cd",
+    "1": "fd0f438bcb07669eb3f39f0b4742ea4c15ae94a37c330e31dad04dfa2a5d9311"
+  },
+  "frame66_gate": {
+    "status": "passed",
+    "scope": "separate 24576-byte shared-allocation offset/guard gate"
+  },
+  "geometry": [
+    {
+      "tp_rank": 0,
+      "logical_bytes": 35164859056,
+      "file_bytes": 35164860416,
+      "padding_bytes": 1360,
+      "storage_count": 1009,
+      "allocation_count": 209,
+      "nonzero_allocation_offsets": 801,
+      "ipc_handle_formats": {
+        "pytorch_version2_malloc_66": 1009
+      },
+      "load_begin_unix_s": 1791303885.8303788,
+      "store_ready_unix_s": 1791304028.8312774,
+      "store_load_s": 143.00089859962463
+    },
+    {
+      "tp_rank": 1,
+      "logical_bytes": 35164859056,
+      "file_bytes": 35164860416,
+      "padding_bytes": 1360,
+      "storage_count": 1009,
+      "allocation_count": 209,
+      "nonzero_allocation_offsets": 801,
+      "ipc_handle_formats": {
+        "pytorch_version2_malloc_66": 1009
+      },
+      "load_begin_unix_s": 1791303885.8355439,
+      "store_ready_unix_s": 1791304029.1178913,
+      "store_load_s": 143.2823474407196
+    }
+  ],
+  "independent_primary_T_ready_s": null,
+  "store_window_wall_clock_s": 143.28751254081726,
+  "pool_setup_outside_request_s": 32.23995780944824,
+  "pool_bytes": 70866960384,
+  "format_setup_rank_s": {
+    "0": 128.56750917434692,
+    "1": 128.0060317516327
+  },
+  "engine_handoff_timeout_s": 120.0,
+  "engine_timeout_log_lines": [
+    "    raise TimeoutError(f\"keeper did not fill rank {tp_rank} within {timeout}s\")",
+    "TimeoutError: keeper did not fill rank 0 within 120.0s"
+  ],
+  "observed_physical_snapshot": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "free_HBM_delta": 0,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "free_HBM_delta": 0,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    },
+    {
+      "worker": 2,
+      "node": "node29",
+      "free_HBM_delta": -35097935872,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    },
+    {
+      "worker": 3,
+      "node": "node29",
+      "free_HBM_delta": -35320233984,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    }
+  ],
+  "cleanup_snapshot": {
+    "pending_worker": true,
+    "pending_resume_preserved": true
+  },
+  "source_path_origin": {
+    "adapter": "main_lib/fluidckpt/benchmarks/serverless_adapter.py::UpstreamStoreLoader",
+    "file_to_pinned": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/model.cpp::ToHost pread→host_buffers→host_ptr_vector enqueue",
+    "pinned_pool": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/pinned_memory_pool.cpp::aligned_alloc+cudaHostRegister (HIP compilation)",
+    "dispatch": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/model.cpp::DispatchToGpu",
+    "IPC_open": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/checkpoint_store.cpp::GetDeviceMemPtr/cudaIpcOpenMemHandle",
+    "pinned_to_IPC": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/model.cpp::ToGpu cudaMemcpy host_buffer+chunk_offset→device_ptr[handle_idx]+gpu_offset"
+  },
+  "limitations": [
+    "Store completion is not engine weights_ready, full SHA, correct output or completed cleanup",
+    "66GiB pinned pool is built before measured request; its setup/space are separate costs",
+    "runtime OS/NFS cache is uncontrolled/unmeasured; no observed fallback log does not prove uncached physical media reads",
+    "processed payload 70.329718112GB differs from native raw checkpoint approximately71.904GB; do not attribute speed directly to Store/native algorithms",
+    "after-inventory is a failure snapshot; pending consumers/importers do not count as completed cleanup",
+    "small frame66 gate does not substitute for full-rank SHA/inference"
+  ],
+  "worker_result_present": false,
+  "store_completion_artifact_present": true,
+  "verification_trigger_present": false,
+  "cache_state": "uncontrolled_unmeasured; direct-I/O attempt with upstream fallback",
+  "odirect_fallback_log_present": false,
+  "input_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01/summary.json": "5bccff0dd62e675a947a183d5f0220ed81d654ea748ad0e516da1138296188e7",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01/worker/pool_ready.json": "ce576e1bf3d881bfa89d252c5cdd2d68fa543ea3a5b8ef41d68154c7163a4251",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01/metrics/serverless_qwen_full_r01_restore/rank0.jsonl": "bcbcc01151af5da7c85313b8059dfead68ff174e295a97a854fc475c2b4528bb",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01/metrics/serverless_qwen_full_r01_restore/rank1.jsonl": "f116dd2427b24c2bba196ab2f925be2797936d124573245a1ecf330860c3dd1a",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01/loader.log": "5855f5bc28adef2b7b4006895136be4eeca4bf6bdf90b99a50fbd2f0f307b2a5",
+    "/data/node28/shared/zhujianian/fluidckpt_zjn_baseline_data/v0.1.23.3/task2/serverless_data_r01/generation_r02/rank_0/processed_layout.json": "537677280a4e8c2e2bb46a7c251cb3d35bc192ba8d23c16711b0f838cbba2e46",
+    "/data/node28/shared/zhujianian/fluidckpt_zjn_baseline_data/v0.1.23.3/task2/serverless_data_r01/generation_r02/rank_1/processed_layout.json": "79f98b040657c200b6fa621719966192a2f07da6fc6e48fd2f3f4b61eba93eda",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/s2_r01/summary.json": "4a8081c086cf8ee15036e2f8ed98f8bc617568bea93f37c1e8467f3502053d97",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/session.json": "3edadcaebb96b8923037cecba6f42b95ee1cf4d55603f9481f7d1c7539dee1c9",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_offset_gate_r03/worker/result.json": "1434368edaaebfcb56c763736503580338a9666d60d81c1a41187a900a9aa96e",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/fresh_engine_node29.process.json": "4d7214e719a0af3fba7440b9fdac1ecc3491e72d179b7fa4db87c077b946e0d2",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/fresh_engine_node29.log": "44fc960eb9597fe8eb19176253af1a385c7030ddacaced73ae97fb7c9b7631a3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r01/worker/store_ready.json": "0193a66692ba810bd61b8eb21ce6586115b176f2981dda94e5f5cbe504ab0a4f"
+  }
+}

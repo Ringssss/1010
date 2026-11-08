@@ -1,0 +1,121 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "source": "preplan01 measured serial32, preplanned restore",
+  "measured": {
+    "load_s": 1.700245932,
+    "execute_s": 1.2117245253175497,
+    "total_GiB": 65.49965414404869,
+    "path_bytes": {
+      "network": 59592299872,
+      "local_dram": 2147483648,
+      "local_hbm": 8589934592
+    },
+    "path_GiB": {
+      "network": 55.49965414404869,
+      "local_dram": 2.0,
+      "local_hbm": 8.0
+    },
+    "path_percent": {
+      "network": 84.73274381265018,
+      "local_dram": 3.053451237469962,
+      "local_hbm": 12.213804949879847
+    },
+    "target_rank_records": [
+      {
+        "worker": 6,
+        "execute_s": 1.2058572038076818,
+        "paths": {
+          "network": {
+            "bytes": 29796149936,
+            "observed_s": 1.1612621233798563,
+            "effective_GBps": 25.658418832501166
+          },
+          "local_dram": {
+            "bytes": 1073741824,
+            "observed_s": 0.024303036276251078,
+            "effective_GBps": 44.18138588918868
+          },
+          "local_hbm": {
+            "bytes": 4294967296,
+            "observed_s": 0.01581305731087923,
+            "effective_GBps": 271.60891227815284
+          }
+        }
+      },
+      {
+        "worker": 7,
+        "execute_s": 1.2058386942371726,
+        "paths": {
+          "network": {
+            "bytes": 29796149936,
+            "observed_s": 1.161933546885848,
+            "effective_GBps": 25.64359211063149
+          },
+          "local_dram": {
+            "bytes": 1073741824,
+            "observed_s": 0.024100705981254578,
+            "effective_GBps": 44.55229754826069
+          },
+          "local_hbm": {
+            "bytes": 4294967296,
+            "observed_s": 0.01701828371733427,
+            "effective_GBps": 252.3737039138257
+          }
+        }
+      }
+    ]
+  },
+  "budget": {
+    "current_complete_base_dram_GiB": 65.49965414404869,
+    "current_extra_dram_GiB": 2.0,
+    "current_extra_hbm_GiB": 8.0,
+    "current_global_persistent_dram_GiB": 67.49965414404869,
+    "local_base_counterfactual_global_dram_GiB": 65.49965414404869,
+    "local_base_counterfactual_hbm_GiB": 8.0,
+    "note": "retire the redundant 2GiB local cache; total persistent memory does not increase, but per-node budgets and immutable-base policy must change"
+  },
+  "local_base_counterfactual": [
+    {
+      "assumed_local_dram_GBps_per_rank": 25,
+      "modeled_transfer_s": 1.2518139541173343,
+      "modeled_load_s": 1.7403353607997847,
+      "modeled_saved_s": -0.04008942879978461,
+      "modeled_reduction_pct": -2.357860592121952
+    },
+    {
+      "assumed_local_dram_GBps_per_rank": 35,
+      "modeled_transfer_s": 0.8990151911459058,
+      "modeled_load_s": 1.387536597828356,
+      "modeled_saved_s": 0.31270933417164404,
+      "modeled_reduction_pct": 18.3920060201999
+    },
+    {
+      "assumed_local_dram_GBps_per_rank": 43.8645864942642,
+      "modeled_transfer_s": 0.7207725927665395,
+      "modeled_load_s": 1.20929399944899,
+      "modeled_saved_s": 0.4909519325510101,
+      "modeled_reduction_pct": 28.875348166456316
+    }
+  ],
+  "assumptions": [
+    "two ranks progress concurrently with independent feasible NUMA domains",
+    "local H2D sustained rates must be validated on the full manifest",
+    "non-execute loading overhead and HBM-copy tail held at observed values",
+    "target known in advance; other possible restore nodes can become slower",
+    "existing transport observations do not prove the NIC is saturated"
+  ],
+  "migration_constraints": [
+    "current bases are full-rank allocations and retirement releases whole owners",
+    "partial logical coverage does not free physical pages from an existing complete allocation",
+    "same steady-state global budget does not imply a feasible same-budget migration peak",
+    "first test initial base placement in isolated cases, with setup bytes/time/peak accounted separately",
+    "bounded online relocation requires independently releasable blocks plus verified coverage and failure-safe transitions"
+  ],
+  "recommended_order": [
+    "same global budget, remote-base versus target-local-base complete-model A/B",
+    "only if the primary metric improves: add primary-location selection and scenario-aware global budgets",
+    "then implement bounded base migration if runtime movement is needed",
+    "defer further chunk/pipeline tuning absent evidence of a useful main-metric opportunity"
+  ]
+}

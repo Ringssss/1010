@@ -1,0 +1,2397 @@
+{
+  "load_begin_ns": 290603869100939,
+  "all_weights_ready_ns": 290603872830499,
+  "load_begin_wall_ns": 1791806751253329422,
+  "clock_domain": "CPU_controller_no_hardware",
+  "flow": {
+    "tx": "CPU_tx",
+    "plan": {
+      "targets": [
+        {
+          "key": "CPU_fixture_CPU_Hremote/rank0",
+          "id": "CPU_fixture_CPU_Hremote/rank0",
+          "mode": "live",
+          "worker": 0,
+          "tier": "hbm",
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 35164859056,
+          "meta": {
+            "model_identity": "CPU_fixture_no_weights",
+            "tp_size": "2",
+            "tp_rank": 0
+          },
+          "index": {
+            "CPU_storage": [
+              0,
+              35164859056
+            ]
+          },
+          "tag": "CPU_fixture_CPU_Hremote",
+          "metrics_directory": "codex_coding/results/v0.1.23.3/task2/online_cost/simple_core_cpu_r02/CPU_controller_flow/runtime/metrics/CPU_fixture_CPU_Hremote"
+        },
+        {
+          "key": "CPU_fixture_CPU_Hremote/rank1",
+          "id": "CPU_fixture_CPU_Hremote/rank1",
+          "mode": "live",
+          "worker": 1,
+          "tier": "hbm",
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 35164859056,
+          "meta": {
+            "model_identity": "CPU_fixture_no_weights",
+            "tp_size": "2",
+            "tp_rank": 1
+          },
+          "index": {
+            "CPU_storage": [
+              0,
+              35164859056
+            ]
+          },
+          "tag": "CPU_fixture_CPU_Hremote",
+          "metrics_directory": "codex_coding/results/v0.1.23.3/task2/online_cost/simple_core_cpu_r02/CPU_controller_flow/runtime/metrics/CPU_fixture_CPU_Hremote"
+        }
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 0,
+          "n": 1073741824,
+          "source_offset": 0,
+          "replica_id": "CPU/hbm/0/0",
+          "generation": 1,
+          "src_w": 0,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch0",
+          "kind": "local_hbm",
+          "path": "0:hbm:4->0",
+          "resources": [
+            "in:0"
+          ]
+        },
+        {
+          "op_id": 1,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 0,
+          "n": 1073741824,
+          "source_offset": 0,
+          "replica_id": "CPU/hbm/1/1",
+          "generation": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch1",
+          "kind": "local_hbm",
+          "path": "1:hbm:7->1",
+          "resources": [
+            "in:1"
+          ]
+        },
+        {
+          "op_id": 2,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 1073741824,
+          "n": 1073741824,
+          "source_offset": 1073741824,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 3,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 1073741824,
+          "n": 1073741824,
+          "source_offset": 1073741824,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 4,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 2147483648,
+          "n": 1073741824,
+          "source_offset": 2147483648,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 5,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 2147483648,
+          "n": 1073741824,
+          "source_offset": 2147483648,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 6,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 3221225472,
+          "n": 1073741824,
+          "source_offset": 3221225472,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 7,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 3221225472,
+          "n": 1073741824,
+          "source_offset": 3221225472,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 8,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 4294967296,
+          "n": 1073741824,
+          "source_offset": 4294967296,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 9,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 4294967296,
+          "n": 1073741824,
+          "source_offset": 4294967296,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 10,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 5368709120,
+          "n": 1073741824,
+          "source_offset": 5368709120,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 11,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 5368709120,
+          "n": 1073741824,
+          "source_offset": 5368709120,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 12,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 6442450944,
+          "n": 1073741824,
+          "source_offset": 6442450944,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 13,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 6442450944,
+          "n": 1073741824,
+          "source_offset": 6442450944,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 14,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 7516192768,
+          "n": 1073741824,
+          "source_offset": 7516192768,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 15,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 7516192768,
+          "n": 1073741824,
+          "source_offset": 7516192768,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 16,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 8589934592,
+          "n": 1073741824,
+          "source_offset": 8589934592,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 17,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 8589934592,
+          "n": 1073741824,
+          "source_offset": 8589934592,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 18,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 9663676416,
+          "n": 1073741824,
+          "source_offset": 9663676416,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 19,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 9663676416,
+          "n": 1073741824,
+          "source_offset": 9663676416,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 20,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 10737418240,
+          "n": 1073741824,
+          "source_offset": 10737418240,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 21,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 10737418240,
+          "n": 1073741824,
+          "source_offset": 10737418240,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 22,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 11811160064,
+          "n": 1073741824,
+          "source_offset": 11811160064,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 23,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 11811160064,
+          "n": 1073741824,
+          "source_offset": 11811160064,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 24,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 12884901888,
+          "n": 1073741824,
+          "source_offset": 12884901888,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 25,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 12884901888,
+          "n": 1073741824,
+          "source_offset": 12884901888,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 26,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 13958643712,
+          "n": 1073741824,
+          "source_offset": 13958643712,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 27,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 13958643712,
+          "n": 1073741824,
+          "source_offset": 13958643712,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 28,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 15032385536,
+          "n": 1073741824,
+          "source_offset": 15032385536,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 29,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 15032385536,
+          "n": 1073741824,
+          "source_offset": 15032385536,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 30,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 16106127360,
+          "n": 1073741824,
+          "source_offset": 16106127360,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 31,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 16106127360,
+          "n": 1073741824,
+          "source_offset": 16106127360,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 32,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 17179869184,
+          "n": 1073741824,
+          "source_offset": 17179869184,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 33,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 17179869184,
+          "n": 1073741824,
+          "source_offset": 17179869184,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 34,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 18253611008,
+          "n": 1073741824,
+          "source_offset": 18253611008,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 35,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 18253611008,
+          "n": 1073741824,
+          "source_offset": 18253611008,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 36,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 19327352832,
+          "n": 1073741824,
+          "source_offset": 19327352832,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 37,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 19327352832,
+          "n": 1073741824,
+          "source_offset": 19327352832,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 38,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 20401094656,
+          "n": 1073741824,
+          "source_offset": 20401094656,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 39,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 20401094656,
+          "n": 1073741824,
+          "source_offset": 20401094656,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 40,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 21474836480,
+          "n": 1073741824,
+          "source_offset": 21474836480,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 41,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 21474836480,
+          "n": 1073741824,
+          "source_offset": 21474836480,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 42,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 22548578304,
+          "n": 1073741824,
+          "source_offset": 22548578304,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 43,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 22548578304,
+          "n": 1073741824,
+          "source_offset": 22548578304,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 44,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 23622320128,
+          "n": 1073741824,
+          "source_offset": 23622320128,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 45,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 23622320128,
+          "n": 1073741824,
+          "source_offset": 23622320128,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 46,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 24696061952,
+          "n": 1073741824,
+          "source_offset": 24696061952,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 47,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 24696061952,
+          "n": 1073741824,
+          "source_offset": 24696061952,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 48,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 25769803776,
+          "n": 1073741824,
+          "source_offset": 25769803776,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 49,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 25769803776,
+          "n": 1073741824,
+          "source_offset": 25769803776,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 50,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 26843545600,
+          "n": 1073741824,
+          "source_offset": 26843545600,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 51,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 26843545600,
+          "n": 1073741824,
+          "source_offset": 26843545600,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 52,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 27917287424,
+          "n": 1073741824,
+          "source_offset": 27917287424,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 53,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 27917287424,
+          "n": 1073741824,
+          "source_offset": 27917287424,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 54,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 28991029248,
+          "n": 1073741824,
+          "source_offset": 28991029248,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 55,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 28991029248,
+          "n": 1073741824,
+          "source_offset": 28991029248,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 56,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 30064771072,
+          "n": 1073741824,
+          "source_offset": 30064771072,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 57,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 30064771072,
+          "n": 1073741824,
+          "source_offset": 30064771072,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 58,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 31138512896,
+          "n": 1073741824,
+          "source_offset": 31138512896,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 59,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 31138512896,
+          "n": 1073741824,
+          "source_offset": 31138512896,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 60,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 32212254720,
+          "n": 1073741824,
+          "source_offset": 32212254720,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 61,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 32212254720,
+          "n": 1073741824,
+          "source_offset": 32212254720,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 62,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 33285996544,
+          "n": 1073741824,
+          "source_offset": 33285996544,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 63,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 33285996544,
+          "n": 1073741824,
+          "source_offset": 33285996544,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 64,
+          "target": "CPU_fixture_CPU_Hremote/rank0",
+          "tp": 0,
+          "identity": "CPU_rank0",
+          "off": 34359738368,
+          "n": 805120688,
+          "source_offset": 34359738368,
+          "replica_id": "CPU/dram/2/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 0,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:4->0",
+          "resources": [
+            "in:0",
+            "dram:node30:4",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        },
+        {
+          "op_id": 65,
+          "target": "CPU_fixture_CPU_Hremote/rank1",
+          "tp": 1,
+          "identity": "CPU_rank1",
+          "off": 34359738368,
+          "n": 805120688,
+          "source_offset": 34359738368,
+          "replica_id": "CPU/dram/3/1",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 1,
+          "source_epoch": "CPU_epoch2",
+          "kind": "network",
+          "path": "2:dram:7->1",
+          "resources": [
+            "in:1",
+            "dram:node30:7",
+            "out:2",
+            "net_out:node30",
+            "net_in:node27"
+          ]
+        }
+      ],
+      "executor": "serial",
+      "chunk_bytes": 33554432,
+      "strategy": "fixed_source_assignment",
+      "estimated_transfer_s": 35.164859056,
+      "profile": {
+        "rates": {
+          "local_dram": 1.0,
+          "local_hbm": 1.0,
+          "local_ssd": 0.5,
+          "peer": 1.0,
+          "network": 1.0
+        },
+        "gpu_ingress_GBps": 1.0,
+        "gpu_egress_GBps": 1.0,
+        "dram_GBps": 1.0,
+        "network_node_GBps": 1.0,
+        "serial_target_execution": true
+      },
+      "control_context": {
+        "endpoints": [
+          "CPU",
+          "CPU",
+          "CPU"
+        ],
+        "session": "CPU_fixture",
+        "epochs": {
+          "0": "CPU_epoch0",
+          "1": "CPU_epoch1",
+          "2": "CPU_epoch2"
+        }
+      },
+      "workflow": "simple_two_node_single_sender_v1",
+      "scope": "Native worker DAG; one sender shares both rank streams; fixed source assignment."
+    },
+    "execution": [
+      {
+        "worker": 2,
+        "op_clock_events": [
+          {
+            "op_id": 2,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 2,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 10,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 3,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 21,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 3,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 30,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 4,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 41,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 4,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 50,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 5,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 61,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 5,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 70,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 6,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 81,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 6,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 90,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 7,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 101,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 7,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 110,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 8,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 121,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 8,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 130,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 9,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 141,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 9,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 150,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 10,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 161,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 10,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 170,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 11,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 181,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 11,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 190,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 12,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 201,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 12,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 210,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 13,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 221,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 13,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 230,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 14,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 241,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 14,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 250,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 15,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 261,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 15,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 270,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 16,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 281,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 16,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 290,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 17,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 301,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 17,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 310,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 18,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 321,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 18,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 330,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 19,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 341,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 19,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 350,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 20,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 361,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 20,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 370,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 21,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 381,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 21,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 390,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 22,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 401,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 22,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 410,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 23,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 421,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 23,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 430,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 24,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 441,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 24,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 450,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 25,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 461,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 25,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 470,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 26,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 481,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 26,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 490,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 27,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 501,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 27,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 510,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 28,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 521,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 28,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 530,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 29,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 541,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 29,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 550,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 30,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 561,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 30,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 570,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 31,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 581,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 31,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 590,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 32,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 601,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 32,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 610,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 33,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 621,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 33,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 630,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 34,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 641,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 34,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 650,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 35,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 661,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 35,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 670,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 36,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 681,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 36,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 690,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 37,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 701,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 37,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 710,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 38,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 721,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 38,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 730,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 39,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 741,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 39,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 750,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 40,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 761,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 40,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 770,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 41,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 781,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 41,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 790,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 42,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 801,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 42,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 810,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 43,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 821,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 43,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 830,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 44,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 841,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 44,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 850,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 45,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 861,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 45,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 870,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 46,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 881,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 46,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 890,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 47,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 901,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 47,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 910,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 48,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 921,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 48,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 930,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 49,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 941,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 49,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 950,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 50,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 961,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 50,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 970,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 51,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 981,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 51,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 990,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 52,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1001,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 52,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1010,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 53,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1021,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 53,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1030,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 54,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1041,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 54,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1050,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 55,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1061,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 55,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1070,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 56,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1081,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 56,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1090,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 57,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1101,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 57,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1110,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 58,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1121,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 58,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1130,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 59,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1141,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 59,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1150,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 60,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1161,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 60,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1170,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 61,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1181,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 61,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1190,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 62,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1201,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 62,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1210,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 63,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1221,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 63,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1230,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 64,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1241,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 64,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1250,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 65,
+            "ev": "cluster_op_begin",
+            "monotonic_ns": 1261,
+            "clock_domain": "CPU_sender_host"
+          },
+          {
+            "op_id": 65,
+            "ev": "cluster_op_end",
+            "monotonic_ns": 1270,
+            "clock_domain": "CPU_sender_host"
+          }
+        ]
+      }
+    ]
+  },
+  "rank_timing": {
+    "CPU_fixture": true
+  },
+  "before_resource_gate": {
+    "passed": true,
+    "CPU_fixture": true
+  },
+  "before_parked_evidence": [
+    {
+      "CPU_fixture": true
+    },
+    {
+      "CPU_fixture": true
+    }
+  ],
+  "CPU_fixture": true
+}

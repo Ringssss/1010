@@ -1,0 +1,66 @@
+{
+  "nodes": {
+    "node27": {}
+  },
+  "processes": [
+    {
+      "kind": "worker",
+      "node": "node27",
+      "gpu": 4,
+      "worker_rank": 0,
+      "numa": 4,
+      "endpoint": "CPU:0",
+      "argv": [
+        "--mesh",
+        "node27:4-5",
+        "--session",
+        "online_CPU_local"
+      ],
+      "env": {
+        "HIP_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7"
+      }
+    },
+    {
+      "kind": "worker",
+      "node": "node27",
+      "gpu": 5,
+      "worker_rank": 1,
+      "numa": 7,
+      "endpoint": "CPU:1",
+      "argv": [
+        "--mesh",
+        "node27:4-5",
+        "--session",
+        "online_CPU_local"
+      ],
+      "env": {
+        "HIP_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7"
+      }
+    },
+    {
+      "kind": "engine",
+      "node": "node27",
+      "gpus": [
+        4,
+        5
+      ],
+      "argv": [
+        "--base-gpu-id",
+        "4"
+      ],
+      "env": {
+        "HIP_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7",
+        "FLUIDCKPT_TP_SIZE": "2",
+        "FLUIDCKPT_TAG": "online_CPU_local_bootstrap"
+      }
+    }
+  ],
+  "run_id": "online_CPU_local",
+  "tp_size": 2,
+  "weights_bytes_by_rank": [
+    35164859056,
+    35164859056
+  ],
+  "warm_pairs": [],
+  "handoff": "CPU"
+}

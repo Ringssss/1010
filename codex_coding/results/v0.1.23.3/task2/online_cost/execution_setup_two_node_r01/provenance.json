@@ -1,0 +1,46 @@
+{
+  "upstream": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/inventory/fresh_host.py",
+  "upstream_sha256": "b4ffcd57635391064a22a18acdec2e6224f42710f94ef24d0bb6ddc9b05cb735",
+  "derived_sha256": "84366e42ceebafb07e770cb8345979a296b1591cc70199e7567cffcb60095009",
+  "changes": [
+    {
+      "before": "(\"node28\",\"node30\")",
+      "after": "(\"node27\",\"node30\")",
+      "occurrences": 1
+    },
+    {
+      "before": "(28|30)",
+      "after": "(27|30)",
+      "occurrences": 2
+    },
+    {
+      "before": "\"--memory\",\"8g\"",
+      "after": "\"--memory\",str(spec[\"container_hard_cap_bytes\"]),\"--memory-swap\",str(spec[\"container_hard_cap_bytes\"])",
+      "occurrences": 1
+    },
+    {
+      "before": "\"--cap-add\",\"IPC_LOCK\",\"--ulimit\"",
+      "after": "\"--cap-add\",\"IPC_LOCK\",\"--cap-add\",\"SYS_NICE\",\"--ulimit\"",
+      "occurrences": 1
+    },
+    {
+      "before": "not str(rel).startswith(\"codex_coding/\")",
+      "after": "not str(rel).startswith((\"codex_coding/\", \"main_lib/fluidckpt/\"))",
+      "occurrences": 1
+    },
+    {
+      "before": "\"--workdir\",PROJECT,IMAGE,\"infinity\"]",
+      "after": "\"--workdir\",PROJECT,IMAGE,\"infinity\"]",
+      "occurrences": 1
+    },
+    {
+      "before": "if mode==\"guard\":\n        result=guard(spec)",
+      "after": "if mode==\"guard\":\n        raise SystemExit(\"use online review metadata collector\")\n        result=guard(spec)",
+      "occurrences": 1
+    }
+  ],
+  "model_mount": "explicit read-only original model directory",
+  "GPU_launches": 0,
+  "remote_writes": 0,
+  "asset_count": 129
+}

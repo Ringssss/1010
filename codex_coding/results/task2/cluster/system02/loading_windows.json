@@ -1,0 +1,68 @@
+{
+  "run": "cluster/system02",
+  "status": "passed",
+  "samples": [
+    {
+      "phase": "two_node_restore",
+      "node": "node27",
+      "strategy": "nearest",
+      "load_s": 2.300545085,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.00118089,
+        "model_layout_s": 0.313526421,
+        "export_s": 0.032429286,
+        "target_wait_s": 1.941950335,
+        "finalize_s": 0.011458153
+      },
+      "wait_details_s": null,
+      "coordinator_durations_s": {
+        "prepare_s": 0.20542945386841893,
+        "execute_wall_s": 1.396761214826256,
+        "verify_and_publish_s": 0.006257082335650921,
+        "coordinator_wall_s": 1.608447751030326
+      },
+      "coordinator_plan_s": null,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "passed": true
+    },
+    {
+      "phase": "three_node_restore",
+      "node": "node29",
+      "strategy": "balanced",
+      "load_s": 2.730520786,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.004771086,
+        "model_layout_s": 0.487355682,
+        "export_s": 0.036387472,
+        "target_wait_s": 2.189076734,
+        "finalize_s": 0.012929812
+      },
+      "wait_details_s": null,
+      "coordinator_durations_s": {
+        "prepare_s": 0.21169065684080124,
+        "execute_wall_s": 1.3857990098185837,
+        "verify_and_publish_s": 0.00920700328424573,
+        "coordinator_wall_s": 1.6066966699436307
+      },
+      "coordinator_plan_s": null,
+      "source_bytes": {
+        "model/remote/0": 32837020336,
+        "model/joint/0": 360710144,
+        "model/gpu/0": 1967128576,
+        "model/remote/1": 32837020336,
+        "model/joint/1": 360710144,
+        "model/gpu/1": 1967128576
+      },
+      "passed": true
+    }
+  ],
+  "summary_sha256": "83b9740a344f143afd42be9f24706a4b34d43fef8fdd9fbb4f39beeb9ffbf346",
+  "scope": "exact additive target-host segments; coordinator durations are nested diagnostics, not extra load time"
+}

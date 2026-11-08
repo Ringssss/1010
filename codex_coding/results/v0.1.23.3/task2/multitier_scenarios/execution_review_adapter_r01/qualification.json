@@ -1,0 +1,100 @@
+{
+  "qualification": "independent_CPU_API_and_failure_controls_passed",
+  "passed": true,
+  "checks": {
+    "native_CPU_qualification_all_passed": true,
+    "journal_metadata_qualification_all_passed": true,
+    "native_recorded_adapter_SHA_exact": true,
+    "final_delta_only_budget_and_postcleanup_identity_assertions": true,
+    "native_no_GPU_remote_or_rates": true,
+    "native_scope_labels_CPU_not_physical": true,
+    "native_six_recipes_exact": true,
+    "C0/32MiB_SHA_every_operation": true,
+    "C0/four_full_target_ranges": true,
+    "C0/serial_actual_native_plan": true,
+    "C1/32MiB_SHA_every_operation": true,
+    "C1/four_full_target_ranges": true,
+    "C1/serial_actual_native_plan": true,
+    "C2a/32MiB_SHA_every_operation": true,
+    "C2a/four_full_target_ranges": true,
+    "C2a/serial_actual_native_plan": true,
+    "C2b/32MiB_SHA_every_operation": true,
+    "C2b/four_full_target_ranges": true,
+    "C2b/serial_actual_native_plan": true,
+    "C3/32MiB_SHA_every_operation": true,
+    "C3/four_full_target_ranges": true,
+    "C3/serial_actual_native_plan": true,
+    "SSD_only/32MiB_SHA_every_operation": true,
+    "SSD_only/four_full_target_ranges": true,
+    "SSD_only/serial_actual_native_plan": true,
+    "negative/unbound_compile": true,
+    "negative/CPU_fixture_execute": true,
+    "negative/relabel_fixture_no_trusted_gate": true,
+    "negative/duplicate_GPU": true,
+    "negative/stale_binding": true,
+    "negative/tampered_evidence_SHA": true,
+    "negative/unqualified_selected_path": true,
+    "negative/incomplete_budget_ledger": true,
+    "negative/current_worker_budget_drift": true,
+    "negative/missing_authoritative_source": true,
+    "negative/base_generation_drift": true,
+    "failure/all_12_IDS_recorded_before_failure": true,
+    "negative/base_in_cleanup_list": true,
+    "negative/cleanup_changed_base_generation": true,
+    "failure/exact_9_retired_3_absent": true,
+    "failure/base_eight_VALID_unleased_preserved": true
+  },
+  "check_count": 41,
+  "negative_rejection_reasons": {
+    "negative/unbound_compile": "unbound execution refused",
+    "negative/CPU_fixture_execute": "CPU fixture cannot authorize physical execution",
+    "negative/relabel_fixture_no_trusted_gate": "physical execution requires the coordinator trusted admission gate",
+    "negative/duplicate_GPU": "duplicate physical GPU",
+    "negative/stale_binding": "binding expired",
+    "negative/tampered_evidence_SHA": "evidence artifact SHA mismatch",
+    "negative/unqualified_selected_path": "unqualified selected path: 0:ssd:0->0",
+    "negative/incomplete_budget_ledger": "runtime/staging or budget accounting incomplete",
+    "negative/current_worker_budget_drift": "worker catalog budgets changed",
+    "negative/missing_authoritative_source": "source missing or duplicate in current catalog",
+    "negative/base_generation_drift": "source generation changed",
+    "negative/base_in_cleanup_list": "cleanup overlaps authoritative base",
+    "negative/cleanup_changed_base_generation": "source generation changed"
+  },
+  "physical_execution_admitted": false,
+  "physical_trusted_admission_implementation_available": false,
+  "trust_boundary": "binding is compile input; coordinator callback must independently audit real path semantics and per-node aggregate budget",
+  "physical_ready": false,
+  "GPU_calls": 0,
+  "SSH_calls": 0,
+  "evidence_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_cpu_r02/binding_cpu_fixture.json",
+      "sha256": "26095eb2f66c359bdabfbd49d811c6c1abd112797071b228f367c5c2163905ec"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_cpu_r02/current_inventory_cpu_fixture.json",
+      "sha256": "82a7056abf8abdad512e821b1e6aa61f9b284102752ddaf1d7d2720edb2aa398"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_cpu_r02/native_api_runs.json",
+      "sha256": "83347e2d33c1915344dc937eb093e68bc712786aea081ab89a208aee1d41daaf"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_cpu_r02/qualification.json",
+      "sha256": "03b25621c81b48fb2a409c14c1770856e0dbc66f30105a939bc9e922a875d0a9"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_journal_cpu_r02/cleanup.json",
+      "sha256": "48080966663d8d8ee01439199b75c966fbb4f127c59f5baca480c35e328b3762"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_journal_cpu_r02/failed_run_journal.json",
+      "sha256": "434bf651a9536b74c84f5fc5585e739b0d8b1b76163e3c2f9977fd0afbb5fde1"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/adapter_journal_cpu_r02/qualification.json",
+      "sha256": "a03d33392cdf9432ff451fb94c3b54f5495f64278d15979a0ed5ab68299d8f53"
+    }
+  ],
+  "adapter_sha256": "5038e02d38a53a327a826be32aa935a3c0694d56c6244f61656a4c1b4097f646"
+}

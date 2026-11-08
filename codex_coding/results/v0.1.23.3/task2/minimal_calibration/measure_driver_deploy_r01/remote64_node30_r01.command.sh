@@ -1,0 +1,4 @@
+#!/bin/bash
+set -u
+ulimit -c 0
+timeout --signal=TERM 165s ssh -T -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o ServerAliveInterval=3 -o ServerAliveCountMax=1 -o Hostname=12.11.3.30 node30 'docker exec -e OMP_NUM_THREADS=1 -e MKL_NUM_THREADS=1 -e PYTHONDONTWRITEBYTECODE=1 -e NCCL_SOCKET_IFNAME=ib0 -e NCCL_IB_HCA=shca_0 -e NCCL_NET_PLUGIN=librccl-net-shca.so -e HSA_FORCE_FINE_GRAIN_PCIE=1 -e NCCL_NET=IBext_v8 7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1 python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/measurement_driver.py --config /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_driver_deploy_r01/remote64_node30_r01.config.json --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01'

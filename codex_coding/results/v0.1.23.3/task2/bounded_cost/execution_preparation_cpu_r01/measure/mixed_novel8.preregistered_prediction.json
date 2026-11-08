@@ -1,0 +1,216 @@
+{
+  "bound_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_preparation_cpu_r01/measure/bound_model.json",
+    "sha256": "8d92978e0c8c62b064886e82601494e508e70196e52fccbc1a2a52abff8ef59b"
+  },
+  "plan": {
+    "chunk_bytes": 33554432,
+    "estimated_transfer_s": null,
+    "executor": "serial",
+    "ops": [
+      {
+        "dst_w": 4,
+        "generation": 1,
+        "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+        "kind": "local_hbm",
+        "n": 8388608,
+        "off": 0,
+        "op_id": 0,
+        "path": "4:hbm:0->4",
+        "replica_id": "bounded_cost_runtime_r03/source0/hbm",
+        "resources": [],
+        "source_epoch": "cpu_replay/4",
+        "source_offset": 0,
+        "src_w": 4,
+        "target": "bounded_cost_runtime_r03/mixed_novel8/target0",
+        "tp": 0
+      },
+      {
+        "dst_w": 4,
+        "generation": 1,
+        "identity": "c4762e0576175160b3863aaba985842727996ddef01e9a918b098269dccf9a31",
+        "kind": "network",
+        "n": 8388608,
+        "off": 0,
+        "op_id": 1,
+        "path": "2:dram:4->4",
+        "replica_id": "bounded_cost_runtime_r03/source1/dram",
+        "resources": [],
+        "source_epoch": "cpu_replay/2",
+        "source_offset": 0,
+        "src_w": 2,
+        "target": "bounded_cost_runtime_r03/mixed_novel8/target1",
+        "tp": 1
+      },
+      {
+        "dst_w": 5,
+        "generation": 1,
+        "identity": "e5d80a080d0c81bf403f5e644691daf38c0b681ac4d7c3f86e91a34a1ab8c15d",
+        "kind": "peer",
+        "n": 8388608,
+        "off": 0,
+        "op_id": 2,
+        "path": "4:ssd:0->5",
+        "replica_id": "bounded_cost_runtime_r03/source2/ssd",
+        "resources": [],
+        "source_epoch": "cpu_replay/4",
+        "source_offset": 0,
+        "src_w": 4,
+        "target": "bounded_cost_runtime_r03/mixed_novel8/target2",
+        "tp": 2
+      }
+    ],
+    "targets": [
+      {
+        "id": "bounded_cost_runtime_r03/mixed_novel8/target0",
+        "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+        "index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        },
+        "key": "bounded_cost_runtime_r03/mixed_novel8/target0",
+        "meta": {
+          "model_identity": "fixture:3100",
+          "synthetic": true,
+          "tp_rank": 0,
+          "tp_size": 4
+        },
+        "mode": "replica",
+        "n": 8388608,
+        "numa": 0,
+        "off": 0,
+        "tier": "hbm",
+        "tp": 0,
+        "worker": 4
+      },
+      {
+        "id": "bounded_cost_runtime_r03/mixed_novel8/target1",
+        "identity": "c4762e0576175160b3863aaba985842727996ddef01e9a918b098269dccf9a31",
+        "index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        },
+        "key": "bounded_cost_runtime_r03/mixed_novel8/target1",
+        "meta": {
+          "model_identity": "fixture:3101",
+          "synthetic": true,
+          "tp_rank": 1,
+          "tp_size": 4
+        },
+        "mode": "replica",
+        "n": 8388608,
+        "numa": 0,
+        "off": 0,
+        "tier": "hbm",
+        "tp": 1,
+        "worker": 4
+      },
+      {
+        "id": "bounded_cost_runtime_r03/mixed_novel8/target2",
+        "identity": "e5d80a080d0c81bf403f5e644691daf38c0b681ac4d7c3f86e91a34a1ab8c15d",
+        "index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        },
+        "key": "bounded_cost_runtime_r03/mixed_novel8/target2",
+        "meta": {
+          "model_identity": "fixture:3102",
+          "synthetic": true,
+          "tp_rank": 2,
+          "tp_size": 4
+        },
+        "mode": "replica",
+        "n": 8388608,
+        "numa": 4,
+        "off": 0,
+        "tier": "hbm",
+        "tp": 2,
+        "worker": 5
+      }
+    ]
+  },
+  "prediction": {
+    "bandwidth_plan_estimate_s": null,
+    "decision_ready": false,
+    "dispatch_s": 0.002674445990123786,
+    "empirical_local_service_range_s": [
+      0.00021949299843981862,
+      0.000333784002577886
+    ],
+    "estimated_execute_s": 0.016287743824553523,
+    "estimated_full_filled_s": 0.035162677825960845,
+    "estimated_full_published_s": null,
+    "estimated_service_s": 0.013562767341985213,
+    "estimated_worker_s": 0.013613297834429735,
+    "frozen_model_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+      "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+    },
+    "full_filled_prediction_scope": "Training control median is a coarse portability hypothesis; service and execute errors require separate validation.",
+    "migration_attestation_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_preparation_cpu_r01/measure/migration_attestation.json",
+      "sha256": "31521a6523f0fed4786ddd8188ca4e050daa95b4651a4f7ed101d129e79b8484"
+    },
+    "physical_capacity_certified": false,
+    "published_prediction_scope": "Unidentified SHA/publication byte-and-object cost; actual published timing is reported without prediction.",
+    "request_s": 5.053049244452268e-05,
+    "scope": "Bounded single-op effective service, serial source/target dependencies, warm-only explicit incarnation binding; no solver or capacity claim.",
+    "strategy": "bounded_warm_serial_service",
+    "timeline": [
+      {
+        "end_s": 0.00028079600451746956,
+        "first_pair_s": null,
+        "op_id": 0,
+        "path": "4:hbm:0->4",
+        "service_s": 0.00028079600451746956,
+        "source_wait_s": 0.0,
+        "start_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "end_s": 0.0014750250096161228,
+        "first_pair_s": null,
+        "op_id": 1,
+        "path": "2:dram:4->4",
+        "service_s": 0.0011942290050986533,
+        "source_wait_s": 0.00028079600451746956,
+        "start_s": 0.00028079600451746956,
+        "target_wait_s": 0.0
+      },
+      {
+        "end_s": 0.013562767341985213,
+        "first_pair_s": null,
+        "op_id": 2,
+        "path": "4:ssd:0->5",
+        "service_s": 0.012087742332369089,
+        "source_wait_s": 0.0,
+        "start_s": 0.0014750250096161228,
+        "target_wait_s": 0.0014750250096161228
+      }
+    ],
+    "uncertainty_scope": "Observed local single-op envelope only; neither confidence interval nor mixed-request guarantee."
+  },
+  "saved_ns": 191956945542719,
+  "source_frozen_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  }
+}

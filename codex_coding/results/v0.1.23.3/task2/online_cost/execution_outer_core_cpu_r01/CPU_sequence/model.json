@@ -1,0 +1,2214 @@
+{
+  "schema": "simple_exact_extent_model_v1",
+  "context": {
+    "executor": "serial",
+    "chunk_bytes": 33554432,
+    "control_mode": "compact",
+    "load_state": "warm",
+    "workflow": "simple_two_node_single_sender_v1",
+    "clock_domain": "CPU_current_clock",
+    "clock_scope": "single_controller",
+    "worker_physical": [
+      {
+        "worker": 0,
+        "node": "node27",
+        "gpu": 4,
+        "numa": 4
+      },
+      {
+        "worker": 1,
+        "node": "node27",
+        "gpu": 5,
+        "numa": 7
+      },
+      {
+        "worker": 2,
+        "node": "node30",
+        "gpu": 4,
+        "numa": 4
+      }
+    ],
+    "worker_BDF": {
+      "0": "CPU_BDF0",
+      "1": "CPU_BDF1",
+      "2": "CPU_BDF2"
+    },
+    "path_context": {
+      "0:dram:4->0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "0:hbm:4->0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_hbm",
+        "source_tier": "hbm",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "2:dram:4->0": {
+        "endpoints": [
+          2,
+          0
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "1:dram:7->1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 7,
+        "tp_rank": 1
+      },
+      "1:hbm:7->1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_hbm",
+        "source_tier": "hbm",
+        "source_numa": 7,
+        "tp_rank": 1
+      },
+      "2:dram:7->1": {
+        "endpoints": [
+          2,
+          1
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 7,
+        "tp_rank": 1
+      }
+    },
+    "shared_resource_paths": {},
+    "operation_count_interval": [
+      66,
+      66
+    ],
+    "path_cost_policy": "exact_extent_service_points_v1",
+    "calibration_sizes": [
+      805120688,
+      1073741824
+    ],
+    "path_warmup_bytes": 1073741824,
+    "full_model_plan_workload": {
+      "targets": [
+        {
+          "worker": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 35164859056
+        },
+        {
+          "worker": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 35164859056
+        }
+      ],
+      "ordered_extents": [
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 1073741824,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 1073741824,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 2147483648,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 2147483648,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 3221225472,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 3221225472,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 4294967296,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 4294967296,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 5368709120,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 5368709120,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 6442450944,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 6442450944,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 7516192768,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 7516192768,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 8589934592,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 8589934592,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 9663676416,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 9663676416,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 10737418240,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 10737418240,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 11811160064,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 11811160064,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 12884901888,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 12884901888,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 13958643712,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 13958643712,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 15032385536,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 15032385536,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 16106127360,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 16106127360,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 17179869184,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 17179869184,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 18253611008,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 18253611008,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 19327352832,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 19327352832,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 20401094656,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 20401094656,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 21474836480,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 21474836480,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 22548578304,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 22548578304,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 23622320128,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 23622320128,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 24696061952,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 24696061952,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 25769803776,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 25769803776,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 26843545600,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 26843545600,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 27917287424,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 27917287424,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 28991029248,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 28991029248,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 30064771072,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 30064771072,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 31138512896,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 31138512896,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 32212254720,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 32212254720,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 33285996544,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 33285996544,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 34359738368,
+          "n": 805120688
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 34359738368,
+          "n": 805120688
+        }
+      ],
+      "N": 70329718112,
+      "K": 66,
+      "C": 2096
+    }
+  },
+  "topology_id": "36fd408131ba36e44074313077af5c560a68a3e5e1bb7549a98cc8edb86c1962",
+  "point_costs": {
+    "0:dram:4->0": {
+      "805120688": {
+        "service_s": 0.0402560344,
+        "nbytes": 805120688
+      },
+      "1073741824": {
+        "service_s": 0.0536870912,
+        "nbytes": 1073741824
+      }
+    },
+    "0:hbm:4->0": {
+      "805120688": {
+        "service_s": 0.0402560344,
+        "nbytes": 805120688
+      },
+      "1073741824": {
+        "service_s": 0.0536870912,
+        "nbytes": 1073741824
+      }
+    },
+    "2:dram:4->0": {
+      "805120688": {
+        "service_s": 0.073129,
+        "nbytes": 805120688
+      },
+      "1073741824": {
+        "service_s": 0.066855,
+        "nbytes": 1073741824
+      }
+    },
+    "1:dram:7->1": {
+      "805120688": {
+        "service_s": 0.0402560344,
+        "nbytes": 805120688
+      },
+      "1073741824": {
+        "service_s": 0.0536870912,
+        "nbytes": 1073741824
+      }
+    },
+    "1:hbm:7->1": {
+      "805120688": {
+        "service_s": 0.0402560344,
+        "nbytes": 805120688
+      },
+      "1073741824": {
+        "service_s": 0.0536870912,
+        "nbytes": 1073741824
+      }
+    },
+    "2:dram:7->1": {
+      "805120688": {
+        "service_s": 0.073129,
+        "nbytes": 805120688
+      },
+      "1073741824": {
+        "service_s": 0.066855,
+        "nbytes": 1073741824
+      }
+    }
+  },
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_0_warmup_1073741824.json",
+      "sha256": "9eba18b71816e9167cd5be1af7498e49725ef48e72353ba169fb0ee6ebbc6b6c"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_0_cal_805120688.json",
+      "sha256": "42ec5a0638857243493daf06413d6b70edb07140069b5d48160a41bdd08f120c"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_0_cal_1073741824.json",
+      "sha256": "1c02cfdee2129b29f70d888f95767fbe517d608ac880e90fbc0b47b6e04a32b9"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_1_warmup_1073741824.json",
+      "sha256": "e7ecf58ec40aa275e1c0cd50d67aa3380c3606f9effe13b01e45c04679e2b62b"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_1_cal_805120688.json",
+      "sha256": "5d7e9e720ea074335b5da55f6076782c5653857c3f954136e35c8d2bb4be3dd4"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_1_cal_1073741824.json",
+      "sha256": "f1f4ff414e485507c6d044e71bcc440bb2740977239c7bf659fb91f53520853d"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_2_warmup_1073741824.json",
+      "sha256": "068d1281a3ac33bccc89411ed7df417db81e1fb0bbbb111102d6b65bd93e987c"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_2_cal_805120688.json",
+      "sha256": "0c646693fec5e70293ab0de0673c179d674e217166e5b39e7cca11f8ff970d95"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_2_cal_1073741824.json",
+      "sha256": "4ed439c0fdc4d78eb26a8d4b6967e30ede0c9673f9541d1aff25bfb0810f0fdd"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_3_warmup_1073741824.json",
+      "sha256": "3e188f439269ce03325767618b0c474d320219b3e4641e65e64a5e8010ad2966"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_3_cal_805120688.json",
+      "sha256": "ff03113e970be35f0be25f61eb119783738e682d72ff033dada5cb61fe876a26"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_3_cal_1073741824.json",
+      "sha256": "3ed6f27bba2f56d50c486b42939284d84a81f22f9b07d4cd7774c6769c91f616"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_4_warmup_1073741824.json",
+      "sha256": "8c63c32b7c77adb42ed430d00a1bb97298faeaf5cc942cbb5000f2786ce32377"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_4_cal_805120688.json",
+      "sha256": "9b9a2632dd35c8686c09256c9fcd19dff0718e1f50576d651c16544295ffa5bd"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_4_cal_1073741824.json",
+      "sha256": "3a9fae2cb0a026af8b28dfda3938e3c64209c64f72c877726217e944484a483a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_5_warmup_1073741824.json",
+      "sha256": "91f1b2cc1aaba9bb2cd03c4f8c8664d6137a5b13a79279155f8f17378a0e32a8"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_5_cal_805120688.json",
+      "sha256": "2392b874316f517812371f06b7875dd3f6b08e7f3677523607db322dc7dab7cb"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_5_cal_1073741824.json",
+      "sha256": "0e6ec4555bfaba6b49fc80dbabc3ae7ed21db9a7315cfa663e39ac77fe21e268"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_checkpoint_path_model.json",
+      "sha256": "03f36c1fdf13b1a4321eefabaa839c9e9f88928d23079ade146c584d50510685"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/outer_registration.json",
+      "sha256": "986ff481829ab27235da24fdbc190d985961f35c0aec9f6d5cd0ea85b9519538"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_current_binding.json",
+      "sha256": "4a5e3fce9b794231f30ca344c58b47a8c69d1c201800cd762e6710bce519c1db"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_cal_record.json",
+      "sha256": "de0e95528f4d21909a853bedc537ebee6fd3ae09cdc97657c37041793a77c032"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_prime_record.json",
+      "sha256": "19947b9cb0581c4d3ce6f4d84caea7004ccc07d5e789ad8c8883e75b117d6eff"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_prime_raw.json",
+      "sha256": "706339b35c56a1a84e9bcd119af3352597c4aa030864bcd9071a3b0aa2c32911"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_cal_raw.json",
+      "sha256": "bc67a8cee343c890064bd6800824263c13399f99dfedf92288e3e74f857baffd"
+    }
+  ],
+  "calibration_sessions": [
+    "CPU_current_session"
+  ],
+  "shared_qualifiers": {},
+  "online_outer_s": 0.5000000004000014,
+  "online_qualified": false,
+  "physical_capacity_certified": false,
+  "execution_interpretation": "Observed service only at exact 1GiB/tail sizes after per-path warmup; original worker-order DAG serializes worker2; no bandwidth fit, interpolation or shared multiplier.",
+  "path_cost_inheritance": {
+    "schema": "immutable_exact_path_inheritance_v1",
+    "source_checkpoint_path_model_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_checkpoint_path_model.json",
+      "sha256": "03f36c1fdf13b1a4321eefabaa839c9e9f88928d23079ade146c584d50510685"
+    },
+    "source_context": {
+      "executor": "serial",
+      "chunk_bytes": 33554432,
+      "control_mode": "compact",
+      "load_state": "warm",
+      "workflow": "simple_two_node_single_sender_v1",
+      "clock_domain": "CPU_old_clock",
+      "clock_scope": "single_controller",
+      "worker_physical": [
+        {
+          "worker": 0,
+          "node": "node27",
+          "gpu": 4,
+          "numa": 4
+        },
+        {
+          "worker": 1,
+          "node": "node27",
+          "gpu": 5,
+          "numa": 7
+        },
+        {
+          "worker": 2,
+          "node": "node30",
+          "gpu": 4,
+          "numa": 4
+        }
+      ],
+      "worker_BDF": {
+        "0": "CPU_BDF0",
+        "1": "CPU_BDF1",
+        "2": "CPU_BDF2"
+      },
+      "path_context": {
+        "0:dram:4->0": {
+          "endpoints": [
+            0,
+            0
+          ],
+          "operation_kind": "local_dram",
+          "source_tier": "dram",
+          "source_numa": 4,
+          "tp_rank": 0
+        },
+        "0:hbm:4->0": {
+          "endpoints": [
+            0,
+            0
+          ],
+          "operation_kind": "local_hbm",
+          "source_tier": "hbm",
+          "source_numa": 4,
+          "tp_rank": 0
+        },
+        "2:dram:4->0": {
+          "endpoints": [
+            2,
+            0
+          ],
+          "operation_kind": "network",
+          "source_tier": "dram",
+          "source_numa": 4,
+          "tp_rank": 0
+        },
+        "1:dram:7->1": {
+          "endpoints": [
+            1,
+            1
+          ],
+          "operation_kind": "local_dram",
+          "source_tier": "dram",
+          "source_numa": 7,
+          "tp_rank": 1
+        },
+        "1:hbm:7->1": {
+          "endpoints": [
+            1,
+            1
+          ],
+          "operation_kind": "local_hbm",
+          "source_tier": "hbm",
+          "source_numa": 7,
+          "tp_rank": 1
+        },
+        "2:dram:7->1": {
+          "endpoints": [
+            2,
+            1
+          ],
+          "operation_kind": "network",
+          "source_tier": "dram",
+          "source_numa": 7,
+          "tp_rank": 1
+        }
+      },
+      "shared_resource_paths": {},
+      "operation_count_interval": [
+        66,
+        66
+      ],
+      "path_cost_policy": "exact_extent_service_points_v1",
+      "calibration_sizes": [
+        805120688,
+        1073741824
+      ],
+      "path_warmup_bytes": 1073741824,
+      "full_model_plan_workload": {
+        "targets": [
+          {
+            "worker": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 0,
+            "n": 35164859056
+          },
+          {
+            "worker": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 0,
+            "n": 35164859056
+          }
+        ],
+        "ordered_extents": [
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 0,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 0,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 1073741824,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 1073741824,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 2147483648,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 2147483648,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 3221225472,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 3221225472,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 4294967296,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 4294967296,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 5368709120,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 5368709120,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 6442450944,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 6442450944,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 7516192768,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 7516192768,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 8589934592,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 8589934592,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 9663676416,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 9663676416,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 10737418240,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 10737418240,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 11811160064,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 11811160064,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 12884901888,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 12884901888,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 13958643712,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 13958643712,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 15032385536,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 15032385536,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 16106127360,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 16106127360,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 17179869184,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 17179869184,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 18253611008,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 18253611008,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 19327352832,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 19327352832,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 20401094656,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 20401094656,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 21474836480,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 21474836480,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 22548578304,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 22548578304,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 23622320128,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 23622320128,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 24696061952,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 24696061952,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 25769803776,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 25769803776,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 26843545600,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 26843545600,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 27917287424,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 27917287424,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 28991029248,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 28991029248,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 30064771072,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 30064771072,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 31138512896,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 31138512896,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 32212254720,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 32212254720,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 33285996544,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 33285996544,
+            "n": 1073741824
+          },
+          {
+            "dst_w": 0,
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 34359738368,
+            "n": 805120688
+          },
+          {
+            "dst_w": 1,
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 34359738368,
+            "n": 805120688
+          }
+        ],
+        "N": 70329718112,
+        "K": 66,
+        "C": 2096
+      }
+    },
+    "source_context_sha256": "11b11747caa80c92625b2f492256124d059874de02b1f0a2ddf3ec6fadc894ee",
+    "source_raw_refs": [
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_0_warmup_1073741824.json",
+        "sha256": "9eba18b71816e9167cd5be1af7498e49725ef48e72353ba169fb0ee6ebbc6b6c"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_0_cal_805120688.json",
+        "sha256": "42ec5a0638857243493daf06413d6b70edb07140069b5d48160a41bdd08f120c"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_0_cal_1073741824.json",
+        "sha256": "1c02cfdee2129b29f70d888f95767fbe517d608ac880e90fbc0b47b6e04a32b9"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_1_warmup_1073741824.json",
+        "sha256": "e7ecf58ec40aa275e1c0cd50d67aa3380c3606f9effe13b01e45c04679e2b62b"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_1_cal_805120688.json",
+        "sha256": "5d7e9e720ea074335b5da55f6076782c5653857c3f954136e35c8d2bb4be3dd4"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_1_cal_1073741824.json",
+        "sha256": "f1f4ff414e485507c6d044e71bcc440bb2740977239c7bf659fb91f53520853d"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_2_warmup_1073741824.json",
+        "sha256": "068d1281a3ac33bccc89411ed7df417db81e1fb0bbbb111102d6b65bd93e987c"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_2_cal_805120688.json",
+        "sha256": "0c646693fec5e70293ab0de0673c179d674e217166e5b39e7cca11f8ff970d95"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_2_cal_1073741824.json",
+        "sha256": "4ed439c0fdc4d78eb26a8d4b6967e30ede0c9673f9541d1aff25bfb0810f0fdd"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_3_warmup_1073741824.json",
+        "sha256": "3e188f439269ce03325767618b0c474d320219b3e4641e65e64a5e8010ad2966"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_3_cal_805120688.json",
+        "sha256": "ff03113e970be35f0be25f61eb119783738e682d72ff033dada5cb61fe876a26"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_3_cal_1073741824.json",
+        "sha256": "3ed6f27bba2f56d50c486b42939284d84a81f22f9b07d4cd7774c6769c91f616"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_4_warmup_1073741824.json",
+        "sha256": "8c63c32b7c77adb42ed430d00a1bb97298faeaf5cc942cbb5000f2786ce32377"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_4_cal_805120688.json",
+        "sha256": "9b9a2632dd35c8686c09256c9fcd19dff0718e1f50576d651c16544295ffa5bd"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_4_cal_1073741824.json",
+        "sha256": "3a9fae2cb0a026af8b28dfda3938e3c64209c64f72c877726217e944484a483a"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_5_warmup_1073741824.json",
+        "sha256": "91f1b2cc1aaba9bb2cd03c4f8c8664d6137a5b13a79279155f8f17378a0e32a8"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_5_cal_805120688.json",
+        "sha256": "2392b874316f517812371f06b7875dd3f6b08e7f3677523607db322dc7dab7cb"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_old_source/CPU_path_5_cal_1073741824.json",
+        "sha256": "0e6ec4555bfaba6b49fc80dbabc3ae7ed21db9a7315cfa663e39ac77fe21e268"
+      }
+    ],
+    "source_calibration_sessions": [
+      "CPU_old_session"
+    ],
+    "point_costs_sha256": "a765b042a34deafc0a55fcda0a3dfaad8539fd5589fee2125ea0167537d02452",
+    "registration_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/outer_registration.json",
+      "sha256": "986ff481829ab27235da24fdbc190d985961f35c0aec9f6d5cd0ea85b9519538"
+    },
+    "current_session": "CPU_current_session",
+    "interpretation": "Original r02 exact service points inherited as an explicit same-physical-scope hypothesis, not newly measured current-session service."
+  },
+  "outer_domain": "post_one_fullrestore_samecontroller",
+  "current_controller": {
+    "pid": 2600992,
+    "clock_domain": "CPU_current_clock"
+  },
+  "outer_interpretation": "One C0_cal inclusive online-minus-inherited-service residual after one complete verified prime in the same persistent controller; prime and historical holdouts are excluded from fitting.",
+  "outer_calibration_service": {
+    "estimated_transfer_service_s": 3.0386094935999988,
+    "worker_dag_s": 3.0386094935999988,
+    "isolated_worker_dag_s": 3.0386094935999988,
+    "timeline": [
+      {
+        "op_id": 0,
+        "path": "0:hbm:4->0",
+        "start_s": 0.0,
+        "end_s": 0.0536870912,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:hbm:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 1,
+        "path": "1:hbm:7->1",
+        "start_s": 0.0,
+        "end_s": 0.0536870912,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:hbm:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 2,
+        "path": "2:dram:4->0",
+        "start_s": 0.0536870912,
+        "end_s": 0.1205420912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0536870912,
+        "target_wait_s": 0.0,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 3,
+        "path": "2:dram:7->1",
+        "start_s": 0.1205420912,
+        "end_s": 0.1873970912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 4,
+        "path": "2:dram:4->0",
+        "start_s": 0.1873970912,
+        "end_s": 0.25425209120000003,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 5,
+        "path": "2:dram:7->1",
+        "start_s": 0.25425209120000003,
+        "end_s": 0.3211070912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685500000000003,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 6,
+        "path": "2:dram:4->0",
+        "start_s": 0.3211070912,
+        "end_s": 0.3879620912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 7,
+        "path": "2:dram:7->1",
+        "start_s": 0.3879620912,
+        "end_s": 0.4548170912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 8,
+        "path": "2:dram:4->0",
+        "start_s": 0.4548170912,
+        "end_s": 0.5216720912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 9,
+        "path": "2:dram:7->1",
+        "start_s": 0.5216720912,
+        "end_s": 0.5885270912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 10,
+        "path": "2:dram:4->0",
+        "start_s": 0.5885270912,
+        "end_s": 0.6553820912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 11,
+        "path": "2:dram:7->1",
+        "start_s": 0.6553820912,
+        "end_s": 0.7222370912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 12,
+        "path": "2:dram:4->0",
+        "start_s": 0.7222370912,
+        "end_s": 0.7890920912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 13,
+        "path": "2:dram:7->1",
+        "start_s": 0.7890920912,
+        "end_s": 0.8559470912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 14,
+        "path": "2:dram:4->0",
+        "start_s": 0.8559470912,
+        "end_s": 0.9228020912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 15,
+        "path": "2:dram:7->1",
+        "start_s": 0.9228020912,
+        "end_s": 0.9896570912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 16,
+        "path": "2:dram:4->0",
+        "start_s": 0.9896570912,
+        "end_s": 1.0565120912000001,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.066855,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 17,
+        "path": "2:dram:7->1",
+        "start_s": 1.0565120912000001,
+        "end_s": 1.1233670912,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685500000000011,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 18,
+        "path": "2:dram:4->0",
+        "start_s": 1.1233670912,
+        "end_s": 1.1902220911999999,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 19,
+        "path": "2:dram:7->1",
+        "start_s": 1.1902220911999999,
+        "end_s": 1.2570770911999998,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 20,
+        "path": "2:dram:4->0",
+        "start_s": 1.2570770911999998,
+        "end_s": 1.3239320911999997,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 21,
+        "path": "2:dram:7->1",
+        "start_s": 1.3239320911999997,
+        "end_s": 1.3907870911999995,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 22,
+        "path": "2:dram:4->0",
+        "start_s": 1.3907870911999995,
+        "end_s": 1.4576420911999994,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 23,
+        "path": "2:dram:7->1",
+        "start_s": 1.4576420911999994,
+        "end_s": 1.5244970911999993,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 24,
+        "path": "2:dram:4->0",
+        "start_s": 1.5244970911999993,
+        "end_s": 1.5913520911999992,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 25,
+        "path": "2:dram:7->1",
+        "start_s": 1.5913520911999992,
+        "end_s": 1.658207091199999,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 26,
+        "path": "2:dram:4->0",
+        "start_s": 1.658207091199999,
+        "end_s": 1.725062091199999,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 27,
+        "path": "2:dram:7->1",
+        "start_s": 1.725062091199999,
+        "end_s": 1.7919170911999989,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 28,
+        "path": "2:dram:4->0",
+        "start_s": 1.7919170911999989,
+        "end_s": 1.8587720911999988,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 29,
+        "path": "2:dram:7->1",
+        "start_s": 1.8587720911999988,
+        "end_s": 1.9256270911999986,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 30,
+        "path": "2:dram:4->0",
+        "start_s": 1.9256270911999986,
+        "end_s": 1.9924820911999985,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 31,
+        "path": "2:dram:7->1",
+        "start_s": 1.9924820911999985,
+        "end_s": 2.0593370911999984,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 32,
+        "path": "2:dram:4->0",
+        "start_s": 2.0593370911999984,
+        "end_s": 2.1261920911999983,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 33,
+        "path": "2:dram:7->1",
+        "start_s": 2.1261920911999983,
+        "end_s": 2.193047091199998,
+        "service_s": 0.066855,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.06685499999999989,
+        "point_path_alias": "2:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 34,
+        "path": "0:dram:4->0",
+        "start_s": 2.1261920911999983,
+        "end_s": 2.1798791823999983,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 35,
+        "path": "1:dram:7->1",
+        "start_s": 2.193047091199998,
+        "end_s": 2.2467341823999982,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 36,
+        "path": "0:dram:4->0",
+        "start_s": 2.1798791823999983,
+        "end_s": 2.2335662735999984,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 37,
+        "path": "1:dram:7->1",
+        "start_s": 2.2467341823999982,
+        "end_s": 2.3004212735999983,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 38,
+        "path": "0:dram:4->0",
+        "start_s": 2.2335662735999984,
+        "end_s": 2.2872533647999984,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 39,
+        "path": "1:dram:7->1",
+        "start_s": 2.3004212735999983,
+        "end_s": 2.3541083647999983,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 40,
+        "path": "0:dram:4->0",
+        "start_s": 2.2872533647999984,
+        "end_s": 2.3409404559999984,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 41,
+        "path": "1:dram:7->1",
+        "start_s": 2.3541083647999983,
+        "end_s": 2.4077954559999983,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 42,
+        "path": "0:dram:4->0",
+        "start_s": 2.3409404559999984,
+        "end_s": 2.3946275471999985,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 43,
+        "path": "1:dram:7->1",
+        "start_s": 2.4077954559999983,
+        "end_s": 2.4614825471999984,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 44,
+        "path": "0:dram:4->0",
+        "start_s": 2.3946275471999985,
+        "end_s": 2.4483146383999985,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 45,
+        "path": "1:dram:7->1",
+        "start_s": 2.4614825471999984,
+        "end_s": 2.5151696383999984,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 46,
+        "path": "0:dram:4->0",
+        "start_s": 2.4483146383999985,
+        "end_s": 2.5020017295999986,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 47,
+        "path": "1:dram:7->1",
+        "start_s": 2.5151696383999984,
+        "end_s": 2.5688567295999984,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 48,
+        "path": "0:dram:4->0",
+        "start_s": 2.5020017295999986,
+        "end_s": 2.5556888207999986,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 49,
+        "path": "1:dram:7->1",
+        "start_s": 2.5688567295999984,
+        "end_s": 2.6225438207999985,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 50,
+        "path": "0:dram:4->0",
+        "start_s": 2.5556888207999986,
+        "end_s": 2.6093759119999986,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 51,
+        "path": "1:dram:7->1",
+        "start_s": 2.6225438207999985,
+        "end_s": 2.6762309119999985,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 52,
+        "path": "0:dram:4->0",
+        "start_s": 2.6093759119999986,
+        "end_s": 2.6630630031999987,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 53,
+        "path": "1:dram:7->1",
+        "start_s": 2.6762309119999985,
+        "end_s": 2.7299180031999986,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 54,
+        "path": "0:dram:4->0",
+        "start_s": 2.6630630031999987,
+        "end_s": 2.7167500943999987,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 55,
+        "path": "1:dram:7->1",
+        "start_s": 2.7299180031999986,
+        "end_s": 2.7836050943999986,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 56,
+        "path": "0:dram:4->0",
+        "start_s": 2.7167500943999987,
+        "end_s": 2.7704371855999987,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 57,
+        "path": "1:dram:7->1",
+        "start_s": 2.7836050943999986,
+        "end_s": 2.8372921855999986,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 58,
+        "path": "0:dram:4->0",
+        "start_s": 2.7704371855999987,
+        "end_s": 2.824124276799999,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 59,
+        "path": "1:dram:7->1",
+        "start_s": 2.8372921855999986,
+        "end_s": 2.8909792767999987,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 60,
+        "path": "0:dram:4->0",
+        "start_s": 2.824124276799999,
+        "end_s": 2.877811367999999,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 61,
+        "path": "1:dram:7->1",
+        "start_s": 2.8909792767999987,
+        "end_s": 2.9446663679999987,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 62,
+        "path": "0:dram:4->0",
+        "start_s": 2.877811367999999,
+        "end_s": 2.931498459199999,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 63,
+        "path": "1:dram:7->1",
+        "start_s": 2.9446663679999987,
+        "end_s": 2.9983534591999987,
+        "service_s": 0.0536870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=1073741824"
+      },
+      {
+        "op_id": 64,
+        "path": "0:dram:4->0",
+        "start_s": 2.931498459199999,
+        "end_s": 2.971754493599999,
+        "service_s": 0.0402560344,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "0:dram:4->0/exact_nbytes=805120688"
+      },
+      {
+        "op_id": 65,
+        "path": "1:dram:7->1",
+        "start_s": 2.9983534591999987,
+        "end_s": 3.0386094935999988,
+        "service_s": 0.0402560344,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0,
+        "point_path_alias": "1:dram:7->1/exact_nbytes=805120688"
+      }
+    ],
+    "shared_phase_qualifiers": {},
+    "shared_score_interpretation": "Exact observed per-operation service scheduled by original worker-order DAG; no shared qualifier.",
+    "physical_capacity_certified": false,
+    "path_cost_policy": "exact_extent_service_points_v1"
+  },
+  "current_outer_calibration": {
+    "prime_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_prime_record.json",
+      "sha256": "19947b9cb0581c4d3ce6f4d84caea7004ccc07d5e789ad8c8883e75b117d6eff"
+    },
+    "calibration_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_cal_record.json",
+      "sha256": "de0e95528f4d21909a853bedc537ebee6fd3ae09cdc97657c37041793a77c032"
+    },
+    "prime_online_ns": 4538609494,
+    "calibration_online_ns": 3538609494,
+    "prime_used_for_fitting": false,
+    "calibration_run_ids": [
+      "C0_prime",
+      "C0_cal"
+    ],
+    "complete_incarnation_sha256": "ecd329b4fb27c90e54e9544fcfdff9d29e449739c537230f805a2c2661d9b671",
+    "outer_domain": "post_one_fullrestore_samecontroller"
+  }
+}

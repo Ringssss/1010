@@ -1,0 +1,257 @@
+{
+  "run": "cluster/policy01",
+  "status": "passed",
+  "development": "v0.1.23.2",
+  "summary_sha256": "28bdced0682ca43d086cfe3aac2f5b67d4538d65b420845a8591bd591af691e2",
+  "analyzer_sha256": "0fbff2598f5d6d0ac64fca545846ff1e91a103a1f5cd4b7202bf68bf59c6e17f",
+  "order": [
+    "primary_only",
+    "nearest",
+    "balanced",
+    "resource_lp"
+  ],
+  "handoff_poll_s": 0.01,
+  "rows": [
+    {
+      "policy": "primary_only",
+      "load_s": 2.180202014,
+      "passed": true,
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.001416207,
+        "loader_entry_s": 0.002180273,
+        "model_layout_s": 0.312143001,
+        "export_s": 0.035635658,
+        "target_wait_s": 1.816332476,
+        "finalize_s": 0.012494399
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.343917368,
+        "target_mapping_s": 0.06843843,
+        "execute_dispatch_wait_s": 0.008596687,
+        "worker_execution_s": 1.382130947,
+        "completion_coordination_s": 0.006859458,
+        "ready_notice_wait_s": 0.006389586
+      },
+      "pre_mapping_detail_s": {
+        "peer_export_wait_s": 0.0,
+        "after_all_exports_to_accept_s": 0.343917368
+      },
+      "all_rank_arrival_skew_s": 0.001416207,
+      "all_rank_export_skew_s": 0.009744984,
+      "plan_wall_s": 0.2170105278491974,
+      "planner_rpc_breakdown_s": {
+        "inventory_rpc_s": 0.05076234368607402,
+        "planner_rpc_s": 0.16272346395999193,
+        "total_s": 0.2134890197776258
+      },
+      "coordinator_s": {
+        "inventory_rpc_s": 0.05211225198581815,
+        "prepare_rpc_s": 0.1378914611414075,
+        "execute_wall_s": 1.3903031260706484,
+        "verify_and_publish_s": 0.009153991937637329
+      },
+      "source_GiB": {
+        "model/remote/0": 32.749827072024345,
+        "model/remote/1": 32.749827072024345
+      },
+      "extra_source_GiB": 0.0,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "model_transfer_estimate_s": 2.3443239370666666,
+      "observed_load_saving_vs_primary_s": 0.0,
+      "illustrative_build_amortization_reuses": null
+    },
+    {
+      "policy": "nearest",
+      "load_s": 2.259574075,
+      "passed": true,
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002363193,
+        "model_layout_s": 0.309459237,
+        "export_s": 0.034914024,
+        "target_wait_s": 1.900759484,
+        "finalize_s": 0.012078137
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.447394492,
+        "target_mapping_s": 0.056653954,
+        "execute_dispatch_wait_s": 0.029499774,
+        "worker_execution_s": 1.338059602,
+        "completion_coordination_s": 0.021237478,
+        "ready_notice_wait_s": 0.007914184
+      },
+      "pre_mapping_detail_s": {
+        "peer_export_wait_s": 0.0,
+        "after_all_exports_to_accept_s": 0.447394492
+      },
+      "all_rank_arrival_skew_s": 0.003769921,
+      "all_rank_export_skew_s": 0.000830755,
+      "plan_wall_s": 0.24490643478929996,
+      "planner_rpc_breakdown_s": {
+        "inventory_rpc_s": 0.050159187987446785,
+        "planner_rpc_s": 0.19166288105770946,
+        "total_s": 0.24182591028511524
+      },
+      "coordinator_s": {
+        "inventory_rpc_s": 0.12260763812810183,
+        "prepare_rpc_s": 0.15020406106486917,
+        "execute_wall_s": 1.3582900986075401,
+        "verify_and_publish_s": 0.01015189616009593
+      },
+      "source_GiB": {
+        "model/gpu/0": 3.0,
+        "model/gpu/1": 3.0,
+        "model/remote/0": 28.749827072024345,
+        "model/remote/1": 28.749827072024345,
+        "model/joint/0": 1.0,
+        "model/joint/1": 1.0
+      },
+      "extra_source_GiB": 8.0,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "model_transfer_estimate_s": 2.2727411488,
+      "observed_load_saving_vs_primary_s": -0.07937206100000038,
+      "illustrative_build_amortization_reuses": null
+    },
+    {
+      "policy": "balanced",
+      "load_s": 2.258084287,
+      "passed": true,
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.004972588,
+        "loader_entry_s": 0.002349673,
+        "model_layout_s": 0.312611994,
+        "export_s": 0.034857093,
+        "target_wait_s": 1.891093411,
+        "finalize_s": 0.012199528
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.426177894,
+        "target_mapping_s": 0.071049415,
+        "execute_dispatch_wait_s": 0.008184215,
+        "worker_execution_s": 1.368354101,
+        "completion_coordination_s": 0.008710838,
+        "ready_notice_wait_s": 0.008616948
+      },
+      "pre_mapping_detail_s": {
+        "peer_export_wait_s": 0.0,
+        "after_all_exports_to_accept_s": 0.426177894
+      },
+      "all_rank_arrival_skew_s": 0.004972588,
+      "all_rank_export_skew_s": 0.013249403,
+      "plan_wall_s": 0.28808260103687644,
+      "planner_rpc_breakdown_s": {
+        "inventory_rpc_s": 0.09235470090061426,
+        "planner_rpc_s": 0.19240048294886947,
+        "total_s": 0.28475811798125505
+      },
+      "coordinator_s": {
+        "inventory_rpc_s": 0.05459702294319868,
+        "prepare_rpc_s": 0.15104293497279286,
+        "execute_wall_s": 1.3757034069858491,
+        "verify_and_publish_s": 0.010552580002695322
+      },
+      "source_GiB": {
+        "model/gpu/0": 1.83203125,
+        "model/gpu/1": 1.83203125,
+        "model/remote/0": 30.581858322024345,
+        "model/remote/1": 30.581858322024345,
+        "model/joint/0": 0.3359375,
+        "model/joint/1": 0.3359375
+      },
+      "extra_source_GiB": 4.3359375,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "model_transfer_estimate_s": 2.3202765941333334,
+      "observed_load_saving_vs_primary_s": -0.07788227300000017,
+      "illustrative_build_amortization_reuses": null
+    },
+    {
+      "policy": "resource_lp",
+      "load_s": 2.336552856,
+      "passed": true,
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002394253,
+        "model_layout_s": 0.307986089,
+        "export_s": 0.035053774,
+        "target_wait_s": 1.97850202,
+        "finalize_s": 0.01261672
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.546536102,
+        "target_mapping_s": 0.061987754,
+        "execute_dispatch_wait_s": 0.007679583,
+        "worker_execution_s": 1.348948257,
+        "completion_coordination_s": 0.007737193,
+        "ready_notice_wait_s": 0.005613131
+      },
+      "pre_mapping_detail_s": {
+        "peer_export_wait_s": 0.076911317,
+        "after_all_exports_to_accept_s": 0.469624785
+      },
+      "all_rank_arrival_skew_s": 0.070205079,
+      "all_rank_export_skew_s": 0.076911317,
+      "plan_wall_s": 0.19577637035399675,
+      "planner_rpc_breakdown_s": {
+        "inventory_rpc_s": 0.0685518910177052,
+        "planner_rpc_s": 0.12418550997972488,
+        "total_s": 0.19274026481434703
+      },
+      "coordinator_s": {
+        "inventory_rpc_s": 0.09071110794320703,
+        "prepare_rpc_s": 0.2368457498960197,
+        "execute_wall_s": 1.3567666341550648,
+        "verify_and_publish_s": 0.00993280066177249
+      },
+      "source_GiB": {
+        "model/gpu/0": 3.0,
+        "model/gpu/1": 3.0,
+        "model/remote/0": 28.749827072024345,
+        "model/remote/1": 28.749827072024345,
+        "model/joint/0": 1.0,
+        "model/joint/1": 1.0
+      },
+      "extra_source_GiB": 8.0,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "model_transfer_estimate_s": 2.2727411488,
+      "observed_load_saving_vs_primary_s": -0.15635084200000016,
+      "illustrative_build_amortization_reuses": null
+    }
+  ],
+  "retained_GiB": {
+    "dram": 67.4996566772461,
+    "hbm": 8.0
+  },
+  "source_hash_mismatches": [],
+  "limitations": [
+    "one observation per policy in fixed order; startup variation is retained",
+    "all policies retain the same physical replicas, including sources they do not read",
+    "the LP capacity profile remains provisional, not calibrated from these samples",
+    "source utilization is not proof of replica benefit; this is an initial screening"
+  ],
+  "extra_replica_build_transactions_s": {
+    "hbm": {
+      "prepare_s": 0.11291802674531937,
+      "execute_wall_s": 0.13943629804998636,
+      "verify_and_publish_s": 5.055926685221493,
+      "coordinator_wall_s": 5.308281010016799
+    },
+    "local_dram": {
+      "prepare_s": 0.9216461242176592,
+      "execute_wall_s": 0.06018564663827419,
+      "verify_and_publish_s": 1.2798366979695857,
+      "coordinator_wall_s": 2.261668468825519
+    }
+  },
+  "amortization_scope": "illustrative algebra only; one-sample load differences include startup noise; build transactions exclude placement planning and memory opportunity cost",
+  "identical_byte_plans": [
+    [
+      "nearest",
+      "resource_lp"
+    ]
+  ],
+  "passed": true
+}

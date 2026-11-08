@@ -1,0 +1,268 @@
+{
+  "summary": {
+    "path": "/tmp/fluid-e6-plot-mock.KbkHaW/MOCK_ONLY_summary.json",
+    "sha256": "2f42bf5e74101ce26c80aaddb3846445dec1a2655e618d4231543aa5b048b580"
+  },
+  "script": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/paper_e1_e8/figures/plot_e6.py",
+    "sha256": "7f3db7e1b772dde9260b524107f9ec5facb8ea3e42b896d750b6a8ad83e411e8"
+  },
+  "metrics": [],
+  "artifacts": [
+    {
+      "path": "/tmp/fluid-e6-plot-mock.KbkHaW/MOCK_ONLY_output_v2/e6_budget_curve.png",
+      "sha256": "f2a4f45963231a7f00a07c973e6f5f0c44caa775c97653d806c67f5185d4f51f"
+    },
+    {
+      "path": "/tmp/fluid-e6-plot-mock.KbkHaW/MOCK_ONLY_output_v2/e6_budget_curve.pdf",
+      "sha256": "5b7490223b8a9a4880fabcbe4c69c65a38f690ea87436ebc456ff8d9c618ce2d"
+    },
+    {
+      "path": "/tmp/fluid-e6-plot-mock.KbkHaW/MOCK_ONLY_output_v2/e6_budget_curve.svg",
+      "sha256": "a50c1cab09378b7191cccff00e45b4b91fd971db7292caa5935b6107849ca600"
+    }
+  ],
+  "stage": "e6",
+  "metric": "case.timing.load_s: same-host max(weights_ready)-min(load_begin)",
+  "x_axis": "build.cache_page_rounded_bytes / 2**30; charged extra HBM, not physical high-water",
+  "unplotted_requested_budget": "build.budget_bytes is retained per point below",
+  "exploratory_single_observations": true,
+  "independent_observation_count": 6,
+  "excluded_alias_count": 2,
+  "observations": [
+    {
+      "phase": "0_target_a",
+      "label": "0gib_greedy",
+      "scenario": "target_a",
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 0,
+      "cache_page_rounded_bytes": 0,
+      "charged_extra_hbm_gib": 0.0,
+      "T_ready_s": 2,
+      "base_logical_bytes": 70329718112,
+      "base_page_rounded_bytes": 70329722880,
+      "measurement_kind": "independent_measured_case"
+    },
+    {
+      "phase": "0_target_b",
+      "label": "0gib_greedy",
+      "scenario": "target_b",
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 0,
+      "cache_page_rounded_bytes": 0,
+      "charged_extra_hbm_gib": 0.0,
+      "T_ready_s": 2.1,
+      "base_logical_bytes": 70329718112,
+      "base_page_rounded_bytes": 70329722880,
+      "measurement_kind": "independent_measured_case"
+    },
+    {
+      "phase": "8_target_a",
+      "label": "8gib_greedy",
+      "scenario": "target_a",
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 8589934592,
+      "cache_page_rounded_bytes": 8589934592,
+      "charged_extra_hbm_gib": 8.0,
+      "T_ready_s": 1.8,
+      "base_logical_bytes": 70329718112,
+      "base_page_rounded_bytes": 70329722880,
+      "measurement_kind": "independent_measured_case"
+    },
+    {
+      "phase": "8_target_b",
+      "label": "8gib_greedy",
+      "scenario": "target_b",
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 8589934592,
+      "cache_page_rounded_bytes": 8589934592,
+      "charged_extra_hbm_gib": 8.0,
+      "T_ready_s": 1.9000000000000001,
+      "base_logical_bytes": 70329718112,
+      "base_page_rounded_bytes": 70329722880,
+      "measurement_kind": "independent_measured_case"
+    },
+    {
+      "phase": "16_target_a",
+      "label": "16gib_greedy",
+      "scenario": "target_a",
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 17179869184,
+      "cache_page_rounded_bytes": 17179869184,
+      "charged_extra_hbm_gib": 16.0,
+      "T_ready_s": 1.6,
+      "base_logical_bytes": 70329718112,
+      "base_page_rounded_bytes": 70329722880,
+      "measurement_kind": "independent_measured_case"
+    },
+    {
+      "phase": "16_target_b",
+      "label": "16gib_greedy",
+      "scenario": "target_b",
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 17179869184,
+      "cache_page_rounded_bytes": 17179869184,
+      "charged_extra_hbm_gib": 16.0,
+      "T_ready_s": 1.7000000000000002,
+      "base_logical_bytes": 70329718112,
+      "base_page_rounded_bytes": 70329722880,
+      "measurement_kind": "independent_measured_case"
+    }
+  ],
+  "target_points": [
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "scenario": "target_a",
+      "budget_bytes": 0,
+      "cache_page_rounded_bytes": 0,
+      "charged_extra_hbm_gib": 0.0,
+      "T_ready_s": 2,
+      "observation_count": 1,
+      "phases": [
+        "0_target_a"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "scenario": "target_b",
+      "budget_bytes": 0,
+      "cache_page_rounded_bytes": 0,
+      "charged_extra_hbm_gib": 0.0,
+      "T_ready_s": 2.1,
+      "observation_count": 1,
+      "phases": [
+        "0_target_b"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "scenario": "target_a",
+      "budget_bytes": 8589934592,
+      "cache_page_rounded_bytes": 8589934592,
+      "charged_extra_hbm_gib": 8.0,
+      "T_ready_s": 1.8,
+      "observation_count": 1,
+      "phases": [
+        "8_target_a"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "scenario": "target_b",
+      "budget_bytes": 8589934592,
+      "cache_page_rounded_bytes": 8589934592,
+      "charged_extra_hbm_gib": 8.0,
+      "T_ready_s": 1.9000000000000001,
+      "observation_count": 1,
+      "phases": [
+        "8_target_b"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "scenario": "target_a",
+      "budget_bytes": 17179869184,
+      "cache_page_rounded_bytes": 17179869184,
+      "charged_extra_hbm_gib": 16.0,
+      "T_ready_s": 1.6,
+      "observation_count": 1,
+      "phases": [
+        "16_target_a"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "scenario": "target_b",
+      "budget_bytes": 17179869184,
+      "cache_page_rounded_bytes": 17179869184,
+      "charged_extra_hbm_gib": 16.0,
+      "T_ready_s": 1.7000000000000002,
+      "observation_count": 1,
+      "phases": [
+        "16_target_b"
+      ]
+    }
+  ],
+  "equal_weight_mean_points": [
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 0,
+      "cache_page_rounded_bytes": 0,
+      "charged_extra_hbm_gib": 0.0,
+      "T_ready_s": 2.05,
+      "scenario_weights": [
+        0.5,
+        0.5
+      ],
+      "observation_count_by_target": [
+        1,
+        1
+      ],
+      "phases": [
+        "0_target_a",
+        "0_target_b"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 8589934592,
+      "cache_page_rounded_bytes": 8589934592,
+      "charged_extra_hbm_gib": 8.0,
+      "T_ready_s": 1.85,
+      "scenario_weights": [
+        0.5,
+        0.5
+      ],
+      "observation_count_by_target": [
+        1,
+        1
+      ],
+      "phases": [
+        "8_target_a",
+        "8_target_b"
+      ]
+    },
+    {
+      "policy": "greedy",
+      "routing": "resource_lp",
+      "budget_bytes": 17179869184,
+      "cache_page_rounded_bytes": 17179869184,
+      "charged_extra_hbm_gib": 16.0,
+      "T_ready_s": 1.6500000000000001,
+      "scenario_weights": [
+        0.5,
+        0.5
+      ],
+      "observation_count_by_target": [
+        1,
+        1
+      ],
+      "phases": [
+        "16_target_a",
+        "16_target_b"
+      ]
+    }
+  ],
+  "unplotted_mean_groups": [],
+  "rules": [
+    "No prediction plotted",
+    "No alias expanded",
+    "No missing budget imputed",
+    "Zero allocation retained when measured",
+    "Mean gives each target weight one half"
+  ]
+}

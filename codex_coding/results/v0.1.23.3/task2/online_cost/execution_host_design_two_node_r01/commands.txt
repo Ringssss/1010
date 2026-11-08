@@ -1,0 +1,9 @@
+python3 codex_coding/src/v0.1.23.3/task2/online_cost/execution/prepare.py --run-id online_qwen_two_node_r01 --out codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01 --metadata-root codex_coding/results/v0.1.23.3/task2/online_cost/review_two_node_metadata_r01 --model-metadata codex_coding/results/v0.1.23.3/task2/online_cost/execution_metadata_local_r01.json
+
+python3 codex_coding/src/v0.1.23.3/task2/online_cost/execution/orchestrate.py setup --setup-dir codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01 --out codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_setup_two_node_r01 --execute
+
+python3 codex_coding/src/v0.1.23.3/task2/online_cost/execution/orchestrate.py admission --setup-dir codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01 --bindings codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_setup_two_node_r01/setup.json --out codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_admission_two_node_r01 --execute
+
+python3 codex_coding/src/v0.1.23.3/task2/online_cost/execution/bind_plan.py --plan codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01/launch_plan.unbound.json --setup codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_setup_two_node_r01/setup.json --admission codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_admission_two_node_r01/admission.json --out codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_bind_two_node_r01 --main-approved
+
+python3 codex_coding/src/v0.1.23.3/task2/online_cost/execution/orchestrate.py run --setup-dir codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01 --plan codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_bind_two_node_r01/launch_plan.json --out codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_run_two_node_r01 --execute

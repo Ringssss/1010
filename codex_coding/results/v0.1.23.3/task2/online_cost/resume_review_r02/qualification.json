@@ -1,0 +1,348 @@
+{
+  "status": "actual_small_probe_duplicate_import_retention_supported_counter_reader_invalid",
+  "scope": "independent local raw review; zero GPU/SSH/Docker calls by reviewer",
+  "passed": true,
+  "checks": [
+    {
+      "name": "once_one_producer_export",
+      "passed": true
+    },
+    {
+      "name": "once_imports_expected",
+      "passed": true
+    },
+    {
+      "name": "once_full_payload_valid",
+      "passed": true
+    },
+    {
+      "name": "once_consumer_exit0_cleanup",
+      "passed": true
+    },
+    {
+      "name": "once_probe_success_no_failure",
+      "passed": true
+    },
+    {
+      "name": "once_payload_hash_matches_consumer",
+      "passed": true
+    },
+    {
+      "name": "once_all_selected_gpu4_bdf85",
+      "passed": true
+    },
+    {
+      "name": "once_all_samples_under_2GiB",
+      "passed": true
+    },
+    {
+      "name": "once_retention_matches_samples",
+      "passed": true
+    },
+    {
+      "name": "once_actual_torch210",
+      "passed": true
+    },
+    {
+      "name": "twice_one_producer_export",
+      "passed": true
+    },
+    {
+      "name": "twice_imports_expected",
+      "passed": true
+    },
+    {
+      "name": "twice_full_payload_valid",
+      "passed": true
+    },
+    {
+      "name": "twice_consumer_exit0_cleanup",
+      "passed": true
+    },
+    {
+      "name": "twice_probe_success_no_failure",
+      "passed": true
+    },
+    {
+      "name": "twice_payload_hash_matches_consumer",
+      "passed": true
+    },
+    {
+      "name": "twice_all_selected_gpu4_bdf85",
+      "passed": true
+    },
+    {
+      "name": "twice_all_samples_under_2GiB",
+      "passed": true
+    },
+    {
+      "name": "twice_retention_matches_samples",
+      "passed": true
+    },
+    {
+      "name": "twice_actual_torch210",
+      "passed": true
+    },
+    {
+      "name": "own_private_ipc_no_shm_bind",
+      "passed": true
+    },
+    {
+      "name": "post_probe_only_sleep_and_ps",
+      "passed": true
+    },
+    {
+      "name": "own_namespace_stopped_not_OOM",
+      "passed": true
+    },
+    {
+      "name": "physical_once_vs_twice_retention32MiB",
+      "passed": true
+    }
+  ],
+  "cases": {
+    "once": {
+      "imports": 1,
+      "producer_share_calls": 1,
+      "payload_bytes": 33554432,
+      "torch_version": "2.10.0",
+      "consumer_payload_valid": true,
+      "consumer_returncode": 0,
+      "allocated_retained_bytes": 0,
+      "allocated_after_drop_bytes": 0,
+      "reserved_after_drop_bytes": 0,
+      "physical_free_gain_during_drop_bytes": 33554432,
+      "maximum_observed_whole_card_upper_bytes": 725614592,
+      "counter_reads_semantically_valid": false,
+      "counter_numeric_underflow_observed": false
+    },
+    "twice": {
+      "imports": 2,
+      "producer_share_calls": 1,
+      "payload_bytes": 33554432,
+      "torch_version": "2.10.0",
+      "consumer_payload_valid": true,
+      "consumer_returncode": 0,
+      "allocated_retained_bytes": 33554432,
+      "allocated_after_drop_bytes": 33554432,
+      "reserved_after_drop_bytes": 33554432,
+      "physical_free_gain_during_drop_bytes": 0,
+      "maximum_observed_whole_card_upper_bytes": 725614592,
+      "counter_reads_semantically_valid": false,
+      "counter_numeric_underflow_observed": false
+    }
+  },
+  "counter_reader_bug": {
+    "current_byte_offset_formula": "offset*8",
+    "upstream_refcounted_allocator_data_header_bytes": 64,
+    "upstream_correct_IPC_slot_formula": "64+offset*8",
+    "raw_read_value_1": "not valid IPC slot evidence; consistent with allocator mapping header",
+    "numeric_underflow_observed": false,
+    "exact_deployed_vendor_layout_confirmed": false
+  },
+  "actual_torch_version": "2.10.0",
+  "prior_local_env_version": "2.8.0+rocm6.3 was another local SDK context, not runtime proof",
+  "complete_model_unique_cause_proved": false,
+  "whole_Qwen_hardware_release_verified": false,
+  "actual_model_online_qualified": false,
+  "formal_cost_samples": 0,
+  "private_namespace_stop_verified": true,
+  "source_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_review_r02/StorageSharing.cpp",
+      "sha256": "472cdc9f2f6edc452bd3dcac9e9d986d10750ae042e4755188c15805eaac368e",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.10.0/torch/csrc/StorageSharing.cpp",
+      "scope": "official upstream v2.10.0 source; not exact vendor binary source"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_review_r02/CudaIPCTypes.cpp",
+      "sha256": "74a6b5a6abf8a94474e8a3f13e0f773805c4dd4b81a11372db6914439bcbcf51",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.10.0/torch/csrc/CudaIPCTypes.cpp",
+      "scope": "official upstream v2.10.0 source; not exact vendor binary source"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_review_r02/MapAllocator.cpp",
+      "sha256": "70161c822dc19a539033ee2e50ed263ad03b09281d532718724af947c03a19c8",
+      "url": "https://raw.githubusercontent.com/pytorch/pytorch/v2.10.0/aten/src/ATen/MapAllocator.cpp",
+      "scope": "official upstream v2.10.0 source; not exact vendor binary source"
+    }
+  ],
+  "evidence_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer.json",
+      "sha256": "195ac3c558cc279fd61cf3e149aaf2ba2d7569a16e2112275da4e0f613a43325"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer_after_del_1_counter.json",
+      "sha256": "699282e579cbe90c601e2aab554461adceb271aca3c0d63194a68cee8fa073a8"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer_after_import_1_counter.json",
+      "sha256": "91360b0421009055c1e5635423436fb56b418e593fbc2a5bb17f394b891000f1"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer_before_import_counter.json",
+      "sha256": "814c3bc427db8c90604b7a8010428c6ba2f296744d5b9d94f24fcc3ca2471774"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer_del_1.json",
+      "sha256": "05682851c6d679dbac8a688f3ddf422135c0e42d38bdc7f78f23467e2d815fd9"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer_import_1.json",
+      "sha256": "342f1a6db7f9a22dc9b4f7f28f9f8b9aa850812085f98bfbfec68ed7eceea483"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer/consumer_init.json",
+      "sha256": "d1b2b35c1b0a5d46e147755166066c3b4f4c3c6c8b17131179211521001b97e1"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/consumer.owner.json",
+      "sha256": "6a4dd6c4f962c7028c9f9c3c1a872679fe14eaab486f59491fb121c40a08b373"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/handle.pkl",
+      "sha256": "6fed5f08104be6c0e0dafe88d47f252f6c18a03032ba289984314e17a4ae5c33"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_after_child_exit.json",
+      "sha256": "75bf9e3641fd40dee76e9ce863a294e77d80a1f4ad0fb220c2365db967a3c174"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_after_child_exit_counter.json",
+      "sha256": "990ec040f91fc79a86e272c77b5091d9b769adebd4ac12d552b54e06044ba47b"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_after_drop_counter.json",
+      "sha256": "4301865ab1212fc7de08be5f2786367d0649ee9cca6288abe62e3e7f94812404"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_after_drop_gc_empty_ipc_sync.json",
+      "sha256": "dc45afeb79d3c29603660b4df7f27d362ef6621bfe42aee1ba6cec4c13c45e74"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_after_share_counter.json",
+      "sha256": "3f09bbca844176afeddccf974949c609ab16e3fb7fa1264d66dde001d1d16cf2"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_init.json",
+      "sha256": "b1ff5e9bc59b1ccb7ba58101c935fcd634a7469674bc9aaac875e478829b8688"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/producer_shared_once.json",
+      "sha256": "1911bdd872a3cb190484f51ed0e4a03b699a87874d28b997a432b188deaaba1e"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/result.json",
+      "sha256": "b48174925c46cf0b33e8e507384188cf485883bed9096cb06ed4202d705559a5"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer.json",
+      "sha256": "6ce43174f1718d2c9bc7295c17baeaeceb5b75e094e1476bc681c008cbc3847b"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_after_del_1_counter.json",
+      "sha256": "9a0231db93298c8612aa11018ce3c8bdcf9863f239dee5293a0cb97581fac4c2"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_after_del_2_counter.json",
+      "sha256": "f264db49b4e423627bfd3f5c945d5b4422f658d2ef5d5efbc640eb215f22974f"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_after_import_1_counter.json",
+      "sha256": "7bac14d05a59129ec3645bf5fd5dc34a630a1a478669e410b96b6e770caca8ad"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_after_import_2_counter.json",
+      "sha256": "07a185bbf56d75a49a00fc64cc1cf871def24a38cc4250166582ae095c8a88f8"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_before_import_counter.json",
+      "sha256": "ed3ef0fd0977768df6973e081edd22da5700ce023e1e0694b63f4e41352765f2"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_del_1.json",
+      "sha256": "9113210cc2911b22cbe3144827c8233da7c420094c43768ad62ac8bac01a6143"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_del_2.json",
+      "sha256": "4fcb00c13c3744391e6a34c8ded2f33feafb88c2dce2029354bae2e34e066013"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_import_1.json",
+      "sha256": "302cd62eba5eb35802553b3b602701145f023fcc244b27e991b6bd7620eb419a"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_import_2.json",
+      "sha256": "19cf36694d2be5ec6f382f910631a31e469d690c8220d5085a012f39db44c0d9"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer/consumer_init.json",
+      "sha256": "c779f20c693b6a147da4050c2bac1dd0f9f26143598e6273c974d48f45759541"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/consumer.owner.json",
+      "sha256": "5f9f55d94304b19c50a496ef8a8ae943a66625cc1bbeab8a4ee5d6606dc6c2fa"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/handle.pkl",
+      "sha256": "c8a39235cb9633c0f971407ca3a5aebad19daf17025fcf8ce88149f42c8660df"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_after_child_exit.json",
+      "sha256": "2238e740c361dd8c2cf6a9b0cd3ddee442eb92c67cdc79673f4fe28b4501d612"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_after_child_exit_counter.json",
+      "sha256": "ce98b1d05c0ebed6ce97ef40cd14649af7a2e7dda9611d7060bfa5fb1bf5ec1d"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_after_drop_counter.json",
+      "sha256": "182603acac33da6423c23f7c0a9e38d144d0b052a4db327ef9b8efe9adbb8379"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_after_drop_gc_empty_ipc_sync.json",
+      "sha256": "cebad9c3f440ed0772ecb5e940668a701c6b54602afbddd7fcb4dd724a9b1575"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_after_share_counter.json",
+      "sha256": "f95b490abe9487fc34fa6dbbb9a09285b7f35c1b1ebde9350444c2bf7bd7c369"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_init.json",
+      "sha256": "5c43bcc006f1a68bb8f30f18fff7e3b068629d12a3a4a1f80d89d4ab4e0015d4"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/producer_shared_once.json",
+      "sha256": "1830c9f42b47f109c1f942e72a5047dcd7876d926b2ddfe9eed9ca2de9b457e8"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/result.json",
+      "sha256": "4101254f69fea7802c14cbd5b726bed66d0c7c536b8375162711578afecd0ba9"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_target_admission_r01/container_started.json",
+      "sha256": "0632399400f72736d6401d927911b1ca253b86d54132c84178e0cc14c208dcf5"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_target_admission_r01/stopped.json",
+      "sha256": "5de7a55518318a7c30eeed3e5e05f1ca7e507d8e4cf5bc783d71eaa57912b284"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_target_admission_r01/post_probe_processes.txt",
+      "sha256": "24e742b22fe77204cc344eec5ed3ced1053ebb31a49ef3f189eb0911f98dac5f"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/online_cost/resume_target_admission_r01/gpu.stdout.json",
+      "sha256": "2836aebb7bb940637838e339a308f303059035b89de451da72982435fc051216"
+    }
+  ]
+}

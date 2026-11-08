@@ -1,0 +1,182 @@
+{
+  "status": "partial_scientific_result_resource_blocked",
+  "development": "v0.1.23.3/task2",
+  "hardware_scope": "actual2nodes27_30_4GPUs_noSSD; no3nodequalification",
+  "whole_online_relative_error_gate": 0.1,
+  "per_scenario_gate": true,
+  "old_perterm_and_complexity_gates_applied": false,
+  "actual_path_calibration_samples": 0,
+  "actual_C0_samples": 0,
+  "actual_holdout_samples": 0,
+  "overall_whole_online_prediction_qualified": false,
+  "overall_whole_online_prediction_error": null,
+  "GPU_actual_IPC_counter_probe_payload_bytes": 0,
+  "GPU_actual_counter_underflow_observed": false,
+  "static_duplicate_import_hazard_identified": true,
+  "minimal_single_mapping_fix_CPU_passed": true,
+  "independently_run_final_core_CPU_checks": 35,
+  "actual_postfix_physical_pause_verified": false,
+  "r02_failed_gate_card_unique_identity": null,
+  "r02_failure_records": [
+    {
+      "status": "failed",
+      "error": "MemoryError('actual selected-card conservative upper exceeds cap')",
+      "action": "bootstrap",
+      "pending_resume": false,
+      "engine_parked": true,
+      "active_transactions": [],
+      "automatic_source_retirement": false
+    }
+  ],
+  "r02_complete_archives": [
+    {
+      "node": "node27",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_collection_two_node_r04/collection_node27.tar",
+      "archive_sha256": "0a367452497ddc9ea5b7e9a5d59d961a2c2d0a8de1e2e1ec05231e3c6999f9ce",
+      "files": 30
+    },
+    {
+      "node": "node30",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_collection_two_node_r04/collection_node30.tar",
+      "archive_sha256": "c463e2542c1f54dd7d40135569453a68400e70a32e093853b824931acfb86171",
+      "files": 9
+    }
+  ],
+  "r02_raw_supervisor_cleanup_pass_count": 1,
+  "r02_raw_supervisor_cleanup_fail_count": 4,
+  "r02_raw_worker_cleanup_failures_preserved": true,
+  "r02_supervisors": [
+    {
+      "node": "node27",
+      "key": "engine_node27",
+      "raw_cleanup_passed": true,
+      "raw_cleanup_reason": null,
+      "stop_reason": "owned_stop_marker",
+      "child_returncode": -9
+    },
+    {
+      "node": "node27",
+      "key": "worker_node27_4",
+      "raw_cleanup_passed": false,
+      "raw_cleanup_reason": "identity changed before KILL; no further signal",
+      "stop_reason": "owned_stop_marker",
+      "child_returncode": null
+    },
+    {
+      "node": "node27",
+      "key": "worker_node27_5",
+      "raw_cleanup_passed": false,
+      "raw_cleanup_reason": "identity changed before KILL; no further signal",
+      "stop_reason": "owned_stop_marker",
+      "child_returncode": null
+    },
+    {
+      "node": "node30",
+      "key": "worker_node30_5",
+      "raw_cleanup_passed": false,
+      "raw_cleanup_reason": "identity changed before KILL; no further signal",
+      "stop_reason": "owned_stop_marker",
+      "child_returncode": null
+    },
+    {
+      "node": "node30",
+      "key": "worker_node30_4",
+      "raw_cleanup_passed": false,
+      "raw_cleanup_reason": "identity changed before KILL; no further signal",
+      "stop_reason": "owned_stop_marker",
+      "child_returncode": null
+    }
+  ],
+  "r02_release_end_events": [
+    {
+      "event": "release_end",
+      "rank": 1,
+      "pid": 258,
+      "host": "m03r2n07",
+      "monotonic_ns": 280966767710115,
+      "wall_ns": 1791797114151948578,
+      "allocated_bytes": 36496468992,
+      "free_bytes": 29574037504
+    },
+    {
+      "event": "release_end",
+      "rank": 0,
+      "pid": 257,
+      "host": "m03r2n07",
+      "monotonic_ns": 280966769591440,
+      "wall_ns": 1791797114153830453,
+      "allocated_bytes": 36496468992,
+      "free_bytes": 29574037504
+    }
+  ],
+  "later_own_container_stop_final_closure_verified": true,
+  "resource_probe_guard": {
+    "phase": "producer_init",
+    "monotonic_ns": 282112498780767,
+    "gpu": 4,
+    "bdf": "0000:85:00.0",
+    "allocated_bytes": 0,
+    "reserved_bytes": 0,
+    "free_bytes": 33869004800,
+    "total_bytes": 68702699520,
+    "whole_card_used_upper_bytes": 34833694720,
+    "cap_bytes": 2147483648
+  },
+  "own_containers_final": [
+    {
+      "node": "node27",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 137,
+        "Error": "",
+        "StartedAt": "2026-10-12T09:36:08.101958204Z",
+        "FinishedAt": "2026-10-12T09:47:40.039655865Z"
+      }
+    },
+    {
+      "node": "node30",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 137,
+        "Error": "",
+        "StartedAt": "2026-10-12T09:03:50.898122281Z",
+        "FinishedAt": "2026-10-12T09:48:03.111960992Z"
+      }
+    }
+  ],
+  "task_foreground_GPU_processes_remaining": false,
+  "reviewer_GPU_actions": 0,
+  "reviewer_SSH_commands": 0,
+  "core_final_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/capture.py",
+      "sha256": "2e39205d3fea6bd2ebe38e29a4442a8b8d4e13ae24cfdf1aa239feb406a97c93"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/worker.py",
+      "sha256": "b55a47191c54317c52d887aefe51c7941048dc1d5040033f88af9ed34cb29494"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+      "sha256": "ad9126be48fc23a2c2b6a93b15b784c5d6c297c19d205b7b9e0ec3d3e7c16b3f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/contracts.py",
+      "sha256": "b2cdad103c122e47bb668199a02a4db11bcd02714d13c47572085ceeacb8cf01"
+    }
+  ],
+  "resource_block_ref": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_resource_block_r01",
+  "limitation": "LaterforeignvLLMstartup only explains laterprobecapacityblock, not earlierr02bootstrapfailedcard. Per-card finalinventory waslost beforediagnosticfix. Needidle freshresources thenboundedIPCprobe and actualfullcal+heldouts."
+}

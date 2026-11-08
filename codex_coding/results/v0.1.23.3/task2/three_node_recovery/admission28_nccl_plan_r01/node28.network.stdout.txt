@@ -1,0 +1,59 @@
+{
+  "sampled_utc": "2026-10-09T06:50:13.070640+00:00",
+  "node": "node28",
+  "hostname": "m03r2n08",
+  "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+  "local_ip": "12.11.3.28",
+  "peer_ip": "12.11.3.30",
+  "socket_interface": "ib0",
+  "checks": {
+    "exact_address_one_interface": true,
+    "peer_route_same_interface_and_source": true,
+    "rendezvous_port29870_no_listener": true
+  },
+  "passed": true,
+  "commands": [
+    {
+      "argv": [
+        "ip",
+        "-j",
+        "-4",
+        "address",
+        "show",
+        "to",
+        "12.11.3.28/32"
+      ],
+      "returncode": 0,
+      "stdout": "[{\"ifindex\":4,\"ifname\":\"ib0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":2044,\"qdisc\":\"fq_codel\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":256,\"altnames\":[\"ibp3s0\",\"ibs2\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"12.11.3.28\",\"prefixlen\":8,\"broadcast\":\"12.255.255.255\",\"scope\":\"global\",\"label\":\"ib0\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ip",
+        "-j",
+        "route",
+        "get",
+        "12.11.3.30"
+      ],
+      "returncode": 0,
+      "stdout": "[{\"dst\":\"12.11.3.30\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.28\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "ss",
+        "-H",
+        "-ltn",
+        "sport = :29870"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "gpu_operations": 0,
+  "port_checks": [
+    29870
+  ],
+  "scope": "one local listener query; no socket connect or port scan"
+}

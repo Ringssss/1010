@@ -1,0 +1,652 @@
+{
+  "case": {
+    "label": "diagnostic_0_4MiB",
+    "mode": "diagnostic",
+    "nbytes": 4194304,
+    "operations": 1,
+    "order_index": 0,
+    "source_offset": 0
+  },
+  "clock_scope": "controller single monotonic clock for request; worker durations independently recorded",
+  "fit": null,
+  "flow": {
+    "control_mode": "compact",
+    "controller_timing": {
+      "all_targets_filled_ns": 195889315347071,
+      "all_targets_published_ns": 195889331650949,
+      "clock_domain": "controller/m03r2n07/984745/d59261dc2552486991cda635f5370c1f",
+      "load_begin_ns": 195889300263798
+    },
+    "coordinator_wall_s": 0.03138553100870922,
+    "epoch_snapshot_reused": false,
+    "execute_wall_s": 0.004777184978593141,
+    "execution": [
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 8.460134267807007e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 0
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 7.330439984798431e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 1
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 8.789822459220886e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 2
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 7.58003443479538e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 3
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 0.0004055250028613955,
+        "executor": "serial",
+        "executor_source": "expanded_single_local_branch_with_timing_observer",
+        "local_slope_prepare": {
+          "bytes": 4194304,
+          "event_prepare_elapsed_ns": 129561,
+          "event_prepare_native_tid": 6224,
+          "events_created_and_initialized_in_prepare": true,
+          "extra_prepare_event_initialization_sync": true,
+          "manifest_is_copy_path": false,
+          "memory_after_target_allocate": {
+            "allocated_bytes": 88080384,
+            "hip_free_bytes": 67740106752,
+            "hip_total_bytes": 68702699520,
+            "reserved_bytes": 104857600
+          },
+          "metadata_outside_service": true,
+          "mode": "diagnostic",
+          "pid": 6037,
+          "prepare_native_tid": 6224,
+          "prepare_thread_ident": 140213879830080,
+          "prepare_thread_name": "Thread-66 (process_request_thread)",
+          "source": {
+            "alignment_remainders": {
+              "2097152": 0,
+              "256": 0,
+              "4096": 0
+            },
+            "contiguous": true,
+            "data_ptr": 140210956402688,
+            "device": "cuda:0",
+            "dtype": "torch.uint8",
+            "numel": 16777216,
+            "shape": [
+              16777216
+            ],
+            "storage_offset": 0,
+            "stride": [
+              1
+            ]
+          },
+          "source_identity": {
+            "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+            "generation": 1,
+            "id": "local_slope_runtime_r01/source0/hbm",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "n": 16777216,
+            "off": 0
+          },
+          "source_offset": 0,
+          "target": {
+            "alignment_remainders": {
+              "2097152": 0,
+              "256": 0,
+              "4096": 0
+            },
+            "contiguous": true,
+            "data_ptr": 140210929139712,
+            "device": "cuda:0",
+            "dtype": "torch.uint8",
+            "numel": 4194304,
+            "shape": [
+              4194304
+            ],
+            "storage_offset": 0,
+            "stride": [
+              1
+            ]
+          },
+          "target_offset": 0,
+          "tensor_manifest_index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          }
+        },
+        "records": [
+          {
+            "bytes": 4194304,
+            "elapsed_s": 0.000352955,
+            "kind": "local_hbm",
+            "local_slope_diagnosis": {
+              "control_limitation": "native block precedes diagnostic block; instrumentation and temporal drift confounded",
+              "execute_native_tid": 6226,
+              "execute_thread_ident": 140213879830080,
+              "execute_thread_name": "Thread-67 (process_request_thread)",
+              "executor_difference": "expanded single local branch bypasses native land dispatch checks; timestamps/events add observer work",
+              "extra_execute_sync_before_service": false,
+              "extra_prepare_event_initialization_sync": true,
+              "gpu_event_elapsed_ms": 0.10688000172376633,
+              "gpu_event_scope": "stream event window includes copy submission/host gaps; not a pure kernel duration",
+              "host_phase_sum_ns": 352955,
+              "host_phases": {
+                "begin_log": {
+                  "thread_cpu_ns": 62721,
+                  "wall_ns": 65011
+                },
+                "copy_submit": {
+                  "thread_cpu_ns": 71121,
+                  "wall_ns": 71071
+                },
+                "device_sync": {
+                  "thread_cpu_ns": 26401,
+                  "wall_ns": 26380
+                },
+                "event_begin_record": {
+                  "thread_cpu_ns": 79821,
+                  "wall_ns": 79591
+                },
+                "event_end_record": {
+                  "thread_cpu_ns": 32600,
+                  "wall_ns": 32771
+                },
+                "source_slice": {
+                  "thread_cpu_ns": 68111,
+                  "wall_ns": 67921
+                },
+                "target_slice": {
+                  "thread_cpu_ns": 9800,
+                  "wall_ns": 10210
+                }
+              },
+              "host_residual_ns": 0,
+              "host_thread_cpu_ns": 350575,
+              "memory_after_sync": {
+                "allocated_bytes": 88080384,
+                "hip_free_bytes": 67740106752,
+                "hip_total_bytes": 68702699520,
+                "reserved_bytes": 104857600
+              },
+              "metadata_outside_service": true,
+              "phase_boundary_clock": "monotonic_ns and thread_time_ns, same ordered boundary pairs",
+              "phase_observer_overhead_included": true,
+              "post_service_diagnosis_scope": "included in HTTP/controller execute wall; excluded from reported worker execute_s and op service_s; not controller dispatch cost",
+              "post_service_diagnosis_wall_ns": 436086,
+              "residual_scope": "adjacent phase boundaries telescope; zero is not proof of zero observer overhead",
+              "service_begin_ns": 195889313820300,
+              "service_end_ns": 195889314173255,
+              "source_view": {
+                "alignment_remainders": {
+                  "2097152": 0,
+                  "256": 0,
+                  "4096": 0
+                },
+                "contiguous": true,
+                "data_ptr": 140210956402688,
+                "device": "cuda:0",
+                "dtype": "torch.uint8",
+                "numel": 4194304,
+                "shape": [
+                  4194304
+                ],
+                "storage_offset": 0,
+                "stride": [
+                  1
+                ]
+              },
+              "stream": 0,
+              "target_view": {
+                "alignment_remainders": {
+                  "2097152": 0,
+                  "256": 0,
+                  "4096": 0
+                },
+                "contiguous": true,
+                "data_ptr": 140210929139712,
+                "device": "cuda:0",
+                "dtype": "torch.uint8",
+                "numel": 4194304,
+                "shape": [
+                  4194304
+                ],
+                "storage_offset": 0,
+                "stride": [
+                  1
+                ]
+              }
+            },
+            "op_id": 0,
+            "pipeline": {},
+            "replica_id": "local_slope_runtime_r01/source0/hbm",
+            "role": "both"
+          }
+        ],
+        "staging_bytes": 67108864,
+        "worker": 4
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 1.2809992767870426e-05,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 5
+      }
+    ],
+    "executor": "serial",
+    "inventory_rpc_s": 0.005433943006210029,
+    "plan": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "local_slope_label": "diagnostic_0_4MiB",
+      "local_slope_mode": "diagnostic",
+      "ops": [
+        {
+          "dst_w": 4,
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "kind": "local_hbm",
+          "n": 4194304,
+          "off": 0,
+          "op_id": 0,
+          "path": "4:hbm:0->4",
+          "replica_id": "local_slope_runtime_r01/source0/hbm",
+          "resources": [],
+          "source_epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "source_offset": 0,
+          "src_w": 4,
+          "target": "local_slope_runtime_r01/diagnostic_0_4MiB/target0",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "local_slope_runtime_r01/diagnostic_0_4MiB/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "local_slope_runtime_r01/diagnostic_0_4MiB/target0",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 4194304,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      ]
+    },
+    "prepare_rpc_s": 0.0048708050162531435,
+    "prepare_s": 0.010304748022463173,
+    "rpc": {
+      "execute": [
+        {
+          "deserialize_s": 1.6609992599114776e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.5860015992075205e-05,
+          "transport_and_server_s": 0.0028557390032801777
+        },
+        {
+          "deserialize_s": 1.794000854715705e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.3409997336566448e-05,
+          "transport_and_server_s": 0.002187450008932501
+        },
+        {
+          "deserialize_s": 2.2321008145809174e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.3419979950413108e-05,
+          "transport_and_server_s": 0.0017283530032727867
+        },
+        {
+          "deserialize_s": 1.7921003745868802e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 137,
+          "serialize_s": 1.4499993994832039e-05,
+          "transport_and_server_s": 0.0018681850051507354
+        },
+        {
+          "deserialize_s": 7.060100324451923e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 4192,
+          "serialize_s": 1.3720011338591576e-05,
+          "transport_and_server_s": 0.0026580259727779776
+        },
+        {
+          "deserialize_s": 1.7319980543106794e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 139,
+          "serialize_s": 1.3599987141788006e-05,
+          "transport_and_server_s": 0.0012864780146628618
+        }
+      ],
+      "inventory": [
+        {
+          "deserialize_s": 6.819100235588849e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2932,
+          "serialize_s": 6.80010998621583e-07,
+          "transport_and_server_s": 0.003973093000240624
+        },
+        {
+          "deserialize_s": 6.997102173045278e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2932,
+          "serialize_s": 8.799834176898003e-07,
+          "transport_and_server_s": 0.003410264995181933
+        },
+        {
+          "deserialize_s": 6.483099423348904e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2931,
+          "serialize_s": 8.700008038431406e-07,
+          "transport_and_server_s": 0.003180152998538688
+        },
+        {
+          "deserialize_s": 6.965099601075053e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2931,
+          "serialize_s": 8.200004231184721e-07,
+          "transport_and_server_s": 0.003119422006420791
+        },
+        {
+          "deserialize_s": 0.00011034100316464901,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 5632,
+          "serialize_s": 5.699985194951296e-07,
+          "transport_and_server_s": 0.0031301619892474264
+        },
+        {
+          "deserialize_s": 7.81010021455586e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2927,
+          "serialize_s": 8.200004231184721e-07,
+          "transport_and_server_s": 0.002952979994006455
+        }
+      ],
+      "prepare": [
+        {
+          "deserialize_s": 1.7619982827454805e-05,
+          "operation": "prepare",
+          "request_bytes": 1429,
+          "response_bytes": 31,
+          "serialize_s": 6.490998202934861e-05,
+          "transport_and_server_s": 0.0024555830168537796
+        },
+        {
+          "deserialize_s": 1.3390003005042672e-05,
+          "operation": "prepare",
+          "request_bytes": 1429,
+          "response_bytes": 31,
+          "serialize_s": 4.288097261451185e-05,
+          "transport_and_server_s": 0.0023633710225112736
+        },
+        {
+          "deserialize_s": 1.4800985809415579e-05,
+          "operation": "prepare",
+          "request_bytes": 1429,
+          "response_bytes": 31,
+          "serialize_s": 4.182098200544715e-05,
+          "transport_and_server_s": 0.0023784610093571246
+        },
+        {
+          "deserialize_s": 1.2630014680325985e-05,
+          "operation": "prepare",
+          "request_bytes": 1429,
+          "response_bytes": 31,
+          "serialize_s": 4.272098885849118e-05,
+          "transport_and_server_s": 0.0020614670065697283
+        },
+        {
+          "deserialize_s": 3.713098703883588e-05,
+          "operation": "prepare",
+          "request_bytes": 1578,
+          "response_bytes": 1497,
+          "serialize_s": 4.1670980863273144e-05,
+          "transport_and_server_s": 0.002705206017708406
+        },
+        {
+          "deserialize_s": 1.2960023013874888e-05,
+          "operation": "prepare",
+          "request_bytes": 1429,
+          "response_bytes": 31,
+          "serialize_s": 3.7941004848107696e-05,
+          "transport_and_server_s": 0.0014578989939764142
+        }
+      ],
+      "publish": [
+        {
+          "deserialize_s": 1.7629994545131922e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.610000617802143e-05,
+          "transport_and_server_s": 0.0024433929938822985
+        },
+        {
+          "deserialize_s": 1.3320008292794228e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.4499993994832039e-05,
+          "transport_and_server_s": 0.0026359559851698577
+        },
+        {
+          "deserialize_s": 1.4251010725274682e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.4550023479387164e-05,
+          "transport_and_server_s": 0.002143497986253351
+        },
+        {
+          "deserialize_s": 1.3640004908666015e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.566100399941206e-05,
+          "transport_and_server_s": 0.002095757983624935
+        },
+        {
+          "deserialize_s": 1.4770019333809614e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.6629986930638552e-05,
+          "transport_and_server_s": 0.0018605549994390458
+        },
+        {
+          "deserialize_s": 1.2029981007799506e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.4179997378960252e-05,
+          "transport_and_server_s": 0.0014420899969991297
+        }
+      ]
+    },
+    "source_bytes": {
+      "local_slope_runtime_r01/source0/hbm": 4194304
+    },
+    "timing_scope": "coordinator wall; excludes model layout before handoff",
+    "tx": "112a2651945c4e1d90bacc292e890300",
+    "verification": {
+      "algorithm": "SHA256 of every logical byte per operation",
+      "checked_bytes": 4194304,
+      "operations": {
+        "0": {
+          "n": 4194304,
+          "op_id": 0,
+          "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+          "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+        }
+      },
+      "passed": true
+    },
+    "verify_and_publish_s": 0.01630359800765291
+  },
+  "fresh_query_rpc": [
+    {
+      "deserialize_s": 7.886099047027528e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2930,
+      "serialize_s": 8.200004231184721e-07,
+      "transport_and_server_s": 0.0033684350200928748
+    },
+    {
+      "deserialize_s": 7.332098903134465e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2930,
+      "serialize_s": 7.099879439920187e-07,
+      "transport_and_server_s": 0.0037464900233317167
+    },
+    {
+      "deserialize_s": 8.770098793320358e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2931,
+      "serialize_s": 9.399955160915852e-07,
+      "transport_and_server_s": 0.003667929006041959
+    },
+    {
+      "deserialize_s": 7.756199920549989e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2930,
+      "serialize_s": 8.599890861660242e-07,
+      "transport_and_server_s": 0.0035430270072538406
+    },
+    {
+      "deserialize_s": 0.00013916200259700418,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 5632,
+      "serialize_s": 6.299815140664577e-07,
+      "transport_and_server_s": 0.0034381760051473975
+    },
+    {
+      "deserialize_s": 7.151099271140993e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2927,
+      "serialize_s": 3.00002284348011e-07,
+      "transport_and_server_s": 0.0032508830190636218
+    }
+  ],
+  "gate": {
+    "node27": {
+      "dram_current_bytes": 4296122368,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1826619392,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 320864256,
+      "require_idle": true,
+      "transactions": {
+        "4": [],
+        "5": []
+      }
+    },
+    "node28": {
+      "dram_current_bytes": 3470061568,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1119879168,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 1027604480,
+      "require_idle": true,
+      "transactions": {
+        "0": [],
+        "1": []
+      }
+    },
+    "node30": {
+      "dram_current_bytes": 3978764288,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1277165568,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 870318080,
+      "require_idle": true,
+      "transactions": {
+        "2": [],
+        "3": []
+      }
+    }
+  },
+  "inventory_end_ns": 195889299078142,
+  "model_frozen_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "prediction": null,
+  "preregistration_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/preregistration.json",
+    "sha256": "ccada1ac67eafb4277556813794a0648d63ef6f1e8e0044af4b54d8b68dc1a1f"
+  },
+  "request_begin_ns": 195889293108633,
+  "request_to_filled_s": 0.022238438,
+  "request_to_published_s": 0.038542316,
+  "service_s": 0.000352955,
+  "worker_execute_s": 0.0004055250028613955
+}

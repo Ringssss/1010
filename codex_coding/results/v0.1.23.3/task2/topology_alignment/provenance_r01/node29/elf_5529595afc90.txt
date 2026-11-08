@@ -1,0 +1,101 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4cd3c0 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)>:
+ a4cd3c0:	55                   	push   %rbp
+ a4cd3c1:	41 57                	push   %r15
+ a4cd3c3:	41 56                	push   %r14
+ a4cd3c5:	53                   	push   %rbx
+ a4cd3c6:	50                   	push   %rax
+ a4cd3c7:	89 d5                	mov    %edx,%ebp
+ a4cd3c9:	49 89 f6             	mov    %rsi,%r14
+ a4cd3cc:	49 89 ff             	mov    %rdi,%r15
+ a4cd3cf:	48 8d 35 52 23 b5 f5 	lea    -0xa4adcae(%rip),%rsi        # 1f728 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f538>
+ a4cd3d6:	e8 f5 e5 05 00       	call   a52b9d0 <fopen@plt>
+ a4cd3db:	48 85 c0             	test   %rax,%rax
+ a4cd3de:	0f 84 8d 00 00 00    	je     a4cd471 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0xb1>
+ a4cd3e4:	48 89 c3             	mov    %rax,%rbx
+ a4cd3e7:	48 8d 15 b6 25 b5 f5 	lea    -0xa4ada4a(%rip),%rdx        # 1f9a4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f7b4>
+ a4cd3ee:	4c 8d 05 31 bd b4 f5 	lea    -0xa4b42cf(%rip),%r8        # 19126 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18f36>
+ a4cd3f5:	be 20 00 00 00       	mov    $0x20,%esi
+ a4cd3fa:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4cd3ff:	b9 8e 01 00 00       	mov    $0x18e,%ecx
+ a4cd404:	4d 89 f9             	mov    %r15,%r9
+ a4cd407:	31 c0                	xor    %eax,%eax
+ a4cd409:	e8 f2 17 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4cd40e:	41 c7 06 00 00 00 00 	movl   $0x0,(%r14)
+ a4cd415:	48 8d 0d a4 f7 0c 00 	lea    0xcf7a4(%rip),%rcx        # a59cbc0 <rome_model_68+0x28d8>
+ a4cd41c:	48 89 df             	mov    %rbx,%rdi
+ a4cd41f:	4c 89 f6             	mov    %r14,%rsi
+ a4cd422:	31 d2                	xor    %edx,%edx
+ a4cd424:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+ a4cd42a:	e8 21 e9 ff ff       	call   a4cbd50 <xmlLoadSub(_IO_FILE*, ncclXml*, ncclXmlNode*, xmlHandler*, int)>
+ a4cd42f:	85 c0                	test   %eax,%eax
+ a4cd431:	0f 84 e1 00 00 00    	je     a4cd518 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x158>
+ a4cd437:	41 89 c6             	mov    %eax,%r14d
+ a4cd43a:	83 f8 07             	cmp    $0x7,%eax
+ a4cd43d:	0f 84 d5 00 00 00    	je     a4cd518 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x158>
+ a4cd443:	48 83 3d ad fb 0c 00 	cmpq   $0x0,0xcfbad(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4cd44a:	00 
+ a4cd44b:	75 73                	jne    a4cd4c0 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x100>
+ a4cd44d:	66 48 8d 3d ab fb 0c 	data16 lea 0xcfbab(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4cd454:	00 
+ a4cd455:	66 66 48 e8 23 e5 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4cd45c:	00 
+ a4cd45d:	83 38 00             	cmpl   $0x0,(%rax)
+ a4cd460:	74 78                	je     a4cd4da <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x11a>
+ a4cd462:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4cd466:	0f 84 ac 00 00 00    	je     a4cd518 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x158>
+ a4cd46c:	e9 b2 00 00 00       	jmp    a4cd523 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x163>
+ a4cd471:	85 ed                	test   %ebp,%ebp
+ a4cd473:	0f 84 a7 00 00 00    	je     a4cd520 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x160>
+ a4cd479:	e8 f2 e2 05 00       	call   a52b770 <__errno_location@plt>
+ a4cd47e:	8b 38                	mov    (%rax),%edi
+ a4cd480:	e8 0b e5 05 00       	call   a52b990 <strerror@plt>
+ a4cd485:	49 89 c2             	mov    %rax,%r10
+ a4cd488:	48 83 ec 08          	sub    $0x8,%rsp
+ a4cd48c:	48 8d 15 ba f2 b4 f5 	lea    -0xa4b0d46(%rip),%rdx        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4cd493:	4c 8d 05 8f 94 b5 f5 	lea    -0xa4a6b71(%rip),%r8        # 26929 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26739>
+ a4cd49a:	45 31 f6             	xor    %r14d,%r14d
+ a4cd49d:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4cd4a2:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4cd4a9:	b9 8a 01 00 00       	mov    $0x18a,%ecx
+ a4cd4ae:	4d 89 f9             	mov    %r15,%r9
+ a4cd4b1:	31 c0                	xor    %eax,%eax
+ a4cd4b3:	41 52                	push   %r10
+ a4cd4b5:	e8 46 17 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4cd4ba:	48 83 c4 10          	add    $0x10,%rsp
+ a4cd4be:	eb 63                	jmp    a4cd523 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x163>
+ a4cd4c0:	e8 ab e4 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4cd4c5:	66 48 8d 3d 33 fb 0c 	data16 lea 0xcfb33(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4cd4cc:	00 
+ a4cd4cd:	66 66 48 e8 ab e4 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4cd4d4:	00 
+ a4cd4d5:	83 38 00             	cmpl   $0x0,(%rax)
+ a4cd4d8:	75 88                	jne    a4cd462 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0xa2>
+ a4cd4da:	48 8d 15 c3 24 b5 f5 	lea    -0xa4adb3d(%rip),%rdx        # 1f9a4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f7b4>
+ a4cd4e1:	4c 8d 05 20 ec b4 f5 	lea    -0xa4b13e0(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4cd4e8:	4c 8d 0d 5e f2 b4 f5 	lea    -0xa4b0da2(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4cd4ef:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4cd4f4:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4cd4fb:	b9 91 01 00 00       	mov    $0x191,%ecx
+ a4cd500:	31 c0                	xor    %eax,%eax
+ a4cd502:	41 56                	push   %r14
+ a4cd504:	68 91 01 00 00       	push   $0x191
+ a4cd509:	e8 f2 16 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4cd50e:	48 83 c4 10          	add    $0x10,%rsp
+ a4cd512:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4cd516:	75 0b                	jne    a4cd523 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)+0x163>
+ a4cd518:	48 89 df             	mov    %rbx,%rdi
+ a4cd51b:	e8 d0 e4 05 00       	call   a52b9f0 <fclose@plt>
+ a4cd520:	45 31 f6             	xor    %r14d,%r14d
+ a4cd523:	44 89 f0             	mov    %r14d,%eax
+ a4cd526:	48 83 c4 08          	add    $0x8,%rsp
+ a4cd52a:	5b                   	pop    %rbx
+ a4cd52b:	41 5e                	pop    %r14
+ a4cd52d:	41 5f                	pop    %r15
+ a4cd52f:	5d                   	pop    %rbp
+ a4cd530:	c3                   	ret    

@@ -1,0 +1,142 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a48f8e0 <ncclGpuGdrSupport(ncclComm*, int*)>:
+ a48f8e0:	55                   	push   %rbp
+ a48f8e1:	41 57                	push   %r15
+ a48f8e3:	41 56                	push   %r14
+ a48f8e5:	41 55                	push   %r13
+ a48f8e7:	41 54                	push   %r12
+ a48f8e9:	53                   	push   %rbx
+ a48f8ea:	48 83 ec 58          	sub    $0x58,%rsp
+ a48f8ee:	49 89 f7             	mov    %rsi,%r15
+ a48f8f1:	48 63 87 a8 8a 0b 00 	movslq 0xb8aa8(%rdi),%rax
+ a48f8f8:	4c 8d 25 41 eb 10 00 	lea    0x10eb41(%rip),%r12        # a59e440 <ncclGpuGdrSupport(ncclComm*, int*)::gdrSupportMatrix>
+ a48f8ff:	41 8b 04 84          	mov    (%r12,%rax,4),%eax
+ a48f903:	83 f8 ff             	cmp    $0xffffffff,%eax
+ a48f906:	74 16                	je     a48f91e <ncclGpuGdrSupport(ncclComm*, int*)+0x3e>
+ a48f908:	41 89 07             	mov    %eax,(%r15)
+ a48f90b:	31 db                	xor    %ebx,%ebx
+ a48f90d:	89 d8                	mov    %ebx,%eax
+ a48f90f:	48 83 c4 58          	add    $0x58,%rsp
+ a48f913:	5b                   	pop    %rbx
+ a48f914:	41 5c                	pop    %r12
+ a48f916:	41 5d                	pop    %r13
+ a48f918:	41 5e                	pop    %r14
+ a48f91a:	41 5f                	pop    %r15
+ a48f91c:	5d                   	pop    %rbp
+ a48f91d:	c3                   	ret    
+ a48f91e:	49 89 fe             	mov    %rdi,%r14
+ a48f921:	c7 44 24 04 00 00 00 	movl   $0x0,0x4(%rsp)
+ a48f928:	00 
+ a48f929:	48 8b 87 d0 d8 00 00 	mov    0xd8d0(%rdi),%rax
+ a48f930:	48 8d 7c 24 04       	lea    0x4(%rsp),%rdi
+ a48f935:	ff 50 10             	call   *0x10(%rax)
+ a48f938:	89 c3                	mov    %eax,%ebx
+ a48f93a:	85 c0                	test   %eax,%eax
+ a48f93c:	0f 84 89 00 00 00    	je     a48f9cb <ncclGpuGdrSupport(ncclComm*, int*)+0xeb>
+ a48f942:	83 fb 07             	cmp    $0x7,%ebx
+ a48f945:	0f 84 80 00 00 00    	je     a48f9cb <ncclGpuGdrSupport(ncclComm*, int*)+0xeb>
+ a48f94b:	48 83 3d a5 d6 10 00 	cmpq   $0x0,0x10d6a5(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a48f952:	00 
+ a48f953:	75 1c                	jne    a48f971 <ncclGpuGdrSupport(ncclComm*, int*)+0x91>
+ a48f955:	66 48 8d 3d a3 d6 10 	data16 lea 0x10d6a3(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a48f95c:	00 
+ a48f95d:	66 66 48 e8 1b c0 09 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a48f964:	00 
+ a48f965:	83 38 00             	cmpl   $0x0,(%rax)
+ a48f968:	74 21                	je     a48f98b <ncclGpuGdrSupport(ncclComm*, int*)+0xab>
+ a48f96a:	83 fb 07             	cmp    $0x7,%ebx
+ a48f96d:	75 9e                	jne    a48f90d <ncclGpuGdrSupport(ncclComm*, int*)+0x2d>
+ a48f96f:	eb 5a                	jmp    a48f9cb <ncclGpuGdrSupport(ncclComm*, int*)+0xeb>
+ a48f971:	e8 fa bf 09 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a48f976:	66 48 8d 3d 82 d6 10 	data16 lea 0x10d682(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a48f97d:	00 
+ a48f97e:	66 66 48 e8 fa bf 09 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a48f985:	00 
+ a48f986:	83 38 00             	cmpl   $0x0,(%rax)
+ a48f989:	75 df                	jne    a48f96a <ncclGpuGdrSupport(ncclComm*, int*)+0x8a>
+ a48f98b:	48 8d 15 46 ac b8 f5 	lea    -0xa4753ba(%rip),%rdx        # 1a5d8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1a3e8>
+ a48f992:	4c 8d 05 6f c7 b8 f5 	lea    -0xa473891(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a48f999:	4c 8d 0d 31 08 b8 f5 	lea    -0xa47f7cf(%rip),%r9        # 101d1 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xffe1>
+ a48f9a0:	bf 03 00 00 00       	mov    $0x3,%edi
+ a48f9a5:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a48f9ac:	b9 92 02 00 00       	mov    $0x292,%ecx
+ a48f9b1:	31 c0                	xor    %eax,%eax
+ a48f9b3:	53                   	push   %rbx
+ a48f9b4:	68 92 02 00 00       	push   $0x292
+ a48f9b9:	e8 42 f2 fd ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a48f9be:	48 83 c4 10          	add    $0x10,%rsp
+ a48f9c2:	83 fb 07             	cmp    $0x7,%ebx
+ a48f9c5:	0f 85 42 ff ff ff    	jne    a48f90d <ncclGpuGdrSupport(ncclComm*, int*)+0x2d>
+ a48f9cb:	49 63 86 a8 8a 0b 00 	movslq 0xb8aa8(%r14),%rax
+ a48f9d2:	41 c7 04 84 00 00 00 	movl   $0x0,(%r12,%rax,4)
+ a48f9d9:	00 
+ a48f9da:	83 7c 24 04 00       	cmpl   $0x0,0x4(%rsp)
+ a48f9df:	0f 8e e4 00 00 00    	jle    a48fac9 <ncclGpuGdrSupport(ncclComm*, int*)+0x1e9>
+ a48f9e5:	4c 89 7c 24 08       	mov    %r15,0x8(%rsp)
+ a48f9ea:	66 48 8d 3d 0e d6 10 	data16 lea 0x10d60e(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a48f9f1:	00 
+ a48f9f2:	66 66 48 e8 86 bf 09 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a48f9f9:	00 
+ a48f9fa:	49 89 c4             	mov    %rax,%r12
+ a48f9fd:	4c 8d 6c 24 10       	lea    0x10(%rsp),%r13
+ a48fa02:	31 ed                	xor    %ebp,%ebp
+ a48fa04:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a48fa0b:	00 00 00 00 00 
+ a48fa10:	0f 57 c0             	xorps  %xmm0,%xmm0
+ a48fa13:	0f 29 44 24 40       	movaps %xmm0,0x40(%rsp)
+ a48fa18:	0f 29 44 24 30       	movaps %xmm0,0x30(%rsp)
+ a48fa1d:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ a48fa22:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+ a48fa27:	49 8b 86 d0 d8 00 00 	mov    0xd8d0(%r14),%rax
+ a48fa2e:	89 ef                	mov    %ebp,%edi
+ a48fa30:	4c 89 ee             	mov    %r13,%rsi
+ a48fa33:	ff 50 18             	call   *0x18(%rax)
+ a48fa36:	41 89 c7             	mov    %eax,%r15d
+ a48fa39:	85 c0                	test   %eax,%eax
+ a48fa3b:	74 57                	je     a48fa94 <ncclGpuGdrSupport(ncclComm*, int*)+0x1b4>
+ a48fa3d:	41 83 ff 07          	cmp    $0x7,%r15d
+ a48fa41:	74 51                	je     a48fa94 <ncclGpuGdrSupport(ncclComm*, int*)+0x1b4>
+ a48fa43:	48 83 3d ad d5 10 00 	cmpq   $0x0,0x10d5ad(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a48fa4a:	00 
+ a48fa4b:	74 05                	je     a48fa52 <ncclGpuGdrSupport(ncclComm*, int*)+0x172>
+ a48fa4d:	e8 1e bf 09 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a48fa52:	41 83 3c 24 00       	cmpl   $0x0,(%r12)
+ a48fa57:	75 38                	jne    a48fa91 <ncclGpuGdrSupport(ncclComm*, int*)+0x1b1>
+ a48fa59:	bf 03 00 00 00       	mov    $0x3,%edi
+ a48fa5e:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a48fa65:	48 8d 15 6c ab b8 f5 	lea    -0xa475494(%rip),%rdx        # 1a5d8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1a3e8>
+ a48fa6c:	b9 97 02 00 00       	mov    $0x297,%ecx
+ a48fa71:	4c 8d 05 90 c6 b8 f5 	lea    -0xa473970(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a48fa78:	4c 8d 0d 52 07 b8 f5 	lea    -0xa47f8ae(%rip),%r9        # 101d1 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xffe1>
+ a48fa7f:	31 c0                	xor    %eax,%eax
+ a48fa81:	41 57                	push   %r15
+ a48fa83:	68 97 02 00 00       	push   $0x297
+ a48fa88:	e8 73 f1 fd ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a48fa8d:	48 83 c4 10          	add    $0x10,%rsp
+ a48fa91:	44 89 fb             	mov    %r15d,%ebx
+ a48fa94:	41 83 ff 07          	cmp    $0x7,%r15d
+ a48fa98:	74 09                	je     a48faa3 <ncclGpuGdrSupport(ncclComm*, int*)+0x1c3>
+ a48fa9a:	45 85 ff             	test   %r15d,%r15d
+ a48fa9d:	0f 85 6a fe ff ff    	jne    a48f90d <ncclGpuGdrSupport(ncclComm*, int*)+0x2d>
+ a48faa3:	f6 44 24 28 02       	testb  $0x2,0x28(%rsp)
+ a48faa8:	75 26                	jne    a48fad0 <ncclGpuGdrSupport(ncclComm*, int*)+0x1f0>
+ a48faaa:	ff c5                	inc    %ebp
+ a48faac:	3b 6c 24 04          	cmp    0x4(%rsp),%ebp
+ a48fab0:	0f 8c 5a ff ff ff    	jl     a48fa10 <ncclGpuGdrSupport(ncclComm*, int*)+0x130>
+ a48fab6:	49 63 86 a8 8a 0b 00 	movslq 0xb8aa8(%r14),%rax
+ a48fabd:	48 8d 0d 7c e9 10 00 	lea    0x10e97c(%rip),%rcx        # a59e440 <ncclGpuGdrSupport(ncclComm*, int*)::gdrSupportMatrix>
+ a48fac4:	8b 04 81             	mov    (%rcx,%rax,4),%eax
+ a48fac7:	eb 21                	jmp    a48faea <ncclGpuGdrSupport(ncclComm*, int*)+0x20a>
+ a48fac9:	31 c0                	xor    %eax,%eax
+ a48facb:	e9 38 fe ff ff       	jmp    a48f908 <ncclGpuGdrSupport(ncclComm*, int*)+0x28>
+ a48fad0:	49 63 86 a8 8a 0b 00 	movslq 0xb8aa8(%r14),%rax
+ a48fad7:	48 8d 0d 62 e9 10 00 	lea    0x10e962(%rip),%rcx        # a59e440 <ncclGpuGdrSupport(ncclComm*, int*)::gdrSupportMatrix>
+ a48fade:	c7 04 81 01 00 00 00 	movl   $0x1,(%rcx,%rax,4)
+ a48fae5:	b8 01 00 00 00       	mov    $0x1,%eax
+ a48faea:	4c 8b 7c 24 08       	mov    0x8(%rsp),%r15
+ a48faef:	e9 14 fe ff ff       	jmp    a48f908 <ncclGpuGdrSupport(ncclComm*, int*)+0x28>

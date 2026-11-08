@@ -1,0 +1,591 @@
+{
+  "status": "installed_header_read",
+  "python": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+  "executable": "/usr/bin/python3",
+  "searched_paths": [
+    "",
+    "/usr/lib/python310.zip",
+    "/usr/lib/python3.10",
+    "/usr/lib/python3.10/lib-dynload",
+    "/usr/local/lib/python3.10/dist-packages",
+    "/usr/local/lib/python3.10/dist-packages/nvidia_cutlass_dsl/python_packages",
+    "/usr/lib/python3/dist-packages",
+    "/usr/local/lib/python3.10/dist-packages",
+    "/usr/lib/python3/dist-packages",
+    "/usr/lib/python3.10/dist-packages",
+    "/root/.local/lib/python3.10/site-packages",
+    "/usr/local/lib/python3.10/dist-packages",
+    "/usr/local/lib/python3.10/dist-packages"
+  ],
+  "candidates": [
+    {
+      "package_directory": "/usr/local/lib/python3.10/dist-packages/torch",
+      "search_path": "/usr/local/lib/python3.10/dist-packages",
+      "version": {
+        "path": "/usr/local/lib/python3.10/dist-packages/torch/version.py",
+        "sha256": "f7df4ad5873256c5282da571178e349cf9c21cb95042ecc0e57f1b10196a92d7",
+        "values": {
+          "__version__": "2.10.0",
+          "debug": false,
+          "cuda": null,
+          "git_version": "28498cd684b22c1f420f7f30c4a5e5771147ca77",
+          "hip": "6.3.26113"
+        }
+      },
+      "header_present": true,
+      "header": {
+        "path": "/usr/local/lib/python3.10/dist-packages/torch/include/ATen/TensorIndexing.h",
+        "sha256": "5c2e1d9afce367d606d4f39e0ee8ebd81782f7acdf4032ce64cf1d3d8ff16526",
+        "applySlice": {
+          "start_line": 203,
+          "end_line": 234,
+          "lines": [
+            {
+              "line": 203,
+              "text": "inline Tensor applySlice("
+            },
+            {
+              "line": 204,
+              "text": "    const Tensor& self,"
+            },
+            {
+              "line": 205,
+              "text": "    int64_t dim,"
+            },
+            {
+              "line": 206,
+              "text": "    c10::SymInt start,"
+            },
+            {
+              "line": 207,
+              "text": "    c10::SymInt stop,"
+            },
+            {
+              "line": 208,
+              "text": "    c10::SymInt step,"
+            },
+            {
+              "line": 209,
+              "text": "    bool disable_slice_optimization,"
+            },
+            {
+              "line": 210,
+              "text": "    const at::Device& self_device,"
+            },
+            {
+              "line": 211,
+              "text": "    const std::optional<SymIntArrayRef>& self_sizes) {"
+            },
+            {
+              "line": 212,
+              "text": "  // TODO: implement negative step"
+            },
+            {
+              "line": 213,
+              "text": "  TORCH_CHECK_VALUE("
+            },
+            {
+              "line": 214,
+              "text": "      step.sym_gt(0).expect_true(__FILE__, __LINE__),"
+            },
+            {
+              "line": 215,
+              "text": "      \"step must be greater than zero\");"
+            },
+            {
+              "line": 216,
+              "text": ""
+            },
+            {
+              "line": 217,
+              "text": "  // See NOTE [nested tensor size for indexing]"
+            },
+            {
+              "line": 218,
+              "text": "  if (self_sizes.has_value() && !self_sizes.value().empty()) {"
+            },
+            {
+              "line": 219,
+              "text": "    // Skip this optimization if we are tracing, as the trace may be polymorphic"
+            },
+            {
+              "line": 220,
+              "text": "    // over the shape of the `self` tensor, and we still want to record"
+            },
+            {
+              "line": 221,
+              "text": "    // the slice."
+            },
+            {
+              "line": 222,
+              "text": "    SymInt length = (self_device == at::kCPU || self_device == at::kCUDA)"
+            },
+            {
+              "line": 223,
+              "text": "        ? (*self_sizes)[dim]"
+            },
+            {
+              "line": 224,
+              "text": "        : self.sym_size(dim);"
+            },
+            {
+              "line": 225,
+              "text": "    if (!disable_slice_optimization &&"
+            },
+            {
+              "line": 226,
+              "text": "        TORCH_STATICALLY_KNOWN_TRUE(start.sym_eq(0)) &&"
+            },
+            {
+              "line": 227,
+              "text": "        TORCH_STATICALLY_KNOWN_TRUE(length.sym_le(stop)) && step == 1) {"
+            },
+            {
+              "line": 228,
+              "text": "      return self;"
+            },
+            {
+              "line": 229,
+              "text": "    }"
+            },
+            {
+              "line": 230,
+              "text": "  }"
+            },
+            {
+              "line": 231,
+              "text": "  return self.slice_symint("
+            },
+            {
+              "line": 232,
+              "text": "      dim, std::move(start), std::move(stop), std::move(step));"
+            },
+            {
+              "line": 233,
+              "text": "}"
+            },
+            {
+              "line": 234,
+              "text": ""
+            }
+          ]
+        },
+        "optimization_note": {
+          "start_line": 600,
+          "end_line": 633,
+          "lines": [
+            {
+              "line": 600,
+              "text": "// NOTE [ Setting `disable_slice_optimization` when calling C++ tensor indexing"
+            },
+            {
+              "line": 601,
+              "text": "// functions from Python ]"
+            },
+            {
+              "line": 602,
+              "text": "//"
+            },
+            {
+              "line": 603,
+              "text": "// Question: When should we set `disable_slice_optimization` to `true` when"
+            },
+            {
+              "line": 604,
+              "text": "// calling C++ tensor indexing functions from Python indexing code?"
+            },
+            {
+              "line": 605,
+              "text": "//"
+            },
+            {
+              "line": 606,
+              "text": "// Answer: What \"slice optimization\" means: when we have a slicing expression"
+            },
+            {
+              "line": 607,
+              "text": "// like `x[0:5, 0]`, where the sliced tensor was of size 5 in dimension 0, we"
+            },
+            {
+              "line": 608,
+              "text": "// would skip dispatching the actual slice call as an optimization. However,"
+            },
+            {
+              "line": 609,
+              "text": "// here are the cases where we DON'T want this optimization:"
+            },
+            {
+              "line": 610,
+              "text": "//"
+            },
+            {
+              "line": 611,
+              "text": "// 1. When we are doing 1-D slicing (e.g. `tensor[:]`)."
+            },
+            {
+              "line": 612,
+              "text": "//    Reason: we always return a shallow copy for expressions such as"
+            },
+            {
+              "line": 613,
+              "text": "//    `tensor[:]` / `tensor[...]` / `tensor[:, :]`. (Note that for `tensor[:,"
+            },
+            {
+              "line": 614,
+              "text": "//    :]`, we return an alias of `tensor` by doing the following:"
+            },
+            {
+              "line": 615,
+              "text": "//    ```"
+            },
+            {
+              "line": 616,
+              "text": "//    Tensor sliced = impl::applySlicing(self, indices, tensorIndices,"
+            },
+            {
+              "line": 617,
+              "text": "//    disable_slice_optimization, self_device, self_sizes); if"
+            },
+            {
+              "line": 618,
+              "text": "//    (tensorIndices.empty()) {"
+            },
+            {
+              "line": 619,
+              "text": "//      if (sliced.is_same(self)) {"
+            },
+            {
+              "line": 620,
+              "text": "//        // ensure we return a shallow copy for things like x[...]"
+            },
+            {
+              "line": 621,
+              "text": "//        sliced = at::alias(sliced);"
+            },
+            {
+              "line": 622,
+              "text": "//      }"
+            },
+            {
+              "line": 623,
+              "text": "//      return sliced;"
+            },
+            {
+              "line": 624,
+              "text": "//    }"
+            },
+            {
+              "line": 625,
+              "text": "//    ```)"
+            },
+            {
+              "line": 626,
+              "text": "// 2. When we are doing JIT tracing."
+            },
+            {
+              "line": 627,
+              "text": "//    Reason: JIT tracing needs the `self.slice(...)` call to properly trace the"
+            },
+            {
+              "line": 628,
+              "text": "//    slice operation."
+            },
+            {
+              "line": 629,
+              "text": ""
+            },
+            {
+              "line": 630,
+              "text": "// This mirrors `THPVariable_getitem` in"
+            },
+            {
+              "line": 631,
+              "text": "// torch/csrc/autograd/python_variable_indexing.cpp See NOTE [ Setting"
+            },
+            {
+              "line": 632,
+              "text": "// `disable_slice_optimization` when calling C++ tensor indexing functions from"
+            },
+            {
+              "line": 633,
+              "text": "// Python ]"
+            }
+          ]
+        },
+        "get_item": {
+          "start_line": 634,
+          "end_line": 699,
+          "lines": [
+            {
+              "line": 634,
+              "text": "inline Tensor get_item("
+            },
+            {
+              "line": 635,
+              "text": "    const Tensor& self,"
+            },
+            {
+              "line": 636,
+              "text": "    const ArrayRef<TensorIndex>& indices,"
+            },
+            {
+              "line": 637,
+              "text": "    bool disable_slice_optimization = false) {"
+            },
+            {
+              "line": 638,
+              "text": "  at::Device self_device = self.device();"
+            },
+            {
+              "line": 639,
+              "text": "  // NOTE [nested tensor size for indexing]"
+            },
+            {
+              "line": 640,
+              "text": "  // nested tensor does not have a size (yet) so for now we represent its size"
+            },
+            {
+              "line": 641,
+              "text": "  // as null may need to be changed after we reach a better solution for nested"
+            },
+            {
+              "line": 642,
+              "text": "  // tensor size"
+            },
+            {
+              "line": 643,
+              "text": "  std::optional<SymIntArrayRef> self_sizes = self.is_nested()"
+            },
+            {
+              "line": 644,
+              "text": "      ? std::optional<SymIntArrayRef>(std::nullopt)"
+            },
+            {
+              "line": 645,
+              "text": "      : std::optional<SymIntArrayRef>(self.sym_sizes());"
+            },
+            {
+              "line": 646,
+              "text": ""
+            },
+            {
+              "line": 647,
+              "text": "  // handle simple types: integers, slices, none, ellipsis, bool"
+            },
+            {
+              "line": 648,
+              "text": "  if (indices.size() == 1) {"
+            },
+            {
+              "line": 649,
+              "text": "    const TensorIndex& index = indices[0];"
+            },
+            {
+              "line": 650,
+              "text": "    if (index.is_integer()) {"
+            },
+            {
+              "line": 651,
+              "text": "      return impl::applySelect("
+            },
+            {
+              "line": 652,
+              "text": "          self, 0, index.integer(), 0, self_device, self_sizes);"
+            },
+            {
+              "line": 653,
+              "text": "    } else if (index.is_slice()) {"
+            },
+            {
+              "line": 654,
+              "text": "      return impl::applySlice("
+            },
+            {
+              "line": 655,
+              "text": "          self,"
+            },
+            {
+              "line": 656,
+              "text": "          0,"
+            },
+            {
+              "line": 657,
+              "text": "          index.slice().start(),"
+            },
+            {
+              "line": 658,
+              "text": "          index.slice().stop(),"
+            },
+            {
+              "line": 659,
+              "text": "          index.slice().step(),"
+            },
+            {
+              "line": 660,
+              "text": "          /*disable_slice_optimization=*/true,"
+            },
+            {
+              "line": 661,
+              "text": "          self_device,"
+            },
+            {
+              "line": 662,
+              "text": "          self_sizes);"
+            },
+            {
+              "line": 663,
+              "text": "    } else if (index.is_none()) {"
+            },
+            {
+              "line": 664,
+              "text": "      return self.unsqueeze(0);"
+            },
+            {
+              "line": 665,
+              "text": "    } else if (index.is_ellipsis()) {"
+            },
+            {
+              "line": 666,
+              "text": "      return at::alias(self);"
+            },
+            {
+              "line": 667,
+              "text": "    } else if (index.is_boolean()) {"
+            },
+            {
+              "line": 668,
+              "text": "      Tensor result = self.unsqueeze(0);"
+            },
+            {
+              "line": 669,
+              "text": "      return dispatch_index("
+            },
+            {
+              "line": 670,
+              "text": "          result,"
+            },
+            {
+              "line": 671,
+              "text": "          std::vector<Tensor>{impl::boolToIndexingTensor("
+            },
+            {
+              "line": 672,
+              "text": "              result, index.boolean(), self_device)});"
+            },
+            {
+              "line": 673,
+              "text": "    }"
+            },
+            {
+              "line": 674,
+              "text": "  }"
+            },
+            {
+              "line": 675,
+              "text": ""
+            },
+            {
+              "line": 676,
+              "text": "  std::vector<Tensor> tensorIndices;"
+            },
+            {
+              "line": 677,
+              "text": "  Tensor sliced = impl::applySlicing("
+            },
+            {
+              "line": 678,
+              "text": "      self,"
+            },
+            {
+              "line": 679,
+              "text": "      indices,"
+            },
+            {
+              "line": 680,
+              "text": "      tensorIndices,"
+            },
+            {
+              "line": 681,
+              "text": "      disable_slice_optimization,"
+            },
+            {
+              "line": 682,
+              "text": "      self_device,"
+            },
+            {
+              "line": 683,
+              "text": "      self_sizes);"
+            },
+            {
+              "line": 684,
+              "text": "  if (tensorIndices.empty()) {"
+            },
+            {
+              "line": 685,
+              "text": "    if (sliced.is_same(self)) {"
+            },
+            {
+              "line": 686,
+              "text": "      // ensure we return a shallow copy for things like x[...]"
+            },
+            {
+              "line": 687,
+              "text": "      sliced = at::alias(sliced);"
+            },
+            {
+              "line": 688,
+              "text": "    }"
+            },
+            {
+              "line": 689,
+              "text": "    return sliced;"
+            },
+            {
+              "line": 690,
+              "text": "  }"
+            },
+            {
+              "line": 691,
+              "text": ""
+            },
+            {
+              "line": 692,
+              "text": "  // indexing by tensors (\"advanced\" indexing)"
+            },
+            {
+              "line": 693,
+              "text": "  return dispatch_index(sliced, std::move(tensorIndices));"
+            },
+            {
+              "line": 694,
+              "text": "}"
+            },
+            {
+              "line": 695,
+              "text": ""
+            },
+            {
+              "line": 696,
+              "text": "// This mirrors `THPVariable_setitem` in"
+            },
+            {
+              "line": 697,
+              "text": "// torch/csrc/autograd/python_variable_indexing.cpp for \"the assigned value is a"
+            },
+            {
+              "line": 698,
+              "text": "// Tensor\" case See NOTE [ Setting `disable_slice_optimization` when calling C++"
+            },
+            {
+              "line": 699,
+              "text": "// tensor indexing functions from Python ]"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "torch_imported": false,
+  "gpu_api_calls": 0,
+  "scope": "filesystem reads only; paths are candidates ordered by Python search paths"
+}

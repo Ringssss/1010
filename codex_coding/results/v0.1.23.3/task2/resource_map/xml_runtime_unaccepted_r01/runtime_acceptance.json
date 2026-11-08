@@ -1,0 +1,80 @@
+{
+  "schema_version": "fluidckpt.rccl_owned_xml_runtime_acceptance.v1",
+  "runtime_observed": false,
+  "runtime_accepted": false,
+  "performance_accepted": false,
+  "scope": "two failed startup attempts, requested node27/node29 GPU0/1 with shca_0 port1; no actual RCCL graph available",
+  "nodes": {
+    "node27": {
+      "runtime_observed": false,
+      "runtime_accepted": false,
+      "observed_gpu_bdfs": [],
+      "observed_hca_ports": [],
+      "requested_gpu_bdfs": [
+        "0000:09:00.0",
+        "0000:36:00.0"
+      ],
+      "requested_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "source_refs": [
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_startup_owned_r01/summary.json",
+          "sha256": "24e51752b1cdc2e129adec42c4b8501fe2a4958f1c2880703b96c6dc27cfc46e"
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_startup_owned_r02/summary.json",
+          "sha256": "b55ccc7865ec3bbf25a1ce33fbbecabd40d1e1e83121ac4013cdac79c7ce7fb0"
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_recovery_r01/summary.json",
+          "sha256": "3c07a3f9433d51f9739fd8c275343ac3384493bbcaad3a20f392416fb05a73d6"
+        }
+      ],
+      "actual_graph_refs": [],
+      "actual_gdr_modes": null,
+      "reason": "r01 snapshot admission timeout before ranks; r02 Gloo rendezvous failed before NCCL graph/connection certification"
+    },
+    "node29": {
+      "runtime_observed": false,
+      "runtime_accepted": false,
+      "observed_gpu_bdfs": [],
+      "observed_hca_ports": [],
+      "requested_gpu_bdfs": [
+        "0000:09:00.0",
+        "0000:36:00.0"
+      ],
+      "requested_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "source_refs": [
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_startup_owned_r01/summary.json",
+          "sha256": "24e51752b1cdc2e129adec42c4b8501fe2a4958f1c2880703b96c6dc27cfc46e"
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_startup_owned_r02/summary.json",
+          "sha256": "b55ccc7865ec3bbf25a1ce33fbbecabd40d1e1e83121ac4013cdac79c7ce7fb0"
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_recovery_r01/summary.json",
+          "sha256": "3c07a3f9433d51f9739fd8c275343ac3384493bbcaad3a20f392416fb05a73d6"
+        }
+      ],
+      "actual_graph_refs": [],
+      "actual_gdr_modes": null,
+      "reason": "r01 snapshot admission timeout before ranks; r02 Gloo rendezvous failed before NCCL graph/connection certification"
+    }
+  },
+  "cleanup": {
+    "node27_owned_ranks_exit_observed_by_parent": true,
+    "node29_owned_ranks_exit_verified": false,
+    "pending_ledger": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_recovery_r01/pending_cleanup_ledger.json"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "task": "task2",
+  "development": "v0.1.23.2",
+  "run": "cluster/fixture03",
+  "status": "failed",
+  "repeats": 1,
+  "profile": {
+    "rates": {
+      "local_dram": 35,
+      "local_hbm": 80,
+      "peer": 35,
+      "network": 20
+    },
+    "gpu_ingress_GBps": 80,
+    "gpu_egress_GBps": 80,
+    "dram_GBps": 50,
+    "network_node_GBps": 30,
+    "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions"
+  },
+  "events": [
+    {
+      "time": 1790582839.4261265,
+      "event": "isolated_container_created",
+      "node": "node28",
+      "name": "zjn-fluidckpt-task2-cluster-fixture03",
+      "capability": "SYS_NICE"
+    },
+    {
+      "time": 1790582840.0817788,
+      "event": "isolated_container_created",
+      "node": "node29",
+      "name": "zjn-fluidckpt-task2-cluster-fixture03",
+      "capability": "SYS_NICE"
+    },
+    {
+      "time": 1790582841.087031,
+      "event": "failed",
+      "error": "RuntimeError('node29: experiment port already in use')"
+    }
+  ],
+  "stages": {},
+  "restores": [],
+  "scope": "fixed Qwen TP2 layout; DRAM/HBM sources on three nodes; no performance optimization claim",
+  "code_sha256": {
+    "main_lib/fluidckpt/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/model/score_frozen.py": "cb1f6b3b0cf81ec9e52305ec2e6b1502fbebe8830b747cc34c33bfcd3aa65ab3",
+    "main_lib/fluidckpt/model/resources.py": "f08dda76b915665b07e38658fec5762033a2566b4859ec886c1c8285ad8f9915",
+    "main_lib/fluidckpt/model/fit.py": "bf032dba09b232acc7c2c580a239088c93e4d4c1260964ebe8babcd78b9c225a",
+    "main_lib/fluidckpt/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/model/fluid.py": "1ee4033e30e02271b847d17899434a7f8b7759a1449382be8485b7af5e9df00a",
+    "main_lib/fluidckpt/topology/__init__.py": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+    "main_lib/fluidckpt/serving/ctl.py": "5d1f54a0e52138266d074582decc2211c400a5a3635dd00b1803079ae2b5e7b9",
+    "main_lib/fluidckpt/serving/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/serving/keeper.py": "d177be96213d8966b630ae3085c15c5fade2da4b96c8b8401560e377158ef78d",
+    "main_lib/fluidckpt/serving/measure.py": "baf6edd909e1c63726c98db7c9a66a8dbc18e413741dbc71cd448aa5c608bc35",
+    "main_lib/fluidckpt/serving/replicas.py": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566",
+    "main_lib/fluidckpt/serving/sglang_hook.py": "efabf4c94d30d9427079d79f0586b470ce1c94535347d06b9ca15656480b1c41",
+    "main_lib/fluidckpt/profiler/workers.py": "7b9fc98576e75e17b9e8d888dd457f5097705606f2d0542afc1a33663b67e4c8",
+    "main_lib/fluidckpt/profiler/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/profiler/run.py": "6cab12fd102196ffa6e68b87abb8206fbed3b9bdfff4ec9bb0980c39d1d361a6",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/memory/__init__.py": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/memory/host.py": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc",
+    "main_lib/fluidckpt/planner/plans.py": "6e01d118714bc08262fd03c98d19e15ea0df96a2acca22d0f0f3e26a40ed5ccb",
+    "main_lib/fluidckpt/planner/regions.py": "bb416a8ad667f93caf6b87f3b273246f7199e20cecb7eed71901774e69fff0d0",
+    "main_lib/fluidckpt/planner/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/planner/loading.py": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010",
+    "main_lib/fluidckpt/transport/bucket.py": "0d5ec16c7f4dbeee76f105d91d8ca7461e07dcee90dcafe7155a6576c249343a",
+    "main_lib/fluidckpt/transport/__init__.py": "24fc75327a4783864f10cc0b4280595f0971a0365e1d69a5053cd38772158563",
+    "main_lib/fluidckpt/transport/stream.py": "5c5c3a36e90caff8398b23b80f34f3d96257acb6dc4203a46de305df53d6c05d",
+    "main_lib/fluidckpt/transport/flowplan.py": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103",
+    "main_lib/fluidckpt/cluster/worker.py": "3474982a0da20b77f03ee4d163abb8429844e06566a328c5bad86691ed9bb293",
+    "main_lib/fluidckpt/cluster/__init__.py": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c",
+    "main_lib/fluidckpt/cluster/catalog.py": "a3edb2547d02bf5972660d5fe220da9f076efd197e899c04c3b3163a8f603663",
+    "main_lib/fluidckpt/cluster/control.py": "e089b57fdf96a1939a199782b787402aaeb2d0a5536b49e42985f47b5531dedf",
+    "main_lib/fluidckpt/cluster/planning.py": "2e8751a5796da7b06e7382b19814b581a4389f452a9a6ff0e1fa2b6dab7573b4",
+    "main_lib/fluidckpt/executor/regions.py": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d",
+    "main_lib/fluidckpt/executor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/executor/run_plans.py": "bb41f9c53196dd5ab96d3c6843b6bef9a6fd2b6dfa54647f278f554fbff773ff",
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/task2/cluster/run_system.py": "4e6a84f1924b82897b26b94053da59ff0bae6eb68b7377ecf9654861392d9b2f",
+    "codex_coding/src/task2/cluster/inspect_node.py": "f3440c7514e02cd4e9bdf05c492491fb1f1096e1d0230ac21eaafe15b92be8bf",
+    "codex_coding/src/serving/sglang_fluid_launch.py": "b1d03c0d68baa15a39e653456bb368eabd1af7712368e5ee970b24ab7f571252"
+  },
+  "error": "RuntimeError('node29: experiment port already in use')",
+  "cleanup_errors": []
+}

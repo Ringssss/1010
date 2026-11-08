@@ -1,0 +1,46 @@
+{
+  "schema_version": "topology_registration.v1",
+  "status": "CPU_registered_only",
+  "frozen_manifest_sha256": "172657c85eaacc93658fed22f6ca80b8cc30053aabc8e2d0fd1eacc86f3e9c73",
+  "case_sha256": "a60959b43f2e0927e589e5eb47cf7b136bf0bcc126fc85c0d1a4521f00970e5c",
+  "case_id": "T2_uneven_budget",
+  "layout": "rank0_6plus_rank1_2",
+  "scenario": "target_b",
+  "method": "fastest",
+  "profile_source": "functional_provisional_assumption",
+  "readiness": {
+    "contract_valid": true,
+    "plan_adapter_ready": true,
+    "restore_runner_ready": false,
+    "snapshot_restore_admissible": true,
+    "empirical_full_model_execution": "separate e4/e5 phase; runtime adapter and fresh preflight required",
+    "prediction_ready": false,
+    "physical_contention_claim_ready": false,
+    "GPU_execution_authorized_by_freeze": false
+  },
+  "candidate_state": "hypothetical; runtime must build and rebind IDs/epochs before reuse",
+  "runtime_slot": {
+    "model": "B",
+    "endpoint": "http://12.11.3.29:33340",
+    "workers": [
+      2,
+      3
+    ],
+    "command": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/engine.command.json",
+    "parked": true,
+    "ownership_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03",
+    "metrics": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/metrics/serverless_target_recovery_r03_bootstrap",
+    "handoff": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff",
+    "manifest": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff/capture/derived.json",
+    "process_spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.json",
+    "recovery_parent_session": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/session.json"
+  },
+  "runtime_adapter_changes": [
+    "accept frozen layout/per-location caps instead of hardcoded4+4",
+    "bind one mutually exclusive target slot per run",
+    "accept frozen rank_interleaved common schedule"
+  ],
+  "full_model_gate": "new owned run, current endpoint preflight, build fullSHA, content/output/cleanup and peak ledger",
+  "new_GPU_samples": 0,
+  "GPU_or_SSH_mutations": false
+}

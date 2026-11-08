@@ -1,0 +1,51 @@
+{
+  "arm": "F_restore_end_to_end",
+  "model": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+  "snap": "qwen36",
+  "src": "node27",
+  "dst": "node29",
+  "tag": "restore_f1",
+  "handoff": "/dev/shm/fluidckpt",
+  "skeleton_wall_s": 3.337860107421875e-06,
+  "shard_GiB": {
+    "0": 33.93,
+    "1": 33.93
+  },
+  "plan": {
+    "lp_T_s": 0.7919463673043478,
+    "ops": 2,
+    "split_GB": [
+      [
+        0,
+        0,
+        36.43
+      ],
+      [
+        1,
+        0,
+        36.43
+      ]
+    ],
+    "route_of": [
+      [
+        0,
+        "ib"
+      ],
+      [
+        1,
+        "ib"
+      ]
+    ],
+    "load_GBps": {
+      "gpuin:node29:0": 46.0,
+      "gpuin:node29:1": 46.0,
+      "h2d:node27:0": 46.0,
+      "h2d:node27:1": 46.0,
+      "hostrd:node27": 92.0,
+      "ibin:node29": 92.0,
+      "ibout:node27": 92.0,
+      "pair:node27:0->node29:0": 46.0,
+      "pair:node27:1->node29:1": 46.0
+    }
+  }
+}

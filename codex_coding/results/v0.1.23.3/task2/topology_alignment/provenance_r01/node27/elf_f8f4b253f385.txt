@@ -1,0 +1,15 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4ed910 <ncclGetEnv(char const*)>:
+ a4ed910:	53                   	push   %rbx
+ a4ed911:	48 89 fb             	mov    %rdi,%rbx
+ a4ed914:	48 8d 3d dd a5 12 00 	lea    0x12a5dd(%rip),%rdi        # a617ef8 <ncclGetEnv(char const*)::once>
+ a4ed91b:	48 8d 35 6e fe ff ff 	lea    -0x192(%rip),%rsi        # a4ed790 <initEnv()>
+ a4ed922:	e8 99 df 03 00       	call   a52b8c0 <pthread_once@plt>
+ a4ed927:	48 89 df             	mov    %rbx,%rdi
+ a4ed92a:	5b                   	pop    %rbx
+ a4ed92b:	e9 20 e3 03 00       	jmp    a52bc50 <getenv@plt>

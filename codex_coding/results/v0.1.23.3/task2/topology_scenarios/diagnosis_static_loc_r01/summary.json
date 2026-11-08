@@ -1,0 +1,35 @@
+{
+  "gpu_operations": 0,
+  "binary_expected_sha256": "32aa13da8bbd4d9a4ec37be08014f0783f5f576c7439dc10a3e1c661aa35427a",
+  "nodes": {
+    "node27": {
+      "argv": [
+        "docker",
+        "exec",
+        "zjn-fluid-basic-1bce3897a2075b",
+        "bash",
+        "-lc",
+        "sha256sum /opt/dtk/lib/librccl.so.1\nstrings -a -n 3 -t x /opt/dtk/lib/librccl.so.1 | grep -E 'NCCL_NET_GDR_LEVEL|^ *[0-9a-f]+ (LOC|PIX|PXB|PHB|SYS|NVB|DIS|PXN)$'\nnm /opt/dtk/lib/librccl.so.1 2>/dev/null | grep -E 'ncclGetLevel|topoPathTypeStr|ncclTopoCheckGdr'\nreadelf -rW /opt/dtk/lib/librccl.so.1 | grep -E '000000000a59e8(00|08|10|18|20|28|30|38)'\nobjdump -s --start-address=0x18fd1 --stop-address=0x18fda /opt/dtk/lib/librccl.so.1\nobjdump -d -C --start-address=0xa4a4bd0 --stop-address=0xa4a4d89 /opt/dtk/lib/librccl.so.1\nobjdump -d -C --start-address=0xa4a5332 --stop-address=0xa4a5374 /opt/dtk/lib/librccl.so.1\nobjdump -d -C --start-address=0xa4a568c --stop-address=0xa4a5701 /opt/dtk/lib/librccl.so.1\n"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "frozen_address_ranges_valid": true,
+      "output_sha256": "f54ea93d90c391d83d45fad37856fa4f2432573bb077f5708aeb462762d7374b"
+    },
+    "node29": {
+      "argv": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "node29",
+        "docker exec zjn-fluid-basic-1bce3897a2075b bash -lc 'sha256sum /opt/dtk/lib/librccl.so.1\nstrings -a -n 3 -t x /opt/dtk/lib/librccl.so.1 | grep -E '\"'\"'NCCL_NET_GDR_LEVEL|^ *[0-9a-f]+ (LOC|PIX|PXB|PHB|SYS|NVB|DIS|PXN)$'\"'\"'\nnm /opt/dtk/lib/librccl.so.1 2>/dev/null | grep -E '\"'\"'ncclGetLevel|topoPathTypeStr|ncclTopoCheckGdr'\"'\"'\nreadelf -rW /opt/dtk/lib/librccl.so.1 | grep -E '\"'\"'000000000a59e8(00|08|10|18|20|28|30|38)'\"'\"'\nobjdump -s --start-address=0x18fd1 --stop-address=0x18fda /opt/dtk/lib/librccl.so.1\nobjdump -d -C --start-address=0xa4a4bd0 --stop-address=0xa4a4d89 /opt/dtk/lib/librccl.so.1\nobjdump -d -C --start-address=0xa4a5332 --stop-address=0xa4a5374 /opt/dtk/lib/librccl.so.1\nobjdump -d -C --start-address=0xa4a568c --stop-address=0xa4a5701 /opt/dtk/lib/librccl.so.1\n'"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "frozen_address_ranges_valid": true,
+      "output_sha256": "f54ea93d90c391d83d45fad37856fa4f2432573bb077f5708aeb462762d7374b"
+    }
+  }
+}

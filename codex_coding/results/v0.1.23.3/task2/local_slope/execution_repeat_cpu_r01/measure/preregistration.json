@@ -1,0 +1,168 @@
+{
+  "measurements": 0,
+  "plans": {
+    "host_repeat_16MiB": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "local_slope_repeat": 2,
+      "local_slope_repeat_label": "host_repeat_16MiB",
+      "ops": [
+        {
+          "dst_w": 4,
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "kind": "local_hbm",
+          "n": 16777216,
+          "off": 0,
+          "op_id": 0,
+          "path": "4:hbm:0->4",
+          "replica_id": "local_slope_runtime_repeat_cpu/source0/hbm",
+          "resources": [],
+          "source_epoch": "cpu_repeat/4",
+          "source_offset": 0,
+          "src_w": 4,
+          "target": "local_slope_runtime_repeat_cpu/host_repeat_16MiB/target0",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "local_slope_runtime_repeat_cpu/host_repeat_16MiB/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "local_slope_runtime_repeat_cpu/host_repeat_16MiB/target0",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 16777216,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      ]
+    },
+    "host_repeat_4MiB": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "local_slope_repeat": 2,
+      "local_slope_repeat_label": "host_repeat_4MiB",
+      "ops": [
+        {
+          "dst_w": 4,
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "kind": "local_hbm",
+          "n": 4194304,
+          "off": 0,
+          "op_id": 0,
+          "path": "4:hbm:0->4",
+          "replica_id": "local_slope_runtime_repeat_cpu/source0/hbm",
+          "resources": [],
+          "source_epoch": "cpu_repeat/4",
+          "source_offset": 0,
+          "src_w": 4,
+          "target": "local_slope_runtime_repeat_cpu/host_repeat_4MiB/target0",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "local_slope_runtime_repeat_cpu/host_repeat_4MiB/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "local_slope_runtime_repeat_cpu/host_repeat_4MiB/target0",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 4194304,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      ]
+    }
+  },
+  "protocol": {
+    "actual_copy_bytes": 41943040,
+    "cases": [
+      {
+        "copy_rounds": 2,
+        "label": "host_repeat_4MiB",
+        "mode": "host_repeat",
+        "nbytes": 4194304,
+        "operations": 1,
+        "order_index": 0,
+        "source_offset": 0
+      },
+      {
+        "copy_rounds": 2,
+        "label": "host_repeat_16MiB",
+        "mode": "host_repeat",
+        "nbytes": 16777216,
+        "operations": 1,
+        "order_index": 1,
+        "source_offset": 0
+      }
+    ],
+    "chunk_bytes": 33554432,
+    "copy_rounds_per_request": 2,
+    "event_policy": "no CUDA events and no prepare event initialization or extra synchronization",
+    "executor": "serial",
+    "fits": 0,
+    "further_GPU_requests": 0,
+    "interpretation": "diagnostic first-operation host cost; second copy also changes target first-touch/cache state; not an optimization benchmark",
+    "logical_SHA_bytes": 20971520,
+    "metadata_policy": "pointers/views/stream/memory diagnosis only after both copy rounds",
+    "mode": "cached",
+    "model_updates": 0,
+    "necessary_pairs": [
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "prewarm_policy": "none; both copies and all host work remain within request/filled window",
+    "requests": 2,
+    "source_bytes": 16777216,
+    "source_tier": "hbm",
+    "source_worker": 4,
+    "target_allocation": "fresh exact size, same allocation used in both rounds",
+    "target_tier": "hbm",
+    "target_worker": 4
+  },
+  "saved_ns": 196453014044691
+}

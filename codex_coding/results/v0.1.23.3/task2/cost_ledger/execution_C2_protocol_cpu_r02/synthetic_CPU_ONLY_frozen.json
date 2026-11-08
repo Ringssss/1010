@@ -1,0 +1,1658 @@
+{
+  "CPU_REPLAY_ONLY": true,
+  "artifact_type": "cost-calibration-frozen-v1",
+  "calibration_bundle_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_C2_protocol_cpu_r02/synthetic_CPU_ONLY_calibration.json",
+    "sha256": "38e7a721543e27b887b5a9d9579c32c8860ce789a603ccf184da43fb3ecad175"
+  },
+  "calibration_session_id": "cost_ledger_runtime_C1_synthetic_protocol_cpu",
+  "configuration": {
+    "CUDA_events": 0,
+    "chunk_bytes": 33554432,
+    "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+    "control_mode": "compact",
+    "copy_rounds": 1,
+    "executor": "serial",
+    "handler": "native_ThreadingHTTPServer_request_thread",
+    "inventory_mode": "cached",
+    "logger": "native_json_stdout",
+    "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+    "path": "local_hbm",
+    "pretouch": false,
+    "profile_execute": false,
+    "queues": 0,
+    "source_bytes": 100663296,
+    "source_tier": "hbm",
+    "source_worker": 0,
+    "target_allocation": "fresh_exact_size_each_request",
+    "target_mode": "replica",
+    "target_tier": "hbm",
+    "target_worker": 0,
+    "target_writes_before": 0,
+    "topology": "single_worker_node27_gpu0_world1"
+  },
+  "configuration_sha256": "dc691936f6265ff2a22e77517ef59f324f644f187f110ee29d0c20c2f085558a",
+  "diagnostic_candidate_predictions": {
+    "a_bN": {
+      "V1": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 1490000,
+          "value": 1490000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 2490000,
+          "value": 2490000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 990000,
+          "value": 990000.0
+        }
+      },
+      "V2": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 1910000,
+          "value": 1910000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 2910000,
+          "value": 2910000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1410000,
+          "value": 1410000.0
+        }
+      }
+    },
+    "a_bN_cK": {
+      "V1": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 1730000,
+          "value": 1730000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 2730000,
+          "value": 2730000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1230000,
+          "value": 1230000.0
+        }
+      },
+      "V2": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 2150000,
+          "value": 2150000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 3150000,
+          "value": 3150000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1650000,
+          "value": 1650000.0
+        }
+      }
+    },
+    "a_bN_cK_dC": {
+      "V1": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 1780000,
+          "value": 1780000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 2780000,
+          "value": 2780000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1280000,
+          "value": 1280000.0
+        }
+      },
+      "V2": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 2200000,
+          "value": 2200000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 3200000,
+          "value": 3200000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1700000,
+          "value": 1700000.0
+        }
+      }
+    }
+  },
+  "frozen": true,
+  "frozen_scope": "admitted_C1_candidates",
+  "hardware_admission": false,
+  "holdout_authorized_by_analysis": true,
+  "holdout_status": "conditional_new_session_pending",
+  "independently_validated": false,
+  "layered_raw_breakdown": [
+    {
+      "case_id": "L3",
+      "controller_minus_worker_ns": 500000,
+      "filled_minus_controller_ns": 1000000,
+      "measured": {
+        "controller_execute_ns": 1740000,
+        "full_filled_ns": 2740000,
+        "published_ns": 349033851,
+        "raw_service_ns": 144844917,
+        "request_return_ns": 350125116,
+        "service_ns": 1140000,
+        "worker_ns": 1240000
+      },
+      "worker_minus_service_ns": 100000
+    },
+    {
+      "case_id": "L1",
+      "controller_minus_worker_ns": 500000,
+      "filled_minus_controller_ns": 1000000,
+      "measured": {
+        "controller_execute_ns": 1220000,
+        "full_filled_ns": 2220000,
+        "published_ns": 178647031,
+        "raw_service_ns": 72632666,
+        "request_return_ns": 179782946,
+        "service_ns": 620000,
+        "worker_ns": 720000
+      },
+      "worker_minus_service_ns": 100000
+    },
+    {
+      "case_id": "L4",
+      "controller_minus_worker_ns": 500000,
+      "filled_minus_controller_ns": 1000000,
+      "measured": {
+        "controller_execute_ns": 1840000,
+        "full_filled_ns": 2840000,
+        "published_ns": 337897332,
+        "raw_service_ns": 146920014,
+        "request_return_ns": 338994727,
+        "service_ns": 1240000,
+        "worker_ns": 1340000
+      },
+      "worker_minus_service_ns": 100000
+    },
+    {
+      "case_id": "L2",
+      "controller_minus_worker_ns": 500000,
+      "filled_minus_controller_ns": 1000000,
+      "measured": {
+        "controller_execute_ns": 1640000,
+        "full_filled_ns": 2640000,
+        "published_ns": 346540128,
+        "raw_service_ns": 145041789,
+        "request_return_ns": 347687794,
+        "service_ns": 1040000,
+        "worker_ns": 1140000
+      },
+      "worker_minus_service_ns": 100000
+    },
+    {
+      "case_id": "L5",
+      "controller_minus_worker_ns": 500000,
+      "filled_minus_controller_ns": 1000000,
+      "measured": {
+        "controller_execute_ns": 2060000,
+        "full_filled_ns": 3060000,
+        "published_ns": 518451778,
+        "raw_service_ns": 217383832,
+        "request_return_ns": 519494192,
+        "service_ns": 1460000,
+        "worker_ns": 1560000
+      },
+      "worker_minus_service_ns": 100000
+    },
+    {
+      "case_id": "L3_repeat",
+      "controller_minus_worker_ns": 500000,
+      "filled_minus_controller_ns": 1000000,
+      "measured": {
+        "controller_execute_ns": 1740000,
+        "full_filled_ns": 2740000,
+        "published_ns": 347608953,
+        "raw_service_ns": 145064380,
+        "request_return_ns": 348745948,
+        "service_ns": 1140000,
+        "worker_ns": 1240000
+      },
+      "worker_minus_service_ns": 100000
+    }
+  ],
+  "layers": {
+    "service_ns": {
+      "E_ns": {
+        "denominator": 1,
+        "numerator": 5000,
+        "value": 5000.0
+      },
+      "candidates": {
+        "a_bN": {
+          "admissible": false,
+          "coefficient_status": [
+            "unresolved",
+            "unresolved"
+          ],
+          "columns": [
+            0,
+            1
+          ],
+          "nonnegative_pass": true,
+          "predictions": {
+            "V1": {
+              "denominator": 1,
+              "numerator": 890000,
+              "value": 890000.0
+            },
+            "V2": {
+              "denominator": 1,
+              "numerator": 1310000,
+              "value": 1310000.0
+            }
+          },
+          "rank": 2,
+          "raw_coefficients": [
+            {
+              "denominator": 1,
+              "numerator": 260000,
+              "value": 260000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 13125,
+              "value": 13125.0
+            }
+          ],
+          "residual_pass": false,
+          "structure_pass": true,
+          "training_is_validation": false,
+          "training_max_abs_residual_ns": {
+            "denominator": 1,
+            "numerator": 140000,
+            "value": 140000.0
+          },
+          "training_residual_ns": {
+            "L1": {
+              "denominator": 1,
+              "numerator": -60000,
+              "value": -60000.0
+            },
+            "L2": {
+              "denominator": 1,
+              "numerator": -60000,
+              "value": -60000.0
+            },
+            "L3": {
+              "denominator": 1,
+              "numerator": 40000,
+              "value": 40000.0
+            },
+            "L4": {
+              "denominator": 1,
+              "numerator": 140000,
+              "value": 140000.0
+            },
+            "L5": {
+              "denominator": 1,
+              "numerator": -60000,
+              "value": -60000.0
+            }
+          }
+        },
+        "a_bN_cK": {
+          "admissible": false,
+          "coefficient_status": [
+            "unresolved",
+            "unresolved",
+            "unresolved"
+          ],
+          "columns": [
+            0,
+            1,
+            2
+          ],
+          "nonnegative_pass": true,
+          "predictions": {
+            "V1": {
+              "denominator": 1,
+              "numerator": 1130000,
+              "value": 1130000.0
+            },
+            "V2": {
+              "denominator": 1,
+              "numerator": 1550000,
+              "value": 1550000.0
+            }
+          },
+          "rank": 3,
+          "raw_coefficients": [
+            {
+              "denominator": 1,
+              "numerator": 50000,
+              "value": 50000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 13125,
+              "value": 13125.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 150000,
+              "value": 150000.0
+            }
+          ],
+          "residual_pass": false,
+          "structure_pass": true,
+          "training_is_validation": false,
+          "training_max_abs_residual_ns": {
+            "denominator": 1,
+            "numerator": 50000,
+            "value": 50000.0
+          },
+          "training_residual_ns": {
+            "L1": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L2": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L3": {
+              "denominator": 1,
+              "numerator": -50000,
+              "value": -50000.0
+            },
+            "L4": {
+              "denominator": 1,
+              "numerator": 50000,
+              "value": 50000.0
+            },
+            "L5": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            }
+          }
+        },
+        "a_bN_cK_dC": {
+          "admissible": true,
+          "coefficient_status": [
+            "conditional_aggregate",
+            "identified_conditional",
+            "identified_conditional",
+            "identified_conditional"
+          ],
+          "columns": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "nonnegative_pass": true,
+          "predictions": {
+            "V1": {
+              "denominator": 1,
+              "numerator": 1180000,
+              "value": 1180000.0
+            },
+            "V2": {
+              "denominator": 1,
+              "numerator": 1600000,
+              "value": 1600000.0
+            }
+          },
+          "rank": 4,
+          "raw_coefficients": [
+            {
+              "denominator": 1,
+              "numerator": 100000,
+              "value": 100000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 10000,
+              "value": 10000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 100000,
+              "value": 100000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 100000,
+              "value": 100000.0
+            }
+          ],
+          "residual_pass": true,
+          "structure_pass": true,
+          "training_is_validation": false,
+          "training_max_abs_residual_ns": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "training_residual_ns": {
+            "L1": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L2": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L3": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L4": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L5": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            }
+          }
+        }
+      },
+      "differences_ns": {
+        "b32_L2_minus_L1_minus_d": {
+          "denominator": 1,
+          "numerator": 320000,
+          "value": 320000.0
+        },
+        "c_L3_minus_L2": {
+          "denominator": 1,
+          "numerator": 100000,
+          "value": 100000.0
+        },
+        "d_L4_minus_L3": {
+          "denominator": 1,
+          "numerator": 100000,
+          "value": 100000.0
+        },
+        "fifth_L5_minus_2L2_plus_L1": {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      },
+      "drift_limit_ns": {
+        "denominator": 1,
+        "numerator": 114000,
+        "value": 114000.0
+      },
+      "drift_ns": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "drift_pass": true,
+      "raw_cost_ns": {
+        "L1": {
+          "denominator": 1,
+          "numerator": 620000,
+          "value": 620000.0
+        },
+        "L2": {
+          "denominator": 1,
+          "numerator": 1040000,
+          "value": 1040000.0
+        },
+        "L3": {
+          "denominator": 1,
+          "numerator": 1140000,
+          "value": 1140000.0
+        },
+        "L3_repeat": {
+          "denominator": 1,
+          "numerator": 1140000,
+          "value": 1140000.0
+        },
+        "L4": {
+          "denominator": 1,
+          "numerator": 1240000,
+          "value": 1240000.0
+        },
+        "L5": {
+          "denominator": 1,
+          "numerator": 1460000,
+          "value": 1460000.0
+        }
+      },
+      "selected_before_holdout": "a_bN_cK_dC",
+      "structural_gates": {
+        "b32_signal": true,
+        "c_signal": true,
+        "d_signal": true,
+        "fifth_consistency": true
+      }
+    },
+    "worker_ns": {
+      "E_ns": {
+        "denominator": 1,
+        "numerator": 5000,
+        "value": 5000.0
+      },
+      "candidates": {
+        "a_bN": {
+          "admissible": false,
+          "coefficient_status": [
+            "unresolved",
+            "unresolved"
+          ],
+          "columns": [
+            0,
+            1
+          ],
+          "nonnegative_pass": true,
+          "predictions": {
+            "V1": {
+              "denominator": 1,
+              "numerator": 990000,
+              "value": 990000.0
+            },
+            "V2": {
+              "denominator": 1,
+              "numerator": 1410000,
+              "value": 1410000.0
+            }
+          },
+          "rank": 2,
+          "raw_coefficients": [
+            {
+              "denominator": 1,
+              "numerator": 360000,
+              "value": 360000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 13125,
+              "value": 13125.0
+            }
+          ],
+          "residual_pass": false,
+          "structure_pass": true,
+          "training_is_validation": false,
+          "training_max_abs_residual_ns": {
+            "denominator": 1,
+            "numerator": 140000,
+            "value": 140000.0
+          },
+          "training_residual_ns": {
+            "L1": {
+              "denominator": 1,
+              "numerator": -60000,
+              "value": -60000.0
+            },
+            "L2": {
+              "denominator": 1,
+              "numerator": -60000,
+              "value": -60000.0
+            },
+            "L3": {
+              "denominator": 1,
+              "numerator": 40000,
+              "value": 40000.0
+            },
+            "L4": {
+              "denominator": 1,
+              "numerator": 140000,
+              "value": 140000.0
+            },
+            "L5": {
+              "denominator": 1,
+              "numerator": -60000,
+              "value": -60000.0
+            }
+          }
+        },
+        "a_bN_cK": {
+          "admissible": false,
+          "coefficient_status": [
+            "unresolved",
+            "unresolved",
+            "unresolved"
+          ],
+          "columns": [
+            0,
+            1,
+            2
+          ],
+          "nonnegative_pass": true,
+          "predictions": {
+            "V1": {
+              "denominator": 1,
+              "numerator": 1230000,
+              "value": 1230000.0
+            },
+            "V2": {
+              "denominator": 1,
+              "numerator": 1650000,
+              "value": 1650000.0
+            }
+          },
+          "rank": 3,
+          "raw_coefficients": [
+            {
+              "denominator": 1,
+              "numerator": 150000,
+              "value": 150000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 13125,
+              "value": 13125.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 150000,
+              "value": 150000.0
+            }
+          ],
+          "residual_pass": false,
+          "structure_pass": true,
+          "training_is_validation": false,
+          "training_max_abs_residual_ns": {
+            "denominator": 1,
+            "numerator": 50000,
+            "value": 50000.0
+          },
+          "training_residual_ns": {
+            "L1": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L2": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L3": {
+              "denominator": 1,
+              "numerator": -50000,
+              "value": -50000.0
+            },
+            "L4": {
+              "denominator": 1,
+              "numerator": 50000,
+              "value": 50000.0
+            },
+            "L5": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            }
+          }
+        },
+        "a_bN_cK_dC": {
+          "admissible": true,
+          "coefficient_status": [
+            "conditional_aggregate",
+            "identified_conditional",
+            "identified_conditional",
+            "identified_conditional"
+          ],
+          "columns": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "nonnegative_pass": true,
+          "predictions": {
+            "V1": {
+              "denominator": 1,
+              "numerator": 1280000,
+              "value": 1280000.0
+            },
+            "V2": {
+              "denominator": 1,
+              "numerator": 1700000,
+              "value": 1700000.0
+            }
+          },
+          "rank": 4,
+          "raw_coefficients": [
+            {
+              "denominator": 1,
+              "numerator": 200000,
+              "value": 200000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 10000,
+              "value": 10000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 100000,
+              "value": 100000.0
+            },
+            {
+              "denominator": 1,
+              "numerator": 100000,
+              "value": 100000.0
+            }
+          ],
+          "residual_pass": true,
+          "structure_pass": true,
+          "training_is_validation": false,
+          "training_max_abs_residual_ns": {
+            "denominator": 1,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "training_residual_ns": {
+            "L1": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L2": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L3": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L4": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            },
+            "L5": {
+              "denominator": 1,
+              "numerator": 0,
+              "value": 0.0
+            }
+          }
+        }
+      },
+      "differences_ns": {
+        "b32_L2_minus_L1_minus_d": {
+          "denominator": 1,
+          "numerator": 320000,
+          "value": 320000.0
+        },
+        "c_L3_minus_L2": {
+          "denominator": 1,
+          "numerator": 100000,
+          "value": 100000.0
+        },
+        "d_L4_minus_L3": {
+          "denominator": 1,
+          "numerator": 100000,
+          "value": 100000.0
+        },
+        "fifth_L5_minus_2L2_plus_L1": {
+          "denominator": 1,
+          "numerator": 0,
+          "value": 0.0
+        }
+      },
+      "drift_limit_ns": {
+        "denominator": 1,
+        "numerator": 124000,
+        "value": 124000.0
+      },
+      "drift_ns": {
+        "denominator": 1,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "drift_pass": true,
+      "raw_cost_ns": {
+        "L1": {
+          "denominator": 1,
+          "numerator": 720000,
+          "value": 720000.0
+        },
+        "L2": {
+          "denominator": 1,
+          "numerator": 1140000,
+          "value": 1140000.0
+        },
+        "L3": {
+          "denominator": 1,
+          "numerator": 1240000,
+          "value": 1240000.0
+        },
+        "L3_repeat": {
+          "denominator": 1,
+          "numerator": 1240000,
+          "value": 1240000.0
+        },
+        "L4": {
+          "denominator": 1,
+          "numerator": 1340000,
+          "value": 1340000.0
+        },
+        "L5": {
+          "denominator": 1,
+          "numerator": 1560000,
+          "value": 1560000.0
+        }
+      },
+      "selected_before_holdout": "a_bN_cK_dC",
+      "structural_gates": {
+        "b32_signal": true,
+        "c_signal": true,
+        "d_signal": true,
+        "fifth_consistency": true
+      }
+    }
+  },
+  "live_prediction": null,
+  "observed_layer_scales_ns": {
+    "controller_execute_ns": {
+      "denominator": 1,
+      "numerator": 5000,
+      "value": 5000.0
+    },
+    "full_filled_ns": {
+      "denominator": 1,
+      "numerator": 5000,
+      "value": 5000.0
+    },
+    "service_ns": {
+      "denominator": 1,
+      "numerator": 5000,
+      "value": 5000.0
+    },
+    "worker_ns": {
+      "denominator": 1,
+      "numerator": 5000,
+      "value": 5000.0
+    }
+  },
+  "outer": {
+    "controller_minus_worker_raw_ns": [
+      500000,
+      500000,
+      500000,
+      500000,
+      500000
+    ],
+    "controller_residual_ns": {
+      "denominator": 1,
+      "numerator": 500000,
+      "value": 500000.0
+    },
+    "filled_minus_controller_raw_ns": [
+      1000000,
+      1000000,
+      1000000,
+      1000000,
+      1000000
+    ],
+    "filled_residual_ns": {
+      "denominator": 1,
+      "numerator": 1000000,
+      "value": 1000000.0
+    },
+    "method": "median_first_five_only_no_additional_fit"
+  },
+  "predeclared": {
+    "artifact_type": "cost-predeclared-v1",
+    "protocol": {
+      "calibration_order": [
+        "L3",
+        "L1",
+        "L4",
+        "L2",
+        "L5",
+        "L3_repeat"
+      ],
+      "candidates": {
+        "a_bN": [
+          0,
+          1
+        ],
+        "a_bN_cK": [
+          0,
+          1,
+          2
+        ],
+        "a_bN_cK_dC": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "cases": {
+        "L1": {
+          "chunk_mib": [
+            32
+          ],
+          "operation_mib": [
+            32
+          ],
+          "row": [
+            1,
+            32,
+            1,
+            1
+          ]
+        },
+        "L2": {
+          "chunk_mib": [
+            32,
+            32
+          ],
+          "operation_mib": [
+            64
+          ],
+          "row": [
+            1,
+            64,
+            1,
+            2
+          ]
+        },
+        "L3": {
+          "chunk_mib": [
+            32,
+            32
+          ],
+          "operation_mib": [
+            32,
+            32
+          ],
+          "row": [
+            1,
+            64,
+            2,
+            2
+          ]
+        },
+        "L3_repeat": {
+          "chunk_mib": [
+            32,
+            32
+          ],
+          "operation_mib": [
+            32,
+            32
+          ],
+          "row": [
+            1,
+            64,
+            2,
+            2
+          ]
+        },
+        "L4": {
+          "chunk_mib": [
+            32,
+            16,
+            16
+          ],
+          "operation_mib": [
+            48,
+            16
+          ],
+          "row": [
+            1,
+            64,
+            2,
+            3
+          ]
+        },
+        "L5": {
+          "chunk_mib": [
+            32,
+            32,
+            32
+          ],
+          "operation_mib": [
+            96
+          ],
+          "row": [
+            1,
+            96,
+            1,
+            3
+          ]
+        },
+        "V1": {
+          "chunk_mib": [
+            16,
+            16,
+            16
+          ],
+          "operation_mib": [
+            16,
+            16,
+            16
+          ],
+          "row": [
+            1,
+            48,
+            3,
+            3
+          ]
+        },
+        "V2": {
+          "chunk_mib": [
+            32,
+            8,
+            24,
+            16
+          ],
+          "operation_mib": [
+            40,
+            24,
+            16
+          ],
+          "row": [
+            1,
+            80,
+            3,
+            4
+          ]
+        }
+      },
+      "coefficient_meaning": "conditional_effective_cost_not_physical_bandwidth",
+      "coefficient_units": [
+        "ns",
+        "ns_per_logical_MiB",
+        "ns_per_op",
+        "ns_per_chunk"
+      ],
+      "diagnostic": "sum_op_service_ns",
+      "domain": {
+        "chunk_mib": 32,
+        "events": false,
+        "executor": "native",
+        "path": "local_hbm",
+        "scheduler": "serial",
+        "source_bootstrap_mib_per_session": 96,
+        "targets": "fresh_same_allocation_policy_nonoverlap"
+      },
+      "drift_gate": {
+        "anchor_mean_fraction": 0.1,
+        "bound_ns": 20000,
+        "required_layers": [
+          "worker_ns",
+          "service_ns"
+        ]
+      },
+      "drift_only_samples": [
+        "L3_repeat"
+      ],
+      "expected_configuration": {
+        "CUDA_events": 0,
+        "chunk_bytes": 33554432,
+        "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+        "control_mode": "compact",
+        "copy_rounds": 1,
+        "executor": "serial",
+        "handler": "native_ThreadingHTTPServer_request_thread",
+        "inventory_mode": "cached",
+        "logger": "native_json_stdout",
+        "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+        "path": "local_hbm",
+        "pretouch": false,
+        "profile_execute": false,
+        "queues": 0,
+        "source_bytes": 100663296,
+        "source_tier": "hbm",
+        "source_worker": 0,
+        "target_allocation": "fresh_exact_size_each_request",
+        "target_mode": "replica",
+        "target_tier": "hbm",
+        "target_worker": 0,
+        "target_writes_before": 0,
+        "topology": "single_worker_node27_gpu0_world1"
+      },
+      "expected_state_contract": {
+        "CUDA_events": 0,
+        "chunk_bytes": 33554432,
+        "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+        "control_mode": "compact",
+        "copy_rounds": 1,
+        "executor": "serial",
+        "handler": "native_ThreadingHTTPServer_request_thread",
+        "inventory_mode": "cached",
+        "logger": "native_json_stdout",
+        "path": "local_hbm",
+        "pretouch": false,
+        "profile_execute": false,
+        "queues": 0,
+        "source_bytes": 100663296,
+        "source_tier": "hbm",
+        "source_worker": 0,
+        "target_allocation": "fresh_exact_size_each_request",
+        "target_mode": "replica",
+        "target_tier": "hbm",
+        "target_worker": 0,
+        "target_writes_before": 0,
+        "topology": "single_worker_node27_gpu0_world1"
+      },
+      "failure": "any worker or service drift failure or no admissible worker candidate skips holdout explicitly",
+      "fit": "unconstrained_exact_OLS_no_clamping_first_five_only",
+      "fit_samples": [
+        "L3",
+        "L1",
+        "L4",
+        "L2",
+        "L5"
+      ],
+      "holdout_order": [
+        "V2",
+        "V1"
+      ],
+      "independent_limits_ns": {
+        "controller_execute_ns": 1000000,
+        "full_filled_ns": 2000000,
+        "service_ns": 50000,
+        "worker_ns": 250000
+      },
+      "independent_relative_limit": 0.2,
+      "independent_rule": "absolute AND relative for every point and layer; never grow absolute limits with E",
+      "ledger": {
+        "exact_ns_partitions": true,
+        "flags_alone_do_not_authorize_GPU": true,
+        "float_compatibility_tolerance_ns": 1000,
+        "raw_audit_required": true
+      },
+      "live_prediction": null,
+      "max_requests": 8,
+      "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+      "nonnegative_validity": "All included raw OLS coefficients, including intercept, must be >=0; this is a predeclared modeling choice, never a clamp",
+      "outer": "first-five medians(controller_execute-worker,full_filled-controller_execute), each once",
+      "primary": "complete_native_execute_method_outer_wall_ns",
+      "protocol_version": "cost-identification-predeclared-v1",
+      "published_prediction": null,
+      "rejection": [
+        "schema",
+        "mode",
+        "configuration",
+        "state_contract",
+        "stale_session",
+        "incomplete_or_unverified",
+        "counts",
+        "source_hash_change",
+        "missing_raw_evidence"
+      ],
+      "scale": {
+        "clock": "clock_extra_p95_ns",
+        "drift": "abs(L3_repeat-L3)",
+        "fixed_floor_ns": 5000,
+        "formula": "max",
+        "logger": "dummy_log_scale_ns"
+      },
+      "schema_version": "cost-ledger-v1",
+      "selection_after_holdout": "retain the preregistered simplest if qualified; any finer qualified candidate requires >the corresponding layer E improvement in absolute error versus preregistered simplest at every holdout point/layer, even if preregistered simplest fails; otherwise complexity_increment_unproven",
+      "selection_before_holdout": "simplest admissible worker candidate; service independently simplest admissible",
+      "structure": {
+        "32b": "L2-L1-d > 4E and positive",
+        "c": "L3-L2 > 2E and positive",
+        "candidate_max_training_residual": "<=2E",
+        "d": "L4-L3 > 2E and positive",
+        "fifth": "abs(L5-2L2+L1)<=4E",
+        "simple_candidates": "own residual and raw nonnegative coefficients suffice"
+      },
+      "training_goodness": "qualification_only_not_independent_validation"
+    },
+    "protocol_sha256": "7f172789ce20b6c582eb25cac30ea4c82b35942863833053789814a354074783",
+    "source_refs": [
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/worker.py",
+        "sha256": "af243c14eaba39cd6aea0704b34b507165c68cc57d538cca33bd012b9431f3bc"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "case_id": "V2",
+      "service_ns": {
+        "denominator": 1,
+        "numerator": 1600000,
+        "value": 1600000.0
+      },
+      "worker_and_outer": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 2200000,
+          "value": 2200000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 3200000,
+          "value": 3200000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1700000,
+          "value": 1700000.0
+        }
+      }
+    },
+    {
+      "case_id": "V1",
+      "service_ns": {
+        "denominator": 1,
+        "numerator": 1180000,
+        "value": 1180000.0
+      },
+      "worker_and_outer": {
+        "controller_execute_ns": {
+          "denominator": 1,
+          "numerator": 1780000,
+          "value": 1780000.0
+        },
+        "full_filled_ns": {
+          "denominator": 1,
+          "numerator": 2780000,
+          "value": 2780000.0
+        },
+        "live_ns": null,
+        "published_ns": null,
+        "worker_ns": {
+          "denominator": 1,
+          "numerator": 1280000,
+          "value": 1280000.0
+        }
+      }
+    }
+  ],
+  "product_admission": false,
+  "protocol": {
+    "calibration_order": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5",
+      "L3_repeat"
+    ],
+    "candidates": {
+      "a_bN": [
+        0,
+        1
+      ],
+      "a_bN_cK": [
+        0,
+        1,
+        2
+      ],
+      "a_bN_cK_dC": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "cases": {
+      "L1": {
+        "chunk_mib": [
+          32
+        ],
+        "operation_mib": [
+          32
+        ],
+        "row": [
+          1,
+          32,
+          1,
+          1
+        ]
+      },
+      "L2": {
+        "chunk_mib": [
+          32,
+          32
+        ],
+        "operation_mib": [
+          64
+        ],
+        "row": [
+          1,
+          64,
+          1,
+          2
+        ]
+      },
+      "L3": {
+        "chunk_mib": [
+          32,
+          32
+        ],
+        "operation_mib": [
+          32,
+          32
+        ],
+        "row": [
+          1,
+          64,
+          2,
+          2
+        ]
+      },
+      "L3_repeat": {
+        "chunk_mib": [
+          32,
+          32
+        ],
+        "operation_mib": [
+          32,
+          32
+        ],
+        "row": [
+          1,
+          64,
+          2,
+          2
+        ]
+      },
+      "L4": {
+        "chunk_mib": [
+          32,
+          16,
+          16
+        ],
+        "operation_mib": [
+          48,
+          16
+        ],
+        "row": [
+          1,
+          64,
+          2,
+          3
+        ]
+      },
+      "L5": {
+        "chunk_mib": [
+          32,
+          32,
+          32
+        ],
+        "operation_mib": [
+          96
+        ],
+        "row": [
+          1,
+          96,
+          1,
+          3
+        ]
+      },
+      "V1": {
+        "chunk_mib": [
+          16,
+          16,
+          16
+        ],
+        "operation_mib": [
+          16,
+          16,
+          16
+        ],
+        "row": [
+          1,
+          48,
+          3,
+          3
+        ]
+      },
+      "V2": {
+        "chunk_mib": [
+          32,
+          8,
+          24,
+          16
+        ],
+        "operation_mib": [
+          40,
+          24,
+          16
+        ],
+        "row": [
+          1,
+          80,
+          3,
+          4
+        ]
+      }
+    },
+    "coefficient_meaning": "conditional_effective_cost_not_physical_bandwidth",
+    "coefficient_units": [
+      "ns",
+      "ns_per_logical_MiB",
+      "ns_per_op",
+      "ns_per_chunk"
+    ],
+    "diagnostic": "sum_op_service_ns",
+    "domain": {
+      "chunk_mib": 32,
+      "events": false,
+      "executor": "native",
+      "path": "local_hbm",
+      "scheduler": "serial",
+      "source_bootstrap_mib_per_session": 96,
+      "targets": "fresh_same_allocation_policy_nonoverlap"
+    },
+    "drift_gate": {
+      "anchor_mean_fraction": 0.1,
+      "bound_ns": 20000,
+      "required_layers": [
+        "worker_ns",
+        "service_ns"
+      ]
+    },
+    "drift_only_samples": [
+      "L3_repeat"
+    ],
+    "expected_configuration": {
+      "CUDA_events": 0,
+      "chunk_bytes": 33554432,
+      "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+      "control_mode": "compact",
+      "copy_rounds": 1,
+      "executor": "serial",
+      "handler": "native_ThreadingHTTPServer_request_thread",
+      "inventory_mode": "cached",
+      "logger": "native_json_stdout",
+      "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+      "path": "local_hbm",
+      "pretouch": false,
+      "profile_execute": false,
+      "queues": 0,
+      "source_bytes": 100663296,
+      "source_tier": "hbm",
+      "source_worker": 0,
+      "target_allocation": "fresh_exact_size_each_request",
+      "target_mode": "replica",
+      "target_tier": "hbm",
+      "target_worker": 0,
+      "target_writes_before": 0,
+      "topology": "single_worker_node27_gpu0_world1"
+    },
+    "expected_state_contract": {
+      "CUDA_events": 0,
+      "chunk_bytes": 33554432,
+      "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+      "control_mode": "compact",
+      "copy_rounds": 1,
+      "executor": "serial",
+      "handler": "native_ThreadingHTTPServer_request_thread",
+      "inventory_mode": "cached",
+      "logger": "native_json_stdout",
+      "path": "local_hbm",
+      "pretouch": false,
+      "profile_execute": false,
+      "queues": 0,
+      "source_bytes": 100663296,
+      "source_tier": "hbm",
+      "source_worker": 0,
+      "target_allocation": "fresh_exact_size_each_request",
+      "target_mode": "replica",
+      "target_tier": "hbm",
+      "target_worker": 0,
+      "target_writes_before": 0,
+      "topology": "single_worker_node27_gpu0_world1"
+    },
+    "failure": "any worker or service drift failure or no admissible worker candidate skips holdout explicitly",
+    "fit": "unconstrained_exact_OLS_no_clamping_first_five_only",
+    "fit_samples": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5"
+    ],
+    "holdout_order": [
+      "V2",
+      "V1"
+    ],
+    "independent_limits_ns": {
+      "controller_execute_ns": 1000000,
+      "full_filled_ns": 2000000,
+      "service_ns": 50000,
+      "worker_ns": 250000
+    },
+    "independent_relative_limit": 0.2,
+    "independent_rule": "absolute AND relative for every point and layer; never grow absolute limits with E",
+    "ledger": {
+      "exact_ns_partitions": true,
+      "flags_alone_do_not_authorize_GPU": true,
+      "float_compatibility_tolerance_ns": 1000,
+      "raw_audit_required": true
+    },
+    "live_prediction": null,
+    "max_requests": 8,
+    "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+    "nonnegative_validity": "All included raw OLS coefficients, including intercept, must be >=0; this is a predeclared modeling choice, never a clamp",
+    "outer": "first-five medians(controller_execute-worker,full_filled-controller_execute), each once",
+    "primary": "complete_native_execute_method_outer_wall_ns",
+    "protocol_version": "cost-identification-predeclared-v1",
+    "published_prediction": null,
+    "rejection": [
+      "schema",
+      "mode",
+      "configuration",
+      "state_contract",
+      "stale_session",
+      "incomplete_or_unverified",
+      "counts",
+      "source_hash_change",
+      "missing_raw_evidence"
+    ],
+    "scale": {
+      "clock": "clock_extra_p95_ns",
+      "drift": "abs(L3_repeat-L3)",
+      "fixed_floor_ns": 5000,
+      "formula": "max",
+      "logger": "dummy_log_scale_ns"
+    },
+    "schema_version": "cost-ledger-v1",
+    "selection_after_holdout": "retain the preregistered simplest if qualified; any finer qualified candidate requires >the corresponding layer E improvement in absolute error versus preregistered simplest at every holdout point/layer, even if preregistered simplest fails; otherwise complexity_increment_unproven",
+    "selection_before_holdout": "simplest admissible worker candidate; service independently simplest admissible",
+    "structure": {
+      "32b": "L2-L1-d > 4E and positive",
+      "c": "L3-L2 > 2E and positive",
+      "candidate_max_training_residual": "<=2E",
+      "d": "L4-L3 > 2E and positive",
+      "fifth": "abs(L5-2L2+L1)<=4E",
+      "simple_candidates": "own residual and raw nonnegative coefficients suffice"
+    },
+    "training_goodness": "qualification_only_not_independent_validation"
+  },
+  "protocol_sha256": "7f172789ce20b6c582eb25cac30ea4c82b35942863833053789814a354074783",
+  "published_prediction": null,
+  "request_ids": [
+    "f8d763cd83434e64bbeca3488d8ab18c",
+    "2120b5d0c3a04152a860c19c30c689f0",
+    "25886ee8ec3d4bfdbf046e52be0712a6",
+    "2b9fd3ef2a38495d99e63799dff3592b",
+    "43e763b250a14b279cbc4794be36d707",
+    "2d587dd91cd24386b4ee03616e513a01"
+  ],
+  "selected_worker_before_holdout": "a_bN_cK_dC",
+  "state_contract": {
+    "CUDA_events": 0,
+    "chunk_bytes": 33554432,
+    "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+    "control_mode": "compact",
+    "copy_rounds": 1,
+    "executor": "serial",
+    "handler": "native_ThreadingHTTPServer_request_thread",
+    "inventory_mode": "cached",
+    "logger": "native_json_stdout",
+    "path": "local_hbm",
+    "pretouch": false,
+    "profile_execute": false,
+    "queues": 0,
+    "source_bytes": 100663296,
+    "source_tier": "hbm",
+    "source_worker": 0,
+    "target_allocation": "fresh_exact_size_each_request",
+    "target_mode": "replica",
+    "target_tier": "hbm",
+    "target_worker": 0,
+    "target_writes_before": 0,
+    "topology": "single_worker_node27_gpu0_world1"
+  },
+  "state_sha256": "1f033ab839c345619ae66e938cc424aef74ef3acd15b2f9e3e1aa83e3f152adb",
+  "target_ids": [
+    "cost_ledger_runtime_C1_cpu_execution_cpu_r04/L3/target",
+    "cost_ledger_runtime_C1_cpu_execution_cpu_r04/L1/target",
+    "cost_ledger_runtime_C1_cpu_execution_cpu_r04/L4/target",
+    "cost_ledger_runtime_C1_cpu_execution_cpu_r04/L2/target",
+    "cost_ledger_runtime_C1_cpu_execution_cpu_r04/L5/target",
+    "cost_ledger_runtime_C1_cpu_execution_cpu_r04/L3_repeat/target"
+  ]
+}

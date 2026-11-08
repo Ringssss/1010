@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "development_stage": "v0.1.23.3/task2",
+  "status": "passed",
+  "run_kind": "read_only_independent_control_review",
+  "scenario_id": "S5",
+  "subprotocol": "software_sharing_order_control",
+  "scope": "software_worker_serial_order_control",
+  "new_gpu_measurements": 0,
+  "reused_gpu_observations": 4,
+  "paired_runs": [
+    {
+      "run_id": "s5_r01",
+      "status": "passed",
+      "same_ops": true,
+      "same_resource_ledger": true,
+      "same_source_bytes": true,
+      "same_format": true,
+      "same_verified_content": true,
+      "physical_resource_gate": "not_measured",
+      "cases": [
+        {
+          "schedule": "target_major",
+          "primary_T_ready_s": 4.461190392,
+          "execute_wall_s": 3.8528725085780025,
+          "correct": true,
+          "verification_passed": true,
+          "selected_source_bytes": {
+            "hbm": 8589934592,
+            "dram": 61739783520
+          },
+          "worker_order_checks": [
+            {
+              "worker": 0,
+              "actual": [
+                0,
+                2,
+                3
+              ],
+              "expected": [
+                0,
+                2,
+                3
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 1,
+              "actual": [
+                1,
+                4,
+                5
+              ],
+              "expected": [
+                1,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 2,
+              "actual": [
+                0,
+                1,
+                2
+              ],
+              "expected": [
+                0,
+                1,
+                2
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 3,
+              "actual": [
+                3,
+                4,
+                5
+              ],
+              "expected": [
+                3,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            }
+          ],
+          "local_timings": [
+            {
+              "rank": "0",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.599566913,
+              "copy_window_s": 1.682630601,
+              "copy_to_publish_s": 2.171555335
+            },
+            {
+              "rank": "1",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.523145359,
+              "copy_window_s": 3.848890766,
+              "copy_to_publish_s": 0.004887468
+            }
+          ]
+        },
+        {
+          "schedule": "rank_interleaved",
+          "primary_T_ready_s": 2.645741278,
+          "execute_wall_s": 2.2105283802375197,
+          "correct": true,
+          "verification_passed": true,
+          "selected_source_bytes": {
+            "hbm": 8589934592,
+            "dram": 61739783520
+          },
+          "worker_order_checks": [
+            {
+              "worker": 0,
+              "actual": [
+                0,
+                3,
+                2
+              ],
+              "expected": [
+                0,
+                3,
+                2
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 1,
+              "actual": [
+                1,
+                4,
+                5
+              ],
+              "expected": [
+                1,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 2,
+              "actual": [
+                0,
+                1,
+                2
+              ],
+              "expected": [
+                0,
+                1,
+                2
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 3,
+              "actual": [
+                3,
+                4,
+                5
+              ],
+              "expected": [
+                3,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            }
+          ],
+          "local_timings": [
+            {
+              "rank": "0",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.425386925,
+              "copy_window_s": 2.206520974,
+              "copy_to_publish_s": 0.004240384
+            },
+            {
+              "rank": "1",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.42462947,
+              "copy_window_s": 2.198201097,
+              "copy_to_publish_s": 0.012516531
+            }
+          ]
+        }
+      ],
+      "within_pair_difference": {
+        "T_ready_s": 1.8154491139999998,
+        "T_ready_reduction_percent": 40.694275618802145,
+        "execute_wall_s": 1.6423441283404827
+      }
+    },
+    {
+      "run_id": "s5_r02",
+      "status": "passed",
+      "same_ops": true,
+      "same_resource_ledger": true,
+      "same_source_bytes": true,
+      "same_format": true,
+      "same_verified_content": true,
+      "physical_resource_gate": "not_measured",
+      "cases": [
+        {
+          "schedule": "rank_interleaved",
+          "primary_T_ready_s": 2.867577637,
+          "execute_wall_s": 2.2066652784124017,
+          "correct": true,
+          "verification_passed": true,
+          "selected_source_bytes": {
+            "hbm": 8589934592,
+            "dram": 61739783520
+          },
+          "worker_order_checks": [
+            {
+              "worker": 0,
+              "actual": [
+                0,
+                3,
+                2
+              ],
+              "expected": [
+                0,
+                3,
+                2
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 1,
+              "actual": [
+                1,
+                4,
+                5
+              ],
+              "expected": [
+                1,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 2,
+              "actual": [
+                0,
+                1,
+                2
+              ],
+              "expected": [
+                0,
+                1,
+                2
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 3,
+              "actual": [
+                3,
+                4,
+                5
+              ],
+              "expected": [
+                3,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            }
+          ],
+          "local_timings": [
+            {
+              "rank": "0",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.655010248,
+              "copy_window_s": 2.202375791,
+              "copy_to_publish_s": 0.00359076
+            },
+            {
+              "rank": "1",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.437590134,
+              "copy_window_s": 2.196496337,
+              "copy_to_publish_s": 0.009845136
+            }
+          ]
+        },
+        {
+          "schedule": "target_major",
+          "primary_T_ready_s": 3.672967243,
+          "execute_wall_s": 3.232560930773616,
+          "correct": true,
+          "verification_passed": true,
+          "selected_source_bytes": {
+            "hbm": 8589934592,
+            "dram": 61739783520
+          },
+          "worker_order_checks": [
+            {
+              "worker": 0,
+              "actual": [
+                0,
+                2,
+                3
+              ],
+              "expected": [
+                0,
+                2,
+                3
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 1,
+              "actual": [
+                1,
+                4,
+                5
+              ],
+              "expected": [
+                1,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 2,
+              "actual": [
+                0,
+                1,
+                2
+              ],
+              "expected": [
+                0,
+                1,
+                2
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            },
+            {
+              "worker": 3,
+              "actual": [
+                3,
+                4,
+                5
+              ],
+              "expected": [
+                3,
+                4,
+                5
+              ],
+              "roles_match": true,
+              "bytes_match": true,
+              "order_matches": true
+            }
+          ],
+          "local_timings": [
+            {
+              "rank": "0",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.431301375,
+              "copy_window_s": 1.365894604,
+              "copy_to_publish_s": 1.867057645
+            },
+            {
+              "rank": "1",
+              "host": "m03r2n09",
+              "pre_execute_s": 0.4303212,
+              "copy_window_s": 3.226354561,
+              "copy_to_publish_s": 0.006625737
+            }
+          ]
+        }
+      ],
+      "within_pair_difference": {
+        "T_ready_s": 0.8053896059999999,
+        "T_ready_reduction_percent": 21.927492207694588,
+        "execute_wall_s": 1.0258956523612142
+      }
+    }
+  ],
+  "case_data_checks": [
+    {
+      "run_id": "s5_r01",
+      "same_replicas": true,
+      "same_budget": true,
+      "same_format": true,
+      "same_profile": true,
+      "same_target_static_content": true
+    },
+    {
+      "run_id": "s5_r02",
+      "same_replicas": true,
+      "same_budget": true,
+      "same_format": true,
+      "same_profile": true,
+      "same_target_static_content": true
+    }
+  ],
+  "normalization": {
+    "operations": "Only normalize each target phase-qualified ID to its final rank segment; preserve op_id, byte range, source ID/epoch, generation, path and resources.",
+    "targets": "Exclude per-restore key/id/metrics_directory/tag/index and meta.t_export; retain identity, TP, size, worker, tier and complete tensor metadata.",
+    "timing": "Rank events share target host m03r2n09; each rank copy/publish interval uses its local monotonic timestamps. No source-target cross-host timestamp subtraction."
+  },
+  "logical_bytes": 70329718112,
+  "source_bytes": {
+    "hbm": 8589934592,
+    "dram": 61739783520
+  },
+  "causal_chain": [
+    "实际source0队列[0,2,3]改为[0,3,2]，同6项操作/来源/数据/布局/预算",
+    "op3为rank1首段HBM；将其提前至rank0长DRAM op2之前，解除rank1后续接收链的长串行阻塞",
+    "source1后续op4/op5更早推进；两目标长尾不再经op2→op3→op4→op5同样串联",
+    "两轮交错的execute窗口约2.21s；target_major为3.85/3.23s，rank0 copy到publish等待约2.17/1.87s降至约4ms",
+    "同主机T_ready两轮分别4.461→2.646s、3.673→2.868s；所有4个restore内容与输出验收通过"
+  ],
+  "operation_latency_evidence": [
+    {
+      "run_id": "s5_r01",
+      "target_major": {
+        "target_worker3_op3_elapsed_s": 2.0912913605570793,
+        "source_worker1_op4_elapsed_s": 1.7323374655097723
+      },
+      "rank_interleaved": {
+        "target_worker3_op3_elapsed_s": 0.20525298360735178,
+        "source_worker1_op4_elapsed_s": 0.13373319618403912
+      }
+    },
+    {
+      "run_id": "s5_r02",
+      "target_major": {
+        "target_worker3_op3_elapsed_s": 1.4685632660984993,
+        "source_worker1_op4_elapsed_s": 1.4236445538699627
+      },
+      "rank_interleaved": {
+        "target_worker3_op3_elapsed_s": 0.2062175115570426,
+        "source_worker1_op4_elapsed_s": 0.13395459577441216
+      }
+    }
+  ],
+  "supported_statement": "正反执行顺序的两个探索配对均支持：在当前同布局同源同操作的串行worker执行器中，提前发送另一rank的缓存能解除长串行依赖并缩短整体权重就绪窗口。",
+  "limitations": [
+    "每配置两次探索、没有正式统计置信区间；幅度随轮次变化，不能报稳定平均加速比",
+    "反向保持收益方向，不等于排除全部顺序/热状态/环境噪声效应；pre_execute、arrival skew也变化",
+    "操作elapsed含同步、配对等待、拷贝和通信，不是纯网络传输时间；不可换算成纯NIC带宽",
+    "物理NIC/fabric共享资源门槛仍not_measured",
+    "同fastest选源及人工排序控制，不证明resource_lp/MILP、驻留布局或联合优化算法优越",
+    "不证明原版Janus/BlitzScale/ServerlessLLM完整系统性能排名"
+  ],
+  "code_references": [
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "line": 233,
+      "behavior": "Filter globally ordered ops per worker and execute serially; synchronize before advancing."
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/control.py",
+      "line": 153,
+      "behavior": "Wait for all execute RPCs before complete/publish."
+    }
+  ],
+  "input_manifest": [
+    {
+      "sha256": "1e50ae6dd1df0ca14fc418f82cab0cac3c83030ab5c74312807f505a15159d7a",
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s5_r01/summary.json"
+    },
+    {
+      "sha256": "6b92677536d94bfe3d348945406e9a86f7a30e8447670bff75fd0ad1c48c97ee",
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s5_r02/summary.json"
+    },
+    {
+      "sha256": "86fea8b431ec017bcc3308edcd51eca2131f751686c790b7f1026d7d889955d8",
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s5_r01/basic_3edadcae_s5_r01_target_major_fastest_0_case.json"
+    },
+    {
+      "sha256": "526b3404fd30ff155865ed98554f7bfb14eda739eee868a1253e5b9c7e1e08f2",
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s5_r01/basic_3edadcae_s5_r01_rank_interleaved_fastest_0_case.json"
+    },
+    {
+      "sha256": "18c83a48fe657f457eb72aaff6198baffdeea2a07bf51f5e988de96ed7e3a95e",
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s5_r02/basic_3edadcae_s5_r02_target_major_fastest_0_case.json"
+    },
+    {
+      "sha256": "f2a1b75c25206eb77acebb633ab260aeba12c3d19018c8e67fcd0ada7ff740cf",
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s5_r02/basic_3edadcae_s5_r02_rank_interleaved_fastest_0_case.json"
+    },
+    {
+      "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6",
+      "path": "main_lib/fluidckpt/cluster/worker.py"
+    },
+    {
+      "sha256": "2ceef6bad056ce4c416a0a4d25538f4b3337fc165ba64a0b89d2952e50c975a5",
+      "path": "main_lib/fluidckpt/cluster/control.py"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "status": "passed",
+  "checks": {
+    "reported_completed": true,
+    "pinned_policy_origin": true,
+    "no_strategy_substitution": true,
+    "actual_TP_route": true,
+    "complete_single_active_group": true,
+    "rank_contents_distinct": true,
+    "generation_epoch_content_preserved": true,
+    "real_source_target_records": true,
+    "full_SHA_per_operation": true,
+    "setup_full_SHA_matches_transferred_contents": true,
+    "target_clock_is_same_host": true,
+    "independent_T_ready": true,
+    "per_rank_event_order": true,
+    "target_release_persisted": true,
+    "read_leases_observed_during_postready_validation": true,
+    "source_retained_then_leases_released": true,
+    "source_and_target_exact_32token_outputs": true,
+    "source_survival_claim_has_runtime_evidence": true,
+    "retained_DRAM_unchanged_independently": true,
+    "unrelated_catalog_unchanged_independently": true,
+    "owned_sources_retired": true,
+    "physical_HBM_allocator_returned": true,
+    "no_remaining_worker_transactions": true,
+    "cleanup_and_recorded_drift_clear": true,
+    "frozen_sources_still_match_at_review": true
+  },
+  "input_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02",
+  "comparison_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/s3_r01",
+  "commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+  "current_frozen_drift": [],
+  "transfer_bytes": 70329718112,
+  "transfer_GiB": 65.49965414404869,
+  "route": [
+    [
+      0,
+      "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+      0,
+      35164859056,
+      0,
+      0,
+      2,
+      "network",
+      "0:hbm:0->2",
+      "hbm"
+    ],
+    [
+      1,
+      "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+      0,
+      35164859056,
+      0,
+      1,
+      3,
+      "network",
+      "1:hbm:3->3",
+      "hbm"
+    ]
+  ],
+  "records": [
+    {
+      "worker": 0,
+      "op_id": 0,
+      "role": "source",
+      "replica_id": "blitz_3edadcae_blitz_s3_r02/active/rank0",
+      "bytes": 35164859056,
+      "kind": "network",
+      "elapsed_s": 2.1561434445902705,
+      "pipeline": {}
+    },
+    {
+      "worker": 1,
+      "op_id": 1,
+      "role": "source",
+      "replica_id": "blitz_3edadcae_blitz_s3_r02/active/rank1",
+      "bytes": 35164859056,
+      "kind": "network",
+      "elapsed_s": 2.156236614100635,
+      "pipeline": {}
+    },
+    {
+      "worker": 2,
+      "op_id": 0,
+      "role": "target",
+      "replica_id": "blitz_3edadcae_blitz_s3_r02/active/rank0",
+      "bytes": 35164859056,
+      "kind": "network",
+      "elapsed_s": 2.156810731627047,
+      "pipeline": {}
+    },
+    {
+      "worker": 3,
+      "op_id": 1,
+      "role": "target",
+      "replica_id": "blitz_3edadcae_blitz_s3_r02/active/rank1",
+      "bytes": 35164859056,
+      "kind": "network",
+      "elapsed_s": 2.156308349221945,
+      "pipeline": {}
+    }
+  ],
+  "full_SHA": {
+    "0": {
+      "op_id": 0,
+      "n": 35164859056,
+      "source_sha256": "50886ec38c6a85911072eba148e0717dfd34144f99e1863bc016757eb5ea67cd",
+      "target_sha256": "50886ec38c6a85911072eba148e0717dfd34144f99e1863bc016757eb5ea67cd"
+    },
+    "1": {
+      "op_id": 1,
+      "n": 35164859056,
+      "source_sha256": "fd0f438bcb07669eb3f39f0b4742ea4c15ae94a37c330e31dad04dfa2a5d9311",
+      "target_sha256": "fd0f438bcb07669eb3f39f0b4742ea4c15ae94a37c330e31dad04dfa2a5d9311"
+    }
+  },
+  "timing": {
+    "independent_T_ready_s": 2.804378593,
+    "request_ready_ack_s": 2.910670455545187,
+    "request_first_correct_token_s": 3.2927481420338154,
+    "online_inventory_planning_s": 0.0334460474550724,
+    "online_planning_s": 0.029279756359755993,
+    "prepare_s": 0.18483483977615833,
+    "execute_wall_s": 2.1618190221488476,
+    "postready_full_SHA_s": 43.6528014363721,
+    "rank_intervals": [
+      {
+        "rank": 0,
+        "load_s": 2.804378593,
+        "layout_s": 0.204685693,
+        "export_to_execute_s": 0.381118324,
+        "copy_s": 2.157949889,
+        "copy_to_weights_ready_s": 0.012496671
+      },
+      {
+        "rank": 1,
+        "load_s": 2.742452458,
+        "layout_s": 0.199183561,
+        "export_to_execute_s": 0.330005642,
+        "copy_s": 2.157467306,
+        "copy_to_weights_ready_s": 0.012522871
+      }
+    ]
+  },
+  "setup": {
+    "total_wall_s": 121.4236498195678,
+    "owner_build_coordinator_s": 115.05676756985486,
+    "owner_build_copy_s": 0.8167375205084682,
+    "IPC_load_window_s": 0.223505564,
+    "source_HBM_bytes": 70329718112,
+    "source_alias_second_allocation": false,
+    "source_lifetime_reported": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/active_survival.json",
+      "alive_before": true,
+      "protected_during_copy": true,
+      "external_existing": false,
+      "additional_lifetime_s": 59.12804401293397,
+      "additional_hbm_byte_seconds": 12698145109704.385,
+      "interference_evidence_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/active_survival.json",
+      "alive_after": true
+    }
+  },
+  "physical_cleanup": [
+    {
+      "worker": 0,
+      "allocated_delta": 0,
+      "reserved_delta": 0,
+      "free_delta": 18874368,
+      "catalog_before": 0,
+      "catalog_after": 0
+    },
+    {
+      "worker": 1,
+      "allocated_delta": 0,
+      "reserved_delta": 0,
+      "free_delta": 18874368,
+      "catalog_before": 0,
+      "catalog_after": 0
+    },
+    {
+      "worker": 2,
+      "allocated_delta": 0,
+      "reserved_delta": 0,
+      "free_delta": -6291456,
+      "catalog_before": 0,
+      "catalog_after": 0
+    },
+    {
+      "worker": 3,
+      "allocated_delta": 0,
+      "reserved_delta": 0,
+      "free_delta": -6291456,
+      "catalog_before": 0,
+      "catalog_after": 0
+    }
+  ],
+  "existing_S3_comparison": [
+    {
+      "method": "janus_d2d",
+      "T_ready_s": 2.559228948,
+      "same_processed_format": true,
+      "same_transport_route_content_tier": true,
+      "same_executor_and_chunk": true
+    },
+    {
+      "method": "resource_lp",
+      "T_ready_s": 2.443636225,
+      "same_processed_format": true,
+      "same_transport_route_content_tier": true,
+      "same_executor_and_chunk": true
+    }
+  ],
+  "scope": "single-target BlitzScale source/cache/TP distribution HIP mechanism; not original live serving or full multicast performance",
+  "limits": [
+    "one source and one target: source/cache choice is structurally trivial in this measured case",
+    "same route as prior S3 does not establish algorithm or topology gain",
+    "source correctness before/after copy; sustained serving interference not measured",
+    "source byte-seconds covers owner build through postcopy source check; final cleanup tail is outside this reported value",
+    "physical peak remains unverified; cleanup compares endpoint samples",
+    "r01 failed on missing numpy before active source construction or GPU transfer; not a performance observation"
+  ],
+  "evidence_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/summary.json": "cb32bd13f821c7ad5d3bb597d4744acbcc004d14938b9d077a933893a2576d6f",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/blitz_3edadcae_blitz_s3_r02_blitz_scale_0_plan.json": "fbf2c31319c52033ddc26fce22204b94480afe02e65a51397d9314390a7c1c54",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/blitz_3edadcae_blitz_s3_r02_blitz_scale_0_case.json": "d1604ba4bdf75ebbedb5ab6814fd7cff78f1301ed37bd647d24de70f89897835",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/active_survival.json": "e51b7fe9f15b128308b57fbf9f608c735f2d1759885b0f9d9377a2bf6e5a103c",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/inventory_before.json": "9eb188179c5e82f4976a6c175822147d49afde0d2e184f05ec891b6939b15e25",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/inventory_after.json": "868fb6f6325cdacc59e7eba2faf170c1a9ce18ff6560a28ac6f10aa704f33ce5",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/metrics/blitz_3edadcae_blitz_s3_r02_blitz_scale_0/rank0.jsonl": "fea5c92669191c2571d1809d9c755988f38e2bda5cf965ee14116f223770dc1d",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/blitz_s3_r02/metrics/blitz_3edadcae_blitz_s3_r02_blitz_scale_0/rank1.jsonl": "3ee5527449af7ca3b1bc3ba5aa8c6370b1c2763e8b33e0a3819a4f8559b8e8a1",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/s3_r01/summary.json": "0dee79d4176dadebf4ab3601b7160761fa062d1f269046126c6b4b2234488880"
+  }
+}

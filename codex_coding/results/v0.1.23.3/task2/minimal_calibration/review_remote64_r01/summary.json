@@ -1,0 +1,204 @@
+{
+  "development": "v0.1.23.3/task2",
+  "scope": "one 64MiB N0 to source GPU0/RCCL to target GPU4 causal receiver observation; reviewer local only",
+  "status": "failed_observed_DRAM_budget",
+  "functional_checks": {
+    "node28/functional_summary_passed": true,
+    "node28/source_config_fingerprint_bound": true,
+    "node28/full_payload_SHA": true,
+    "node28/actual_IB_GPU_NIC_XML": true,
+    "node28/raw_view_SHA_bound": true,
+    "node28/natural_cleanup_XML_preserved": true,
+    "node28/container_guard_identity": true,
+    "node28/old_catalogs_unleased_preserved": true,
+    "node28/quiet_noOOM_after": true,
+    "node28/no_profile_promotion": true,
+    "source_NUMA0_256_pages": true,
+    "sender_not_independent_end_to_end_sample": true,
+    "node30/functional_summary_passed": true,
+    "node30/source_config_fingerprint_bound": true,
+    "node30/full_payload_SHA": true,
+    "node30/actual_IB_GPU_NIC_XML": true,
+    "node30/raw_view_SHA_bound": true,
+    "node30/natural_cleanup_XML_preserved": true,
+    "node30/container_guard_identity": true,
+    "node30/old_catalogs_unleased_preserved": true,
+    "node30/quiet_noOOM_after": true,
+    "node30/no_profile_promotion": true,
+    "receiver_one_clock_byte_rate": true,
+    "receiver_causal_timer_scope": true,
+    "same_communicator": true
+  },
+  "functional_checks_passed": true,
+  "observed_resource_budget_passed": false,
+  "resources": {
+    "node28": {
+      "resource_sample_count": 336,
+      "before_guard_cgroup_bytes": 4661248,
+      "observed_cgroup_max_bytes": 2154119168,
+      "observed_cgroup_increment_bytes": 2149457920,
+      "observed_GPU_increment_bytes": 371326976,
+      "increment_budget_bytes": 2147483648,
+      "observed_DRAM_budget_passed": false,
+      "observed_HBM_budget_passed": true,
+      "observed_DRAM_overrun_bytes": 1974272,
+      "full_physical_peak_verified": false,
+      "memory_peak_missing": true
+    },
+    "node30": {
+      "resource_sample_count": 336,
+      "before_guard_cgroup_bytes": 26554368,
+      "observed_cgroup_max_bytes": 2124554240,
+      "observed_cgroup_increment_bytes": 2097999872,
+      "observed_GPU_increment_bytes": 380530688,
+      "increment_budget_bytes": 2147483648,
+      "observed_DRAM_budget_passed": true,
+      "observed_HBM_budget_passed": true,
+      "observed_DRAM_overrun_bytes": 0,
+      "full_physical_peak_verified": false,
+      "memory_peak_missing": true
+    }
+  },
+  "full_physical_peak_verified": false,
+  "formal_performance_ready": false,
+  "planner_profile_eligible": false,
+  "production_executor_equivalent": false,
+  "weights_ready_measured": false,
+  "receiver_sample": {
+    "primitive": "remote_numa_h2d_rccl_broadcast",
+    "direction": "node28_to_node30",
+    "bytes": 67108864,
+    "source_resource_id": "node28/numa/0",
+    "target_resource_id": "node30/pci/0000:85:00.0",
+    "duration_ns": 5494220,
+    "start_ns": 4870215195341740,
+    "end_ns": 4870215200835960,
+    "clock_domain": "node30:d9d6a6fb-013f-49ac-98f9-e77eca67952e:monotonic",
+    "completion": "cuda_device_synchronize",
+    "rate_Bps": 12214447910.71344,
+    "timer_scope": "receiver causal request to completed target, includes sender H2D and request",
+    "full_SHA256": "98dc891b284e4d84ac25b0c0a24fdbe39a7f0dbd643ad5e8aa06e02fc6258254",
+    "verified_bytes": 67108864,
+    "config_sha256": "85eca529ba42a57b334773e3c3704dff7ae736dce71b53e92b04698e218a2a70",
+    "runtime_fingerprint_sha256": "4685ec06c58acf89bac0ea112067b0ec2d41789568978609a19e28ed1e822a17",
+    "load_scope": "guarded_candidate_scope",
+    "owner_refs": [
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node30/stdout.json",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_owner_scope_r01/stdout.json"
+    ],
+    "capacity_is_physical_upper_bound": false,
+    "production_executor_equivalent": false,
+    "planner_profile_eligible": false
+  },
+  "source_refs": {
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/summary.json": {
+      "sha256": "929a4b053bf27945680b142ad70dc451426a4043421496d78518b24d504aa118",
+      "bytes": 727437
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/child.result.json": {
+      "sha256": "539cef8ab5ac61a017dd20d4a5f5eb17edcc512b104ea87ab3805736c18af3fb",
+      "bytes": 714019
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/registration.json": {
+      "sha256": "d36b7ae8b95c3e9c0376f9c4c6384efbf80e19367cae2bbb7cb3c1ae7cf0ab9a",
+      "bytes": 2736
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/config.json": {
+      "sha256": "5f8bbd560812c92ba9ee54c586ecc07e0a84655ad3f2ab3de81758d041617bc8",
+      "bytes": 2252
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/source.py": {
+      "sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9",
+      "bytes": 21372
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/nccl.log": {
+      "sha256": "43607639f334fc38ea7f0a8b4131a10ae2024b3c183d90b2eae7864eded83383",
+      "bytes": 35436
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/topology.dump.xml": {
+      "sha256": "28f675b13247dd99422e70563c947d686a321381e764c27f60a6fad037518212",
+      "bytes": 2559
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/topology.parse_view.xml": {
+      "sha256": "c21aa98a909c4ac62aae9391ccb6fe9f314b3a7fb4b850becfed5ba77f0e4835",
+      "bytes": 2553
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node28_r01/topology.parse_view.json": {
+      "sha256": "cbce48b19b0553534624672794d95bff09fc77c98c998de2a6d1bd9f1fef0d34",
+      "bytes": 664
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_before_remote64_node28_r01/stdout.json": {
+      "sha256": "075e55dffce81c0742c54f2f6a9012e280e363f12361bc1060f9246925188832",
+      "bytes": 694354
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_after_remote64_node28_r01/stdout.json": {
+      "sha256": "5caca803b4eecdac297d28d714b4292f4880a89f62a6deaca7043e54b1df619d",
+      "bytes": 694355
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_minimal_candidate_2830_node28_r01/summary.json": {
+      "sha256": "a277c2c69de6d9ba2b8d7b5f75dc3ae4cd2c4357cc3e1b804e814809efe7148a",
+      "bytes": 21273
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_minimal_candidate_2830_node30_r01/summary.json": {
+      "sha256": "09ea5cb0df97b08a97788c2743191893dce97e0fb9d941ea802f787047964c41",
+      "bytes": 21277
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node28/stdout.json": {
+      "sha256": "954464359c76da6c2baa9a3343df7cb8e3fbb928d93b6043a4ba2e5a12a5961c",
+      "bytes": 730696
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_owner_scope_r01/stdout.json": {
+      "sha256": "a7717467dc3a78af0242f4b0955e29877d25cb06c5946f0bc955c76895973623",
+      "bytes": 2326
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/summary.json": {
+      "sha256": "ca972ffb5e8ce8cb8b86c53bfe4fa11de5f46e44ce6108dec244bf33ecc58686",
+      "bytes": 727416
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/child.result.json": {
+      "sha256": "cacfd400c4eb9112af92120ae89a1463279579c22633e6a3de34fc3b780f484a",
+      "bytes": 713980
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/registration.json": {
+      "sha256": "e0b8243973dbabc4f751b0751a462005193c7c299d8050ed9d34e316397b780f",
+      "bytes": 2736
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/config.json": {
+      "sha256": "36a4242d33e592685ccf62134025ac2590bad907f7a34f5f699d7c9fd00e8fe0",
+      "bytes": 2252
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/source.py": {
+      "sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9",
+      "bytes": 21372
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/nccl.log": {
+      "sha256": "e3177c5844d0b655f21e732edc0cd0ab3349d4844ddc5fffec166d1bff57d3e3",
+      "bytes": 34077
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/topology.dump.xml": {
+      "sha256": "3c2fc05e09d7d11fbc0d28d17ca6996e276018fd15e434b4d78e64de87013321",
+      "bytes": 3075
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/topology.parse_view.xml": {
+      "sha256": "0306b6171a579119ecfffaed5b5616ad9af4e6422d136b660ba028806aa3f2ac",
+      "bytes": 3069
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_remote64_node30_r01/topology.parse_view.json": {
+      "sha256": "a7dbe4300f4595a5842a7b0133771190011eef4d988314702abe4a411b61298b",
+      "bytes": 662
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_before_remote64_node30_r01/stdout.json": {
+      "sha256": "4e85b339ecaeb78ce4b1d4e413ae5088d1bd9df7f823c3e70d7e3b447729b41d",
+      "bytes": 27290
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_after_remote64_node30_r01/stdout.json": {
+      "sha256": "ddce0750c4677c8d6ead880b35ab0640d626bcbd0431abfe2717671dfa068a2b",
+      "bytes": 27290
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node30/stdout.json": {
+      "sha256": "cb6da7fd7c3f87c5a757ac8de70dcf04f9bb221635435d18998cb50b5356ff83",
+      "bytes": 62273
+    }
+  },
+  "decision": "preserve valid functional/time observation plus node28 observed budget failure; do not increase budget or infer a capacity profile"
+}

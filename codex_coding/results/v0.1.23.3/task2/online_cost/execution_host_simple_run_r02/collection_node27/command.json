@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "docker",
+    "exec",
+    "d3dbb3832c2bf6e1e0e39012aff0780baa77978b0fad31a38dd9af79db222351",
+    "python3",
+    "-c",
+    "import io,pathlib,sys,tarfile;root=pathlib.Path(sys.argv[1]);files=[p for p in root.rglob('*') if p.is_file()];total=sum(p.stat().st_size for p in files);assert len(files)<=20000 and total<=512*1024*1024, 'artifact bound exceeded';t=tarfile.open(fileobj=sys.stdout.buffer,mode='w|');[t.add(str(p),arcname=str(p.relative_to(root)),recursive=False) for p in files];t.close()",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_simple_two_node_r02"
+  ],
+  "timeout_s": 40,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_s": 0.34555918199475855
+}

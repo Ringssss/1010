@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Fixed small TP4 symbolic contract",
+  "type": "object",
+  "required": ["schema_version", "development", "stage", "synthetic", "logical_tp", "payload_bytes", "cases", "baseline_rules", "source_refs", "readiness", "model_runtime_binding", "gpu_command", "contract_sha256"],
+  "properties": {
+    "schema_version": {"const": "tp4_scenarios.symbolic_contract.v1"},
+    "development": {"const": "v0.1.23.3/task2"},
+    "stage": {"const": "symbolic_contract_physical_unknown"},
+    "synthetic": {"const": true},
+    "logical_tp": {"const": 4},
+    "payload_bytes": {"const": 33554432},
+    "model_runtime_binding": {"type": "null"},
+    "gpu_command": {"type": "null"},
+    "gpu_launches": {"const": 0},
+    "ssh_operations": {"const": 0},
+    "product_changes": {"const": 0},
+    "cases": {
+      "type": "array", "minItems": 4, "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["case", "symbolic_profile", "path_contract", "role_mapping", "budget_ledger", "decision_boundary", "qualification"],
+        "properties": {
+          "case": {
+            "type": "object", "required": ["case_id", "workers", "base", "candidates", "restore_scenarios", "budget"],
+            "properties": {
+              "workers": {"type": "array", "minItems": 8, "maxItems": 8},
+              "base": {"type": "array", "minItems": 4, "maxItems": 4},
+              "candidates": {"type": "array", "minItems": 8, "maxItems": 8},
+              "restore_scenarios": {"type": "array", "minItems": 1, "maxItems": 1}
+            }
+          },
+          "path_contract": {"type": "object", "required": ["paths", "resources", "incidence_semantics"]},
+          "budget_ledger": {
+            "type": "object", "required": ["base_dram_bytes", "target_hbm_bytes", "max_cache_hbm_bytes", "staging_hbm_bytes", "runtime_bytes", "physical_budget_admitted"],
+            "properties": {
+              "base_dram_bytes": {"const": 33554432},
+              "target_hbm_bytes": {"const": 33554432},
+              "staging_hbm_bytes": {"const": 536870912},
+              "runtime_bytes": {"type": "null"},
+              "physical_budget_admitted": {"const": false}
+            }
+          },
+          "qualification": {
+            "type": "object",
+            "required": ["functional_ready", "prediction_ready", "physical_resource_incidence_ready", "bandwidth_ready", "runtime_budget_ready", "model_binding_ready", "formal_performance_ready", "gpu_command"],
+            "properties": {"gpu_command": {"type": "null"}},
+            "additionalProperties": {"const": false}
+          }
+        }
+      }
+    },
+    "readiness": {
+      "type": "object", "required": ["physical_mapping", "physical_capacity", "finite_execution", "model_binding", "real_performance"],
+      "additionalProperties": {"const": false}
+    }
+  }
+}

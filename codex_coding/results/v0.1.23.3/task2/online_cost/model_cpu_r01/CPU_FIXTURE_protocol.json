@@ -1,0 +1,37 @@
+{
+  "schema": "online_cost_protocol_v1",
+  "max_relative_error": 0.1,
+  "verification_position": "after_all_weights_ready",
+  "model_weights_ready_required": true,
+  "registered_wall_ns": 100,
+  "scenarios": {
+    "near": {
+      "context": {
+        "weight_identity": "CPU_weights",
+        "target_signature": "CPU_targets",
+        "allowed_budgets": {
+          "hbm": 2147483648
+        },
+        "comparison_group": "CPU_same_content_target_budget",
+        "clock_domain": "CPU_controller",
+        "layout": "near"
+      },
+      "logical_bytes": 2147483648,
+      "validation_samples": 1
+    },
+    "remote": {
+      "context": {
+        "weight_identity": "CPU_weights",
+        "target_signature": "CPU_targets",
+        "allowed_budgets": {
+          "hbm": 2147483648
+        },
+        "comparison_group": "CPU_same_content_target_budget",
+        "clock_domain": "CPU_controller",
+        "layout": "remote"
+      },
+      "logical_bytes": 2147483648,
+      "validation_samples": 1
+    }
+  }
+}

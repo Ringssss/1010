@@ -1,0 +1,13 @@
+# GPU4物理域修订交付
+
+仅新建execution_gpu4/十个源文件及execution_gpu4_*结果。原GPU0执行源、analysis_predeclared_r03和execution_actual_C1_r01失败原件不修改；GPU0失败是资源准入失败，零校准点，不是模型门失败。
+
+主agent授权候选仅node27 GPU4、BDF0000:85:00.0、NUMA4，world1逻辑rank0；预算不降低、不扣未归属baseline、不碰其他jobs、不扩扫其他GPU。原native复制循环、计时边界、矩阵与数值门不变。worker/controller/session/mode_file四源与GPU0版本逐字节相同；common/protocol/prepare/gate/runner/cpu_check仅物理字段、新目录引用及runtime PCI NUMA4检查。最终provenance与diff在execution_gpu4_source_revision_r02。
+
+资产保护使用最新execution_prepared_C1_r01的146项ledger；GPU4角色/worker argv来自明确冻结的first_op_validation/execution_prepared_A_r02映射。新spec只选择GPU4，ports35104/29981，保留同container与原XML。纯metadata候选spec在execution_gpu4_role_metadata_r01，保持最新146资产，可由主agent执行prepare.py metadata且不改变测量源。
+
+GPU4真实native HTTP CPU回放execution_gpu4_cpu_r01：55项通过，完整96MiB source/bootstrap、六个校准请求、实际copy/sync/offset、目标首次写入、全SHA、ns闭合与精确Catalog清理。模拟角色gpu4/NUMA4/PCI NUMA4已匹配，新analysis_gpu4域冻结输入已接入。没有真实GPU/SSH或资源查询由子agent发起。
+
+GPU4补充execution_gpu4_C2_protocol_cpu_r01：9项通过。检查新域冻结精确重算、CPU模型不能授权GPU、GPU4 rank0/world1、C1 rank0 prior→C2GPU4选择、role/ports、C1/C2新spec逐SHA保护最新146资产、原XML不改及最终CPU plan再次拒绝GPU。计时为synthetic协议fixture；只在build构造中显式走cpu_only入口，不stage或启动，不当硬件预测证据。
+
+后续由主agent完成新域prereg/sourcefreeze、独立review、fresh GPU4准入和启动。GPU4若实际预算门失败则停止，不再找其他GPU；若C1结构门未过则按已冻结协议跳过C2。本次source修订不修改原负斜率、A8状态结论或旧成本模型。

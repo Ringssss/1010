@@ -1,0 +1,153 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a51a1a0 <ncclIbDmaBufSupport(int)>:
+ a51a1a0:	55                   	push   %rbp
+ a51a1a1:	41 57                	push   %r15
+ a51a1a3:	41 56                	push   %r14
+ a51a1a5:	41 55                	push   %r13
+ a51a1a7:	41 54                	push   %r12
+ a51a1a9:	53                   	push   %rbx
+ a51a1aa:	50                   	push   %rax
+ a51a1ab:	8b 0d 53 4c 08 00    	mov    0x84c53(%rip),%ecx        # a59ee04 <ncclIbDmaBufSupport(int)::dmaBufSupported>
+ a51a1b1:	83 f9 ff             	cmp    $0xffffffff,%ecx
+ a51a1b4:	0f 85 31 01 00 00    	jne    a51a2eb <ncclIbDmaBufSupport(int)+0x14b>
+ a51a1ba:	89 fd                	mov    %edi,%ebp
+ a51a1bc:	e8 cf 45 fd ff       	call   a4ee790 <rocmLibraryInit()>
+ a51a1c1:	85 c0                	test   %eax,%eax
+ a51a1c3:	74 0b                	je     a51a1d0 <ncclIbDmaBufSupport(int)+0x30>
+ a51a1c5:	89 c3                	mov    %eax,%ebx
+ a51a1c7:	83 f8 07             	cmp    $0x7,%eax
+ a51a1ca:	0f 85 29 01 00 00    	jne    a51a2f9 <ncclIbDmaBufSupport(int)+0x159>
+ a51a1d0:	48 c7 04 24 00 00 00 	movq   $0x0,(%rsp)
+ a51a1d7:	00 
+ a51a1d8:	48 63 c5             	movslq %ebp,%rax
+ a51a1db:	48 8d 04 40          	lea    (%rax,%rax,2),%rax
+ a51a1df:	48 c1 e0 06          	shl    $0x6,%rax
+ a51a1e3:	48 8d 0d 96 e4 0f 00 	lea    0xfe496(%rip),%rcx        # a618680 <ncclIbMergedDevs>
+ a51a1ea:	83 3c 08 00          	cmpl   $0x0,(%rax,%rcx,1)
+ a51a1ee:	0f 8e f1 00 00 00    	jle    a51a2e5 <ncclIbDmaBufSupport(int)+0x145>
+ a51a1f4:	4c 8d 3c 01          	lea    (%rcx,%rax,1),%r15
+ a51a1f8:	4c 8d 24 08          	lea    (%rax,%rcx,1),%r12
+ a51a1fc:	49 83 c4 04          	add    $0x4,%r12
+ a51a200:	45 31 ed             	xor    %r13d,%r13d
+ a51a203:	48 8d 2d 76 fc 0f 00 	lea    0xffc76(%rip),%rbp        # a619e80 <ncclIbDevs>
+ a51a20a:	48 89 e3             	mov    %rsp,%rbx
+ a51a20d:	eb 10                	jmp    a51a21f <ncclIbDmaBufSupport(int)+0x7f>
+ a51a20f:	90                   	nop
+ a51a210:	49 ff c5             	inc    %r13
+ a51a213:	49 63 07             	movslq (%r15),%rax
+ a51a216:	49 39 c5             	cmp    %rax,%r13
+ a51a219:	0f 8d c6 00 00 00    	jge    a51a2e5 <ncclIbDmaBufSupport(int)+0x145>
+ a51a21f:	4b 63 04 ac          	movslq (%r12,%r13,4),%rax
+ a51a223:	48 c1 e0 08          	shl    $0x8,%rax
+ a51a227:	48 8b 74 28 40       	mov    0x40(%rax,%rbp,1),%rsi
+ a51a22c:	48 89 df             	mov    %rbx,%rdi
+ a51a22f:	e8 cc fd fc ff       	call   a4ea000 <wrap_ibv_alloc_pd(ibv_pd**, ibv_context*)>
+ a51a234:	85 c0                	test   %eax,%eax
+ a51a236:	74 0c                	je     a51a244 <ncclIbDmaBufSupport(int)+0xa4>
+ a51a238:	41 89 c6             	mov    %eax,%r14d
+ a51a23b:	83 f8 07             	cmp    $0x7,%eax
+ a51a23e:	0f 85 0d 01 00 00    	jne    a51a351 <ncclIbDmaBufSupport(int)+0x1b1>
+ a51a244:	48 8b 3c 24          	mov    (%rsp),%rdi
+ a51a248:	31 f6                	xor    %esi,%esi
+ a51a24a:	31 d2                	xor    %edx,%edx
+ a51a24c:	31 c9                	xor    %ecx,%ecx
+ a51a24e:	41 b8 ff ff ff ff    	mov    $0xffffffff,%r8d
+ a51a254:	45 31 c9             	xor    %r9d,%r9d
+ a51a257:	e8 e4 00 fd ff       	call   a4ea340 <wrap_direct_ibv_reg_dmabuf_mr(ibv_pd*, unsigned long, unsigned long, unsigned long, int, int)>
+ a51a25c:	e8 0f 15 01 00       	call   a52b770 <__errno_location@plt>
+ a51a261:	8b 00                	mov    (%rax),%eax
+ a51a263:	83 e0 fd             	and    $0xfffffffd,%eax
+ a51a266:	31 c9                	xor    %ecx,%ecx
+ a51a268:	83 f8 5d             	cmp    $0x5d,%eax
+ a51a26b:	0f 95 c1             	setne  %cl
+ a51a26e:	89 0d 90 4b 08 00    	mov    %ecx,0x84b90(%rip)        # a59ee04 <ncclIbDmaBufSupport(int)::dmaBufSupported>
+ a51a274:	48 8b 3c 24          	mov    (%rsp),%rdi
+ a51a278:	e8 13 fe fc ff       	call   a4ea090 <wrap_ibv_dealloc_pd(ibv_pd*)>
+ a51a27d:	85 c0                	test   %eax,%eax
+ a51a27f:	74 8f                	je     a51a210 <ncclIbDmaBufSupport(int)+0x70>
+ a51a281:	41 89 c6             	mov    %eax,%r14d
+ a51a284:	83 f8 07             	cmp    $0x7,%eax
+ a51a287:	74 87                	je     a51a210 <ncclIbDmaBufSupport(int)+0x70>
+ a51a289:	48 83 3d 67 2d 08 00 	cmpq   $0x0,0x82d67(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a51a290:	00 
+ a51a291:	74 05                	je     a51a298 <ncclIbDmaBufSupport(int)+0xf8>
+ a51a293:	e8 d8 16 01 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a51a298:	66 48 8d 3d 60 2d 08 	data16 lea 0x82d60(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a51a29f:	00 
+ a51a2a0:	66 66 48 e8 d8 16 01 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a51a2a7:	00 
+ a51a2a8:	83 38 00             	cmpl   $0x0,(%rax)
+ a51a2ab:	0f 85 fc 00 00 00    	jne    a51a3ad <ncclIbDmaBufSupport(int)+0x20d>
+ a51a2b1:	48 8d 15 50 e6 af f5 	lea    -0xa5019b0(%rip),%rdx        # 18908 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18718>
+ a51a2b8:	4c 8d 05 49 1e b0 f5 	lea    -0xa4fe1b7(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a51a2bf:	4c 8d 0d 12 5a af f5 	lea    -0xa50a5ee(%rip),%r9        # fcd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xfae8>
+ a51a2c6:	bf 03 00 00 00       	mov    $0x3,%edi
+ a51a2cb:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a51a2d2:	b9 d5 02 00 00       	mov    $0x2d5,%ecx
+ a51a2d7:	31 c0                	xor    %eax,%eax
+ a51a2d9:	41 56                	push   %r14
+ a51a2db:	68 d5 02 00 00       	push   $0x2d5
+ a51a2e0:	e9 bf 00 00 00       	jmp    a51a3a4 <ncclIbDmaBufSupport(int)+0x204>
+ a51a2e5:	8b 0d 19 4b 08 00    	mov    0x84b19(%rip),%ecx        # a59ee04 <ncclIbDmaBufSupport(int)::dmaBufSupported>
+ a51a2eb:	31 c0                	xor    %eax,%eax
+ a51a2ed:	85 c9                	test   %ecx,%ecx
+ a51a2ef:	0f 94 c0             	sete   %al
+ a51a2f2:	01 c0                	add    %eax,%eax
+ a51a2f4:	e9 c3 00 00 00       	jmp    a51a3bc <ncclIbDmaBufSupport(int)+0x21c>
+ a51a2f9:	48 83 3d f7 2c 08 00 	cmpq   $0x0,0x82cf7(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a51a300:	00 
+ a51a301:	74 05                	je     a51a308 <ncclIbDmaBufSupport(int)+0x168>
+ a51a303:	e8 68 16 01 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a51a308:	66 48 8d 3d f0 2c 08 	data16 lea 0x82cf0(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a51a30f:	00 
+ a51a310:	66 66 48 e8 68 16 01 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a51a317:	00 
+ a51a318:	83 38 00             	cmpl   $0x0,(%rax)
+ a51a31b:	0f 85 8c 00 00 00    	jne    a51a3ad <ncclIbDmaBufSupport(int)+0x20d>
+ a51a321:	48 8d 15 e0 e5 af f5 	lea    -0xa501a20(%rip),%rdx        # 18908 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18718>
+ a51a328:	4c 8d 05 d9 1d b0 f5 	lea    -0xa4fe227(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a51a32f:	4c 8d 0d a2 59 af f5 	lea    -0xa50a65e(%rip),%r9        # fcd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xfae8>
+ a51a336:	bf 03 00 00 00       	mov    $0x3,%edi
+ a51a33b:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a51a342:	b9 c7 02 00 00       	mov    $0x2c7,%ecx
+ a51a347:	31 c0                	xor    %eax,%eax
+ a51a349:	53                   	push   %rbx
+ a51a34a:	68 c7 02 00 00       	push   $0x2c7
+ a51a34f:	eb 53                	jmp    a51a3a4 <ncclIbDmaBufSupport(int)+0x204>
+ a51a351:	48 83 3d 9f 2c 08 00 	cmpq   $0x0,0x82c9f(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a51a358:	00 
+ a51a359:	74 05                	je     a51a360 <ncclIbDmaBufSupport(int)+0x1c0>
+ a51a35b:	e8 10 16 01 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a51a360:	66 48 8d 3d 98 2c 08 	data16 lea 0x82c98(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a51a367:	00 
+ a51a368:	66 66 48 e8 10 16 01 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a51a36f:	00 
+ a51a370:	83 38 00             	cmpl   $0x0,(%rax)
+ a51a373:	75 38                	jne    a51a3ad <ncclIbDmaBufSupport(int)+0x20d>
+ a51a375:	48 8d 15 8c e5 af f5 	lea    -0xa501a74(%rip),%rdx        # 18908 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18718>
+ a51a37c:	4c 8d 05 85 1d b0 f5 	lea    -0xa4fe27b(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a51a383:	4c 8d 0d 4e 59 af f5 	lea    -0xa50a6b2(%rip),%r9        # fcd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xfae8>
+ a51a38a:	bf 03 00 00 00       	mov    $0x3,%edi
+ a51a38f:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a51a396:	b9 d0 02 00 00       	mov    $0x2d0,%ecx
+ a51a39b:	31 c0                	xor    %eax,%eax
+ a51a39d:	41 56                	push   %r14
+ a51a39f:	68 d0 02 00 00       	push   $0x2d0
+ a51a3a4:	e8 57 48 f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a51a3a9:	48 83 c4 10          	add    $0x10,%rsp
+ a51a3ad:	c7 05 4d 4a 08 00 00 	movl   $0x0,0x84a4d(%rip)        # a59ee04 <ncclIbDmaBufSupport(int)::dmaBufSupported>
+ a51a3b4:	00 00 00 
+ a51a3b7:	b8 02 00 00 00       	mov    $0x2,%eax
+ a51a3bc:	48 83 c4 08          	add    $0x8,%rsp
+ a51a3c0:	5b                   	pop    %rbx
+ a51a3c1:	41 5c                	pop    %r12
+ a51a3c3:	41 5d                	pop    %r13
+ a51a3c5:	41 5e                	pop    %r14
+ a51a3c7:	41 5f                	pop    %r15
+ a51a3c9:	5d                   	pop    %rbp
+ a51a3ca:	c3                   	ret    

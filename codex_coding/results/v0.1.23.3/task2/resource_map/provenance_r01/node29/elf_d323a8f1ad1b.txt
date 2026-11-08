@@ -1,0 +1,2103 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4c4a00 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)>:
+ a4c4a00:	55                   	push   %rbp
+ a4c4a01:	41 57                	push   %r15
+ a4c4a03:	41 56                	push   %r14
+ a4c4a05:	41 55                	push   %r13
+ a4c4a07:	41 54                	push   %r12
+ a4c4a09:	53                   	push   %rbx
+ a4c4a0a:	48 81 ec b8 00 00 00 	sub    $0xb8,%rsp
+ a4c4a11:	49 89 f6             	mov    %rsi,%r14
+ a4c4a14:	49 89 ff             	mov    %rdi,%r15
+ a4c4a17:	bf 01 00 00 00       	mov    $0x1,%edi
+ a4c4a1c:	be 08 00 63 06       	mov    $0x6630008,%esi
+ a4c4a21:	e8 3a 6f 06 00       	call   a52b960 <calloc@plt>
+ a4c4a26:	48 85 c0             	test   %rax,%rax
+ a4c4a29:	0f 84 de 00 00 00    	je     a4c4b0d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x10d>
+ a4c4a2f:	49 89 c4             	mov    %rax,%r12
+ a4c4a32:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+ a4c4a37:	c7 40 04 00 20 00 00 	movl   $0x2000,0x4(%rax)
+ a4c4a3e:	48 8d 3d 70 68 b5 f5 	lea    -0xa4a9790(%rip),%rdi        # 1b2b5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0c5>
+ a4c4a45:	e8 c6 8e 02 00       	call   a4ed910 <ncclGetEnv(char const*)>
+ a4c4a4a:	48 85 c0             	test   %rax,%rax
+ a4c4a4d:	0f 84 31 01 00 00    	je     a4c4b84 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x184>
+ a4c4a53:	48 89 c3             	mov    %rax,%rbx
+ a4c4a56:	48 8d 15 1d 1e b6 f5 	lea    -0xa49e1e3(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4a5d:	4c 8d 05 f5 33 b6 f5 	lea    -0xa49cc0b(%rip),%r8        # 27e59 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27c69>
+ a4c4a64:	31 ed                	xor    %ebp,%ebp
+ a4c4a66:	be 80 00 00 00       	mov    $0x80,%esi
+ a4c4a6b:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4a70:	b9 2e 03 00 00       	mov    $0x32e,%ecx
+ a4c4a75:	49 89 c1             	mov    %rax,%r9
+ a4c4a78:	31 c0                	xor    %eax,%eax
+ a4c4a7a:	e8 81 a1 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4a7f:	48 89 df             	mov    %rbx,%rdi
+ a4c4a82:	4c 89 e6             	mov    %r12,%rsi
+ a4c4a85:	ba 01 00 00 00       	mov    $0x1,%edx
+ a4c4a8a:	e8 31 89 00 00       	call   a4cd3c0 <ncclTopoGetXmlFromFile(char const*, ncclXml*, int)>
+ a4c4a8f:	89 c3                	mov    %eax,%ebx
+ a4c4a91:	85 c0                	test   %eax,%eax
+ a4c4a93:	74 62                	je     a4c4af7 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf7>
+ a4c4a95:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4a98:	74 5d                	je     a4c4af7 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf7>
+ a4c4a9a:	48 83 3d 56 85 0d 00 	cmpq   $0x0,0xd8556(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4aa1:	00 
+ a4c4aa2:	74 05                	je     a4c4aa9 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa9>
+ a4c4aa4:	e8 c7 6e 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4aa9:	66 48 8d 3d 4f 85 0d 	data16 lea 0xd854f(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4ab0:	00 
+ a4c4ab1:	66 66 48 e8 c7 6e 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4ab8:	00 
+ a4c4ab9:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4abc:	75 37                	jne    a4c4af5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf5>
+ a4c4abe:	48 8d 15 b5 1d b6 f5 	lea    -0xa49e24b(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4ac5:	4c 8d 05 3c 76 b5 f5 	lea    -0xa4a89c4(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4acc:	4c 8d 0d 91 45 b5 f5 	lea    -0xa4aba6f(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c4ad3:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4ad8:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4adf:	b9 2f 03 00 00       	mov    $0x32f,%ecx
+ a4c4ae4:	31 c0                	xor    %eax,%eax
+ a4c4ae6:	53                   	push   %rbx
+ a4c4ae7:	68 2f 03 00 00       	push   $0x32f
+ a4c4aec:	e8 0f a1 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4af1:	48 83 c4 10          	add    $0x10,%rsp
+ a4c4af5:	89 dd                	mov    %ebx,%ebp
+ a4c4af7:	85 db                	test   %ebx,%ebx
+ a4c4af9:	0f 84 07 01 00 00    	je     a4c4c06 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x206>
+ a4c4aff:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4b02:	0f 84 fe 00 00 00    	je     a4c4c06 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x206>
+ a4c4b08:	e9 70 21 00 00       	jmp    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4b0d:	48 8d 15 9b 35 b5 f5 	lea    -0xa4aca65(%rip),%rdx        # 180af <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x17ebf>
+ a4c4b14:	4c 8d 05 39 f3 b5 f5 	lea    -0xa4a0cc7(%rip),%r8        # 23e54 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23c64>
+ a4c4b1b:	41 b9 08 00 63 06    	mov    $0x6630008,%r9d
+ a4c4b21:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4c4b26:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4b2d:	b9 42 00 00 00       	mov    $0x42,%ecx
+ a4c4b32:	31 c0                	xor    %eax,%eax
+ a4c4b34:	e8 c7 a0 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4b39:	48 83 3d b7 84 0d 00 	cmpq   $0x0,0xd84b7(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4b40:	00 
+ a4c4b41:	0f 85 85 03 00 00    	jne    a4c4ecc <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x4cc>
+ a4c4b47:	66 48 8d 3d b1 84 0d 	data16 lea 0xd84b1(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4b4e:	00 
+ a4c4b4f:	66 66 48 e8 29 6e 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4b56:	00 
+ a4c4b57:	48 89 c3             	mov    %rax,%rbx
+ a4c4b5a:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4b5d:	0f 84 8a 03 00 00    	je     a4c4eed <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x4ed>
+ a4c4b63:	48 83 3d 8d 84 0d 00 	cmpq   $0x0,0xd848d(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4b6a:	00 
+ a4c4b6b:	0f 85 c2 03 00 00    	jne    a4c4f33 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x533>
+ a4c4b71:	bd 02 00 00 00       	mov    $0x2,%ebp
+ a4c4b76:	83 3b 00             	cmpl   $0x0,(%rbx)
+ a4c4b79:	0f 85 fe 20 00 00    	jne    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4b7f:	e9 c2 03 00 00       	jmp    a4c4f46 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x546>
+ a4c4b84:	4c 89 ff             	mov    %r15,%rdi
+ a4c4b87:	4c 89 e6             	mov    %r12,%rsi
+ a4c4b8a:	e8 41 e6 00 00       	call   a4d31d0 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)>
+ a4c4b8f:	89 c3                	mov    %eax,%ebx
+ a4c4b91:	31 ed                	xor    %ebp,%ebp
+ a4c4b93:	85 c0                	test   %eax,%eax
+ a4c4b95:	74 62                	je     a4c4bf9 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f9>
+ a4c4b97:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4b9a:	74 5d                	je     a4c4bf9 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f9>
+ a4c4b9c:	48 83 3d 54 84 0d 00 	cmpq   $0x0,0xd8454(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4ba3:	00 
+ a4c4ba4:	74 05                	je     a4c4bab <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1ab>
+ a4c4ba6:	e8 c5 6d 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4bab:	66 48 8d 3d 4d 84 0d 	data16 lea 0xd844d(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4bb2:	00 
+ a4c4bb3:	66 66 48 e8 c5 6d 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4bba:	00 
+ a4c4bbb:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4bbe:	75 37                	jne    a4c4bf7 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f7>
+ a4c4bc0:	48 8d 15 b3 1c b6 f5 	lea    -0xa49e34d(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4bc7:	4c 8d 05 3a 75 b5 f5 	lea    -0xa4a8ac6(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4bce:	4c 8d 0d 8f 44 b5 f5 	lea    -0xa4abb71(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c4bd5:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4bda:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4be1:	b9 31 03 00 00       	mov    $0x331,%ecx
+ a4c4be6:	31 c0                	xor    %eax,%eax
+ a4c4be8:	53                   	push   %rbx
+ a4c4be9:	68 31 03 00 00       	push   $0x331
+ a4c4bee:	e8 0d a0 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4bf3:	48 83 c4 10          	add    $0x10,%rsp
+ a4c4bf7:	89 dd                	mov    %ebx,%ebp
+ a4c4bf9:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4bfc:	74 08                	je     a4c4c06 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x206>
+ a4c4bfe:	85 db                	test   %ebx,%ebx
+ a4c4c00:	0f 85 77 20 00 00    	jne    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4c06:	41 83 3c 24 00       	cmpl   $0x0,(%r12)
+ a4c4c0b:	0f 85 a4 00 00 00    	jne    a4c4cb5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2b5>
+ a4c4c11:	41 83 7c 24 04 00    	cmpl   $0x0,0x4(%r12)
+ a4c4c17:	0f 84 66 03 00 00    	je     a4c4f83 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x583>
+ a4c4c1d:	49 8d 7c 24 08       	lea    0x8(%r12),%rdi
+ a4c4c22:	41 c7 04 24 01 00 00 	movl   $0x1,(%r12)
+ a4c4c29:	00 
+ a4c4c2a:	41 c7 84 24 18 33 00 	movl   $0x0,0x3318(%r12)
+ a4c4c31:	00 00 00 00 00 
+ a4c4c36:	49 c7 84 24 10 23 00 	movq   $0x0,0x2310(%r12)
+ a4c4c3d:	00 00 00 00 00 
+ a4c4c42:	48 8d 35 24 ad b5 f5 	lea    -0xa4a52dc(%rip),%rsi        # 1f96d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f77d>
+ a4c4c49:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c4c4e:	e8 7d 72 06 00       	call   a52bed0 <strncpy@plt>
+ a4c4c53:	41 c6 84 24 07 01 00 	movb   $0x0,0x107(%r12)
+ a4c4c5a:	00 00 
+ a4c4c5c:	41 c7 84 24 08 23 00 	movl   $0x1,0x2308(%r12)
+ a4c4c63:	00 01 00 00 00 
+ a4c4c68:	49 8d bc 24 08 01 00 	lea    0x108(%r12),%rdi
+ a4c4c6f:	00 
+ a4c4c70:	48 8d 35 c0 f2 b5 f5 	lea    -0xa4a0d40(%rip),%rsi        # 23f37 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23d47>
+ a4c4c77:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c4c7c:	e8 4f 72 06 00       	call   a52bed0 <strncpy@plt>
+ a4c4c81:	41 c6 84 24 07 02 00 	movb   $0x0,0x207(%r12)
+ a4c4c88:	00 00 
+ a4c4c8a:	4c 89 e7             	mov    %r12,%rdi
+ a4c4c8d:	48 81 c7 08 02 00 00 	add    $0x208,%rdi
+ a4c4c94:	48 8d 15 30 3b b6 f5 	lea    -0xa49c4d0(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c4c9b:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c4ca0:	b9 02 00 00 00       	mov    $0x2,%ecx
+ a4c4ca5:	31 c0                	xor    %eax,%eax
+ a4c4ca7:	e8 24 6f 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c4cac:	41 c6 84 24 07 03 00 	movb   $0x0,0x307(%r12)
+ a4c4cb3:	00 00 
+ a4c4cb5:	48 8d 3d ac f5 b4 f5 	lea    -0xa4b0a54(%rip),%rdi        # 14268 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x14078>
+ a4c4cbc:	48 8d 35 65 aa b5 f5 	lea    -0xa4a559b(%rip),%rsi        # 1f728 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f538>
+ a4c4cc3:	e8 08 6d 06 00       	call   a52b9d0 <fopen@plt>
+ a4c4cc8:	48 85 c0             	test   %rax,%rax
+ a4c4ccb:	74 54                	je     a4c4d21 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x321>
+ a4c4ccd:	48 89 c3             	mov    %rax,%rbx
+ a4c4cd0:	c7 44 24 40 00 00 00 	movl   $0x0,0x40(%rsp)
+ a4c4cd7:	00 
+ a4c4cd8:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4c4cdd:	be 04 00 00 00       	mov    $0x4,%esi
+ a4c4ce2:	ba 01 00 00 00       	mov    $0x1,%edx
+ a4c4ce7:	48 89 c1             	mov    %rax,%rcx
+ a4c4cea:	e8 f1 6c 06 00       	call   a52b9e0 <fread@plt>
+ a4c4cef:	48 83 f8 01          	cmp    $0x1,%rax
+ a4c4cf3:	74 24                	je     a4c4d19 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x319>
+ a4c4cf5:	48 8d 15 9e 65 b5 f5 	lea    -0xa4a9a62(%rip),%rdx        # 1b29a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0aa>
+ a4c4cfc:	4c 8d 05 30 d4 b5 f5 	lea    -0xa4a2bd0(%rip),%r8        # 22133 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x21f43>
+ a4c4d03:	be 20 00 00 00       	mov    $0x20,%esi
+ a4c4d08:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4d0d:	b9 23 03 00 00       	mov    $0x323,%ecx
+ a4c4d12:	31 c0                	xor    %eax,%eax
+ a4c4d14:	e8 e7 9e fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4d19:	48 89 df             	mov    %rbx,%rdi
+ a4c4d1c:	e8 cf 6c 06 00       	call   a52b9f0 <fclose@plt>
+ a4c4d21:	0f 57 c0             	xorps  %xmm0,%xmm0
+ a4c4d24:	0f 29 84 24 a0 00 00 	movaps %xmm0,0xa0(%rsp)
+ a4c4d2b:	00 
+ a4c4d2c:	49 8b 87 98 d8 00 00 	mov    0xd898(%r15),%rax
+ a4c4d33:	49 63 8f a0 8a 0b 00 	movslq 0xb8aa0(%r15),%rcx
+ a4c4d3a:	48 6b c9 70          	imul   $0x70,%rcx,%rcx
+ a4c4d3e:	48 8b 7c 08 30       	mov    0x30(%rax,%rcx,1),%rdi
+ a4c4d43:	48 8d b4 24 a0 00 00 	lea    0xa0(%rsp),%rsi
+ a4c4d4a:	00 
+ a4c4d4b:	e8 40 25 03 00       	call   a4f7290 <int64ToBusId(long, char*)>
+ a4c4d50:	89 c3                	mov    %eax,%ebx
+ a4c4d52:	85 c0                	test   %eax,%eax
+ a4c4d54:	74 62                	je     a4c4db8 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x3b8>
+ a4c4d56:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4d59:	74 5d                	je     a4c4db8 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x3b8>
+ a4c4d5b:	48 83 3d 95 82 0d 00 	cmpq   $0x0,0xd8295(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4d62:	00 
+ a4c4d63:	74 05                	je     a4c4d6a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x36a>
+ a4c4d65:	e8 06 6c 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4d6a:	66 48 8d 3d 8e 82 0d 	data16 lea 0xd828e(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4d71:	00 
+ a4c4d72:	66 66 48 e8 06 6c 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4d79:	00 
+ a4c4d7a:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4d7d:	75 37                	jne    a4c4db6 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x3b6>
+ a4c4d7f:	48 8d 15 f4 1a b6 f5 	lea    -0xa49e50c(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4d86:	4c 8d 05 7b 73 b5 f5 	lea    -0xa4a8c85(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4d8d:	4c 8d 0d d0 42 b5 f5 	lea    -0xa4abd30(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c4d94:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4d99:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4da0:	b9 3f 03 00 00       	mov    $0x33f,%ecx
+ a4c4da5:	31 c0                	xor    %eax,%eax
+ a4c4da7:	53                   	push   %rbx
+ a4c4da8:	68 3f 03 00 00       	push   $0x33f
+ a4c4dad:	e8 4e 9e fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4db2:	48 83 c4 10          	add    $0x10,%rsp
+ a4c4db6:	89 dd                	mov    %ebx,%ebp
+ a4c4db8:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4dbb:	74 08                	je     a4c4dc5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x3c5>
+ a4c4dbd:	85 db                	test   %ebx,%ebx
+ a4c4dbf:	0f 85 b8 1e 00 00    	jne    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4dc5:	48 c7 44 24 38 00 00 	movq   $0x0,0x38(%rsp)
+ a4c4dcc:	00 00 
+ a4c4dce:	48 8d b4 24 a0 00 00 	lea    0xa0(%rsp),%rsi
+ a4c4dd5:	00 
+ a4c4dd6:	48 8d 54 24 38       	lea    0x38(%rsp),%rdx
+ a4c4ddb:	4c 89 e7             	mov    %r12,%rdi
+ a4c4dde:	e8 0d ca 00 00       	call   a4d17f0 <ncclTopoFillGpu(ncclXml*, char const*, ncclXmlNode**)>
+ a4c4de3:	89 c3                	mov    %eax,%ebx
+ a4c4de5:	85 c0                	test   %eax,%eax
+ a4c4de7:	74 62                	je     a4c4e4b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x44b>
+ a4c4de9:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4dec:	74 5d                	je     a4c4e4b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x44b>
+ a4c4dee:	48 83 3d 02 82 0d 00 	cmpq   $0x0,0xd8202(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4df5:	00 
+ a4c4df6:	74 05                	je     a4c4dfd <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x3fd>
+ a4c4df8:	e8 73 6b 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4dfd:	66 48 8d 3d fb 81 0d 	data16 lea 0xd81fb(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4e04:	00 
+ a4c4e05:	66 66 48 e8 73 6b 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4e0c:	00 
+ a4c4e0d:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4e10:	75 37                	jne    a4c4e49 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x449>
+ a4c4e12:	48 8d 15 61 1a b6 f5 	lea    -0xa49e59f(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4e19:	4c 8d 05 e8 72 b5 f5 	lea    -0xa4a8d18(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4e20:	4c 8d 0d 3d 42 b5 f5 	lea    -0xa4abdc3(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c4e27:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4e2c:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4e33:	b9 41 03 00 00       	mov    $0x341,%ecx
+ a4c4e38:	31 c0                	xor    %eax,%eax
+ a4c4e3a:	53                   	push   %rbx
+ a4c4e3b:	68 41 03 00 00       	push   $0x341
+ a4c4e40:	e8 bb 9d fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4e45:	48 83 c4 10          	add    $0x10,%rsp
+ a4c4e49:	89 dd                	mov    %ebx,%ebp
+ a4c4e4b:	83 fb 07             	cmp    $0x7,%ebx
+ a4c4e4e:	74 08                	je     a4c4e58 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x458>
+ a4c4e50:	85 db                	test   %ebx,%ebx
+ a4c4e52:	0f 85 25 1e 00 00    	jne    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4e58:	89 6c 24 20          	mov    %ebp,0x20(%rsp)
+ a4c4e5c:	4c 89 a4 24 88 00 00 	mov    %r12,0x88(%rsp)
+ a4c4e63:	00 
+ a4c4e64:	4c 89 7c 24 28       	mov    %r15,0x28(%rsp)
+ a4c4e69:	4c 89 b4 24 98 00 00 	mov    %r14,0x98(%rsp)
+ a4c4e70:	00 
+ a4c4e71:	4c 8b 7c 24 38       	mov    0x38(%rsp),%r15
+ a4c4e76:	4d 85 ff             	test   %r15,%r15
+ a4c4e79:	0f 84 94 03 00 00    	je     a4c5213 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x813>
+ a4c4e7f:	45 8b af 00 23 00 00 	mov    0x2300(%r15),%r13d
+ a4c4e86:	45 85 ed             	test   %r13d,%r13d
+ a4c4e89:	0f 8e 88 01 00 00    	jle    a4c5017 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x617>
+ a4c4e8f:	49 8d 9f 00 01 00 00 	lea    0x100(%r15),%rbx
+ a4c4e96:	45 31 e4             	xor    %r12d,%r12d
+ a4c4e99:	4c 8d 35 6c 6d b5 f5 	lea    -0xa4a9294(%rip),%r14        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c4ea0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c4ea5:	48 89 df             	mov    %rbx,%rdi
+ a4c4ea8:	4c 89 f6             	mov    %r14,%rsi
+ a4c4eab:	e8 d0 72 06 00       	call   a52c180 <strncmp@plt>
+ a4c4eb0:	85 c0                	test   %eax,%eax
+ a4c4eb2:	0f 84 55 01 00 00    	je     a4c500d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x60d>
+ a4c4eb8:	49 ff c4             	inc    %r12
+ a4c4ebb:	48 81 c3 00 02 00 00 	add    $0x200,%rbx
+ a4c4ec2:	4d 39 e5             	cmp    %r12,%r13
+ a4c4ec5:	75 d9                	jne    a4c4ea0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x4a0>
+ a4c4ec7:	e9 4b 01 00 00       	jmp    a4c5017 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x617>
+ a4c4ecc:	e8 9f 6a 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4ed1:	66 48 8d 3d 27 81 0d 	data16 lea 0xd8127(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4ed8:	00 
+ a4c4ed9:	66 66 48 e8 9f 6a 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4ee0:	00 
+ a4c4ee1:	48 89 c3             	mov    %rax,%rbx
+ a4c4ee4:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4ee7:	0f 85 76 fc ff ff    	jne    a4c4b63 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x163>
+ a4c4eed:	48 8d 15 2d aa b5 f5 	lea    -0xa4a55d3(%rip),%rdx        # 1f921 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f731>
+ a4c4ef4:	4c 8d 05 0d 72 b5 f5 	lea    -0xa4a8df3(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4efb:	4c 8d 0d ed 18 b6 f5 	lea    -0xa49e713(%rip),%r9        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4c4f02:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4f07:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4f0e:	b9 a9 00 00 00       	mov    $0xa9,%ecx
+ a4c4f13:	31 c0                	xor    %eax,%eax
+ a4c4f15:	6a 02                	push   $0x2
+ a4c4f17:	68 a9 00 00 00       	push   $0xa9
+ a4c4f1c:	e8 df 9c fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4f21:	48 83 c4 10          	add    $0x10,%rsp
+ a4c4f25:	48 83 3d cb 80 0d 00 	cmpq   $0x0,0xd80cb(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4f2c:	00 
+ a4c4f2d:	0f 84 3e fc ff ff    	je     a4c4b71 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x171>
+ a4c4f33:	e8 38 6a 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4f38:	bd 02 00 00 00       	mov    $0x2,%ebp
+ a4c4f3d:	83 3b 00             	cmpl   $0x0,(%rbx)
+ a4c4f40:	0f 85 37 1d 00 00    	jne    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4f46:	48 8d 15 2d 19 b6 f5 	lea    -0xa49e6d3(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4f4d:	4c 8d 05 b4 71 b5 f5 	lea    -0xa4a8e4c(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4f54:	4c 8d 0d 09 41 b5 f5 	lea    -0xa4abef7(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c4f5b:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4f60:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4f67:	b9 2b 03 00 00       	mov    $0x32b,%ecx
+ a4c4f6c:	31 c0                	xor    %eax,%eax
+ a4c4f6e:	6a 02                	push   $0x2
+ a4c4f70:	68 2b 03 00 00       	push   $0x32b
+ a4c4f75:	e8 86 9c fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4f7a:	48 83 c4 10          	add    $0x10,%rsp
+ a4c4f7e:	e9 fa 1c 00 00       	jmp    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4f83:	48 8d 15 65 18 b6 f5 	lea    -0xa49e79b(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4c4f8a:	4c 8d 05 a6 c2 b5 f5 	lea    -0xa4a3d5a(%rip),%r8        # 21237 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x21047>
+ a4c4f91:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4c4f96:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4f9d:	b9 95 01 00 00       	mov    $0x195,%ecx
+ a4c4fa2:	45 31 c9             	xor    %r9d,%r9d
+ a4c4fa5:	31 c0                	xor    %eax,%eax
+ a4c4fa7:	e8 54 9c fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c4fac:	48 83 3d 44 80 0d 00 	cmpq   $0x0,0xd8044(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c4fb3:	00 
+ a4c4fb4:	74 05                	je     a4c4fbb <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x5bb>
+ a4c4fb6:	e8 b5 69 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c4fbb:	66 48 8d 3d 3d 80 0d 	data16 lea 0xd803d(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c4fc2:	00 
+ a4c4fc3:	66 66 48 e8 b5 69 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c4fca:	00 
+ a4c4fcb:	bd 03 00 00 00       	mov    $0x3,%ebp
+ a4c4fd0:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c4fd3:	0f 85 a4 1c 00 00    	jne    a4c6c7d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227d>
+ a4c4fd9:	48 8d 15 9a 18 b6 f5 	lea    -0xa49e766(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c4fe0:	4c 8d 05 21 71 b5 f5 	lea    -0xa4a8edf(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c4fe7:	4c 8d 0d 76 40 b5 f5 	lea    -0xa4abf8a(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c4fee:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c4ff3:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c4ffa:	b9 37 03 00 00       	mov    $0x337,%ecx
+ a4c4fff:	31 c0                	xor    %eax,%eax
+ a4c5001:	6a 03                	push   $0x3
+ a4c5003:	68 37 03 00 00       	push   $0x337
+ a4c5008:	e9 68 ff ff ff       	jmp    a4c4f75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x575>
+ a4c500d:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5012:	49 39 c4             	cmp    %rax,%r12
+ a4c5015:	75 3a                	jne    a4c5051 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x651>
+ a4c5017:	41 8d 45 01          	lea    0x1(%r13),%eax
+ a4c501b:	41 89 87 00 23 00 00 	mov    %eax,0x2300(%r15)
+ a4c5022:	4d 63 e5             	movslq %r13d,%r12
+ a4c5025:	4c 89 e3             	mov    %r12,%rbx
+ a4c5028:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c502c:	49 8d 3c 1f          	lea    (%r15,%rbx,1),%rdi
+ a4c5030:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5037:	48 8d 35 ce 6b b5 f5 	lea    -0xa4a9432(%rip),%rsi        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c503e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5043:	e8 88 6e 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5048:	41 c6 84 1f ff 01 00 	movb   $0x0,0x1ff(%r15,%rbx,1)
+ a4c504f:	00 00 
+ a4c5051:	49 c1 e4 09          	shl    $0x9,%r12
+ a4c5055:	4b 8d 3c 27          	lea    (%r15,%r12,1),%rdi
+ a4c5059:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5060:	48 8d 15 64 37 b6 f5 	lea    -0xa49c89c(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5067:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c506c:	b9 01 00 00 00       	mov    $0x1,%ecx
+ a4c5071:	31 c0                	xor    %eax,%eax
+ a4c5073:	e8 58 6b 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5078:	43 c6 84 27 ff 02 00 	movb   $0x0,0x2ff(%r15,%r12,1)
+ a4c507f:	00 00 
+ a4c5081:	4c 8b 64 24 38       	mov    0x38(%rsp),%r12
+ a4c5086:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ a4c508b:	8b 98 a0 8a 0b 00    	mov    0xb8aa0(%rax),%ebx
+ a4c5091:	41 8b ac 24 00 23 00 	mov    0x2300(%r12),%ebp
+ a4c5098:	00 
+ a4c5099:	85 ed                	test   %ebp,%ebp
+ a4c509b:	7e 42                	jle    a4c50df <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x6df>
+ a4c509d:	4d 8d b4 24 00 01 00 	lea    0x100(%r12),%r14
+ a4c50a4:	00 
+ a4c50a5:	45 31 ed             	xor    %r13d,%r13d
+ a4c50a8:	4c 8d 3d 7a e1 b4 f5 	lea    -0xa4b1e86(%rip),%r15        # 13229 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x13039>
+ a4c50af:	90                   	nop
+ a4c50b0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c50b5:	4c 89 f7             	mov    %r14,%rdi
+ a4c50b8:	4c 89 fe             	mov    %r15,%rsi
+ a4c50bb:	e8 c0 70 06 00       	call   a52c180 <strncmp@plt>
+ a4c50c0:	85 c0                	test   %eax,%eax
+ a4c50c2:	74 11                	je     a4c50d5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x6d5>
+ a4c50c4:	49 ff c5             	inc    %r13
+ a4c50c7:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c50ce:	4c 39 ed             	cmp    %r13,%rbp
+ a4c50d1:	75 dd                	jne    a4c50b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x6b0>
+ a4c50d3:	eb 0a                	jmp    a4c50df <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x6df>
+ a4c50d5:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c50da:	49 39 c5             	cmp    %rax,%r13
+ a4c50dd:	75 3a                	jne    a4c5119 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x719>
+ a4c50df:	8d 45 01             	lea    0x1(%rbp),%eax
+ a4c50e2:	41 89 84 24 00 23 00 	mov    %eax,0x2300(%r12)
+ a4c50e9:	00 
+ a4c50ea:	4c 63 ed             	movslq %ebp,%r13
+ a4c50ed:	4d 89 ee             	mov    %r13,%r14
+ a4c50f0:	49 c1 e6 09          	shl    $0x9,%r14
+ a4c50f4:	4b 8d 3c 34          	lea    (%r12,%r14,1),%rdi
+ a4c50f8:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c50ff:	48 8d 35 23 e1 b4 f5 	lea    -0xa4b1edd(%rip),%rsi        # 13229 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x13039>
+ a4c5106:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c510b:	e8 c0 6d 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5110:	43 c6 84 34 ff 01 00 	movb   $0x0,0x1ff(%r12,%r14,1)
+ a4c5117:	00 00 
+ a4c5119:	49 c1 e5 09          	shl    $0x9,%r13
+ a4c511d:	4b 8d 3c 2c          	lea    (%r12,%r13,1),%rdi
+ a4c5121:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5128:	48 8d 15 9c 36 b6 f5 	lea    -0xa49c964(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c512f:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5134:	89 d9                	mov    %ebx,%ecx
+ a4c5136:	31 c0                	xor    %eax,%eax
+ a4c5138:	e8 93 6a 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c513d:	43 c6 84 2c ff 02 00 	movb   $0x0,0x2ff(%r12,%r13,1)
+ a4c5144:	00 00 
+ a4c5146:	4c 8b 7c 24 38       	mov    0x38(%rsp),%r15
+ a4c514b:	48 8b 4c 24 28       	mov    0x28(%rsp),%rcx
+ a4c5150:	48 8b 81 98 d8 00 00 	mov    0xd898(%rcx),%rax
+ a4c5157:	48 63 89 a0 8a 0b 00 	movslq 0xb8aa0(%rcx),%rcx
+ a4c515e:	48 6b c9 70          	imul   $0x70,%rcx,%rcx
+ a4c5162:	8b 44 08 0c          	mov    0xc(%rax,%rcx,1),%eax
+ a4c5166:	89 44 24 18          	mov    %eax,0x18(%rsp)
+ a4c516a:	45 8b a7 00 23 00 00 	mov    0x2300(%r15),%r12d
+ a4c5171:	45 85 e4             	test   %r12d,%r12d
+ a4c5174:	7e 4c                	jle    a4c51c2 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x7c2>
+ a4c5176:	4d 89 e5             	mov    %r12,%r13
+ a4c5179:	49 c1 e5 09          	shl    $0x9,%r13
+ a4c517d:	49 8d 9f 00 01 00 00 	lea    0x100(%r15),%rbx
+ a4c5184:	31 ed                	xor    %ebp,%ebp
+ a4c5186:	4c 8d 35 bc 16 b6 f5 	lea    -0xa49e944(%rip),%r14        # 26849 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26659>
+ a4c518d:	0f 1f 00             	nopl   (%rax)
+ a4c5190:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c5194:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5199:	4c 89 f6             	mov    %r14,%rsi
+ a4c519c:	e8 df 6f 06 00       	call   a52c180 <strncmp@plt>
+ a4c51a1:	85 c0                	test   %eax,%eax
+ a4c51a3:	74 0e                	je     a4c51b3 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x7b3>
+ a4c51a5:	48 81 c5 00 02 00 00 	add    $0x200,%rbp
+ a4c51ac:	49 39 ed             	cmp    %rbp,%r13
+ a4c51af:	75 df                	jne    a4c5190 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x790>
+ a4c51b1:	eb 0f                	jmp    a4c51c2 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x7c2>
+ a4c51b3:	48 b8 00 fe ff ff ff 	movabs $0x1fffffffe00,%rax
+ a4c51ba:	01 00 00 
+ a4c51bd:	48 39 c5             	cmp    %rax,%rbp
+ a4c51c0:	75 51                	jne    a4c5213 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x813>
+ a4c51c2:	41 8d 44 24 01       	lea    0x1(%r12),%eax
+ a4c51c7:	41 89 87 00 23 00 00 	mov    %eax,0x2300(%r15)
+ a4c51ce:	49 63 dc             	movslq %r12d,%rbx
+ a4c51d1:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c51d5:	49 8d 3c 1f          	lea    (%r15,%rbx,1),%rdi
+ a4c51d9:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c51e0:	48 8d 35 62 16 b6 f5 	lea    -0xa49e99e(%rip),%rsi        # 26849 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26659>
+ a4c51e7:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c51ec:	e8 df 6c 06 00       	call   a52bed0 <strncpy@plt>
+ a4c51f1:	49 8d 3c 1f          	lea    (%r15,%rbx,1),%rdi
+ a4c51f5:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c51fc:	48 8d 15 c8 35 b6 f5 	lea    -0xa49ca38(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5203:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5208:	8b 4c 24 18          	mov    0x18(%rsp),%ecx
+ a4c520c:	31 c0                	xor    %eax,%eax
+ a4c520e:	e8 bd 69 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5213:	c7 44 24 24 00 00 00 	movl   $0x0,0x24(%rsp)
+ a4c521a:	00 
+ a4c521b:	4c 8b 64 24 28       	mov    0x28(%rsp),%r12
+ a4c5220:	49 8b 8c 24 e0 d8 00 	mov    0xd8e0(%r12),%rcx
+ a4c5227:	00 
+ a4c5228:	48 85 c9             	test   %rcx,%rcx
+ a4c522b:	0f 84 f3 08 00 00    	je     a4c5b24 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1124>
+ a4c5231:	48 8d 7c 24 24       	lea    0x24(%rsp),%rdi
+ a4c5236:	ff 51 10             	call   *0x10(%rcx)
+ a4c5239:	89 c3                	mov    %eax,%ebx
+ a4c523b:	85 c0                	test   %eax,%eax
+ a4c523d:	44 8b 6c 24 20       	mov    0x20(%rsp),%r13d
+ a4c5242:	74 5d                	je     a4c52a1 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8a1>
+ a4c5244:	83 fb 07             	cmp    $0x7,%ebx
+ a4c5247:	74 58                	je     a4c52a1 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8a1>
+ a4c5249:	48 83 3d a7 7d 0d 00 	cmpq   $0x0,0xd7da7(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c5250:	00 
+ a4c5251:	74 05                	je     a4c5258 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x858>
+ a4c5253:	e8 18 67 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c5258:	66 48 8d 3d a0 7d 0d 	data16 lea 0xd7da0(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c525f:	00 
+ a4c5260:	66 66 48 e8 18 67 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c5267:	00 
+ a4c5268:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c526b:	75 34                	jne    a4c52a1 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8a1>
+ a4c526d:	48 8d 15 63 17 b5 f5 	lea    -0xa4ae89d(%rip),%rdx        # 169d7 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x167e7>
+ a4c5274:	4c 8d 05 8d 6e b5 f5 	lea    -0xa4a9173(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c527b:	4c 8d 0d b0 80 b5 f5 	lea    -0xa4a7f50(%rip),%r9        # 1d332 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1d142>
+ a4c5282:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c5287:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c528e:	b9 11 00 00 00       	mov    $0x11,%ecx
+ a4c5293:	31 c0                	xor    %eax,%eax
+ a4c5295:	53                   	push   %rbx
+ a4c5296:	6a 11                	push   $0x11
+ a4c5298:	e8 63 99 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c529d:	48 83 c4 10          	add    $0x10,%rsp
+ a4c52a1:	45 31 f6             	xor    %r14d,%r14d
+ a4c52a4:	83 fb 07             	cmp    $0x7,%ebx
+ a4c52a7:	44 0f 45 f3          	cmovne %ebx,%r14d
+ a4c52ab:	85 db                	test   %ebx,%ebx
+ a4c52ad:	44 0f 44 f3          	cmove  %ebx,%r14d
+ a4c52b1:	83 fb 07             	cmp    $0x7,%ebx
+ a4c52b4:	74 08                	je     a4c52be <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8be>
+ a4c52b6:	85 db                	test   %ebx,%ebx
+ a4c52b8:	0f 85 d6 12 00 00    	jne    a4c6594 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1b94>
+ a4c52be:	8b 44 24 24          	mov    0x24(%rsp),%eax
+ a4c52c2:	85 c0                	test   %eax,%eax
+ a4c52c4:	0f 8e 63 08 00 00    	jle    a4c5b2d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x112d>
+ a4c52ca:	66 48 8d 3d 2e 7d 0d 	data16 lea 0xd7d2e(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c52d1:	00 
+ a4c52d2:	66 66 48 e8 a6 66 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c52d9:	00 
+ a4c52da:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c52df:	45 31 ff             	xor    %r15d,%r15d
+ a4c52e2:	eb 79                	jmp    a4c535d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x95d>
+ a4c52e4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c52eb:	00 00 00 00 00 
+ a4c52f0:	41 8d 44 24 01       	lea    0x1(%r12),%eax
+ a4c52f5:	41 89 87 00 23 00 00 	mov    %eax,0x2300(%r15)
+ a4c52fc:	49 63 dc             	movslq %r12d,%rbx
+ a4c52ff:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5303:	49 8d 3c 1f          	lea    (%r15,%rbx,1),%rdi
+ a4c5307:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c530e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5313:	48 89 ee             	mov    %rbp,%rsi
+ a4c5316:	e8 b5 6b 06 00       	call   a52bed0 <strncpy@plt>
+ a4c531b:	49 8d 3c 1f          	lea    (%r15,%rbx,1),%rdi
+ a4c531f:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5326:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c532b:	48 8d 15 99 34 b6 f5 	lea    -0xa49cb67(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5332:	b9 01 00 00 00       	mov    $0x1,%ecx
+ a4c5337:	31 c0                	xor    %eax,%eax
+ a4c5339:	e8 92 68 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c533e:	4c 8b 7c 24 18       	mov    0x18(%rsp),%r15
+ a4c5343:	41 ff c7             	inc    %r15d
+ a4c5346:	8b 44 24 24          	mov    0x24(%rsp),%eax
+ a4c534a:	41 39 c7             	cmp    %eax,%r15d
+ a4c534d:	4c 8b 64 24 28       	mov    0x28(%rsp),%r12
+ a4c5352:	44 8b 6c 24 20       	mov    0x20(%rsp),%r13d
+ a4c5357:	0f 8d d0 07 00 00    	jge    a4c5b2d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x112d>
+ a4c535d:	0f 57 c0             	xorps  %xmm0,%xmm0
+ a4c5360:	0f 29 44 24 70       	movaps %xmm0,0x70(%rsp)
+ a4c5365:	0f 29 44 24 60       	movaps %xmm0,0x60(%rsp)
+ a4c536a:	0f 29 44 24 50       	movaps %xmm0,0x50(%rsp)
+ a4c536f:	0f 29 44 24 40       	movaps %xmm0,0x40(%rsp)
+ a4c5374:	49 8b 84 24 e0 d8 00 	mov    0xd8e0(%r12),%rax
+ a4c537b:	00 
+ a4c537c:	44 89 ff             	mov    %r15d,%edi
+ a4c537f:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+ a4c5384:	ff 50 18             	call   *0x18(%rax)
+ a4c5387:	85 c0                	test   %eax,%eax
+ a4c5389:	48 8b 9c 24 88 00 00 	mov    0x88(%rsp),%rbx
+ a4c5390:	00 
+ a4c5391:	74 7d                	je     a4c5410 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa10>
+ a4c5393:	41 89 c6             	mov    %eax,%r14d
+ a4c5396:	83 f8 07             	cmp    $0x7,%eax
+ a4c5399:	74 75                	je     a4c5410 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa10>
+ a4c539b:	48 83 3d 55 7c 0d 00 	cmpq   $0x0,0xd7c55(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c53a2:	00 
+ a4c53a3:	75 15                	jne    a4c53ba <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x9ba>
+ a4c53a5:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c53aa:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c53ad:	74 1a                	je     a4c53c9 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x9c9>
+ a4c53af:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c53b3:	74 5b                	je     a4c5410 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa10>
+ a4c53b5:	e9 52 13 00 00       	jmp    a4c670c <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d0c>
+ a4c53ba:	e8 b1 65 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c53bf:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c53c4:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c53c7:	75 e6                	jne    a4c53af <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x9af>
+ a4c53c9:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c53ce:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c53d5:	48 8d 15 b4 2a b6 f5 	lea    -0xa49d54c(%rip),%rdx        # 27e90 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27ca0>
+ a4c53dc:	b9 12 00 00 00       	mov    $0x12,%ecx
+ a4c53e1:	4c 8d 05 20 6d b5 f5 	lea    -0xa4a92e0(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c53e8:	4c 8d 0d 43 7f b5 f5 	lea    -0xa4a80bd(%rip),%r9        # 1d332 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1d142>
+ a4c53ef:	31 c0                	xor    %eax,%eax
+ a4c53f1:	41 56                	push   %r14
+ a4c53f3:	6a 12                	push   $0x12
+ a4c53f5:	e8 06 98 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c53fa:	48 83 c4 10          	add    $0x10,%rsp
+ a4c53fe:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c5402:	0f 85 04 13 00 00    	jne    a4c670c <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d0c>
+ a4c5408:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ a4c540f:	00 
+ a4c5410:	48 c7 44 24 10 00 00 	movq   $0x0,0x10(%rsp)
+ a4c5417:	00 00 
+ a4c5419:	48 8b 54 24 40       	mov    0x40(%rsp),%rdx
+ a4c541e:	48 8b 74 24 48       	mov    0x48(%rsp),%rsi
+ a4c5423:	48 89 df             	mov    %rbx,%rdi
+ a4c5426:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ a4c542b:	e8 00 c8 00 00       	call   a4d1c30 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)>
+ a4c5430:	89 c5                	mov    %eax,%ebp
+ a4c5432:	85 c0                	test   %eax,%eax
+ a4c5434:	74 6a                	je     a4c54a0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xaa0>
+ a4c5436:	83 fd 07             	cmp    $0x7,%ebp
+ a4c5439:	48 8d 1d cc 67 b5 f5 	lea    -0xa4a9834(%rip),%rbx        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c5440:	74 53                	je     a4c5495 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa95>
+ a4c5442:	48 83 3d ae 7b 0d 00 	cmpq   $0x0,0xd7bae(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c5449:	00 
+ a4c544a:	74 05                	je     a4c5451 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa51>
+ a4c544c:	e8 1f 65 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c5451:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c5456:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c5459:	75 37                	jne    a4c5492 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xa92>
+ a4c545b:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c5460:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c5467:	48 8d 15 0c 14 b6 f5 	lea    -0xa49ebf4(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c546e:	b9 50 03 00 00       	mov    $0x350,%ecx
+ a4c5473:	4c 8d 05 8e 6c b5 f5 	lea    -0xa4a9372(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c547a:	4c 8d 0d e3 3b b5 f5 	lea    -0xa4ac41d(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c5481:	31 c0                	xor    %eax,%eax
+ a4c5483:	55                   	push   %rbp
+ a4c5484:	68 50 03 00 00       	push   $0x350
+ a4c5489:	e8 72 97 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c548e:	48 83 c4 10          	add    $0x10,%rsp
+ a4c5492:	41 89 ed             	mov    %ebp,%r13d
+ a4c5495:	83 fd 07             	cmp    $0x7,%ebp
+ a4c5498:	75 12                	jne    a4c54ac <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xaac>
+ a4c549a:	eb 18                	jmp    a4c54b4 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xab4>
+ a4c549c:	0f 1f 40 00          	nopl   0x0(%rax)
+ a4c54a0:	48 8d 1d 65 67 b5 f5 	lea    -0xa4a989b(%rip),%rbx        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c54a7:	83 fd 07             	cmp    $0x7,%ebp
+ a4c54aa:	74 08                	je     a4c54b4 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xab4>
+ a4c54ac:	85 ed                	test   %ebp,%ebp
+ a4c54ae:	0f 85 50 12 00 00    	jne    a4c6704 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d04>
+ a4c54b4:	4c 89 7c 24 18       	mov    %r15,0x18(%rsp)
+ a4c54b9:	4c 8b 74 24 10       	mov    0x10(%rsp),%r14
+ a4c54be:	45 8b a6 00 23 00 00 	mov    0x2300(%r14),%r12d
+ a4c54c5:	45 85 e4             	test   %r12d,%r12d
+ a4c54c8:	7e 56                	jle    a4c5520 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xb20>
+ a4c54ca:	49 8d ae 00 01 00 00 	lea    0x100(%r14),%rbp
+ a4c54d1:	45 31 ff             	xor    %r15d,%r15d
+ a4c54d4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c54db:	00 00 00 00 00 
+ a4c54e0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c54e5:	48 89 ef             	mov    %rbp,%rdi
+ a4c54e8:	48 89 de             	mov    %rbx,%rsi
+ a4c54eb:	e8 90 6c 06 00       	call   a52c180 <strncmp@plt>
+ a4c54f0:	85 c0                	test   %eax,%eax
+ a4c54f2:	74 1c                	je     a4c5510 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xb10>
+ a4c54f4:	49 ff c7             	inc    %r15
+ a4c54f7:	48 81 c5 00 02 00 00 	add    $0x200,%rbp
+ a4c54fe:	4d 39 fc             	cmp    %r15,%r12
+ a4c5501:	75 dd                	jne    a4c54e0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xae0>
+ a4c5503:	eb 1b                	jmp    a4c5520 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xb20>
+ a4c5505:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ a4c550c:	00 00 00 00 
+ a4c5510:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5515:	4c 39 f8             	cmp    %r15,%rax
+ a4c5518:	75 41                	jne    a4c555b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xb5b>
+ a4c551a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5520:	41 8d 44 24 01       	lea    0x1(%r12),%eax
+ a4c5525:	41 89 86 00 23 00 00 	mov    %eax,0x2300(%r14)
+ a4c552c:	4d 63 fc             	movslq %r12d,%r15
+ a4c552f:	4c 89 fb             	mov    %r15,%rbx
+ a4c5532:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5536:	49 8d 3c 1e          	lea    (%r14,%rbx,1),%rdi
+ a4c553a:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5541:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5546:	48 8d 35 bf 66 b5 f5 	lea    -0xa4a9941(%rip),%rsi        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c554d:	e8 7e 69 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5552:	41 c6 84 1e ff 01 00 	movb   $0x0,0x1ff(%r14,%rbx,1)
+ a4c5559:	00 00 
+ a4c555b:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c555f:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+ a4c5563:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c556a:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c556f:	48 8d 15 55 32 b6 f5 	lea    -0xa49cdab(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5576:	b9 01 00 00 00       	mov    $0x1,%ecx
+ a4c557b:	31 c0                	xor    %eax,%eax
+ a4c557d:	e8 4e 66 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5582:	43 c6 84 3e ff 02 00 	movb   $0x0,0x2ff(%r14,%r15,1)
+ a4c5589:	00 00 
+ a4c558b:	4c 8b 74 24 10       	mov    0x10(%rsp),%r14
+ a4c5590:	45 8b a6 00 23 00 00 	mov    0x2300(%r14),%r12d
+ a4c5597:	45 85 e4             	test   %r12d,%r12d
+ a4c559a:	48 8d 1d db d7 b5 f5 	lea    -0xa4a2825(%rip),%rbx        # 22d7c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x22b8c>
+ a4c55a1:	7e 4d                	jle    a4c55f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xbf0>
+ a4c55a3:	49 8d ae 00 01 00 00 	lea    0x100(%r14),%rbp
+ a4c55aa:	45 31 ff             	xor    %r15d,%r15d
+ a4c55ad:	0f 1f 00             	nopl   (%rax)
+ a4c55b0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c55b5:	48 89 ef             	mov    %rbp,%rdi
+ a4c55b8:	48 89 de             	mov    %rbx,%rsi
+ a4c55bb:	e8 c0 6b 06 00       	call   a52c180 <strncmp@plt>
+ a4c55c0:	85 c0                	test   %eax,%eax
+ a4c55c2:	74 1c                	je     a4c55e0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xbe0>
+ a4c55c4:	49 ff c7             	inc    %r15
+ a4c55c7:	48 81 c5 00 02 00 00 	add    $0x200,%rbp
+ a4c55ce:	4d 39 fc             	cmp    %r15,%r12
+ a4c55d1:	75 dd                	jne    a4c55b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xbb0>
+ a4c55d3:	eb 1b                	jmp    a4c55f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xbf0>
+ a4c55d5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ a4c55dc:	00 00 00 00 
+ a4c55e0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c55e5:	4c 39 f8             	cmp    %r15,%rax
+ a4c55e8:	75 41                	jne    a4c562b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xc2b>
+ a4c55ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c55f0:	41 8d 44 24 01       	lea    0x1(%r12),%eax
+ a4c55f5:	41 89 86 00 23 00 00 	mov    %eax,0x2300(%r14)
+ a4c55fc:	4d 63 fc             	movslq %r12d,%r15
+ a4c55ff:	4c 89 fb             	mov    %r15,%rbx
+ a4c5602:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5606:	49 8d 3c 1e          	lea    (%r14,%rbx,1),%rdi
+ a4c560a:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5611:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5616:	48 8d 35 5f d7 b5 f5 	lea    -0xa4a28a1(%rip),%rsi        # 22d7c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x22b8c>
+ a4c561d:	e8 ae 68 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5622:	41 c6 84 1e ff 01 00 	movb   $0x0,0x1ff(%r14,%rbx,1)
+ a4c5629:	00 00 
+ a4c562b:	44 89 6c 24 20       	mov    %r13d,0x20(%rsp)
+ a4c5630:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c5634:	4b 8d 3c 3e          	lea    (%r14,%r15,1),%rdi
+ a4c5638:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c563f:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5644:	48 8d 15 80 31 b6 f5 	lea    -0xa49ce80(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c564b:	48 8b 4c 24 18       	mov    0x18(%rsp),%rcx
+ a4c5650:	31 c0                	xor    %eax,%eax
+ a4c5652:	e8 79 65 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5657:	43 c6 84 3e ff 02 00 	movb   $0x0,0x2ff(%r14,%r15,1)
+ a4c565e:	00 00 
+ a4c5660:	4c 8b 64 24 10       	mov    0x10(%rsp),%r12
+ a4c5665:	8b 6c 24 60          	mov    0x60(%rsp),%ebp
+ a4c5669:	4d 63 bc 24 00 23 00 	movslq 0x2300(%r12),%r15
+ a4c5670:	00 
+ a4c5671:	4d 85 ff             	test   %r15,%r15
+ a4c5674:	7e 5a                	jle    a4c56d0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xcd0>
+ a4c5676:	44 89 fb             	mov    %r15d,%ebx
+ a4c5679:	4d 8d b4 24 00 01 00 	lea    0x100(%r12),%r14
+ a4c5680:	00 
+ a4c5681:	45 31 ed             	xor    %r13d,%r13d
+ a4c5684:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c568b:	00 00 00 00 00 
+ a4c5690:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5695:	4c 89 f7             	mov    %r14,%rdi
+ a4c5698:	48 8d 35 39 46 b5 f5 	lea    -0xa4ab9c7(%rip),%rsi        # 19cd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x19ae8>
+ a4c569f:	e8 dc 6a 06 00       	call   a52c180 <strncmp@plt>
+ a4c56a4:	85 c0                	test   %eax,%eax
+ a4c56a6:	74 18                	je     a4c56c0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xcc0>
+ a4c56a8:	49 ff c5             	inc    %r13
+ a4c56ab:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c56b2:	4c 39 eb             	cmp    %r13,%rbx
+ a4c56b5:	75 d9                	jne    a4c5690 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xc90>
+ a4c56b7:	eb 17                	jmp    a4c56d0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xcd0>
+ a4c56b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c56c0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c56c5:	4c 39 e8             	cmp    %r13,%rax
+ a4c56c8:	75 5f                	jne    a4c5729 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xd29>
+ a4c56ca:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c56d0:	41 8d 47 01          	lea    0x1(%r15),%eax
+ a4c56d4:	41 89 84 24 00 23 00 	mov    %eax,0x2300(%r12)
+ a4c56db:	00 
+ a4c56dc:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c56e0:	4b 8d 3c 3c          	lea    (%r12,%r15,1),%rdi
+ a4c56e4:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c56eb:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c56f0:	48 8d 35 e1 45 b5 f5 	lea    -0xa4aba1f(%rip),%rsi        # 19cd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x19ae8>
+ a4c56f7:	e8 d4 67 06 00       	call   a52bed0 <strncpy@plt>
+ a4c56fc:	4b 8d 3c 3c          	lea    (%r12,%r15,1),%rdi
+ a4c5700:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5707:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c570c:	48 8d 15 b8 30 b6 f5 	lea    -0xa49cf48(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5713:	89 e9                	mov    %ebp,%ecx
+ a4c5715:	31 c0                	xor    %eax,%eax
+ a4c5717:	e8 b4 64 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c571c:	4c 8b 64 24 10       	mov    0x10(%rsp),%r12
+ a4c5721:	45 8b bc 24 00 23 00 	mov    0x2300(%r12),%r15d
+ a4c5728:	00 
+ a4c5729:	8b 6c 24 64          	mov    0x64(%rsp),%ebp
+ a4c572d:	45 85 ff             	test   %r15d,%r15d
+ a4c5730:	7e 4e                	jle    a4c5780 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xd80>
+ a4c5732:	44 89 fb             	mov    %r15d,%ebx
+ a4c5735:	4d 8d b4 24 00 01 00 	lea    0x100(%r12),%r14
+ a4c573c:	00 
+ a4c573d:	45 31 ed             	xor    %r13d,%r13d
+ a4c5740:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5745:	4c 89 f7             	mov    %r14,%rdi
+ a4c5748:	48 8d 35 20 88 b5 f5 	lea    -0xa4a77e0(%rip),%rsi        # 1df6f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dd7f>
+ a4c574f:	e8 2c 6a 06 00       	call   a52c180 <strncmp@plt>
+ a4c5754:	85 c0                	test   %eax,%eax
+ a4c5756:	74 18                	je     a4c5770 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xd70>
+ a4c5758:	49 ff c5             	inc    %r13
+ a4c575b:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c5762:	4c 39 eb             	cmp    %r13,%rbx
+ a4c5765:	75 d9                	jne    a4c5740 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xd40>
+ a4c5767:	eb 17                	jmp    a4c5780 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xd80>
+ a4c5769:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c5770:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5775:	4c 39 e8             	cmp    %r13,%rax
+ a4c5778:	75 62                	jne    a4c57dc <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xddc>
+ a4c577a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5780:	41 8d 47 01          	lea    0x1(%r15),%eax
+ a4c5784:	41 89 84 24 00 23 00 	mov    %eax,0x2300(%r12)
+ a4c578b:	00 
+ a4c578c:	49 63 df             	movslq %r15d,%rbx
+ a4c578f:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5793:	49 8d 3c 1c          	lea    (%r12,%rbx,1),%rdi
+ a4c5797:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c579e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c57a3:	48 8d 35 c5 87 b5 f5 	lea    -0xa4a783b(%rip),%rsi        # 1df6f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dd7f>
+ a4c57aa:	e8 21 67 06 00       	call   a52bed0 <strncpy@plt>
+ a4c57af:	49 8d 3c 1c          	lea    (%r12,%rbx,1),%rdi
+ a4c57b3:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c57ba:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c57bf:	48 8d 15 05 30 b6 f5 	lea    -0xa49cffb(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c57c6:	89 e9                	mov    %ebp,%ecx
+ a4c57c8:	31 c0                	xor    %eax,%eax
+ a4c57ca:	e8 01 64 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c57cf:	4c 8b 64 24 10       	mov    0x10(%rsp),%r12
+ a4c57d4:	45 8b bc 24 00 23 00 	mov    0x2300(%r12),%r15d
+ a4c57db:	00 
+ a4c57dc:	48 8b 6c 24 50       	mov    0x50(%rsp),%rbp
+ a4c57e1:	45 85 ff             	test   %r15d,%r15d
+ a4c57e4:	7e 5a                	jle    a4c5840 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xe40>
+ a4c57e6:	44 89 fb             	mov    %r15d,%ebx
+ a4c57e9:	4d 8d b4 24 00 01 00 	lea    0x100(%r12),%r14
+ a4c57f0:	00 
+ a4c57f1:	45 31 ed             	xor    %r13d,%r13d
+ a4c57f4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c57fb:	00 00 00 00 00 
+ a4c5800:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5805:	4c 89 f7             	mov    %r14,%rdi
+ a4c5808:	48 8d 35 da 63 b5 f5 	lea    -0xa4a9c26(%rip),%rsi        # 1bbe9 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b9f9>
+ a4c580f:	e8 6c 69 06 00       	call   a52c180 <strncmp@plt>
+ a4c5814:	85 c0                	test   %eax,%eax
+ a4c5816:	74 18                	je     a4c5830 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xe30>
+ a4c5818:	49 ff c5             	inc    %r13
+ a4c581b:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c5822:	4c 39 eb             	cmp    %r13,%rbx
+ a4c5825:	75 d9                	jne    a4c5800 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xe00>
+ a4c5827:	eb 17                	jmp    a4c5840 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xe40>
+ a4c5829:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c5830:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5835:	4c 39 e8             	cmp    %r13,%rax
+ a4c5838:	75 63                	jne    a4c589d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xe9d>
+ a4c583a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5840:	41 8d 47 01          	lea    0x1(%r15),%eax
+ a4c5844:	41 89 84 24 00 23 00 	mov    %eax,0x2300(%r12)
+ a4c584b:	00 
+ a4c584c:	49 63 df             	movslq %r15d,%rbx
+ a4c584f:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5853:	49 8d 3c 1c          	lea    (%r12,%rbx,1),%rdi
+ a4c5857:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c585e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5863:	48 8d 35 7f 63 b5 f5 	lea    -0xa4a9c81(%rip),%rsi        # 1bbe9 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b9f9>
+ a4c586a:	e8 61 66 06 00       	call   a52bed0 <strncpy@plt>
+ a4c586f:	49 8d 3c 1c          	lea    (%r12,%rbx,1),%rdi
+ a4c5873:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c587a:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c587f:	48 8d 15 8f 04 b5 f5 	lea    -0xa4afb71(%rip),%rdx        # 15d15 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x15b25>
+ a4c5886:	48 89 e9             	mov    %rbp,%rcx
+ a4c5889:	31 c0                	xor    %eax,%eax
+ a4c588b:	e8 40 63 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5890:	4c 8b 64 24 10       	mov    0x10(%rsp),%r12
+ a4c5895:	45 8b bc 24 00 23 00 	mov    0x2300(%r12),%r15d
+ a4c589c:	00 
+ a4c589d:	8b 6c 24 6c          	mov    0x6c(%rsp),%ebp
+ a4c58a1:	45 85 ff             	test   %r15d,%r15d
+ a4c58a4:	7e 5a                	jle    a4c5900 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf00>
+ a4c58a6:	44 89 fb             	mov    %r15d,%ebx
+ a4c58a9:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c58ad:	4d 8d b4 24 00 01 00 	lea    0x100(%r12),%r14
+ a4c58b4:	00 
+ a4c58b5:	45 31 ed             	xor    %r13d,%r13d
+ a4c58b8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ a4c58bf:	00 
+ a4c58c0:	4b 8d 3c 2e          	lea    (%r14,%r13,1),%rdi
+ a4c58c4:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c58c9:	48 8d 35 8a a0 b5 f5 	lea    -0xa4a5f76(%rip),%rsi        # 1f95a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f76a>
+ a4c58d0:	e8 ab 68 06 00       	call   a52c180 <strncmp@plt>
+ a4c58d5:	85 c0                	test   %eax,%eax
+ a4c58d7:	74 17                	je     a4c58f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xef0>
+ a4c58d9:	49 81 c5 00 02 00 00 	add    $0x200,%r13
+ a4c58e0:	4c 39 eb             	cmp    %r13,%rbx
+ a4c58e3:	75 db                	jne    a4c58c0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xec0>
+ a4c58e5:	eb 19                	jmp    a4c5900 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf00>
+ a4c58e7:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ a4c58ee:	00 00 
+ a4c58f0:	48 b8 00 fe ff ff ff 	movabs $0x1fffffffe00,%rax
+ a4c58f7:	01 00 00 
+ a4c58fa:	4c 39 e8             	cmp    %r13,%rax
+ a4c58fd:	75 50                	jne    a4c594f <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf4f>
+ a4c58ff:	90                   	nop
+ a4c5900:	41 8d 47 01          	lea    0x1(%r15),%eax
+ a4c5904:	41 89 84 24 00 23 00 	mov    %eax,0x2300(%r12)
+ a4c590b:	00 
+ a4c590c:	49 63 df             	movslq %r15d,%rbx
+ a4c590f:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5913:	49 8d 3c 1c          	lea    (%r12,%rbx,1),%rdi
+ a4c5917:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c591e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5923:	48 8d 35 30 a0 b5 f5 	lea    -0xa4a5fd0(%rip),%rsi        # 1f95a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f76a>
+ a4c592a:	e8 a1 65 06 00       	call   a52bed0 <strncpy@plt>
+ a4c592f:	49 8d 3c 1c          	lea    (%r12,%rbx,1),%rdi
+ a4c5933:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c593a:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c593f:	48 8d 15 85 2e b6 f5 	lea    -0xa49d17b(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5946:	89 e9                	mov    %ebp,%ecx
+ a4c5948:	31 c0                	xor    %eax,%eax
+ a4c594a:	e8 81 62 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c594f:	8b 44 24 58          	mov    0x58(%rsp),%eax
+ a4c5953:	a8 02                	test   $0x2,%al
+ a4c5955:	75 39                	jne    a4c5990 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xf90>
+ a4c5957:	31 ed                	xor    %ebp,%ebp
+ a4c5959:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
+ a4c595e:	48 8b 8a d0 d8 00 00 	mov    0xd8d0(%rdx),%rcx
+ a4c5965:	4c 8b 09             	mov    (%rcx),%r9
+ a4c5968:	a8 04                	test   $0x4,%al
+ a4c596a:	4c 8b 5c 24 18       	mov    0x18(%rsp),%r11
+ a4c596f:	0f 84 a3 01 00 00    	je     a4c5b18 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1118>
+ a4c5975:	80 ba ad 8b 0b 00 00 	cmpb   $0x0,0xb8bad(%rdx)
+ a4c597c:	4c 8d 15 72 96 b5 f5 	lea    -0xa4a698e(%rip),%r10        # 1eff5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ee05>
+ a4c5983:	75 1f                	jne    a4c59a4 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xfa4>
+ a4c5985:	eb 29                	jmp    a4c59b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xfb0>
+ a4c5987:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ a4c598e:	00 00 
+ a4c5990:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ a4c5995:	48 8b 80 d0 d8 00 00 	mov    0xd8d0(%rax),%rax
+ a4c599c:	4c 8b 08             	mov    (%rax),%r9
+ a4c599f:	4c 8b 5c 24 18       	mov    0x18(%rsp),%r11
+ a4c59a4:	bd 01 00 00 00       	mov    $0x1,%ebp
+ a4c59a9:	4c 8d 15 95 6d b5 f5 	lea    -0xa4a926b(%rip),%r10        # 1c745 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c555>
+ a4c59b0:	48 83 ec 08          	sub    $0x8,%rsp
+ a4c59b4:	be 10 00 00 00       	mov    $0x10,%esi
+ a4c59b9:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c59be:	48 8d 15 b5 0e b6 f5 	lea    -0xa49f14b(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c59c5:	b9 58 03 00 00       	mov    $0x358,%ecx
+ a4c59ca:	4c 8d 05 a9 de b4 f5 	lea    -0xa4b2157(%rip),%r8        # 1387a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1368a>
+ a4c59d1:	31 c0                	xor    %eax,%eax
+ a4c59d3:	ff 74 24 48          	push   0x48(%rsp)
+ a4c59d7:	41 53                	push   %r11
+ a4c59d9:	41 52                	push   %r10
+ a4c59db:	e8 20 92 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c59e0:	48 83 c4 20          	add    $0x20,%rsp
+ a4c59e4:	4c 8b 7c 24 10       	mov    0x10(%rsp),%r15
+ a4c59e9:	4d 63 a7 00 23 00 00 	movslq 0x2300(%r15),%r12
+ a4c59f0:	4d 85 e4             	test   %r12,%r12
+ a4c59f3:	7e 5b                	jle    a4c5a50 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1050>
+ a4c59f5:	44 89 e3             	mov    %r12d,%ebx
+ a4c59f8:	4d 8d b7 00 01 00 00 	lea    0x100(%r15),%r14
+ a4c59ff:	45 31 ed             	xor    %r13d,%r13d
+ a4c5a02:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c5a09:	1f 84 00 00 00 00 00 
+ a4c5a10:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5a15:	4c 89 f7             	mov    %r14,%rdi
+ a4c5a18:	48 8d 35 2a 0e b6 f5 	lea    -0xa49f1d6(%rip),%rsi        # 26849 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26659>
+ a4c5a1f:	e8 5c 67 06 00       	call   a52c180 <strncmp@plt>
+ a4c5a24:	85 c0                	test   %eax,%eax
+ a4c5a26:	74 18                	je     a4c5a40 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1040>
+ a4c5a28:	49 ff c5             	inc    %r13
+ a4c5a2b:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c5a32:	4c 39 eb             	cmp    %r13,%rbx
+ a4c5a35:	75 d9                	jne    a4c5a10 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1010>
+ a4c5a37:	eb 17                	jmp    a4c5a50 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1050>
+ a4c5a39:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c5a40:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5a45:	4c 39 e8             	cmp    %r13,%rax
+ a4c5a48:	75 5e                	jne    a4c5aa8 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x10a8>
+ a4c5a4a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5a50:	41 8d 44 24 01       	lea    0x1(%r12),%eax
+ a4c5a55:	41 89 87 00 23 00 00 	mov    %eax,0x2300(%r15)
+ a4c5a5c:	49 c1 e4 09          	shl    $0x9,%r12
+ a4c5a60:	4b 8d 3c 27          	lea    (%r15,%r12,1),%rdi
+ a4c5a64:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5a6b:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5a70:	48 8d 35 d2 0d b6 f5 	lea    -0xa49f22e(%rip),%rsi        # 26849 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26659>
+ a4c5a77:	e8 54 64 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5a7c:	4b 8d 3c 27          	lea    (%r15,%r12,1),%rdi
+ a4c5a80:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5a87:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5a8c:	48 8d 15 38 2d b6 f5 	lea    -0xa49d2c8(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5a93:	89 e9                	mov    %ebp,%ecx
+ a4c5a95:	31 c0                	xor    %eax,%eax
+ a4c5a97:	e8 34 61 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5a9c:	4c 8b 7c 24 10       	mov    0x10(%rsp),%r15
+ a4c5aa1:	45 8b a7 00 23 00 00 	mov    0x2300(%r15),%r12d
+ a4c5aa8:	48 8d 2d ea f7 b4 f5 	lea    -0xa4b0816(%rip),%rbp        # 15299 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x150a9>
+ a4c5aaf:	45 85 e4             	test   %r12d,%r12d
+ a4c5ab2:	0f 8e 38 f8 ff ff    	jle    a4c52f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8f0>
+ a4c5ab8:	44 89 e3             	mov    %r12d,%ebx
+ a4c5abb:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5abf:	4d 8d b7 00 01 00 00 	lea    0x100(%r15),%r14
+ a4c5ac6:	45 31 ed             	xor    %r13d,%r13d
+ a4c5ac9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c5ad0:	4b 8d 3c 2e          	lea    (%r14,%r13,1),%rdi
+ a4c5ad4:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5ad9:	48 89 ee             	mov    %rbp,%rsi
+ a4c5adc:	e8 9f 66 06 00       	call   a52c180 <strncmp@plt>
+ a4c5ae1:	85 c0                	test   %eax,%eax
+ a4c5ae3:	74 1b                	je     a4c5b00 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1100>
+ a4c5ae5:	49 81 c5 00 02 00 00 	add    $0x200,%r13
+ a4c5aec:	4c 39 eb             	cmp    %r13,%rbx
+ a4c5aef:	75 df                	jne    a4c5ad0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x10d0>
+ a4c5af1:	e9 fa f7 ff ff       	jmp    a4c52f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8f0>
+ a4c5af6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ a4c5afd:	00 00 00 
+ a4c5b00:	48 b8 00 fe ff ff ff 	movabs $0x1fffffffe00,%rax
+ a4c5b07:	01 00 00 
+ a4c5b0a:	4c 39 e8             	cmp    %r13,%rax
+ a4c5b0d:	0f 84 dd f7 ff ff    	je     a4c52f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x8f0>
+ a4c5b13:	e9 26 f8 ff ff       	jmp    a4c533e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x93e>
+ a4c5b18:	4c 8d 15 d6 94 b5 f5 	lea    -0xa4a6b2a(%rip),%r10        # 1eff5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ee05>
+ a4c5b1f:	e9 8c fe ff ff       	jmp    a4c59b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0xfb0>
+ a4c5b24:	8b 44 24 20          	mov    0x20(%rsp),%eax
+ a4c5b28:	41 89 c6             	mov    %eax,%r14d
+ a4c5b2b:	eb 0b                	jmp    a4c5b38 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1138>
+ a4c5b2d:	45 89 ee             	mov    %r13d,%r14d
+ a4c5b30:	85 c0                	test   %eax,%eax
+ a4c5b32:	0f 85 86 00 00 00    	jne    a4c5bbe <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x11be>
+ a4c5b38:	49 8b 84 24 d0 d8 00 	mov    0xd8d0(%r12),%rax
+ a4c5b3f:	00 
+ a4c5b40:	48 8d 7c 24 24       	lea    0x24(%rsp),%rdi
+ a4c5b45:	ff 50 10             	call   *0x10(%rax)
+ a4c5b48:	89 c3                	mov    %eax,%ebx
+ a4c5b4a:	85 c0                	test   %eax,%eax
+ a4c5b4c:	74 63                	je     a4c5bb1 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x11b1>
+ a4c5b4e:	83 fb 07             	cmp    $0x7,%ebx
+ a4c5b51:	74 5e                	je     a4c5bb1 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x11b1>
+ a4c5b53:	48 83 3d 9d 74 0d 00 	cmpq   $0x0,0xd749d(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c5b5a:	00 
+ a4c5b5b:	74 05                	je     a4c5b62 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1162>
+ a4c5b5d:	e8 0e 5e 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c5b62:	66 48 8d 3d 96 74 0d 	data16 lea 0xd7496(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c5b69:	00 
+ a4c5b6a:	66 66 48 e8 0e 5e 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c5b71:	00 
+ a4c5b72:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c5b75:	75 37                	jne    a4c5bae <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x11ae>
+ a4c5b77:	48 8d 15 fc 0c b6 f5 	lea    -0xa49f304(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c5b7e:	4c 8d 05 83 65 b5 f5 	lea    -0xa4a9a7d(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c5b85:	4c 8d 0d d8 34 b5 f5 	lea    -0xa4acb28(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c5b8c:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c5b91:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c5b98:	b9 5e 03 00 00       	mov    $0x35e,%ecx
+ a4c5b9d:	31 c0                	xor    %eax,%eax
+ a4c5b9f:	53                   	push   %rbx
+ a4c5ba0:	68 5e 03 00 00       	push   $0x35e
+ a4c5ba5:	e8 56 90 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c5baa:	48 83 c4 10          	add    $0x10,%rsp
+ a4c5bae:	41 89 de             	mov    %ebx,%r14d
+ a4c5bb1:	83 fb 07             	cmp    $0x7,%ebx
+ a4c5bb4:	74 08                	je     a4c5bbe <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x11be>
+ a4c5bb6:	85 db                	test   %ebx,%ebx
+ a4c5bb8:	0f 85 bc 10 00 00    	jne    a4c6c7a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227a>
+ a4c5bbe:	83 7c 24 24 00       	cmpl   $0x0,0x24(%rsp)
+ a4c5bc3:	4c 89 74 24 08       	mov    %r14,0x8(%rsp)
+ a4c5bc8:	0f 8e 46 08 00 00    	jle    a4c6414 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a14>
+ a4c5bce:	66 48 8d 3d 2a 74 0d 	data16 lea 0xd742a(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c5bd5:	00 
+ a4c5bd6:	66 66 48 e8 a2 5d 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c5bdd:	00 
+ a4c5bde:	48 89 84 24 90 00 00 	mov    %rax,0x90(%rsp)
+ a4c5be5:	00 
+ a4c5be6:	48 8b 44 24 30       	mov    0x30(%rsp),%rax
+ a4c5beb:	48 89 84 24 88 00 00 	mov    %rax,0x88(%rsp)
+ a4c5bf2:	00 
+ a4c5bf3:	4c 8d 2d 12 60 b5 f5 	lea    -0xa4a9fee(%rip),%r13        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c5bfa:	31 db                	xor    %ebx,%ebx
+ a4c5bfc:	eb 6d                	jmp    a4c5c6b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x126b>
+ a4c5bfe:	66 90                	xchg   %ax,%ax
+ a4c5c00:	41 8d 47 01          	lea    0x1(%r15),%eax
+ a4c5c04:	89 83 00 23 00 00    	mov    %eax,0x2300(%rbx)
+ a4c5c0a:	4d 63 ff             	movslq %r15d,%r15
+ a4c5c0d:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c5c11:	4a 8d 3c 3b          	lea    (%rbx,%r15,1),%rdi
+ a4c5c15:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5c1c:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5c21:	48 8d 35 21 0c b6 f5 	lea    -0xa49f3df(%rip),%rsi        # 26849 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26659>
+ a4c5c28:	e8 a3 62 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5c2d:	4a 8d 3c 3b          	lea    (%rbx,%r15,1),%rdi
+ a4c5c31:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5c38:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5c3d:	48 8d 15 87 2b b6 f5 	lea    -0xa49d479(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5c44:	44 89 f1             	mov    %r14d,%ecx
+ a4c5c47:	31 c0                	xor    %eax,%eax
+ a4c5c49:	e8 82 5f 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5c4e:	48 8b 5c 24 18       	mov    0x18(%rsp),%rbx
+ a4c5c53:	ff c3                	inc    %ebx
+ a4c5c55:	3b 5c 24 24          	cmp    0x24(%rsp),%ebx
+ a4c5c59:	4c 8b 64 24 28       	mov    0x28(%rsp),%r12
+ a4c5c5e:	4c 8d 2d a7 5f b5 f5 	lea    -0xa4aa059(%rip),%r13        # 1bc0c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ba1c>
+ a4c5c65:	0f 8d a9 07 00 00    	jge    a4c6414 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a14>
+ a4c5c6b:	0f 57 c0             	xorps  %xmm0,%xmm0
+ a4c5c6e:	0f 29 44 24 70       	movaps %xmm0,0x70(%rsp)
+ a4c5c73:	0f 29 44 24 60       	movaps %xmm0,0x60(%rsp)
+ a4c5c78:	0f 29 44 24 50       	movaps %xmm0,0x50(%rsp)
+ a4c5c7d:	0f 29 44 24 40       	movaps %xmm0,0x40(%rsp)
+ a4c5c82:	49 8b 84 24 d0 d8 00 	mov    0xd8d0(%r12),%rax
+ a4c5c89:	00 
+ a4c5c8a:	89 df                	mov    %ebx,%edi
+ a4c5c8c:	48 8d 74 24 40       	lea    0x40(%rsp),%rsi
+ a4c5c91:	ff 50 18             	call   *0x18(%rax)
+ a4c5c94:	41 89 c6             	mov    %eax,%r14d
+ a4c5c97:	85 c0                	test   %eax,%eax
+ a4c5c99:	74 62                	je     a4c5cfd <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x12fd>
+ a4c5c9b:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c5c9f:	74 5c                	je     a4c5cfd <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x12fd>
+ a4c5ca1:	48 83 3d 4f 73 0d 00 	cmpq   $0x0,0xd734f(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c5ca8:	00 
+ a4c5ca9:	74 05                	je     a4c5cb0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x12b0>
+ a4c5cab:	e8 c0 5c 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c5cb0:	48 8b 84 24 90 00 00 	mov    0x90(%rsp),%rax
+ a4c5cb7:	00 
+ a4c5cb8:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c5cbb:	75 38                	jne    a4c5cf5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x12f5>
+ a4c5cbd:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c5cc2:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c5cc9:	48 8d 15 aa 0b b6 f5 	lea    -0xa49f456(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c5cd0:	b9 62 03 00 00       	mov    $0x362,%ecx
+ a4c5cd5:	4c 8d 05 2c 64 b5 f5 	lea    -0xa4a9bd4(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c5cdc:	4c 8d 0d 81 33 b5 f5 	lea    -0xa4acc7f(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c5ce3:	31 c0                	xor    %eax,%eax
+ a4c5ce5:	41 56                	push   %r14
+ a4c5ce7:	68 62 03 00 00       	push   $0x362
+ a4c5cec:	e8 0f 8f fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c5cf1:	48 83 c4 10          	add    $0x10,%rsp
+ a4c5cf5:	44 89 f0             	mov    %r14d,%eax
+ a4c5cf8:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c5cfd:	45 85 f6             	test   %r14d,%r14d
+ a4c5d00:	74 0a                	je     a4c5d0c <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x130c>
+ a4c5d02:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c5d06:	0f 85 69 0f 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c5d0c:	8b 44 24 74          	mov    0x74(%rsp),%eax
+ a4c5d10:	41 89 84 24 d8 d8 00 	mov    %eax,0xd8d8(%r12)
+ a4c5d17:	00 
+ a4c5d18:	48 c7 44 24 10 00 00 	movq   $0x0,0x10(%rsp)
+ a4c5d1f:	00 00 
+ a4c5d21:	48 8b 54 24 40       	mov    0x40(%rsp),%rdx
+ a4c5d26:	48 8b 74 24 48       	mov    0x48(%rsp),%rsi
+ a4c5d2b:	48 8b bc 24 88 00 00 	mov    0x88(%rsp),%rdi
+ a4c5d32:	00 
+ a4c5d33:	48 8d 4c 24 10       	lea    0x10(%rsp),%rcx
+ a4c5d38:	e8 f3 be 00 00       	call   a4d1c30 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)>
+ a4c5d3d:	41 89 c6             	mov    %eax,%r14d
+ a4c5d40:	85 c0                	test   %eax,%eax
+ a4c5d42:	74 62                	je     a4c5da6 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x13a6>
+ a4c5d44:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c5d48:	74 5c                	je     a4c5da6 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x13a6>
+ a4c5d4a:	48 83 3d a6 72 0d 00 	cmpq   $0x0,0xd72a6(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c5d51:	00 
+ a4c5d52:	74 05                	je     a4c5d59 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1359>
+ a4c5d54:	e8 17 5c 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c5d59:	48 8b 84 24 90 00 00 	mov    0x90(%rsp),%rax
+ a4c5d60:	00 
+ a4c5d61:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c5d64:	75 38                	jne    a4c5d9e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x139e>
+ a4c5d66:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c5d6b:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c5d72:	48 8d 15 01 0b b6 f5 	lea    -0xa49f4ff(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c5d79:	b9 65 03 00 00       	mov    $0x365,%ecx
+ a4c5d7e:	4c 8d 05 83 63 b5 f5 	lea    -0xa4a9c7d(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c5d85:	4c 8d 0d d8 32 b5 f5 	lea    -0xa4acd28(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c5d8c:	31 c0                	xor    %eax,%eax
+ a4c5d8e:	41 56                	push   %r14
+ a4c5d90:	68 65 03 00 00       	push   $0x365
+ a4c5d95:	e8 66 8e fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c5d9a:	48 83 c4 10          	add    $0x10,%rsp
+ a4c5d9e:	44 89 f0             	mov    %r14d,%eax
+ a4c5da1:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c5da6:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c5daa:	74 09                	je     a4c5db5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x13b5>
+ a4c5dac:	45 85 f6             	test   %r14d,%r14d
+ a4c5daf:	0f 85 c0 0e 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c5db5:	48 89 5c 24 18       	mov    %rbx,0x18(%rsp)
+ a4c5dba:	48 8b 5c 24 10       	mov    0x10(%rsp),%rbx
+ a4c5dbf:	8b ab 00 23 00 00    	mov    0x2300(%rbx),%ebp
+ a4c5dc5:	85 ed                	test   %ebp,%ebp
+ a4c5dc7:	7e 57                	jle    a4c5e20 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1420>
+ a4c5dc9:	4c 8d b3 00 01 00 00 	lea    0x100(%rbx),%r14
+ a4c5dd0:	45 31 ff             	xor    %r15d,%r15d
+ a4c5dd3:	66 66 66 66 2e 0f 1f 	data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c5dda:	84 00 00 00 00 00 
+ a4c5de0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5de5:	4c 89 f7             	mov    %r14,%rdi
+ a4c5de8:	4c 89 ee             	mov    %r13,%rsi
+ a4c5deb:	e8 90 63 06 00       	call   a52c180 <strncmp@plt>
+ a4c5df0:	85 c0                	test   %eax,%eax
+ a4c5df2:	74 1c                	je     a4c5e10 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1410>
+ a4c5df4:	49 ff c7             	inc    %r15
+ a4c5df7:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c5dfe:	4c 39 fd             	cmp    %r15,%rbp
+ a4c5e01:	75 dd                	jne    a4c5de0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x13e0>
+ a4c5e03:	eb 1b                	jmp    a4c5e20 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1420>
+ a4c5e05:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ a4c5e0c:	00 00 00 00 
+ a4c5e10:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5e15:	4c 39 f8             	cmp    %r15,%rax
+ a4c5e18:	75 3a                	jne    a4c5e54 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1454>
+ a4c5e1a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5e20:	8d 45 01             	lea    0x1(%rbp),%eax
+ a4c5e23:	89 83 00 23 00 00    	mov    %eax,0x2300(%rbx)
+ a4c5e29:	4c 63 fd             	movslq %ebp,%r15
+ a4c5e2c:	4d 89 fe             	mov    %r15,%r14
+ a4c5e2f:	49 c1 e6 09          	shl    $0x9,%r14
+ a4c5e33:	4a 8d 3c 33          	lea    (%rbx,%r14,1),%rdi
+ a4c5e37:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5e3e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5e43:	4c 89 ee             	mov    %r13,%rsi
+ a4c5e46:	e8 85 60 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5e4b:	42 c6 84 33 ff 01 00 	movb   $0x0,0x1ff(%rbx,%r14,1)
+ a4c5e52:	00 00 
+ a4c5e54:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c5e58:	4a 8d 3c 3b          	lea    (%rbx,%r15,1),%rdi
+ a4c5e5c:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5e63:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5e68:	48 8d 15 5c 29 b6 f5 	lea    -0xa49d6a4(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5e6f:	b9 01 00 00 00       	mov    $0x1,%ecx
+ a4c5e74:	31 c0                	xor    %eax,%eax
+ a4c5e76:	e8 55 5d 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5e7b:	42 c6 84 3b ff 02 00 	movb   $0x0,0x2ff(%rbx,%r15,1)
+ a4c5e82:	00 00 
+ a4c5e84:	48 8b 5c 24 10       	mov    0x10(%rsp),%rbx
+ a4c5e89:	8b ab 00 23 00 00    	mov    0x2300(%rbx),%ebp
+ a4c5e8f:	85 ed                	test   %ebp,%ebp
+ a4c5e91:	4c 8d 25 e4 ce b5 f5 	lea    -0xa4a311c(%rip),%r12        # 22d7c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x22b8c>
+ a4c5e98:	7e 56                	jle    a4c5ef0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x14f0>
+ a4c5e9a:	4c 8d b3 00 01 00 00 	lea    0x100(%rbx),%r14
+ a4c5ea1:	45 31 ff             	xor    %r15d,%r15d
+ a4c5ea4:	66 66 66 2e 0f 1f 84 	data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c5eab:	00 00 00 00 00 
+ a4c5eb0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5eb5:	4c 89 f7             	mov    %r14,%rdi
+ a4c5eb8:	4c 89 e6             	mov    %r12,%rsi
+ a4c5ebb:	e8 c0 62 06 00       	call   a52c180 <strncmp@plt>
+ a4c5ec0:	85 c0                	test   %eax,%eax
+ a4c5ec2:	74 1c                	je     a4c5ee0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x14e0>
+ a4c5ec4:	49 ff c7             	inc    %r15
+ a4c5ec7:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c5ece:	4c 39 fd             	cmp    %r15,%rbp
+ a4c5ed1:	75 dd                	jne    a4c5eb0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x14b0>
+ a4c5ed3:	eb 1b                	jmp    a4c5ef0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x14f0>
+ a4c5ed5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ a4c5edc:	00 00 00 00 
+ a4c5ee0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5ee5:	4c 39 f8             	cmp    %r15,%rax
+ a4c5ee8:	75 3a                	jne    a4c5f24 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1524>
+ a4c5eea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5ef0:	8d 45 01             	lea    0x1(%rbp),%eax
+ a4c5ef3:	89 83 00 23 00 00    	mov    %eax,0x2300(%rbx)
+ a4c5ef9:	4c 63 fd             	movslq %ebp,%r15
+ a4c5efc:	4d 89 fe             	mov    %r15,%r14
+ a4c5eff:	49 c1 e6 09          	shl    $0x9,%r14
+ a4c5f03:	4a 8d 3c 33          	lea    (%rbx,%r14,1),%rdi
+ a4c5f07:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5f0e:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5f13:	4c 89 e6             	mov    %r12,%rsi
+ a4c5f16:	e8 b5 5f 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5f1b:	42 c6 84 33 ff 01 00 	movb   $0x0,0x1ff(%rbx,%r14,1)
+ a4c5f22:	00 00 
+ a4c5f24:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c5f28:	4a 8d 3c 3b          	lea    (%rbx,%r15,1),%rdi
+ a4c5f2c:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5f33:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5f38:	48 8d 15 8c 28 b6 f5 	lea    -0xa49d774(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c5f3f:	48 8b 4c 24 18       	mov    0x18(%rsp),%rcx
+ a4c5f44:	31 c0                	xor    %eax,%eax
+ a4c5f46:	e8 85 5c 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c5f4b:	42 c6 84 3b ff 02 00 	movb   $0x0,0x2ff(%rbx,%r15,1)
+ a4c5f52:	00 00 
+ a4c5f54:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ a4c5f59:	44 8b 74 24 60       	mov    0x60(%rsp),%r14d
+ a4c5f5e:	48 63 9d 00 23 00 00 	movslq 0x2300(%rbp),%rbx
+ a4c5f65:	48 85 db             	test   %rbx,%rbx
+ a4c5f68:	7e 56                	jle    a4c5fc0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x15c0>
+ a4c5f6a:	41 89 dc             	mov    %ebx,%r12d
+ a4c5f6d:	4c 8d bd 00 01 00 00 	lea    0x100(%rbp),%r15
+ a4c5f74:	45 31 ed             	xor    %r13d,%r13d
+ a4c5f77:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ a4c5f7e:	00 00 
+ a4c5f80:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5f85:	4c 89 ff             	mov    %r15,%rdi
+ a4c5f88:	48 8d 35 49 3d b5 f5 	lea    -0xa4ac2b7(%rip),%rsi        # 19cd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x19ae8>
+ a4c5f8f:	e8 ec 61 06 00       	call   a52c180 <strncmp@plt>
+ a4c5f94:	85 c0                	test   %eax,%eax
+ a4c5f96:	74 18                	je     a4c5fb0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x15b0>
+ a4c5f98:	49 ff c5             	inc    %r13
+ a4c5f9b:	49 81 c7 00 02 00 00 	add    $0x200,%r15
+ a4c5fa2:	4d 39 ec             	cmp    %r13,%r12
+ a4c5fa5:	75 d9                	jne    a4c5f80 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1580>
+ a4c5fa7:	eb 17                	jmp    a4c5fc0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x15c0>
+ a4c5fa9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c5fb0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c5fb5:	4c 39 e8             	cmp    %r13,%rax
+ a4c5fb8:	75 5b                	jne    a4c6015 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1615>
+ a4c5fba:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c5fc0:	8d 43 01             	lea    0x1(%rbx),%eax
+ a4c5fc3:	89 85 00 23 00 00    	mov    %eax,0x2300(%rbp)
+ a4c5fc9:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c5fcd:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c5fd1:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c5fd8:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c5fdd:	48 8d 35 f4 3c b5 f5 	lea    -0xa4ac30c(%rip),%rsi        # 19cd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x19ae8>
+ a4c5fe4:	e8 e7 5e 06 00       	call   a52bed0 <strncpy@plt>
+ a4c5fe9:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c5fed:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c5ff4:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c5ff9:	48 8d 15 cb 27 b6 f5 	lea    -0xa49d835(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c6000:	44 89 f1             	mov    %r14d,%ecx
+ a4c6003:	31 c0                	xor    %eax,%eax
+ a4c6005:	e8 c6 5b 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c600a:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ a4c600f:	8b 9d 00 23 00 00    	mov    0x2300(%rbp),%ebx
+ a4c6015:	44 8b 74 24 64       	mov    0x64(%rsp),%r14d
+ a4c601a:	85 db                	test   %ebx,%ebx
+ a4c601c:	7e 52                	jle    a4c6070 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1670>
+ a4c601e:	41 89 dc             	mov    %ebx,%r12d
+ a4c6021:	4c 8d bd 00 01 00 00 	lea    0x100(%rbp),%r15
+ a4c6028:	45 31 ed             	xor    %r13d,%r13d
+ a4c602b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ a4c6030:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c6035:	4c 89 ff             	mov    %r15,%rdi
+ a4c6038:	48 8d 35 30 7f b5 f5 	lea    -0xa4a80d0(%rip),%rsi        # 1df6f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dd7f>
+ a4c603f:	e8 3c 61 06 00       	call   a52c180 <strncmp@plt>
+ a4c6044:	85 c0                	test   %eax,%eax
+ a4c6046:	74 18                	je     a4c6060 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1660>
+ a4c6048:	49 ff c5             	inc    %r13
+ a4c604b:	49 81 c7 00 02 00 00 	add    $0x200,%r15
+ a4c6052:	4d 39 ec             	cmp    %r13,%r12
+ a4c6055:	75 d9                	jne    a4c6030 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1630>
+ a4c6057:	eb 17                	jmp    a4c6070 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1670>
+ a4c6059:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c6060:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c6065:	4c 39 e8             	cmp    %r13,%rax
+ a4c6068:	75 5e                	jne    a4c60c8 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x16c8>
+ a4c606a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c6070:	8d 43 01             	lea    0x1(%rbx),%eax
+ a4c6073:	89 85 00 23 00 00    	mov    %eax,0x2300(%rbp)
+ a4c6079:	48 63 db             	movslq %ebx,%rbx
+ a4c607c:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c6080:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c6084:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c608b:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c6090:	48 8d 35 d8 7e b5 f5 	lea    -0xa4a8128(%rip),%rsi        # 1df6f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dd7f>
+ a4c6097:	e8 34 5e 06 00       	call   a52bed0 <strncpy@plt>
+ a4c609c:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c60a0:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c60a7:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c60ac:	48 8d 15 18 27 b6 f5 	lea    -0xa49d8e8(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c60b3:	44 89 f1             	mov    %r14d,%ecx
+ a4c60b6:	31 c0                	xor    %eax,%eax
+ a4c60b8:	e8 13 5b 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c60bd:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ a4c60c2:	8b 9d 00 23 00 00    	mov    0x2300(%rbp),%ebx
+ a4c60c8:	f3 0f 10 44 24 68    	movss  0x68(%rsp),%xmm0
+ a4c60ce:	f3 0f 11 44 24 20    	movss  %xmm0,0x20(%rsp)
+ a4c60d4:	85 db                	test   %ebx,%ebx
+ a4c60d6:	4c 8d 2d ed 23 b5 f5 	lea    -0xa4adc13(%rip),%r13        # 184ca <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x182da>
+ a4c60dd:	7e 51                	jle    a4c6130 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1730>
+ a4c60df:	41 89 df             	mov    %ebx,%r15d
+ a4c60e2:	4c 8d b5 00 01 00 00 	lea    0x100(%rbp),%r14
+ a4c60e9:	45 31 e4             	xor    %r12d,%r12d
+ a4c60ec:	0f 1f 40 00          	nopl   0x0(%rax)
+ a4c60f0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c60f5:	4c 89 f7             	mov    %r14,%rdi
+ a4c60f8:	4c 89 ee             	mov    %r13,%rsi
+ a4c60fb:	e8 80 60 06 00       	call   a52c180 <strncmp@plt>
+ a4c6100:	85 c0                	test   %eax,%eax
+ a4c6102:	74 1c                	je     a4c6120 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1720>
+ a4c6104:	49 ff c4             	inc    %r12
+ a4c6107:	49 81 c6 00 02 00 00 	add    $0x200,%r14
+ a4c610e:	4d 39 e7             	cmp    %r12,%r15
+ a4c6111:	75 dd                	jne    a4c60f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x16f0>
+ a4c6113:	eb 1b                	jmp    a4c6130 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1730>
+ a4c6115:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+ a4c611c:	00 00 00 00 
+ a4c6120:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c6125:	4c 39 e0             	cmp    %r12,%rax
+ a4c6128:	75 61                	jne    a4c618b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x178b>
+ a4c612a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c6130:	8d 43 01             	lea    0x1(%rbx),%eax
+ a4c6133:	89 85 00 23 00 00    	mov    %eax,0x2300(%rbp)
+ a4c6139:	48 63 db             	movslq %ebx,%rbx
+ a4c613c:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c6140:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c6144:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c614b:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c6150:	4c 89 ee             	mov    %r13,%rsi
+ a4c6153:	e8 78 5d 06 00       	call   a52bed0 <strncpy@plt>
+ a4c6158:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c615c:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c6163:	f3 0f 10 44 24 20    	movss  0x20(%rsp),%xmm0
+ a4c6169:	f3 0f 5a c0          	cvtss2sd %xmm0,%xmm0
+ a4c616d:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c6172:	48 8d 15 eb f8 b5 f5 	lea    -0xa4a0715(%rip),%rdx        # 25a64 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x25874>
+ a4c6179:	b0 01                	mov    $0x1,%al
+ a4c617b:	e8 50 5a 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c6180:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ a4c6185:	8b 9d 00 23 00 00    	mov    0x2300(%rbp),%ebx
+ a4c618b:	4c 8b 74 24 50       	mov    0x50(%rsp),%r14
+ a4c6190:	85 db                	test   %ebx,%ebx
+ a4c6192:	7e 5c                	jle    a4c61f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x17f0>
+ a4c6194:	41 89 dc             	mov    %ebx,%r12d
+ a4c6197:	4c 8d bd 00 01 00 00 	lea    0x100(%rbp),%r15
+ a4c619e:	45 31 ed             	xor    %r13d,%r13d
+ a4c61a1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c61a8:	0f 1f 84 00 00 00 00 
+ a4c61af:	00 
+ a4c61b0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c61b5:	4c 89 ff             	mov    %r15,%rdi
+ a4c61b8:	48 8d 35 2a 5a b5 f5 	lea    -0xa4aa5d6(%rip),%rsi        # 1bbe9 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b9f9>
+ a4c61bf:	e8 bc 5f 06 00       	call   a52c180 <strncmp@plt>
+ a4c61c4:	85 c0                	test   %eax,%eax
+ a4c61c6:	74 18                	je     a4c61e0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x17e0>
+ a4c61c8:	49 ff c5             	inc    %r13
+ a4c61cb:	49 81 c7 00 02 00 00 	add    $0x200,%r15
+ a4c61d2:	4d 39 ec             	cmp    %r13,%r12
+ a4c61d5:	75 d9                	jne    a4c61b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x17b0>
+ a4c61d7:	eb 17                	jmp    a4c61f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x17f0>
+ a4c61d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+ a4c61e0:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4c61e5:	4c 39 e8             	cmp    %r13,%rax
+ a4c61e8:	75 5e                	jne    a4c6248 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1848>
+ a4c61ea:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c61f0:	8d 43 01             	lea    0x1(%rbx),%eax
+ a4c61f3:	89 85 00 23 00 00    	mov    %eax,0x2300(%rbp)
+ a4c61f9:	48 63 db             	movslq %ebx,%rbx
+ a4c61fc:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c6200:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c6204:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c620b:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c6210:	48 8d 35 d2 59 b5 f5 	lea    -0xa4aa62e(%rip),%rsi        # 1bbe9 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b9f9>
+ a4c6217:	e8 b4 5c 06 00       	call   a52bed0 <strncpy@plt>
+ a4c621c:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c6220:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c6227:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c622c:	48 8d 15 e2 fa b4 f5 	lea    -0xa4b051e(%rip),%rdx        # 15d15 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x15b25>
+ a4c6233:	4c 89 f1             	mov    %r14,%rcx
+ a4c6236:	31 c0                	xor    %eax,%eax
+ a4c6238:	e8 93 59 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c623d:	48 8b 6c 24 10       	mov    0x10(%rsp),%rbp
+ a4c6242:	8b 9d 00 23 00 00    	mov    0x2300(%rbp),%ebx
+ a4c6248:	44 8b 74 24 6c       	mov    0x6c(%rsp),%r14d
+ a4c624d:	85 db                	test   %ebx,%ebx
+ a4c624f:	7e 5f                	jle    a4c62b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x18b0>
+ a4c6251:	41 89 df             	mov    %ebx,%r15d
+ a4c6254:	49 c1 e7 09          	shl    $0x9,%r15
+ a4c6258:	4c 8d a5 00 01 00 00 	lea    0x100(%rbp),%r12
+ a4c625f:	45 31 ed             	xor    %r13d,%r13d
+ a4c6262:	66 66 66 66 66 2e 0f 	data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ a4c6269:	1f 84 00 00 00 00 00 
+ a4c6270:	4b 8d 3c 2c          	lea    (%r12,%r13,1),%rdi
+ a4c6274:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c6279:	48 8d 35 da 96 b5 f5 	lea    -0xa4a6926(%rip),%rsi        # 1f95a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f76a>
+ a4c6280:	e8 fb 5e 06 00       	call   a52c180 <strncmp@plt>
+ a4c6285:	85 c0                	test   %eax,%eax
+ a4c6287:	74 17                	je     a4c62a0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x18a0>
+ a4c6289:	49 81 c5 00 02 00 00 	add    $0x200,%r13
+ a4c6290:	4d 39 ef             	cmp    %r13,%r15
+ a4c6293:	75 db                	jne    a4c6270 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1870>
+ a4c6295:	eb 19                	jmp    a4c62b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x18b0>
+ a4c6297:	66 0f 1f 84 00 00 00 	nopw   0x0(%rax,%rax,1)
+ a4c629e:	00 00 
+ a4c62a0:	48 b8 00 fe ff ff ff 	movabs $0x1fffffffe00,%rax
+ a4c62a7:	01 00 00 
+ a4c62aa:	4c 39 e8             	cmp    %r13,%rax
+ a4c62ad:	75 4e                	jne    a4c62fd <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x18fd>
+ a4c62af:	90                   	nop
+ a4c62b0:	8d 43 01             	lea    0x1(%rbx),%eax
+ a4c62b3:	89 85 00 23 00 00    	mov    %eax,0x2300(%rbp)
+ a4c62b9:	48 63 db             	movslq %ebx,%rbx
+ a4c62bc:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4c62c0:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c62c4:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4c62cb:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c62d0:	48 8d 35 83 96 b5 f5 	lea    -0xa4a697d(%rip),%rsi        # 1f95a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f76a>
+ a4c62d7:	e8 f4 5b 06 00       	call   a52bed0 <strncpy@plt>
+ a4c62dc:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4c62e0:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4c62e7:	be ff 00 00 00       	mov    $0xff,%esi
+ a4c62ec:	48 8d 15 d8 24 b6 f5 	lea    -0xa49db28(%rip),%rdx        # 287cb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x285db>
+ a4c62f3:	44 89 f1             	mov    %r14d,%ecx
+ a4c62f6:	31 c0                	xor    %eax,%eax
+ a4c62f8:	e8 d3 58 06 00       	call   a52bbd0 <snprintf@plt>
+ a4c62fd:	8b 44 24 58          	mov    0x58(%rsp),%eax
+ a4c6301:	a8 02                	test   $0x2,%al
+ a4c6303:	75 3b                	jne    a4c6340 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1940>
+ a4c6305:	45 31 f6             	xor    %r14d,%r14d
+ a4c6308:	48 8b 54 24 28       	mov    0x28(%rsp),%rdx
+ a4c630d:	48 8b 8a d0 d8 00 00 	mov    0xd8d0(%rdx),%rcx
+ a4c6314:	4c 8b 09             	mov    (%rcx),%r9
+ a4c6317:	a8 04                	test   $0x4,%al
+ a4c6319:	4c 8b 5c 24 18       	mov    0x18(%rsp),%r11
+ a4c631e:	0f 84 e4 00 00 00    	je     a4c6408 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a08>
+ a4c6324:	80 ba ad 8b 0b 00 00 	cmpb   $0x0,0xb8bad(%rdx)
+ a4c632b:	4c 8d 15 c3 8c b5 f5 	lea    -0xa4a733d(%rip),%r10        # 1eff5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ee05>
+ a4c6332:	75 20                	jne    a4c6354 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1954>
+ a4c6334:	eb 2b                	jmp    a4c6361 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1961>
+ a4c6336:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ a4c633d:	00 00 00 
+ a4c6340:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ a4c6345:	48 8b 80 d0 d8 00 00 	mov    0xd8d0(%rax),%rax
+ a4c634c:	4c 8b 08             	mov    (%rax),%r9
+ a4c634f:	4c 8b 5c 24 18       	mov    0x18(%rsp),%r11
+ a4c6354:	41 be 01 00 00 00    	mov    $0x1,%r14d
+ a4c635a:	4c 8d 15 e4 63 b5 f5 	lea    -0xa4a9c1c(%rip),%r10        # 1c745 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c555>
+ a4c6361:	48 83 ec 08          	sub    $0x8,%rsp
+ a4c6365:	be 10 00 00 00       	mov    $0x10,%esi
+ a4c636a:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c636f:	48 8d 15 04 05 b6 f5 	lea    -0xa49fafc(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6376:	b9 6e 03 00 00       	mov    $0x36e,%ecx
+ a4c637b:	4c 8d 05 f8 d4 b4 f5 	lea    -0xa4b2b08(%rip),%r8        # 1387a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1368a>
+ a4c6382:	31 c0                	xor    %eax,%eax
+ a4c6384:	ff 74 24 48          	push   0x48(%rsp)
+ a4c6388:	41 53                	push   %r11
+ a4c638a:	41 52                	push   %r10
+ a4c638c:	e8 6f 88 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6391:	48 83 c4 20          	add    $0x20,%rsp
+ a4c6395:	48 8b 5c 24 10       	mov    0x10(%rsp),%rbx
+ a4c639a:	44 8b bb 00 23 00 00 	mov    0x2300(%rbx),%r15d
+ a4c63a1:	45 85 ff             	test   %r15d,%r15d
+ a4c63a4:	0f 8e 56 f8 ff ff    	jle    a4c5c00 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1200>
+ a4c63aa:	4d 89 fc             	mov    %r15,%r12
+ a4c63ad:	49 c1 e4 09          	shl    $0x9,%r12
+ a4c63b1:	4c 8d ab 00 01 00 00 	lea    0x100(%rbx),%r13
+ a4c63b8:	31 ed                	xor    %ebp,%ebp
+ a4c63ba:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4c63c0:	4c 89 ef             	mov    %r13,%rdi
+ a4c63c3:	48 01 ef             	add    %rbp,%rdi
+ a4c63c6:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4c63cb:	48 8d 35 77 04 b6 f5 	lea    -0xa49fb89(%rip),%rsi        # 26849 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x26659>
+ a4c63d2:	e8 a9 5d 06 00       	call   a52c180 <strncmp@plt>
+ a4c63d7:	85 c0                	test   %eax,%eax
+ a4c63d9:	74 15                	je     a4c63f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x19f0>
+ a4c63db:	48 81 c5 00 02 00 00 	add    $0x200,%rbp
+ a4c63e2:	49 39 ec             	cmp    %rbp,%r12
+ a4c63e5:	75 d9                	jne    a4c63c0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x19c0>
+ a4c63e7:	e9 14 f8 ff ff       	jmp    a4c5c00 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1200>
+ a4c63ec:	0f 1f 40 00          	nopl   0x0(%rax)
+ a4c63f0:	48 b8 00 fe ff ff ff 	movabs $0x1fffffffe00,%rax
+ a4c63f7:	01 00 00 
+ a4c63fa:	48 39 e8             	cmp    %rbp,%rax
+ a4c63fd:	0f 84 fd f7 ff ff    	je     a4c5c00 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1200>
+ a4c6403:	e9 46 f8 ff ff       	jmp    a4c5c4e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x124e>
+ a4c6408:	4c 8d 15 e6 8b b5 f5 	lea    -0xa4a741a(%rip),%r10        # 1eff5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1ee05>
+ a4c640f:	e9 4d ff ff ff       	jmp    a4c6361 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1961>
+ a4c6414:	4c 8b 74 24 30       	mov    0x30(%rsp),%r14
+ a4c6419:	4c 89 f7             	mov    %r14,%rdi
+ a4c641c:	e8 0f c7 00 00       	call   a4d2b30 <ncclTopoTrimXml(ncclXml*)>
+ a4c6421:	89 c3                	mov    %eax,%ebx
+ a4c6423:	85 c0                	test   %eax,%eax
+ a4c6425:	74 67                	je     a4c648e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a8e>
+ a4c6427:	83 fb 07             	cmp    $0x7,%ebx
+ a4c642a:	74 62                	je     a4c648e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a8e>
+ a4c642c:	48 83 3d c4 6b 0d 00 	cmpq   $0x0,0xd6bc4(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6433:	00 
+ a4c6434:	74 05                	je     a4c643b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a3b>
+ a4c6436:	e8 35 55 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c643b:	66 48 8d 3d bd 6b 0d 	data16 lea 0xd6bbd(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c6442:	00 
+ a4c6443:	66 66 48 e8 35 55 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c644a:	00 
+ a4c644b:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c644e:	75 37                	jne    a4c6487 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a87>
+ a4c6450:	48 8d 15 23 04 b6 f5 	lea    -0xa49fbdd(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6457:	4c 8d 05 aa 5c b5 f5 	lea    -0xa4aa356(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c645e:	4c 8d 0d ff 2b b5 f5 	lea    -0xa4ad401(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6465:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c646a:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6471:	b9 73 03 00 00       	mov    $0x373,%ecx
+ a4c6476:	31 c0                	xor    %eax,%eax
+ a4c6478:	53                   	push   %rbx
+ a4c6479:	68 73 03 00 00       	push   $0x373
+ a4c647e:	e8 7d 87 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6483:	48 83 c4 10          	add    $0x10,%rsp
+ a4c6487:	89 d8                	mov    %ebx,%eax
+ a4c6489:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c648e:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6491:	74 08                	je     a4c649b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1a9b>
+ a4c6493:	85 db                	test   %ebx,%ebx
+ a4c6495:	0f 85 da 07 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c649b:	48 c7 44 24 40 00 00 	movq   $0x0,0x40(%rsp)
+ a4c64a2:	00 00 
+ a4c64a4:	41 83 bc 24 90 8b 0b 	cmpl   $0x0,0xb8b90(%r12)
+ a4c64ab:	00 00 
+ a4c64ad:	0f 84 46 01 00 00    	je     a4c65f9 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1bf9>
+ a4c64b3:	45 8b bc 24 9c 8b 0b 	mov    0xb8b9c(%r12),%r15d
+ a4c64ba:	00 
+ a4c64bb:	41 8b ac 24 a8 8b 0b 	mov    0xb8ba8(%r12),%ebp
+ a4c64c2:	00 
+ a4c64c3:	49 8b 84 24 a0 8b 0b 	mov    0xb8ba0(%r12),%rax
+ a4c64ca:	00 
+ a4c64cb:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ a4c64d0:	45 85 ff             	test   %r15d,%r15d
+ a4c64d3:	0f 84 89 02 00 00    	je     a4c6762 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d62>
+ a4c64d9:	49 63 c7             	movslq %r15d,%rax
+ a4c64dc:	48 69 d8 08 00 63 06 	imul   $0x6630008,%rax,%rbx
+ a4c64e3:	bf 01 00 00 00       	mov    $0x1,%edi
+ a4c64e8:	48 89 de             	mov    %rbx,%rsi
+ a4c64eb:	e8 70 54 06 00       	call   a52b960 <calloc@plt>
+ a4c64f0:	49 89 c5             	mov    %rax,%r13
+ a4c64f3:	48 85 c0             	test   %rax,%rax
+ a4c64f6:	0f 85 6c 02 00 00    	jne    a4c6768 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d68>
+ a4c64fc:	48 8d 15 ac 1b b5 f5 	lea    -0xa4ae454(%rip),%rdx        # 180af <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x17ebf>
+ a4c6503:	4c 8d 05 4a d9 b5 f5 	lea    -0xa4a26b6(%rip),%r8        # 23e54 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23c64>
+ a4c650a:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4c650f:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6516:	b9 42 00 00 00       	mov    $0x42,%ecx
+ a4c651b:	49 89 d9             	mov    %rbx,%r9
+ a4c651e:	31 c0                	xor    %eax,%eax
+ a4c6520:	e8 db 86 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6525:	48 83 3d cb 6a 0d 00 	cmpq   $0x0,0xd6acb(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c652c:	00 
+ a4c652d:	74 05                	je     a4c6534 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1b34>
+ a4c652f:	e8 3c 54 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c6534:	b8 02 00 00 00       	mov    $0x2,%eax
+ a4c6539:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c653e:	66 48 8d 3d ba 6a 0d 	data16 lea 0xd6aba(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c6545:	00 
+ a4c6546:	66 66 48 e8 32 54 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c654d:	00 
+ a4c654e:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c6551:	0f 85 1e 07 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6557:	48 8d 15 1c 03 b6 f5 	lea    -0xa49fce4(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c655e:	4c 8d 05 a3 5b b5 f5 	lea    -0xa4aa45d(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6565:	4c 8d 0d f8 2a b5 f5 	lea    -0xa4ad508(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c656c:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6571:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6578:	b9 89 03 00 00       	mov    $0x389,%ecx
+ a4c657d:	31 c0                	xor    %eax,%eax
+ a4c657f:	6a 02                	push   $0x2
+ a4c6581:	68 89 03 00 00       	push   $0x389
+ a4c6586:	e8 75 86 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c658b:	48 83 c4 10          	add    $0x10,%rsp
+ a4c658f:	e9 e1 06 00 00       	jmp    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6594:	48 83 3d 5c 6a 0d 00 	cmpq   $0x0,0xd6a5c(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c659b:	00 
+ a4c659c:	74 05                	je     a4c65a3 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1ba3>
+ a4c659e:	e8 cd 53 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c65a3:	66 48 8d 3d 55 6a 0d 	data16 lea 0xd6a55(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c65aa:	00 
+ a4c65ab:	66 66 48 e8 cd 53 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c65b2:	00 
+ a4c65b3:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c65b6:	0f 85 be 06 00 00    	jne    a4c6c7a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227a>
+ a4c65bc:	48 8d 15 b7 02 b6 f5 	lea    -0xa49fd49(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c65c3:	4c 8d 05 3e 5b b5 f5 	lea    -0xa4aa4c2(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c65ca:	4c 8d 0d 93 2a b5 f5 	lea    -0xa4ad56d(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c65d1:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c65d6:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c65dd:	b9 4b 03 00 00       	mov    $0x34b,%ecx
+ a4c65e2:	31 c0                	xor    %eax,%eax
+ a4c65e4:	41 56                	push   %r14
+ a4c65e6:	68 4b 03 00 00       	push   $0x34b
+ a4c65eb:	e8 10 86 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c65f0:	48 83 c4 10          	add    $0x10,%rsp
+ a4c65f4:	e9 81 06 00 00       	jmp    a4c6c7a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227a>
+ a4c65f9:	49 63 b4 24 a4 8a 0b 	movslq 0xb8aa4(%r12),%rsi
+ a4c6600:	00 
+ a4c6601:	48 8d 15 5c 2a b5 f5 	lea    -0xa4ad5a4(%rip),%rdx        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6608:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4c660d:	b9 7f 03 00 00       	mov    $0x37f,%ecx
+ a4c6612:	e8 19 62 fc ff       	call   a48c830 <ncclResult_t ncclCallocDebug<int>(int**, unsigned long, char const*, int)>
+ a4c6617:	89 c3                	mov    %eax,%ebx
+ a4c6619:	85 c0                	test   %eax,%eax
+ a4c661b:	74 67                	je     a4c6684 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1c84>
+ a4c661d:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6620:	74 62                	je     a4c6684 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1c84>
+ a4c6622:	48 83 3d ce 69 0d 00 	cmpq   $0x0,0xd69ce(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6629:	00 
+ a4c662a:	74 05                	je     a4c6631 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1c31>
+ a4c662c:	e8 3f 53 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c6631:	66 48 8d 3d c7 69 0d 	data16 lea 0xd69c7(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c6638:	00 
+ a4c6639:	66 66 48 e8 3f 53 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c6640:	00 
+ a4c6641:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c6644:	75 37                	jne    a4c667d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1c7d>
+ a4c6646:	48 8d 15 2d 02 b6 f5 	lea    -0xa49fdd3(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c664d:	4c 8d 05 b4 5a b5 f5 	lea    -0xa4aa54c(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6654:	4c 8d 0d 09 2a b5 f5 	lea    -0xa4ad5f7(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c665b:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6660:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6667:	b9 7f 03 00 00       	mov    $0x37f,%ecx
+ a4c666c:	31 c0                	xor    %eax,%eax
+ a4c666e:	53                   	push   %rbx
+ a4c666f:	68 7f 03 00 00       	push   $0x37f
+ a4c6674:	e8 87 85 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6679:	48 83 c4 10          	add    $0x10,%rsp
+ a4c667d:	89 d8                	mov    %ebx,%eax
+ a4c667f:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6684:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6687:	74 08                	je     a4c6691 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1c91>
+ a4c6689:	85 db                	test   %ebx,%ebx
+ a4c668b:	0f 85 e4 05 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6691:	41 8b bc 24 a4 8a 0b 	mov    0xb8aa4(%r12),%edi
+ a4c6698:	00 
+ a4c6699:	85 ff                	test   %edi,%edi
+ a4c669b:	0f 8e bc 00 00 00    	jle    a4c675d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d5d>
+ a4c66a1:	49 8b 84 24 98 d8 00 	mov    0xd898(%r12),%rax
+ a4c66a8:	00 
+ a4c66a9:	48 8b 4c 24 40       	mov    0x40(%rsp),%rcx
+ a4c66ae:	48 8d 50 18          	lea    0x18(%rax),%rdx
+ a4c66b2:	bd ff ff ff ff       	mov    $0xffffffff,%ebp
+ a4c66b7:	31 f6                	xor    %esi,%esi
+ a4c66b9:	45 31 ff             	xor    %r15d,%r15d
+ a4c66bc:	eb 13                	jmp    a4c66d1 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1cd1>
+ a4c66be:	48 ff c6             	inc    %rsi
+ a4c66c1:	4c 63 c7             	movslq %edi,%r8
+ a4c66c4:	48 83 c2 70          	add    $0x70,%rdx
+ a4c66c8:	4c 39 c6             	cmp    %r8,%rsi
+ a4c66cb:	0f 8d ff fd ff ff    	jge    a4c64d0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1ad0>
+ a4c66d1:	4c 8b 0a             	mov    (%rdx),%r9
+ a4c66d4:	4d 63 84 24 a0 8a 0b 	movslq 0xb8aa0(%r12),%r8
+ a4c66db:	00 
+ a4c66dc:	4d 6b d0 70          	imul   $0x70,%r8,%r10
+ a4c66e0:	4e 3b 4c 10 18       	cmp    0x18(%rax,%r10,1),%r9
+ a4c66e5:	75 d7                	jne    a4c66be <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1cbe>
+ a4c66e7:	44 89 c7             	mov    %r8d,%edi
+ a4c66ea:	48 39 fe             	cmp    %rdi,%rsi
+ a4c66ed:	41 0f 44 ef          	cmove  %r15d,%ebp
+ a4c66f1:	49 63 ff             	movslq %r15d,%rdi
+ a4c66f4:	41 ff c7             	inc    %r15d
+ a4c66f7:	89 34 b9             	mov    %esi,(%rcx,%rdi,4)
+ a4c66fa:	41 8b bc 24 a4 8a 0b 	mov    0xb8aa4(%r12),%edi
+ a4c6701:	00 
+ a4c6702:	eb ba                	jmp    a4c66be <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1cbe>
+ a4c6704:	45 89 ee             	mov    %r13d,%r14d
+ a4c6707:	e9 6e 05 00 00       	jmp    a4c6c7a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227a>
+ a4c670c:	48 83 3d e4 68 0d 00 	cmpq   $0x0,0xd68e4(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6713:	00 
+ a4c6714:	74 05                	je     a4c671b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1d1b>
+ a4c6716:	e8 55 52 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c671b:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c6720:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c6723:	0f 85 51 05 00 00    	jne    a4c6c7a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x227a>
+ a4c6729:	48 8d 15 4a 01 b6 f5 	lea    -0xa49feb6(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6730:	4c 8d 05 d1 59 b5 f5 	lea    -0xa4aa62f(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6737:	4c 8d 0d 26 29 b5 f5 	lea    -0xa4ad6da(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c673e:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6743:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c674a:	b9 4e 03 00 00       	mov    $0x34e,%ecx
+ a4c674f:	31 c0                	xor    %eax,%eax
+ a4c6751:	41 56                	push   %r14
+ a4c6753:	68 4e 03 00 00       	push   $0x34e
+ a4c6758:	e9 8e fe ff ff       	jmp    a4c65eb <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1beb>
+ a4c675d:	bd ff ff ff ff       	mov    $0xffffffff,%ebp
+ a4c6762:	45 31 ff             	xor    %r15d,%r15d
+ a4c6765:	45 31 ed             	xor    %r13d,%r13d
+ a4c6768:	48 63 c5             	movslq %ebp,%rax
+ a4c676b:	48 69 d8 08 00 63 06 	imul   $0x6630008,%rax,%rbx
+ a4c6772:	4c 01 eb             	add    %r13,%rbx
+ a4c6775:	ba 08 00 63 06       	mov    $0x6630008,%edx
+ a4c677a:	48 89 df             	mov    %rbx,%rdi
+ a4c677d:	4c 89 f6             	mov    %r14,%rsi
+ a4c6780:	e8 7b 55 06 00       	call   a52bd00 <memcpy@plt>
+ a4c6785:	49 8d 76 08          	lea    0x8(%r14),%rsi
+ a4c6789:	48 89 df             	mov    %rbx,%rdi
+ a4c678c:	ba 01 00 00 00       	mov    $0x1,%edx
+ a4c6791:	e8 ca 59 00 00       	call   a4cc160 <ncclTopoConvertXml(ncclXml*, unsigned long, int)>
+ a4c6796:	89 c3                	mov    %eax,%ebx
+ a4c6798:	85 c0                	test   %eax,%eax
+ a4c679a:	74 67                	je     a4c6803 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e03>
+ a4c679c:	83 fb 07             	cmp    $0x7,%ebx
+ a4c679f:	74 62                	je     a4c6803 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e03>
+ a4c67a1:	48 83 3d 4f 68 0d 00 	cmpq   $0x0,0xd684f(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c67a8:	00 
+ a4c67a9:	74 05                	je     a4c67b0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1db0>
+ a4c67ab:	e8 c0 51 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c67b0:	66 48 8d 3d 48 68 0d 	data16 lea 0xd6848(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c67b7:	00 
+ a4c67b8:	66 66 48 e8 c0 51 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c67bf:	00 
+ a4c67c0:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c67c3:	75 37                	jne    a4c67fc <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1dfc>
+ a4c67c5:	48 8d 15 ae 00 b6 f5 	lea    -0xa49ff52(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c67cc:	4c 8d 05 35 59 b5 f5 	lea    -0xa4aa6cb(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c67d3:	4c 8d 0d 8a 28 b5 f5 	lea    -0xa4ad776(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c67da:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c67df:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c67e6:	b9 8c 03 00 00       	mov    $0x38c,%ecx
+ a4c67eb:	31 c0                	xor    %eax,%eax
+ a4c67ed:	53                   	push   %rbx
+ a4c67ee:	68 8c 03 00 00       	push   $0x38c
+ a4c67f3:	e8 08 84 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c67f8:	48 83 c4 10          	add    $0x10,%rsp
+ a4c67fc:	89 d8                	mov    %ebx,%eax
+ a4c67fe:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6803:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6806:	74 08                	je     a4c6810 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e10>
+ a4c6808:	85 db                	test   %ebx,%ebx
+ a4c680a:	0f 85 65 04 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6810:	49 8b bc 24 e8 d8 00 	mov    0xd8e8(%r12),%rdi
+ a4c6817:	00 
+ a4c6818:	48 8b 74 24 40       	mov    0x40(%rsp),%rsi
+ a4c681d:	89 ea                	mov    %ebp,%edx
+ a4c681f:	44 89 f9             	mov    %r15d,%ecx
+ a4c6822:	4d 89 e8             	mov    %r13,%r8
+ a4c6825:	41 b9 08 00 63 06    	mov    $0x6630008,%r9d
+ a4c682b:	e8 b0 04 fa ff       	call   a466ce0 <bootstrapIntraNodeAllGather(void*, int*, int, int, void*, int)>
+ a4c6830:	89 c3                	mov    %eax,%ebx
+ a4c6832:	85 c0                	test   %eax,%eax
+ a4c6834:	74 67                	je     a4c689d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e9d>
+ a4c6836:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6839:	74 62                	je     a4c689d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e9d>
+ a4c683b:	48 83 3d b5 67 0d 00 	cmpq   $0x0,0xd67b5(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6842:	00 
+ a4c6843:	74 05                	je     a4c684a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e4a>
+ a4c6845:	e8 26 51 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c684a:	66 48 8d 3d ae 67 0d 	data16 lea 0xd67ae(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c6851:	00 
+ a4c6852:	66 66 48 e8 26 51 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c6859:	00 
+ a4c685a:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c685d:	75 37                	jne    a4c6896 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1e96>
+ a4c685f:	48 8d 15 14 00 b6 f5 	lea    -0xa49ffec(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6866:	4c 8d 05 9b 58 b5 f5 	lea    -0xa4aa765(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c686d:	4c 8d 0d f0 27 b5 f5 	lea    -0xa4ad810(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6874:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6879:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6880:	b9 8d 03 00 00       	mov    $0x38d,%ecx
+ a4c6885:	31 c0                	xor    %eax,%eax
+ a4c6887:	53                   	push   %rbx
+ a4c6888:	68 8d 03 00 00       	push   $0x38d
+ a4c688d:	e8 6e 83 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6892:	48 83 c4 10          	add    $0x10,%rsp
+ a4c6896:	89 d8                	mov    %ebx,%eax
+ a4c6898:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c689d:	83 fb 07             	cmp    $0x7,%ebx
+ a4c68a0:	74 08                	je     a4c68aa <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1eaa>
+ a4c68a2:	85 db                	test   %ebx,%ebx
+ a4c68a4:	0f 85 cb 03 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c68aa:	41 83 bc 24 90 8b 0b 	cmpl   $0x0,0xb8b90(%r12)
+ a4c68b1:	00 00 
+ a4c68b3:	0f 84 87 00 00 00    	je     a4c6940 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f40>
+ a4c68b9:	4c 89 f7             	mov    %r14,%rdi
+ a4c68bc:	e8 ff 50 06 00       	call   a52b9c0 <free@plt>
+ a4c68c1:	44 89 fe             	mov    %r15d,%esi
+ a4c68c4:	c1 e6 0d             	shl    $0xd,%esi
+ a4c68c7:	48 8d 7c 24 30       	lea    0x30(%rsp),%rdi
+ a4c68cc:	e8 ef 03 00 00       	call   a4c6cc0 <xmlAlloc(ncclXml**, int)>
+ a4c68d1:	89 c3                	mov    %eax,%ebx
+ a4c68d3:	85 c0                	test   %eax,%eax
+ a4c68d5:	74 7c                	je     a4c6953 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f53>
+ a4c68d7:	83 fb 07             	cmp    $0x7,%ebx
+ a4c68da:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c68df:	74 77                	je     a4c6958 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f58>
+ a4c68e1:	48 83 3d 0f 67 0d 00 	cmpq   $0x0,0xd670f(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c68e8:	00 
+ a4c68e9:	74 05                	je     a4c68f0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1ef0>
+ a4c68eb:	e8 80 50 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c68f0:	66 48 8d 3d 08 67 0d 	data16 lea 0xd6708(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c68f7:	00 
+ a4c68f8:	66 66 48 e8 80 50 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c68ff:	00 
+ a4c6900:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c6903:	75 37                	jne    a4c693c <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f3c>
+ a4c6905:	48 8d 15 6e ff b5 f5 	lea    -0xa4a0092(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c690c:	4c 8d 05 f5 57 b5 f5 	lea    -0xa4aa80b(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6913:	4c 8d 0d 4a 27 b5 f5 	lea    -0xa4ad8b6(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c691a:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c691f:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6926:	b9 91 03 00 00       	mov    $0x391,%ecx
+ a4c692b:	31 c0                	xor    %eax,%eax
+ a4c692d:	53                   	push   %rbx
+ a4c692e:	68 91 03 00 00       	push   $0x391
+ a4c6933:	e8 c8 82 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6938:	48 83 c4 10          	add    $0x10,%rsp
+ a4c693c:	89 d8                	mov    %ebx,%eax
+ a4c693e:	eb 18                	jmp    a4c6958 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f58>
+ a4c6940:	41 c7 06 00 00 00 00 	movl   $0x0,(%r14)
+ a4c6947:	48 8b 7c 24 40       	mov    0x40(%rsp),%rdi
+ a4c694c:	e8 6f 50 06 00       	call   a52b9c0 <free@plt>
+ a4c6951:	eb 17                	jmp    a4c696a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f6a>
+ a4c6953:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c6958:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c695d:	85 db                	test   %ebx,%ebx
+ a4c695f:	74 09                	je     a4c696a <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f6a>
+ a4c6961:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6964:	0f 85 0b 03 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c696a:	4c 89 6c 24 18       	mov    %r13,0x18(%rsp)
+ a4c696f:	45 85 ff             	test   %r15d,%r15d
+ a4c6972:	0f 8e 34 01 00 00    	jle    a4c6aac <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x20ac>
+ a4c6978:	66 48 8d 3d 80 66 0d 	data16 lea 0xd6680(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c697f:	00 
+ a4c6980:	66 66 48 e8 f8 4f 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c6987:	00 
+ a4c6988:	49 89 c6             	mov    %rax,%r14
+ a4c698b:	4c 8b 64 24 30       	mov    0x30(%rsp),%r12
+ a4c6990:	45 89 fd             	mov    %r15d,%r13d
+ a4c6993:	48 8b 5c 24 18       	mov    0x18(%rsp),%rbx
+ a4c6998:	4c 8d 7b 08          	lea    0x8(%rbx),%r15
+ a4c699c:	eb 17                	jmp    a4c69b5 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1fb5>
+ a4c699e:	48 81 c3 08 00 63 06 	add    $0x6630008,%rbx
+ a4c69a5:	49 81 c7 08 00 63 06 	add    $0x6630008,%r15
+ a4c69ac:	49 ff cd             	dec    %r13
+ a4c69af:	0f 84 f7 00 00 00    	je     a4c6aac <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x20ac>
+ a4c69b5:	48 89 df             	mov    %rbx,%rdi
+ a4c69b8:	4c 89 fe             	mov    %r15,%rsi
+ a4c69bb:	31 d2                	xor    %edx,%edx
+ a4c69bd:	e8 9e 57 00 00       	call   a4cc160 <ncclTopoConvertXml(ncclXml*, unsigned long, int)>
+ a4c69c2:	89 c5                	mov    %eax,%ebp
+ a4c69c4:	85 c0                	test   %eax,%eax
+ a4c69c6:	74 58                	je     a4c6a20 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2020>
+ a4c69c8:	83 fd 07             	cmp    $0x7,%ebp
+ a4c69cb:	74 53                	je     a4c6a20 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2020>
+ a4c69cd:	48 83 3d 23 66 0d 00 	cmpq   $0x0,0xd6623(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c69d4:	00 
+ a4c69d5:	74 05                	je     a4c69dc <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1fdc>
+ a4c69d7:	e8 94 4f 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c69dc:	41 83 3e 00          	cmpl   $0x0,(%r14)
+ a4c69e0:	75 37                	jne    a4c6a19 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2019>
+ a4c69e2:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c69e7:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c69ee:	48 8d 15 85 fe b5 f5 	lea    -0xa4a017b(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c69f5:	b9 99 03 00 00       	mov    $0x399,%ecx
+ a4c69fa:	4c 8d 05 07 57 b5 f5 	lea    -0xa4aa8f9(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6a01:	4c 8d 0d 5c 26 b5 f5 	lea    -0xa4ad9a4(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6a08:	31 c0                	xor    %eax,%eax
+ a4c6a0a:	55                   	push   %rbp
+ a4c6a0b:	68 99 03 00 00       	push   $0x399
+ a4c6a10:	e8 eb 81 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6a15:	48 83 c4 10          	add    $0x10,%rsp
+ a4c6a19:	89 e8                	mov    %ebp,%eax
+ a4c6a1b:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6a20:	83 fd 07             	cmp    $0x7,%ebp
+ a4c6a23:	74 08                	je     a4c6a2d <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x202d>
+ a4c6a25:	85 ed                	test   %ebp,%ebp
+ a4c6a27:	0f 85 48 02 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6a2d:	4c 89 e7             	mov    %r12,%rdi
+ a4c6a30:	48 89 de             	mov    %rbx,%rsi
+ a4c6a33:	e8 08 5b 00 00       	call   a4cc540 <ncclTopoFuseXml(ncclXml*, ncclXml*)>
+ a4c6a38:	89 c5                	mov    %eax,%ebp
+ a4c6a3a:	85 c0                	test   %eax,%eax
+ a4c6a3c:	74 58                	je     a4c6a96 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2096>
+ a4c6a3e:	83 fd 07             	cmp    $0x7,%ebp
+ a4c6a41:	74 53                	je     a4c6a96 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2096>
+ a4c6a43:	48 83 3d ad 65 0d 00 	cmpq   $0x0,0xd65ad(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6a4a:	00 
+ a4c6a4b:	74 05                	je     a4c6a52 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2052>
+ a4c6a4d:	e8 1e 4f 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c6a52:	41 83 3e 00          	cmpl   $0x0,(%r14)
+ a4c6a56:	75 37                	jne    a4c6a8f <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x208f>
+ a4c6a58:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6a5d:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6a64:	48 8d 15 0f fe b5 f5 	lea    -0xa4a01f1(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6a6b:	b9 9a 03 00 00       	mov    $0x39a,%ecx
+ a4c6a70:	4c 8d 05 91 56 b5 f5 	lea    -0xa4aa96f(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6a77:	4c 8d 0d e6 25 b5 f5 	lea    -0xa4ada1a(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6a7e:	31 c0                	xor    %eax,%eax
+ a4c6a80:	55                   	push   %rbp
+ a4c6a81:	68 9a 03 00 00       	push   $0x39a
+ a4c6a86:	e8 75 81 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6a8b:	48 83 c4 10          	add    $0x10,%rsp
+ a4c6a8f:	89 e8                	mov    %ebp,%eax
+ a4c6a91:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6a96:	83 fd 07             	cmp    $0x7,%ebp
+ a4c6a99:	0f 84 ff fe ff ff    	je     a4c699e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f9e>
+ a4c6a9f:	85 ed                	test   %ebp,%ebp
+ a4c6aa1:	0f 84 f7 fe ff ff    	je     a4c699e <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x1f9e>
+ a4c6aa7:	e9 c9 01 00 00       	jmp    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6aac:	48 8b 7c 24 18       	mov    0x18(%rsp),%rdi
+ a4c6ab1:	e8 0a 4f 06 00       	call   a52b9c0 <free@plt>
+ a4c6ab6:	48 8d 3d e9 cd b4 f5 	lea    -0xa4b3217(%rip),%rdi        # 138a6 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x136b6>
+ a4c6abd:	e8 4e 6e 02 00       	call   a4ed910 <ncclGetEnv(char const*)>
+ a4c6ac2:	48 85 c0             	test   %rax,%rax
+ a4c6ac5:	0f 84 d5 00 00 00    	je     a4c6ba0 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21a0>
+ a4c6acb:	48 89 c3             	mov    %rax,%rbx
+ a4c6ace:	48 ba 00 00 00 00 00 	movabs $0x8000000000000000,%rdx
+ a4c6ad5:	00 00 80 
+ a4c6ad8:	4c 8b 7c 24 28       	mov    0x28(%rsp),%r15
+ a4c6add:	4d 63 b7 a0 8a 0b 00 	movslq 0xb8aa0(%r15),%r14
+ a4c6ae4:	48 8b 05 35 7f 0d 00 	mov    0xd7f35(%rip),%rax        # a59ea20 <ncclParamTopoDumpFileRank()::cache>
+ a4c6aeb:	48 39 d0             	cmp    %rdx,%rax
+ a4c6aee:	0f 84 9d 01 00 00    	je     a4c6c91 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2291>
+ a4c6af4:	4c 39 f0             	cmp    %r14,%rax
+ a4c6af7:	0f 85 c1 00 00 00    	jne    a4c6bbe <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21be>
+ a4c6afd:	48 8d 15 76 fd b5 f5 	lea    -0xa4a028a(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6b04:	4c 8d 05 90 d7 b4 f5 	lea    -0xa4b2870(%rip),%r8        # 1429b <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x140ab>
+ a4c6b0b:	be 80 00 00 00       	mov    $0x80,%esi
+ a4c6b10:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6b15:	b9 a0 03 00 00       	mov    $0x3a0,%ecx
+ a4c6b1a:	49 89 d9             	mov    %rbx,%r9
+ a4c6b1d:	31 c0                	xor    %eax,%eax
+ a4c6b1f:	e8 dc 80 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6b24:	48 8b 74 24 30       	mov    0x30(%rsp),%rsi
+ a4c6b29:	48 89 df             	mov    %rbx,%rdi
+ a4c6b2c:	e8 9f 59 00 00       	call   a4cc4d0 <ncclTopoDumpXmlToFile(char const*, ncclXml*)>
+ a4c6b31:	89 c3                	mov    %eax,%ebx
+ a4c6b33:	85 c0                	test   %eax,%eax
+ a4c6b35:	74 70                	je     a4c6ba7 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21a7>
+ a4c6b37:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6b3a:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c6b3f:	74 6b                	je     a4c6bac <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21ac>
+ a4c6b41:	48 83 3d af 64 0d 00 	cmpq   $0x0,0xd64af(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6b48:	00 
+ a4c6b49:	74 05                	je     a4c6b50 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2150>
+ a4c6b4b:	e8 20 4e 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c6b50:	66 48 8d 3d a8 64 0d 	data16 lea 0xd64a8(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c6b57:	00 
+ a4c6b58:	66 66 48 e8 20 4e 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c6b5f:	00 
+ a4c6b60:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c6b63:	75 37                	jne    a4c6b9c <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x219c>
+ a4c6b65:	48 8d 15 0e fd b5 f5 	lea    -0xa4a02f2(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6b6c:	4c 8d 05 95 55 b5 f5 	lea    -0xa4aaa6b(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6b73:	4c 8d 0d ea 24 b5 f5 	lea    -0xa4adb16(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6b7a:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6b7f:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6b86:	b9 a1 03 00 00       	mov    $0x3a1,%ecx
+ a4c6b8b:	31 c0                	xor    %eax,%eax
+ a4c6b8d:	53                   	push   %rbx
+ a4c6b8e:	68 a1 03 00 00       	push   $0x3a1
+ a4c6b93:	e8 68 80 fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6b98:	48 83 c4 10          	add    $0x10,%rsp
+ a4c6b9c:	89 d8                	mov    %ebx,%eax
+ a4c6b9e:	eb 0c                	jmp    a4c6bac <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21ac>
+ a4c6ba0:	4c 8b 7c 24 28       	mov    0x28(%rsp),%r15
+ a4c6ba5:	eb 17                	jmp    a4c6bbe <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21be>
+ a4c6ba7:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4c6bac:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6bb1:	83 fb 07             	cmp    $0x7,%ebx
+ a4c6bb4:	74 08                	je     a4c6bbe <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21be>
+ a4c6bb6:	85 db                	test   %ebx,%ebx
+ a4c6bb8:	0f 85 b7 00 00 00    	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6bbe:	48 8b 5c 24 30       	mov    0x30(%rsp),%rbx
+ a4c6bc3:	49 8b 87 98 d8 00 00 	mov    0xd898(%r15),%rax
+ a4c6bca:	49 63 8f a0 8a 0b 00 	movslq 0xb8aa0(%r15),%rcx
+ a4c6bd1:	48 6b c9 70          	imul   $0x70,%rcx,%rcx
+ a4c6bd5:	48 8b 54 08 18       	mov    0x18(%rax,%rcx,1),%rdx
+ a4c6bda:	48 89 df             	mov    %rbx,%rdi
+ a4c6bdd:	48 8b b4 24 98 00 00 	mov    0x98(%rsp),%rsi
+ a4c6be4:	00 
+ a4c6be5:	e8 c6 d7 ff ff       	call   a4c43b0 <ncclTopoGetSystemFromXml(ncclXml*, ncclTopoSystem**, unsigned long)>
+ a4c6bea:	41 89 c6             	mov    %eax,%r14d
+ a4c6bed:	85 c0                	test   %eax,%eax
+ a4c6bef:	74 6a                	je     a4c6c5b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x225b>
+ a4c6bf1:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c6bf5:	74 64                	je     a4c6c5b <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x225b>
+ a4c6bf7:	48 83 3d f9 63 0d 00 	cmpq   $0x0,0xd63f9(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4c6bfe:	00 
+ a4c6bff:	74 05                	je     a4c6c06 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2206>
+ a4c6c01:	e8 6a 4d 06 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4c6c06:	66 48 8d 3d f2 63 0d 	data16 lea 0xd63f2(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4c6c0d:	00 
+ a4c6c0e:	66 66 48 e8 6a 4d 06 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4c6c15:	00 
+ a4c6c16:	83 38 00             	cmpl   $0x0,(%rax)
+ a4c6c19:	75 38                	jne    a4c6c53 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2253>
+ a4c6c1b:	48 8d 15 58 fc b5 f5 	lea    -0xa4a03a8(%rip),%rdx        # 2687a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2668a>
+ a4c6c22:	4c 8d 05 df 54 b5 f5 	lea    -0xa4aab21(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4c6c29:	4c 8d 0d 34 24 b5 f5 	lea    -0xa4adbcc(%rip),%r9        # 19064 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18e74>
+ a4c6c30:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4c6c35:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4c6c3c:	b9 a4 03 00 00       	mov    $0x3a4,%ecx
+ a4c6c41:	31 c0                	xor    %eax,%eax
+ a4c6c43:	41 56                	push   %r14
+ a4c6c45:	68 a4 03 00 00       	push   $0x3a4
+ a4c6c4a:	e8 b1 7f fa ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4c6c4f:	48 83 c4 10          	add    $0x10,%rsp
+ a4c6c53:	44 89 f0             	mov    %r14d,%eax
+ a4c6c56:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6c5b:	41 83 fe 07          	cmp    $0x7,%r14d
+ a4c6c5f:	74 05                	je     a4c6c66 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2266>
+ a4c6c61:	45 85 f6             	test   %r14d,%r14d
+ a4c6c64:	75 0f                	jne    a4c6c75 <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x2275>
+ a4c6c66:	48 89 df             	mov    %rbx,%rdi
+ a4c6c69:	e8 52 4d 06 00       	call   a52b9c0 <free@plt>
+ a4c6c6e:	31 c0                	xor    %eax,%eax
+ a4c6c70:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4c6c75:	4c 8b 74 24 08       	mov    0x8(%rsp),%r14
+ a4c6c7a:	44 89 f5             	mov    %r14d,%ebp
+ a4c6c7d:	89 e8                	mov    %ebp,%eax
+ a4c6c7f:	48 81 c4 b8 00 00 00 	add    $0xb8,%rsp
+ a4c6c86:	5b                   	pop    %rbx
+ a4c6c87:	41 5c                	pop    %r12
+ a4c6c89:	41 5d                	pop    %r13
+ a4c6c8b:	41 5e                	pop    %r14
+ a4c6c8d:	41 5f                	pop    %r15
+ a4c6c8f:	5d                   	pop    %rbp
+ a4c6c90:	c3                   	ret    
+ a4c6c91:	48 8d 3d 42 18 b5 f5 	lea    -0xa4ae7be(%rip),%rdi        # 184da <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x182ea>
+ a4c6c98:	48 8d 0d 81 7d 0d 00 	lea    0xd7d81(%rip),%rcx        # a59ea20 <ncclParamTopoDumpFileRank()::cache>
+ a4c6c9f:	31 f6                	xor    %esi,%esi
+ a4c6ca1:	e8 5a 6b 02 00       	call   a4ed800 <ncclLoadParam(char const*, long, long, long*)>
+ a4c6ca6:	48 8b 05 73 7d 0d 00 	mov    0xd7d73(%rip),%rax        # a59ea20 <ncclParamTopoDumpFileRank()::cache>
+ a4c6cad:	4c 39 f0             	cmp    %r14,%rax
+ a4c6cb0:	0f 84 47 fe ff ff    	je     a4c6afd <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x20fd>
+ a4c6cb6:	e9 03 ff ff ff       	jmp    a4c6bbe <ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)+0x21be>

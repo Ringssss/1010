@@ -1,0 +1,168 @@
+{
+  "node": "node30",
+  "torch_import_seconds": 2.095828215,
+  "failure_boundary": "set_device_enter",
+  "hard_deadline_seconds": 15,
+  "process_elapsed_seconds": 15.164986386,
+  "cleanup_passed": true,
+  "signals": [
+    "TERM"
+  ],
+  "payload_bytes": 0,
+  "actual_bdf_observed": false,
+  "actual_hip_free_observed": false,
+  "warning": "Could not open /var/log/hylog/.",
+  "warning_is_unique_cause": false,
+  "fresh_container": {
+    "id": "7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695",
+    "name": "/zjn-fluid-three-node-isolated_r01-n30",
+    "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "created": "2026-10-08T08:19:06.889653882Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 2013422,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-08T08:19:06.916290051Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "HostConfig": {
+      "Privileged": false,
+      "NetworkMode": "host",
+      "IpcMode": "private",
+      "Memory": 8589934592,
+      "PidsLimit": 512,
+      "ShmSize": 1073741824,
+      "CapAdd": [
+        "IPC_LOCK"
+      ],
+      "Devices": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "Ulimits": [
+        {
+          "Name": "core",
+          "Hard": 0,
+          "Soft": 0
+        },
+        {
+          "Name": "memlock",
+          "Hard": -1,
+          "Soft": -1
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/opt/hyhal",
+        "Destination": "/opt/hyhal",
+        "RW": false
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/fluidckpt_three_node/isolated_r01_n30/project",
+        "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "RW": true
+      }
+    ],
+    "command": {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-three-node-isolated_r01-n30"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  "same_image_existing_containers": [],
+  "confirmed_config_differences": [
+    "private IPC vs historical successful isolated host IPC",
+    "IPC_LOCK only vs historical isolated SYS_NICE",
+    "8GiB memory/pids512/shm1GiB vs historical launcher unspecified memory/pids",
+    "direct python image environment vs historical source /opt/dtk/env.sh",
+    "narrow project bind vs historical home/model binds"
+  ],
+  "present_required_config": [
+    "kfd",
+    "mkfd",
+    "dri",
+    "infiniband",
+    "hyhal read-only",
+    "memlock unlimited",
+    "core0",
+    "host network"
+  ],
+  "unresolved": [
+    "effective fresh environment versus sourced DTK environment",
+    "actual UID/GID/device DAC/capabilities/seccomp",
+    "log directory absence versus permissions",
+    "runtime library overlay/version vs existing mapped process libraries",
+    "IPC/capability/resource-limit effect; no controlled runtime comparison",
+    "independent node30 runtime/driver condition"
+  ],
+  "source_refs": [
+    {
+      "role": "setup",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_setup_node30_r01/stdout.json",
+      "sha256": "c9b206a5d1d18fcc59b989f371763691e1fd59157e09f56cd8f0db6e42ff96fd"
+    },
+    {
+      "role": "inventory",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_r03/node30.stdout.json",
+      "sha256": "8da563c2a306f3d3cb8c6287f2c620b8ce76802eb6a6a6d1dd1014f8260c871a"
+    },
+    {
+      "role": "events",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_node30_init_r01/child.events.jsonl",
+      "sha256": "79c978c52aa2dc2c753e797d7874b2f14cbee3c7cde62601bb6fb900c1e5e8d2"
+    },
+    {
+      "role": "process",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_node30_init_r01/child.process.json",
+      "sha256": "512a1cbc0060f80aae6806c87a68b322788ea94de943b8a8a629d4652dd09615"
+    },
+    {
+      "role": "log",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_node30_init_r01/child.log",
+      "sha256": "180dd7845395720f807239b1255d26938b30ba1fd151e567feb71213f31a8b32"
+    },
+    {
+      "role": "historical_launcher",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/run_system.py",
+      "sha256": "9baf3e7e148a169495e7b23fda8c4becdbfaf23d189f74178d10dcfde7fb0f8c"
+    },
+    {
+      "role": "historical_container",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node27/container.json",
+      "sha256": "9015260f728f5db2a197ef070acb8c9f607e899f774f2880e2d6c6dc68cacb06"
+    }
+  ],
+  "gpu_operations_by_analysis": 0,
+  "copy_nccl_stopped": true
+}

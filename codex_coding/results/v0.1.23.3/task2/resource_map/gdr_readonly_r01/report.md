@@ -1,0 +1,31 @@
+# GDR能力缺口的只读取证
+
+本轮没有GPU操作、权重恢复、communicator创建、MR注册或服务重启。两机r01成功，原manifest绑定所有ELF片段与snapshot SHA；local_sha_validation.json复核通过。补充r02两机返回137，原始失败保留，远端操作已按主agent要求暂停。
+
+## 目前能解释的差异
+
+原builtin XML主动声明gpu/net gdr=1；自动/empty输入在实际startup中补全为0。历史runtime已证明同库/plugin、原XML的GPU0-shca0可出现GDRDMA，而自动输入没有。这说明GDR属性既可来自输入声明，也可来自自动能力检测；将其当成硬件唯一真值会误判。
+
+部署ELF ncclGpuGdrSupport在0xa48fa33调用当前net backend properties函数指针，在0xa48faa3检测返回属性的0x2位；只有命中该位才在0xa48fade把支持矩阵写1。否则初值0保留。这是GPU自动能力对net backend属性的依赖，不是这里执行了每GPU的真实MR验证。证据node27/rccl_branch_04.txt，node29独立片段相同。
+
+ncclTopoCheckGdr在0xa4a52f7和0xa4a52ff检查GPU/net节点对应能力字段，任一为0直接返回，再往下才进入read与距离阈值。证据rccl_branch_03.txt。因此改NUMA并不会自动修复被检测或声明为0的能力门槛；SYS距离放宽也不能取代正确能力验收。
+
+plugin的ncclIbGetProperties在0x125c0跳到nccl_p2p_ib_get_properties；其字符串包含/sys/kernel/mm/memory_peers/amdkfd/version，说明有该路径检测候选，但r01没有捕获nccl_p2p_gdr_support的完整分支。部署RCCL自身ncclIbGdrSupport同时有amdkfd/version、kallsyms peer-memory符号和ForceEnableGdrdma分支；这个内建IB函数不能冒充当前外部plugin的实际决策函数。证据plugin_branch_00.txt、snapshot.json.elf.string_subset与rccl_branch_02.txt。
+
+当前HCA Disabled日志、properties位、图中gdr值与最终channel需要分别确认。根据现有证据，自动路径取0与backend能力声明有关；plugin为什么声明0的唯一根因仍未完成逐分支认证。
+
+## 先决环境证据
+
+两机容器采样UID为0；/dev/kfd、8个render节点与infiniband节点的access权限检查都通过，memlock为unlimited。这里只检查权限元数据和access，没有open/ioctl，不能替代MR注册结果。GPU驱动实际为hycu，HCA为shca_core/shca_ib；不能用不存在的nvidia-peermem或amdgpu模块名判硬件不支持。
+
+两机kallsyms有ib_register_peer_memory_client/ib_unregister_peer_memory_client、hycu回调指针、ib_umem_dmabuf_get/get_pinned/map_pages等入口。模块/符号可见只说明基础设施存在，未证明客户端注册状态或GPU内存导出。active plugin导入ibv_reg_dmabuf_mr，并有nccl_p2p_dmabuf_support符号；RCCL字符串包含NCCL_DMABUF_ENABLE、hsa_amd_portable_export_dmabuf与对应kernel config提示。ROCr导出符号、driver配置和实际DMABUF注册尚未验证，不据此开启新路径。
+
+node级HCA node_guid/sys_image_guid在snapshot.json.hca和analysis.json分别保存，两机GUID不同；XML候选不固定GUID/dev编号，由本node本进程plugin补全。BDF只在node内标识，不跨机合并实体。
+
+## 最小候选与验收门槛
+
+第一步使用xml_owned_r01的完整物理图、所有gpu/net gdr=0做单次1MiB功能startup，确认vendor接受完整图、runtime ordinal/rank归属、四图所选设备、内容SHA及清理。此功能观察不构成带宽测量，输入manifest runtime_accepted=false以生成时状态保存。
+
+能力对照优先两机GPU0-shca0：这是已有实际GDR成功的组合，也是同NUMA/共同PCI祖先组合。未来独立派生XML只改GPU0与shca0的gdr声明为1，保留真实物理父链/CPU、其他设备仍0；保留默认距离门槛，不强制SYS、不同时启DMABUF/改库。用1MiB完整内容SHA、实际GPU/HCA Enabled/Disabled、最终GDRDMA channel、MR失败和清理判断是否接受。该候选尚未生成和运行，需父agent在容器/keeper检查后统一准入；任何失败单列新run。
+
+完成active plugin的小分支和gpukfd/amdkfd路径只读证据后，才决定是否需要能力声明实验。不要安装/编译大库、全面移植plugin或覆盖厂商XML。共享GPU当前有外部负载，因此不做性能排序。

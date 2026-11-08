@@ -1,0 +1,60 @@
+{
+  "checks": {
+    "prior_physical_admission_false": true,
+    "prior_gpu_authorization_false": true,
+    "prior_gpu_calls_zero": true,
+    "prior_no_remote_writes_or_signals": true,
+    "two_nodes_eight_distinct_workers/not_admitted": true,
+    "two_nodes_eight_distinct_workers/no_launch_command": true,
+    "two_nodes_eight_distinct_workers/gpu_unauthorized": true,
+    "two_nodes_eight_distinct_workers/no_full_peak_proof": true,
+    "three_nodes_eight_distinct_workers/not_admitted": true,
+    "three_nodes_eight_distinct_workers/no_launch_command": true,
+    "three_nodes_eight_distinct_workers/gpu_unauthorized": true,
+    "three_nodes_eight_distinct_workers/no_full_peak_proof": true,
+    "two_nodes_four_target_source_reused_workers/not_admitted": true,
+    "two_nodes_four_target_source_reused_workers/no_launch_command": true,
+    "two_nodes_four_target_source_reused_workers/gpu_unauthorized": true,
+    "two_nodes_four_target_source_reused_workers/no_full_peak_proof": true,
+    "four_worker_reuse_changes_dependency_problem": true,
+    "keeper_reuse_not_admitted": true,
+    "old_loaded_code_sha_unknown": true
+  },
+  "prior_deployment_candidates": [
+    {
+      "candidate_id": "two_nodes_eight_distinct_workers",
+      "worker_count": 8,
+      "equivalence": "logical_disjoint_pairs_preserved_hardware_conditions_unknown",
+      "blocker": "4 new runtimes/node; shared shca_0 source/target resources and contention unknown"
+    },
+    {
+      "candidate_id": "three_nodes_eight_distinct_workers",
+      "worker_count": 8,
+      "equivalence": "logical_disjoint_pairs_preserved_hardware_conditions_unknown",
+      "blocker": "3+3+2 new runtimes; node27 availability and pending D cleanup remain unverified"
+    },
+    {
+      "candidate_id": "two_nodes_four_target_source_reused_workers",
+      "worker_count": 4,
+      "equivalence": "not_proven_changed_DAG",
+      "blocker": "Each worker is another target's source; operation-ready dependencies and source exports couple target completion times"
+    }
+  ],
+  "qualification": "offline_review_only_physical_unadmitted",
+  "physical_budget_admitted": false,
+  "gpu_command": null,
+  "review_GPU_calls": 0,
+  "review_SSH_actions": 0,
+  "review_remote_writes": 0,
+  "review_signals": 0,
+  "source_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/feasibility_r03/deployment_feasibility.json",
+      "sha256": "1e9c9a5faf2dc5e46a024d087062eea65b10986e0de27cb6de9981a8c66003b5"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/placement_competition/review/audit_admission.py",
+      "sha256": "8b4ddc3ce4daef5efb0e619408bb53653d7ca484d05b425b58c6ddb61e43d53d"
+    }
+  ]
+}

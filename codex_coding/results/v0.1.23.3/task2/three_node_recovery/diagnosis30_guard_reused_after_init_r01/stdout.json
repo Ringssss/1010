@@ -1,0 +1,245 @@
+{
+  "started_utc": "2026-10-09T06:49:29.485161+00:00",
+  "hostname": "m03r2n10",
+  "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+  "host_memory": "MemTotal:       528095244 kB\nMemFree:        25784640 kB\nMemAvailable:   477228856 kB\nBuffers:          870512 kB\nCached:         445535696 kB\nSwapCached:       125100 kB\nActive:         268165252 kB\nInactive:       211092076 kB\nActive(anon):     765344 kB\nInactive(anon): 32095116 kB\nActive(file):   267399908 kB\nInactive(file): 178996960 kB\nUnevictable:          64 kB\nMlocked:              64 kB\nSwapTotal:       8388604 kB\nSwapFree:        7336048 kB\nDirty:              3960 kB\nWriteback:             0 kB\nAnonPages:      32246904 kB\nMapped:          2467128 kB\nShmem:              9476 kB\nKReclaimable:    8165628 kB\nSlab:            9744044 kB\nSReclaimable:    8165628 kB\nSUnreclaim:      1578416 kB\nKernelStack:       92432 kB\nPageTables:       195432 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272436224 kB\nCommitted_AS:   94478908 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      653588 kB\nVmallocChunk:          0 kB\nPercpu:           262656 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:  15345664 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     4158088 kB\nDirectMap2M:    183289856 kB\nDirectMap1G:    349175808 kB",
+  "selected_gpu_sysfs": {
+    "mem_info_vram_total": "68702699520",
+    "mem_info_vram_used": "55596445696",
+    "numa_node": "0"
+  },
+  "container_cgroup": {
+    "proc_cgroup": "0::/system.slice/docker-7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695.scope",
+    "files": {
+      "memory.current": "1437925376",
+      "memory.max": "8589934592",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "1",
+      "pids.max": "512"
+    }
+  },
+  "container": {
+    "id": "7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695",
+    "name": "/zjn-fluid-three-node-isolated_r01-n30",
+    "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "created": "2026-10-08T08:19:06.889653882Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 2013422,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-08T08:19:06.916290051Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "HostConfig": {
+      "Privileged": false,
+      "NetworkMode": "host",
+      "IpcMode": "private",
+      "Memory": 8589934592,
+      "PidsLimit": 512,
+      "ShmSize": 1073741824,
+      "CapAdd": [
+        "IPC_LOCK"
+      ],
+      "Devices": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "Ulimits": [
+        {
+          "Name": "core",
+          "Hard": 0,
+          "Soft": 0
+        },
+        {
+          "Name": "memlock",
+          "Hard": -1,
+          "Soft": -1
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/opt/hyhal",
+        "Destination": "/opt/hyhal",
+        "RW": false
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/fluidckpt_three_node/isolated_r01_n30/project",
+        "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "RW": true
+      }
+    ],
+    "command": {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-three-node-isolated_r01-n30"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  "protected_containers": [],
+  "owners": [
+    {
+      "pid": 3099791,
+      "start_time_ticks": "485331830",
+      "state": "S",
+      "comm": "vllm",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32768",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3100447,
+      "start_time_ticks": "485334819",
+      "state": "R",
+      "comm": "VLLM::EngineCor",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32769",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3101164,
+      "start_time_ticks": "485337522",
+      "state": "R",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "55589044224",
+        "pasid": "32778",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3101165,
+      "start_time_ticks": "485337522",
+      "state": "R",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "55589044224",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32770",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3101166,
+      "start_time_ticks": "485337522",
+      "state": "R",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32781",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "55589044224",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3101167,
+      "start_time_ticks": "485337522",
+      "state": "R",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "55589044224",
+        "vram_22078": "0",
+        "pasid": "32772",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    }
+  ],
+  "visibility_errors": [],
+  "source_assets": {
+    "codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/init_gate.py": {
+      "sha256": "927f543e2af1fee3e10c540d90ef98fa76f49f1dd242426a99fb3a188a850b9b",
+      "expected_sha256": "927f543e2af1fee3e10c540d90ef98fa76f49f1dd242426a99fb3a188a850b9b"
+    },
+    "codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/container_namespace.py": {
+      "sha256": "0c30726b7a6c8bc36949084c1df7543c8ea5821eef6ccb75796b439ec008cf2a",
+      "expected_sha256": "0c30726b7a6c8bc36949084c1df7543c8ea5821eef6ccb75796b439ec008cf2a"
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_frozen_isolated_r01/node30.json": {
+      "sha256": "8da563c2a306f3d3cb8c6287f2c620b8ce76802eb6a6a6d1dd1014f8260c871a",
+      "expected_sha256": "8da563c2a306f3d3cb8c6287f2c620b8ce76802eb6a6a6d1dd1014f8260c871a"
+    }
+  },
+  "gpu_api_calls": 0,
+  "keeper_rpc_calls": 0,
+  "keepers": [],
+  "keeper_process_discovery": [],
+  "scope": "metadata/catalog only; canonical catalog excludes dynamic free/sample fields; no model-content reread; additional keep-v02 six identities have no catalog RPC",
+  "container_identity_checks": {
+    "id": true,
+    "started": true,
+    "image": true,
+    "running": true
+  }
+}

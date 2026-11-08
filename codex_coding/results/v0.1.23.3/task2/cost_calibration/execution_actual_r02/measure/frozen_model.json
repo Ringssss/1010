@@ -1,0 +1,65 @@
+{
+  "decision": {
+    "cached_admitted": true,
+    "cached_median_s": 0.006189593,
+    "legacy_median_s": 0.0605756235,
+    "library_drop_s": 0.055289505,
+    "rule": "cached faster; legacy library >=50% wall; library reduction >=70% wall reduction; all exact static identity equal; fresh_fields retained",
+    "selected_mode": "cached",
+    "static_identity_stable": true
+  },
+  "fit_diagnostics": {
+    "cold_measurement_count": 0,
+    "first_pair_s_policy": "constrained zero; valid only after explicitly warming needed pairs",
+    "raw_target_slopes": {
+      "2:dram:4->4": 9.820755204429747e-11,
+      "4:hbm:0->4": -8.264541828673089e-12,
+      "4:ssd:0->5": 1.0888729894594402e-09
+    },
+    "schema1_failures": {
+      "4:hbm:0->4": {
+        "error": "invalid or non-increasing calibration samples",
+        "raw_byte_slope": -8.082072048646674e-12
+      }
+    },
+    "schema1_paths": {
+      "2:dram:4->4": {
+        "first_pair_s": 0.0,
+        "fit_bytes": [
+          4194304,
+          16777216
+        ],
+        "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope",
+        "operation_s": 0.0003707910024483378,
+        "warm_GBps": 10.187297614392882
+      },
+      "4:ssd:0->5": {
+        "first_pair_s": 0.0,
+        "fit_bytes": [
+          4194304,
+          16777216
+        ],
+        "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope",
+        "operation_s": 0.0029536396614275873,
+        "warm_GBps": 0.9183833707811104
+      }
+    },
+    "schema2_failure": "invalid request calibration slope or equal-byte batching"
+  },
+  "fit_input_observed_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/fit_input_observed.json",
+    "sha256": "fd58df7b22c6d5fc3331802aee050c3c5f2b371e4403d65e6a4b5c964fd2f466"
+  },
+  "fit_inputs_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/fit_inputs.json",
+    "sha256": "0e21d6bb693beb3b5c339d6578d3ed1bdd6d2a6e653369bf8a851a7eada117fa"
+  },
+  "model": null,
+  "repeated_paths": [
+    0
+  ],
+  "training_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/training.json",
+    "sha256": "be0e753aea0cb1030825b69bddf611cc720d06636d8b2e4cdeb8d029bda36b07"
+  }
+}

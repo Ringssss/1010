@@ -1,0 +1,40 @@
+{
+  "kind": "icmp",
+  "node": "node28",
+  "target": "10.211.3.28",
+  "started_at": "2026-10-08T07:15:32.910941+00:00",
+  "resolved_address": "10.211.3.28",
+  "route": {
+    "argv": [
+      "ip",
+      "-j",
+      "route",
+      "get",
+      "10.211.3.28"
+    ],
+    "started_at": "2026-10-08T07:15:32.905915+00:00",
+    "timeout_s": 2,
+    "returncode": 0,
+    "stdout": "[{\"dst\":\"10.211.3.28\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+    "stderr": "",
+    "finished_at": "2026-10-08T07:15:32.910922+00:00",
+    "elapsed_s": 0.0050208065658807755
+  },
+  "source_node": "node27",
+  "argv": [
+    "ping",
+    "-n",
+    "-c",
+    "1",
+    "-W",
+    "2",
+    "10.211.3.28"
+  ],
+  "timeout_s": 3,
+  "returncode": 0,
+  "stdout": "PING 10.211.3.28 (10.211.3.28) 56(84) bytes of data.\n64 bytes from 10.211.3.28: icmp_seq=1 ttl=64 time=0.113 ms\n\n--- 10.211.3.28 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.113/0.113/0.113/0.000 ms\n",
+  "stderr": "",
+  "finished_at": "2026-10-08T07:15:32.920037+00:00",
+  "elapsed_s": 0.00910908356308937,
+  "status": "reply"
+}

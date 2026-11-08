@@ -1,0 +1,79 @@
+{
+  "arm": "F_keepalive_flow",
+  "model": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+  "snap": "qwen36",
+  "src": "node27",
+  "src_gpus": [
+    0,
+    1
+  ],
+  "dst": "node29",
+  "dst_gpus": [
+    0,
+    1
+  ],
+  "ingest": {
+    "node27:0": {
+      "ev": "ingest",
+      "snap": "qwen36",
+      "tp": 0,
+      "GiB": 33.92764636874199,
+      "tensors": 1045,
+      "pin_s": 40.763930320739746,
+      "fill_s": 25.61714458465576,
+      "GBps": 1.4220762495840646
+    },
+    "node27:1": {
+      "ev": "ingest",
+      "snap": "qwen36",
+      "tp": 1,
+      "GiB": 33.92764636874199,
+      "tensors": 1045,
+      "pin_s": 12.172391653060913,
+      "fill_s": 26.528034210205078,
+      "GBps": 1.3732466042276856
+    }
+  },
+  "ingest_wall_s": 66.40747952461243,
+  "shard_GiB": {
+    "0": 33.93,
+    "1": 33.93
+  },
+  "flow": {
+    "lp_T_s": 0.7919463673043478,
+    "ops": 2,
+    "split_GB": [
+      [
+        0,
+        0,
+        36.43
+      ],
+      [
+        1,
+        0,
+        36.43
+      ]
+    ],
+    "resource_load_GBps": {
+      "gpuin:node29:0": 46.0,
+      "gpuin:node29:1": 46.0,
+      "h2d:node27:0": 46.0,
+      "h2d:node27:1": 46.0,
+      "hostrd:node27": 92.0,
+      "ibin:node29": 92.0,
+      "ibout:node27": 92.0,
+      "pair:node27:0->node29:0": 46.0,
+      "pair:node27:1->node29:1": 46.0
+    },
+    "route_of": [
+      [
+        0,
+        "ib"
+      ],
+      [
+        1,
+        "ib"
+      ]
+    ]
+  }
+}

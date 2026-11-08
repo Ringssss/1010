@@ -1,0 +1,181 @@
+{
+  "schema_version": "fluidckpt.selected_path_qualification.v1",
+  "development": "v0.1.23.3/task2",
+  "qualified_scope": "node28 GPU2/BDF55 ↔ node30 GPU0/BDF09; one tested two-rank IB path",
+  "qualified_at_UTC": "2026-10-09T07:25:33.047622+00:00",
+  "code_passed": true,
+  "runtime_init_passed": true,
+  "copy_passed": true,
+  "data_transfer_passed": true,
+  "XML_runtime_accepted": true,
+  "actual_IB_path_passed": true,
+  "nodes": {
+    "node28": {
+      "physical_gpu": 2,
+      "HIP_logical_gpu": 0,
+      "BDF": "0000:55:00.0",
+      "hostname": "m03r2n08",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "container_id": "e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba",
+      "container_started_at": "2026-10-09T06:19:44.292587393Z",
+      "init_passed": true,
+      "copy_full_1MiB_passed": true,
+      "data_transfer_passed": true,
+      "XML_runtime_accepted": true,
+      "actual_transport": "NET/IBext_v8",
+      "selected_HCA": "shca_0:1",
+      "gdr_policy": 0,
+      "GPU_direct_RDMA_enabled": false,
+      "GPU_mapping_passed": true,
+      "NIC_mapping_passed": true,
+      "init_budget_seconds": 60,
+      "NCCL_total_budget_seconds": 90,
+      "NCCL_process_elapsed_seconds": 25.784592082,
+      "NCCL_actual_HIP_free_bytes": 67427631104,
+      "cleanup": {
+        "natural_exit": true,
+        "signals": [],
+        "child_pid": 162,
+        "child_start_ticks": "485625118",
+        "child_absent": true,
+        "pending_group": []
+      },
+      "dump_derivation": {
+        "raw_sha256": "599124da02a5d0281baa246c25c102a676b7070ed4336d58cc02ef97dc2d2670",
+        "view_sha256": "b73b509119e4a68fd53d0ff7413953dded00db3ed31b279659c77ea2bd49a010",
+        "removed_tokens": 2,
+        "removed_bytes": 6,
+        "policy": "only one anonymous empty-value token per GPU or NET tag; raw dump preserved"
+      },
+      "runtime_root": "/home/zhujianian/zhujianian/fluidckpt_zjn"
+    },
+    "node30": {
+      "physical_gpu": 0,
+      "HIP_logical_gpu": 0,
+      "BDF": "0000:09:00.0",
+      "hostname": "m03r2n10",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "container_id": "7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695",
+      "container_started_at": "2026-10-08T08:19:06.916290051Z",
+      "init_passed": true,
+      "copy_full_1MiB_passed": true,
+      "data_transfer_passed": true,
+      "XML_runtime_accepted": true,
+      "actual_transport": "NET/IBext_v8",
+      "selected_HCA": "shca_0:1",
+      "gdr_policy": 0,
+      "GPU_direct_RDMA_enabled": false,
+      "GPU_mapping_passed": true,
+      "NIC_mapping_passed": true,
+      "init_budget_seconds": 60,
+      "NCCL_total_budget_seconds": 90,
+      "NCCL_process_elapsed_seconds": 25.600282903,
+      "NCCL_actual_HIP_free_bytes": 12664700928,
+      "cleanup": {
+        "natural_exit": true,
+        "signals": [],
+        "child_pid": 200,
+        "child_start_ticks": "485625940",
+        "child_absent": true,
+        "pending_group": []
+      },
+      "dump_derivation": {
+        "raw_sha256": "70385b85c92b63bacf965594650c5a793c01efa286d66d8e1646694f5b4069f0",
+        "view_sha256": "20a4d6b2569a3ab7afe2a949ebfe1f447d5137f516a078d3ce7d2272a8401b0c",
+        "removed_tokens": 2,
+        "removed_bytes": 6,
+        "policy": "only one anonymous empty-value token per GPU or NET tag; raw dump preserved"
+      },
+      "runtime_root": "/dev/shm/fluidckpt_diag30_r01/project"
+    }
+  },
+  "payload": {
+    "bytes": 1048576,
+    "verified_bytes_per_rank": 1048576,
+    "SHA256": "631b84027d6b9e52b539c4e8373622d23032dfadc64d60af87339c9037e4f769",
+    "pattern": "byte[i] = i % 251"
+  },
+  "original_XML_and_mapping_preserved": true,
+  "original_files": [
+    {
+      "path": "/usr/local/built-in-508-topo-input-tj-default.xml",
+      "status": "present",
+      "sha256": "5a10dbdec6e762ceb18861e98a556422e197a3351cf2d17df3246415fb4236ef"
+    },
+    {
+      "path": "/opt/dtk/rccl/lib/topo_mapping_default.xml",
+      "status": "present",
+      "sha256": "ecd54d0e0cef17db7736688b0531ee98ade49ac0a69e87b1a04054f4519c965a"
+    }
+  ],
+  "old_keepers": {
+    "node28_two_containers_and_13_process_identities_preserved": true,
+    "node28_six_catalogs_preserved": true,
+    "replicas": 1098,
+    "leases_zero": true,
+    "transactions_empty": true,
+    "full_weight_content_rehashed": false,
+    "protection_scope": "node28 declared retained containers/processes/catalogs; node30 exact container/visible-owner metadata; no full-cluster guarantee"
+  },
+  "new_cleanup_passed": true,
+  "performance_ready": false,
+  "bandwidth_measured": false,
+  "weights_ready_measured_on_this_path": false,
+  "exclusive_GPU_load": false,
+  "remaining_boundaries": {
+    "node30_root_disk_available_bytes": 0,
+    "node30_small_assets_use_private_shm": true,
+    "node27_pending": {
+      "pid": 4037472,
+      "start_ticks": "477235183",
+      "exit_newly_verified": false
+    },
+    "node29_pending": [
+      {
+        "pid": 21883,
+        "start_ticks": "475875814",
+        "exit_newly_verified": false
+      },
+      {
+        "pid": 21901,
+        "start_ticks": "475875846",
+        "exit_newly_verified": false
+      }
+    ],
+    "original_15s_failures_preserved": true,
+    "r01_Socket_and_r02_IB_validator_failures_preserved": true,
+    "old_resource_map_or_solver_written": false
+  },
+  "next_entry": {
+    "configuration_and_launch_provenance": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/admission28_nccl_deploy_r03/launches.json",
+    "runtime_source": "codex_coding/src/v0.1.23.3/task2/three_node_recovery/admission28/runtime_gate_r03.py",
+    "source_sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058",
+    "owned_XML_directory": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_xml_2830_gdr0_r01",
+    "next_runs_require_fresh_names_and_current_resource_guard": true
+  },
+  "independent_checks": {
+    "node28/raw_view_bound": true,
+    "node28/actual_IB_XML_mapping": true,
+    "node28/original_XML_preserved": true,
+    "node28/full_payload_and_exit": true,
+    "node28/outer_protection": true,
+    "node28/init": true,
+    "node28/copy": true,
+    "node28/observed_gdr0": true,
+    "node30/raw_view_bound": true,
+    "node30/actual_IB_XML_mapping": true,
+    "node30/original_XML_preserved": true,
+    "node30/full_payload_and_exit": true,
+    "node30/outer_protection": true,
+    "node30/init": true,
+    "node30/copy": true,
+    "node30/observed_gdr0": true,
+    "same_crossnode_communicator": true,
+    "node30/quiet_pids_no_OOM": true,
+    "code_CPU_validation": true
+  },
+  "evidence_refs": {
+    "path": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/review_runtime_final_r01/evidence_refs.json",
+    "sha256": "71a0da75a33e019c2e333fd69a0d3f229382133457b6a198cf691362b7952a9b"
+  }
+}

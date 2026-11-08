@@ -1,0 +1,260 @@
+{
+  "status": "failed",
+  "scope": "native SGLang memory_saver + weights_cpu_backup; isolated DTK compatibility patch, no FluidCKPT loading/lifecycle hook",
+  "args": {
+    "run": "qwen35b03",
+    "model": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+    "node": 27,
+    "gpu_base": 0,
+    "port": 32540,
+    "timeout": 1200,
+    "repeats": 3,
+    "memory_saver_package": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/tms_dtk_fixed2/package"
+  },
+  "events": [
+    {
+      "time": 1791073286.0109162,
+      "event": "started",
+      "process": {
+        "pid": 140742,
+        "start_time": "439917961",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/native_cpu_backup/qwen35b03/server.process.json"
+      }
+    },
+    {
+      "time": 1791073286.013878,
+      "event": "loading",
+      "elapsed_s": 0.16554738767445087
+    },
+    {
+      "time": 1791073316.0552633,
+      "event": "loading",
+      "elapsed_s": 30.206932166591287
+    },
+    {
+      "time": 1791073346.0970886,
+      "event": "loading",
+      "elapsed_s": 60.248756881803274
+    },
+    {
+      "time": 1791073376.1394584,
+      "event": "loading",
+      "elapsed_s": 90.291126226075
+    },
+    {
+      "time": 1791073406.1895764,
+      "event": "loading",
+      "elapsed_s": 120.34124573506415
+    },
+    {
+      "time": 1791073436.2461488,
+      "event": "loading",
+      "elapsed_s": 150.39781676791608
+    },
+    {
+      "time": 1791073466.2926023,
+      "event": "loading",
+      "elapsed_s": 180.44427112862468
+    },
+    {
+      "time": 1791073496.3394325,
+      "event": "loading",
+      "elapsed_s": 210.49110181443393
+    },
+    {
+      "time": 1791073526.3837495,
+      "event": "loading",
+      "elapsed_s": 240.53541818540543
+    },
+    {
+      "time": 1791073556.4279413,
+      "event": "loading",
+      "elapsed_s": 270.5796088408679
+    },
+    {
+      "time": 1791073586.4733078,
+      "event": "loading",
+      "elapsed_s": 300.6249742405489
+    },
+    {
+      "time": 1791073616.5174458,
+      "event": "loading",
+      "elapsed_s": 330.66911370214075
+    },
+    {
+      "time": 1791073646.5603666,
+      "event": "loading",
+      "elapsed_s": 360.7120358143002
+    },
+    {
+      "time": 1791073676.6041932,
+      "event": "loading",
+      "elapsed_s": 390.7558617545292
+    },
+    {
+      "time": 1791073706.64877,
+      "event": "loading",
+      "elapsed_s": 420.80043786857277
+    },
+    {
+      "time": 1791073736.6938512,
+      "event": "loading",
+      "elapsed_s": 450.84551747329533
+    },
+    {
+      "time": 1791073766.7494633,
+      "event": "loading",
+      "elapsed_s": 480.90113212913275
+    },
+    {
+      "time": 1791073812.1128478,
+      "event": "restored",
+      "repetition": 0,
+      "correct": true,
+      "release_s": 22.273058073595166,
+      "request_to_first_token_s": 3.738074442371726
+    },
+    {
+      "time": 1791073825.679609,
+      "event": "restored",
+      "repetition": 1,
+      "correct": false,
+      "release_s": 1.9619346661493182,
+      "request_to_first_token_s": 5.9996803952381015
+    },
+    {
+      "time": 1791073825.6803339,
+      "event": "failed",
+      "error": "AssertionError('native CPU-backup output changed after resume')"
+    },
+    {
+      "time": 1791073826.474847,
+      "event": "finished"
+    }
+  ],
+  "roundtrips": [
+    {
+      "repetition": 0,
+      "release_s": 22.273058073595166,
+      "resume_rpc_s": 3.351223402656615,
+      "request_to_first_token_s": 3.738074442371726,
+      "reply": {
+        "text": " Paris, a city renowned for its rich history, culture, and iconic landmarks. Situated in the north-central part of the country, along the Seine River,",
+        "first_token_time": 4399700.534875105,
+        "ttft_s": 0.38678573817014694,
+        "generation_s": 5.579109317623079,
+        "meta_info": {
+          "id": "fb5b00ce6416486a9a18b15bdc14e2cd",
+          "finish_reason": {
+            "type": "length",
+            "length": 32
+          },
+          "prompt_tokens": 5,
+          "weight_version": "default",
+          "num_retractions": 0,
+          "reasoning_tokens": 0,
+          "completion_tokens": 32,
+          "cached_tokens": 0,
+          "cached_tokens_details": null,
+          "dp_rank": null,
+          "e2e_latency": 5.57745957840234
+        }
+      },
+      "correct": true,
+      "hbm_before": {
+        "card5": 690008064,
+        "card3": 690085888,
+        "card1": 38694170624,
+        "card8": 690012160,
+        "card6": 690016256,
+        "card4": 690008064,
+        "card2": 38487363584,
+        "card7": 690008064
+      },
+      "hbm_parked": {
+        "card5": 807448576,
+        "card3": 807526400,
+        "card1": 3589943296,
+        "card8": 807452672,
+        "card6": 807456768,
+        "card4": 807448576,
+        "card2": 3383136256,
+        "card7": 807448576
+      }
+    },
+    {
+      "repetition": 1,
+      "release_s": 1.9619346661493182,
+      "resume_rpc_s": 3.3750866958871484,
+      "request_to_first_token_s": 5.9996803952381015,
+      "reply": {
+        "text": "rou end end endappoint8 Rem.ef\n ofre\n\n\n\u4e5f\u4e0d\u53ef\u80fd\n\n\n\n zero\n\n\nindra\n.slot\n.sy  zeroirlfb em",
+        "first_token_time": 4399713.995407362,
+        "ttft_s": 2.6245108665898442,
+        "generation_s": 7.923064883798361,
+        "meta_info": {
+          "id": "940be32513494eb4b9fbf54ab5322aa2",
+          "finish_reason": {
+            "type": "length",
+            "length": 32
+          },
+          "prompt_tokens": 5,
+          "weight_version": "default",
+          "num_retractions": 0,
+          "reasoning_tokens": 0,
+          "completion_tokens": 32,
+          "cached_tokens": 0,
+          "cached_tokens_details": null,
+          "dp_rank": null,
+          "e2e_latency": 7.921336572617292
+        }
+      },
+      "correct": false,
+      "hbm_before": {
+        "card5": 807448576,
+        "card3": 807526400,
+        "card1": 38792736768,
+        "card8": 807452672,
+        "card6": 807456768,
+        "card4": 807448576,
+        "card2": 38585929728,
+        "card7": 807448576
+      },
+      "hbm_parked": {
+        "card5": 807448576,
+        "card3": 807526400,
+        "card1": 3589943296,
+        "card8": 807452672,
+        "card6": 807456768,
+        "card4": 807448576,
+        "card2": 3383136256,
+        "card7": 807448576
+      }
+    }
+  ],
+  "startup_s": 487.91499556507915,
+  "reference": {
+    "text": " Paris, a city renowned for its rich history, culture, and iconic landmarks. Situated in the north-central part of the country, along the Seine River,",
+    "first_token_time": 4399669.032435176,
+    "ttft_s": 1.654660158790648,
+    "generation_s": 6.838945752941072,
+    "meta_info": {
+      "id": "3e9f5c38ce144e7583366ee1f326d12f",
+      "finish_reason": {
+        "type": "length",
+        "length": 32
+      },
+      "prompt_tokens": 5,
+      "weight_version": "default",
+      "num_retractions": 0,
+      "reasoning_tokens": 0,
+      "completion_tokens": 32,
+      "cached_tokens": 0,
+      "cached_tokens_details": null,
+      "dp_rank": null,
+      "e2e_latency": 6.837182939052582
+    }
+  },
+  "error": "AssertionError('native CPU-backup output changed after resume')",
+  "cleanup": "{\"stopped\": 140742}\n"
+}

@@ -1,0 +1,211 @@
+32aa13da8bbd4d9a4ec37be08014f0783f5f576c7439dc10a3e1c661aa35427a  /opt/dtk/lib/librccl.so.1
+  129c5 PXN
+  14252 DIS
+  184bc PIX
+  18fd1 LOC
+  18fd5 SYS
+  1a6c7 NCCL_NET_GDR_LEVEL
+  1f91d PHB
+  205fb NVB
+  28b1a PXB
+000000000a59e800 d topoPathTypeStr
+000000000a4a4bd0 t _Z12ncclGetLevelPiPKcS1_
+000000000a4a5190 t _Z16ncclTopoCheckGdrP14ncclTopoSystemlliPi
+000000000a59e800  0000000000000008 R_X86_64_RELATIVE                         18fd1
+000000000a59e808  0000000000000008 R_X86_64_RELATIVE                         1f92a
+000000000a59e810  0000000000000008 R_X86_64_RELATIVE                         205fb
+000000000a59e818  0000000000000008 R_X86_64_RELATIVE                         184bc
+000000000a59e820  0000000000000008 R_X86_64_RELATIVE                         28b1a
+000000000a59e828  0000000000000008 R_X86_64_RELATIVE                         129c5
+000000000a59e830  0000000000000008 R_X86_64_RELATIVE                         1f91d
+000000000a59e838  0000000000000008 R_X86_64_RELATIVE                         18fd5
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+Contents of section .rodata:
+ 18fd1 4c4f43 00535953 0050                 LOC.SYS.P       
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4a4bd0 <ncclGetLevel(int*, char const*, char const*)>:
+ a4a4bd0:	41 57                	push   %r15
+ a4a4bd2:	41 56                	push   %r14
+ a4a4bd4:	41 55                	push   %r13
+ a4a4bd6:	41 54                	push   %r12
+ a4a4bd8:	53                   	push   %rbx
+ a4a4bd9:	48 83 ec 10          	sub    $0x10,%rsp
+ a4a4bdd:	83 3f ff             	cmpl   $0xffffffff,(%rdi)
+ a4a4be0:	0f 85 93 01 00 00    	jne    a4a4d79 <ncclGetLevel(int*, char const*, char const*)+0x1a9>
+ a4a4be6:	49 89 d6             	mov    %rdx,%r14
+ a4a4be9:	48 89 fb             	mov    %rdi,%rbx
+ a4a4bec:	48 85 f6             	test   %rsi,%rsi
+ a4a4bef:	74 25                	je     a4a4c16 <ncclGetLevel(int*, char const*, char const*)+0x46>
+ a4a4bf1:	48 89 f7             	mov    %rsi,%rdi
+ a4a4bf4:	e8 17 8d 04 00       	call   a4ed910 <ncclGetEnv(char const*)>
+ a4a4bf9:	48 85 c0             	test   %rax,%rax
+ a4a4bfc:	74 18                	je     a4a4c16 <ncclGetLevel(int*, char const*, char const*)+0x46>
+ a4a4bfe:	45 31 e4             	xor    %r12d,%r12d
+ a4a4c01:	48 89 c7             	mov    %rax,%rdi
+ a4a4c04:	31 f6                	xor    %esi,%esi
+ a4a4c06:	31 d2                	xor    %edx,%edx
+ a4a4c08:	e8 03 75 08 00       	call   a52c110 <strtol@plt>
+ a4a4c0d:	83 f8 01             	cmp    $0x1,%eax
+ a4a4c10:	0f 84 25 01 00 00    	je     a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4c16:	4c 89 f7             	mov    %r14,%rdi
+ a4a4c19:	e8 f2 8c 04 00       	call   a4ed910 <ncclGetEnv(char const*)>
+ a4a4c1e:	41 bc fe ff ff ff    	mov    $0xfffffffe,%r12d
+ a4a4c24:	48 85 c0             	test   %rax,%rax
+ a4a4c27:	0f 84 49 01 00 00    	je     a4a4d76 <ncclGetLevel(int*, char const*, char const*)+0x1a6>
+ a4a4c2d:	49 89 c7             	mov    %rax,%r15
+ a4a4c30:	4c 8d 2d c9 9b 0f 00 	lea    0xf9bc9(%rip),%r13        # a59e800 <topoPathTypeStr>
+ a4a4c37:	49 8b 75 00          	mov    0x0(%r13),%rsi
+ a4a4c3b:	48 89 c7             	mov    %rax,%rdi
+ a4a4c3e:	e8 ad 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4c43:	85 c0                	test   %eax,%eax
+ a4a4c45:	0f 84 b5 00 00 00    	je     a4a4d00 <ncclGetLevel(int*, char const*, char const*)+0x130>
+ a4a4c4b:	49 8b 75 08          	mov    0x8(%r13),%rsi
+ a4a4c4f:	4c 89 ff             	mov    %r15,%rdi
+ a4a4c52:	e8 99 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4c57:	85 c0                	test   %eax,%eax
+ a4a4c59:	0f 84 a6 00 00 00    	je     a4a4d05 <ncclGetLevel(int*, char const*, char const*)+0x135>
+ a4a4c5f:	49 8b 75 10          	mov    0x10(%r13),%rsi
+ a4a4c63:	4c 89 ff             	mov    %r15,%rdi
+ a4a4c66:	e8 85 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4c6b:	85 c0                	test   %eax,%eax
+ a4a4c6d:	0f 84 9a 00 00 00    	je     a4a4d0d <ncclGetLevel(int*, char const*, char const*)+0x13d>
+ a4a4c73:	49 8b 75 18          	mov    0x18(%r13),%rsi
+ a4a4c77:	4c 89 ff             	mov    %r15,%rdi
+ a4a4c7a:	e8 71 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4c7f:	85 c0                	test   %eax,%eax
+ a4a4c81:	0f 84 8e 00 00 00    	je     a4a4d15 <ncclGetLevel(int*, char const*, char const*)+0x145>
+ a4a4c87:	49 8b 75 20          	mov    0x20(%r13),%rsi
+ a4a4c8b:	4c 89 ff             	mov    %r15,%rdi
+ a4a4c8e:	e8 5d 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4c93:	85 c0                	test   %eax,%eax
+ a4a4c95:	0f 84 82 00 00 00    	je     a4a4d1d <ncclGetLevel(int*, char const*, char const*)+0x14d>
+ a4a4c9b:	49 8b 75 28          	mov    0x28(%r13),%rsi
+ a4a4c9f:	4c 89 ff             	mov    %r15,%rdi
+ a4a4ca2:	e8 49 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4ca7:	85 c0                	test   %eax,%eax
+ a4a4ca9:	74 7a                	je     a4a4d25 <ncclGetLevel(int*, char const*, char const*)+0x155>
+ a4a4cab:	49 8b 75 30          	mov    0x30(%r13),%rsi
+ a4a4caf:	4c 89 ff             	mov    %r15,%rdi
+ a4a4cb2:	e8 39 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4cb7:	85 c0                	test   %eax,%eax
+ a4a4cb9:	74 72                	je     a4a4d2d <ncclGetLevel(int*, char const*, char const*)+0x15d>
+ a4a4cbb:	49 8b 75 38          	mov    0x38(%r13),%rsi
+ a4a4cbf:	4c 89 ff             	mov    %r15,%rdi
+ a4a4cc2:	e8 29 71 08 00       	call   a52bdf0 <strcmp@plt>
+ a4a4cc7:	85 c0                	test   %eax,%eax
+ a4a4cc9:	74 6a                	je     a4a4d35 <ncclGetLevel(int*, char const*, char const*)+0x165>
+ a4a4ccb:	41 0f b6 07          	movzbl (%r15),%eax
+ a4a4ccf:	04 d0                	add    $0xd0,%al
+ a4a4cd1:	3c 09                	cmp    $0x9,%al
+ a4a4cd3:	0f 87 9d 00 00 00    	ja     a4a4d76 <ncclGetLevel(int*, char const*, char const*)+0x1a6>
+ a4a4cd9:	4c 89 ff             	mov    %r15,%rdi
+ a4a4cdc:	31 f6                	xor    %esi,%esi
+ a4a4cde:	31 d2                	xor    %edx,%edx
+ a4a4ce0:	e8 2b 74 08 00       	call   a52c110 <strtol@plt>
+ a4a4ce5:	83 f8 05             	cmp    $0x5,%eax
+ a4a4ce8:	b9 05 00 00 00       	mov    $0x5,%ecx
+ a4a4ced:	0f 4c c8             	cmovl  %eax,%ecx
+ a4a4cf0:	48 63 c1             	movslq %ecx,%rax
+ a4a4cf3:	48 8d 0d 56 50 b8 f5 	lea    -0xa47afaa(%rip),%rcx        # 29d50 <levelsOldToNew>
+ a4a4cfa:	44 8b 24 81          	mov    (%rcx,%rax,4),%r12d
+ a4a4cfe:	eb 3b                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d00:	45 31 e4             	xor    %r12d,%r12d
+ a4a4d03:	eb 36                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d05:	41 bc 01 00 00 00    	mov    $0x1,%r12d
+ a4a4d0b:	eb 2e                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d0d:	41 bc 02 00 00 00    	mov    $0x2,%r12d
+ a4a4d13:	eb 26                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d15:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4a4d1b:	eb 1e                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d1d:	41 bc 04 00 00 00    	mov    $0x4,%r12d
+ a4a4d23:	eb 16                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d25:	41 bc 05 00 00 00    	mov    $0x5,%r12d
+ a4a4d2b:	eb 0e                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d2d:	41 bc 06 00 00 00    	mov    $0x6,%r12d
+ a4a4d33:	eb 06                	jmp    a4a4d3b <ncclGetLevel(int*, char const*, char const*)+0x16b>
+ a4a4d35:	41 bc 07 00 00 00    	mov    $0x7,%r12d
+ a4a4d3b:	44 89 e0             	mov    %r12d,%eax
+ a4a4d3e:	48 8d 0d bb 9a 0f 00 	lea    0xf9abb(%rip),%rcx        # a59e800 <topoPathTypeStr>
+ a4a4d45:	48 8b 04 c1          	mov    (%rcx,%rax,8),%rax
+ a4a4d49:	48 89 04 24          	mov    %rax,(%rsp)
+ a4a4d4d:	48 8d 15 92 de b7 f5 	lea    -0xa48216e(%rip),%rdx        # 22be6 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x229f6>
+ a4a4d54:	4c 8d 05 d2 2e b8 f5 	lea    -0xa47d12e(%rip),%r8        # 27c2d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27a3d>
+ a4a4d5b:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4a4d60:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4a4d67:	b9 fc 00 00 00       	mov    $0xfc,%ecx
+ a4a4d6c:	4d 89 f1             	mov    %r14,%r9
+ a4a4d6f:	31 c0                	xor    %eax,%eax
+ a4a4d71:	e8 8a 9e fc ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4a4d76:	44 89 23             	mov    %r12d,(%rbx)
+ a4a4d79:	31 c0                	xor    %eax,%eax
+ a4a4d7b:	48 83 c4 10          	add    $0x10,%rsp
+ a4a4d7f:	5b                   	pop    %rbx
+ a4a4d80:	41 5c                	pop    %r12
+ a4a4d82:	41 5d                	pop    %r13
+ a4a4d84:	41 5e                	pop    %r14
+ a4a4d86:	41 5f                	pop    %r15
+ a4a4d88:	c3                   	ret    
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4a5332 <ncclTopoCheckGdr(ncclTopoSystem*, long, long, int, int*)+0x1a2>:
+ a4a5332:	4c 89 54 24 08       	mov    %r10,0x8(%rsp)
+ a4a5337:	8b 85 58 98 0f 00    	mov    0xf9858(%rbp),%eax
+ a4a533d:	83 f8 fe             	cmp    $0xfffffffe,%eax
+ a4a5340:	b9 04 00 00 00       	mov    $0x4,%ecx
+ a4a5345:	0f 45 c8             	cmovne %eax,%ecx
+ a4a5348:	89 0c 24             	mov    %ecx,(%rsp)
+ a4a534b:	48 8d 3d 6e 92 0f 00 	lea    0xf926e(%rip),%rdi        # a59e5c0 <ncclTopoUserGdrLevel>
+ a4a5352:	48 8d 15 6e 53 b7 f5 	lea    -0xa48ac92(%rip),%rdx        # 1a6c7 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1a4d7>
+ a4a5359:	31 f6                	xor    %esi,%esi
+ a4a535b:	e8 70 f8 ff ff       	call   a4a4bd0 <ncclGetLevel(int*, char const*, char const*)>
+ a4a5360:	4c 8b 5c 24 08       	mov    0x8(%rsp),%r11
+ a4a5365:	8b 0d 55 92 0f 00    	mov    0xf9255(%rip),%ecx        # a59e5c0 <ncclTopoUserGdrLevel>
+ a4a536b:	83 f9 fe             	cmp    $0xfffffffe,%ecx
+ a4a536e:	0f 85 bf 01 00 00    	jne    a4a5533 <ncclTopoCheckGdr(ncclTopoSystem*, long, long, int, int*)+0x3a3>
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4a568c <ncclTopoCheckGdr(ncclTopoSystem*, long, long, int, int*)+0x4fc>:
+ a4a568c:	41 39 ca             	cmp    %ecx,%r10d
+ a4a568f:	49 89 cf             	mov    %rcx,%r15
+ a4a5692:	7e 28                	jle    a4a56bc <ncclTopoCheckGdr(ncclTopoSystem*, long, long, int, int*)+0x52c>
+ a4a5694:	48 83 ec 08          	sub    $0x8,%rsp
+ a4a5698:	48 8d 15 bd 25 b8 f5 	lea    -0xa47da43(%rip),%rdx        # 27c5c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27a6c>
+ a4a569f:	4c 8d 05 94 87 b7 f5 	lea    -0xa48786c(%rip),%r8        # 1de3a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dc4a>
+ a4a56a6:	be 10 00 00 00       	mov    $0x10,%esi
+ a4a56ab:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4a56b0:	b9 be 01 00 00       	mov    $0x1be,%ecx
+ a4a56b5:	4d 89 f1             	mov    %r14,%r9
+ a4a56b8:	31 c0                	xor    %eax,%eax
+ a4a56ba:	eb 2f                	jmp    a4a56eb <ncclTopoCheckGdr(ncclTopoSystem*, long, long, int, int*)+0x55b>
+ a4a56bc:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+ a4a56c1:	c7 00 01 00 00 00    	movl   $0x1,(%rax)
+ a4a56c7:	48 8d 15 8e 25 b8 f5 	lea    -0xa47da72(%rip),%rdx        # 27c5c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27a6c>
+ a4a56ce:	4c 8d 05 9d 20 b7 f5 	lea    -0xa48df63(%rip),%r8        # 17772 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x17582>
+ a4a56d5:	be 10 00 00 00       	mov    $0x10,%esi
+ a4a56da:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4a56df:	b9 c3 01 00 00       	mov    $0x1c3,%ecx
+ a4a56e4:	4d 89 f1             	mov    %r14,%r9
+ a4a56e7:	31 c0                	xor    %eax,%eax
+ a4a56e9:	41 53                	push   %r11
+ a4a56eb:	41 57                	push   %r15
+ a4a56ed:	41 52                	push   %r10
+ a4a56ef:	53                   	push   %rbx
+ a4a56f0:	e8 0b 95 fc ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4a56f5:	45 31 c9             	xor    %r9d,%r9d
+ a4a56f8:	48 83 c4 20          	add    $0x20,%rsp
+ a4a56fc:	e9 e1 fb ff ff       	jmp    a4a52e2 <ncclTopoCheckGdr(ncclTopoSystem*, long, long, int, int*)+0x152>

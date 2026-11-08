@@ -1,0 +1,20 @@
+{
+  "schema_version": "first_op_analysis.protocol.v1",
+  "fixed_bytes": 8388608,
+  "copies_per_request": 2,
+  "stage_order": {"A": [1, 4, 3, 2], "B": [2, 3, 4, 1]},
+  "nonlog_host_phases": ["source_slice", "target_slice", "copy_submit"],
+  "noise_scale_ns": "max(5000, 4 * empty_paired_clock_extra_p95_ns, 2 * MAD(A op2 nonlog host wall), 2 * MAD(A op2 nonlog host CPU))",
+  "noise_scale_frozen_for_B": true,
+  "required_state_delta": "all four R1 and both F R2 nonlog wall/CPU (op1-op2) >= 2*S; CPU/wall delta discrepancy <= max(S, 0.5*wall delta)",
+  "thread_state": "both P R2 abs(nonlog wall/CPU op1-op2) <= S; both target-condition R2 F-P op1 nonlog wall/CPU >= 2*S",
+  "request_state": "both P R2 nonlog wall/CPU op1-op2 >= 2*S with CPU/wall agreement; both target-condition R2 abs(F-P op1 nonlog wall/CPU) <= S",
+  "target_gate": "for F and P, abs((R2 fresh service op1-op2) - (R2 pretouched service op1-op2)) <= max(2*S, 0.5*minimum positive service wall state delta across all R1 and F R2)",
+  "observer_gate": "nonlog CPU/wall evidence is mandatory; dummy log absolute cost and fluctuation reported, never subtracted and not included as absolute nonlog noise",
+  "fit": "C0/C1/C2 same 16 A op record_total_ns; nonnegative p, p+r request-first, p+h actual-thread-first (request branch same C1)",
+  "shared_costs": "A component means grouped by executor_mode and request_ordinal; record_gap/set_device/postdiagnosis/dispatch_create_join/worker_other/controller_residual/query/prepare/full_other all included once; R1 cell allocation stays in R1 prepare",
+  "prediction": "8 deterministic B requests; only fixed cell/mode/ordinal/thread-first states, all costs from A; published and old bounded predictions null; all parameters and predictions frozen before first B request",
+  "admission": "B same state gate with frozen A S; C2 worker execute, controller execute and full MAE and max-absolute-error all strictly lower than C0/C1; worker and full MAE and max-error reductions exceed scale=max(S, A/B dummy-log fluctuation p95, max absolute B observed shared-total minus A frozen shared-total). Request-equivalent C2 chooses C1. No automatic product upgrade.",
+  "interpretation": "exploratory conservative stopping criteria, no statistical confidence or future error bound; target intervention identifies combined write history/cache only; fixed size cannot fit byte slope or bandwidth",
+  "fixed_two_copy_structural_note": "With the same A op set and fixed two copies per request, 2*C0.p equals 2*C1.p+C1.r under NNLS (also when r clips to zero). If the state is request-first, C2 equals C1 and cannot add request-total discrimination here. B still tests conditional state replication when A gate passes; do not fabricate main-metric gain or alter the A/B gate."
+}

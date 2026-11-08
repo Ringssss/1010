@@ -1,0 +1,160 @@
+{
+  "run": "cluster/policy01",
+  "status": "passed",
+  "samples": [
+    {
+      "phase": "policy_primary_only",
+      "node": "node29",
+      "strategy": "nearest",
+      "load_s": 2.180202014,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.001416207,
+        "loader_entry_s": 0.002180273,
+        "model_layout_s": 0.312143001,
+        "export_s": 0.035635658,
+        "target_wait_s": 1.816332476,
+        "finalize_s": 0.012494399
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.343917368,
+        "target_mapping_s": 0.06843843,
+        "execute_dispatch_wait_s": 0.008596687,
+        "worker_execution_s": 1.382130947,
+        "completion_coordination_s": 0.006859458,
+        "ready_notice_wait_s": 0.006389586
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.19000371312722564,
+        "execute_wall_s": 1.3903031260706484,
+        "verify_and_publish_s": 0.009153991937637329,
+        "coordinator_wall_s": 1.5894608311355114
+      },
+      "coordinator_plan_s": 0.2170105278491974,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "passed": true
+    },
+    {
+      "phase": "policy_nearest",
+      "node": "node29",
+      "strategy": "nearest",
+      "load_s": 2.259574075,
+      "critical_rank": "0",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002363193,
+        "model_layout_s": 0.309459237,
+        "export_s": 0.034914024,
+        "target_wait_s": 1.900759484,
+        "finalize_s": 0.012078137
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.447394492,
+        "target_mapping_s": 0.056653954,
+        "execute_dispatch_wait_s": 0.029499774,
+        "worker_execution_s": 1.338059602,
+        "completion_coordination_s": 0.021237478,
+        "ready_notice_wait_s": 0.007914184
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.272811699192971,
+        "execute_wall_s": 1.3582900986075401,
+        "verify_and_publish_s": 0.01015189616009593,
+        "coordinator_wall_s": 1.641253693960607
+      },
+      "coordinator_plan_s": 0.24490643478929996,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "passed": true
+    },
+    {
+      "phase": "policy_balanced",
+      "node": "node29",
+      "strategy": "balanced",
+      "load_s": 2.258084287,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.004972588,
+        "loader_entry_s": 0.002349673,
+        "model_layout_s": 0.312611994,
+        "export_s": 0.034857093,
+        "target_wait_s": 1.891093411,
+        "finalize_s": 0.012199528
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.426177894,
+        "target_mapping_s": 0.071049415,
+        "execute_dispatch_wait_s": 0.008184215,
+        "worker_execution_s": 1.368354101,
+        "completion_coordination_s": 0.008710838,
+        "ready_notice_wait_s": 0.008616948
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.20563995791599154,
+        "execute_wall_s": 1.3757034069858491,
+        "verify_and_publish_s": 0.010552580002695322,
+        "coordinator_wall_s": 1.591895944904536
+      },
+      "coordinator_plan_s": 0.28808260103687644,
+      "source_bytes": {
+        "model/remote/0": 32837020336,
+        "model/joint/0": 360710144,
+        "model/gpu/0": 1967128576,
+        "model/remote/1": 32837020336,
+        "model/joint/1": 360710144,
+        "model/gpu/1": 1967128576
+      },
+      "passed": true
+    },
+    {
+      "phase": "policy_resource_lp",
+      "node": "node29",
+      "strategy": "resource_lp",
+      "load_s": 2.336552856,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002394253,
+        "model_layout_s": 0.307986089,
+        "export_s": 0.035053774,
+        "target_wait_s": 1.97850202,
+        "finalize_s": 0.01261672
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.546536102,
+        "target_mapping_s": 0.061987754,
+        "execute_dispatch_wait_s": 0.007679583,
+        "worker_execution_s": 1.348948257,
+        "completion_coordination_s": 0.007737193,
+        "ready_notice_wait_s": 0.005613131
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.3275568578392267,
+        "execute_wall_s": 1.3567666341550648,
+        "verify_and_publish_s": 0.00993280066177249,
+        "coordinator_wall_s": 1.694256292656064
+      },
+      "coordinator_plan_s": 0.19577637035399675,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "passed": true
+    }
+  ],
+  "summary_sha256": "28bdced0682ca43d086cfe3aac2f5b67d4538d65b420845a8591bd591af691e2",
+  "scope": "exact additive target-host segments; coordinator durations are nested diagnostics, not extra load time"
+}

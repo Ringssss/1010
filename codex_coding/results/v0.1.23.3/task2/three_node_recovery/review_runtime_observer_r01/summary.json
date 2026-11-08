@@ -1,0 +1,136 @@
+{
+  "evidence_consistent": true,
+  "checks": {
+    "reviewed_observer_source": true,
+    "same_target_owner_and_event": true,
+    "two_requested_samples": true,
+    "readonly_operations": true,
+    "postcheck_absence": true,
+    "sample0/snapshot_original": true,
+    "sample0/exact_before": true,
+    "sample0/exact_after": true,
+    "sample0/bounded": true,
+    "sample1/snapshot_original": true,
+    "sample1/exact_before": true,
+    "sample1/exact_after": true,
+    "sample1/bounded": true
+  },
+  "samples": [
+    {
+      "offset_seconds": 2.000272173,
+      "threads": [
+        {
+          "tid": 43,
+          "wchan": {
+            "value": "0",
+            "truncated": false
+          },
+          "syscall": {
+            "error": "PermissionError",
+            "errno": 1,
+            "message": "[Errno 1] Operation not permitted"
+          },
+          "state": "R",
+          "utime_ticks": 327,
+          "stime_ticks": 57,
+          "rss_pages": 207671
+        },
+        {
+          "tid": 44,
+          "wchan": {
+            "value": "kfd_wait_on_events",
+            "truncated": false
+          },
+          "syscall": {
+            "error": "PermissionError",
+            "errno": 1,
+            "message": "[Errno 1] Operation not permitted"
+          },
+          "state": "S",
+          "utime_ticks": 0,
+          "stime_ticks": 0,
+          "rss_pages": 207671
+        }
+      ]
+    },
+    {
+      "offset_seconds": 6.000222661,
+      "threads": [
+        {
+          "tid": 43,
+          "wchan": {
+            "value": "0",
+            "truncated": false
+          },
+          "syscall": {
+            "error": "PermissionError",
+            "errno": 1,
+            "message": "[Errno 1] Operation not permitted"
+          },
+          "state": "R",
+          "utime_ticks": 662,
+          "stime_ticks": 121,
+          "rss_pages": 327597
+        },
+        {
+          "tid": 44,
+          "wchan": {
+            "value": "kfd_wait_on_events",
+            "truncated": false
+          },
+          "syscall": {
+            "error": "PermissionError",
+            "errno": 1,
+            "message": "[Errno 1] Operation not permitted"
+          },
+          "state": "S",
+          "utime_ticks": 0,
+          "stime_ticks": 0,
+          "rss_pages": 327597
+        }
+      ]
+    }
+  ],
+  "hylog": "[ROCT-Thunk-Interface_6.3_docker/src/fmm.c:1831, ERROR] mbind is blocked by seccomp\n",
+  "runtime_passed": false,
+  "performance_ready": false,
+  "scope": "Exact snapshots show CPU and wait states; syscall EPERM remains unknown. Vendor mbind/seccomp message is a causal lead, not measured syscall errno or a unique cause.",
+  "input_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_node28_observer_r01/summary.json",
+      "sha256": "08fb96475a22e210f4de7778f60e6fbe4af1516ebba9b4697be9b9ea5b1e5bf5"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_node28_observer_r01/source.py",
+      "sha256": "f9a596f07e8d0aba9d42be10e8ae100d2581be02960b9de9999af0334ba70278"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_node28_observer_r01/snapshot_2s.json",
+      "sha256": "c7a0f379eb0c85ec305416c635ca821da0610d46fe79cdff4cd40d32681bb5f7"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_node28_observer_r01/snapshot_6s.json",
+      "sha256": "e2c82a816510359c7ebfc24057ce58ebb952cf7116436393fd65071407d127cb"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_node28_observed_r01/child.process.json",
+      "sha256": "fc6e85a9d5010f0b75c2e9eb3c26737b6cf8fff71a01f2e3d7135bdea3a14a4e"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_node28_observed_r01/child.events.jsonl",
+      "sha256": "784ab399d06c635e9ea04e4f23a97c9eeb1b8d439dc5305173489ad6cb8729e5"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_observed_postcheck_r01/hylog.txt",
+      "sha256": "8b8ffa27d31957425480cd438888766895ffb565fd7f8e431a2431a41c3da6c5"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_observed_postcheck_r01/pid.stderr.txt",
+      "sha256": "9c79bbdbe402e8ebee9e581ec2e327acfec1c4519f5d761c2b87992bdd1e242f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_observed_postcheck_r01/command.sh",
+      "sha256": "31c641239e9639dcbb9541a6fce654213130e2e80e4bdf4ded7db12ae2d0bf08"
+    }
+  ]
+}

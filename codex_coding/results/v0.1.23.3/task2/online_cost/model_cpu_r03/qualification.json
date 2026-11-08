@@ -1,0 +1,186 @@
+{
+  "actual_model_online_qualified": false,
+  "check_count": 18,
+  "checks": [
+    {
+      "name": "disjoint worker DAG overlaps",
+      "passed": true
+    },
+    {
+      "name": "shared empirical score uses max rather than sum",
+      "passed": true
+    },
+    {
+      "name": "outer residual added exactly once",
+      "passed": true
+    },
+    {
+      "name": "near layout is transferable without whole-layout fit",
+      "passed": true
+    },
+    {
+      "name": "reject subcalibration operation bytes",
+      "passed": true
+    },
+    {
+      "name": "reject unconfirmed warm pair",
+      "passed": true
+    },
+    {
+      "name": "reject old incarnation state",
+      "passed": true
+    },
+    {
+      "name": "reject isolated-only shared prediction",
+      "passed": true
+    },
+    {
+      "name": "reject empty readiness calibration",
+      "passed": true
+    },
+    {
+      "name": "exact ten percent inclusive boundary passes",
+      "passed": true
+    },
+    {
+      "name": "CPU fixtures never qualify actual model",
+      "passed": true
+    },
+    {
+      "name": "per-scenario failure cannot average away",
+      "passed": true
+    },
+    {
+      "name": "reject training session backfill",
+      "passed": true
+    },
+    {
+      "name": "reject different clock domain",
+      "passed": true
+    },
+    {
+      "name": "reject SHA inside online clock",
+      "passed": true
+    },
+    {
+      "name": "reject prediction mutation after freeze",
+      "passed": true
+    },
+    {
+      "name": "reject calibration incarnation reuse",
+      "passed": true
+    },
+    {
+      "name": "ranking reversals reported independently",
+      "passed": true
+    }
+  ],
+  "evaluation_fixture": {
+    "actual_model_online_qualified": false,
+    "all_pairwise_rankings_agree": false,
+    "all_scenario_error_gates_passed": true,
+    "calibration_sessions": [
+      "CPU_train"
+    ],
+    "evidence_kind": "CPU_or_nonmodel_fixture",
+    "holdouts_used_for_fitting": false,
+    "independence_mode": "fresh_session",
+    "physical_capacity_certified": false,
+    "prediction_payload_sha256": "6711f235279605e8f2bee3b82507dfb36c6fcf3a762ad393b2d6211a287d8c79",
+    "ranking": [
+      {
+        "left": "near",
+        "observed_delta_ns": 0,
+        "ordering_agrees": false,
+        "predicted_delta_ns": 10,
+        "right": "remote"
+      }
+    ],
+    "scenario_results": {
+      "near": {
+        "observations": [
+          {
+            "absolute_error_ns": 10,
+            "actual_online_ns": 100,
+            "error_gate_passed": true,
+            "estimated_online_ns": 110,
+            "relative_error": 0.1,
+            "run_id": "CPU_run_near",
+            "session": "CPU_holdout",
+            "signed_error_ns": 10,
+            "source_refs": [
+              {
+                "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/model_cpu_r03/CPU_FIXTURE_raw.json",
+                "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+              }
+            ]
+          }
+        ],
+        "scenario_gate_passed": true
+      },
+      "remote": {
+        "observations": [
+          {
+            "absolute_error_ns": 0,
+            "actual_online_ns": 100,
+            "error_gate_passed": true,
+            "estimated_online_ns": 100,
+            "relative_error": 0.0,
+            "run_id": "CPU_run_remote",
+            "session": "CPU_holdout",
+            "signed_error_ns": 0,
+            "source_refs": [
+              {
+                "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/model_cpu_r03/CPU_FIXTURE_raw.json",
+                "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+              }
+            ]
+          }
+        ],
+        "scenario_gate_passed": true
+      }
+    },
+    "schema": "online_cost_validation_v1",
+    "scope": "Only preregistered complete online scenarios; ranking is reported separately from per-scenario accuracy.",
+    "validation_incarnation_digests": [
+      "CPU_holdout_epochs"
+    ]
+  },
+  "model_fixture_prediction": {
+    "estimated_online_ns": 70000000,
+    "estimated_transfer_service_s": 0.05,
+    "online_outer_s": 0.020000000000000004,
+    "online_qualified": false,
+    "physical_capacity_certified": false,
+    "scope": "Preregistered transferable aggregate-path hypothesis; qualification requires every independent whole-model holdout within 10%.",
+    "shared_aggregate_scores_s": {
+      "target_HCA": 0.05
+    },
+    "shared_score_interpretation": "Empirical whole-resource extrapolation hypotheses combined by max, never added to the DAG.",
+    "timeline": [
+      {
+        "end_s": 0.018,
+        "first_pair_s": 0.0,
+        "op_id": 0,
+        "path": "remote0",
+        "service_s": 0.018,
+        "source_wait_s": 0.0,
+        "start_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "end_s": 0.018,
+        "first_pair_s": 0.0,
+        "op_id": 1,
+        "path": "remote1",
+        "service_s": 0.018,
+        "source_wait_s": 0.0,
+        "start_s": 0.0,
+        "target_wait_s": 0.0
+      }
+    ],
+    "worker_dag_s": 0.018
+  },
+  "new_GPU_samples": 0,
+  "status": "CPU_passed"
+}

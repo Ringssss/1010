@@ -1,0 +1,1 @@
+mixed 冻结 worker 预测为 13.613297834ms，与 summary 原值一致。w4 的三个 sequential op elapsed 合计 13.912997005ms，w4 execute 14.133329998ms，差 0.220332993ms 仅称 worker 时长残差；op 自身可能含等待，不能认证纯 service/dispatch。SSD source 与 receiver 不相加，mixed 纯 service 观察值保持 null。

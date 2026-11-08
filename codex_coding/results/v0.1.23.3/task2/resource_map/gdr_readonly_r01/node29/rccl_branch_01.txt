@@ -1,0 +1,690 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4d1c30 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)>:
+ a4d1c30:	55                   	push   %rbp
+ a4d1c31:	41 57                	push   %r15
+ a4d1c33:	41 56                	push   %r14
+ a4d1c35:	41 55                	push   %r13
+ a4d1c37:	41 54                	push   %r12
+ a4d1c39:	53                   	push   %rbx
+ a4d1c3a:	48 81 ec 48 20 00 00 	sub    $0x2048,%rsp
+ a4d1c41:	48 89 54 24 30       	mov    %rdx,0x30(%rsp)
+ a4d1c46:	48 89 74 24 38       	mov    %rsi,0x38(%rsp)
+ a4d1c4b:	48 89 4c 24 28       	mov    %rcx,0x28(%rsp)
+ a4d1c50:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+ a4d1c57:	48 89 7c 24 08       	mov    %rdi,0x8(%rsp)
+ a4d1c5c:	8b 0f                	mov    (%rdi),%ecx
+ a4d1c5e:	85 c9                	test   %ecx,%ecx
+ a4d1c60:	0f 8e fa 00 00 00    	jle    a4d1d60 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x130>
+ a4d1c66:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4d1c6b:	48 8d 50 08          	lea    0x8(%rax),%rdx
+ a4d1c6f:	48 89 54 24 10       	mov    %rdx,0x10(%rsp)
+ a4d1c74:	4c 8d a0 08 02 00 00 	lea    0x208(%rax),%r12
+ a4d1c7b:	48 8d a8 08 01 00 00 	lea    0x108(%rax),%rbp
+ a4d1c82:	45 31 ed             	xor    %r13d,%r13d
+ a4d1c85:	48 89 4c 24 18       	mov    %rcx,0x18(%rsp)
+ a4d1c8a:	eb 23                	jmp    a4d1caf <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7f>
+ a4d1c8c:	0f 1f 40 00          	nopl   0x0(%rax)
+ a4d1c90:	49 ff c5             	inc    %r13
+ a4d1c93:	49 81 c4 18 33 00 00 	add    $0x3318,%r12
+ a4d1c9a:	48 81 c5 18 33 00 00 	add    $0x3318,%rbp
+ a4d1ca1:	48 8b 4c 24 18       	mov    0x18(%rsp),%rcx
+ a4d1ca6:	49 39 cd             	cmp    %rcx,%r13
+ a4d1ca9:	0f 84 b1 00 00 00    	je     a4d1d60 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x130>
+ a4d1caf:	49 69 dd 18 33 00 00 	imul   $0x3318,%r13,%rbx
+ a4d1cb6:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ a4d1cbb:	48 8d 3c 18          	lea    (%rax,%rbx,1),%rdi
+ a4d1cbf:	48 89 7c 24 20       	mov    %rdi,0x20(%rsp)
+ a4d1cc4:	48 8d 35 34 e9 b4 f5 	lea    -0xa4b16cc(%rip),%rsi        # 205ff <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2040f>
+ a4d1ccb:	e8 20 a1 05 00       	call   a52bdf0 <strcmp@plt>
+ a4d1cd0:	85 c0                	test   %eax,%eax
+ a4d1cd2:	75 bc                	jne    a4d1c90 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x60>
+ a4d1cd4:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ a4d1cd9:	8b 9c 18 00 23 00 00 	mov    0x2300(%rax,%rbx,1),%ebx
+ a4d1ce0:	85 db                	test   %ebx,%ebx
+ a4d1ce2:	7e ac                	jle    a4d1c90 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x60>
+ a4d1ce4:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4d1ce8:	49 89 ef             	mov    %rbp,%r15
+ a4d1ceb:	45 31 f6             	xor    %r14d,%r14d
+ a4d1cee:	66 90                	xchg   %ax,%ax
+ a4d1cf0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d1cf5:	4c 89 ff             	mov    %r15,%rdi
+ a4d1cf8:	48 8d 35 ef 5c b4 f5 	lea    -0xa4ba311(%rip),%rsi        # 179ee <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x177fe>
+ a4d1cff:	e8 7c a4 05 00       	call   a52c180 <strncmp@plt>
+ a4d1d04:	85 c0                	test   %eax,%eax
+ a4d1d06:	74 1b                	je     a4d1d23 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xf3>
+ a4d1d08:	49 81 c6 00 fe ff ff 	add    $0xfffffffffffffe00,%r14
+ a4d1d0f:	49 81 c7 00 02 00 00 	add    $0x200,%r15
+ a4d1d16:	48 89 d8             	mov    %rbx,%rax
+ a4d1d19:	4c 01 f0             	add    %r14,%rax
+ a4d1d1c:	75 d2                	jne    a4d1cf0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xc0>
+ a4d1d1e:	e9 6d ff ff ff       	jmp    a4d1c90 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x60>
+ a4d1d23:	48 b8 00 02 00 00 00 	movabs $0xfffffe0000000200,%rax
+ a4d1d2a:	fe ff ff 
+ a4d1d2d:	49 39 c6             	cmp    %rax,%r14
+ a4d1d30:	0f 84 5a ff ff ff    	je     a4d1c90 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x60>
+ a4d1d36:	4c 89 e7             	mov    %r12,%rdi
+ a4d1d39:	4c 29 f7             	sub    %r14,%rdi
+ a4d1d3c:	48 8b 74 24 30       	mov    0x30(%rsp),%rsi
+ a4d1d41:	e8 aa a0 05 00       	call   a52bdf0 <strcmp@plt>
+ a4d1d46:	85 c0                	test   %eax,%eax
+ a4d1d48:	0f 85 42 ff ff ff    	jne    a4d1c90 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x60>
+ a4d1d4e:	48 8b 44 24 28       	mov    0x28(%rsp),%rax
+ a4d1d53:	48 8b 4c 24 20       	mov    0x20(%rsp),%rcx
+ a4d1d58:	48 89 08             	mov    %rcx,(%rax)
+ a4d1d5b:	48 8b 4c 24 18       	mov    0x18(%rsp),%rcx
+ a4d1d60:	4c 8b 7c 24 38       	mov    0x38(%rsp),%r15
+ a4d1d65:	4d 85 ff             	test   %r15,%r15
+ a4d1d68:	0f 84 8f 00 00 00    	je     a4d1dfd <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x1cd>
+ a4d1d6e:	4c 8d 64 24 40       	lea    0x40(%rsp),%r12
+ a4d1d73:	ba 00 10 00 00       	mov    $0x1000,%edx
+ a4d1d78:	4c 89 e7             	mov    %r12,%rdi
+ a4d1d7b:	31 f6                	xor    %esi,%esi
+ a4d1d7d:	e8 ae 9b 05 00       	call   a52b930 <memset@plt>
+ a4d1d82:	48 8d 9c 24 40 10 00 	lea    0x1040(%rsp),%rbx
+ a4d1d89:	00 
+ a4d1d8a:	ba 00 10 00 00       	mov    $0x1000,%edx
+ a4d1d8f:	48 89 df             	mov    %rbx,%rdi
+ a4d1d92:	31 f6                	xor    %esi,%esi
+ a4d1d94:	e8 97 9b 05 00       	call   a52b930 <memset@plt>
+ a4d1d99:	48 8d 35 2b 10 b5 f5 	lea    -0xa4aefd5(%rip),%rsi        # 22dcb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x22bdb>
+ a4d1da0:	48 89 df             	mov    %rbx,%rdi
+ a4d1da3:	4c 89 fa             	mov    %r15,%rdx
+ a4d1da6:	31 c0                	xor    %eax,%eax
+ a4d1da8:	e8 93 9b 05 00       	call   a52b940 <sprintf@plt>
+ a4d1dad:	48 89 df             	mov    %rbx,%rdi
+ a4d1db0:	31 f6                	xor    %esi,%esi
+ a4d1db2:	e8 69 a4 05 00       	call   a52c220 <realpath@plt>
+ a4d1db7:	48 85 c0             	test   %rax,%rax
+ a4d1dba:	0f 84 91 00 00 00    	je     a4d1e51 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x221>
+ a4d1dc0:	48 89 c3             	mov    %rax,%rbx
+ a4d1dc3:	48 89 c7             	mov    %rax,%rdi
+ a4d1dc6:	e8 85 9b 05 00       	call   a52b950 <strlen@plt>
+ a4d1dcb:	85 c0                	test   %eax,%eax
+ a4d1dcd:	0f 8e e9 02 00 00    	jle    a4d20bc <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x48c>
+ a4d1dd3:	4c 8b 74 24 08       	mov    0x8(%rsp),%r14
+ a4d1dd8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ a4d1ddf:	00 
+ a4d1de0:	89 c1                	mov    %eax,%ecx
+ a4d1de2:	80 3c 0b 2f          	cmpb   $0x2f,(%rbx,%rcx,1)
+ a4d1de6:	0f 84 d5 02 00 00    	je     a4d20c1 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x491>
+ a4d1dec:	8d 48 ff             	lea    -0x1(%rax),%ecx
+ a4d1def:	83 f8 01             	cmp    $0x1,%eax
+ a4d1df2:	89 c8                	mov    %ecx,%eax
+ a4d1df4:	77 ea                	ja     a4d1de0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x1b0>
+ a4d1df6:	31 c0                	xor    %eax,%eax
+ a4d1df8:	e9 c4 02 00 00       	jmp    a4d20c1 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x491>
+ a4d1dfd:	4c 8b 74 24 08       	mov    0x8(%rsp),%r14
+ a4d1e02:	85 c9                	test   %ecx,%ecx
+ a4d1e04:	48 89 4c 24 18       	mov    %rcx,0x18(%rsp)
+ a4d1e09:	0f 8e 9b 00 00 00    	jle    a4d1eaa <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x27a>
+ a4d1e0f:	49 8d 6e 08          	lea    0x8(%r14),%rbp
+ a4d1e13:	41 89 ce             	mov    %ecx,%r14d
+ a4d1e16:	48 8d 1d 50 db b4 f5 	lea    -0xa4b24b0(%rip),%rbx        # 1f96d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f77d>
+ a4d1e1d:	0f 1f 00             	nopl   (%rax)
+ a4d1e20:	48 89 ef             	mov    %rbp,%rdi
+ a4d1e23:	48 89 de             	mov    %rbx,%rsi
+ a4d1e26:	e8 c5 9f 05 00       	call   a52bdf0 <strcmp@plt>
+ a4d1e2b:	85 c0                	test   %eax,%eax
+ a4d1e2d:	74 0e                	je     a4d1e3d <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x20d>
+ a4d1e2f:	48 81 c5 18 33 00 00 	add    $0x3318,%rbp
+ a4d1e36:	49 ff ce             	dec    %r14
+ a4d1e39:	75 e5                	jne    a4d1e20 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x1f0>
+ a4d1e3b:	31 ed                	xor    %ebp,%ebp
+ a4d1e3d:	8b 85 10 33 00 00    	mov    0x3310(%rbp),%eax
+ a4d1e43:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+ a4d1e48:	85 c0                	test   %eax,%eax
+ a4d1e4a:	7f 73                	jg     a4d1ebf <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x28f>
+ a4d1e4c:	e9 30 01 00 00       	jmp    a4d1f81 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x351>
+ a4d1e51:	c6 44 24 40 00       	movb   $0x0,0x40(%rsp)
+ a4d1e56:	4c 8b 74 24 08       	mov    0x8(%rsp),%r14
+ a4d1e5b:	81 7c 24 40 70 63 69 	cmpl   $0x696370,0x40(%rsp)
+ a4d1e62:	00 
+ a4d1e63:	0f 84 81 02 00 00    	je     a4d20ea <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x4ba>
+ a4d1e69:	48 83 ec 08          	sub    $0x8,%rsp
+ a4d1e6d:	48 8d 15 50 94 b4 f5 	lea    -0xa4b6bb0(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d1e74:	4c 8d 05 a8 00 b4 f5 	lea    -0xa4bff58(%rip),%r8        # 11f23 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x11d33>
+ a4d1e7b:	be 20 00 00 00       	mov    $0x20,%esi
+ a4d1e80:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d1e85:	b9 15 04 00 00       	mov    $0x415,%ecx
+ a4d1e8a:	4d 89 f9             	mov    %r15,%r9
+ a4d1e8d:	31 c0                	xor    %eax,%eax
+ a4d1e8f:	41 54                	push   %r12
+ a4d1e91:	e8 6a cd f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d1e96:	48 83 c4 10          	add    $0x10,%rsp
+ a4d1e9a:	41 8b 0e             	mov    (%r14),%ecx
+ a4d1e9d:	85 c9                	test   %ecx,%ecx
+ a4d1e9f:	48 89 4c 24 18       	mov    %rcx,0x18(%rsp)
+ a4d1ea4:	0f 8f 65 ff ff ff    	jg     a4d1e0f <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x1df>
+ a4d1eaa:	31 ed                	xor    %ebp,%ebp
+ a4d1eac:	8b 85 10 33 00 00    	mov    0x3310(%rbp),%eax
+ a4d1eb2:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+ a4d1eb7:	85 c0                	test   %eax,%eax
+ a4d1eb9:	0f 8e c2 00 00 00    	jle    a4d1f81 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x351>
+ a4d1ebf:	31 db                	xor    %ebx,%ebx
+ a4d1ec1:	4c 8d 35 12 56 b5 f5 	lea    -0xa4aa9ee(%rip),%r14        # 274da <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x272ea>
+ a4d1ec8:	eb 14                	jmp    a4d1ede <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2ae>
+ a4d1eca:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+ a4d1ed0:	48 ff c3             	inc    %rbx
+ a4d1ed3:	48 3b 5c 24 20       	cmp    0x20(%rsp),%rbx
+ a4d1ed8:	0f 84 a3 00 00 00    	je     a4d1f81 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x351>
+ a4d1ede:	48 8b bc dd 10 23 00 	mov    0x2310(%rbp,%rbx,8),%rdi
+ a4d1ee5:	00 
+ a4d1ee6:	48 89 7c 24 10       	mov    %rdi,0x10(%rsp)
+ a4d1eeb:	48 8d 35 c6 24 b5 f5 	lea    -0xa4adb3a(%rip),%rsi        # 243b8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x241c8>
+ a4d1ef2:	e8 f9 9e 05 00       	call   a52bdf0 <strcmp@plt>
+ a4d1ef7:	85 c0                	test   %eax,%eax
+ a4d1ef9:	75 d5                	jne    a4d1ed0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2a0>
+ a4d1efb:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ a4d1f00:	44 8b a8 00 23 00 00 	mov    0x2300(%rax),%r13d
+ a4d1f07:	45 85 ed             	test   %r13d,%r13d
+ a4d1f0a:	7e c4                	jle    a4d1ed0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2a0>
+ a4d1f0c:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ a4d1f11:	4c 8d b8 00 02 00 00 	lea    0x200(%rax),%r15
+ a4d1f18:	45 31 e4             	xor    %r12d,%r12d
+ a4d1f1b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ a4d1f20:	49 8d bf 00 ff ff ff 	lea    -0x100(%r15),%rdi
+ a4d1f27:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d1f2c:	4c 89 f6             	mov    %r14,%rsi
+ a4d1f2f:	e8 4c a2 05 00       	call   a52c180 <strncmp@plt>
+ a4d1f34:	85 c0                	test   %eax,%eax
+ a4d1f36:	74 11                	je     a4d1f49 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x319>
+ a4d1f38:	49 ff c4             	inc    %r12
+ a4d1f3b:	49 81 c7 00 02 00 00 	add    $0x200,%r15
+ a4d1f42:	4d 39 e5             	cmp    %r12,%r13
+ a4d1f45:	75 d9                	jne    a4d1f20 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2f0>
+ a4d1f47:	eb 87                	jmp    a4d1ed0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2a0>
+ a4d1f49:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4d1f4e:	4c 39 e0             	cmp    %r12,%rax
+ a4d1f51:	0f 84 79 ff ff ff    	je     a4d1ed0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2a0>
+ a4d1f57:	4c 89 ff             	mov    %r15,%rdi
+ a4d1f5a:	48 8d 35 aa ff b3 f5 	lea    -0xa4c0056(%rip),%rsi        # 11f0b <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x11d1b>
+ a4d1f61:	e8 8a 9e 05 00       	call   a52bdf0 <strcmp@plt>
+ a4d1f66:	85 c0                	test   %eax,%eax
+ a4d1f68:	0f 85 62 ff ff ff    	jne    a4d1ed0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x2a0>
+ a4d1f6e:	48 8b 44 24 10       	mov    0x10(%rsp),%rax
+ a4d1f73:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+ a4d1f78:	48 85 c0             	test   %rax,%rax
+ a4d1f7b:	0f 85 5c 04 00 00    	jne    a4d23dd <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7ad>
+ a4d1f81:	48 8b 4c 24 08       	mov    0x8(%rsp),%rcx
+ a4d1f86:	4c 8b 4c 24 18       	mov    0x18(%rsp),%r9
+ a4d1f8b:	44 3b 49 04          	cmp    0x4(%rcx),%r9d
+ a4d1f8f:	0f 85 8e 00 00 00    	jne    a4d2023 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x3f3>
+ a4d1f95:	48 8d 15 53 48 b5 f5 	lea    -0xa4ab7ad(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4d1f9c:	4c 8d 05 94 f2 b4 f5 	lea    -0xa4b0d6c(%rip),%r8        # 21237 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x21047>
+ a4d1fa3:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d1fa8:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d1faf:	b9 95 01 00 00       	mov    $0x195,%ecx
+ a4d1fb4:	31 c0                	xor    %eax,%eax
+ a4d1fb6:	e8 45 cc f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d1fbb:	48 83 3d 35 b0 0c 00 	cmpq   $0x0,0xcb035(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d1fc2:	00 
+ a4d1fc3:	74 05                	je     a4d1fca <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x39a>
+ a4d1fc5:	e8 a6 99 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d1fca:	66 48 8d 3d 2e b0 0c 	data16 lea 0xcb02e(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d1fd1:	00 
+ a4d1fd2:	66 66 48 e8 a6 99 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d1fd9:	00 
+ a4d1fda:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4d1fe0:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d1fe3:	0f 85 0c 07 00 00    	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d1fe9:	48 8d 15 d4 92 b4 f5 	lea    -0xa4b6d2c(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d1ff0:	4c 8d 05 11 a1 b4 f5 	lea    -0xa4b5eef(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d1ff7:	4c 8d 0d 4f a7 b4 f5 	lea    -0xa4b58b1(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d1ffe:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4d2004:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d2009:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d2010:	b9 29 04 00 00       	mov    $0x429,%ecx
+ a4d2015:	31 c0                	xor    %eax,%eax
+ a4d2017:	6a 03                	push   $0x3
+ a4d2019:	68 29 04 00 00       	push   $0x429
+ a4d201e:	e9 c9 06 00 00       	jmp    a4d26ec <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xabc>
+ a4d2023:	41 8d 41 01          	lea    0x1(%r9),%eax
+ a4d2027:	89 01                	mov    %eax,(%rcx)
+ a4d2029:	49 63 c1             	movslq %r9d,%rax
+ a4d202c:	48 69 c0 18 33 00 00 	imul   $0x3318,%rax,%rax
+ a4d2033:	48 8d 1c 01          	lea    (%rcx,%rax,1),%rbx
+ a4d2037:	48 83 c3 08          	add    $0x8,%rbx
+ a4d203b:	c7 84 01 18 33 00 00 	movl   $0x0,0x3318(%rcx,%rax,1)
+ a4d2042:	00 00 00 00 
+ a4d2046:	c7 84 01 08 23 00 00 	movl   $0x0,0x2308(%rcx,%rax,1)
+ a4d204d:	00 00 00 00 
+ a4d2051:	48 89 5c 24 40       	mov    %rbx,0x40(%rsp)
+ a4d2056:	48 89 ac 01 10 23 00 	mov    %rbp,0x2310(%rcx,%rax,1)
+ a4d205d:	00 
+ a4d205e:	49 89 dd             	mov    %rbx,%r13
+ a4d2061:	48 85 ed             	test   %rbp,%rbp
+ a4d2064:	0f 84 a6 01 00 00    	je     a4d2210 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x5e0>
+ a4d206a:	48 63 85 10 33 00 00 	movslq 0x3310(%rbp),%rax
+ a4d2071:	48 3d 00 02 00 00    	cmp    $0x200,%rax
+ a4d2077:	0f 85 7d 01 00 00    	jne    a4d21fa <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x5ca>
+ a4d207d:	48 8d 15 6b 47 b5 f5 	lea    -0xa4ab895(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4d2084:	4c 8d 05 4b 09 b4 f5 	lea    -0xa4bf6b5(%rip),%r8        # 129d6 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x127e6>
+ a4d208b:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d2090:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d2097:	b9 9f 01 00 00       	mov    $0x19f,%ecx
+ a4d209c:	41 b9 00 02 00 00    	mov    $0x200,%r9d
+ a4d20a2:	31 c0                	xor    %eax,%eax
+ a4d20a4:	e8 57 cb f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d20a9:	48 83 3d 47 af 0c 00 	cmpq   $0x0,0xcaf47(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d20b0:	00 
+ a4d20b1:	0f 85 0e ff ff ff    	jne    a4d1fc5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x395>
+ a4d20b7:	e9 0e ff ff ff       	jmp    a4d1fca <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x39a>
+ a4d20bc:	4c 8b 74 24 08       	mov    0x8(%rsp),%r14
+ a4d20c1:	48 98                	cltq   
+ a4d20c3:	48 8d 34 03          	lea    (%rbx,%rax,1),%rsi
+ a4d20c7:	48 ff c6             	inc    %rsi
+ a4d20ca:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4d20cf:	e8 5c a0 05 00       	call   a52c130 <strcpy@plt>
+ a4d20d4:	48 89 df             	mov    %rbx,%rdi
+ a4d20d7:	e8 e4 98 05 00       	call   a52b9c0 <free@plt>
+ a4d20dc:	81 7c 24 40 70 63 69 	cmpl   $0x696370,0x40(%rsp)
+ a4d20e3:	00 
+ a4d20e4:	0f 85 7f fd ff ff    	jne    a4d1e69 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x239>
+ a4d20ea:	48 c7 44 24 40 00 00 	movq   $0x0,0x40(%rsp)
+ a4d20f1:	00 00 
+ a4d20f3:	4c 89 ff             	mov    %r15,%rdi
+ a4d20f6:	e8 55 98 05 00       	call   a52b950 <strlen@plt>
+ a4d20fb:	ff c8                	dec    %eax
+ a4d20fd:	0f 1f 00             	nopl   (%rax)
+ a4d2100:	48 63 c8             	movslq %eax,%rcx
+ a4d2103:	8d 41 ff             	lea    -0x1(%rcx),%eax
+ a4d2106:	41 80 3c 0f 2f       	cmpb   $0x2f,(%r15,%rcx,1)
+ a4d210b:	75 f3                	jne    a4d2100 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x4d0>
+ a4d210d:	0f 57 c0             	xorps  %xmm0,%xmm0
+ a4d2110:	0f 29 84 24 40 10 00 	movaps %xmm0,0x1040(%rsp)
+ a4d2117:	00 
+ a4d2118:	49 8d 34 0f          	lea    (%r15,%rcx,1),%rsi
+ a4d211c:	48 ff c6             	inc    %rsi
+ a4d211f:	48 8d 9c 24 40 10 00 	lea    0x1040(%rsp),%rbx
+ a4d2126:	00 
+ a4d2127:	48 89 df             	mov    %rbx,%rdi
+ a4d212a:	e8 01 a0 05 00       	call   a52c130 <strcpy@plt>
+ a4d212f:	48 8d 54 24 40       	lea    0x40(%rsp),%rdx
+ a4d2134:	4c 89 f7             	mov    %r14,%rdi
+ a4d2137:	48 89 de             	mov    %rbx,%rsi
+ a4d213a:	e8 41 be ff ff       	call   a4cdf80 <ncclTopoGetPciNode(ncclXml*, char const*, ncclXmlNode**)>
+ a4d213f:	85 c0                	test   %eax,%eax
+ a4d2141:	74 5f                	je     a4d21a2 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x572>
+ a4d2143:	41 89 c4             	mov    %eax,%r12d
+ a4d2146:	48 83 3d aa ae 0c 00 	cmpq   $0x0,0xcaeaa(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d214d:	00 
+ a4d214e:	74 05                	je     a4d2155 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x525>
+ a4d2150:	e8 1b 98 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d2155:	66 48 8d 3d a3 ae 0c 	data16 lea 0xcaea3(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d215c:	00 
+ a4d215d:	66 66 48 e8 1b 98 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d2164:	00 
+ a4d2165:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d2168:	0f 85 87 05 00 00    	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d216e:	48 8d 15 4f 91 b4 f5 	lea    -0xa4b6eb1(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d2175:	4c 8d 05 8c 9f b4 f5 	lea    -0xa4b6074(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d217c:	4c 8d 0d ca a5 b4 f5 	lea    -0xa4b5a36(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d2183:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d2188:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d218f:	b9 20 04 00 00       	mov    $0x420,%ecx
+ a4d2194:	31 c0                	xor    %eax,%eax
+ a4d2196:	41 54                	push   %r12
+ a4d2198:	68 20 04 00 00       	push   $0x420
+ a4d219d:	e9 4a 05 00 00       	jmp    a4d26ec <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xabc>
+ a4d21a2:	48 8b 6c 24 40       	mov    0x40(%rsp),%rbp
+ a4d21a7:	44 8b b5 00 23 00 00 	mov    0x2300(%rbp),%r14d
+ a4d21ae:	45 85 f6             	test   %r14d,%r14d
+ a4d21b1:	0f 8e ad 01 00 00    	jle    a4d2364 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x734>
+ a4d21b7:	4d 89 f7             	mov    %r14,%r15
+ a4d21ba:	49 c1 e7 09          	shl    $0x9,%r15
+ a4d21be:	4c 8d ad 00 01 00 00 	lea    0x100(%rbp),%r13
+ a4d21c5:	45 31 e4             	xor    %r12d,%r12d
+ a4d21c8:	48 8d 1d eb 57 b4 f5 	lea    -0xa4ba815(%rip),%rbx        # 179ba <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x177ca>
+ a4d21cf:	90                   	nop
+ a4d21d0:	4b 8d 3c 2c          	lea    (%r12,%r13,1),%rdi
+ a4d21d4:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d21d9:	48 89 de             	mov    %rbx,%rsi
+ a4d21dc:	e8 9f 9f 05 00       	call   a52c180 <strncmp@plt>
+ a4d21e1:	85 c0                	test   %eax,%eax
+ a4d21e3:	0f 84 6c 01 00 00    	je     a4d2355 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x725>
+ a4d21e9:	49 81 c4 00 02 00 00 	add    $0x200,%r12
+ a4d21f0:	4d 39 e7             	cmp    %r12,%r15
+ a4d21f3:	75 db                	jne    a4d21d0 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x5a0>
+ a4d21f5:	e9 6a 01 00 00       	jmp    a4d2364 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x734>
+ a4d21fa:	8d 48 01             	lea    0x1(%rax),%ecx
+ a4d21fd:	89 8d 10 33 00 00    	mov    %ecx,0x3310(%rbp)
+ a4d2203:	48 89 9c c5 10 23 00 	mov    %rbx,0x2310(%rbp,%rax,8)
+ a4d220a:	00 
+ a4d220b:	4c 8b 6c 24 40       	mov    0x40(%rsp),%r13
+ a4d2210:	48 8d 35 a1 21 b5 f5 	lea    -0xa4ade5f(%rip),%rsi        # 243b8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x241c8>
+ a4d2217:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d221c:	48 89 df             	mov    %rbx,%rdi
+ a4d221f:	e8 ac 9c 05 00       	call   a52bed0 <strncpy@plt>
+ a4d2224:	c6 83 ff 00 00 00 00 	movb   $0x0,0xff(%rbx)
+ a4d222b:	45 8b a5 00 23 00 00 	mov    0x2300(%r13),%r12d
+ a4d2232:	45 85 e4             	test   %r12d,%r12d
+ a4d2235:	7e 48                	jle    a4d227f <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x64f>
+ a4d2237:	49 8d 9d 00 01 00 00 	lea    0x100(%r13),%rbx
+ a4d223e:	45 31 ff             	xor    %r15d,%r15d
+ a4d2241:	4c 8d 35 92 52 b5 f5 	lea    -0xa4aad6e(%rip),%r14        # 274da <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x272ea>
+ a4d2248:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+ a4d224f:	00 
+ a4d2250:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d2255:	48 89 df             	mov    %rbx,%rdi
+ a4d2258:	4c 89 f6             	mov    %r14,%rsi
+ a4d225b:	e8 20 9f 05 00       	call   a52c180 <strncmp@plt>
+ a4d2260:	85 c0                	test   %eax,%eax
+ a4d2262:	74 11                	je     a4d2275 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x645>
+ a4d2264:	49 ff c7             	inc    %r15
+ a4d2267:	48 81 c3 00 02 00 00 	add    $0x200,%rbx
+ a4d226e:	4d 39 fc             	cmp    %r15,%r12
+ a4d2271:	75 dd                	jne    a4d2250 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x620>
+ a4d2273:	eb 0a                	jmp    a4d227f <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x64f>
+ a4d2275:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4d227a:	49 39 c7             	cmp    %rax,%r15
+ a4d227d:	75 3b                	jne    a4d22ba <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x68a>
+ a4d227f:	41 8d 44 24 01       	lea    0x1(%r12),%eax
+ a4d2284:	41 89 85 00 23 00 00 	mov    %eax,0x2300(%r13)
+ a4d228b:	4d 63 fc             	movslq %r12d,%r15
+ a4d228e:	4c 89 fb             	mov    %r15,%rbx
+ a4d2291:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4d2295:	4a 8d 3c 2b          	lea    (%rbx,%r13,1),%rdi
+ a4d2299:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4d22a0:	48 8d 35 33 52 b5 f5 	lea    -0xa4aadcd(%rip),%rsi        # 274da <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x272ea>
+ a4d22a7:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d22ac:	e8 1f 9c 05 00       	call   a52bed0 <strncpy@plt>
+ a4d22b1:	41 c6 84 1d ff 01 00 	movb   $0x0,0x1ff(%r13,%rbx,1)
+ a4d22b8:	00 00 
+ a4d22ba:	49 c1 e7 09          	shl    $0x9,%r15
+ a4d22be:	4b 8d 3c 2f          	lea    (%r15,%r13,1),%rdi
+ a4d22c2:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4d22c9:	48 8d 35 3b fc b3 f5 	lea    -0xa4c03c5(%rip),%rsi        # 11f0b <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x11d1b>
+ a4d22d0:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d22d5:	e8 f6 9b 05 00       	call   a52bed0 <strncpy@plt>
+ a4d22da:	43 c6 84 3d ff 02 00 	movb   $0x0,0x2ff(%r13,%r15,1)
+ a4d22e1:	00 00 
+ a4d22e3:	4c 89 ef             	mov    %r13,%rdi
+ a4d22e6:	e8 b5 b5 ff ff       	call   a4cd8a0 <ncclTopoGetXmlFromCpu(ncclXmlNode*, ncclXml*)>
+ a4d22eb:	41 89 c4             	mov    %eax,%r12d
+ a4d22ee:	85 c0                	test   %eax,%eax
+ a4d22f0:	4c 89 e8             	mov    %r13,%rax
+ a4d22f3:	0f 84 e4 00 00 00    	je     a4d23dd <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7ad>
+ a4d22f9:	48 83 3d f7 ac 0c 00 	cmpq   $0x0,0xcacf7(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d2300:	00 
+ a4d2301:	74 05                	je     a4d2308 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x6d8>
+ a4d2303:	e8 68 96 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d2308:	66 48 8d 3d f0 ac 0c 	data16 lea 0xcacf0(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d230f:	00 
+ a4d2310:	66 66 48 e8 68 96 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d2317:	00 
+ a4d2318:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d231b:	0f 85 d4 03 00 00    	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d2321:	48 8d 15 9c 8f b4 f5 	lea    -0xa4b7064(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d2328:	4c 8d 05 d9 9d b4 f5 	lea    -0xa4b6227(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d232f:	4c 8d 0d 17 a4 b4 f5 	lea    -0xa4b5be9(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d2336:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d233b:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d2342:	b9 2b 04 00 00       	mov    $0x42b,%ecx
+ a4d2347:	31 c0                	xor    %eax,%eax
+ a4d2349:	41 54                	push   %r12
+ a4d234b:	68 2b 04 00 00       	push   $0x42b
+ a4d2350:	e9 97 03 00 00       	jmp    a4d26ec <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xabc>
+ a4d2355:	48 b8 00 fe ff ff ff 	movabs $0x1fffffffe00,%rax
+ a4d235c:	01 00 00 
+ a4d235f:	49 39 c4             	cmp    %rax,%r12
+ a4d2362:	75 59                	jne    a4d23bd <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x78d>
+ a4d2364:	41 8d 46 01          	lea    0x1(%r14),%eax
+ a4d2368:	89 85 00 23 00 00    	mov    %eax,0x2300(%rbp)
+ a4d236e:	49 63 de             	movslq %r14d,%rbx
+ a4d2371:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4d2375:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4d2379:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4d2380:	48 8d 35 33 56 b4 f5 	lea    -0xa4ba9cd(%rip),%rsi        # 179ba <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x177ca>
+ a4d2387:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d238c:	e8 3f 9b 05 00       	call   a52bed0 <strncpy@plt>
+ a4d2391:	c6 84 1d ff 01 00 00 	movb   $0x0,0x1ff(%rbp,%rbx,1)
+ a4d2398:	00 
+ a4d2399:	48 8d 3c 2b          	lea    (%rbx,%rbp,1),%rdi
+ a4d239d:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4d23a4:	48 8d 35 27 61 b4 f5 	lea    -0xa4b9ed9(%rip),%rsi        # 184d2 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x182e2>
+ a4d23ab:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d23b0:	e8 1b 9b 05 00       	call   a52bed0 <strncpy@plt>
+ a4d23b5:	c6 84 1d ff 02 00 00 	movb   $0x0,0x2ff(%rbp,%rbx,1)
+ a4d23bc:	00 
+ a4d23bd:	48 89 ef             	mov    %rbp,%rdi
+ a4d23c0:	48 8b 74 24 08       	mov    0x8(%rsp),%rsi
+ a4d23c5:	e8 e6 c0 ff ff       	call   a4ce4b0 <ncclTopoGetXmlFromSys(ncclXmlNode*, ncclXml*)>
+ a4d23ca:	85 c0                	test   %eax,%eax
+ a4d23cc:	74 0c                	je     a4d23da <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7aa>
+ a4d23ce:	41 89 c4             	mov    %eax,%r12d
+ a4d23d1:	83 f8 07             	cmp    $0x7,%eax
+ a4d23d4:	0f 85 6d 01 00 00    	jne    a4d2547 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x917>
+ a4d23da:	48 89 e8             	mov    %rbp,%rax
+ a4d23dd:	44 8b b8 10 33 00 00 	mov    0x3310(%rax),%r15d
+ a4d23e4:	45 85 ff             	test   %r15d,%r15d
+ a4d23e7:	4c 8b 6c 24 08       	mov    0x8(%rsp),%r13
+ a4d23ec:	48 89 c5             	mov    %rax,%rbp
+ a4d23ef:	7e 39                	jle    a4d242a <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7fa>
+ a4d23f1:	45 31 e4             	xor    %r12d,%r12d
+ a4d23f4:	4c 8d 35 79 bb b4 f5 	lea    -0xa4b4487(%rip),%r14        # 1df74 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dd84>
+ a4d23fb:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+ a4d2400:	4a 8b 9c e5 10 23 00 	mov    0x2310(%rbp,%r12,8),%rbx
+ a4d2407:	00 
+ a4d2408:	48 89 df             	mov    %rbx,%rdi
+ a4d240b:	4c 89 f6             	mov    %r14,%rsi
+ a4d240e:	e8 dd 99 05 00       	call   a52bdf0 <strcmp@plt>
+ a4d2413:	85 c0                	test   %eax,%eax
+ a4d2415:	74 0a                	je     a4d2421 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7f1>
+ a4d2417:	49 ff c4             	inc    %r12
+ a4d241a:	4d 39 e7             	cmp    %r12,%r15
+ a4d241d:	75 e1                	jne    a4d2400 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7d0>
+ a4d241f:	eb 09                	jmp    a4d242a <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x7fa>
+ a4d2421:	48 85 db             	test   %rbx,%rbx
+ a4d2424:	0f 85 ad 01 00 00    	jne    a4d25d7 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x9a7>
+ a4d242a:	4d 63 4d 00          	movslq 0x0(%r13),%r9
+ a4d242e:	45 3b 4d 04          	cmp    0x4(%r13),%r9d
+ a4d2432:	0f 85 8e 00 00 00    	jne    a4d24c6 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x896>
+ a4d2438:	48 8d 15 b0 43 b5 f5 	lea    -0xa4abc50(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4d243f:	4c 8d 05 f1 ed b4 f5 	lea    -0xa4b120f(%rip),%r8        # 21237 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x21047>
+ a4d2446:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d244b:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d2452:	b9 95 01 00 00       	mov    $0x195,%ecx
+ a4d2457:	31 c0                	xor    %eax,%eax
+ a4d2459:	e8 a2 c7 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d245e:	48 83 3d 92 ab 0c 00 	cmpq   $0x0,0xcab92(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d2465:	00 
+ a4d2466:	74 05                	je     a4d246d <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x83d>
+ a4d2468:	e8 03 95 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d246d:	66 48 8d 3d 8b ab 0c 	data16 lea 0xcab8b(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d2474:	00 
+ a4d2475:	66 66 48 e8 03 95 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d247c:	00 
+ a4d247d:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4d2483:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d2486:	0f 85 69 02 00 00    	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d248c:	48 8d 15 31 8e b4 f5 	lea    -0xa4b71cf(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d2493:	4c 8d 05 6e 9c b4 f5 	lea    -0xa4b6392(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d249a:	4c 8d 0d ac a2 b4 f5 	lea    -0xa4b5d54(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d24a1:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4d24a7:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d24ac:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d24b3:	b9 32 04 00 00       	mov    $0x432,%ecx
+ a4d24b8:	31 c0                	xor    %eax,%eax
+ a4d24ba:	6a 03                	push   $0x3
+ a4d24bc:	68 32 04 00 00       	push   $0x432
+ a4d24c1:	e9 26 02 00 00       	jmp    a4d26ec <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xabc>
+ a4d24c6:	41 8d 41 01          	lea    0x1(%r9),%eax
+ a4d24ca:	41 89 45 00          	mov    %eax,0x0(%r13)
+ a4d24ce:	49 69 c9 18 33 00 00 	imul   $0x3318,%r9,%rcx
+ a4d24d5:	41 c7 84 0d 18 33 00 	movl   $0x0,0x3318(%r13,%rcx,1)
+ a4d24dc:	00 00 00 00 00 
+ a4d24e1:	41 c7 84 0d 08 23 00 	movl   $0x0,0x2308(%r13,%rcx,1)
+ a4d24e8:	00 00 00 00 00 
+ a4d24ed:	49 89 ac 0d 10 23 00 	mov    %rbp,0x2310(%r13,%rcx,1)
+ a4d24f4:	00 
+ a4d24f5:	48 63 85 10 33 00 00 	movslq 0x3310(%rbp),%rax
+ a4d24fc:	48 3d 00 02 00 00    	cmp    $0x200,%rax
+ a4d2502:	0f 85 9b 00 00 00    	jne    a4d25a3 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x973>
+ a4d2508:	48 8d 15 e0 42 b5 f5 	lea    -0xa4abd20(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4d250f:	4c 8d 05 c0 04 b4 f5 	lea    -0xa4bfb40(%rip),%r8        # 129d6 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x127e6>
+ a4d2516:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d251b:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d2522:	b9 9f 01 00 00       	mov    $0x19f,%ecx
+ a4d2527:	41 b9 00 02 00 00    	mov    $0x200,%r9d
+ a4d252d:	31 c0                	xor    %eax,%eax
+ a4d252f:	e8 cc c6 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d2534:	48 83 3d bc aa 0c 00 	cmpq   $0x0,0xcaabc(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d253b:	00 
+ a4d253c:	0f 85 26 ff ff ff    	jne    a4d2468 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x838>
+ a4d2542:	e9 26 ff ff ff       	jmp    a4d246d <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x83d>
+ a4d2547:	48 83 3d a9 aa 0c 00 	cmpq   $0x0,0xcaaa9(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d254e:	00 
+ a4d254f:	74 05                	je     a4d2556 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x926>
+ a4d2551:	e8 1a 94 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d2556:	66 48 8d 3d a2 aa 0c 	data16 lea 0xcaaa2(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d255d:	00 
+ a4d255e:	66 66 48 e8 1a 94 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d2565:	00 
+ a4d2566:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d2569:	0f 85 86 01 00 00    	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d256f:	48 8d 15 4e 8d b4 f5 	lea    -0xa4b72b2(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d2576:	4c 8d 05 8b 9b b4 f5 	lea    -0xa4b6475(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d257d:	4c 8d 0d c9 a1 b4 f5 	lea    -0xa4b5e37(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d2584:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d2589:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d2590:	b9 22 04 00 00       	mov    $0x422,%ecx
+ a4d2595:	31 c0                	xor    %eax,%eax
+ a4d2597:	41 54                	push   %r12
+ a4d2599:	68 22 04 00 00       	push   $0x422
+ a4d259e:	e9 49 01 00 00       	jmp    a4d26ec <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xabc>
+ a4d25a3:	4a 8d 1c 29          	lea    (%rcx,%r13,1),%rbx
+ a4d25a7:	48 83 c3 08          	add    $0x8,%rbx
+ a4d25ab:	8d 48 01             	lea    0x1(%rax),%ecx
+ a4d25ae:	89 8d 10 33 00 00    	mov    %ecx,0x3310(%rbp)
+ a4d25b4:	48 89 9c c5 10 23 00 	mov    %rbx,0x2310(%rbp,%rax,8)
+ a4d25bb:	00 
+ a4d25bc:	48 8d 35 b1 b9 b4 f5 	lea    -0xa4b464f(%rip),%rsi        # 1df74 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1dd84>
+ a4d25c3:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d25c8:	48 89 df             	mov    %rbx,%rdi
+ a4d25cb:	e8 00 99 05 00       	call   a52bed0 <strncpy@plt>
+ a4d25d0:	c6 83 ff 00 00 00 00 	movb   $0x0,0xff(%rbx)
+ a4d25d7:	45 31 e4             	xor    %r12d,%r12d
+ a4d25da:	4c 8b 7c 24 28       	mov    0x28(%rsp),%r15
+ a4d25df:	49 83 3f 00          	cmpq   $0x0,(%r15)
+ a4d25e3:	0f 85 0c 01 00 00    	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d25e9:	4d 63 4d 00          	movslq 0x0(%r13),%r9
+ a4d25ed:	45 3b 4d 04          	cmp    0x4(%r13),%r9d
+ a4d25f1:	75 21                	jne    a4d2614 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0x9e4>
+ a4d25f3:	48 8d 15 f5 41 b5 f5 	lea    -0xa4abe0b(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4d25fa:	4c 8d 05 36 ec b4 f5 	lea    -0xa4b13ca(%rip),%r8        # 21237 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x21047>
+ a4d2601:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d2606:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d260d:	b9 95 01 00 00       	mov    $0x195,%ecx
+ a4d2612:	eb 72                	jmp    a4d2686 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xa56>
+ a4d2614:	41 8d 41 01          	lea    0x1(%r9),%eax
+ a4d2618:	41 89 45 00          	mov    %eax,0x0(%r13)
+ a4d261c:	49 69 c1 18 33 00 00 	imul   $0x3318,%r9,%rax
+ a4d2623:	4e 8d 34 28          	lea    (%rax,%r13,1),%r14
+ a4d2627:	49 83 c6 08          	add    $0x8,%r14
+ a4d262b:	41 c7 84 05 18 33 00 	movl   $0x0,0x3318(%r13,%rax,1)
+ a4d2632:	00 00 00 00 00 
+ a4d2637:	41 c7 84 05 08 23 00 	movl   $0x0,0x2308(%r13,%rax,1)
+ a4d263e:	00 00 00 00 00 
+ a4d2643:	4d 89 37             	mov    %r14,(%r15)
+ a4d2646:	49 89 9c 05 10 23 00 	mov    %rbx,0x2310(%r13,%rax,1)
+ a4d264d:	00 
+ a4d264e:	48 63 83 10 33 00 00 	movslq 0x3310(%rbx),%rax
+ a4d2655:	48 3d 00 02 00 00    	cmp    $0x200,%rax
+ a4d265b:	0f 85 a9 00 00 00    	jne    a4d270a <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xada>
+ a4d2661:	48 8d 15 87 41 b5 f5 	lea    -0xa4abe79(%rip),%rdx        # 267ef <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x265ff>
+ a4d2668:	4c 8d 05 67 03 b4 f5 	lea    -0xa4bfc99(%rip),%r8        # 129d6 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x127e6>
+ a4d266f:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d2674:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d267b:	b9 9f 01 00 00       	mov    $0x19f,%ecx
+ a4d2680:	41 b9 00 02 00 00    	mov    $0x200,%r9d
+ a4d2686:	31 c0                	xor    %eax,%eax
+ a4d2688:	e8 73 c5 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d268d:	48 83 3d 63 a9 0c 00 	cmpq   $0x0,0xca963(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d2694:	00 
+ a4d2695:	74 05                	je     a4d269c <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xa6c>
+ a4d2697:	e8 d4 92 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d269c:	66 48 8d 3d 5c a9 0c 	data16 lea 0xca95c(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d26a3:	00 
+ a4d26a4:	66 66 48 e8 d4 92 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d26ab:	00 
+ a4d26ac:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4d26b2:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d26b5:	75 3e                	jne    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>
+ a4d26b7:	48 8d 15 06 8c b4 f5 	lea    -0xa4b73fa(%rip),%rdx        # 1b2c4 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1b0d4>
+ a4d26be:	4c 8d 05 43 9a b4 f5 	lea    -0xa4b65bd(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d26c5:	4c 8d 0d 81 a0 b4 f5 	lea    -0xa4b5f7f(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d26cc:	41 bc 03 00 00 00    	mov    $0x3,%r12d
+ a4d26d2:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d26d7:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d26de:	b9 37 04 00 00       	mov    $0x437,%ecx
+ a4d26e3:	31 c0                	xor    %eax,%eax
+ a4d26e5:	6a 03                	push   $0x3
+ a4d26e7:	68 37 04 00 00       	push   $0x437
+ a4d26ec:	e8 0f c5 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d26f1:	48 83 c4 10          	add    $0x10,%rsp
+ a4d26f5:	44 89 e0             	mov    %r12d,%eax
+ a4d26f8:	48 81 c4 48 20 00 00 	add    $0x2048,%rsp
+ a4d26ff:	5b                   	pop    %rbx
+ a4d2700:	41 5c                	pop    %r12
+ a4d2702:	41 5d                	pop    %r13
+ a4d2704:	41 5e                	pop    %r14
+ a4d2706:	41 5f                	pop    %r15
+ a4d2708:	5d                   	pop    %rbp
+ a4d2709:	c3                   	ret    
+ a4d270a:	8d 48 01             	lea    0x1(%rax),%ecx
+ a4d270d:	89 8b 10 33 00 00    	mov    %ecx,0x3310(%rbx)
+ a4d2713:	4c 89 b4 c3 10 23 00 	mov    %r14,0x2310(%rbx,%rax,8)
+ a4d271a:	00 
+ a4d271b:	48 8d 35 dd de b4 f5 	lea    -0xa4b2123(%rip),%rsi        # 205ff <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2040f>
+ a4d2722:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d2727:	4c 89 f7             	mov    %r14,%rdi
+ a4d272a:	e8 a1 97 05 00       	call   a52bed0 <strncpy@plt>
+ a4d272f:	41 c6 86 ff 00 00 00 	movb   $0x0,0xff(%r14)
+ a4d2736:	00 
+ a4d2737:	4d 8b 3f             	mov    (%r15),%r15
+ a4d273a:	41 8b af 00 23 00 00 	mov    0x2300(%r15),%ebp
+ a4d2741:	85 ed                	test   %ebp,%ebp
+ a4d2743:	7e 40                	jle    a4d2785 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xb55>
+ a4d2745:	49 8d 9f 00 01 00 00 	lea    0x100(%r15),%rbx
+ a4d274c:	45 31 ed             	xor    %r13d,%r13d
+ a4d274f:	4c 8d 35 98 52 b4 f5 	lea    -0xa4bad68(%rip),%r14        # 179ee <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x177fe>
+ a4d2756:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d275b:	48 89 df             	mov    %rbx,%rdi
+ a4d275e:	4c 89 f6             	mov    %r14,%rsi
+ a4d2761:	e8 1a 9a 05 00       	call   a52c180 <strncmp@plt>
+ a4d2766:	85 c0                	test   %eax,%eax
+ a4d2768:	74 11                	je     a4d277b <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xb4b>
+ a4d276a:	49 ff c5             	inc    %r13
+ a4d276d:	48 81 c3 00 02 00 00 	add    $0x200,%rbx
+ a4d2774:	4c 39 ed             	cmp    %r13,%rbp
+ a4d2777:	75 dd                	jne    a4d2756 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xb26>
+ a4d2779:	eb 0a                	jmp    a4d2785 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xb55>
+ a4d277b:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4d2780:	49 39 c5             	cmp    %rax,%r13
+ a4d2783:	75 39                	jne    a4d27be <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xb8e>
+ a4d2785:	8d 45 01             	lea    0x1(%rbp),%eax
+ a4d2788:	41 89 87 00 23 00 00 	mov    %eax,0x2300(%r15)
+ a4d278f:	4c 63 ed             	movslq %ebp,%r13
+ a4d2792:	4c 89 eb             	mov    %r13,%rbx
+ a4d2795:	48 c1 e3 09          	shl    $0x9,%rbx
+ a4d2799:	49 8d 3c 1f          	lea    (%r15,%rbx,1),%rdi
+ a4d279d:	48 81 c7 00 01 00 00 	add    $0x100,%rdi
+ a4d27a4:	48 8d 35 43 52 b4 f5 	lea    -0xa4badbd(%rip),%rsi        # 179ee <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x177fe>
+ a4d27ab:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d27b0:	e8 1b 97 05 00       	call   a52bed0 <strncpy@plt>
+ a4d27b5:	41 c6 84 1f ff 01 00 	movb   $0x0,0x1ff(%r15,%rbx,1)
+ a4d27bc:	00 00 
+ a4d27be:	49 c1 e5 09          	shl    $0x9,%r13
+ a4d27c2:	4b 8d 3c 2f          	lea    (%r15,%r13,1),%rdi
+ a4d27c6:	48 81 c7 00 02 00 00 	add    $0x200,%rdi
+ a4d27cd:	ba ff 00 00 00       	mov    $0xff,%edx
+ a4d27d2:	48 8b 74 24 30       	mov    0x30(%rsp),%rsi
+ a4d27d7:	e8 f4 96 05 00       	call   a52bed0 <strncpy@plt>
+ a4d27dc:	43 c6 84 2f ff 02 00 	movb   $0x0,0x2ff(%r15,%r13,1)
+ a4d27e3:	00 00 
+ a4d27e5:	e9 0b ff ff ff       	jmp    a4d26f5 <ncclTopoFillNet(ncclXml*, char const*, char const*, ncclXmlNode**)+0xac5>

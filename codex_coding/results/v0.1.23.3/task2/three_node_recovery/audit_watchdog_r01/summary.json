@@ -1,0 +1,177 @@
+{
+  "passed": true,
+  "checks": {
+    "timeout_exact_term_kill": true,
+    "registration_failure_recorded": true,
+    "both_children_reaped": true,
+    "core_zero": true,
+    "torch_not_imported": true
+  },
+  "cases": {
+    "timeout": {
+      "pid": 250385,
+      "owner": {
+        "pid": 250385,
+        "start_time": "477276021",
+        "state": "R",
+        "pgid": 250385,
+        "sid": 250385,
+        "argv": [
+          "/usr/bin/python3",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+          "--delay",
+          "5",
+          "--ignore-term"
+        ],
+        "live": true,
+        "boot_id": "c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b",
+        "pid_namespace": "pid:[4026531836]"
+      },
+      "returncode": -9,
+      "timed_out": true,
+      "registration_error": null,
+      "hard_deadline_seconds": 0.25,
+      "elapsed_ns": 1195616895,
+      "cleanup": {
+        "signals": [
+          "TERM",
+          "KILL"
+        ],
+        "passed": true,
+        "before": {
+          "pid": 250385,
+          "start_time": "477276021",
+          "state": "S",
+          "pgid": 250385,
+          "sid": 250385,
+          "argv": [
+            "/usr/bin/python3",
+            "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+            "--delay",
+            "5",
+            "--ignore-term"
+          ],
+          "live": true
+        },
+        "group_before": [
+          {
+            "pid": 250385,
+            "start_time": "477276021",
+            "state": "S",
+            "pgid": 250385,
+            "sid": 250385,
+            "argv": [
+              "/usr/bin/python3",
+              "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+              "--delay",
+              "5",
+              "--ignore-term"
+            ],
+            "live": true
+          }
+        ],
+        "after": {
+          "pid": 250385,
+          "live": false,
+          "state": "absent"
+        },
+        "pending_group_members": []
+      },
+      "actual_after": {
+        "pid": 250385,
+        "live": false,
+        "state": "absent"
+      }
+    },
+    "registration_failure": {
+      "pid": 252662,
+      "owner": {
+        "pid": 252662,
+        "start_time": "477276140",
+        "state": "R",
+        "pgid": 252662,
+        "sid": 252662,
+        "argv": [
+          "/usr/bin/python3",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+          "--delay",
+          "5"
+        ],
+        "live": true,
+        "boot_id": "c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b",
+        "pid_namespace": "pid:[4026531836]"
+      },
+      "returncode": -15,
+      "timed_out": false,
+      "registration_error": "OSError('independent CPU injected registration persistence failure')",
+      "hard_deadline_seconds": 1,
+      "elapsed_ns": 198942377,
+      "cleanup": {
+        "signals": [
+          "TERM"
+        ],
+        "passed": true,
+        "before": {
+          "pid": 252662,
+          "start_time": "477276140",
+          "state": "R",
+          "pgid": 252662,
+          "sid": 252662,
+          "argv": [
+            "/usr/bin/python3",
+            "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+            "--delay",
+            "5"
+          ],
+          "live": true
+        },
+        "group_before": [
+          {
+            "pid": 252662,
+            "start_time": "477276140",
+            "state": "S",
+            "pgid": 252662,
+            "sid": 252662,
+            "argv": [
+              "/usr/bin/python3",
+              "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+              "--delay",
+              "5"
+            ],
+            "live": true
+          }
+        ],
+        "after": {
+          "pid": 252662,
+          "live": false,
+          "state": "absent"
+        },
+        "pending_group_members": []
+      },
+      "actual_after": {
+        "pid": 252662,
+        "live": false,
+        "state": "absent"
+      }
+    }
+  },
+  "sources": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/audit/check_watchdog.py",
+      "saved": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/audit_watchdog_r01/check_watchdog.py",
+      "sha256": "1a0cd50c748aac130d3b5586acb963871ad2c1456d464e7520d2d787fa0cb151"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/init_gate.py",
+      "saved": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/audit_watchdog_r01/init_gate.py",
+      "sha256": "af699af0d7397ad43f269b21b8aeb845d2387bc9980ce9d18b25af2f885bcf98"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/cpu_fixture.py",
+      "saved": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/audit_watchdog_r01/cpu_fixture.py",
+      "sha256": "76e6ec8a55454b9163bf040220b34b2269c8d2a49983a7c734f7691bcfba863e"
+    }
+  ],
+  "gpu_operations": 0,
+  "scope": "new synthetic CPU children; no old PID, GPU, SSH or container operations"
+}

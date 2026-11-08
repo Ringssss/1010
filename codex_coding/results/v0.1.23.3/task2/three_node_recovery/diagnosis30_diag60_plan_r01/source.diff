@@ -1,0 +1,22 @@
+--- original_init_gate.py
++++ init_gate_diag60.py
+@@ -447,8 +447,8 @@
+                     "host_boot_id": args.host_boot_id, "pid_namespace": os.readlink("/proc/self/ns/pid"),
+                     "gpu": args.gpu, "bdf": args.bdf, "visibility_policy": args.visibility,
+                     "core_dump_limit": list(resource.getrlimit(resource.RLIMIT_CORE)),
+-                    "hard_deadline_seconds": 45 if args.stage == "nccl" else 15,
+-                    "init_deadline_seconds": 15, "stage": args.stage,
++                    "hard_deadline_seconds": 45 if args.stage == "nccl" else 60,
++                    "init_deadline_seconds": 15 if args.stage == "nccl" else 60, "stage": args.stage,
+                     "expected_container_hostname": args.expected_container_hostname,
+                     "payload_bytes": PAYLOAD if args.stage != "init" else 0, "guard_bytes": GUARD,
+                     "performance_sample": False, "owner_exclusivity": "unknown; functional only",
+@@ -464,7 +464,7 @@
+                    NCCL_TOPO_DUMP_FILE_RANK=str(args.rank),
+                    NCCL_DEBUG="INFO", NCCL_DEBUG_SUBSYS="INIT,GRAPH,NET", NCCL_DEBUG_FILE=str(args.out / "nccl.log"))
+     argv = [sys.executable, str(Path(__file__).resolve()), *sys.argv[1:], "--worker"]
+-    process = bounded(argv, env, args.out, deadline=45 if args.stage == "nccl" else 15,
++    process = bounded(argv, env, args.out, deadline=45 if args.stage == "nccl" else 60,
+                       init_seconds=15 if args.stage == "nccl" else None)
+     path = args.out / "child.result.json"
+     payload = json.loads(path.read_text()) if path.exists() else None

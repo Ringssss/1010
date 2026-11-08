@@ -1,0 +1,39 @@
+{
+  "CPU_REAL_FORK": true,
+  "GPU_launches": 0,
+  "SSH_commands": 0,
+  "checks": [
+    {
+      "name": "subreaper_enabled_before_real_child_spawn",
+      "passed": true
+    },
+    {
+      "name": "real_orphan_grandchild_adopted_by_task_supervisor",
+      "passed": true
+    },
+    {
+      "name": "original_child_reaped",
+      "passed": true
+    },
+    {
+      "name": "adopted_grandchild_waitpid_recorded",
+      "passed": true
+    },
+    {
+      "name": "no_adopted_orphan_remaining",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "adopted_child_reap": {
+    "passed": true,
+    "reaped": [
+      {
+        "pid": 2435425,
+        "wait_status": 0
+      }
+    ],
+    "pending_children": [],
+    "scope": "only direct/adopted children of this task supervisor; no signals"
+  }
+}

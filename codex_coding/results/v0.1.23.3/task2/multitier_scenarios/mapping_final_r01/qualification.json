@@ -1,0 +1,206 @@
+{
+  "development": "v0.1.23.3/task2",
+  "created_utc": "2026-10-10T11:00:19.898720+00:00",
+  "checks": {
+    "all_metadata_commands_natural_rc0": true,
+    "all_metadata_known_hosts_unchanged": true,
+    "node29_never_accessed": true,
+    "no_node27_driver_refresh": true,
+    "six_roles_three_real_gpu_hosts": true,
+    "dram_order_matches_gpu_numa": true,
+    "r03_rolemap_matches_parent_choice": true,
+    "static_binding_not_six_worker_runtime": true,
+    "local_ssds_are_real_nonrotational_mounts": true,
+    "node28/historical_kfd_id_same_boot": true,
+    "node28/0000:09:00.0/visible_positive_vram_owners_zero": true,
+    "node28/0000:36:00.0/visible_positive_vram_owners_zero": true,
+    "node30/historical_kfd_id_same_boot": true,
+    "node30/0000:85:00.0/visible_positive_vram_owners_zero": true,
+    "node30/0000:b5:00.0/visible_positive_vram_owners_zero": true,
+    "node27_one_copy_passed": true,
+    "node27_bdf_ordinal_confirmed": true,
+    "node27_clean_natural_exit": true,
+    "node27_core0": true,
+    "node27_fresh_identity_protection_no_oom_quiet": true,
+    "selected_node27_gpu_conservative_point_bound_under_2GiB": true,
+    "node27_runtime_source_exact_frozen_diag60": true,
+    "all_mapping_source_AST_passed": true
+  },
+  "checks_passed": 23,
+  "checks_total": 23,
+  "status": "mapping_prepared_one_third_host_gpu_functional_gate_passed_six_worker_unadmitted",
+  "binding_path": "mapping_binding_r03/machine_binding.json",
+  "owner_evidence": [
+    {
+      "historical_ordinal": 0,
+      "bdf": "0000:09:00.0",
+      "numa": "0",
+      "sysfs_total_bytes": "68702699520",
+      "sysfs_used_bytes": "584761344",
+      "sysfs_total_minus_used_bytes": 68117938176,
+      "free_is_gpu_health_or_task_authorization": false,
+      "node": "node28",
+      "sampled_utc": "2026-10-10T10:56:06.557744+00:00",
+      "historical_kfd_gpu_id": "22078",
+      "same_boot_mapping": true,
+      "visible_positive_vram_owner_pids": [],
+      "exclusive_or_gpu_health_claim": false,
+      "owner_visibility_complete": false
+    },
+    {
+      "historical_ordinal": 1,
+      "bdf": "0000:36:00.0",
+      "numa": "3",
+      "sysfs_total_bytes": "68702699520",
+      "sysfs_used_bytes": "584761344",
+      "sysfs_total_minus_used_bytes": 68117938176,
+      "free_is_gpu_health_or_task_authorization": false,
+      "node": "node28",
+      "sampled_utc": "2026-10-10T10:56:06.557744+00:00",
+      "historical_kfd_gpu_id": "34430",
+      "same_boot_mapping": true,
+      "visible_positive_vram_owner_pids": [],
+      "exclusive_or_gpu_health_claim": false,
+      "owner_visibility_complete": false
+    },
+    {
+      "historical_ordinal": 4,
+      "bdf": "0000:85:00.0",
+      "numa": "4",
+      "sysfs_total_bytes": "68702699520",
+      "sysfs_used_bytes": "3751936",
+      "sysfs_total_minus_used_bytes": 68698947584,
+      "free_is_gpu_health_or_task_authorization": false,
+      "node": "node30",
+      "sampled_utc": "2026-10-10T10:56:06.742337+00:00",
+      "historical_kfd_gpu_id": "60191",
+      "same_boot_mapping": true,
+      "visible_positive_vram_owner_pids": [],
+      "exclusive_or_gpu_health_claim": false,
+      "owner_visibility_complete": false
+    },
+    {
+      "historical_ordinal": 5,
+      "bdf": "0000:b5:00.0",
+      "numa": "7",
+      "sysfs_total_bytes": "68702699520",
+      "sysfs_used_bytes": "3751936",
+      "sysfs_total_minus_used_bytes": 68698947584,
+      "free_is_gpu_health_or_task_authorization": false,
+      "node": "node30",
+      "sampled_utc": "2026-10-10T10:56:06.742337+00:00",
+      "historical_kfd_gpu_id": "1268",
+      "same_boot_mapping": true,
+      "visible_positive_vram_owner_pids": [],
+      "exclusive_or_gpu_health_claim": false,
+      "owner_visibility_complete": false
+    }
+  ],
+  "budget_provenance": {
+    "source_path": "docx/plans/2026-10-04_v0.1.23.3_task2_paper_e1_e8_plan.md",
+    "source_document_sha256_at_read": "38b4e6b26676d7737293a33a71f0eb39dfc0932d361d7157c83fc1d8a0a551b7",
+    "source_section": "18.18",
+    "source_line_at_read": 660,
+    "exact_old_budget_quote": "暂定新增物理实验配额每node HBM≤2GiB、DRAM≤2GiB，容器8GiB总量并单列Torch/驱动与临时峰值；代表数据量64MiB和512MiB，实际峰值审查后可缩小。优先本地DRAM→目标GPU、跨节点DRAM→目标GPU，通过真实执行primitive测同controller时间窗口，保活分配/触页/注册和GPU初始化另记。指定NUMA须实际mbind与页归属验证，不以默认分配碰巧位置替代；private普通容器seccomp曾有mbind错误，复用或新建SYS_NICE测量环境，原保活容器不借用。新容器/远端写入由父协调，30私有1GiBshm仅放小代码日志，payload走明确预算的内存分配。",
+    "interpretation": "old experiment provisional cap; no evidence of permanent user hardware upper bound",
+    "old_outcomes_preserved": true,
+    "new_parent_coordinated_dram_cap_bytes": 6442450944,
+    "new_parent_coordinated_hbm_cap_bytes": 2147483648,
+    "new_cap_is_paused_weight_cache_budget": false
+  },
+  "node27_selected_card_bound_bytes": 338690048,
+  "node27_bound_scope": "total HIP card used at post-init sample plus one payload; includes any external allocations; no full peak or other GPU bound",
+  "six_worker_ready": false,
+  "SSD_IO_ready": false,
+  "rates_or_schedule_qualified": false,
+  "metadata_subagent_GPU_runs": 0,
+  "parent_GPU_runs": 1,
+  "node29_accesses": 0,
+  "evidence_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_binding_r03/machine_binding.json",
+      "sha256": "17fe4fbf9f3fe0d744b3719310c9e450d7120ee0e24074f081024e892760773c"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_refresh_r01/manifest.json",
+      "sha256": "a056db484f4820aa232ee9c8eab77d5a6dc04b9bc8f3e5507f1163c350cbd423"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_pci_followup_r01/manifest.json",
+      "sha256": "1e1e5f57958918601fec1a1b61e9d6e8ec393ca7d7786e7f2db71b10de1a0334"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_owner_refresh_r01/manifest.json",
+      "sha256": "e03e1dff916e637b502652665d6fc0e7623dd56916096f9348b6edea16108dc8"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_r03/node28.stdout.json",
+      "sha256": "73696aa4504750da8bb335938292c149cb055b4fe8d76285787f3fa2d4124280"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_owner_refresh_r01/node28.stdout.json",
+      "sha256": "849e83b0c23719dcdc6117721a2b4d7909f4964a60b4df85607c641ae2b73032"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_r03/node30.stdout.json",
+      "sha256": "8da563c2a306f3d3cb8c6287f2c620b8ce76802eb6a6a6d1dd1014f8260c871a"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_owner_refresh_r01/node30.stdout.json",
+      "sha256": "892a06fd4b710d005aaad0e24c994baca8abb35cd902e2ea4d58485971442798"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_run_r01/result.json",
+      "sha256": "fc504c98232f1e2b604835c542ff2f2934640b33e2a8939bdd65ed2b26f8242e"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_run_r01/artifacts/child.result.json",
+      "sha256": "ddeb39a4b524df5d6ec58387762c04ab426634c3b84c03614b815ec8e074dd34"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_run_r01/artifacts/child.process.json",
+      "sha256": "b520f592e6900bb4981364483cd473d3336a4196c597a89fdca1b32f1044b512"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_run_r01/artifacts/registration.json",
+      "sha256": "b262e1fe42405b604220d1c468664c86bcbf4eee246694385b6d871e02d5f1d4"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/build_binding.py",
+      "sha256": "5145431070da669a150726d8c85e4f47df61db87062bdc4d0f4f573ca567cd9a"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/pci_metadata.py",
+      "sha256": "24cbed4830d185963266f6c40cde46de5fe329a35e8445a2982ca458989784d6"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/run_admission27_copy.py",
+      "sha256": "285773f11bb32adf0a143f6a2b78db8787f5b5a22ab2a885ade04003621e645c"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/prepare_admission27.py",
+      "sha256": "216fd30916549d0b2b802ae79c10a9d4d98d8ca5fbb9e3d065a192af74b34ca8"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/collect_metadata.py",
+      "sha256": "3e0547fcea20ed2e2cc02454ff12c84681c730f77091f5bc5d4b35e9c1f40349"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/summarize_delivery.py",
+      "sha256": "210f4a2c4cb999b62792568d3c9a72f06dceb09a0ab159bc2347bd651631648e"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/owner_metadata.py",
+      "sha256": "185a6a6855362ccbc262f77f61471db751054784ee57dbed4e75e6eebb8bc773"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/host_metadata.py",
+      "sha256": "79827c3de0b5ed3b31538bb0acb2153f94ad736ce70e9a95c5924fd138aca1c7"
+    }
+  ],
+  "known_failures_and_revisions": [
+    "first metadata class03 selected management VGA; dedicated PCI follow-up corrected to0b4000/1d94:6320",
+    "r01 binding DRAM order corrected r02; r03 avoids occupied node28 helperGPU4 and moves node30 helperGPU0 to low-occupancyGPU5",
+    "local historical inventory_r01 parse failed because old stdout is empty; inventory_r03 used with same-boot evidence"
+  ]
+}

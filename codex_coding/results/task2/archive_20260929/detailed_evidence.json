@@ -1,0 +1,2252 @@
+{
+  "scope": "offline extraction; original summaries and analyses unchanged",
+  "inputs_sha256": {
+    "codex_coding/results/task2/cluster/placement01/summary.json": "c78a56db38ccde7a04a23d9a5b2aa12d5ec6c4fbbbbc3f72905c1dad24912b31",
+    "codex_coding/results/task2/cluster/placement01/placement_analysis.json": "307974e2f84d7966fab2a5f8ef525041ccc957a88823512a1a0a05f52f79f33b",
+    "codex_coding/results/task2/cluster/control01/control_analysis.json": "5efa641fe331e5988c318852957fed463326631c12b44ed9304f04cb605923da",
+    "codex_coding/results/task2/cluster/profile01/profiling_analysis.json": "de650e9cb23efef1d6f01043c3187ec116dee0a64925a25bd910cae3511eda89",
+    "codex_coding/results/task2/cluster/bulk_profile01/profiling_analysis.json": "53233d33502d602af63a9457b54242aad1f60bcd2c618b77809f52516520f64c",
+    "codex_coding/results/task2/cluster/bulk_profile01/profiles/worker_node29_0.json": "5be45d1a0a94ef5f8fd144fdffda8e1f79b3da2b305b8da204e2c8189f5c2628",
+    "codex_coding/results/task2/cluster/placement01/worker_node29_0.log": "56e5f9e6da98a9411db4dddd99e882c948ee49119df2269207beb5f5fb6019e6"
+  },
+  "timeline": [
+    {
+      "local_time": "21:59:16.716",
+      "time": 1790603956.7163541,
+      "event": "isolated_container_created",
+      "node": "node28",
+      "name": "zjn-fluidckpt-task2-cluster-placement01",
+      "capability": "SYS_NICE"
+    },
+    {
+      "local_time": "21:59:17.370",
+      "time": 1790603957.370246,
+      "event": "isolated_container_created",
+      "node": "node29",
+      "name": "zjn-fluidckpt-task2-cluster-placement01",
+      "capability": "SYS_NICE"
+    },
+    {
+      "local_time": "21:59:18.277",
+      "time": 1790603958.2771583,
+      "event": "preflight_passed",
+      "nodes": [
+        "node27",
+        "node28",
+        "node29"
+      ]
+    },
+    {
+      "local_time": "21:59:52.843",
+      "time": 1790603992.8438363,
+      "event": "mesh_ready",
+      "workers": 8
+    },
+    {
+      "local_time": "22:02:30.705",
+      "time": 1790604150.7052152,
+      "event": "model_captured",
+      "bytes": 70329718112
+    },
+    {
+      "local_time": "22:02:36.690",
+      "time": 1790604156.6902146,
+      "event": "model_gpu_replicas_ready"
+    },
+    {
+      "local_time": "22:05:00.071",
+      "time": 1790604300.071267,
+      "event": "model_migrated_to_node28"
+    },
+    {
+      "local_time": "22:05:08.255",
+      "time": 1790604308.255078,
+      "event": "path_calibrated",
+      "path": "network:dram",
+      "rank_seconds": [
+        0.042663185857236385,
+        0.042772137094289064
+      ]
+    },
+    {
+      "local_time": "22:05:11.711",
+      "time": 1790604311.7110307,
+      "event": "path_calibrated",
+      "path": "network:hbm",
+      "rank_seconds": [
+        0.030656709801405668,
+        0.031956837978214025
+      ]
+    },
+    {
+      "local_time": "22:05:16.432",
+      "time": 1790604316.432592,
+      "event": "path_calibrated",
+      "path": "local_dram:dram",
+      "rank_seconds": [
+        0.023762471973896027,
+        0.02394634298980236
+      ]
+    },
+    {
+      "local_time": "22:05:21.894",
+      "time": 1790604321.894238,
+      "event": "path_calibrated",
+      "path": "local_hbm:hbm",
+      "rank_seconds": [
+        0.002878525760024786,
+        0.002894605975598097
+      ]
+    },
+    {
+      "local_time": "22:05:24.356",
+      "time": 1790604324.3566344,
+      "event": "placements_solved",
+      "selected": "balanced_local",
+      "predictions": {
+        "base_only": 1.4007800933388845,
+        "existing": 1.3580079562445957,
+        "single_greedy": 1.4007800933388845,
+        "paired_greedy": 1.222444174759634,
+        "milp": 1.222444174759634,
+        "balanced_local": 1.222444174759634
+      }
+    },
+    {
+      "local_time": "22:07:27.110",
+      "time": 1790604447.1109397,
+      "event": "weights_transferred",
+      "phase": "placement_existing",
+      "control_s": 1.7548407400026917,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      }
+    },
+    {
+      "local_time": "22:10:49.547",
+      "time": 1790604649.5475848,
+      "event": "model_restore_passed",
+      "phase": "placement_existing",
+      "load_s": 2.133549089,
+      "verified_bytes": 70329718112
+    },
+    {
+      "local_time": "22:11:10.148",
+      "time": 1790604670.1488748,
+      "event": "optimized_layout_ready",
+      "selected": "balanced_local"
+    },
+    {
+      "local_time": "22:12:48.216",
+      "time": 1790604768.2166605,
+      "event": "weights_transferred",
+      "phase": "placement_optimized",
+      "control_s": 1.3786117718555033,
+      "source_bytes": {
+        "model/remote/0": 29796149936,
+        "optimized/1": 4294967296,
+        "optimized/0": 1073741824,
+        "model/remote/1": 29796149936,
+        "optimized/3": 4294967296,
+        "optimized/2": 1073741824
+      }
+    },
+    {
+      "local_time": "22:14:35.536",
+      "time": 1790604875.5368483,
+      "event": "model_restore_passed",
+      "phase": "placement_optimized",
+      "load_s": 1.812675486,
+      "verified_bytes": 70329718112
+    }
+  ],
+  "restores": [
+    {
+      "phase": "placement_existing",
+      "ops": [
+        {
+          "op_id": 0,
+          "target": "placement_existing/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 0,
+          "n": 1073741841,
+          "source_offset": 0,
+          "replica_id": "model/remote/0",
+          "generation": 1,
+          "src_w": 4,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node28/2/100/60a8f6f4a88b4198b0a3696f91a59364",
+          "kind": "network",
+          "path": "4:dram:2->6",
+          "resources": [
+            "in:6",
+            "dram:node28:2",
+            "out:4",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 1,
+          "target": "placement_existing/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 1073741841,
+          "n": 1073741824,
+          "source_offset": 0,
+          "replica_id": "model/joint/0",
+          "generation": 1,
+          "src_w": 6,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node29/0/100/2747a34a88c642d9bf1b0fbb13b176e3",
+          "kind": "local_dram",
+          "path": "6:dram:0->6",
+          "resources": [
+            "in:6",
+            "dram:node29:0"
+          ]
+        },
+        {
+          "op_id": 2,
+          "target": "placement_existing/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 2147483665,
+          "n": 3221225472,
+          "source_offset": 1073741824,
+          "replica_id": "model/gpu/0",
+          "generation": 1,
+          "src_w": 2,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node27/2/569451/355347429e6440f7959fdaca445da740",
+          "kind": "network",
+          "path": "2:hbm:2->6",
+          "resources": [
+            "in:6",
+            "out:2",
+            "net_out:node27",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 3,
+          "target": "placement_existing/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 5368709137,
+          "n": 29796149919,
+          "source_offset": 5368709137,
+          "replica_id": "model/remote/0",
+          "generation": 1,
+          "src_w": 4,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node28/2/100/60a8f6f4a88b4198b0a3696f91a59364",
+          "kind": "network",
+          "path": "4:dram:2->6",
+          "resources": [
+            "in:6",
+            "dram:node28:2",
+            "out:4",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 4,
+          "target": "placement_existing/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 0,
+          "n": 1073741841,
+          "source_offset": 0,
+          "replica_id": "model/remote/1",
+          "generation": 1,
+          "src_w": 5,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node28/3/118/e7a7128d1dda4e2594e442cd65e504ae",
+          "kind": "network",
+          "path": "5:dram:1->7",
+          "resources": [
+            "in:7",
+            "dram:node28:1",
+            "out:5",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 5,
+          "target": "placement_existing/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 1073741841,
+          "n": 1073741824,
+          "source_offset": 0,
+          "replica_id": "model/joint/1",
+          "generation": 1,
+          "src_w": 7,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node29/1/118/2b098a1e319d4130afd04955c3ba38fb",
+          "kind": "local_dram",
+          "path": "7:dram:3->7",
+          "resources": [
+            "in:7",
+            "dram:node29:3"
+          ]
+        },
+        {
+          "op_id": 6,
+          "target": "placement_existing/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 2147483665,
+          "n": 3221225472,
+          "source_offset": 1073741824,
+          "replica_id": "model/gpu/1",
+          "generation": 1,
+          "src_w": 3,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node27/3/569469/799bbc2da6be48f8a5325e4573245aad",
+          "kind": "network",
+          "path": "3:hbm:1->7",
+          "resources": [
+            "in:7",
+            "out:3",
+            "net_out:node27",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 7,
+          "target": "placement_existing/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 5368709137,
+          "n": 29796149919,
+          "source_offset": 5368709137,
+          "replica_id": "model/remote/1",
+          "generation": 1,
+          "src_w": 5,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node28/3/118/e7a7128d1dda4e2594e442cd65e504ae",
+          "kind": "network",
+          "path": "5:dram:1->7",
+          "resources": [
+            "in:7",
+            "dram:node28:1",
+            "out:5",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        }
+      ],
+      "execution": [
+        {
+          "worker": 0,
+          "records": [],
+          "execute_s": 1.8857885152101517e-05,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 1,
+          "records": [],
+          "execute_s": 1.753075048327446e-05,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 2,
+          "records": [
+            {
+              "op_id": 2,
+              "role": "source",
+              "replica_id": "model/gpu/0",
+              "bytes": 3221225472,
+              "kind": "network",
+              "elapsed_s": 0.178920682054013,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 0.1790248155593872,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 3,
+          "records": [
+            {
+              "op_id": 6,
+              "role": "source",
+              "replica_id": "model/gpu/1",
+              "bytes": 3221225472,
+              "kind": "network",
+              "elapsed_s": 0.18600015388801694,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 0.18617944000288844,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 4,
+          "records": [
+            {
+              "op_id": 0,
+              "role": "source",
+              "replica_id": "model/remote/0",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.045159013010561466,
+              "pipeline": {}
+            },
+            {
+              "op_id": 3,
+              "role": "source",
+              "replica_id": "model/remote/0",
+              "bytes": 29796149919,
+              "kind": "network",
+              "elapsed_s": 1.2933813370764256,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.3386474018916488,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 5,
+          "records": [
+            {
+              "op_id": 4,
+              "role": "source",
+              "replica_id": "model/remote/1",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.0463040447793901,
+              "pipeline": {}
+            },
+            {
+              "op_id": 7,
+              "role": "source",
+              "replica_id": "model/remote/1",
+              "bytes": 29796149919,
+              "kind": "network",
+              "elapsed_s": 1.3063294887542725,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.3527404861524701,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 6,
+          "records": [
+            {
+              "op_id": 0,
+              "role": "target",
+              "replica_id": "model/remote/0",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.042918217834085226,
+              "pipeline": {}
+            },
+            {
+              "op_id": 1,
+              "role": "both",
+              "replica_id": "model/joint/0",
+              "bytes": 1073741824,
+              "kind": "local_dram",
+              "elapsed_s": 0.02396379318088293,
+              "pipeline": {}
+            },
+            {
+              "op_id": 2,
+              "role": "target",
+              "replica_id": "model/gpu/0",
+              "bytes": 3221225472,
+              "kind": "network",
+              "elapsed_s": 0.10878238407894969,
+              "pipeline": {}
+            },
+            {
+              "op_id": 3,
+              "role": "target",
+              "replica_id": "model/remote/0",
+              "bytes": 29796149919,
+              "kind": "network",
+              "elapsed_s": 1.1617194111458957,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.3404630338773131,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 7,
+          "records": [
+            {
+              "op_id": 4,
+              "role": "target",
+              "replica_id": "model/remote/1",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.04463777784258127,
+              "pipeline": {}
+            },
+            {
+              "op_id": 5,
+              "role": "both",
+              "replica_id": "model/joint/1",
+              "bytes": 1073741824,
+              "kind": "local_dram",
+              "elapsed_s": 0.024214704986661673,
+              "pipeline": {}
+            },
+            {
+              "op_id": 6,
+              "role": "target",
+              "replica_id": "model/gpu/1",
+              "bytes": 3221225472,
+              "kind": "network",
+              "elapsed_s": 0.11424434371292591,
+              "pipeline": {}
+            },
+            {
+              "op_id": 7,
+              "role": "target",
+              "replica_id": "model/remote/1",
+              "bytes": 29796149919,
+              "kind": "network",
+              "elapsed_s": 1.1690022321417928,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.355986800044775,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        }
+      ],
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "network_bytes": 68182234464,
+      "verification_example": {
+        "op_id": 2,
+        "n": 3221225472,
+        "source_sha256": "e850fed6f22c8c0d779c325173070a59e85a15b780bbc69666ab50c4a0be2998",
+        "target_sha256": "e850fed6f22c8c0d779c325173070a59e85a15b780bbc69666ab50c4a0be2998"
+      }
+    },
+    {
+      "phase": "placement_optimized",
+      "ops": [
+        {
+          "op_id": 0,
+          "target": "placement_optimized/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 0,
+          "n": 1073741841,
+          "source_offset": 0,
+          "replica_id": "model/remote/0",
+          "generation": 1,
+          "src_w": 4,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node28/2/100/60a8f6f4a88b4198b0a3696f91a59364",
+          "kind": "network",
+          "path": "4:dram:2->6",
+          "resources": [
+            "in:6",
+            "dram:node28:2",
+            "out:4",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 1,
+          "target": "placement_optimized/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 1073741841,
+          "n": 4294967296,
+          "source_offset": 0,
+          "replica_id": "optimized/1",
+          "generation": 1,
+          "src_w": 6,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node29/0/100/2747a34a88c642d9bf1b0fbb13b176e3",
+          "kind": "local_hbm",
+          "path": "6:hbm:0->6",
+          "resources": [
+            "in:6"
+          ]
+        },
+        {
+          "op_id": 2,
+          "target": "placement_optimized/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 5368709137,
+          "n": 1073741824,
+          "source_offset": 0,
+          "replica_id": "optimized/0",
+          "generation": 1,
+          "src_w": 6,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node29/0/100/2747a34a88c642d9bf1b0fbb13b176e3",
+          "kind": "local_dram",
+          "path": "6:dram:0->6",
+          "resources": [
+            "in:6",
+            "dram:node29:0"
+          ]
+        },
+        {
+          "op_id": 3,
+          "target": "placement_optimized/0",
+          "tp": 0,
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "off": 6442450961,
+          "n": 28722408095,
+          "source_offset": 6442450961,
+          "replica_id": "model/remote/0",
+          "generation": 1,
+          "src_w": 4,
+          "dst_w": 6,
+          "source_epoch": "cluster/placement01/node28/2/100/60a8f6f4a88b4198b0a3696f91a59364",
+          "kind": "network",
+          "path": "4:dram:2->6",
+          "resources": [
+            "in:6",
+            "dram:node28:2",
+            "out:4",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 4,
+          "target": "placement_optimized/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 0,
+          "n": 1073741841,
+          "source_offset": 0,
+          "replica_id": "model/remote/1",
+          "generation": 1,
+          "src_w": 5,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node28/3/118/e7a7128d1dda4e2594e442cd65e504ae",
+          "kind": "network",
+          "path": "5:dram:1->7",
+          "resources": [
+            "in:7",
+            "dram:node28:1",
+            "out:5",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        },
+        {
+          "op_id": 5,
+          "target": "placement_optimized/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 1073741841,
+          "n": 4294967296,
+          "source_offset": 0,
+          "replica_id": "optimized/3",
+          "generation": 1,
+          "src_w": 7,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node29/1/118/2b098a1e319d4130afd04955c3ba38fb",
+          "kind": "local_hbm",
+          "path": "7:hbm:3->7",
+          "resources": [
+            "in:7"
+          ]
+        },
+        {
+          "op_id": 6,
+          "target": "placement_optimized/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 5368709137,
+          "n": 1073741824,
+          "source_offset": 0,
+          "replica_id": "optimized/2",
+          "generation": 1,
+          "src_w": 7,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node29/1/118/2b098a1e319d4130afd04955c3ba38fb",
+          "kind": "local_dram",
+          "path": "7:dram:3->7",
+          "resources": [
+            "in:7",
+            "dram:node29:3"
+          ]
+        },
+        {
+          "op_id": 7,
+          "target": "placement_optimized/1",
+          "tp": 1,
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "off": 6442450961,
+          "n": 28722408095,
+          "source_offset": 6442450961,
+          "replica_id": "model/remote/1",
+          "generation": 1,
+          "src_w": 5,
+          "dst_w": 7,
+          "source_epoch": "cluster/placement01/node28/3/118/e7a7128d1dda4e2594e442cd65e504ae",
+          "kind": "network",
+          "path": "5:dram:1->7",
+          "resources": [
+            "in:7",
+            "dram:node28:1",
+            "out:5",
+            "net_out:node28",
+            "net_in:node29"
+          ]
+        }
+      ],
+      "execution": [
+        {
+          "worker": 0,
+          "records": [],
+          "execute_s": 1.3200100511312485e-05,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 1,
+          "records": [],
+          "execute_s": 1.0407064110040665e-05,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 2,
+          "records": [],
+          "execute_s": 1.1804047971963882e-05,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 3,
+          "records": [],
+          "execute_s": 1.2292061001062393e-05,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 4,
+          "records": [
+            {
+              "op_id": 0,
+              "role": "source",
+              "replica_id": "model/remote/0",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.04424357321113348,
+              "pipeline": {}
+            },
+            {
+              "op_id": 3,
+              "role": "source",
+              "replica_id": "model/remote/0",
+              "bytes": 28722408095,
+              "kind": "network",
+              "elapsed_s": 1.1800713711418211,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.2244326160289347,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 5,
+          "records": [
+            {
+              "op_id": 4,
+              "role": "source",
+              "replica_id": "model/remote/1",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.044503006152808666,
+              "pipeline": {}
+            },
+            {
+              "op_id": 7,
+              "role": "source",
+              "replica_id": "model/remote/1",
+              "bytes": 28722408095,
+              "kind": "network",
+              "elapsed_s": 1.2017470076680183,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.2463671150617301,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 6,
+          "records": [
+            {
+              "op_id": 0,
+              "role": "target",
+              "replica_id": "model/remote/0",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.04227706417441368,
+              "pipeline": {}
+            },
+            {
+              "op_id": 1,
+              "role": "both",
+              "replica_id": "optimized/1",
+              "bytes": 4294967296,
+              "kind": "local_hbm",
+              "elapsed_s": 0.0360583602450788,
+              "pipeline": {}
+            },
+            {
+              "op_id": 2,
+              "role": "both",
+              "replica_id": "optimized/0",
+              "bytes": 1073741824,
+              "kind": "local_dram",
+              "elapsed_s": 0.023937482852488756,
+              "pipeline": {}
+            },
+            {
+              "op_id": 3,
+              "role": "target",
+              "replica_id": "model/remote/0",
+              "bytes": 28722408095,
+              "kind": "network",
+              "elapsed_s": 1.1211564769037068,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.2283828812651336,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        },
+        {
+          "worker": 7,
+          "records": [
+            {
+              "op_id": 4,
+              "role": "target",
+              "replica_id": "model/remote/1",
+              "bytes": 1073741841,
+              "kind": "network",
+              "elapsed_s": 0.04366385191679001,
+              "pipeline": {}
+            },
+            {
+              "op_id": 5,
+              "role": "both",
+              "replica_id": "optimized/3",
+              "bytes": 4294967296,
+              "kind": "local_hbm",
+              "elapsed_s": 0.039479659870266914,
+              "pipeline": {}
+            },
+            {
+              "op_id": 6,
+              "role": "both",
+              "replica_id": "optimized/2",
+              "bytes": 1073741824,
+              "kind": "local_dram",
+              "elapsed_s": 0.024236893747001886,
+              "pipeline": {}
+            },
+            {
+              "op_id": 7,
+              "role": "target",
+              "replica_id": "model/remote/1",
+              "bytes": 28722408095,
+              "kind": "network",
+              "elapsed_s": 1.1391470259986818,
+              "pipeline": {}
+            }
+          ],
+          "execute_s": 1.2495845286175609,
+          "executor": "serial",
+          "staging_bytes": 67108864
+        }
+      ],
+      "source_bytes": {
+        "model/remote/0": 29796149936,
+        "optimized/1": 4294967296,
+        "optimized/0": 1073741824,
+        "model/remote/1": 29796149936,
+        "optimized/3": 4294967296,
+        "optimized/2": 1073741824
+      },
+      "network_bytes": 59592299872,
+      "verification_example": {
+        "op_id": 0,
+        "n": 1073741841,
+        "source_sha256": "19f7d7b10083bcada91fdb7a8a28e73d013a0192e235d8e445418a1ff59c3dac",
+        "target_sha256": "19f7d7b10083bcada91fdb7a8a28e73d013a0192e235d8e445418a1ff59c3dac"
+      }
+    }
+  ],
+  "control": [
+    {
+      "control_mode": "legacy",
+      "passed": true,
+      "load_s": 2.305256825,
+      "plan_wall_s": 0.21794445673003793,
+      "plan_control_s": {
+        "inventory_rpc_s": 0.04900385998189449,
+        "planner_rpc_s": 0.16535762883722782,
+        "total_s": 0.2143639330752194
+      },
+      "coordinator_s": {
+        "inventory_rpc_s": 0.062150934245437384,
+        "prepare_rpc_s": 0.1446992475539446,
+        "execute_wall_s": 1.3846554174087942,
+        "verify_and_publish_s": 0.008402211591601372
+      },
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002740706,
+        "model_layout_s": 0.328438993,
+        "export_s": 0.035162665,
+        "target_wait_s": 1.926802034,
+        "finalize_s": 0.012112427
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.454544053,
+        "target_mapping_s": 0.072594442,
+        "execute_dispatch_wait_s": 0.007438682,
+        "worker_execution_s": 1.377692276,
+        "completion_coordination_s": 0.006783258,
+        "ready_notice_wait_s": 0.007749323
+      },
+      "peer_export_wait_s": 0.09365001,
+      "after_all_exports_to_accept_s": 0.360894043,
+      "planner_request_bytes": 3548589,
+      "planner_response_bytes": 591005,
+      "inventory_response_bytes": 4738500,
+      "prepare_request_bytes": 4756312,
+      "control_json_bytes": 13636747,
+      "control_rpc_calls": 41,
+      "epoch_snapshot_reused": false,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "byte_plan_sha256": "144d0314eb91b7d5078d8fd5d748202cb51966bfaf8c2485282136937f681833"
+    },
+    {
+      "control_mode": "compact",
+      "passed": true,
+      "load_s": 1.955184827,
+      "plan_wall_s": 0.008241783827543259,
+      "plan_control_s": {
+        "inventory_rpc_s": 0.006755684968084097,
+        "planner_rpc_s": 0.0014467793516814709,
+        "total_s": 0.008204838261008263
+      },
+      "coordinator_s": {
+        "inventory_rpc_s": 1.4247838407754898e-05,
+        "prepare_rpc_s": 0.17821101611480117,
+        "execute_wall_s": 1.3840659498237073,
+        "verify_and_publish_s": 0.008198762312531471
+      },
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.002615915,
+        "loader_entry_s": 0.002029331,
+        "model_layout_s": 0.314239673,
+        "export_s": 0.036558393,
+        "target_wait_s": 1.58801697,
+        "finalize_s": 0.011724545
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.029493594,
+        "target_mapping_s": 0.158243208,
+        "execute_dispatch_wait_s": 0.008106435,
+        "worker_execution_s": 1.377085689,
+        "completion_coordination_s": 0.00710672,
+        "ready_notice_wait_s": 0.007981324
+      },
+      "peer_export_wait_s": 0.000163031,
+      "after_all_exports_to_accept_s": 0.029330563,
+      "planner_request_bytes": 2203,
+      "planner_response_bytes": 1833,
+      "inventory_response_bytes": 11796,
+      "prepare_request_bytes": 635856,
+      "control_json_bytes": 654025,
+      "control_rpc_calls": 33,
+      "epoch_snapshot_reused": true,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "byte_plan_sha256": "144d0314eb91b7d5078d8fd5d748202cb51966bfaf8c2485282136937f681833"
+    }
+  ],
+  "cpu": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "gpu": 0,
+      "execute_wall_s": 0.000260162,
+      "thread_cpu_s": 0.000258564,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 0,
+      "involuntary_switches": 0,
+      "top_cpu_functions": [
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 3.5340000000000004e-05,
+          "cumulative_s": 0.000102249
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_setDevice>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.4584e-05,
+          "cumulative_s": 2.4584e-05
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 611,
+          "function": "set_device",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 9.918e-06,
+          "cumulative_s": 4.3512e-05
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method time.monotonic>",
+          "primitive_calls": 2,
+          "calls": 2,
+          "self_s": 9.428e-06,
+          "cumulative_s": 9.428e-06
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 27,
+          "function": "record_targets",
+          "primitive_calls": 2,
+          "calls": 2,
+          "self_s": 6.984e-06,
+          "cumulative_s": 6.984e-06
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 6.635e-06,
+          "cumulative_s": 9.01e-06
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/profiling.py",
+          "line": 48,
+          "function": "__exit__",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 6.0770000000000004e-06,
+          "cumulative_s": 8.521e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'get' of 'dict' objects>",
+          "primitive_calls": 2,
+          "calls": 2,
+          "self_s": 4.61e-06,
+          "cumulative_s": 4.61e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.4440000000000002e-06,
+          "cumulative_s": 2.4440000000000002e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'update' of 'dict' objects>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.375e-06,
+          "cumulative_s": 2.375e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.375e-06,
+          "cumulative_s": 2.375e-06
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": []
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "gpu": 1,
+      "execute_wall_s": 0.000273921,
+      "thread_cpu_s": 0.000270634,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 0,
+      "involuntary_switches": 0,
+      "top_cpu_functions": [
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 3.7503e-05,
+          "cumulative_s": 0.00010930300000000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_setDevice>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.8774000000000003e-05,
+          "cumulative_s": 2.8774000000000003e-05
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 611,
+          "function": "set_device",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 1.0408000000000001e-05,
+          "cumulative_s": 4.8191e-05
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method time.monotonic>",
+          "primitive_calls": 2,
+          "calls": 2,
+          "self_s": 9.01e-06,
+          "cumulative_s": 9.01e-06
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/executor/profiling.py",
+          "line": 48,
+          "function": "__exit__",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 7.125e-06,
+          "cumulative_s": 9.499e-06
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 6.634e-06,
+          "cumulative_s": 9.009000000000001e-06
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 27,
+          "function": "record_targets",
+          "primitive_calls": 2,
+          "calls": 2,
+          "self_s": 6.566e-06,
+          "cumulative_s": 6.566e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'get' of 'dict' objects>",
+          "primitive_calls": 2,
+          "calls": 2,
+          "self_s": 4.68e-06,
+          "cumulative_s": 4.68e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'update' of 'dict' objects>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 3.3530000000000003e-06,
+          "cumulative_s": 3.3530000000000003e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.375e-06,
+          "cumulative_s": 2.375e-06
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'disable' of '_lsprof.Profiler' objects>",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 2.374e-06,
+          "cumulative_s": 2.374e-06
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": []
+    },
+    {
+      "worker": 2,
+      "node": "node27",
+      "gpu": 2,
+      "execute_wall_s": 0.577701167,
+      "thread_cpu_s": 0.075309795,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 97,
+      "involuntary_switches": 0,
+      "top_cpu_functions": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_synchronize>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.523224773,
+          "cumulative_s": 0.523224773
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 2865,
+          "function": "broadcast",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.025373712000000003,
+          "cumulative_s": 0.030489773
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'copy_' of 'torch._C.TensorBase' objects>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.0064763220000000005,
+          "cumulative_s": 0.0064763220000000005
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 0.00502339,
+          "cumulative_s": 0.577534662
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 97,
+          "calls": 97,
+          "self_s": 0.0020374340000000003,
+          "cumulative_s": 0.0048888080000000006
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 778,
+          "calls": 778,
+          "self_s": 0.0019365010000000002,
+          "cumulative_s": 0.0019365010000000002
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 1221,
+          "function": "synchronize",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.001451156,
+          "cumulative_s": 0.533608671
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/_utils.py",
+          "line": 837,
+          "function": "_get_device_index",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.0010068470000000002,
+          "cumulative_s": 0.0017065890000000001
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 1029,
+          "function": "get_group_rank",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.000982391,
+          "cumulative_s": 0.002125362
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 735,
+          "function": "WORLD",
+          "primitive_calls": 192,
+          "calls": 192,
+          "self_s": 0.0009162640000000001,
+          "cumulative_s": 0.00137373
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_maybeExchangeDevice>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.000765678,
+          "cumulative_s": 0.000765678
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_exchangeDevice>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.000716018,
+          "cumulative_s": 0.000716018
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": [
+        {
+          "op_id": 2,
+          "thread_cpu_s": 0.074353333,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.576731689,
+          "outside_traced_device_activity_s": null
+        }
+      ]
+    },
+    {
+      "worker": 3,
+      "node": "node27",
+      "gpu": 3,
+      "execute_wall_s": 0.557417,
+      "thread_cpu_s": 0.078819237,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 96,
+      "involuntary_switches": 0,
+      "top_cpu_functions": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_synchronize>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.5004283740000001,
+          "cumulative_s": 0.5004283740000001
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 2865,
+          "function": "broadcast",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.027450386,
+          "cumulative_s": 0.032722904000000004
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'copy_' of 'torch._C.TensorBase' objects>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.006240322,
+          "cumulative_s": 0.006240322
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 0.005257984,
+          "cumulative_s": 0.557233874
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 97,
+          "calls": 97,
+          "self_s": 0.0020349920000000002,
+          "cumulative_s": 0.004899703
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 778,
+          "calls": 778,
+          "self_s": 0.0018950170000000001,
+          "cumulative_s": 0.0018950170000000001
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 1221,
+          "function": "synchronize",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.001509775,
+          "cumulative_s": 0.511010358
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 1029,
+          "function": "get_group_rank",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.001038059,
+          "cumulative_s": 0.0022563870000000003
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/_utils.py",
+          "line": 837,
+          "function": "_get_device_index",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.0010110380000000001,
+          "cumulative_s": 0.0017049810000000002
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 735,
+          "function": "WORLD",
+          "primitive_calls": 192,
+          "calls": 192,
+          "self_s": 0.000948955,
+          "cumulative_s": 0.001431142
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_exchangeDevice>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.0007756550000000001,
+          "cumulative_s": 0.0007756550000000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_maybeExchangeDevice>",
+          "primitive_calls": 96,
+          "calls": 96,
+          "self_s": 0.000747727,
+          "cumulative_s": 0.000747727
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": [
+        {
+          "op_id": 6,
+          "thread_cpu_s": 0.077777383,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.556371883,
+          "outside_traced_device_activity_s": null
+        }
+      ]
+    },
+    {
+      "worker": 4,
+      "node": "node28",
+      "gpu": 2,
+      "execute_wall_s": 1.751293268,
+      "thread_cpu_s": 0.431521185,
+      "scheduler_runqueue_wait_s": 0.000118772,
+      "voluntary_switches": 7779,
+      "involuntary_switches": 1,
+      "top_cpu_functions": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_synchronize>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 1.167503868,
+          "cumulative_s": 1.167503868
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 2865,
+          "function": "broadcast",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.501230979,
+          "cumulative_s": 0.5073908610000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'copy_' of 'torch._C.TensorBase' objects>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.028230190000000002,
+          "cumulative_s": 0.028230190000000002
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 0.023318662,
+          "cumulative_s": 1.7511250850000002
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 922,
+          "calls": 922,
+          "self_s": 0.00566492,
+          "cumulative_s": 0.008846934
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 1221,
+          "function": "synchronize",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.0036127000000000004,
+          "cumulative_s": 1.187848752
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py",
+          "line": 80,
+          "function": "wrapper",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.0025199700000000003,
+          "cumulative_s": 0.509910831
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/_utils.py",
+          "line": 837,
+          "function": "_get_device_index",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001963032,
+          "cumulative_s": 0.002264677
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_exchangeDevice>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001863145,
+          "cumulative_s": 0.001863145
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_maybeExchangeDevice>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001831836,
+          "cumulative_s": 0.001831836
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 1029,
+          "function": "get_group_rank",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001536236,
+          "cumulative_s": 0.002267921
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 7386,
+          "calls": 7386,
+          "self_s": 0.001238942,
+          "cumulative_s": 0.001238942
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": [
+        {
+          "op_id": 0,
+          "thread_cpu_s": 0.038059862,
+          "scheduler_wait_s": 9.6212e-05,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.432230198,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 3,
+          "thread_cpu_s": 0.392652266,
+          "scheduler_wait_s": 2.256e-05,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 1.318249111,
+          "outside_traced_device_activity_s": null
+        }
+      ]
+    },
+    {
+      "worker": 5,
+      "node": "node28",
+      "gpu": 3,
+      "execute_wall_s": 1.916278808,
+      "thread_cpu_s": 0.408221924,
+      "scheduler_runqueue_wait_s": 0.000289984,
+      "voluntary_switches": 6958,
+      "involuntary_switches": 2,
+      "top_cpu_functions": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_synchronize>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 1.394740364,
+          "cumulative_s": 1.394740364
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 2865,
+          "function": "broadcast",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.44129019100000005,
+          "cumulative_s": 0.44766220300000004
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'copy_' of 'torch._C.TensorBase' objects>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.024256075000000002,
+          "cumulative_s": 0.024256075000000002
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 0.023592046000000002,
+          "cumulative_s": 1.916109067
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 922,
+          "calls": 922,
+          "self_s": 0.0055246620000000005,
+          "cumulative_s": 0.00875686
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 1221,
+          "function": "synchronize",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.003980811,
+          "cumulative_s": 1.415643003
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py",
+          "line": 80,
+          "function": "wrapper",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.002679541,
+          "cumulative_s": 0.45034174400000004
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_maybeExchangeDevice>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.002013724,
+          "cumulative_s": 0.002013724
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/_utils.py",
+          "line": 837,
+          "function": "_get_device_index",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001985459,
+          "cumulative_s": 0.0022748
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_exchangeDevice>",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001851416,
+          "cumulative_s": 0.001851416
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 1029,
+          "function": "get_group_rank",
+          "primitive_calls": 921,
+          "calls": 921,
+          "self_s": 0.001541756,
+          "cumulative_s": 0.0022925140000000003
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method builtins.isinstance>",
+          "primitive_calls": 7386,
+          "calls": 7386,
+          "self_s": 0.0012305670000000001,
+          "cumulative_s": 0.0012305670000000001
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": [
+        {
+          "op_id": 4,
+          "thread_cpu_s": 0.035248351,
+          "scheduler_wait_s": 8.5282e-05,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.410650013,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 7,
+          "thread_cpu_s": 0.371843161,
+          "scheduler_wait_s": 0.000204702,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 1.504491693,
+          "outside_traced_device_activity_s": null
+        }
+      ]
+    },
+    {
+      "worker": 6,
+      "node": "node29",
+      "gpu": 0,
+      "execute_wall_s": 1.757714098,
+      "thread_cpu_s": 0.648572491,
+      "scheduler_runqueue_wait_s": 0.000111397,
+      "voluntary_switches": 7941,
+      "involuntary_switches": 1,
+      "top_cpu_functions": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_synchronize>",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 1.081770597,
+          "cumulative_s": 1.081770597
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 2865,
+          "function": "broadcast",
+          "primitive_calls": 1017,
+          "calls": 1017,
+          "self_s": 0.49465435700000004,
+          "cumulative_s": 0.501705796
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'copy_' of 'torch._C.TensorBase' objects>",
+          "primitive_calls": 2057,
+          "calls": 2057,
+          "self_s": 0.074901137,
+          "cumulative_s": 0.074901137
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/keeper.py",
+          "line": 92,
+          "function": "scatter",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.04019036,
+          "cumulative_s": 0.11981106500000001
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 0.018080612000000003,
+          "cumulative_s": 1.757566127
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 1050,
+          "calls": 1050,
+          "self_s": 0.006460235000000001,
+          "cumulative_s": 0.010149809000000001
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 1221,
+          "function": "synchronize",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.0045340630000000005,
+          "cumulative_s": 1.105386433
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method '__exit__' of '_io._IOBase' objects>",
+          "primitive_calls": 10,
+          "calls": 10,
+          "self_s": 0.002925188,
+          "cumulative_s": 0.002925188
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py",
+          "line": 80,
+          "function": "wrapper",
+          "primitive_calls": 1017,
+          "calls": 1017,
+          "self_s": 0.002879501,
+          "cumulative_s": 0.504585297
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/_utils.py",
+          "line": 837,
+          "function": "_get_device_index",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.0024251900000000002,
+          "cumulative_s": 0.002764902
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 131,
+          "function": "land",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.002140754,
+          "cumulative_s": 0.12270265400000001
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_exchangeDevice>",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.002061184,
+          "cumulative_s": 0.002061184
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": [
+        {
+          "op_id": 0,
+          "thread_cpu_s": 0.054528578,
+          "scheduler_wait_s": 9.0867e-05,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.431979288,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 1,
+          "thread_cpu_s": 0.013241915,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.024968188,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 2,
+          "thread_cpu_s": 0.056702826,
+          "scheduler_wait_s": 2.053e-05,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.114850638,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 3,
+          "thread_cpu_s": 0.522009485,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 1.180264352,
+          "outside_traced_device_activity_s": null
+        }
+      ]
+    },
+    {
+      "worker": 7,
+      "node": "node29",
+      "gpu": 1,
+      "execute_wall_s": 1.921868889,
+      "thread_cpu_s": 0.648214619,
+      "scheduler_runqueue_wait_s": 7.4727e-05,
+      "voluntary_switches": 6944,
+      "involuntary_switches": 0,
+      "top_cpu_functions": [
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_synchronize>",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 1.2988961220000002,
+          "cumulative_s": 1.2988961220000002
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/distributed_c10d.py",
+          "line": 2865,
+          "function": "broadcast",
+          "primitive_calls": 1017,
+          "calls": 1017,
+          "self_s": 0.444209383,
+          "cumulative_s": 0.451264259
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method 'copy_' of 'torch._C.TensorBase' objects>",
+          "primitive_calls": 2057,
+          "calls": 2057,
+          "self_s": 0.07377955400000001,
+          "cumulative_s": 0.07377955400000001
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/serving/keeper.py",
+          "line": 92,
+          "function": "scatter",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.039312582000000006,
+          "cumulative_s": 0.11793716600000001
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 153,
+          "function": "_execute",
+          "primitive_calls": 1,
+          "calls": 1,
+          "self_s": 0.018276738,
+          "cumulative_s": 1.9217190890000002
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/_utils.py",
+          "line": 500,
+          "function": "_get_device_index",
+          "primitive_calls": 1050,
+          "calls": 1050,
+          "self_s": 0.006435663,
+          "cumulative_s": 0.010040472
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/cuda/__init__.py",
+          "line": 1221,
+          "function": "synchronize",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.004365497,
+          "cumulative_s": 1.3221685870000002
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/distributed/c10d_logger.py",
+          "line": 80,
+          "function": "wrapper",
+          "primitive_calls": 1017,
+          "calls": 1017,
+          "self_s": 0.0028962750000000002,
+          "cumulative_s": 0.454160534
+        },
+        {
+          "file": "/usr/local/lib/python3.10/dist-packages/torch/_utils.py",
+          "line": 837,
+          "function": "_get_device_index",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.002420015,
+          "cumulative_s": 0.002748246
+        },
+        {
+          "file": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+          "line": 131,
+          "function": "land",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.002206688,
+          "cumulative_s": 0.120888137
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<method '__exit__' of '_io._IOBase' objects>",
+          "primitive_calls": 10,
+          "calls": 10,
+          "self_s": 0.002126441,
+          "cumulative_s": 0.002126441
+        },
+        {
+          "file": "~",
+          "line": 0,
+          "function": "<built-in method torch._C._cuda_exchangeDevice>",
+          "primitive_calls": 1049,
+          "calls": 1049,
+          "self_s": 0.001986519,
+          "cumulative_s": 0.001986519
+        }
+      ],
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": [],
+      "operations": [
+        {
+          "op_id": 4,
+          "thread_cpu_s": 0.052149676,
+          "scheduler_wait_s": 7.4727e-05,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.41072321,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 5,
+          "thread_cpu_s": 0.013221874,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.025034509,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 6,
+          "thread_cpu_s": 0.056769306,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 0.116630097,
+          "outside_traced_device_activity_s": null
+        },
+        {
+          "op_id": 7,
+          "thread_cpu_s": 0.523775514,
+          "scheduler_wait_s": 0.0,
+          "groups": [],
+          "device_activity_union_s": null,
+          "window_s": 1.364474795,
+          "outside_traced_device_activity_s": null
+        }
+      ]
+    }
+  ],
+  "bulk_trace_coverage": [
+    {
+      "worker": 4,
+      "op_id": 0,
+      "expected_bytes": 8589934609,
+      "trace_copy_bytes": 8589934609,
+      "passed": true
+    },
+    {
+      "worker": 5,
+      "op_id": 1,
+      "expected_bytes": 8589934609,
+      "trace_copy_bytes": 8589934609,
+      "passed": true
+    },
+    {
+      "worker": 6,
+      "op_id": 0,
+      "expected_bytes": 8589934609,
+      "trace_copy_bytes": 8589934609,
+      "passed": true
+    },
+    {
+      "worker": 7,
+      "op_id": 1,
+      "expected_bytes": 8589934609,
+      "trace_copy_bytes": 8589934609,
+      "passed": true
+    }
+  ],
+  "segment_differences": [
+    {
+      "stage": "entry_and_start_skew",
+      "before_s": 0.003083107,
+      "after_s": 0.076077562,
+      "saved_s": -0.072994455
+    },
+    {
+      "stage": "layout",
+      "before_s": 0.318216568,
+      "after_s": 0.305098325,
+      "saved_s": 0.013118242999999974
+    },
+    {
+      "stage": "export",
+      "before_s": 0.034879113,
+      "after_s": 0.034776522,
+      "saved_s": 0.00010259100000000604
+    },
+    {
+      "stage": "detect_plan_dispatch",
+      "before_s": 0.201219648,
+      "after_s": 0.042266295,
+      "saved_s": 0.158953353
+    },
+    {
+      "stage": "map",
+      "before_s": 0.187918773,
+      "after_s": 0.07187877,
+      "saved_s": 0.11604000300000002
+    },
+    {
+      "stage": "execute_dispatch",
+      "before_s": 0.007210971,
+      "after_s": 0.008381256,
+      "saved_s": -0.001170285
+    },
+    {
+      "stage": "last_copy_worker_execute",
+      "before_s": 1.353961939,
+      "after_s": 1.248007481,
+      "saved_s": 0.10595445800000003
+    },
+    {
+      "stage": "after_all_copies_until_ready",
+      "before_s": 0.02705897,
+      "after_s": 0.026189275,
+      "saved_s": 0.0008696950000000002
+    }
+  ],
+  "vendor_label_evidence": {
+    "copy": {
+      "ph": "X",
+      "name": "DeviceToHost",
+      "dur": 51.2,
+      "pid": 2,
+      "tid": "D2H",
+      "ts": 158820280.277,
+      "cat": "HIPCOPY",
+      "args": {
+        "BeginNs": "1790600477510648955",
+        "EndNs": "1790600477510700155",
+        "devId": 0,
+        "queueId": "0",
+        "pid": 104,
+        "tid": 0,
+        "procId": 337,
+        "index": 35,
+        "DurationNs": 51200,
+        "Throughput": "610.351562 G/s",
+        "source memory kind": "Device",
+        "destination memory kind": "Device",
+        "Bytes": 33554432,
+        "kind": 4595
+      }
+    },
+    "correlated_api": {
+      "ph": "X",
+      "name": "hipMemcpyAsync",
+      "pid": 1,
+      "tid": "Thread337",
+      "ts": 158819570.473,
+      "dur": 64.37,
+      "cat": "HIP",
+      "args": {
+        "BeginNs": "1790600477509939151",
+        "EndNs": "1790600477510003521",
+        "pid": 104,
+        "tid": 337,
+        "name": "34",
+        "args": "hipMemcpyAsync(dst=0x7ef385c00000, src=0x7ef5dde00000, sizeBytes=33554432, kind=3, stream=0)",
+        "index": 35,
+        "state": 0,
+        "DurationNs": 64370
+      }
+    }
+  },
+  "extractor_sha256": "efa577f7d6aec4792e2d62d22e92d1d5e5d6b396fb768bf94b1395c31680dc69"
+}

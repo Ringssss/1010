@@ -1,0 +1,153 @@
+{
+  "control_mode": "compact",
+  "controller_timing": {
+    "all_targets_filled_ns": 207282087024242,
+    "all_targets_published_ns": 207282157224625,
+    "clock_domain": "controller/m03r2n07/1029213/ee099920f3d14b5c99162e41ede5ce93",
+    "load_begin_ns": 207282044458620
+  },
+  "coordinator_wall_s": 0.11276454498874955,
+  "epoch_snapshot_reused": false,
+  "execute_wall_s": 0.036521219997666776,
+  "execution": [
+    {
+      "chunk_bytes": 33554432,
+      "execute_s": 4.909990821033716e-06,
+      "executor": "serial",
+      "records": [],
+      "staging_bytes": 67108864,
+      "worker": 0
+    },
+    {
+      "chunk_bytes": 33554432,
+      "execute_s": 3.2800016924738884e-06,
+      "executor": "serial",
+      "records": [],
+      "staging_bytes": 67108864,
+      "worker": 1
+    },
+    {
+      "chunk_bytes": 33554432,
+      "execute_s": 2.6600027922540903e-06,
+      "executor": "serial",
+      "records": [],
+      "staging_bytes": 67108864,
+      "worker": 2
+    },
+    {
+      "chunk_bytes": 33554432,
+      "execute_s": 2.1300220396369696e-06,
+      "executor": "serial",
+      "records": [],
+      "staging_bytes": 67108864,
+      "worker": 3
+    },
+    {
+      "chunk_bytes": 33554432,
+      "execute_s": 0.03640885898494162,
+      "executor": "serial",
+      "records": [
+        {
+          "bytes": 16777216,
+          "elapsed_s": 0.03638939801021479,
+          "kind": "local_dram",
+          "op_id": 0,
+          "pipeline": {},
+          "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/dram",
+          "role": "both"
+        }
+      ],
+      "staging_bytes": 67108864,
+      "worker": 4
+    },
+    {
+      "chunk_bytes": 33554432,
+      "execute_s": 6.3699844758957624e-06,
+      "executor": "serial",
+      "records": [],
+      "staging_bytes": 67108864,
+      "worker": 5
+    }
+  ],
+  "executor": "serial",
+  "inventory_rpc_s": 0.00058988798991777,
+  "plan": {
+    "chunk_bytes": 33554432,
+    "executor": "serial",
+    "ops": [
+      {
+        "dst_w": 4,
+        "generation": 1,
+        "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+        "kind": "local_dram",
+        "n": 16777216,
+        "off": 0,
+        "op_id": 0,
+        "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/dram",
+        "resources": [],
+        "source_epoch": "cpu_B/4",
+        "source_offset": 0,
+        "src_w": 4,
+        "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+        "tp": 0
+      }
+    ],
+    "targets": [
+      {
+        "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+        "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+        "index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        },
+        "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+        "meta": {
+          "model_identity": "fixture:3100",
+          "synthetic": true,
+          "tp_rank": 0,
+          "tp_size": 4
+        },
+        "mode": "replica",
+        "n": 16777216,
+        "numa": 0,
+        "off": 0,
+        "tier": "hbm",
+        "tp": 0,
+        "worker": 4
+      }
+    ]
+  },
+  "prepare_rpc_s": 0.005452673998661339,
+  "prepare_s": 0.006042561988579109,
+  "rpc": {
+    "execute": [],
+    "inventory": [],
+    "prepare": [],
+    "publish": []
+  },
+  "source_bytes": {
+    "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/dram": 16777216
+  },
+  "timing_scope": "coordinator wall; excludes model layout before handoff",
+  "tx": "49f6ad8f483c4f9586ea0be2d4eb9667",
+  "verification": {
+    "algorithm": "SHA256 of every logical byte per operation",
+    "checked_bytes": 16777216,
+    "operations": {
+      "0": {
+        "n": 16777216,
+        "op_id": 0,
+        "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+        "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+      }
+    },
+    "passed": true
+  },
+  "verify_and_publish_s": 0.07020076300250366
+}

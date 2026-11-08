@@ -1,0 +1,169 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "name": "local_all_four_single_observations_constant",
+      "passed": true
+    },
+    {
+      "name": "local_bandwidth_unidentified",
+      "passed": true
+    },
+    {
+      "name": "single_operation_worker_outer_residual_only",
+      "passed": true
+    },
+    {
+      "name": "dispatch_all_nine_aggregate_weighting",
+      "passed": true
+    },
+    {
+      "name": "full_request_control_original_nine_weighting",
+      "passed": true
+    },
+    {
+      "name": "2:dram:4->4_independent_positive_slope",
+      "passed": true
+    },
+    {
+      "name": "2:dram:4->4_independent_intercept",
+      "passed": true
+    },
+    {
+      "name": "4:ssd:0->5_independent_positive_slope",
+      "passed": true
+    },
+    {
+      "name": "4:ssd:0->5_independent_intercept",
+      "passed": true
+    },
+    {
+      "name": "model_prior_and_new_holdouts_unfitted",
+      "passed": true
+    },
+    {
+      "name": "mixed_shared_worker_chain_service_sum",
+      "passed": true
+    },
+    {
+      "name": "mixed_request_added_once",
+      "passed": true
+    },
+    {
+      "name": "mixed_dispatch_added_once",
+      "passed": true
+    },
+    {
+      "name": "prediction_does_not_certify_decisions",
+      "passed": true
+    },
+    {
+      "name": "published_prediction_unidentified",
+      "passed": true
+    },
+    {
+      "name": "reject_size_1048576",
+      "passed": true
+    },
+    {
+      "name": "reject_size_17825792",
+      "passed": true
+    },
+    {
+      "name": "reject_repeated_path",
+      "passed": true
+    },
+    {
+      "name": "reject_cold_pair",
+      "passed": true
+    },
+    {
+      "name": "reject_stale_worker_epoch",
+      "passed": true
+    },
+    {
+      "name": "reject_chunk_mismatch",
+      "passed": true
+    },
+    {
+      "name": "reject_changed_coefficients",
+      "passed": true
+    }
+  ],
+  "model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "predictor_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/bounded_cost/model/predictor.py",
+    "sha256": "c48a67e073af45b068d5dd45ac83d9f148e0add17589dad1d1d99474efc55d16"
+  },
+  "CPU_only": true,
+  "GPU_or_SSH": false,
+  "physical_launch_ready": false,
+  "mixed8_prediction": {
+    "estimated_service_s": 0.013562767341985213,
+    "estimated_worker_s": 0.013613297834429735,
+    "estimated_execute_s": 0.016287743824553523,
+    "request_s": 5.053049244452268e-05,
+    "dispatch_s": 0.002674445990123786,
+    "timeline": [
+      {
+        "op_id": 0,
+        "path": "4:hbm:0->4",
+        "start_s": 0.0,
+        "end_s": 0.00028079600451746956,
+        "service_s": 0.00028079600451746956,
+        "first_pair_s": null,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 1,
+        "path": "2:dram:4->4",
+        "start_s": 0.00028079600451746956,
+        "end_s": 0.0014750250096161228,
+        "service_s": 0.0011942290050986533,
+        "first_pair_s": null,
+        "source_wait_s": 0.00028079600451746956,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 2,
+        "path": "4:ssd:0->5",
+        "start_s": 0.0014750250096161228,
+        "end_s": 0.013562767341985213,
+        "service_s": 0.012087742332369089,
+        "first_pair_s": null,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0014750250096161228
+      }
+    ],
+    "estimated_full_filled_s": 0.035162677825960845,
+    "estimated_full_published_s": null,
+    "full_filled_prediction_scope": "Training control median is a coarse portability hypothesis; service and execute errors require separate validation.",
+    "published_prediction_scope": "Unidentified SHA/publication byte-and-object cost; actual published timing is reported without prediction.",
+    "bandwidth_plan_estimate_s": null,
+    "strategy": "bounded_warm_serial_service",
+    "scope": "Bounded single-op effective service, serial source/target dependencies, warm-only explicit incarnation binding; no solver or capacity claim.",
+    "decision_ready": false,
+    "physical_capacity_certified": false,
+    "empirical_local_service_range_s": [
+      0.00021949299843981862,
+      0.000333784002577886
+    ],
+    "uncertainty_scope": "Observed local single-op envelope only; neither confidence interval nor mixed-request guarantee.",
+    "frozen_model_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+      "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+    },
+    "migration_attestation_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/review_model_r01/cpu_fixture_attestation.json",
+      "sha256": "c4f70d466ecd18d8d72cb5ed82341c5a4dd8066496fa6f2fb93f1882e611bf97"
+    }
+  },
+  "request_residual_range_s": [
+    4.74104963359423e-05,
+    5.58709871256724e-05
+  ]
+}

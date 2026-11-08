@@ -1,0 +1,321 @@
+{
+  "acceptance": {
+    "fixed_reference_output_required": true,
+    "full_SHA_position": "after_all_weights_ready",
+    "max_relative_error_per_scenario": 0.1,
+    "metric": "single-controller online load_begin immediately before resume dispatch to all necessary target weights usable/acknowledged",
+    "no_absolute_perterm_gate": true,
+    "no_holdout_backfill": true,
+    "no_old_complexity_delta_gate": true,
+    "ranking_reported_separately": true
+  },
+  "actual_model_online_qualified": false,
+  "calibration": {
+    "calibration_layout": "C0_mixed: HBMprefix1GiB/rank; contiguousremote16GiB/rank; localrest15GiB+805120688B/rank",
+    "full_model_NKC": {
+      "C_native_32MiB": 2096,
+      "K": 66,
+      "N": 70329718112,
+      "ops_per_rank": 33,
+      "tail_bytes_per_rank": 805120688
+    },
+    "full_model_extent_quantum_bytes": 1073741824,
+    "full_model_tail_bytes": 805120688,
+    "independence": "new preregistered requests may share current registered runtime incarnation; no cross-session generalization",
+    "native_chunk_bytes": 33554432,
+    "online_outer": "one actual COMPLETE full-model calibration layout online\u2212DAG residual; include actual materialize/IPC/scatter/control/handoff exactly once",
+    "path_samples_per_size": 1,
+    "path_sizes_bytes": [
+      536870912,
+      1073741824
+    ],
+    "required_directed_paths_only": true,
+    "shared": "one actual2-disjoint-pair1GiB/flow nativeworkpoint; factor=pairedconcurrent service/max isolatedsamebyteflowservice, appliedonlysame2directedlegs withmatched contiguousremoteoff/n sequences; originalworkerDAG reused; actualfullphaseoverlaprequired; notcapacity",
+    "validation": "2\u20133 different full-model sourceassignments; same exact ordered target extents/N/K/C/target layout and allowed budgets; n1 each normally"
+  },
+  "code_independent_review": "online_cost_review agent: arithmetic, matchedphaseratio, clock/BDFbinding, sameincarnationrequestindependence reviewed; requested fixedreferenceoutput guard implemented",
+  "code_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/model/README.md",
+      "sha256": "f33676a7f40f8c1144b69ddeff1bfa41ed8b54b9c8d310482e5ef0e6d90cdbdc"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/model/cpu_check.py",
+      "sha256": "0da270ef9303e3b9d168a9f558f89ee650ffa26aa4b8581d5971ed6c834ebb9c"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/model/evaluate.py",
+      "sha256": "f76cf4a2c73f4c9c9e5385da971fb954c2c6f3406ae4ffd39c798578fb2b4762"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/model/freeze.py",
+      "sha256": "6435c7cc9c63bfff998c587ca3e83acb0b84cb42ef34fdecbc5622dc7778659a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/model/predictor.py",
+      "sha256": "c542698a8f970154da85d73bc632b6293bbebe9f65dda3646c30ffa26c0eac42"
+    }
+  ],
+  "cpu_qualification_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/model_cpu_r09/qualification.json",
+    "sha256": "d0f4b93db2370d73e86acc6745f3ca2d88326cd74a050fb6a046691bd19bb0a1"
+  },
+  "development": "v0.1.23.3/task2",
+  "engineering_budget": {
+    "Catalog_HBM_cap_bytes_per_card": 3221225472,
+    "budget_satisfiability_verified": false,
+    "helper_HBM_absolute_upper_plus_margin_cap_bytes": 2147483648,
+    "helper_host_hard_dram_limit_bytes": 137438953472,
+    "helper_host_task_dram_bytes": 103079215104,
+    "historical_microbudget_results_modified": false,
+    "paused_HBM_cache_bytes_per_rank": 1073741824,
+    "retained_full_local_DRAM_bytes": 70329718112,
+    "retained_full_remote_DRAM_bytes": 70329718112,
+    "status": "user_approved_before_new_hardware_calibration",
+    "target_HBM_cap_bytes_node": 103079215104,
+    "target_HBM_cap_bytes_per_card": 51539607552,
+    "target_host_hard_dram_limit_bytes": 240518168576,
+    "target_host_task_dram_bytes": 206158430208,
+    "target_required_free_HBM_preload_bytes_per_card": 55834574848
+  },
+  "launch_ready": false,
+  "layout_candidates": [
+    {
+      "name": "Hnear",
+      "physical_legal": false,
+      "remaining": "fresh source/budget/execution qualification",
+      "source_assignment": "HBMprefix1GiB/rank + allremaininglocalDRAM"
+    },
+    {
+      "name": "Hremote",
+      "physical_legal": false,
+      "remaining": "samefreshqualification+actualpairedphaseoverlap",
+      "source_assignment": "sameHBMprefix1GiB/rank + allremainingDRAMfromtwohelpers,actualsharednode27receiverHCA"
+    }
+  ],
+  "model_candidate": {
+    "bytes_per_rank": 35164859056,
+    "current_source_owner_qualified": false,
+    "fresh_model_budget_qualified": false,
+    "historical_workers": [
+      {
+        "epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+        "gpu": 0,
+        "node": "node27",
+        "numa": 0,
+        "session": "qwen_bootstrap_r01",
+        "worker": 0
+      },
+      {
+        "epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+        "gpu": 1,
+        "node": "node27",
+        "numa": 3,
+        "session": "qwen_bootstrap_r01",
+        "worker": 1
+      },
+      {
+        "epoch": "qwen_bootstrap_r01/node29/0/118/00cc335d50614fb4873ed24d918a283a",
+        "gpu": 0,
+        "node": "node29",
+        "numa": 0,
+        "session": "qwen_bootstrap_r01",
+        "worker": 2
+      },
+      {
+        "epoch": "qwen_bootstrap_r01/node29/1/136/7a2a163f8b8c49af9da36cd7aeeed0c0",
+        "gpu": 1,
+        "node": "node29",
+        "numa": 3,
+        "session": "qwen_bootstrap_r01",
+        "worker": 3
+      }
+    ],
+    "name": "historical processed Qwen TP2",
+    "proposed_current_worker_roles": [
+      {
+        "gpu": 4,
+        "node": "node27",
+        "numa": 4,
+        "role": "target_rank0+localDRAM/HBM",
+        "worker": 0
+      },
+      {
+        "gpu": 5,
+        "node": "node27",
+        "numa": 7,
+        "role": "target_rank1+localDRAM/HBM",
+        "worker": 1
+      },
+      {
+        "gpu": 4,
+        "node": "node28",
+        "numa": 4,
+        "role": "remote_rank0DRAM_helper",
+        "worker": 2
+      },
+      {
+        "gpu": 4,
+        "node": "node30",
+        "numa": 4,
+        "role": "remote_rank1DRAM_helper",
+        "worker": 3
+      }
+    ],
+    "rank_count": 2,
+    "source_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/keeper_bridge/bridge_real_r01/inventory_before.json",
+      "sha256": "715507e08f55b601db24beb9d3bf5b505685788c550b34187d2c52ac3df104de"
+    },
+    "total_bytes": 70329718112
+  },
+  "new_GPU_samples": 0,
+  "previous_profiles": [
+    {
+      "GiB_model_scale_qualified": false,
+      "current_incarnation_qualified": false,
+      "executor": "serial",
+      "fit_bytes_by_path": {
+        "2:hbm:2->6": [
+          33554432,
+          268435456
+        ],
+        "4:dram:2->6": [
+          33554432,
+          268435456
+        ]
+      },
+      "name": "costcal01",
+      "simultaneous_shared_capacity_qualified": false,
+      "source_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/costcal01/service_model.json",
+        "sha256": "d6ad9c5633bf308f6a2eb0751a3fc0ce4bdceea268cd700ba8ad62df9fa97444"
+      },
+      "status": "archival_profile_only",
+      "topology_id": "16a91c017048061d3b821b07f9e1be2a5045608aa533df727346cf456eeeba0a"
+    },
+    {
+      "GiB_model_scale_qualified": false,
+      "current_incarnation_qualified": false,
+      "executor": "serial",
+      "fit_bytes_by_path": {
+        "2:hbm:2->6": [
+          134217728,
+          268435456
+        ],
+        "4:dram:2->6": [
+          134217728,
+          268435456
+        ]
+      },
+      "name": "requestcal01",
+      "simultaneous_shared_capacity_qualified": false,
+      "source_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/requestcal01/service_model.json",
+        "sha256": "14a36f22b6e1b97eadc34b5290b95c75024a4756a611ca4bd9f16663f557281f"
+      },
+      "status": "archival_profile_only",
+      "topology_id": "16a91c017048061d3b821b07f9e1be2a5045608aa533df727346cf456eeeba0a"
+    },
+    {
+      "GiB_model_scale_qualified": false,
+      "current_incarnation_qualified": false,
+      "executor": "serial",
+      "fit_bytes_by_path": {
+        "2:hbm:2->6": [
+          134217728,
+          268435456
+        ],
+        "4:dram:2->6": [
+          134217728,
+          268435456
+        ]
+      },
+      "name": "requestselected01",
+      "simultaneous_shared_capacity_qualified": false,
+      "source_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/requestselected01/service_model.json",
+        "sha256": "14a36f22b6e1b97eadc34b5290b95c75024a4756a611ca4bd9f16663f557281f"
+      },
+      "status": "archival_profile_only",
+      "topology_id": "16a91c017048061d3b821b07f9e1be2a5045608aa533df727346cf456eeeba0a"
+    },
+    {
+      "GiB_model_scale_qualified": false,
+      "current_incarnation_qualified": false,
+      "executor": "serial",
+      "fit_bytes_by_path": {
+        "2:hbm:2->6": [
+          134217728,
+          268435456
+        ],
+        "4:dram:2->6": [
+          134217728,
+          268435456
+        ]
+      },
+      "name": "requestcurrent01",
+      "simultaneous_shared_capacity_qualified": false,
+      "source_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/requestcurrent01/service_model.json",
+        "sha256": "14a36f22b6e1b97eadc34b5290b95c75024a4756a611ca4bd9f16663f557281f"
+      },
+      "status": "archival_profile_only",
+      "topology_id": "16a91c017048061d3b821b07f9e1be2a5045608aa533df727346cf456eeeba0a"
+    },
+    {
+      "GiB_model_scale_qualified": false,
+      "current_incarnation_qualified": false,
+      "fit_bytes_by_path": {
+        "2:dram:4->4": [
+          4194304,
+          16777216
+        ],
+        "4:hbm:0->4": [
+          4194304,
+          16777216
+        ],
+        "4:ssd:0->5": [
+          4194304,
+          16777216
+        ]
+      },
+      "model_sha256": "3eaac58b63756c6fb0328eec4e6168195fba23467c5da744d843325d27cb61fb",
+      "name": "bounded_cost",
+      "simultaneous_shared_capacity_qualified": false,
+      "source_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_draft_r02/frozen_model.json",
+        "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+      },
+      "status": "old_limited_empirical_domain"
+    },
+    {
+      "GiB_model_scale_qualified": false,
+      "current_incarnation_qualified": false,
+      "domain": "node27GPU4 world1 local32\u201396MiB",
+      "name": "cost_ledger_GPU4",
+      "simultaneous_shared_capacity_qualified": false,
+      "source_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/model_gpu4_C1_r01/frozen_prediction.json",
+        "sha256": "da6b816bb2e3ded4b62997e760055f8aa68aeb5dba3dc9fb955d008b0dba86c4"
+      },
+      "status": "local_worker_candidate_only_complete_filled_model_not_admitted"
+    }
+  ],
+  "reuse": {
+    "DAG": "main_lib/fluidckpt/cluster/service_cost.py estimate_execution",
+    "capacity_coverage": "main_lib/fluidckpt/cluster/planning.py validate_plan + existing budget/candidate checks",
+    "double_buffer": "existing per-operation tensor two32MiB slot pipeline; disjoint pair worker-DAG unchanged; SSD tensorpipeline rejected",
+    "solver_changes": 0
+  },
+  "schema": "online_cost_design_v1",
+  "status": "model_build_CPU_passed_pending_fresh_resources_actual_calibration_and_holdouts",
+  "unresolved": [
+    "freshphysical/BDF/epoch/source assetbinding",
+    "actual budget admission with retained runtime",
+    "realverified512MiB/1GiBlegs+pairedshared1GiB/flow",
+    "one completeC0calibration and validonlineclock",
+    "freezebeforetwo independentnewrequests Hnear/Hremote",
+    "each heldoutwholeonline error<=10% andcorrectness"
+  ]
+}

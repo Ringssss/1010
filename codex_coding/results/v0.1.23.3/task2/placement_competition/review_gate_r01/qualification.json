@@ -1,0 +1,107 @@
+{
+  "artifact_correctness_separate_from_research_gate": true,
+  "multi_location_candidate_legality": true,
+  "every_block_multiple_meaningful_locations_gate": false,
+  "all_candidates_used_somewhere": false,
+  "rank_findings": [
+    {
+      "rank": 0,
+      "legal_candidate_ids": [
+        "cache/r0/pool0",
+        "cache/r0/pool1"
+      ],
+      "used_candidate_ids_in_complete_finite_reference": [
+        "cache/r0/pool0",
+        "cache/r0/pool1"
+      ],
+      "unused_candidate_ids": [],
+      "best_dram_fallback_rate_units": 1.0,
+      "candidate_rate_units": {
+        "cache/r0/pool0": 4.0,
+        "cache/r0/pool1": 3.0
+      },
+      "at_least_two_used_location_choices": true
+    },
+    {
+      "rank": 1,
+      "legal_candidate_ids": [
+        "cache/r1/pool0",
+        "cache/r1/pool1"
+      ],
+      "used_candidate_ids_in_complete_finite_reference": [
+        "cache/r1/pool0",
+        "cache/r1/pool1"
+      ],
+      "unused_candidate_ids": [],
+      "best_dram_fallback_rate_units": 1.0,
+      "candidate_rate_units": {
+        "cache/r1/pool0": 4.0,
+        "cache/r1/pool1": 4.0
+      },
+      "at_least_two_used_location_choices": true
+    },
+    {
+      "rank": 2,
+      "legal_candidate_ids": [
+        "cache/r2/pool0",
+        "cache/r2/pool1"
+      ],
+      "used_candidate_ids_in_complete_finite_reference": [
+        "cache/r2/pool0"
+      ],
+      "unused_candidate_ids": [
+        "cache/r2/pool1"
+      ],
+      "best_dram_fallback_rate_units": 1.0,
+      "candidate_rate_units": {
+        "cache/r2/pool0": 4.0,
+        "cache/r2/pool1": 0.5
+      },
+      "at_least_two_used_location_choices": false
+    },
+    {
+      "rank": 3,
+      "legal_candidate_ids": [
+        "cache/r3/pool0",
+        "cache/r3/pool1"
+      ],
+      "used_candidate_ids_in_complete_finite_reference": [
+        "cache/r3/pool0"
+      ],
+      "unused_candidate_ids": [
+        "cache/r3/pool1"
+      ],
+      "best_dram_fallback_rate_units": 1.0,
+      "candidate_rate_units": {
+        "cache/r3/pool0": 4.0,
+        "cache/r3/pool1": 0.5
+      },
+      "at_least_two_used_location_choices": false
+    }
+  ],
+  "unused_candidates": [
+    "cache/r2/pool1",
+    "cache/r3/pool1"
+  ],
+  "qualification": "multiple_meaningful_sources_gate_failed_negative_result",
+  "scope": "Meaningful evidence is actual use under at least one complete frozen feasible layout and common routing policy. Legal slow paths alone do not establish placement competition.",
+  "physical_budget_admitted": false,
+  "gpu_command": null,
+  "GPU_calls": 0,
+  "SSH_actions": 0,
+  "product_mutations": 0,
+  "source_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_cpu_r03/contract.json",
+      "sha256": "e92af8cf65b76bfbde3009a70e7d184933407c45d8f3b8a5f6743de73b0292fb"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_cpu_r03/comparison.json",
+      "sha256": "db24d00caa69ccb72314f2c6e29133ee3041a80279b94afb53ad720b5a707f23"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/placement_competition/review/audit_gate.py",
+      "sha256": "738df113a1cd5be5e3f30632bf87e29eaf7c8d88c494df0906b42c220f3ac546"
+    }
+  ]
+}

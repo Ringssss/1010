@@ -1,0 +1,75 @@
+{
+  "schema": "online_resume_ops.v1",
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "GPU_launches": 0,
+  "SSH_commands": 0,
+  "Docker_commands_executed": 0,
+  "old_raw_overwritten": false,
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/hostops_guard.py",
+      "sha256": "af15088ff74cf0918f323f2ea7a694f3efac0095a6d9c8b6f0a4966b33f8ae27"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/probe_ipc_counter.py",
+      "sha256": "b2b7429ebf821cc8fc45bb510832ff1a150e294fbe825d3058ff5d31741e0738"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01/node27.setup.spec.json",
+      "sha256": "f54651b58323144240bf74bfb9911e0737d2fe7b83ec469242da58c50a2cdc78"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_setup_two_node_r01/node30.setup.spec.json",
+      "sha256": "b1c4938eb970f7a0ce0cc07c7c9073a7bf97297b264b2425ebc6ebb4c0b15581"
+    }
+  ],
+  "query_specs": {
+    "node27": {
+      "node": "node27",
+      "roles": [
+        {
+          "gpu": 4,
+          "bdf": "0000:85:00.0",
+          "numa": 4,
+          "host_numa": 4
+        },
+        {
+          "gpu": 5,
+          "bdf": "0000:b5:00.0",
+          "numa": 7,
+          "host_numa": 7
+        }
+      ],
+      "minimum_initial_gpu_free_bytes": 55834574848,
+      "per_selected_gpu_hbm_cap_bytes": 51539607552,
+      "task_hbm_cap_bytes": 103079215104
+    },
+    "node30": {
+      "node": "node30",
+      "roles": [
+        {
+          "gpu": 4,
+          "bdf": "0000:85:00.0",
+          "numa": 4,
+          "host_numa": 4
+        },
+        {
+          "gpu": 5,
+          "bdf": "0000:b5:00.0",
+          "numa": 7,
+          "host_numa": 7
+        }
+      ],
+      "minimum_initial_gpu_free_bytes": 2415919104,
+      "per_selected_gpu_hbm_cap_bytes": 2147483648,
+      "task_hbm_cap_bytes": 2147483648
+    }
+  },
+  "new_probe_results": [
+    "execution_ipc_probe_once_r02",
+    "execution_ipc_probe_twice_r02"
+  ],
+  "query_result_gate": "Node27 both free>=52GiB; node30 two-card used sum+256MiB <=2GiB; diagnostic GPU4 used<=2GiB independently",
+  "always_cleanup": "Main stops precise reused own27 after query/probe. If own30 started for readquery only, stop its precise CID too."
+}

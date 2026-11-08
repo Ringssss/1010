@@ -1,0 +1,81 @@
+{
+  "CPU_FIXTURE_ONLY": true,
+  "checks": [
+    {
+      "name": "six_preimport_caps_all_five_roles",
+      "passed": true
+    },
+    {
+      "name": "default_builder_same_thread_caps",
+      "passed": true
+    },
+    {
+      "name": "budgets_and_exact_CIDs_unchanged",
+      "passed": true
+    },
+    {
+      "name": "core129_assets_unchanged",
+      "passed": true
+    },
+    {
+      "name": "new_runtime_not_old_paths",
+      "passed": true
+    },
+    {
+      "name": "new_worker_sessions",
+      "passed": true
+    },
+    {
+      "name": "new_run_fresh_admission_not_inferred",
+      "passed": true
+    },
+    {
+      "name": "controller_preimport_docker_exec_caps",
+      "passed": true
+    },
+    {
+      "name": "pids512_remains",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "GPU_launches": 0,
+  "SSH_commands": 0,
+  "source_assets_unchanged": true,
+  "controller_command": [
+    "docker",
+    "exec",
+    "-e",
+    "OPENBLAS_NUM_THREADS=1",
+    "-e",
+    "OMP_NUM_THREADS=1",
+    "-e",
+    "MKL_NUM_THREADS=1",
+    "-e",
+    "NUMEXPR_NUM_THREADS=1",
+    "-e",
+    "RAYON_NUM_THREADS=1",
+    "-e",
+    "TOKENIZERS_PARALLELISM=false",
+    "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+    "python3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+    "--plan",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_qwen_two_node_r02/launch_plan.json",
+    "--action",
+    "init",
+    "--out",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_qwen_two_node_r02/phase_init",
+    "--deadline-s",
+    "180",
+    "--execute"
+  ],
+  "thread_env": {
+    "OPENBLAS_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1",
+    "RAYON_NUM_THREADS": "1",
+    "TOKENIZERS_PARALLELISM": "false"
+  }
+}

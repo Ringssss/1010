@@ -1,0 +1,9 @@
+# catalog 准入最小修订
+
+父授权先保留旧 local_xml_node27_r01 显式code_sha256的12个文件，再修订当前源码。旧 snapshot 为 local_xml_source_snapshot_r01/manifest.json，逐文件复制SHA全部匹配原run记录；原失败raw和原before/after状态未覆盖。只改common.py/run_local.py/test_local.py的catalog规则，产品代码、旧run输入及原XML/default mapping不动。
+
+原检查把所有catalog条目都要求VALID，会误拒正常RELEASED历史tombstone。新检查完整DRAM bases必须VALID且leases0；全部catalog条目leases仍必须0。RELEASED条目继续保留原metadata/index/state，前后全catalog hash严格比较，禁止删除或筛掉历史以取得passed。
+
+CPU16/16通过，测试新增正常RELEASED历史准入、历史state变化被catalog hash捕获、base非VALID拒绝、base active lease拒绝、历史active lease拒绝。原128MiB单向未回收门槛及其正漂移行为保持。最初测试插入错误导致1个NameError已记录initial_test_failure.txt并修复，最终完整结果tests.txt；相关py_compile通过。源码最终SHA见source.sha256，修订后源码保存为local_xml_source_snapshot_r02。
+
+本修订不解决HIP新初始化异常，未启动GPU payload或communicator。最新metadata-only硬件结果见local_xml_diagnosis_r01/report.md：all-visible hipInit10s alarm，gpu01-visible库加载阶段SIGSEGV；sysfs/KFD与keeper能快读，free指标不能互换，host owner权限仍缺证。未重跑HIP/SMI矩阵，未延长准入，未新增dmesg操作。

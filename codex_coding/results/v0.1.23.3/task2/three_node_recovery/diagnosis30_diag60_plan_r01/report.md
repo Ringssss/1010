@@ -1,0 +1,13 @@
+# node28原private配置单次60秒初始化诊断计划
+
+两份exact线程快照显示4秒间主线程增加399 CPU ticks、驻留页增加119,926页，支持持续消耗资源，但不认证有用进展或排除旋转/重试。LD、hostIPC与SYS_NICE变体均未恢复15秒初始化；SYS_NICE后CPU日志检查因hylog目录ENOENT无法判断mbind错误是否消失。父据这些证据授权一次60秒时间边界诊断，不增加重试矩阵。
+
+原private容器e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba及StartedAt/boot不变；原IPC_LOCK、privateIPC、默认filter、8GiB内存/512pids/1GiBshm、原LD、OMP/MKL各1、GPU2/BDF55 selected、core0及零payload不变。父新beforeguard在06:39:58 UTC通过，执行前需仍按完整保护契约核对。
+
+复制原SHA927f543e2af1fee3e10c540d90ef98fa76f49f1dd242426a99fb3a188a850b9b到同层diagnosis30/init_gate_diag60.py，仅三处非NCCL的deadline记录/调用改60，source.diff给出全部差异；worker/精确PIDstart/PGID/SID/boot/PIDnamespace cleanup完全相同。新SHA d5331fa21f89df2428bce8faad3130bc41dbaa2a9b17b05fb0e5e042d217c90d。纯init没有额外分段deadline，registration中的init_deadline_seconds=60为本诊断总期限说明；NCCL原45秒总/15秒init不变。本次命令固定init，不copy/NCCL。
+
+父先运行stage.sh并核回传新源SHA，再运行command.sh；新run probe_node28_diag60_r01，SSH外层75秒，仅一次。stage只上传新的诊断copy，旧源和15秒失败原件保留。新源码compile、source三项替换的唯一计数断言以及两shell语法检查通过，未重新跑全suite，也未由子agent远程/GPU启动。
+
+若60秒内实际set_device/BDF/HIPfree全部通过，支持原15秒门槛截断这次初始化；不覆盖或升级原15秒运行验收。若仍set_device超时，停在该层并精确回收，不再延90秒或自动重跑。如果8GiB cap下OOM或其他阶段失败，按实际stage与memory.events另列，不写成60秒set_device死锁。前后完整身份/旧资产/owner/源码及memory.events由父聚合，外SSH退出不能替代GPU child退出证明。
+
+本目录为准备时快照，executed=false见launch.json；实测由后续独立delta记录。

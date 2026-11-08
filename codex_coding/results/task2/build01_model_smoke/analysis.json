@@ -1,0 +1,152 @@
+{
+  "run": "build01_model_smoke",
+  "status": "passed",
+  "error": null,
+  "failed_sample": null,
+  "metric": "max weights_ready - min load_begin, same-host monotonic clock",
+  "groups": {
+    "baseline": {
+      "attempts_recorded": 1,
+      "passed": 1,
+      "load_s": [
+        19.043181835
+      ],
+      "median_s": 19.043181835,
+      "min_s": 19.043181835,
+      "max_s": 19.043181835,
+      "cache_resident_ratios": [
+        0.9644870387273967
+      ]
+    },
+    "numa_registered/staged/fixed_local": {
+      "attempts_recorded": 1,
+      "passed": 1,
+      "load_s": [
+        1.455705859
+      ],
+      "median_s": 1.455705859,
+      "min_s": 1.455705859,
+      "max_s": 1.455705859,
+      "cache_resident_ratios": [
+        0.9765441976538437
+      ],
+      "flow_s": [
+        1.0193400382995605
+      ],
+      "map_prepare_s": [
+        0.03327035903930664
+      ],
+      "copy_sync_s": [
+        0.9847305100411177
+      ],
+      "planning_s": [
+        6.949296221137047e-05
+      ],
+      "verified_bytes": [
+        70329718112
+      ],
+      "speedup_vs_baseline_median": 13.081751177454041,
+      "reduction_vs_baseline_median": 0.9235576348735737
+    },
+    "numa_registered/direct/fixed_local": {
+      "attempts_recorded": 1,
+      "passed": 1,
+      "load_s": [
+        1.659625952
+      ],
+      "median_s": 1.659625952,
+      "min_s": 1.659625952,
+      "max_s": 1.659625952,
+      "cache_resident_ratios": [
+        0.9765441976538437
+      ],
+      "flow_s": [
+        1.0281386375427246
+      ],
+      "map_prepare_s": [
+        0.13902926445007324
+      ],
+      "copy_sync_s": [
+        0.8885406362824142
+      ],
+      "planning_s": [
+        6.816582754254341e-05
+      ],
+      "verified_bytes": [
+        70329718112
+      ],
+      "speedup_vs_baseline_median": 11.474381809980276,
+      "reduction_vs_baseline_median": 0.9128493354535046
+    },
+    "numa_registered/direct/resource_lp": {
+      "attempts_recorded": 1,
+      "passed": 1,
+      "load_s": [
+        1.68357599
+      ],
+      "median_s": 1.68357599,
+      "min_s": 1.68357599,
+      "max_s": 1.68357599,
+      "cache_resident_ratios": [
+        0.9765441976538437
+      ],
+      "flow_s": [
+        0.9329700469970703
+      ],
+      "map_prepare_s": [
+        0.03601360321044922
+      ],
+      "copy_sync_s": [
+        0.8963065859861672
+      ],
+      "planning_s": [
+        0.2660739659331739
+      ],
+      "verified_bytes": [
+        70329718112
+      ],
+      "speedup_vs_baseline_median": 11.311150757739185,
+      "reduction_vs_baseline_median": 0.911591665479678
+    }
+  },
+  "captures": [
+    {
+      "backend": "numa_registered",
+      "save_s": 26.705151156987995,
+      "pss_GiB": 69.17292499542236,
+      "allocations": [
+        {
+          "backend": "numa_registered",
+          "numa": 0,
+          "logical_bytes": 35164859056,
+          "allocation_bytes": 35164860416,
+          "sampled_page_distribution": {
+            "0": 1.0
+          },
+          "placement_samples": 256,
+          "timings": {
+            "allocate_bind_touch_s": 18.52200287906453,
+            "register_s": 7.327375658787787,
+            "total_s": 25.84938517306
+          }
+        },
+        {
+          "backend": "numa_registered",
+          "numa": 3,
+          "logical_bytes": 35164859056,
+          "allocation_bytes": 35164860416,
+          "sampled_page_distribution": {
+            "3": 1.0
+          },
+          "placement_samples": 256,
+          "timings": {
+            "allocate_bind_touch_s": 5.52139400690794,
+            "register_s": 0.5852285483852029,
+            "total_s": 6.1066296780481935
+          }
+        }
+      ],
+      "verified": true
+    }
+  ]
+}

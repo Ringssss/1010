@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "native_result": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_three_node/native_hca0_full05/summary.json",
+  "events": [
+    {
+      "time": 1791076378.1517844,
+      "event": "waiting_for_native_cleanup"
+    },
+    {
+      "time": 1791076482.2664785,
+      "event": "starting_roundtrip"
+    },
+    {
+      "time": 1791079963.9990416,
+      "event": "roundtrip_finished"
+    }
+  ],
+  "command": [
+    "/usr/bin/python3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/run_glm_roundtrip.py",
+    "--run",
+    "full_distributed02",
+    "--native-result",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/glm_three_node/native_hca0_full05/summary.json",
+    "--model",
+    "/data/node28/shared/zhujianian/GLM-5.3",
+    "--timeout",
+    "7200",
+    "--spill-ranks-per-node",
+    "2",
+    "--ib-hca",
+    "shca_0",
+    "--monitor-memory",
+    "--ipc-baseline",
+    "--keep-running",
+    "--keep-on-failure"
+  ],
+  "returncode": 0
+}

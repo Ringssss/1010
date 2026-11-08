@@ -1,0 +1,1702 @@
+{
+  "status": "CPU_verified_only",
+  "case_id": "T2_uneven_budget",
+  "policies": {
+    "strong_simple": {
+      "selected": [
+        {
+          "id": "preview/T2_uneven_budget/0/0/0",
+          "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+          "tp": 0,
+          "off": 0,
+          "n": 2147483648,
+          "tier": "hbm",
+          "worker": 0,
+          "node": "node27",
+          "gpu": 0,
+          "numa": 0,
+          "state": "VALID",
+          "generation": 1,
+          "leases": 0,
+          "preview_only": true
+        },
+        {
+          "id": "preview/T2_uneven_budget/1/1/0",
+          "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+          "tp": 1,
+          "off": 0,
+          "n": 2147483648,
+          "tier": "hbm",
+          "worker": 1,
+          "node": "node27",
+          "gpu": 1,
+          "numa": 3,
+          "state": "VALID",
+          "generation": 1,
+          "leases": 0,
+          "preview_only": true
+        }
+      ],
+      "controls": {
+        "paired_fastest": {
+          "selected": [
+            {
+              "id": "preview/T2_uneven_budget/0/0/0",
+              "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+              "tp": 0,
+              "off": 0,
+              "n": 2147483648,
+              "tier": "hbm",
+              "worker": 0,
+              "node": "node27",
+              "gpu": 0,
+              "numa": 0,
+              "state": "VALID",
+              "generation": 1,
+              "leases": 0,
+              "preview_only": true
+            },
+            {
+              "id": "preview/T2_uneven_budget/1/1/0",
+              "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+              "tp": 1,
+              "off": 0,
+              "n": 2147483648,
+              "tier": "hbm",
+              "worker": 1,
+              "node": "node27",
+              "gpu": 1,
+              "numa": 3,
+              "state": "VALID",
+              "generation": 1,
+              "leases": 0,
+              "preview_only": true
+            }
+          ],
+          "steps": [
+            {
+              "ids": [
+                "preview/T2_uneven_budget/0/0/0",
+                "preview/T2_uneven_budget/1/1/0"
+              ],
+              "objective_s": 1.6572605328761905
+            }
+          ],
+          "evaluation": {
+            "objective_s": 1.6572605328761905,
+            "plans": {
+              "target_a": {
+                "targets": [
+                  {
+                    "key": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 0
+                  },
+                  {
+                    "key": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 1
+                  }
+                ],
+                "ops": [
+                  {
+                    "op_id": 0,
+                    "target": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/0/0/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 0,
+                    "source_epoch": null,
+                    "kind": "local_hbm",
+                    "path": "0:hbm:0->0",
+                    "resources": [
+                      "in:0"
+                    ]
+                  },
+                  {
+                    "op_id": 2,
+                    "target": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/1/1/0",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 1,
+                    "source_epoch": null,
+                    "kind": "local_hbm",
+                    "path": "1:hbm:3->1",
+                    "resources": [
+                      "in:1"
+                    ]
+                  },
+                  {
+                    "op_id": 1,
+                    "target": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 0,
+                    "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                    "kind": "local_dram",
+                    "path": "0:dram:0->0",
+                    "resources": [
+                      "in:0",
+                      "dram:node27:0"
+                    ]
+                  },
+                  {
+                    "op_id": 3,
+                    "target": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/1",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 1,
+                    "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                    "kind": "local_dram",
+                    "path": "1:dram:3->1",
+                    "resources": [
+                      "in:1",
+                      "dram:node27:3"
+                    ]
+                  }
+                ],
+                "strategy": "resource_lp",
+                "requested_strategy": "resource_lp",
+                "fallback_reason": null,
+                "bandwidth_lower_bound_s": 0.9701971286857143,
+                "estimated_transfer_s": 0.9701971286857143,
+                "planning_s": 0.0015683742240071297,
+                "profile": {
+                  "rates": {
+                    "local_dram": 35,
+                    "local_hbm": 80,
+                    "peer": 35,
+                    "network": 20
+                  },
+                  "gpu_ingress_GBps": 80,
+                  "gpu_egress_GBps": 80,
+                  "dram_GBps": 50,
+                  "network_node_GBps": 30,
+                  "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+                  "serial_target_execution": true
+                },
+                "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+                "serial_target_times_s": {
+                  "0": 0.9701971286857143,
+                  "1": 0.9701971286857143
+                },
+                "shared_schedule": "rank_interleaved"
+              },
+              "target_b": {
+                "targets": [
+                  {
+                    "key": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 2
+                  },
+                  {
+                    "key": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 3
+                  }
+                ],
+                "ops": [
+                  {
+                    "op_id": 0,
+                    "target": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/0/0/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 2,
+                    "source_epoch": null,
+                    "kind": "network",
+                    "path": "0:hbm:0->2",
+                    "resources": [
+                      "in:2",
+                      "out:0",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 2,
+                    "target": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/1/1/0",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 3,
+                    "source_epoch": null,
+                    "kind": "network",
+                    "path": "1:hbm:3->3",
+                    "resources": [
+                      "in:3",
+                      "out:1",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 1,
+                    "target": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 2,
+                    "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                    "kind": "network",
+                    "path": "0:dram:0->2",
+                    "resources": [
+                      "in:2",
+                      "dram:node27:0",
+                      "out:0",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 3,
+                    "target": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/1",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 3,
+                    "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                    "kind": "network",
+                    "path": "1:dram:3->3",
+                    "resources": [
+                      "in:3",
+                      "dram:node27:3",
+                      "out:1",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  }
+                ],
+                "strategy": "resource_lp",
+                "requested_strategy": "resource_lp",
+                "fallback_reason": null,
+                "bandwidth_lower_bound_s": 2.3443239370666666,
+                "estimated_transfer_s": 2.3443239370666666,
+                "planning_s": 0.0016261329874396324,
+                "profile": {
+                  "rates": {
+                    "local_dram": 35,
+                    "local_hbm": 80,
+                    "peer": 35,
+                    "network": 20
+                  },
+                  "gpu_ingress_GBps": 80,
+                  "gpu_egress_GBps": 80,
+                  "dram_GBps": 50,
+                  "network_node_GBps": 30,
+                  "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+                  "serial_target_execution": true
+                },
+                "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+                "serial_target_times_s": {
+                  "2": 1.7582429528,
+                  "3": 1.7582429528
+                },
+                "shared_schedule": "rank_interleaved"
+              }
+            }
+          },
+          "ledger": {
+            "allocated_hbm_bytes": 4294967296,
+            "location_bytes": {
+              "0:hbm": 2147483648,
+              "1:hbm": 2147483648,
+              "2:hbm": 0,
+              "3:hbm": 0
+            },
+            "cache_build_logical_bytes": 4294967296,
+            "unique_logical_bytes": 4294967296,
+            "duplicated_logical_bytes": 0,
+            "base_dram_bytes": 70329720832,
+            "target_allocation_bytes": 70329720832,
+            "staging_bytes": 268435456
+          }
+        },
+        "paired_resource_lp": {
+          "selected": [
+            {
+              "id": "preview/T2_uneven_budget/0/0/0",
+              "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+              "tp": 0,
+              "off": 0,
+              "n": 2147483648,
+              "tier": "hbm",
+              "worker": 0,
+              "node": "node27",
+              "gpu": 0,
+              "numa": 0,
+              "state": "VALID",
+              "generation": 1,
+              "leases": 0,
+              "preview_only": true
+            },
+            {
+              "id": "preview/T2_uneven_budget/1/1/0",
+              "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+              "tp": 1,
+              "off": 0,
+              "n": 2147483648,
+              "tier": "hbm",
+              "worker": 1,
+              "node": "node27",
+              "gpu": 1,
+              "numa": 3,
+              "state": "VALID",
+              "generation": 1,
+              "leases": 0,
+              "preview_only": true
+            }
+          ],
+          "steps": [
+            {
+              "ids": [
+                "preview/T2_uneven_budget/0/0/0",
+                "preview/T2_uneven_budget/1/1/0"
+              ],
+              "objective_s": 1.6572605328761905
+            }
+          ],
+          "evaluation": {
+            "objective_s": 1.6572605328761905,
+            "plans": {
+              "target_a": {
+                "targets": [
+                  {
+                    "key": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 0
+                  },
+                  {
+                    "key": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 1
+                  }
+                ],
+                "ops": [
+                  {
+                    "op_id": 0,
+                    "target": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/0/0/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 0,
+                    "source_epoch": null,
+                    "kind": "local_hbm",
+                    "path": "0:hbm:0->0",
+                    "resources": [
+                      "in:0"
+                    ]
+                  },
+                  {
+                    "op_id": 2,
+                    "target": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/1/1/0",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 1,
+                    "source_epoch": null,
+                    "kind": "local_hbm",
+                    "path": "1:hbm:3->1",
+                    "resources": [
+                      "in:1"
+                    ]
+                  },
+                  {
+                    "op_id": 1,
+                    "target": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 0,
+                    "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                    "kind": "local_dram",
+                    "path": "0:dram:0->0",
+                    "resources": [
+                      "in:0",
+                      "dram:node27:0"
+                    ]
+                  },
+                  {
+                    "op_id": 3,
+                    "target": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/1",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 1,
+                    "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                    "kind": "local_dram",
+                    "path": "1:dram:3->1",
+                    "resources": [
+                      "in:1",
+                      "dram:node27:3"
+                    ]
+                  }
+                ],
+                "strategy": "resource_lp",
+                "requested_strategy": "resource_lp",
+                "fallback_reason": null,
+                "bandwidth_lower_bound_s": 0.9701971286857143,
+                "estimated_transfer_s": 0.9701971286857143,
+                "planning_s": 0.0015669073909521103,
+                "profile": {
+                  "rates": {
+                    "local_dram": 35,
+                    "local_hbm": 80,
+                    "peer": 35,
+                    "network": 20
+                  },
+                  "gpu_ingress_GBps": 80,
+                  "gpu_egress_GBps": 80,
+                  "dram_GBps": 50,
+                  "network_node_GBps": 30,
+                  "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+                  "serial_target_execution": true
+                },
+                "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+                "serial_target_times_s": {
+                  "0": 0.9701971286857143,
+                  "1": 0.9701971286857143
+                },
+                "shared_schedule": "rank_interleaved"
+              },
+              "target_b": {
+                "targets": [
+                  {
+                    "key": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 2
+                  },
+                  {
+                    "key": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 3
+                  }
+                ],
+                "ops": [
+                  {
+                    "op_id": 0,
+                    "target": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/0/0/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 2,
+                    "source_epoch": null,
+                    "kind": "network",
+                    "path": "0:hbm:0->2",
+                    "resources": [
+                      "in:2",
+                      "out:0",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 2,
+                    "target": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 2147483648,
+                    "source_offset": 0,
+                    "replica_id": "preview/T2_uneven_budget/1/1/0",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 3,
+                    "source_epoch": null,
+                    "kind": "network",
+                    "path": "1:hbm:3->3",
+                    "resources": [
+                      "in:3",
+                      "out:1",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 1,
+                    "target": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 2,
+                    "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                    "kind": "network",
+                    "path": "0:dram:0->2",
+                    "resources": [
+                      "in:2",
+                      "dram:node27:0",
+                      "out:0",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 3,
+                    "target": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 2147483648,
+                    "n": 33017375408,
+                    "source_offset": 2147483648,
+                    "replica_id": "qwen_bootstrap_r01/base/1",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 3,
+                    "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                    "kind": "network",
+                    "path": "1:dram:3->3",
+                    "resources": [
+                      "in:3",
+                      "dram:node27:3",
+                      "out:1",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  }
+                ],
+                "strategy": "resource_lp",
+                "requested_strategy": "resource_lp",
+                "fallback_reason": null,
+                "bandwidth_lower_bound_s": 2.3443239370666666,
+                "estimated_transfer_s": 2.3443239370666666,
+                "planning_s": 0.0016167042776942253,
+                "profile": {
+                  "rates": {
+                    "local_dram": 35,
+                    "local_hbm": 80,
+                    "peer": 35,
+                    "network": 20
+                  },
+                  "gpu_ingress_GBps": 80,
+                  "gpu_egress_GBps": 80,
+                  "dram_GBps": 50,
+                  "network_node_GBps": 30,
+                  "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+                  "serial_target_execution": true
+                },
+                "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+                "serial_target_times_s": {
+                  "2": 1.7582429528,
+                  "3": 1.7582429528
+                },
+                "shared_schedule": "rank_interleaved"
+              }
+            }
+          },
+          "ledger": {
+            "allocated_hbm_bytes": 4294967296,
+            "location_bytes": {
+              "0:hbm": 2147483648,
+              "1:hbm": 2147483648,
+              "2:hbm": 0,
+              "3:hbm": 0
+            },
+            "cache_build_logical_bytes": 4294967296,
+            "unique_logical_bytes": 4294967296,
+            "duplicated_logical_bytes": 0,
+            "base_dram_bytes": 70329720832,
+            "target_allocation_bytes": 70329720832,
+            "staging_bytes": 268435456
+          }
+        },
+        "marginal_resource_lp": {
+          "selected": [],
+          "details": {
+            "policy": "joint_greedy",
+            "decisions": [],
+            "extra_bytes": 0,
+            "budget_bytes": 8589934592,
+            "evaluation_requested_strategy": "resource_lp",
+            "evaluation_actual_strategy_counts": {
+              "resource_lp": 18
+            },
+            "evaluation_fallback_reasons": [],
+            "estimated_before_s": 1.6745170979047619,
+            "estimated_after_s": 1.6745170979047619,
+            "unplaced": [
+              "preview/T2_uneven_budget/0/0/0",
+              "preview/T2_uneven_budget/0/0/2",
+              "preview/T2_uneven_budget/0/0/4",
+              "preview/T2_uneven_budget/1/0/0",
+              "preview/T2_uneven_budget/1/0/2",
+              "preview/T2_uneven_budget/1/0/4",
+              "preview/T2_uneven_budget/0/1/0",
+              "preview/T2_uneven_budget/1/1/0"
+            ],
+            "scope": "fixed candidate regions; heuristic placement under provisional bandwidth estimates"
+          },
+          "evaluation": {
+            "objective_s": 1.6745170979047619,
+            "plans": {
+              "target_a": {
+                "targets": [
+                  {
+                    "key": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 0
+                  },
+                  {
+                    "key": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 1
+                  }
+                ],
+                "ops": [
+                  {
+                    "op_id": 0,
+                    "target": "target_a/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "source_offset": 0,
+                    "replica_id": "qwen_bootstrap_r01/base/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 0,
+                    "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                    "kind": "local_dram",
+                    "path": "0:dram:0->0",
+                    "resources": [
+                      "in:0",
+                      "dram:node27:0"
+                    ]
+                  },
+                  {
+                    "op_id": 1,
+                    "target": "target_a/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "source_offset": 0,
+                    "replica_id": "qwen_bootstrap_r01/base/1",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 1,
+                    "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                    "kind": "local_dram",
+                    "path": "1:dram:3->1",
+                    "resources": [
+                      "in:1",
+                      "dram:node27:3"
+                    ]
+                  }
+                ],
+                "strategy": "resource_lp",
+                "requested_strategy": "resource_lp",
+                "fallback_reason": null,
+                "bandwidth_lower_bound_s": 1.0047102587428571,
+                "estimated_transfer_s": 1.0047102587428571,
+                "planning_s": 0.0014907792210578918,
+                "profile": {
+                  "rates": {
+                    "local_dram": 35,
+                    "local_hbm": 80,
+                    "peer": 35,
+                    "network": 20
+                  },
+                  "gpu_ingress_GBps": 80,
+                  "gpu_egress_GBps": 80,
+                  "dram_GBps": 50,
+                  "network_node_GBps": 30,
+                  "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+                  "serial_target_execution": true
+                },
+                "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+                "serial_target_times_s": {
+                  "0": 1.0047102587428571,
+                  "1": 1.0047102587428571
+                },
+                "shared_schedule": "rank_interleaved"
+              },
+              "target_b": {
+                "targets": [
+                  {
+                    "key": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 2
+                  },
+                  {
+                    "key": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "tier": "hbm",
+                    "worker": 3
+                  }
+                ],
+                "ops": [
+                  {
+                    "op_id": 0,
+                    "target": "target_b/rank0",
+                    "tp": 0,
+                    "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "source_offset": 0,
+                    "replica_id": "qwen_bootstrap_r01/base/0",
+                    "generation": 1,
+                    "src_w": 0,
+                    "dst_w": 2,
+                    "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                    "kind": "network",
+                    "path": "0:dram:0->2",
+                    "resources": [
+                      "in:2",
+                      "dram:node27:0",
+                      "out:0",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  },
+                  {
+                    "op_id": 1,
+                    "target": "target_b/rank1",
+                    "tp": 1,
+                    "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                    "off": 0,
+                    "n": 35164859056,
+                    "source_offset": 0,
+                    "replica_id": "qwen_bootstrap_r01/base/1",
+                    "generation": 1,
+                    "src_w": 1,
+                    "dst_w": 3,
+                    "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                    "kind": "network",
+                    "path": "1:dram:3->3",
+                    "resources": [
+                      "in:3",
+                      "dram:node27:3",
+                      "out:1",
+                      "net_out:node27",
+                      "net_in:node29"
+                    ]
+                  }
+                ],
+                "strategy": "resource_lp",
+                "requested_strategy": "resource_lp",
+                "fallback_reason": null,
+                "bandwidth_lower_bound_s": 2.3443239370666666,
+                "estimated_transfer_s": 2.3443239370666666,
+                "planning_s": 0.0015073325484991074,
+                "profile": {
+                  "rates": {
+                    "local_dram": 35,
+                    "local_hbm": 80,
+                    "peer": 35,
+                    "network": 20
+                  },
+                  "gpu_ingress_GBps": 80,
+                  "gpu_egress_GBps": 80,
+                  "dram_GBps": 50,
+                  "network_node_GBps": 30,
+                  "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+                  "serial_target_execution": true
+                },
+                "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+                "serial_target_times_s": {
+                  "2": 1.7582429527999999,
+                  "3": 1.7582429527999999
+                },
+                "shared_schedule": "rank_interleaved"
+              }
+            }
+          },
+          "ledger": {
+            "allocated_hbm_bytes": 0,
+            "location_bytes": {
+              "0:hbm": 0,
+              "1:hbm": 0,
+              "2:hbm": 0,
+              "3:hbm": 0
+            },
+            "cache_build_logical_bytes": 0,
+            "unique_logical_bytes": 0,
+            "duplicated_logical_bytes": 0,
+            "base_dram_bytes": 70329720832,
+            "target_allocation_bytes": 70329720832,
+            "staging_bytes": 268435456
+          }
+        }
+      },
+      "winner": "paired_fastest",
+      "solve_wall_s": 0.46923522744327784,
+      "scope": "existing marginal/paired greedy; identical candidates and copies; common LP final scorer",
+      "ledger": {
+        "allocated_hbm_bytes": 4294967296,
+        "location_bytes": {
+          "0:hbm": 2147483648,
+          "1:hbm": 2147483648,
+          "2:hbm": 0,
+          "3:hbm": 0
+        },
+        "cache_build_logical_bytes": 4294967296,
+        "unique_logical_bytes": 4294967296,
+        "duplicated_logical_bytes": 0,
+        "base_dram_bytes": 70329720832,
+        "target_allocation_bytes": 70329720832,
+        "staging_bytes": 268435456
+      },
+      "evaluation": {
+        "objective_s": 1.6572605328761905,
+        "plans": {
+          "target_a": {
+            "targets": [
+              {
+                "key": "target_a/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 0
+              },
+              {
+                "key": "target_a/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 1
+              }
+            ],
+            "ops": [
+              {
+                "op_id": 0,
+                "target": "target_a/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/0/0/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 0,
+                "source_epoch": null,
+                "kind": "local_hbm",
+                "path": "0:hbm:0->0",
+                "resources": [
+                  "in:0"
+                ]
+              },
+              {
+                "op_id": 2,
+                "target": "target_a/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/1/1/0",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 1,
+                "source_epoch": null,
+                "kind": "local_hbm",
+                "path": "1:hbm:3->1",
+                "resources": [
+                  "in:1"
+                ]
+              },
+              {
+                "op_id": 1,
+                "target": "target_a/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 0,
+                "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                "kind": "local_dram",
+                "path": "0:dram:0->0",
+                "resources": [
+                  "in:0",
+                  "dram:node27:0"
+                ]
+              },
+              {
+                "op_id": 3,
+                "target": "target_a/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/1",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 1,
+                "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                "kind": "local_dram",
+                "path": "1:dram:3->1",
+                "resources": [
+                  "in:1",
+                  "dram:node27:3"
+                ]
+              }
+            ],
+            "strategy": "resource_lp",
+            "requested_strategy": "resource_lp",
+            "fallback_reason": null,
+            "bandwidth_lower_bound_s": 0.9701971286857143,
+            "estimated_transfer_s": 0.9701971286857143,
+            "planning_s": 0.0015769647434353828,
+            "profile": {
+              "rates": {
+                "local_dram": 35,
+                "local_hbm": 80,
+                "peer": 35,
+                "network": 20
+              },
+              "gpu_ingress_GBps": 80,
+              "gpu_egress_GBps": 80,
+              "dram_GBps": 50,
+              "network_node_GBps": 30,
+              "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+              "serial_target_execution": true
+            },
+            "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+            "serial_target_times_s": {
+              "0": 0.9701971286857143,
+              "1": 0.9701971286857143
+            },
+            "shared_schedule": "rank_interleaved"
+          },
+          "target_b": {
+            "targets": [
+              {
+                "key": "target_b/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 2
+              },
+              {
+                "key": "target_b/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 3
+              }
+            ],
+            "ops": [
+              {
+                "op_id": 0,
+                "target": "target_b/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/0/0/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 2,
+                "source_epoch": null,
+                "kind": "network",
+                "path": "0:hbm:0->2",
+                "resources": [
+                  "in:2",
+                  "out:0",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              },
+              {
+                "op_id": 2,
+                "target": "target_b/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/1/1/0",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 3,
+                "source_epoch": null,
+                "kind": "network",
+                "path": "1:hbm:3->3",
+                "resources": [
+                  "in:3",
+                  "out:1",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              },
+              {
+                "op_id": 1,
+                "target": "target_b/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 2,
+                "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                "kind": "network",
+                "path": "0:dram:0->2",
+                "resources": [
+                  "in:2",
+                  "dram:node27:0",
+                  "out:0",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              },
+              {
+                "op_id": 3,
+                "target": "target_b/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/1",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 3,
+                "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                "kind": "network",
+                "path": "1:dram:3->3",
+                "resources": [
+                  "in:3",
+                  "dram:node27:3",
+                  "out:1",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              }
+            ],
+            "strategy": "resource_lp",
+            "requested_strategy": "resource_lp",
+            "fallback_reason": null,
+            "bandwidth_lower_bound_s": 2.3443239370666666,
+            "estimated_transfer_s": 2.3443239370666666,
+            "planning_s": 0.001636609435081482,
+            "profile": {
+              "rates": {
+                "local_dram": 35,
+                "local_hbm": 80,
+                "peer": 35,
+                "network": 20
+              },
+              "gpu_ingress_GBps": 80,
+              "gpu_egress_GBps": 80,
+              "dram_GBps": 50,
+              "network_node_GBps": 30,
+              "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+              "serial_target_execution": true
+            },
+            "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+            "serial_target_times_s": {
+              "2": 1.7582429528,
+              "3": 1.7582429528
+            },
+            "shared_schedule": "rank_interleaved"
+          }
+        }
+      },
+      "decision_signature": "4cb8c0f008e1e140973db9fffffc932f09e5cf74d0760618a0185fc26483b17e"
+    },
+    "joint": {
+      "selected": [
+        {
+          "id": "preview/T2_uneven_budget/0/0/0",
+          "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+          "tp": 0,
+          "off": 0,
+          "n": 2147483648,
+          "tier": "hbm",
+          "worker": 0,
+          "node": "node27",
+          "gpu": 0,
+          "numa": 0,
+          "state": "VALID",
+          "generation": 1,
+          "leases": 0,
+          "preview_only": true
+        },
+        {
+          "id": "preview/T2_uneven_budget/1/1/0",
+          "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+          "tp": 1,
+          "off": 0,
+          "n": 2147483648,
+          "tier": "hbm",
+          "worker": 1,
+          "node": "node27",
+          "gpu": 1,
+          "numa": 3,
+          "state": "VALID",
+          "generation": 1,
+          "leases": 0,
+          "preview_only": true
+        }
+      ],
+      "objective_s": 1.6572605328761902,
+      "rounded_plan_s": 1.6572605328761905,
+      "scenario_times_s": {
+        "target_a": 0.9701971286857143,
+        "target_b": 2.3443239370666666
+      },
+      "objective": "expected",
+      "status": "optimal",
+      "mip_gap": 0.0,
+      "dual_bound_s": 1.6572605328761902,
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "solve_wall_s": 0.007244439795613289,
+      "candidate_count": 8,
+      "flow_variables": 32,
+      "scope": "finite candidates, mutually exclusive scenarios, approximate service model; not simultaneous restores",
+      "ledger": {
+        "allocated_hbm_bytes": 4294967296,
+        "location_bytes": {
+          "0:hbm": 2147483648,
+          "1:hbm": 2147483648,
+          "2:hbm": 0,
+          "3:hbm": 0
+        },
+        "cache_build_logical_bytes": 4294967296,
+        "unique_logical_bytes": 4294967296,
+        "duplicated_logical_bytes": 0,
+        "base_dram_bytes": 70329720832,
+        "target_allocation_bytes": 70329720832,
+        "staging_bytes": 268435456
+      },
+      "evaluation": {
+        "objective_s": 1.6572605328761905,
+        "plans": {
+          "target_a": {
+            "targets": [
+              {
+                "key": "target_a/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 0
+              },
+              {
+                "key": "target_a/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 1
+              }
+            ],
+            "ops": [
+              {
+                "op_id": 0,
+                "target": "target_a/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/0/0/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 0,
+                "source_epoch": null,
+                "kind": "local_hbm",
+                "path": "0:hbm:0->0",
+                "resources": [
+                  "in:0"
+                ]
+              },
+              {
+                "op_id": 2,
+                "target": "target_a/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/1/1/0",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 1,
+                "source_epoch": null,
+                "kind": "local_hbm",
+                "path": "1:hbm:3->1",
+                "resources": [
+                  "in:1"
+                ]
+              },
+              {
+                "op_id": 1,
+                "target": "target_a/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 0,
+                "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                "kind": "local_dram",
+                "path": "0:dram:0->0",
+                "resources": [
+                  "in:0",
+                  "dram:node27:0"
+                ]
+              },
+              {
+                "op_id": 3,
+                "target": "target_a/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/1",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 1,
+                "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                "kind": "local_dram",
+                "path": "1:dram:3->1",
+                "resources": [
+                  "in:1",
+                  "dram:node27:3"
+                ]
+              }
+            ],
+            "strategy": "resource_lp",
+            "requested_strategy": "resource_lp",
+            "fallback_reason": null,
+            "bandwidth_lower_bound_s": 0.9701971286857143,
+            "estimated_transfer_s": 0.9701971286857143,
+            "planning_s": 0.0015447670593857765,
+            "profile": {
+              "rates": {
+                "local_dram": 35,
+                "local_hbm": 80,
+                "peer": 35,
+                "network": 20
+              },
+              "gpu_ingress_GBps": 80,
+              "gpu_egress_GBps": 80,
+              "dram_GBps": 50,
+              "network_node_GBps": 30,
+              "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+              "serial_target_execution": true
+            },
+            "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+            "serial_target_times_s": {
+              "0": 0.9701971286857143,
+              "1": 0.9701971286857143
+            },
+            "shared_schedule": "rank_interleaved"
+          },
+          "target_b": {
+            "targets": [
+              {
+                "key": "target_b/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 2
+              },
+              {
+                "key": "target_b/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 35164859056,
+                "tier": "hbm",
+                "worker": 3
+              }
+            ],
+            "ops": [
+              {
+                "op_id": 0,
+                "target": "target_b/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/0/0/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 2,
+                "source_epoch": null,
+                "kind": "network",
+                "path": "0:hbm:0->2",
+                "resources": [
+                  "in:2",
+                  "out:0",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              },
+              {
+                "op_id": 2,
+                "target": "target_b/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 0,
+                "n": 2147483648,
+                "source_offset": 0,
+                "replica_id": "preview/T2_uneven_budget/1/1/0",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 3,
+                "source_epoch": null,
+                "kind": "network",
+                "path": "1:hbm:3->3",
+                "resources": [
+                  "in:3",
+                  "out:1",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              },
+              {
+                "op_id": 1,
+                "target": "target_b/rank0",
+                "tp": 0,
+                "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 2,
+                "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+                "kind": "network",
+                "path": "0:dram:0->2",
+                "resources": [
+                  "in:2",
+                  "dram:node27:0",
+                  "out:0",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              },
+              {
+                "op_id": 3,
+                "target": "target_b/rank1",
+                "tp": 1,
+                "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+                "off": 2147483648,
+                "n": 33017375408,
+                "source_offset": 2147483648,
+                "replica_id": "qwen_bootstrap_r01/base/1",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 3,
+                "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+                "kind": "network",
+                "path": "1:dram:3->3",
+                "resources": [
+                  "in:3",
+                  "dram:node27:3",
+                  "out:1",
+                  "net_out:node27",
+                  "net_in:node29"
+                ]
+              }
+            ],
+            "strategy": "resource_lp",
+            "requested_strategy": "resource_lp",
+            "fallback_reason": null,
+            "bandwidth_lower_bound_s": 2.3443239370666666,
+            "estimated_transfer_s": 2.3443239370666666,
+            "planning_s": 0.0016474351286888123,
+            "profile": {
+              "rates": {
+                "local_dram": 35,
+                "local_hbm": 80,
+                "peer": 35,
+                "network": 20
+              },
+              "gpu_ingress_GBps": 80,
+              "gpu_egress_GBps": 80,
+              "dram_GBps": 50,
+              "network_node_GBps": 30,
+              "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+              "serial_target_execution": true
+            },
+            "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+            "serial_target_times_s": {
+              "2": 1.7582429528,
+              "3": 1.7582429528
+            },
+            "shared_schedule": "rank_interleaved"
+          }
+        }
+      },
+      "decision_signature": "4cb8c0f008e1e140973db9fffffc932f09e5cf74d0760618a0185fc26483b17e"
+    }
+  },
+  "candidate_ids": [
+    "preview/T2_uneven_budget/0/0/0",
+    "preview/T2_uneven_budget/0/0/2",
+    "preview/T2_uneven_budget/0/0/4",
+    "preview/T2_uneven_budget/1/0/0",
+    "preview/T2_uneven_budget/1/0/2",
+    "preview/T2_uneven_budget/1/0/4",
+    "preview/T2_uneven_budget/0/1/0",
+    "preview/T2_uneven_budget/1/1/0"
+  ],
+  "scenario_weights": {
+    "target_a": 0.5,
+    "target_b": 0.5
+  },
+  "objective": "expected",
+  "budget": {
+    "base_dram_bytes": 70329720832,
+    "tier_budgets": {
+      "hbm": 8589934592
+    },
+    "location_budgets": {
+      "0:hbm": 6442450944,
+      "1:hbm": 2147483648,
+      "2:hbm": 0,
+      "3:hbm": 0
+    },
+    "target_allocation_bytes": 70329720832,
+    "staging_bytes": 268435456,
+    "budget_origin": "externally_assigned_scenario_constraints",
+    "physical_free_memory_is_budget": false,
+    "required_headroom_reserve_bytes": 2147483648,
+    "runtime_KV_and_other_services": "protected; not reclaimed; allocation peak needs runtime samples",
+    "setup_ledger_fields": [
+      "cache_build_s",
+      "cache_build_bytes",
+      "owner_setup_s",
+      "format_setup_s",
+      "pool_setup_s",
+      "online_planning_s",
+      "prepare_s",
+      "staging_peak_bytes",
+      "physical_peak_bytes"
+    ]
+  },
+  "schedule": "rank_interleaved",
+  "decision_aliases": [
+    {
+      "method": "joint",
+      "same_decision_as": "strong_simple",
+      "action": "do_not_repeat_GPU"
+    }
+  ],
+  "decisions_equal": true,
+  "profile_source": "functional_provisional_assumption",
+  "prediction_ready": false,
+  "physical_contention_claim_ready": false,
+  "measurement_status": "not_measured",
+  "new_GPU_samples": 0,
+  "manifest_sha256": "df3ee2451a2a5b25eeeee5b9561b5b68977134f0a4f2b1b5bac956668f88c906",
+  "session_sha256": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+  "code_sha256": {
+    "codex_coding/src/serving/sglang_fluid_launch.py": "71d4b938b58763ccecae7fde747cabb5bd949a98f274217970b16909d0f0cd07",
+    "codex_coding/src/v0.1.23.3/task2/baseline_loading/blitz/blitz_freeze.py": "bc5cec20e09c0ba603d29d8dd094365304750d1af341c538c0851d07733a8f93",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/run_layout_scenarios.py": "6bd6c4c0e1d99b2501aba38ee99f7902e569fe0102eb0ea49df4a63abd7d43d7",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/run_scenarios.py": "0ffbcb34f70ad7b6b5f63b14492410a84b60b3bff9e5c7d6771e59a2028c850a",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/keeper_bridge/layout/run_frozen_layout.py": "07897e77ff3081172301f13fbd5c13896faf9241f727f0654da8d5ad765f6e5b",
+    "main_lib/fluidckpt/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/benchmarks/__init__.py": "143e6705a6027bc4bdd2cd75633204b6dd66d0cd921391ba6b7b2eec633f0d8d",
+    "main_lib/fluidckpt/benchmarks/basic_scenarios.py": "6c75cd8a09f1fe7f378f0f2937cdac62531a6092369457e4cf1ccde665b5837c",
+    "main_lib/fluidckpt/benchmarks/frozen_layout.py": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64",
+    "main_lib/fluidckpt/benchmarks/topology_cases.py": "bf7096ef1cc7f7694c174c89fe6832b4f95c7c94e3174b66718e476f5b352e93",
+    "main_lib/fluidckpt/cluster/__init__.py": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c",
+    "main_lib/fluidckpt/cluster/capture.py": "fa09825191a4aa54c7307f923c265c135e29579fcb7f26e65200a1af28f780f2",
+    "main_lib/fluidckpt/cluster/catalog.py": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d",
+    "main_lib/fluidckpt/cluster/control.py": "2ceef6bad056ce4c416a0a4d25538f4b3337fc165ba64a0b89d2952e50c975a5",
+    "main_lib/fluidckpt/cluster/eviction.py": "2abfa96049c831ddbb54a7d886c894c7253fedc2f9b8b891c1599d494d747601",
+    "main_lib/fluidckpt/cluster/feedback.py": "f53b48d2ab6b8af93bf0397d27af81198cf7d8e3925049997b61d6dad42a8879",
+    "main_lib/fluidckpt/cluster/joint.py": "fa6ef74c6ef631c190e0c04a30005e1e109860856dd42cb87016a7932b51c1cd",
+    "main_lib/fluidckpt/cluster/managed.py": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e",
+    "main_lib/fluidckpt/cluster/managed_control.py": "06a332fad0b0f0159e8bd685240a007bf6adba03a202586af01a54bd0ebf8f97",
+    "main_lib/fluidckpt/cluster/multi_joint.py": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/cluster/planning.py": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024",
+    "main_lib/fluidckpt/cluster/service_cost.py": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14",
+    "main_lib/fluidckpt/cluster/wire.py": "95c8846b3023688a5ce0d207c624bf46fb9f8aa6df47c86018ba4358fa79ff28",
+    "main_lib/fluidckpt/cluster/worker.py": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6",
+    "main_lib/fluidckpt/executor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/executor/chunks.py": "7e4852838302adeb02ecc973976474a8ca833ce5ec928fbf6f647c355ac52973",
+    "main_lib/fluidckpt/executor/pipeline.py": "9e21412ea32c27bf2806d90b2cc2ec3494ccd9a56aee1ec67f76e0075fe916ec",
+    "main_lib/fluidckpt/executor/profiling.py": "75234718e56ce0c787fa609319c8d5b9245c7e6354106941825a4a65918c3039",
+    "main_lib/fluidckpt/executor/regions.py": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d",
+    "main_lib/fluidckpt/memory/__init__.py": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08",
+    "main_lib/fluidckpt/memory/bindings.py": "2807f529a7ebf7d1e824535cb8773e02745611580b0f2534fe6df0e8f00115e9",
+    "main_lib/fluidckpt/memory/host.py": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/memory/owned_host.py": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15",
+    "main_lib/fluidckpt/memory/owner.py": "aeb05db3d19ffba814f7b78c4ad75fdfffc776873e14b012a0b7091ebe324383",
+    "main_lib/fluidckpt/memory/ssd.py": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5",
+    "main_lib/fluidckpt/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/model/ingest.py": "be52d33acaefb8a20b06c623d602ba852e6dfe85ad2d21f68a6c0d9f7d012a0f",
+    "main_lib/fluidckpt/planner/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/planner/loading.py": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010",
+    "main_lib/fluidckpt/serving/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/serving/handoff.py": "43619da2af5eabfeafe1108ab86c2021b05e1c2296239213d8b4253b90418f42",
+    "main_lib/fluidckpt/serving/ipc_attach.py": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4",
+    "main_lib/fluidckpt/serving/ipc_layout.py": "19df6275ea35ea3ea008831310cd0aa1fad01cfc51364b6624c0fdbac4cb8f54",
+    "main_lib/fluidckpt/serving/keeper.py": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250",
+    "main_lib/fluidckpt/serving/layout.py": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156",
+    "main_lib/fluidckpt/serving/lifecycle.py": "fe2b035eff0c5e5ce9feef6d67ca11857767fed410beb54798f239b506f890a9",
+    "main_lib/fluidckpt/serving/measure.py": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a",
+    "main_lib/fluidckpt/serving/prepare_trace.py": "32d18810810aaea0a8b19655fcc22529225eb7a8ed6aced5b304757ddb2bf889",
+    "main_lib/fluidckpt/serving/replicas.py": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566",
+    "main_lib/fluidckpt/serving/sglang_hook.py": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a",
+    "main_lib/fluidckpt/topology/__init__.py": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66"
+  },
+  "command": [
+    "/home/zhujianian/miniconda3/envs/sglang/bin/python3",
+    "codex_coding/src/v0.1.23.3/task2/keeper_bridge/layout/run_frozen_layout.py",
+    "--case",
+    "T2_uneven_budget",
+    "--compare-placement",
+    "--out",
+    "codex_coding/results/v0.1.23.3/task2/keeper_bridge/layout_compare_t2_r02"
+  ],
+  "frozen_inputs_verified": true
+}

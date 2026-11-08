@@ -1,0 +1,43 @@
+
+/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+00000000000125d0 <ncclIbGetProperties_v7>:
+   125d0:	f3 0f 1e fa          	endbr64 
+   125d4:	53                   	push   %rbx
+   125d5:	48 89 f3             	mov    %rsi,%rbx
+   125d8:	89 fe                	mov    %edi,%esi
+   125da:	48 83 ec 50          	sub    $0x50,%rsp
+   125de:	48 8b 3d d3 b8 01 00 	mov    0x1b8d3(%rip),%rdi        # 2deb8 <ncclIbDevs@@Base-0x5148>
+   125e5:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   125ec:	00 00 
+   125ee:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+   125f3:	31 c0                	xor    %eax,%eax
+   125f5:	48 89 e2             	mov    %rsp,%rdx
+   125f8:	e8 23 8b ff ff       	call   b120 <nccl_p2p_ib_get_properties@plt>
+   125fd:	85 c0                	test   %eax,%eax
+   125ff:	75 41                	jne    12642 <ncclIbGetProperties_v7+0x72>
+   12601:	48 8b 54 24 10       	mov    0x10(%rsp),%rdx
+   12606:	f3 0f 7e 44 24 18    	movq   0x18(%rsp),%xmm0
+   1260c:	f3 0f 7e 4c 24 20    	movq   0x20(%rsp),%xmm1
+   12612:	66 0f 6f 14 24       	movdqa (%rsp),%xmm2
+   12617:	48 89 53 10          	mov    %rdx,0x10(%rbx)
+   1261b:	48 8b 54 24 24       	mov    0x24(%rsp),%rdx
+   12620:	66 0f 62 c1          	punpckldq %xmm1,%xmm0
+   12624:	0f 11 13             	movups %xmm2,(%rbx)
+   12627:	48 89 53 20          	mov    %rdx,0x20(%rbx)
+   1262b:	48 8b 54 24 2c       	mov    0x2c(%rsp),%rdx
+   12630:	66 0f d6 43 18       	movq   %xmm0,0x18(%rbx)
+   12635:	48 89 53 28          	mov    %rdx,0x28(%rbx)
+   12639:	48 8b 54 24 34       	mov    0x34(%rsp),%rdx
+   1263e:	48 89 53 30          	mov    %rdx,0x30(%rbx)
+   12642:	48 8b 54 24 48       	mov    0x48(%rsp),%rdx
+   12647:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+   1264e:	00 00 
+   12650:	75 06                	jne    12658 <ncclIbGetProperties_v7+0x88>
+   12652:	48 83 c4 50          	add    $0x50,%rsp
+   12656:	5b                   	pop    %rbx
+   12657:	c3                   	ret    
+   12658:	e8 e3 80 ff ff       	call   a740 <__stack_chk_fail@plt>

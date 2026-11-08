@@ -1,0 +1,48 @@
+{
+  "command": [
+    "python3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/local_xml/rank_entry.py",
+    "--out",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_node27_r01",
+    "--rank",
+    "0",
+    "--master",
+    "tcp://127.0.0.1:34310",
+    "--deadline",
+    "120"
+  ],
+  "env": {
+    "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+    "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+    "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+    "NCCL_DEBUG": "INFO",
+    "AMD_SERIALIZE_KERNEL": "0",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "NCCL_SOCKET_IFNAME": "ib0",
+    "GLOO_SOCKET_IFNAME": "lo",
+    "SGLANG_ROCM_USE_AITER_MOE": "0",
+    "NCCL_IB_HCA": "shca_0",
+    "HIP_VISIBLE_DEVICES": "0,1",
+    "SGLANG_KV_LAYOUT_HCU_FA": "false",
+    "CUDA_VISIBLE_DEVICES": "0,1",
+    "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/xml_owned_r01/node27.physical.gdr0.xml",
+    "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+    "NCCL_DEBUG_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_node27_r01/rank_0.nccl.%p.log",
+    "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_node27_r01/rank_0.topology.xml",
+    "NCCL_TOPO_DUMP_FILE_RANK": "0",
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "cwd": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+  "log": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/local_xml_node27_r01/rank_0.log",
+  "core_dump_limit": 0,
+  "ownership_namespace": "local_xml_node27_r01",
+  "owner_node": "node27",
+  "owner_rank": 0,
+  "rendezvous": {
+    "node": "node27",
+    "address": "127.0.0.1",
+    "port": 34310
+  }
+}

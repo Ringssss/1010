@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "checks": {
+    "only_two_literal_deltas": true,
+    "tests_byte_identical": true,
+    "protocol_identical_after_two_state_rebindings": true,
+    "original_analysis_sha_preserved": true,
+    "original_test_sha_preserved": true,
+    "fixed_six_cal_two_holdout": true,
+    "fixed96MiB_source": true,
+    "same_fixed_independent_gates": true
+  },
+  "changes": [
+    {
+      "from": "singleworker_node27_gpu0_local_native_v1",
+      "to": "singleworker_node27_gpu4_local_native_v1"
+    },
+    {
+      "from": "single_worker_node27_gpu0_world1",
+      "to": "single_worker_node27_gpu4_world1"
+    }
+  ],
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/analyze.py",
+      "sha256": "b286bae0bd76a6c00a365a4024a1a7a8aa8c7e39d15c757687a64246524aaa14"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/test_analysis.py",
+      "sha256": "1830064515260c1713784cc00187906c4586eba79a5c4bde355ca717eef479dd"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/analyze.py",
+      "sha256": "79fc370a3b20dbf82a089e5130cb48d0f97d9942e2c1012b68d170004001ae09"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/test_analysis.py",
+      "sha256": "1830064515260c1713784cc00187906c4586eba79a5c4bde355ca717eef479dd"
+    }
+  ],
+  "hardware_measurements": false,
+  "new_domain": {
+    "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+    "path": "local_hbm",
+    "executor": "serial",
+    "chunk_bytes": 33554432,
+    "source_bytes": 100663296,
+    "source_worker": 0,
+    "target_worker": 0,
+    "source_tier": "hbm",
+    "target_tier": "hbm",
+    "target_mode": "replica",
+    "topology": "single_worker_node27_gpu4_world1",
+    "inventory_mode": "cached",
+    "control_mode": "compact",
+    "target_allocation": "fresh_exact_size_each_request",
+    "target_writes_before": 0,
+    "handler": "native_ThreadingHTTPServer_request_thread",
+    "queues": 0,
+    "pretouch": false,
+    "CUDA_events": 0,
+    "copy_rounds": 1,
+    "logger": "native_json_stdout",
+    "profile_execute": false
+  },
+  "launch_ready": false,
+  "remaining": "Main final instrument/protocol/source freeze after independent C0 acceptance"
+}

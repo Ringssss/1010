@@ -1,0 +1,3699 @@
+{
+  "schema_version": "topology_calibration.v1",
+  "status": "passed",
+  "session": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+  "session_overlay_sha256": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+  "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01",
+  "observations": [
+    {
+      "case_id": "network_single_a",
+      "kind": "network",
+      "node": null,
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687815922893431,
+          "receiver_end_ns": 4687816021373853,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687815922898061,
+              4687815929508569
+            ],
+            [
+              4687815929510229,
+              4687815935625064
+            ],
+            [
+              4687815935626294,
+              4687815941755659
+            ],
+            [
+              4687815941756819,
+              4687815947867774
+            ],
+            [
+              4687815947868804,
+              4687815953976198
+            ],
+            [
+              4687815953977749,
+              4687815960094063
+            ],
+            [
+              4687815960095273,
+              4687815966199168
+            ],
+            [
+              4687815966200368,
+              4687815972308663
+            ],
+            [
+              4687815972309683,
+              4687815978421958
+            ],
+            [
+              4687815978423468,
+              4687815984519613
+            ],
+            [
+              4687815984520523,
+              4687815990831659
+            ],
+            [
+              4687815990832559,
+              4687815996941734
+            ],
+            [
+              4687815996942554,
+              4687816003060699
+            ],
+            [
+              4687816003061649,
+              4687816009165253
+            ],
+            [
+              4687816009166043,
+              4687816015283618
+            ],
+            [
+              4687816015284588,
+              4687816021372613
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687815383505883,
+            "end_ns": 4687815920566328,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687815922280748,
+            "snapshot_end_ns": 4687816021957437,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4401040,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4321543748,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2312,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1968,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687815182035893,
+            "snapshot_end_ns": 4687815382992660,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1964,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3328,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1164,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1734,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 296007664,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 168451285,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774040967372,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457447927,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687815922280748,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 297107924,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 1248837222,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774040969684,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457449895,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687816021957437,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63866667008,
+          "numa_host_placement": null,
+          "service_s": 0.098480422,
+          "empirical_effective_GBps": 43.61239735548656,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4687808926527557,
+            "receiver_end_ns": 4687809024477859,
+            "chunk_intervals": [
+              [
+                4687808926536986,
+                4687808932337021
+              ],
+              [
+                4687808932340374,
+                4687808938661291
+              ],
+              [
+                4687808938666041,
+                4687808944817102
+              ],
+              [
+                4687808944819477,
+                4687808950937922
+              ],
+              [
+                4687808950943091,
+                4687808957003288
+              ],
+              [
+                4687808957007129,
+                4687808963168597
+              ],
+              [
+                4687808963172857,
+                4687808969198134
+              ],
+              [
+                4687808969202883,
+                4687808975323144
+              ],
+              [
+                4687808975327893,
+                4687808981499838
+              ],
+              [
+                4687808981502143,
+                4687808987552492
+              ],
+              [
+                4687808987554797,
+                4687808993615552
+              ],
+              [
+                4687808993619394,
+                4687809000060929
+              ],
+              [
+                4687809000063792,
+                4687809006112605
+              ],
+              [
+                4687809006115049,
+                4687809012214498
+              ],
+              [
+                4687809012217431,
+                4687809018330150
+              ],
+              [
+                4687809018332454,
+                4687809024475065
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": true,
+        "actual_hca_port": {
+          "hca": "shca_0",
+          "port": 1
+        },
+        "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+        "direction": "receive",
+        "expected_payload_bytes": 4294967296,
+        "actual_counter_delta_bytes": 4321543748,
+        "background_fraction_estimate": 3.819753803822676e-07,
+        "background_excluded": false,
+        "scope": "one shared receiving port, union of measured per-flow snapshot windows; counted once",
+        "limitation": "idle baseline estimates background; unrelated traffic cannot be individually subtracted"
+      }
+    },
+    {
+      "case_id": "network_single_b",
+      "kind": "network",
+      "node": null,
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687817295253344,
+          "receiver_end_ns": 4687817463509314,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687817295260254,
+              4687817306031945
+            ],
+            [
+              4687817306033645,
+              4687817316564196
+            ],
+            [
+              4687817316565586,
+              4687817327054035
+            ],
+            [
+              4687817327054955,
+              4687817337623466
+            ],
+            [
+              4687817337624346,
+              4687817348154486
+            ],
+            [
+              4687817348155696,
+              4687817358753006
+            ],
+            [
+              4687817358753976,
+              4687817369134445
+            ],
+            [
+              4687817369135875,
+              4687817379556255
+            ],
+            [
+              4687817379557205,
+              4687817390039235
+            ],
+            [
+              4687817390040505,
+              4687817400557895
+            ],
+            [
+              4687817400559145,
+              4687817411007894
+            ],
+            [
+              4687817411008684,
+              4687817421443844
+            ],
+            [
+              4687817421444674,
+              4687817431905894
+            ],
+            [
+              4687817431907034,
+              4687817442436404
+            ],
+            [
+              4687817442437414,
+              4687817453068085
+            ],
+            [
+              4687817453069135,
+              4687817463507814
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687816779230679,
+            "end_ns": 4687817292755329,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687817294617940,
+            "snapshot_end_ns": 4687817464103108,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4402948,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4321557744,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2568,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2762,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687816577858269,
+            "snapshot_end_ns": 4687816778749436,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1672,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4124,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 968,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2080,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 297253410,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 1316437006,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041249396,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457719957,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687817294617940,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 298354147,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 2396826442,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041251964,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457722719,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687817464103108,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63289950208,
+          "numa_host_placement": null,
+          "service_s": 0.16825597,
+          "empirical_effective_GBps": 25.526388727841276,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4687810298948342,
+            "receiver_end_ns": 4687810466085952,
+            "chunk_intervals": [
+              [
+                4687810298956863,
+                4687810308669591
+              ],
+              [
+                4687810308673013,
+                4687810319226011
+              ],
+              [
+                4687810319228316,
+                4687810329658812
+              ],
+              [
+                4687810329662164,
+                4687810340251201
+              ],
+              [
+                4687810340254413,
+                4687810350717106
+              ],
+              [
+                4687810350719900,
+                4687810361210529
+              ],
+              [
+                4687810361212904,
+                4687810371724276
+              ],
+              [
+                4687810371726651,
+                4687810382344951
+              ],
+              [
+                4687810382347815,
+                4687810392628289
+              ],
+              [
+                4687810392630734,
+                4687810403274038
+              ],
+              [
+                4687810403276901,
+                4687810413602354
+              ],
+              [
+                4687810413605706,
+                4687810424160591
+              ],
+              [
+                4687810424162965,
+                4687810434512513
+              ],
+              [
+                4687810434514958,
+                4687810445064115
+              ],
+              [
+                4687810445066489,
+                4687810455467162
+              ],
+              [
+                4687810455469537,
+                4687810466082599
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": true,
+        "actual_hca_port": {
+          "hca": "shca_0",
+          "port": 1
+        },
+        "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+        "direction": "receive",
+        "expected_payload_bytes": 4294967296,
+        "actual_counter_delta_bytes": 4321557744,
+        "background_fraction_estimate": 8.050988249920886e-07,
+        "background_excluded": false,
+        "scope": "one shared receiving port, union of measured per-flow snapshot windows; counted once",
+        "limitation": "idle baseline estimates background; unrelated traffic cannot be individually subtracted"
+      }
+    },
+    {
+      "case_id": "network_pair",
+      "kind": "network",
+      "node": null,
+      "mode": "concurrent",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687818240727330,
+          "receiver_end_ns": 4687818473197307,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687818240730910,
+              4687818255218173
+            ],
+            [
+              4687818255219533,
+              4687818269743596
+            ],
+            [
+              4687818269744746,
+              4687818283917206
+            ],
+            [
+              4687818283918396,
+              4687818298265928
+            ],
+            [
+              4687818298267198,
+              4687818312891522
+            ],
+            [
+              4687818312892762,
+              4687818327180384
+            ],
+            [
+              4687818327181344,
+              4687818341668006
+            ],
+            [
+              4687818341668986,
+              4687818356263140
+            ],
+            [
+              4687818356264150,
+              4687818370992503
+            ],
+            [
+              4687818370993733,
+              4687818385597467
+            ],
+            [
+              4687818385598447,
+              4687818400033669
+            ],
+            [
+              4687818400034619,
+              4687818414538522
+            ],
+            [
+              4687818414539692,
+              4687818429721839
+            ],
+            [
+              4687818429722869,
+              4687818444289952
+            ],
+            [
+              4687818444290972,
+              4687818458821155
+            ],
+            [
+              4687818458822075,
+              4687818473196067
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687818223526382,
+            "end_ns": 4687818239106641,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687818240382508,
+            "snapshot_end_ns": 4687818473797670,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 8735084,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 8574203476,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2300,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 3110,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687818021677780,
+            "snapshot_end_ns": 4687818222569666,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2268,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2964,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1340,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1646,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 298500706,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 2531881140,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041282036,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457737785,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687818240382508,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300684477,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4675432009,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041284336,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457740895,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687818473797670,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63866667008,
+          "numa_host_placement": null,
+          "service_s": 0.232469977,
+          "empirical_effective_GBps": 18.475363362727908,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4687811244400619,
+            "receiver_end_ns": 4687811475165270,
+            "chunk_intervals": [
+              [
+                4687811244407254,
+                4687811257283270
+              ],
+              [
+                4687811257285574,
+                4687811271750916
+              ],
+              [
+                4687811271752732,
+                4687811285968249
+              ],
+              [
+                4687811285972998,
+                4687811299622655
+              ],
+              [
+                4687811299624960,
+                4687811314846761
+              ],
+              [
+                4687811314850113,
+                4687811329233112
+              ],
+              [
+                4687811329236394,
+                4687811343703063
+              ],
+              [
+                4687811343705927,
+                4687811358099261
+              ],
+              [
+                4687811358103103,
+                4687811372156237
+              ],
+              [
+                4687811372158681,
+                4687811387583933
+              ],
+              [
+                4687811387587215,
+                4687811402068132
+              ],
+              [
+                4687811402070437,
+                4687811416585017
+              ],
+              [
+                4687811416587322,
+                4687811431033667
+              ],
+              [
+                4687811431036042,
+                4687811446343470
+              ],
+              [
+                4687811446345914,
+                4687811460738760
+              ],
+              [
+                4687811460741134,
+                4687811475162895
+              ]
+            ]
+          }
+        },
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687818240702240,
+          "receiver_end_ns": 4687818476306215,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687818240707120,
+              4687818255250103
+            ],
+            [
+              4687818255251373,
+              4687818269936227
+            ],
+            [
+              4687818269937337,
+              4687818284520220
+            ],
+            [
+              4687818284521350,
+              4687818299197294
+            ],
+            [
+              4687818299198194,
+              4687818314047948
+            ],
+            [
+              4687818314049148,
+              4687818328729552
+            ],
+            [
+              4687818328730372,
+              4687818344227571
+            ],
+            [
+              4687818344228461,
+              4687818358375992
+            ],
+            [
+              4687818358376922,
+              4687818373248226
+            ],
+            [
+              4687818373249396,
+              4687818388110611
+            ],
+            [
+              4687818388112261,
+              4687818403508709
+            ],
+            [
+              4687818403509569,
+              4687818418240443
+            ],
+            [
+              4687818418241563,
+              4687818432978827
+            ],
+            [
+              4687818432979627,
+              4687818447783972
+            ],
+            [
+              4687818447785152,
+              4687818463114009
+            ],
+            [
+              4687818463114789,
+              4687818476305345
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687818223542882,
+            "end_ns": 4687818239121301,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687818240313438,
+            "snapshot_end_ns": 4687818476887878,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 8800176,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 8643065468,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2568,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 3502,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687818021764140,
+            "snapshot_end_ns": 4687818222639847,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2268,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2964,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1340,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1646,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 298500706,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 2531881140,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041282036,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457737785,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687818240313438,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300700750,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692647507,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041284604,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457741287,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687818476887878,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63289950208,
+          "numa_host_placement": null,
+          "service_s": 0.235603975,
+          "empirical_effective_GBps": 18.229604555695634,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4687811244317786,
+            "receiver_end_ns": 4687811478767165,
+            "chunk_intervals": [
+              [
+                4687811244323444,
+                4687811257403887
+              ],
+              [
+                4687811257405843,
+                4687811272004932
+              ],
+              [
+                4687811272007796,
+                4687811286566796
+              ],
+              [
+                4687811286569589,
+                4687811301309760
+              ],
+              [
+                4687811301313112,
+                4687811316161678
+              ],
+              [
+                4687811316163913,
+                4687811330663827
+              ],
+              [
+                4687811330666131,
+                4687811345616876
+              ],
+              [
+                4687811345619250,
+                4687811360314931
+              ],
+              [
+                4687811360318214,
+                4687811375098195
+              ],
+              [
+                4687811375100499,
+                4687811390074850
+              ],
+              [
+                4687811390076806,
+                4687811404906793
+              ],
+              [
+                4687811404908749,
+                4687811420211428
+              ],
+              [
+                4687811420213802,
+                4687811434898658
+              ],
+              [
+                4687811434923242,
+                4687811449753299
+              ],
+              [
+                4687811449756652,
+                4687811464501502
+              ],
+              [
+                4687811464503876,
+                4687811478764791
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "observed",
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "overlap_ns": 232469977,
+        "overlap_fraction": 1.0,
+        "scope": "synchronous operation windows; not individual hardware kernel occupancy"
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": true,
+        "actual_hca_port": {
+          "hca": "shca_0",
+          "port": 1
+        },
+        "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+        "direction": "receive",
+        "expected_payload_bytes": 8589934592,
+        "actual_counter_delta_bytes": 8643065468,
+        "background_fraction_estimate": 4.038460332538286e-07,
+        "background_excluded": false,
+        "scope": "one shared receiving port, union of measured per-flow snapshot windows; counted once",
+        "limitation": "idle baseline estimates background; unrelated traffic cannot be individually subtracted"
+      }
+    },
+    {
+      "case_id": "h2d_node27_single_a",
+      "kind": "h2d",
+      "node": "node27",
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 0,
+          "role": "target",
+          "node": "node27",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687812471331067,
+          "receiver_end_ns": 4687812566094055,
+          "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687812471338191,
+              4687812477326031
+            ],
+            [
+              4687812477328476,
+              4687812483279370
+            ],
+            [
+              4687812483281745,
+              4687812489228448
+            ],
+            [
+              4687812489230753,
+              4687812495172219
+            ],
+            [
+              4687812495174174,
+              4687812501120878
+            ],
+            [
+              4687812501123672,
+              4687812507033080
+            ],
+            [
+              4687812507036781,
+              4687812512935224
+            ],
+            [
+              4687812512937669,
+              4687812518846867
+            ],
+            [
+              4687812518848823,
+              4687812524757602
+            ],
+            [
+              4687812524760466,
+              4687812530662680
+            ],
+            [
+              4687812530665055,
+              4687812536565383
+            ],
+            [
+              4687812536568736,
+              4687812542476188
+            ],
+            [
+              4687812542478493,
+              4687812548378333
+            ],
+            [
+              4687812548380777,
+              4687812554278172
+            ],
+            [
+              4687812554281525,
+              4687812560181853
+            ],
+            [
+              4687812560184158,
+              4687812566091122
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687812463443172,
+            "end_ns": 4687812469611764,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687812470972009,
+            "snapshot_end_ns": 4687812566715649,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2124,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2444,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1452,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1528,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687812261973362,
+            "snapshot_end_ns": 4687812462975719,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 236,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1688,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 134,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 960,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605465321,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460559131,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249658639,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612222640,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687812470972009,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605465852,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460559742,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249660091,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612224168,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687812566715649,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 64223182848,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 0,
+            "sampled_placement": {
+              "0": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.094762988,
+          "empirical_effective_GBps": 45.323257388211516,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy"
+    },
+    {
+      "case_id": "h2d_node27_single_b",
+      "kind": "h2d",
+      "node": "node27",
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 1,
+          "role": "target",
+          "node": "node27",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687813465760101,
+          "receiver_end_ns": 4687813555622340,
+          "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687813465767225,
+              4687813471405925
+            ],
+            [
+              4687813471409207,
+              4687813477019552
+            ],
+            [
+              4687813477021926,
+              4687813482627940
+            ],
+            [
+              4687813482630245,
+              4687813488250507
+            ],
+            [
+              4687813488253790,
+              4687813493855124
+            ],
+            [
+              4687813493857499,
+              4687813499476783
+            ],
+            [
+              4687813499480065,
+              4687813505092295
+            ],
+            [
+              4687813505095578,
+              4687813510704106
+            ],
+            [
+              4687813510706411,
+              4687813516330864
+            ],
+            [
+              4687813516334705,
+              4687813521957272
+            ],
+            [
+              4687813521959646,
+              4687813527567616
+            ],
+            [
+              4687813527569921,
+              4687813533176912
+            ],
+            [
+              4687813533179287,
+              4687813538781599
+            ],
+            [
+              4687813538783904,
+              4687813544390896
+            ],
+            [
+              4687813544394179,
+              4687813549998796
+            ],
+            [
+              4687813550001171,
+              4687813555619617
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687813458216667,
+            "end_ns": 4687813464057351,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687813465409563,
+            "snapshot_end_ns": 4687813556211388,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1696,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2492,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1184,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1576,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687813256831995,
+            "snapshot_end_ns": 4687813457761018,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 160,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1748,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 314,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1152,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605469179,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460572691,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249670283,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612267924,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687813465409563,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605469603,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460573314,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249671467,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612269500,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687813556211388,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 64044924928,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 3,
+            "sampled_placement": {
+              "3": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.089862239,
+          "empirical_effective_GBps": 47.79501761579745,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy"
+    },
+    {
+      "case_id": "h2d_node27_pair",
+      "kind": "h2d",
+      "node": "node27",
+      "mode": "concurrent",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 0,
+          "role": "target",
+          "node": "node27",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687814341311633,
+          "receiver_end_ns": 4687814436763334,
+          "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687814341319176,
+              4687814347330204
+            ],
+            [
+              4687814347332579,
+              4687814353304286
+            ],
+            [
+              4687814353306660,
+              4687814359272780
+            ],
+            [
+              4687814359275155,
+              4687814365240716
+            ],
+            [
+              4687814365243160,
+              4687814371197896
+            ],
+            [
+              4687814371200690,
+              4687814377158778
+            ],
+            [
+              4687814377161082,
+              4687814383115818
+            ],
+            [
+              4687814383118193,
+              4687814389078166
+            ],
+            [
+              4687814389080471,
+              4687814395057905
+            ],
+            [
+              4687814395060839,
+              4687814401016063
+            ],
+            [
+              4687814401019765,
+              4687814406979250
+            ],
+            [
+              4687814406981624,
+              4687814412933985
+            ],
+            [
+              4687814412936360,
+              4687814418893470
+            ],
+            [
+              4687814418897660,
+              4687814424864339
+            ],
+            [
+              4687814424866644,
+              4687814430811043
+            ],
+            [
+              4687814430813278,
+              4687814436759562
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687814333425065,
+            "end_ns": 4687814339580387,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687814340900891,
+            "snapshot_end_ns": 4687814437376058,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2132,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2208,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1454,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1488,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687814131927318,
+            "snapshot_end_ns": 4687814332891821,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 236,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1284,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 222,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 552,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605476216,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460658211,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249692697,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612594716,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687814340900891,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605476749,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460658763,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249694151,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612596204,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687814437376058,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 64223182848,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 0,
+            "sampled_placement": {
+              "0": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.095451701,
+          "empirical_effective_GBps": 44.996236326893744,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        },
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 1,
+          "role": "target",
+          "node": "node27",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687814341235435,
+          "receiver_end_ns": 4687814431244343,
+          "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687814341243397,
+              4687814346900116
+            ],
+            [
+              4687814346921348,
+              4687814352546359
+            ],
+            [
+              4687814352549712,
+              4687814358176539
+            ],
+            [
+              4687814358179821,
+              4687814363825157
+            ],
+            [
+              4687814363827531,
+              4687814369452053
+            ],
+            [
+              4687814369455336,
+              4687814375094525
+            ],
+            [
+              4687814375096830,
+              4687814380716184
+            ],
+            [
+              4687814380718558,
+              4687814386346293
+            ],
+            [
+              4687814386348249,
+              4687814391977451
+            ],
+            [
+              4687814391981292,
+              4687814397594360
+            ],
+            [
+              4687814397597224,
+              4687814403203307
+            ],
+            [
+              4687814403205682,
+              4687814408813582
+            ],
+            [
+              4687814408815887,
+              4687814414421971
+            ],
+            [
+              4687814414424764,
+              4687814420027985
+            ],
+            [
+              4687814420031337,
+              4687814425633649
+            ],
+            [
+              4687814425635884,
+              4687814431242457
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687814333458170,
+            "end_ns": 4687814339249196,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687814340800598,
+            "snapshot_end_ns": 4687814431846172,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1808,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1884,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1226,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1272,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687814132076850,
+            "snapshot_end_ns": 4687814333012997,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 312,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1192,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 132,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 512,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605476216,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460658211,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249692697,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612594716,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687814340800598,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 4605476668,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 460658682,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 1760249693923,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 5286612595988,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687814431846172,
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 64044924928,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 3,
+            "sampled_placement": {
+              "3": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.090008908,
+          "empirical_effective_GBps": 47.71713590837032,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        }
+      ],
+      "overlap": {
+        "status": "observed",
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "overlap_ns": 89932710,
+        "overlap_fraction": 0.9991534393462478,
+        "scope": "synchronous operation windows; not individual hardware kernel occupancy"
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy"
+    },
+    {
+      "case_id": "h2d_node29_single_a",
+      "kind": "h2d",
+      "node": "node29",
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 2,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687822297137242,
+          "receiver_end_ns": 4687822389198367,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687822297140472,
+              4687822302900005
+            ],
+            [
+              4687822302901275,
+              4687822308677028
+            ],
+            [
+              4687822308677838,
+              4687822314415460
+            ],
+            [
+              4687822314416230,
+              4687822320195283
+            ],
+            [
+              4687822320196103,
+              4687822325920936
+            ],
+            [
+              4687822325921916,
+              4687822331692159
+            ],
+            [
+              4687822331692909,
+              4687822337419322
+            ],
+            [
+              4687822337419932,
+              4687822343228885
+            ],
+            [
+              4687822343229485,
+              4687822348989888
+            ],
+            [
+              4687822348991018,
+              4687822354715330
+            ],
+            [
+              4687822354715920,
+              4687822360475203
+            ],
+            [
+              4687822360475783,
+              4687822366208926
+            ],
+            [
+              4687822366209706,
+              4687822371984899
+            ],
+            [
+              4687822371985759,
+              4687822377706371
+            ],
+            [
+              4687822377707062,
+              4687822383465304
+            ],
+            [
+              4687822383466324,
+              4687822389197427
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687822289554839,
+            "end_ns": 4687822295508022,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687822296739519,
+            "snapshot_end_ns": 4687822389756010,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2796,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3396,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1868,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2078,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687822088245340,
+            "snapshot_end_ns": 4687822289090466,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2192,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3504,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1388,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1878,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300827412,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692680012,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041754932,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457824913,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687822296739519,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300828111,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692680861,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041756800,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457826991,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687822389756010,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63866667008,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 0,
+            "sampled_placement": {
+              "0": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.092061125,
+          "empirical_effective_GBps": 46.65343048979687,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy"
+    },
+    {
+      "case_id": "h2d_node29_single_b",
+      "kind": "h2d",
+      "node": "node29",
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 1,
+          "src": 3,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687823262690543,
+          "receiver_end_ns": 4687823356719369,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687823262696343,
+              4687823268599886
+            ],
+            [
+              4687823268601086,
+              4687823274473170
+            ],
+            [
+              4687823274474100,
+              4687823280346623
+            ],
+            [
+              4687823280347473,
+              4687823286218797
+            ],
+            [
+              4687823286219377,
+              4687823292094011
+            ],
+            [
+              4687823292095201,
+              4687823297980724
+            ],
+            [
+              4687823297981514,
+              4687823303860788
+            ],
+            [
+              4687823303861478,
+              4687823309720511
+            ],
+            [
+              4687823309721121,
+              4687823315671115
+            ],
+            [
+              4687823315672195,
+              4687823321527719
+            ],
+            [
+              4687823321528599,
+              4687823327382522
+            ],
+            [
+              4687823327383182,
+              4687823333265655
+            ],
+            [
+              4687823333266295,
+              4687823339125899
+            ],
+            [
+              4687823339127209,
+              4687823345003152
+            ],
+            [
+              4687823345004182,
+              4687823350864586
+            ],
+            [
+              4687823350865196,
+              4687823356718299
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687823254781188,
+            "end_ns": 4687823261008333,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687823262275360,
+            "snapshot_end_ns": 4687823357318273,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2976,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3620,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1908,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2186,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687823053499519,
+            "snapshot_end_ns": 4687823254385615,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2192,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4004,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1296,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2114,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300843497,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692687383,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041811060,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457843489,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687823262275360,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300844241,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692688288,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041812968,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457845675,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687823357318273,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63289950208,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 3,
+            "sampled_placement": {
+              "3": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.094028826,
+          "empirical_effective_GBps": 45.67713411629749,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy"
+    },
+    {
+      "case_id": "h2d_node29_pair",
+      "kind": "h2d",
+      "node": "node29",
+      "mode": "concurrent",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 2,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687824133559863,
+          "receiver_end_ns": 4687824225616158,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687824133563763,
+              4687824139334596
+            ],
+            [
+              4687824139335636,
+              4687824145108909
+            ],
+            [
+              4687824145109869,
+              4687824150839522
+            ],
+            [
+              4687824150840322,
+              4687824156611455
+            ],
+            [
+              4687824156612175,
+              4687824162341747
+            ],
+            [
+              4687824162342767,
+              4687824168114030
+            ],
+            [
+              4687824168114600,
+              4687824173847893
+            ],
+            [
+              4687824173848553,
+              4687824179612226
+            ],
+            [
+              4687824179612846,
+              4687824185345479
+            ],
+            [
+              4687824185346459,
+              4687824191150812
+            ],
+            [
+              4687824191151592,
+              4687824196913565
+            ],
+            [
+              4687824196914345,
+              4687824202636797
+            ],
+            [
+              4687824202637537,
+              4687824208397570
+            ],
+            [
+              4687824208398310,
+              4687824214127173
+            ],
+            [
+              4687824214127923,
+              4687824219893756
+            ],
+            [
+              4687824219894446,
+              4687824225615258
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687824125646248,
+            "end_ns": 4687824131547832,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687824133189381,
+            "snapshot_end_ns": 4687824226161702,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2408,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2672,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1576,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1648,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687823924307349,
+            "snapshot_end_ns": 4687824125196775,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1824,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3344,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1056,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1756,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300861052,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692693959,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041873396,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457859865,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687824133189381,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300861654,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692694627,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041874972,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457861513,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687824226161702,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63866667008,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 0,
+            "sampled_placement": {
+              "0": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.092056295,
+          "empirical_effective_GBps": 46.65587829707898,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        },
+        {
+          "flow_id": 1,
+          "src": 3,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4687824133567483,
+          "receiver_end_ns": 4687824229608291,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4687824133574233,
+              4687824139597567
+            ],
+            [
+              4687824139598517,
+              4687824145728403
+            ],
+            [
+              4687824145729533,
+              4687824151714907
+            ],
+            [
+              4687824151715807,
+              4687824157700621
+            ],
+            [
+              4687824157701231,
+              4687824163684245
+            ],
+            [
+              4687824163685655,
+              4687824169669319
+            ],
+            [
+              4687824169670299,
+              4687824175650823
+            ],
+            [
+              4687824175651483,
+              4687824181634107
+            ],
+            [
+              4687824181634717,
+              4687824187617342
+            ],
+            [
+              4687824187618132,
+              4687824193602766
+            ],
+            [
+              4687824193604406,
+              4687824199601670
+            ],
+            [
+              4687824199602580,
+              4687824205706585
+            ],
+            [
+              4687824205707495,
+              4687824211685839
+            ],
+            [
+              4687824211687099,
+              4687824217659213
+            ],
+            [
+              4687824217660133,
+              4687824223635517
+            ],
+            [
+              4687824223636457,
+              4687824229607251
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4687824125719588,
+            "end_ns": 4687824131879623,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4687824133113630,
+            "snapshot_end_ns": 4687824230184365,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2760,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3044,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1800,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1912,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4687823924405109,
+            "snapshot_end_ns": 4687824125296396,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1824,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3344,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1056,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1844,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300861052,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692693959,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041873396,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457859865,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687824133113630,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 300861742,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 4692694720,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774041875196,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035457861777,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4687824230184365,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63289950208,
+          "numa_host_placement": {
+            "bytes": 268435456,
+            "numa": 3,
+            "sampled_placement": {
+              "3": 1.0
+            },
+            "registered": true
+          },
+          "service_s": 0.096040808,
+          "empirical_effective_GBps": 44.72023284102316,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false
+        }
+      ],
+      "overlap": {
+        "status": "observed",
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "overlap_ns": 92048675,
+        "overlap_fraction": 0.9999172245635131,
+        "scope": "synchronous operation windows; not individual hardware kernel occupancy"
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy"
+    }
+  ],
+  "measurement_status": "measured",
+  "processes": [
+    {
+      "node": "node27",
+      "rank": 0,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_0.process.json",
+      "spec_sha256": "1cfefb2202039d88789f9770a40b33062b87f4b4f14356a32bbab6bee80f7e75",
+      "start_reply": {
+        "pid": 9754,
+        "start_time": "468775452",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_0.process.json"
+      },
+      "stop_reply": "{\"stopped\": 9754}\n"
+    },
+    {
+      "node": "node27",
+      "rank": 1,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_1.process.json",
+      "spec_sha256": "c950b66e8d10cbefaad74210e3c73b1b208207b94ecb449ae34485f5ef194a79",
+      "start_reply": {
+        "pid": 9772,
+        "start_time": "468775468",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_1.process.json"
+      },
+      "stop_reply": "{\"stopped\": 9772}\n"
+    },
+    {
+      "node": "node29",
+      "rank": 2,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_2.process.json",
+      "spec_sha256": "556d53ddef53231a706284993f66d8b2ae78d48b52c792f19be5b0e9fb711b55",
+      "start_reply": {
+        "pid": 18120,
+        "start_time": "468776199",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_2.process.json"
+      },
+      "stop_reply": "{\"stopped\": 18120}\n"
+    },
+    {
+      "node": "node29",
+      "rank": 3,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_3.process.json",
+      "spec_sha256": "17dd36f5d3260149b30931553ddcfd12c5d08f4cb549377d53a49bd4317f9fa0",
+      "start_reply": {
+        "pid": 18138,
+        "start_time": "468776227",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_3.process.json"
+      },
+      "stop_reply": "{\"stopped\": 18138}\n"
+    }
+  ],
+  "cleanup": {
+    "passed": true,
+    "errors": [],
+    "process_states": {
+      "node27": [
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_0.process.pid.json",
+          "registered": {
+            "pid": 9754,
+            "start_time": "468775452",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_0.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 9754,
+            "state": "Z",
+            "start_time": "468775452"
+          }
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_1.process.pid.json",
+          "registered": {
+            "pid": 9772,
+            "start_time": "468775468",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_1.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 9772,
+            "state": "Z",
+            "start_time": "468775468"
+          }
+        }
+      ],
+      "node29": [
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_2.process.pid.json",
+          "registered": {
+            "pid": 18120,
+            "start_time": "468776199",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_2.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 18120,
+            "state": "Z",
+            "start_time": "468776199"
+          }
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_3.process.pid.json",
+          "registered": {
+            "pid": 18138,
+            "start_time": "468776227",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_3.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 18138,
+            "state": "Z",
+            "start_time": "468776227"
+          }
+        }
+      ]
+    },
+    "physical_hbm_reclamation": {
+      "rows": [
+        {
+          "worker": 0,
+          "headroom_before_bytes": 64687177728,
+          "headroom_after_bytes": 64687177728,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 1,
+          "headroom_before_bytes": 64643137536,
+          "headroom_after_bytes": 64643137536,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 2,
+          "headroom_before_bytes": 64317554688,
+          "headroom_after_bytes": 64317554688,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 3,
+          "headroom_before_bytes": 63875055616,
+          "headroom_after_bytes": 63875055616,
+          "unreclaimed_bytes": 0
+        }
+      ],
+      "tolerance_bytes": 134217728,
+      "passed": true,
+      "scope": "total free-HBM before/after; concurrent unrelated changes remain confounded"
+    },
+    "status": "passed"
+  },
+  "capacity_is_physical_upper_bound": false,
+  "command": [
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py",
+    "--session",
+    "codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+    "--out",
+    "codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01",
+    "--port",
+    "33960",
+    "--protect-session",
+    "codex_coding/results/motivation/fig4_lanes11/session.json",
+    "--execute"
+  ],
+  "code_sha256": {
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/inventory.py": "de76e06040f086647889982ab1ffd2081683169e042839de06d701a90d1d3f23",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/probe_rank.py": "fbbe137b77296b1b37c74a8dcee1d1692d577488e9361e7912e08d7026f9fbb5",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py": "96fa75c51395fd8905ad102a988cdfd7b9f552cbb335dd3125fbb18908204034",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/test_calibration.py": "c9e1ca615aeb6b63c9331e59e354fe27b15e4b6233b586825741eaa280a494bf",
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66"
+  },
+  "resource_admission": {
+    "status": "passed",
+    "passed": true,
+    "errors": [],
+    "gpu_required_headroom_bytes": 2147483648,
+    "host_required_headroom_bytes_per_node": 2751463424
+  },
+  "workers": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "gpu": 1,
+      "numa": 3
+    },
+    {
+      "worker": 2,
+      "node": "node29",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 3,
+      "node": "node29",
+      "gpu": 1,
+      "numa": 3
+    }
+  ],
+  "topology_id": "379dadc65c4afb8e67369ddb11cc0c3d52ee0add440e218754680a1362088a16",
+  "calibration_executor": "isolated_pair_rccl_broadcast",
+  "application_executor": "keeper_serial",
+  "protocol": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/protocol.json",
+  "input_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/protocol.json": "6fee4d38c3cdd74eccf8bc23aa6ad76f714612fb105856b871abec861166c498",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_0.process.json": "1cfefb2202039d88789f9770a40b33062b87f4b4f14356a32bbab6bee80f7e75",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_1.process.json": "c950b66e8d10cbefaad74210e3c73b1b208207b94ecb449ae34485f5ef194a79",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_2.process.json": "556d53ddef53231a706284993f66d8b2ae78d48b52c792f19be5b0e9fb711b55",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/calibration_probe_r01/rank_3.process.json": "17dd36f5d3260149b30931553ddcfd12c5d08f4cb549377d53a49bd4317f9fa0"
+  },
+  "binding": [
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n07:9754:9791 [0] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02",
+        "m03r2n07:9754:9791 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55f8d8104fb0 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 0
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n07:9772:9799 [1] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02",
+        "m03r2n07:9772:9799 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x5598c7c870a0 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 1
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n09:18120:18155 [0] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.29<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 01/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 02/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 03/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 04/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 05/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 06/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02",
+        "m03r2n09:18120:18155 [0] NCCL INFO Channel 07/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x560239400e60 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 2
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n09:18138:18162 [1] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.29<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 00/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 01/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 02/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 03/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 04/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 05/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 06/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02",
+        "m03r2n09:18138:18162 [1] NCCL INFO Channel 07/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55d8ce2bc380 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 3
+    }
+  ],
+  "rank_resource_sampling": [
+    {
+      "rank": 0,
+      "sampling": {
+        "free_before_buffer_bytes": 64671973376,
+        "free_after_buffer_bytes": 64250445824,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": {
+        "bytes": 268435456,
+        "numa": 0,
+        "sampled_placement": {
+          "0": 1.0
+        },
+        "registered": true
+      }
+    },
+    {
+      "rank": 1,
+      "sampling": {
+        "free_before_buffer_bytes": 64627933184,
+        "free_after_buffer_bytes": 64206405632,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": {
+        "bytes": 268435456,
+        "numa": 3,
+        "sampled_placement": {
+          "3": 1.0
+        },
+        "registered": true
+      }
+    },
+    {
+      "rank": 2,
+      "sampling": {
+        "free_before_buffer_bytes": 64315457536,
+        "free_after_buffer_bytes": 63893929984,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": {
+        "bytes": 268435456,
+        "numa": 0,
+        "sampled_placement": {
+          "0": 1.0
+        },
+        "registered": true
+      }
+    },
+    {
+      "rank": 3,
+      "sampling": {
+        "free_before_buffer_bytes": 63872958464,
+        "free_after_buffer_bytes": 63451430912,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": {
+        "bytes": 268435456,
+        "numa": 3,
+        "sampled_placement": {
+          "3": 1.0
+        },
+        "registered": true
+      }
+    }
+  ],
+  "before_after_preservation": {
+    "status": "passed",
+    "passed": true,
+    "checks": {
+      "catalog_unchanged": true,
+      "protected_processes_unchanged": true,
+      "parked_commands_unchanged": true,
+      "legacy_accessible_catalogs_unchanged": true
+    },
+    "scope": "catalog identities/generations, registered processes and parked command files; no GPU content reread"
+  },
+  "code_sha256_after": {
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/inventory.py": "de76e06040f086647889982ab1ffd2081683169e042839de06d701a90d1d3f23",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/probe_rank.py": "fbbe137b77296b1b37c74a8dcee1d1692d577488e9361e7912e08d7026f9fbb5",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py": "96fa75c51395fd8905ad102a988cdfd7b9f552cbb335dd3125fbb18908204034",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/test_calibration.py": "c9e1ca615aeb6b63c9331e59e354fe27b15e4b6233b586825741eaa280a494bf",
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66"
+  },
+  "code_preservation": {
+    "changed": [],
+    "passed": true,
+    "status": "passed"
+  },
+  "input_preservation": {
+    "passed": true,
+    "status": "passed",
+    "changed": []
+  },
+  "shared_resource": {
+    "resources": [
+      "observed_end_to_end_shared_path"
+    ],
+    "application_attribution": "not_established",
+    "capacity_is_physical_upper_bound": false,
+    "independence_completion_threshold": 0.85,
+    "application_executor_contention_verified": false,
+    "gate_status": "qualified",
+    "pair_to_single_rate_ratio": {
+      "0": 0.4236264109063855,
+      "1": 0.7141474162309868
+    },
+    "aggregate_pair_to_isolated_rate_ratio": 0.5273336599727062,
+    "aggregate_rate_ratio_scope": "descriptive only; unequal isolated rates invalidate it as a shared-resource gate",
+    "independence_completion_ratio": 0.7141474162309868,
+    "isolated_expected_makespan_ns": 168255970,
+    "pair_makespan_ns": 235603975,
+    "receiver_start_skew_ns": 25090,
+    "receiver_start_skew_fraction_of_shorter_single": 0.00025477145091843735,
+    "receiver_start_skew_threshold": 0.05,
+    "per_flow_slowdown": {
+      "0": 2.360570479683769,
+      "1": 1.4002711166801391
+    },
+    "pair_common_window_GBps": 36.45920911139127,
+    "isolated_rate_sum_GBps": 69.13878608332783,
+    "isolated_rate_sum_scope": "sum of separately observed rates; comparison reference, not simultaneous hardware capacity",
+    "reason": "overlapping isolated flows slow down on the observed shared path; NIC/PCIe/DRAM root cause remains unresolved",
+    "background_traffic_attribution": "unresolved; counters include all port users"
+  },
+  "profile": {
+    "status": "empirical_effective_partial",
+    "capacity_is_physical_upper_bound": false,
+    "application_executor_compatible": false,
+    "rates": {},
+    "directed_path_rates": {},
+    "unmeasured_paths": "peer, SSD, reverse network, DRAM-staged network",
+    "provenance": "isolated broadcast/H2D microprobes; no serial keeper service-capacity extrapolation"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "CPU_REPLAY_ONLY": true,
+  "GPU_measurements": 0,
+  "cleanup": [
+    {
+      "event": "explicit_end_of_run",
+      "objects": []
+    }
+  ],
+  "current_targets": [],
+  "failure": "RuntimeError('http://127.0.0.1:33749/adopt: {\"error\": \"AttributeError(\\\\\"\\'Owner\\' object has no attribute \\'numa\\'\\\\\")\", \"traceback\": \"Traceback (most recent call last):\\\\n  File \\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py\\\\\", line 435, in do_POST\\\\n    result = getattr(worker, op)(body)\\\\n  File \\\\\"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py\\\\\", line 83, in adopt\\\\n    \\\\\"node\\\\\": self.node, \\\\\"gpu\\\\\": self.gpu, \\\\\"numa\\\\\": sh.owner.numa,\\\\nAttributeError: \\'Owner\\' object has no attribute \\'numa\\'\\\\n\"}')",
+  "owned": [],
+  "planned_synth": [
+    {
+      "adopt_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r01/source/dram",
+      "nbytes": 100663296,
+      "snap": "cost_ledger_runtime_C1_cpu_execution_cpu_r01/source/snap",
+      "tp": 0,
+      "worker": 0
+    }
+  ],
+  "simulated_requests": 0,
+  "status": "failed",
+  "unadopted_shards": [
+    {
+      "cleanup": "no native release_shard API; if adoption fails, terminate only current owned worker at final cleanup",
+      "snap": "cost_ledger_runtime_C1_cpu_execution_cpu_r01/source/snap",
+      "tp": 0,
+      "worker": 0
+    }
+  ]
+}

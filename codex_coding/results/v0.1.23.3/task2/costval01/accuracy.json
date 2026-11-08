@@ -1,0 +1,170 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "service_model": {
+    "schema_version": 1,
+    "topology_id": "16a91c017048061d3b821b07f9e1be2a5045608aa533df727346cf456eeeba0a",
+    "executor": "serial",
+    "paths": {
+      "2:hbm:2->6": {
+        "warm_GBps": 33.13101198748541,
+        "operation_s": 0.0017776205869657652,
+        "first_pair_s": 0.477822482585907,
+        "fit_bytes": [
+          33554432,
+          268435456
+        ],
+        "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+      },
+      "4:dram:2->6": {
+        "warm_GBps": 27.49346765869437,
+        "operation_s": 0.0013588025633777892,
+        "first_pair_s": 0.43847464630380273,
+        "fit_bytes": [
+          33554432,
+          268435456
+        ],
+        "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+      }
+    },
+    "dispatch_s": 0.004150024615228176,
+    "scope": "isolated calibration, explicit pair state, worker-order dependency scheduling; no simultaneous shared-link contention calibration"
+  },
+  "held_out": [
+    {
+      "case": "holdout_warm128_0",
+      "old_first_sample_linear_s": 1.7830863948911428,
+      "corrected_s": 0.010390631455395902,
+      "actual_s": 0.0107020428404212,
+      "old_abs_error_s": 1.7723843520507216,
+      "corrected_abs_error_s": 0.0003114113850252974,
+      "corrected_relative_error_pct": 2.909831231931802,
+      "verified_bytes": 134217728,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "4:dram:2->6",
+          "start_s": 0.0,
+          "end_s": 0.006240606840167726,
+          "service_s": 0.006240606840167726,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        }
+      ]
+    },
+    {
+      "case": "holdout_warm128_1",
+      "old_first_sample_linear_s": 1.9394670240581036,
+      "corrected_s": 0.009978765887873513,
+      "actual_s": 0.008643935900181532,
+      "old_abs_error_s": 1.930823088157922,
+      "corrected_abs_error_s": 0.0013348299876919812,
+      "corrected_relative_error_pct": 15.442386467303029,
+      "verified_bytes": 134217728,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "2:hbm:2->6",
+          "start_s": 0.0,
+          "end_s": 0.005828741272645337,
+          "service_s": 0.005828741272645337,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        }
+      ]
+    },
+    {
+      "case": "holdout_cold_chain64",
+      "old_first_sample_linear_s": 2.7528199069201946,
+      "corrected_s": 0.931849743838289,
+      "actual_s": 0.8236460709013045,
+      "old_abs_error_s": 1.9291738360188901,
+      "corrected_abs_error_s": 0.10820367293698452,
+      "corrected_relative_error_pct": 13.137156451020125,
+      "verified_bytes": 201326592,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "4:dram:2->6",
+          "start_s": 0.0,
+          "end_s": 0.4422743510055755,
+          "service_s": 0.4422743510055755,
+          "first_pair_s": 0.43847464630380273,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 1,
+          "path": "2:hbm:2->6",
+          "start_s": 0.4422743510055755,
+          "end_s": 0.9239000145212881,
+          "service_s": 0.48162566351571257,
+          "first_pair_s": 0.477822482585907,
+          "source_wait_s": 0.4422743510055755,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 2,
+          "path": "4:dram:2->6",
+          "start_s": 0.9239000145212881,
+          "end_s": 0.9276997192230608,
+          "service_s": 0.003799704701772758,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.4816256635157126,
+          "target_wait_s": 0.0
+        }
+      ]
+    },
+    {
+      "case": "holdout_warm_chain64",
+      "old_first_sample_linear_s": 2.7528199069201946,
+      "corrected_s": 0.015552614948579242,
+      "actual_s": 0.011158111039549112,
+      "old_abs_error_s": 2.7416617958806455,
+      "corrected_abs_error_s": 0.00439450390903013,
+      "corrected_relative_error_pct": 39.38394136296126,
+      "verified_bytes": 201326592,
+      "timeline": [
+        {
+          "op_id": 0,
+          "path": "4:dram:2->6",
+          "start_s": 0.0,
+          "end_s": 0.003799704701772758,
+          "service_s": 0.003799704701772758,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 1,
+          "path": "2:hbm:2->6",
+          "start_s": 0.003799704701772758,
+          "end_s": 0.007602885631578309,
+          "service_s": 0.0038031809298055513,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.003799704701772758,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": 2,
+          "path": "4:dram:2->6",
+          "start_s": 0.007602885631578309,
+          "end_s": 0.011402590333351066,
+          "service_s": 0.003799704701772758,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.003803180929805551,
+          "target_wait_s": 0.0
+        }
+      ]
+    }
+  ],
+  "scope": "two directed source-tier paths, isolated serial executor, two warm fit sizes; predictions saved before held-out execution",
+  "limitations": [
+    "cold initialization remains session-dependent",
+    "not a full-model loading prediction or an optimized placement MILP",
+    "no shared-link contention calibration; fixed worker-order dependencies only"
+  ],
+  "baseline_definition": "same calibration cold sample scaled linearly by bytes, matching the old rate-only formulation"
+}

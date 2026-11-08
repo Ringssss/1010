@@ -1,0 +1,205 @@
+{
+  "status": "cpu_design_rank_checks_passed",
+  "hardware_measurements": false,
+  "chunk_mib": 32,
+  "columns": [
+    "conditional_request_intercept",
+    "total_MiB",
+    "operations",
+    "actual_chunk_sync_count"
+  ],
+  "cases": [
+    {
+      "id": "T1",
+      "operation_mib": [
+        32
+      ],
+      "chunk_mib": [
+        [
+          32
+        ]
+      ],
+      "columns": [
+        1,
+        32,
+        1,
+        1
+      ]
+    },
+    {
+      "id": "T2",
+      "operation_mib": [
+        64
+      ],
+      "chunk_mib": [
+        [
+          32,
+          32
+        ]
+      ],
+      "columns": [
+        1,
+        64,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "T3",
+      "operation_mib": [
+        32,
+        32
+      ],
+      "chunk_mib": [
+        [
+          32
+        ],
+        [
+          32
+        ]
+      ],
+      "columns": [
+        1,
+        64,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "T4",
+      "operation_mib": [
+        48,
+        16
+      ],
+      "chunk_mib": [
+        [
+          32,
+          16
+        ],
+        [
+          16
+        ]
+      ],
+      "columns": [
+        1,
+        64,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "T5",
+      "operation_mib": [
+        96
+      ],
+      "chunk_mib": [
+        [
+          32,
+          32,
+          32
+        ]
+      ],
+      "columns": [
+        1,
+        96,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "H1",
+      "operation_mib": [
+        16,
+        16,
+        16
+      ],
+      "chunk_mib": [
+        [
+          16
+        ],
+        [
+          16
+        ],
+        [
+          16
+        ]
+      ],
+      "columns": [
+        1,
+        48,
+        3,
+        3
+      ]
+    },
+    {
+      "id": "H2",
+      "operation_mib": [
+        40,
+        24,
+        16
+      ],
+      "chunk_mib": [
+        [
+          32,
+          8
+        ],
+        [
+          24
+        ],
+        [
+          16
+        ]
+      ],
+      "columns": [
+        1,
+        80,
+        3,
+        4
+      ]
+    }
+  ],
+  "training_rank": 4,
+  "minimal_minor_determinant": "32",
+  "confounded_rank": 3,
+  "checks": {
+    "primary_rank_four": true,
+    "primary_minimal_minor_nonzero": true,
+    "below_chunk_K_C_confounded": true,
+    "confounded_null_direction_all_zero": true,
+    "fifth_point_affine_consistency": true,
+    "synthetic_coefficients_recovered": true,
+    "holdout_unseen_N_and_K": true,
+    "holdout_K_extrapolates": true
+  },
+  "synthetic_units": "microseconds; illustrative algebra only, not measured costs",
+  "synthetic_coefficients": [
+    "100",
+    "2",
+    "10",
+    "3"
+  ],
+  "synthetic_costs": {
+    "T1": "177",
+    "T2": "244",
+    "T3": "254",
+    "T4": "257",
+    "T5": "311",
+    "H1": "235",
+    "H2": "302"
+  },
+  "proposed_sequence": [
+    "T3",
+    "T1",
+    "T4",
+    "T2",
+    "T5",
+    "T3",
+    "H2",
+    "H1"
+  ],
+  "requests": 8,
+  "payload_MiB": 512,
+  "operation_count": 15,
+  "chunk_sync_count": 20,
+  "caveat": "Full rank is necessary, not sufficient: hidden state and size-dependent chunk costs remain untested."
+}

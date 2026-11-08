@@ -1,0 +1,395 @@
+{
+  "hostname": "m03r2n09",
+  "env_whitelist": {
+    "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+    "ROCM_PATH": "/opt/dtk",
+    "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml",
+    "HOME": "/root"
+  },
+  "files": [
+    {
+      "path": "/etc/nccl.conf",
+      "resolved": "/etc/nccl.conf",
+      "exists": false
+    },
+    {
+      "path": "/opt/dtk/lib/librccl.so.1",
+      "resolved": "/opt/dtk/lib/librccl.so.1.0",
+      "exists": true,
+      "bytes": 173811944,
+      "sha256": "32aa13da8bbd4d9a4ec37be08014f0783f5f576c7439dc10a3e1c661aa35427a"
+    },
+    {
+      "path": "/opt/dtk/rccl/lib/topo_mapping_default.xml",
+      "resolved": "/opt/dtk/rccl/lib/topo_mapping_default.xml",
+      "exists": true,
+      "bytes": 5338,
+      "sha256": "ecd54d0e0cef17db7736688b0531ee98ade49ac0a69e87b1a04054f4519c965a",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/opt_dtk_rccl_lib_topo_mapping_default.xml.original"
+    },
+    {
+      "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+      "resolved": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+      "exists": true,
+      "bytes": 752144,
+      "sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+    },
+    {
+      "path": "/root/.nccl.conf",
+      "resolved": "/root/.nccl.conf",
+      "exists": false
+    },
+    {
+      "path": "/usr/local/built-in-508-topo-input-tj-default.xml",
+      "resolved": "/usr/local/built-in-508-topo-input-tj-default.xml",
+      "exists": true,
+      "bytes": 10475,
+      "sha256": "5a10dbdec6e762ceb18861e98a556422e197a3351cf2d17df3246415fb4236ef",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/usr_local_built-in-508-topo-input-tj-default.xml.original"
+    }
+  ],
+  "processes": [
+    {
+      "pid": 118,
+      "argv": [
+        "python3",
+        "-m",
+        "fluidckpt.cluster.worker",
+        "--node",
+        "node29",
+        "--gpu",
+        "0",
+        "--numa",
+        "0",
+        "--port-base",
+        "33000",
+        "--mesh",
+        "node27:0-1,node29:0-1",
+        "--master",
+        "12.11.3.27:33100",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff",
+        "--session",
+        "qwen_bootstrap_r01",
+        ""
+      ],
+      "env_whitelist": {
+        "HOME": "/root",
+        "ROCM_PATH": "/opt/dtk",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_IB_HCA": "shca_0",
+        "HIP_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7"
+      },
+      "stat": "118 (python3) S 1 118 118 0 -1 4194560 100010955 0 4 0 139036 54599 0 0 20 0 82 0 461624638 46744936448 738099 18446744073709551615 94636611829760 94636614665549 140723850621872 0 0 0 0 16781312 3 0 0 0 17 99 0 0 0 0 0 94636617037904 94636617321880 94636623077376 140723850630129 140723850630430 140723850630430 140723850633191 0\n",
+      "status_selected": [
+        "Name:\tpython3",
+        "Cpus_allowed_list:\t0-127",
+        "Mems_allowed_list:\t0-7"
+      ],
+      "mapped_libraries": [
+        "7f9911618000-7f9911621000 r--p 00000000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f9911621000-7f991163c000 r-xp 00009000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f991163c000-7f9911645000 r--p 00024000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f9911645000-7f9911646000 r--p 0002c000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f9911646000-7f9911648000 rw-p 0002d000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f9969154000-7f99735b5000 r--p 00000000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0",
+        "7f99735b5000-7f9973681000 r-xp 0a460000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0",
+        "7f9973681000-7f99736f2000 r--p 0a52b000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0",
+        "7f99736f2000-7f99736f6000 rw-p 0a59b000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0"
+      ]
+    },
+    {
+      "pid": 136,
+      "argv": [
+        "python3",
+        "-m",
+        "fluidckpt.cluster.worker",
+        "--node",
+        "node29",
+        "--gpu",
+        "1",
+        "--numa",
+        "3",
+        "--port-base",
+        "33000",
+        "--mesh",
+        "node27:0-1,node29:0-1",
+        "--master",
+        "12.11.3.27:33100",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff",
+        "--session",
+        "qwen_bootstrap_r01",
+        ""
+      ],
+      "env_whitelist": {
+        "HOME": "/root",
+        "ROCM_PATH": "/opt/dtk",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_IB_HCA": "shca_0",
+        "HIP_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7"
+      },
+      "stat": "136 (python3) S 1 136 136 0 -1 4194560 101428631 0 3 0 143007 49735 0 0 20 0 82 0 461624669 46531272704 816604 18446744073709551615 94162483871744 94162486707533 140732984135072 0 0 0 0 16781312 3 0 0 0 17 11 0 0 0 0 0 94162489079888 94162489363864 94162494251008 140732984136689 140732984136990 140732984136990 140732984139751 0\n",
+      "status_selected": [
+        "Name:\tpython3",
+        "Cpus_allowed_list:\t0-127",
+        "Mems_allowed_list:\t0-7"
+      ],
+      "mapped_libraries": [
+        "7f123ad5e000-7f123ad67000 r--p 00000000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f123ad67000-7f123ad82000 r-xp 00009000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f123ad82000-7f123ad8b000 r--p 00024000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f123ad8b000-7f123ad8c000 r--p 0002c000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f123ad8c000-7f123ad8e000 rw-p 0002d000 103:05 20610482                  /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "7f1278d54000-7f12831b5000 r--p 00000000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0",
+        "7f12831b5000-7f1283281000 r-xp 0a460000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0",
+        "7f1283281000-7f12832f2000 r--p 0a52b000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0",
+        "7f12832f2000-7f12832f6000 rw-p 0a59b000 103:05 20586393                  /opt/dtk/lib/librccl.so.1.0"
+      ]
+    }
+  ],
+  "commands": {
+    "symbol_subset": {
+      "argv": [
+        "nm",
+        "-S",
+        "-C",
+        "/opt/dtk/lib/librccl.so.1"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/elf_b15f4cfeac5e.txt"
+    },
+    "ncclGetEnv(char const*)": {
+      "argv": [
+        "objdump",
+        "-d",
+        "-C",
+        "--start-address=172939536",
+        "--stop-address=172939568",
+        "/opt/dtk/lib/librccl.so.1"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/elf_f8f4b253f385.txt"
+    },
+    "ncclTopoGetSystem(ncclComm*, ncclTopoSystem**)": {
+      "argv": [
+        "objdump",
+        "-d",
+        "-C",
+        "--start-address=172771840",
+        "--stop-address=172780731",
+        "/opt/dtk/lib/librccl.so.1"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/elf_d323a8f1ad1b.txt"
+    },
+    "ncclTopoGetXmlFromFile(char const*, ncclXml*, int)": {
+      "argv": [
+        "objdump",
+        "-d",
+        "-C",
+        "--start-address=172807104",
+        "--stop-address=172807473",
+        "/opt/dtk/lib/librccl.so.1"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/elf_5529595afc90.txt"
+    },
+    "ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)": {
+      "argv": [
+        "objdump",
+        "-d",
+        "-C",
+        "--start-address=172831184",
+        "--stop-address=172832695",
+        "/opt/dtk/lib/librccl.so.1"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/elf_f6385042e720.txt"
+    },
+    "std::call_once<ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)::{lambda()#1}>(std::once_flag&, ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)::{lambda()#1}&&)::{lambda()#2}::__invoke()": {
+      "argv": [
+        "objdump",
+        "-d",
+        "-C",
+        "--start-address=172866752",
+        "--stop-address=172866892",
+        "/opt/dtk/lib/librccl.so.1"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "saved_file": "codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node29/elf_bb4447ab0405.txt"
+    }
+  },
+  "namespace_sysfs": {
+    "devices": [
+      {
+        "class_path": "/sys/class/drm/renderD128",
+        "resolved": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:06.0/0000:07:00.0/0000:08:00.0/0000:09:00.0",
+        "numa_node": "0",
+        "local_cpulist": "0-15"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD134",
+        "resolved": "/sys/devices/pci0000:d0/0000:d0:01.1/0000:d1:00.0/0000:d2:00.0/0000:d3:00.0/0000:d4:00.0/0000:d5:00.0",
+        "numa_node": "6",
+        "local_cpulist": "96-111"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD132",
+        "resolved": "/sys/devices/pci0000:80/0000:80:01.1/0000:81:00.0/0000:82:01.0/0000:83:00.0/0000:84:00.0/0000:85:00.0",
+        "numa_node": "4",
+        "local_cpulist": "64-79"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD130",
+        "resolved": "/sys/devices/pci0000:50/0000:50:01.1/0000:51:00.0/0000:52:00.0/0000:53:00.0/0000:54:00.0/0000:55:00.0",
+        "numa_node": "2",
+        "local_cpulist": "32-47"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD129",
+        "resolved": "/sys/devices/pci0000:30/0000:30:01.1/0000:31:00.0/0000:32:04.0/0000:34:00.0/0000:35:00.0/0000:36:00.0",
+        "numa_node": "3",
+        "local_cpulist": "48-63"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD135",
+        "resolved": "/sys/devices/pci0000:f0/0000:f0:01.1/0000:f1:00.0/0000:f2:00.0/0000:f3:00.0/0000:f4:00.0/0000:f5:00.0",
+        "numa_node": "5",
+        "local_cpulist": "80-95"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD133",
+        "resolved": "/sys/devices/pci0000:b0/0000:b0:01.1/0000:b1:00.0/0000:b2:01.0/0000:b3:00.0/0000:b4:00.0/0000:b5:00.0",
+        "numa_node": "7",
+        "local_cpulist": "112-127"
+      },
+      {
+        "class_path": "/sys/class/drm/renderD131",
+        "resolved": "/sys/devices/pci0000:70/0000:70:01.1/0000:71:00.0/0000:72:03.0/0000:75:00.0/0000:76:00.0/0000:77:00.0",
+        "numa_node": "1",
+        "local_cpulist": "16-31"
+      },
+      {
+        "class_path": "/sys/class/infiniband/shca_3",
+        "resolved": "/sys/devices/pci0000:f0/0000:f0:01.1/0000:f1:00.0/0000:f2:03.0/0000:f6:00.0",
+        "numa_node": "5",
+        "local_cpulist": "80-95"
+      },
+      {
+        "class_path": "/sys/class/infiniband/shca_1",
+        "resolved": "/sys/devices/pci0000:70/0000:70:01.1/0000:71:00.0/0000:72:01.0/0000:73:00.0",
+        "numa_node": "1",
+        "local_cpulist": "16-31"
+      },
+      {
+        "class_path": "/sys/class/infiniband/shca_2",
+        "resolved": "/sys/devices/pci0000:80/0000:80:01.1/0000:81:00.0/0000:82:03.0/0000:86:00.0",
+        "numa_node": "4",
+        "local_cpulist": "64-79"
+      },
+      {
+        "class_path": "/sys/class/infiniband/shca_0",
+        "resolved": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:01.0/0000:03:00.0",
+        "numa_node": "0",
+        "local_cpulist": "0-15"
+      }
+    ],
+    "numa": {
+      "node4": "64-79",
+      "node2": "32-47",
+      "node0": "0-15",
+      "node7": "112-127",
+      "node5": "80-95",
+      "node3": "48-63",
+      "node1": "16-31",
+      "node6": "96-111"
+    }
+  },
+  "binary_string_subset": [
+    {
+      "offset_hex": "0x105e7",
+      "text": "/rccl/lib/topo_mapping_default.xml"
+    },
+    {
+      "offset_hex": "0x138a6",
+      "text": "NCCL_TOPO_DUMP_FILE"
+    },
+    {
+      "offset_hex": "0x1429b",
+      "text": "NCCL_TOPO_DUMP_FILE set by environment to %s"
+    },
+    {
+      "offset_hex": "0x152cd",
+      "text": "Loading topology %s"
+    },
+    {
+      "offset_hex": "0x152f3",
+      "text": "NCCL_TOPO_MAPPING_FILE"
+    },
+    {
+      "offset_hex": "0x1682a",
+      "text": "ncclConfig_t argument not initialized via NCCL_CONFIG_INITIALIZER"
+    },
+    {
+      "offset_hex": "0x184da",
+      "text": "NCCL_TOPO_DUMP_FILE_RANK"
+    },
+    {
+      "offset_hex": "0x19126",
+      "text": "Loading topology file %s"
+    },
+    {
+      "offset_hex": "0x1b2b5",
+      "text": "NCCL_TOPO_FILE"
+    },
+    {
+      "offset_hex": "0x1d3f7",
+      "text": "NCCL_BASIC_TOPO_DUMP_FILE"
+    },
+    {
+      "offset_hex": "0x1f7a8",
+      "text": "RCCL_CLIQUE_IGNORE_TOPO"
+    },
+    {
+      "offset_hex": "0x22267",
+      "text": "NCCL_CONF_FILE"
+    },
+    {
+      "offset_hex": "0x23732",
+      "text": "ROCM_PATH"
+    },
+    {
+      "offset_hex": "0x2373c",
+      "text": "Loading topology mapping file %s"
+    },
+    {
+      "offset_hex": "0x2375d",
+      "text": "NCCL_BASIC_TOPO_DUMP_FILE set by environment to %s"
+    },
+    {
+      "offset_hex": "0x27e59",
+      "text": "NCCL_TOPO_FILE set by environment to %s"
+    }
+  ],
+  "rodata_points": {
+    "0x152f3": "NCCL_TOPO_MAPPING_FILE",
+    "0x23732": "ROCM_PATH",
+    "0x105e7": "/rccl/lib/topo_mapping_default.xml",
+    "0x1914f": "%s%s",
+    "0x166ed": "%s",
+    "0x1b2b5": "NCCL_TOPO_FILE"
+  }
+}

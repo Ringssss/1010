@@ -1,0 +1,11 @@
+docker exec 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d python3 -c "from pathlib import Path; Path('/tmp/online_ipc_counter_probe_r01').mkdir(exist_ok=False)"
+
+docker cp codex_coding/src/v0.1.23.3/task2/online_cost/execution/probe_ipc_counter.py 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d:/tmp/online_ipc_counter_probe_r01/probe.py
+
+docker exec 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d python3 /tmp/online_ipc_counter_probe_r01/probe.py --imports 1 --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r01
+
+docker cp 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d:/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r01 codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r01
+
+docker exec 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d python3 /tmp/online_ipc_counter_probe_r01/probe.py --imports 2 --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r01
+
+docker cp 8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d:/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r01 codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r01

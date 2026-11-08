@@ -1,0 +1,31 @@
+{
+  "status": "analysis_rules_frozen_before_gpu_A",
+  "files": [
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/first_op_validation/analysis/analyze.py",
+      "sha256": "3eaf328fa1d0b76dd88d3af681398126c0153a5bc6f0e70e442f94bad48e685a",
+      "snapshot": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_frozen_r01/analyze.py"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/first_op_validation/analysis/cpu_checks.py",
+      "sha256": "934e14da576df6f28aa0f348d395324bf912eae5d9e5716440c4e94d7444a1e4",
+      "snapshot": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_frozen_r01/cpu_checks.py"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/first_op_validation/analysis/README.md",
+      "sha256": "778ee0801dc55ec44719037de086eeb857ade15739e29871a103fc23e19a36ff",
+      "snapshot": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_frozen_r01/README.md"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_protocol_r01/protocol.json",
+      "sha256": "2b83e2aa225316d7622994cb2a828b33f7ed153f590066361a16146aa965bc8c",
+      "snapshot": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_frozen_r01/protocol.json"
+    }
+  ],
+  "independent_review": "first_state_review approved formulas/gates before A; last change only deterministic prediction_key and expected_prediction_keys identifiers",
+  "canonical_cpu_ref": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_execution_cpu_r03/schema_model.json",
+  "cpu_arithmetic_ref": "codex_coding/results/v0.1.23.3/task2/first_op_validation/analysis_cpu_r06/qualification.json",
+  "scope": "CPU schema/formulas/refusal only; independent runtime/source/SHA/cleanup qualification required before B; no GPU performed by analysis agent",
+  "A_command": "python3 codex_coding/src/v0.1.23.3/task2/first_op_validation/analysis/analyze.py A --stage <A canonical JSON> --out codex_coding/results/v0.1.23.3/task2/first_op_validation/model_frozen_r01/frozen_prediction.json",
+  "B_command": "python3 codex_coding/src/v0.1.23.3/task2/first_op_validation/analysis/analyze.py B --stage <B canonical JSON> --model <A frozen prediction JSON> --out <new B summary JSON>"
+}

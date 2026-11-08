@@ -1,0 +1,266 @@
+现在我们继续代号v0.1-init-project的建设。
+
+【2026-10-10 最新：多位置竞争active理论实例完成】
+- 编号v0.1.23.3/task2，计划18.23/报告38。首读docx/plans/2026-10-10_multiple_placement_competition.md与codex_coding/results/v0.1.23.3/task2/placement_competition/review_final_r02/qualification.json，95独立检查过。AGENTS已补用户长期约定：具体建设主动委派子agent，不再等提醒，主协调和审查。
+- 最终case_active_r01合同e8a780d2fc6a1d1fda2d1676049830fb968ced9657f8c802e6c7954a07a3c427，4rank各4MiB、pool0/1各8MiB、8candidate/121合法subset、完整DRAM16MiB；target0/1兼pool，另2baseworkers共6roles/staging384MiB。原2GiB/node未准入，无actualmodelbinding。
+- 原r03 .5备选被DRAM1支配，2candidate neverused，CPU正确但researchgate=false，保留negative。父先推1<v<12/7再唯一取v3/2，case_active_preregister_r01先登记，恰两rate改动其余输入/策略/r03最终评分不变，无参数扫描。active8候选全有实际使用witness，researchgate=true。
+- 同实际16MiB：fastest/单步均衡11/12，交换/joint5/6，后两者同layout/routes/queue，无joint独立增量；都是symbolic时间非实测9.09%收益。原strong内部保持而选空0cache/2；新增交换最多二删二加，原paired只有addition不可冒称已有swap。先验两个fullcache fastest route witnesses与原LP取整实际route一致，event容量检查可达。
+- 原resource下界与DAG分列，target兼source时最后receiver而非worker尾时间用于targetready。objective_active_r01另531checks通过/121subset，当前Ucap4不绑定(两base最多2)，不拿本case当实际shared瓶颈证明。原source范围误判、tie规则修订、主评分接口歧义、路径序列化失败/retry均保留。
+- physicalmapping/rates/budget/modelTready未认证，GPUcommand=null，无GPU/SSH/信号/远端写/产品修改。既有2node多worker准入限制与27/29pending保持。下一步匹配实际路径是否满足非支配区间、角色/预算与执行条件，再决定有限实机；强交换已足解此case，不继续扩solver造优势。无GitHub/全历史归档/history覆盖。
+
+【2026-10-10 最新：TP4分层契约与部署可行性完成，未启动新GPU】
+- 保持v0.1.23.3/task2，正式计划18.22/报告37。首读docx/plans/2026-10-10_tp4_layered_scenario_contract.md及codex_coding/results/v0.1.23.3/task2/tp4_scenarios/review_final_r02/qualification.json。独立44合同/4依赖/28部署检查全过，资质是CPU准备通过而物理未准入。
+- 最终contract_cpu_r03合同内部hash6cbcada0097df02f9d298dda01f24ee3321778c8c821f785b515ca6e92f91575。4rank各2×4MiB，底本/目标各32MiB、8local候选、4source+4target共8逻辑worker；已知staging512MiB，runtime/实际物理路径/capacity/modelbinding未知。C0caps2each，C1equal1each，C1uneven[2,1,0,1]，C2同uneven仅s0/s1共享出口；sourceGPU编号唯一，非实机node迁移。
+- CPU归一化资源评分：C0fill/balanced/joint .5(32MiB)，原strongsimple2(0)；C1equal1.25(16MiB)，原strong2(0)；C1uneven均2，joint/strong/baseonly0cache，fill/balanced16MiB被空间支配；C2base4，strong/joint2用8MiB，fill/balanced2用16MiB。256/81/36/36subset/完整Pareto保存，非实测秒/finite执行最优/联合优势。
+- 新均衡参考只在版本实验脚本，globalcost+降序rankvector字典序改善允许零globalgain。原产品/solver未改。C2cut与local前序须在同一schedule满足，单独容量分数或独立DAG不保证实际T。当前仅本地cache候选，不冒称完整远端placement研究。
+- feasibility_r03部署最终绑定合同及精确各node配额。2node8worker按单进程观测保守投影约8.1–8.2GB/node，原任务2GiB/node未准入；共享库页/新增comm使真实聚合未知，非硬物理下界。4worker source/target复用改变DAG，旧keeper session/rank/mesh不兼容，loadedsourceSHA未知，不能直接借用。GPUcommand=null/physicalready=false，未扩额度。
+- 08:59UTC metadata-only28/30同CID/boot/资产/pids1/noOOM及旧13PIDidentity过；没有keeperRPC/HIP/SMI/远端写/信号，旧catalog仍07:48引用，未访问27驱动/29。中间契约/审查失败均保留，最终7来源SHA一致。
+- 下一关是把有限场景绑定真实source/target/共享资源并取得多worker预算与运行资格；若要增加远端候选，应先说明会改变哪个决策，不继续搜参数造joint赢。不要原名重跑旧parent-run或覆盖history；无GitHub/全历史归档。
+
+【2026-10-10 最新：联合规划必要性理论推导完成】
+- 保持v0.1.23.3/task2，计划18.21/报告36。首读docx/articles/2026-10-10_joint_planning_necessity_and_boundaries.md及codex_coding/results/v0.1.23.3/task2/theory_validation/review_final_r01/qualification.json；27精确检查+14scope项通过，正文SHA ac0e4b67...冻结。7相对链接/8来源SHA核实。
+- 理论结论：等大fixed独立收益+单基数预算时top-k最优；需要联合考虑来自稀缺位置不同替代性、多目标max平台期、共享资源cut。全缓存direct示例指定规则8s/最优4/3s；shared U8/V6示例整块4/3、流体8/7；所有数值是理论系数，非硬件实测。
+- 最具体算法结果：TP4式Ti=8−3xi，4prefix/16subsets中proper都8、all4=5。原strong_simple三个control strictpositive gain都选空8s，原joint optimal选四prefix5s；简单瓶颈均衡也5s，必须作为后续强对照，不能据此宣称MILP必要。proofs_cpu_r01保存实际CPU调用/源码SHA，原product未改。
+- 假设已审：HBM-only/完整coverage支撑sourcecut，独立正速DRAM可改变下界，relay可救坏布局；unicast/无编码范围明确，容量负载下界不是finite时序保证；r01早期8→4为parallel变体，最终r02主文8→5串行local服务。不要混用。
+- 物理28/30同构8GPU8NUMA4HCA，位置亲和性异质而非已证算力异构；3node4GPU只是逻辑角色映射，2node4GPU需核共享入口。现2GiB/node预算与每worker约2GB运行时不能直接叠worker，理论不授权扩配额。旧27/29pending保持，无新GPU/SSH/信号/远端写/模型/产品代码改动。
+- 下一步先基于这些充分假设找真实可验证子图并核各条件，补强分配/均衡/资源感知baseline；只有强对照仍有决策损失才进入实机收益，不再盲搜复杂图/参数。无GitHub/全历史归档/history覆盖。
+
+【2026-10-10 最新：预算受限决策差异关口完成，未新增GPU】
+- 保持v0.1.23.3/task2，计划18.20/报告35/当前基础场景过程末段为最新。首读codex_coding/results/v0.1.23.3/task2/decision_validation/review_final_r01/qualification.json与case_cpu_r02/report.md（52独立条件过，scopeaudit4项）。下方四布局是真实上一轮，本轮仅CPU+只读刷新。
+- 已找到并复用service_cost.estimate_execution源/目标ready依赖评分、frozen_layout.strong_simple、multi_joint和managed。不要重建DAG/greedy/solver；managed仅service重评current/base/bandwidth-MILP提案，非全局serviceopt且未自动纳入strongsimple提案。
+- caseCPU两个case各3symbolic参数、每组9subset。受限2x16MiB目标均28/cache caps16+16/完整DRAM底本，DRAM快/同速/remote快三组strongsimple与joint同成本，仅编号/顺序置换；无实际策略收益依据，停止新增策略GPU比较。该case是synthetic区域恢复，不认证真实TP目标同worker。另一组合成反例证明带宽bound可能误排有序DAG，不是集群实测误差。
+- case_cpu_r01系统numpy缺失partial保留，failuremetadata追记无原stderr；r02用已有sglang rc0/无安装。产品代码未改、新GPU0、信号0、远端写0。真实cost/modelTready/solver增量仍unknown，不把symbolic毫秒写进profile。
+- measure_review_r01/measurement_contract.md/json冻结localDRAM28→28HBM与remoteHBM30→28HBM各16MiB一次+独立组合holdout，localHBM可选，prepared-only/GPUcommand=null；不是已执行。预算仍2GiB/node/32MiB底本复用，旧128/256MiBcost脚本不可直接照跑。
+- measure_refresh_r01在10日07:48UTC核28/30同CID/boot/旧保护/pids1/noOOM/34500和29972空闲，未访问27驱动/29；动态准入下次须刷新。后续重点是成本评分接口与同原语独立验证是否改变真实决策；不继续扩参数矩阵造joint优势，不上传GitHub/全历史归档/history覆盖。
+
+【2026-10-09 最新：地图与四布局预期验证完成】
+- 当前仍v0.1.23.3/task2，计划18.19/报告34/基础场景过程最后段为最新；首读codex_coding/results/v0.1.23.3/task2/layout_validation/review_final_r02/qualification.json（116项独立条件通过）和execution_r01/execution.json。用户要求先验证认知再推进规划，不上传GitHub。
+- 同2×16MiB HBM缓存、目标0@28GPU0/BDF09与1@30GPU4/BDF85：A目标本地、B集中28、C集中30、D交叉各一次；总cache32MiB、同允许位置budget，baseDRAM32MiB/target32/staging128/runtime另算。原Worker/Cluster.transfer/产品源码不改，仅本地薄runner和新plan。实际IBext_v8/shca_0:1/gdr0/GPU-NIC/XML及正反payload通过。
+- filled A4.203326/B5.813058/C5.668976/D6.908463ms，A最短D最长与实测前弱预言一致；prepare约2.18–2.36ms、execute1.84/3.63/3.38/4.66ms。published49.881059/69.844086/67.461154/46.627805ms排序不同，不能将校验发布当通信耗时。B/C0.144ms不认证方向优劣。serial按worker有序、A可独立local/D两pair依次，不是全局串行或并发争用实验。
+- 四布局每字节SHA、实际op roles/order/源epoch/generation、lease0/tx空/副本退役及最终底本释放全过；强nearest=A，未测solver增量/完整模型T_ready/正式容量与绝对预测公式。64MiB DRAM微测不能线性外推本轮HBM恢复。
+- 启动入口layout_validation/operations/control_layout.py parent-run，执行source f3154366...、runner79dc1a71...、plan6c740061...保持。controller/两个supervisor rc0，但本地tar.extractall(filter)不兼容使外层rc1，operations_run_r01/summary的prelaunch是未更新旧标签，保留原失败。collect_compatible.py/bd59...只读补收operations_collect_r02 rc0，无GPU重跑，实际原f315源码快照保持。
+- fresh child214/start488590799与217/start488591600 absent/groupempty，后置pids1/noOOM/旧keeper/source/原XML/defaultmapping前后hash保持。原隔离sleep容器保留。0.25sDRAM增量2,118,258,688/2,089,222,144B在原2GiB内，但高于含8MiBmargin投影13,242,368/9,048,064B；fullphysicalpeak仍false。27/29旧pending未访问，旧失败不变。
+- 下一步先讨论本轮结论：地图选定路径与filled定性关系可用；要验证绝对成本，需同产品primitive的独立路径校准/组合验证、控制和校验分段，不直接用有效rate倒算自证或扩solver。无更多GPU在跑，无全历史归档/history覆盖。
+
+【2026-10-09 最新：最小成本观察与两布局产品恢复已跑通】
+- 保持v0.1.23.3/task2，当前计划18.18/正式实验报告33/基础场景过程末段。先读minimal_calibration/measure_finite_observations_r01/report.md、integration_product_r02/execution.json与最终独立review；下方32节为前轮历史。完整路径前缀codex_coding/results/v0.1.23.3/task2/。
+- 新选定路径28GPU0/BDF09/NUMA0→IBext_v8/shca_0:1/gdr0→30GPU4/BDF85/NUMA4已重新1MiB资格通过。local64 1.471437ms/45.6077GB/s，remote64 receiver因果窗5.494220ms/12.2144GB/s，全SHA/NUMA采样通过；微测primitive与产品不同且有共享负载，不作为正式profile或完整模型T_ready。
+- remote64 source观测DRAM增量超2GiB 1,974,272B，预算失败保留；memory.peak缺失，采样不是完整峰值。256prepared-only/未部署，512及并发微测暂停，不为过关扩预算。
+- 产品新增finite shared-workpoint严格契约、布局账本、controller同钟filled/published边界，复用原Worker/Cluster.transfer。CPU14+18和独立交付23项过；旧map/solver未覆盖，未建立正式容量/共享竞争参数。
+- r01因guard过期在mesh前拒绝，exactSTOP回收child70/83；r02控制脚本SHAe5532a1d...串联freshguard、startup、mesh/warm、同baseline预算、2×16MiB两布局和STOP。实际应用gate在2GiB内，两布局cache均32MiB，source DRAM32MiB/staging每worker64MiB另计。原启动源码/输入XML不改，r02plan1f63a9b3...仅新dump路径。
+- r02 filled集中5.456453ms、分散3.956054ms；verified发布69.624693/43.226580ms；全32MiB SHA/退役后owned副本0/cleanup错误0。主要时间差在校验/发布，不能把发布窗全部改善归因传输。强nearest-target=分散布局，no_solver_delta；完整模型权重绑定未测，formal_performance_ready=false。
+- r02父controller和两supervisor均rc0；最终minimal_calibration/review_final_r01/qualification.json独立47项全过/33原件SHA，见报告33.10。0.25s DRAM增量28=2,104,721,408B/30=2,070,065,152B在2GiB内，分别高于gate投影5,816,320/344,064B，非硬峰值证明。fresh child99/112 absent/groupempty，后guard pids1/noOOM/旧保护过。只停止本次ownworkers，隔离sleep容器保留，原keeper/原XML/defaultmapping/外部服务不动。30根盘已恢复约123.3GB available，本轮未清盘。27/29旧pending保持未证。
+- 后续最小重点：先读最终预算/路径证据，明确runtime固定开销与可用于权重的剩余预算，再决定唯一有区分度的共享资源并发工作点；以原产品执行器为准，不将两单流rate相加，不先建新solver/扩大模型矩阵。探索每配置一次必要两次。正常增量，不全历史归档/history覆盖。
+
+【2026-10-09 最终：自有物理XML在28/30选定IB路径完整实机通过】
+- 首读机器可读准入codex_coding/results/v0.1.23.3/task2/three_node_recovery/review_runtime_final_r01/qualification.json与同目录evidence_refs.json，19项独立条件全过；功能资格true、performance/bandwidth/weights-ready-measured=false，绑定旧pending和取证SHA，旧resource_map/solver未写。
+- 保持v0.1.23.3/task2，计划18.17/报告32.12为最新；最终probe_nccl_2830_node28_r03与node30_r03均passed/xml_runtime_accepted=true、全1MiB SHA631b84027d6b9e52b539c4e8373622d23032dfadc64d60af87339c9037e4f769、自然rc0/无signals/组空。实际IBext_v8、shca_0:1、nNodes2、gdr0，两GPU及两NIC完整PCI链/NUMA/affinity均匹配自有输入；原XML/defaultmapping保持。
+- 当前选定路径：node28 GPU2/BDF55/NUMA2→shca_0(BDF03/NUMA0)↔node30 shca_0(BDF03/NUMA0)→GPU0/BDF09/NUMA0。其他GPU/HCA组合仅物理CPU结构通过；带宽/共享竞争/NUMA实际页驻留未校准，performance_ready=false，不宣称最优布局收益。下一步按这条已通路径测容量/竞争，先核共享负载，勿重搭GPU初始化或插件。
+- 两端fresh init/copy已分别通过：28整进程18.638/19.140s，30 21.994/19.592s。旧15s总预算会截断可完成初始化，保留失败，当前统一入口src/version/task2/three_node_recovery/admission28/runtime_gate_r03.py（完整codex_coding前缀），SHAd1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058；init/copy60s、NCCLinit60/总90s/comm20s，nativeouter75/100。旧35s wrapper为legacy，不包新60s入口。
+- 兼容配置复用：NCCL_NET_PLUGIN=librccl-net-shca.so、HSA_FORCE_FINE_GRAIN_PCIE=1、NCCL_NET=IBext_v8、NCCL_IB_HCA=shca_0、NCCL_SOCKET_IFNAME=ib0、OMP/MKL1。插件两端SHA同历史成功；r01遗漏插件实际Socket，r02/r03实际IB，不能用env声明冒认路径。r01/r02原failed/raw保持；r03严格只对GPU/NET各一个裸空名空值token生成派生视图（原dump不改），修正cudaDev前缀/globalrank/nvmlDev物理编号匹配。
+- 28当前功能容器e693...（见下方完整ID），stage=/tmp/fluidckpt_three_node/isolated_r02_n28/project；30仍7d314...，root盘当前满，实验源码/结果在/dev/shm/fluidckpt_diag30_r01/project，不修改全局配置。原生最终命令admission28_nccl_deploy_r03/node{28,30}.command.sh，旧run勿原名重跑。仅小功能，不据此直接启动完整模型迁移/性能实验。
+- 最新后置28 admission28_guard_after_nccl_r03；30 diagnosis30_guard_reused_after_nccl_r03_quiet（取证tar结束后pids1/noOOM），初次after采到pids2原件保留。旧keeper两容器/13进程/六目录保护保持。27新D4037472/start477235183及29旧21883/start475875814、21901/start475875846退出未证，本轮没访问，不按旧PIDkill。临时hostIPC r03与SYS_NICE r04隔离sleep容器保留，GPU children均已退出。
+- 正常增量记录，无全历史归档/history覆盖；正式报告32含所有失败、修订、命令与证据层级。
+
+【2026-10-09 最新续作：28/30初始化与复制通过，正在收口跨节点XML验证】
+- 编号v0.1.23.3/task2，计划18.17/报告32为当前入口。node28原private配置60s诊断实际18.638s初始化通过（Torch1.823+set_device14.424已超过旧15s总预算），1MiB往返19.140s全SHA通过；node30原private容器源码/日志放私有shm后60s诊断21.994s初始化、19.592s复制通过。原15s失败不改，不能再据此宣称两机fresh GPU不可用。
+- node28现用新容器e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba，StartedAt2026-10-09T06:19:44.292587393Z；node30仍7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695旧身份。28输出rootstage isolated_r02_n28/project，30输出/dev/shm/fluidckpt_diag30_r01/project（根盘本轮又available0，未清理）。两端有共享负载，仅功能，不正式性能。
+- 两机namespace各56PCI路径、probe_xml_2830_gdr0_r01各360项CPU通过；原XML/defaultmapping未动。首次probe_nccl_2830_node28_r01/node30_r01已经全1MiB广播SHA正确，但rawrun rc1，验收器解析vendor dump GPU空名属性 =""失败。实际网络是NET/Socket，不是RDMA。源码97a原件/失败保留。
+- 正修验证层：仅严格删除GPU裸空名空值属性到派生视图保留raw；日志前缀[0]为cudaDev而非globalrank，dump dev是nvmlDev物理序号（28=2而torchlogical0），需真实日志/HIPBDF绑定。原成功平台显式NCCL_NET_PLUGIN=librccl-net-shca.so，本轮r01遗漏；两当前容器plugin已核同旧成功SHA e0c3fd25...。拟r02恢复已有plugin+HSA_FORCE_FINE_GRAIN_PCIE=1、显式IBext_v8拒Socket，仍gdr0。r02此刻尚未启动，读实际结果再更新。
+- 本轮LD-only/hostIPC-only/SYS_NICE-only均未在15s通过，均精确TERM已退出，不能判唯一根因。observer主线程CPU/RSS推进；ownhylog提示mbind/seccomp，但原无SYS_NICE配置随后60s正常完成。各旧keeper13process/6目录1098VALID lease0保护保持；27/29没访问，旧pending账本保留。无全历史归档/history覆盖。
+
+【2026-10-09 最新：node28根盘已恢复空间，keeper大占用为内存】
+- 保持v0.1.23.3/task2，正式计划18.16/报告31；结果three_node_recovery/disk_attribution_phase1_r01至phase4_r01。14:02北京时间同boot，两自有keeper容器fullID/StartedAt连续。根盘/var/lib/docker当前86%、available64,389,390,336B（59.97GiB），本轮没有清理；下方storage_blocked是10月8日旧状态，下一次28可重新准入，不代表GPU已健康。
+- 自有full_distributed02的SizeRw224,260B、keep-v02-n28为171,369,452B，合计163.64MiB。共同image逻辑34,581,470,716B只计一次，SizeRw不含宿主json日志/bindmount也不是物理allocated。宿主日志stat与sudo-n因权限拒绝，旧满盘来源未全归属。
+- full容器cgroup memory.current314,488,619,008B（292.89GiB），owner+6worker的1098 unique memfd294,078,259,200B（273.88GiB），共享引用不能按FD/RSS重复求和；v02的6keeper容器cgroup7,254,642,688B（6.76GiB）。确认进程存活，不冒领全权重完整性/恢复通过。
+- /data/node28/shared/zhujianian实际899,039,789,056B（837.30GiB），主要GLM/Qwen/baseline，位于另一本地/data盘（54%使用，available784.54GiB），不属于Docker根盘。原keeper均未停，未GPU/删除/prune/XML修改，无全历史归档/history覆盖。
+- phase3/4早期CPU元数据用了已冻结内嵌-c，已按规范把后续入口改独立container.py经stdin传递；原件不改、修订未重测。本轮只答磁盘归属，不启动30修复/28GPU；27新D和29旧两pending账本保持。
+
+【2026-10-08 最新：用户切换到27/28/30，资源准入发现三项不同阻断】
+- 编号保持v0.1.23.3/task2，正式计划18.15/报告30；当前指示优先于下方等node29控制台的旧路线。结果three_node_recovery/inventory_qualification_r02/qualification.json及report.md；28/30各8GPU8NUMA4HCA静态新快照完成，不能当fresh GPU运行已通过。
+- 27本轮采集误读KFD vramtbl_*进入D，own child4037472/start477235183仍pending，FD3指向vramtbl_45786。自动KILL未回收，controller4037469/start477235176经精确TERM后absent。源码已排除vramtbl，未重试27。保留原控制/70,329,718,112B DRAM底本角色，新鲜全保护仍须按原协议核。
+- 28两setup失败保留，第二次明确/tmp ENOSPC；08:30UTC实际DockerRootDir=/var/lib/docker所在根盘available0B、inode有余。/dev/shm或/data有空间不能解决Docker元数据盘满，r07备用spec未执行，不清其他用户文件、不绕进旧keeper容器；state=storage_blocked。
+- 30创建zjn-fluid-three-node-isolated_r01-n30（fullID7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695，StartedAt2026-10-08T08:19:06.916290051Z，bootd9d6a6fb-013f-49ac-98f9-e77eca67952e）。唯一fresh init GPU0在Torch导入2.096s后set_device未返回，总15s截止，TERM精确回收child13/start477410700、无pending group，前后身份guard通过。未HIPfree/BDF/copy/XML；state=initialization_timeout。sleep容器保留，原XML和共享配置未改。
+- init源码冻结927f543e...，CPU21/launchCPU9通过；probe_node30_init_r01为真实failed，probe_launch_plan_node30_copy_r01只是离线计划。先核30配置/设备/环境差异，不能把hylog日志直接判根因，不盲延timeout。28需Docker存储可写后再准入；两GPU端init/copy通过才续自有XML通信及速率。
+- 最终独立audit_failed_node30_init_r01证据14项、outerguard19项通过，runtime仍false；七个已生成文件远端SHA和PID13absent复核，child.result未生成。一次CPU metadata确认hylog目录存在0777、root/设备读写access、memlock无限、DTK/HIP/hyhal已在继承库路径；env.sh未source。不能简单归因缺目录或缺库路径，privateIPC/hostIPC与cap等差异尚无单变量因果，详见报告30.7。
+- 当前信号账本3次：27自动KILL尝试、27controller TERM、30exact child TERM；27新D及29旧PID21883/start475875814、21901/start475875846退出仍未证，不旧PID直接kill。本轮未调用29、未产生新性能样本、无全历史归档/history覆盖。
+
+【2026-10-08 最新：两SSH地址均明确准入拒绝，服务器只读入口已备】
+- 保持v0.1.23.3/task2，最新计划18.14/报告29。sshd_investigation_r01两次串行SSH：11.211.3.29和12.11.3.29均约7.5ms返回Exceeded MaxStartups/255，未hostkey/KEX/认证，server只读脚本没执行。原known_hosts保持，旧pending与resume_map_r02不改。
+- access_review_r02：本机own SSH进程/mux候选0，29三IP双向TCP22计数0；非SSH的RCCL/NFS/mesh连接不混计。未找到明确现有控制台路径，不搜凭据/私钥或借入别人终端。这个本地0不能排除其他来源或server残留连接。
+- 官方OpenSSH8.9p1机制参考：同文本可因global/per-source准入，检查在新fork前；实际node29 server版本/配置/阈值/连接数/来源/负载仍没取得，不宣称唯一根因，不改MaxStartups/sshd/网络。
+- 已准备codex_coding/src/v0.1.23.3/task2/resource_map/sshd_investigation/console_readonly.py，由node29已有会话/控制台运行；准确命令见报告29.4。只读白名单配置/sshd进程与限制/22连接/负载/限量日志，旧身份通过才读keeper，绝不signal旧PID。一般host调查允许新boot事实但不继承旧owner；不sshd-T/私钥/secret env/GPU。5合成CPU通过，失败count=null，尚未在node29执行。
+- 当前继续所缺是node29已认证会话或控制台入口，不能靠盲重试被拒新SSH补现场。原两PID21883/start475875814与21901/start475875846仍待证，运行/性能未就绪。无全历史归档/history覆盖。
+
+【2026-10-08 最新：节点对照确认29异常，备用管理地址返回MaxStartups】
+- 保持v0.1.23.3/task2。正式计划18.13/实验报告28节为最新；只读结果resource_map/connectivity_nodes_r01、connectivity_cross_alt_r01、dependency_check_r01，不覆盖resume_map_r02或旧失败。
+- 15:15–15:19：27/28/30数据网SSH实际身份通过；28/30管理网ICMP和SSHbanner通但缺已知hostkey，不能当失联。29主管理10.211.3.29从27/28均ICMP失败/TCP errno113，邻居FAILED；数据12.11.3.29从两来源均ping/TCP握手通但无SSHbanner，两keeper4s零字节超时。异常跨来源复现。
+- 有旧邻居记录的备用管理11.211.3.29 ping通，TCP22精确返回Exceeded MaxStartups，随后SSH仍超时。仅证明一次SSH未认证连接准入拒绝；实际阈值、后台连接来源、服务负载和HTTP因果未获证。尚无node29新加密身份/boot/container/PID证明，不清旧PID、不改sshd、不重启机器。
+- 已确认/home项目、DTK Docker overlay及hyhal均本机ext4；模型NFS为node28/12.11.3.28且config64B约6.7ms读通。HIP静态依赖没有远端文件路径，metadata没加载模型，不能把本机HIP故障与29失联统一归因。一次OCI exec126 broken pipe原失败保留，archive/readelf静态补证不执行库。
+- 下一步优先通过node29已有可用会话或管理控制台核sshd未认证连接积压、主机负载和keeper，恢复后先核旧两exact pending。node27 GPU初始化继续独立调查；28/30连通不等于GPU资源授权。原XML/defaultmapping与网络配置未改，零GPU/HIP/SMI/signals，无全历史归档/history覆盖。
+
+【2026-10-08 最新续作：node27新GPU运行时初始化受阻，node29控制仍不可用】
+- 编号保持v0.1.23.3/task2；先读正式计划18.12/报告27节和当前基础场景过程最后追加。最新派生地图为codex_coding/results/v0.1.23.3/task2/resource_map/resume_map_r02/resource_map.json；build_r04是原物理基底，不覆盖。结构/原measurements/budget/旧availability不变，两node自有XMLruntime接受仍false，性能未就绪。
+- resume_control_r02：node27同host boot+container ID/StartedAt连续，keeper118/136与source engine309原live身份、旧own13525/13543为Z；HTTP两keeper可读。node29 SSH/HTTP仍失败，新采样数据12.11.3.29 ICMP通、管理10.211.3.29 ICMP失败，不再复述旧双IP都通。signals=0，固定old账本与SHA、跨重启身份guard已加；Z/absent只取证不signal。
+- local_xml_node27_r01是本机GPU0/1的1MiB功能尝试，停在before读取、两个通信rank未启动；after snapshot堆栈在discover.py hipInit(0)由30s alarm中断，SMI35s也失败。尚未读取自有XML，不可判其格式错误。原厂XML/defaultmapping与真实权重未修改。
+- local_xml_diagnosis_r01仅metadata各一次：all-visible完成libgalaxyhip加载后hipInit10s报警；only0/1在library_load_enter后0.364s SIGSEGV(-11)，未到显式hipInit。不能混为同阶段或认定visibility唯一因果。两新child13691/13698及辅助进程退出确认/core0，无payload/communicator；停止新增HIP/SMI/GPU，不盲加timeout/强开GDR。
+- node27 sysfs/KFD和keeper RPC快速返回，但sysfs total-used与HIP free不等价（GPU0/1差34,033,664/787,984,384B），不能替换准入。窄目录保护resume_audit_local_catalog_r02共78项确认全70,329,718,112B base identity/meta/index/epoch/state/lease与前后全catalog保持；不是新读全权重SHA或完整postflight。
+- 已修测试准入误拒：正常历史RELEASED条目允许存在，完整base须VALID/lease0、所有条目lease0且全catalog hash前后不变；CPU16项过。旧12源码先冻结local_xml_source_snapshot_r01，新7源码在r02，原失败不改。控制CPU10项、独立控制119/前置29/目录78/诊断33均认证事实边界，不是运行验收通过。
+- node29旧pending不变：容器zjn-fluid-basic-1bce3897a2075b，rank2 PID21883/start475875814，rank3 PID21901/start475875846。恢复控制后先核host/container连续和exactowner；不可根据旧PID直接kill。当前仅node27目录/控制窄保护有新证，全保护仍不完整，protected_state_corrupted=null。
+- 下一步先排查/恢复基础控制与GPU新进程初始化可用性，再续本机/跨节点XML验收和速率校准；不能把已有keeper能响应等同新引擎能启动。无端到端性能样本、无新solver、无全历史归档/history覆盖。
+
+【2026-10-08 最新：资源地图已落地；node29控制异常，两个own探针清理待证】
+- 继续v0.1.23.3/task2，先读正式计划18.11、实验报告26节、当前基础场景过程文档最后追加段。最终地图codex_coding/results/v0.1.23.3/task2/resource_map/build_r04/resource_map.json及report.md，16GPU/16NUMA/8HCA/8port/88唯一PCI桥；图为audit_visual_r02/physical_map.svg。
+- 产品topology/resource_map.py和rccl_xml.py已交付，结构查询/共享祖先/证据筛选/严格准入可用。预算、free、owner、时效、配置fingerprint、历史测量分开；多路径共享容量契约未建则拒绝，不新增solver。structure_ready=true，runtime_ready/performance_ready=false。
+- 自有输入resource_map/xml_owned_r01/node27.physical.gdr0.xml及node29对应文件，CPU结构各360项通过；原厂及defaultmapping未动。新XML实机接受未建立，不能套用旧empty_seed成功。source/receiver actual图本次没有取得，gdr0仅保守policy。
+- xml_startup_owned_r01前置snapshot超时（未建4rank），只读诊断r02同路径1.57s未复现；原协议xml_startup_owned_r02源Gloo91s只2/4clients加入，随后node29 SSH/HTTP超时而ICMP可达。禁止归因为XML格式错误；停止新GPU/性能/GDR测试。
+- 重要待接续：node27 own13525/13543已Z；node29容器zjn-fluid-basic-1bce3897a2075b内rank2 PID21883/start475875814、rank3 PID21901/start475875846退出未知。xml_recovery_r01/r02两次有界exactcleanup均未连通SSH，远端stop未执行。先读xml_recovery_r02/summary.json和r01/pending_cleanup_ledger.json；恢复连接后仅按精确owner核对，不通用kill、不碰其他用户/keeper。
+- 最后完整keeper/底本检查为basic_scenarios/resource_map_preflight_r02通过；当前后置保护缺证，protected_state_corrupted=null，不能断言底本丢失或全部保留服务正常。owned session仍recovery_r03路径，仅作恢复身份记录，不能据旧快照自动启动新实验。
+- 新鲜12:00采样仍他人glm-5.2-int全卡约54.5GiB，图availability.live_status_claim=false并记录node29control/cleanup阻断。独立结构547/状态21、builderCPU30/独立planner18/XML9通过，只认证地图准确性，不认证失败startup或性能。源码/最终图冻结，后续补运行状态用新delta；无全历史归档/history-chat覆盖。
+
+【2026-10-08 最新：物理拓扑与RCCL图已对齐，性能对照因并行占卡未完成】
+- 保持v0.1.23.3/task2。先读正式计划18.10、实验报告25节和当前基础场景过程文档最后追加段；结果根为codex_coding/results/v0.1.23.3/task2/topology_alignment。
+- provenance_r01/report.md：两机GPU1真实BDF36/NUMA3/CPU48–63，宿主与容器一致；builtin将其置NUMA1，并将shca1错误接到PCI31。镜像ENV已有NCCL_TOPO_FILE，当前keeper延续；库/plugin/两XML实验前后SHA相同。
+- unset不等于自动发现：probe_startup_unset_r02实际命中vendor mapping，GPU1仍NUMA1、net speed200000、gdr0。probe_startup_empty_r01显式空system version2跳mapping，四rank所选GPU/shca0图与sysfs对齐，speed400000、gdr0。两startup完整内容/图/保护/回收通过，实际都non-GDR。原XML正式实际A-GDR/B-off。
+- 当前性能不得用于配置胜负/profile：原XML119.889/1540.719/pair1512.657ms，unset495.711/1158.002/pair1170.610ms。unset四卡free下降176MiB超128MiB门槛，原failed保留；own PID均退出、旧14/新4保护通过。两机另有8个活跃vLLM worker、每卡约50GiB；已停止empty正式组/重复，不kill其他容器。下一次先核活跃GPU owner及共享负载，不只核free headroom。
+- 仅进程级探针，生产XML/keeper/底本/parked与provisional profile未改。当前session仍baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json；禁止恢复时自动重跑旧run或清理其他团队服务。三个层次要分开：物理设备图、有效runtime图、负载下实测速率。未证明端到端加速；无全历史归档/history-chat覆盖。
+
+【2026-10-07 最新：真实keeper桥接与冻结布局完整功能通过】
+- 编号仍v0.1.23.3/task2。正式计划18.9/实验记录24节、当前基础场景过程文档最后追加段为最新进度。
+- keeper_bridge/bridge_real_r01：实际DRAM→staging→网络→HBM小块，1GiB单A/B/pair各一次，receiver RPC窗口45.165/59.922/69.974ms；SHA/lease/临时退役/旧14与新4保护、四卡free差0。窗口含派发/返回，不是worker绝对monotonic、T_ready或纯传输；物理S5-P仍未认证。
+- 新薄runner keeper_bridge/layout/run_frozen_layout.py可读取原scenarios_freeze_probe_r08、layout/caps/互斥target/commoninterleave，runtime逐副本建SHA后绑定真实ID/epoch。唯一完整功能验收layout_smoke_t2_r01 passed：T2 split_rank_prefix/target_b/fastest，T_ready2.827939181s、全70,329,718,112B SHA/32token/顺序/清理通过。
+- 该smoke物理缓存6+2=8GiB、唯一6GiB/重复2GiB，实际命中6GiB，cache建立18.203s单列，不冒领8GiB命中。CPU三场景同candidate/复制机会的强simple和joint均同布局/操作（分别选8/4/0GiB），provisional模型下同解不构成性能增量；无重复GPU策略对照。
+- 最终独立keeper_bridge/audit_final_r01/report.md与next_step.md共366项通过；bridgeCPU6、layoutCPU9、独立CPU5。profile/prediction仍provisional，其他T1/T3和其他target未自动升级实机passed，不新建solver或共享成本项。
+- 原worker/solver/NIC/XML/冻结输入未改，keeper/底本/两parked引擎保留；current session仍baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json，target_b成功释放command已指向本次smoke以供preflight。无待清理事务/owner/RPC，无全历史归档或history-chat覆盖。
+
+【2026-10-07 最新：双流退化已完成有界因果诊断】
+- 用户追问第22节原因，本轮G0原同NIC复现、G1拆NIC、G2拆NIC但B禁GDR各3小配置。G0预期172.743ms→pair237.870ms；G1两流GDR、pair98.194ms约等于独立；G2仍A-on/B-off，B单204.996ms/pair205.220ms也近独立。拆所选HCA/PCIe/NUMA路径解除互扰，不要求B启GDR；GDR另影响B自身速度。未定位唯一NIC/PCIe/CPU硬件主因。
+- 原A GPU0实际GDR，B GPU1实际non-GDR；此前“直接GPU通信”仅为tensor接口，不能泛称两流都GDR。部署builtin XML的GPU1 NUMA/affinity与shca1 PCI父链和真实sysfs不一致，已只读取证，未改生产XML，也未证明XML差异独立性能因果。
+- 最终证据：topology_scenarios/calibration_contention_repro_r01；diagnosis_recollect_split_r01；diagnosis_recollect_split_boff_r01；diagnosis_audit_final_r02/report.md（263项通过）。G1/G2原failed来自collect时receiver日志未可见，后置原始日志/远端本地SHA和精确PID补证通过，无GPU重跑，raw failed不覆盖。
+- 36.46GB/s是混合模式双流工作点，不是全局固定容量：A单流本来43.61GB/s。G1/G2每节点动用两NIC而G0一NIC，通信资源机会不同，不算同预算算法增量。后续给全部baseline同样合法NIC/模式机会，先完成原计划生产路径桥接再谈e4/e5收益。
+- 编号仍v0.1.23.3/task2；运行现场仍recovery_r03 ownedoverlay，全部探针清理、模型与新4/旧14keeper保护通过。正式计划18.8、实验记录23节与基础场景过程文档最后追加段为最新解释入口；不覆盖history-chat、不全历史归档。
+
+【2026-10-07 最新：拓扑校准/场景冻结阶段1/2已完成，优先于下方】
+- 继续v0.1.23.3/task2；正式计划18.7、实验记录第22节及当前基础场景过程文档追加段为本轮入口。
+- topology_scenarios/calibration_probe_r01九个小配置各一次通过：网络独立预期168.256ms→并发235.604ms（ratio0.714147、共同36.4592GB/s），两机本地H2D ratio0.991993/0.978973无同等级退化。只证明隔离RCCL共享路径压力，未定位唯一NIC根因、未证明生产keeper_serial S5-P或整模型收益。
+- 最终场景必须使用codex_coding/results/v0.1.23.3/task2/topology_scenarios/scenarios_freeze_probe_r08/manifest.json；最终独立审查audit_final_r02/report.md和construction_decision.md，390项通过。中间freeze/probe派生仅溯源。
+- T1本地4+4GiB；T2外部6+2GiB预算、互斥A/B各0.5且包含复制布局；T3共享分片4+4GiB。contract/CPU plan/snapshot余量通过，restore_runner_ready/prediction_ready=false，T3应用共享归因conditional。旧provisional profile没有被微probe速率覆盖。
+- 六对固定布局与目标的fastest/LP同操作，不重跑完整模型。下一步最小建设是生产worker路径小桥接、现有run_layout读外部布局/caps/互斥目标与共用交错顺序、同复制机会强简单placement对照，不新增求解器或全面执行器。
+- 四探针已清理，四卡free差0，旧14可访问keeper与原8不可达、完整底本和两parked引擎均保持。当前有效现场仍为baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json，后续先preflight。未覆盖history-chat或做全历史归档。
+
+【2026-10-07 最新：真实baseline加载路径已完成，优先于下方现场快照】
+- 编号继续v0.1.23.3/task2。海光vendor SGLang native、BlitzScale单目标TP分发适配、ServerlessLLM真实Store HIP三条完整Qwen TP2路径均通过SHA/输出/清理，T_ready分别122.266963s、2.804379s、131.121135s。输入层级/格式/cache不同，不作算法速度比。
+- 正式报告第21节记录全部失败与控制修复：Store引擎内部120s超时、恢复脚本事务检查顺序、后置Torch IPC导入前未初始化；24KiB对照复现139并由显式set_device修复，最终完整两rank SHA与物理回收通过。
+- 最新保留现场必须用codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json。旧qwen_bootstrap node29目标已替换，recovery_r02目标也已停止；禁止复用其旧PID/overlay。源node27保持，4keeper/完整DRAM/两个parked引擎保留，后续先preflight。
+- 成功原始run为baseline_loading/native_observed_r01、blitz_s3_r02、serverless_qwen_full_r03。Store预处理快照保留于NFS专用serverless_data_r01/generation_r02；格式建立/66GiB pool与目标HBM分开计账。
+- 唯一最终汇总表为codex_coding/results/v0.1.23.3/task2/baseline_loading/summary_r02/revised_export_r01/report.md，含新3成功、1未验收观察及失败/旧矩阵引用；不要使用初版派生。Store独立验收以serverless_full_review_r03/final_review为准，41项通过。
+- 三路径均只有一次最终成功观察；失败、微probe、现场恢复不增加性能样本。原版完整系统、Janus/xTensor完整海光移植、多目标Blitz流水及物理S5-P仍未验收。回到同预算和共享资源下的论文差异检验，不自动扩大优化器或全面移植。
+- 本轮未覆盖history-chat.txt，未做全历史归档。正常增量记录见正式报告、当前基础场景过程文档与code_building/progress_diff_summary.md。
+
+【2026-10-06 最新协作约定，优先于下方历史快照】
+- 最新完整表：codex_coding/results/v0.1.23.3/task2/basic_scenarios/complete_table_r01/review_r02/report.md（不要使用首版/review_r01）。新平台累计13观察通过；本次S1两循环、S4三方法、S5软件正反两轮。S5交错两轮较原序降低约40.69%/21.93%，仅软件执行控制，不是物理拓扑/MILP或placement增益；原版系统仍未完整适配，物理S5-P未测。详细来源/命令/边界见实验报告第20节。
+- 最新现场：基础场景第一轮已完成S2/S3共同执行器机制对照，4次恢复全量校验/生成/清理通过，未证明算法增量。新会话codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/session.json保留4keeper、完整Qwen DRAM和2个parked引擎；下次必须preflight。旧node27容器OOM退出，旧22mesh只有14端点可访问，不再假定旧Qwen底本存活。详见实验总报告第19节和basic_scenarios/analysis_r01/report.md。
+- 当前开发编号为v0.1.23.3/task2，未经用户明确指示不变更；下文v0.1.23.2是历史记录。
+- 具体代码建设、baseline适配和测试脚本交给子agent；主agent负责规划、接口、协调、审代码和验收，不承担大规模实现，以保留主agent上下文。
+- 子agent使用用户已确认的gpt-6.1-sol/high，显式模型覆盖配合fork_turns=none或有限历史。具体任务必须说明可写范围和验收条件；不凭子agent报告直接认定通过。
+- 外部baseline源码统一放lib_cite，来源/commit/用途/获取状态记录在lib_cite/README.md与baselines.lock.json。当前集合为SGLang、Janus、BlitzScale、ServerlessLLM；取得源码不代表已安装或复现。
+- 长期协作准则见仓库根AGENTS.md。当前基建环节为“基础场景构建”，后续按既有e1–e8协议记录；本次源码整理不自动启动实验。
+
+【2026-10-03 最新：生命周期第一轮已完成，优先于下方旧范围】
+- 用户现要求真实A→B→远端A→本地A、端到端首正确token，以及低HBM保活；同意海光HIP IPC适配baseline。
+- final03固定配置完整通过：切换A→B4.77→1.27s，B→A16.56→7.24s，远端A14.62→4.70s；全量校验与输出一致。
+- 四节点已参与：27/28/29为DCU服务/DRAM，30为CPU和本地SSD；不把node30可用误认为其GPU空闲。
+- 保持v0.1.23.2；所有本轮自建任务已清理，无需续跑历史PID。
+- 必读：docx/articles/2026-10-03_lifecycle_results.md及history-chat.txt顶部。下一阶段优先同预算策略消融、SSD供给开销、迁移中途召回。
+
+【当前现场与用户指示，更新于2026-09-29】
+- 当前开发编号固定为v0.1.23.2，任务task2“保活闭环”。用户明确要求在其再次指示前不要改变编号，覆盖建设原则15的通用递增规则；压缩恢复和日期变化均不自动加号。
+- 主指标是同目标主机max(weights_ready)-min(load_begin)。不是进程启动、HTTP就绪、首token或持续推理吞吐。
+- 当前验证模型为Qwen3.6-35B-A3B、TP=2；三节点系统八阶段已完成，并完成profiling与联合placement实测。GLM平台问题不是当前建设阻塞。
+- 基建阶段通常每方案一次，必要时两次；历史配置中的五轮重复不代表当前授权。
+- 用户此前暂缓归档；本次明确要求完整归档和覆盖恢复说明，已于2026-09-29执行。最近提出的联合控制层七步计划仍待实施，不能将本次归档误当新GPU实验授权。
+- 第一恢复入口：history-chat.txt。
+- 最新完整过程：code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md。
+- 最新待实施计划：docx/plans/2026-09-29_task2_joint_planning_control_plan.md。
+- 不动其他服务，只清理自己记录的实验进程/容器；当前开发环境已通，不要重搭，不要reset已有修改。
+
+【重要文件路径】
+项目根目录: $my_proj_dir = /home/zhujianian/zhujianian/fluidckpt_zjn
+
+
+codex测试代码目录：my_proj_dir/codex_coding/src
+codex测试结果目录：my_proj_dir/codex_coding/results
+核心开发库目录：my_proj_dir/main_lib          （被 import 的产品代码，如 fluidckpt 本体）
+重要文档目录：my_proj_dir/docx
+过程文档目录：my_proj_dir/code_building
+docx归档思路：my_proj_dir/docx/00_docx_storage_and_lookup_guide.md，请你归档到docx的时候阅读，看看文件应该属于什么类型，应该归档到哪个文件夹下
+当前模型路径：/data/node28/shared/zhujianian/Qwen3.6-35B-A3B （TP2处理后快照65.49965 GiB）
+历史/后续适配模型：/data/node28/shared/zhujianian/GLM-5.3 （703.7 GiB，141 shard）
+详细debug哲学：my_proj_dir/docx/debug_philosophy.md
+
+
+【整体任务信息】
+代号 FLUIDCKPT。目标：把大模型权重做成在 SSD/DRAM/HBM 三层之间随时"保活"和"流动"的对象，
+使模型能在多节点上被快速拉起（restore），并**全面胜过 SGLang 自身的保活机制**。
+
+- 硬件：node27 / node28 / node29 三节点可用（node30 排除，GPU 被占）。每节点 8 卡，gfx936。
+- 历史目标模型：GLM-5.3（GlmMoeDsaForCausalLM，78 层 + MTP，256 专家 top-8，hidden 6144，
+  fp8 e4m3 block [128,128]，tp_size=16，NSA attention，703.7 GiB）。
+- 核心机制：Keeper mesh（每卡一个 worker，把后处理后的 TP shard 保住不放）+ max-flow 跨节点流动规划。
+- 历史模型适配阻塞：GLM-5.3 在本硬件（gfx936）上无法启动，崩溃点在 SGLang 自家 NSA path，
+  与 FluidCKPT 无关（已用纯 SGLang 复现证伪）。详见 docx/articles/2026-09-27_glm53_startup_vmfault_forensics.md。
+- 安全约束：用户为本机数据仓库管理员，**安全问题先不管**。
+
+
+【本轮关键命令】
+最近已完成实验入口（不在恢复/归档时自动重跑；run目录不可复用）：
+python3 codex_coding/src/task2/cluster/run_placement_comparison.py --run cluster/placement01
+python3 codex_coding/src/task2/cluster/analyze_placement_comparison.py --run-dir codex_coding/results/task2/cluster/placement01
+完整命令、数据和失败记录见v0.1.23.2过程文档。
+
+
+【建设原则】
+1. 如果代码里有注释，请用英文写；写进展文件的时候，用中文写。
+2. 请你随时做好code_building代码建设中间文档文件夹和docx重要文档文件夹层面的归档工作，所形成的文件放在docx文件夹和code_building中，使得我们整个建设流程有迹可循。
+3. 测试脚本统一放在codex_coding/src代码目录下，可以根据自己的里程碑任务再建立子目录，结果存在codex_coding/results结果目录下，保持库项目地址的干净。
+4. 确保每一次的建设结果和测试结果都要有形成过程文档，保存在过程文档目录下，方便溯源整个开发过程，子文件夹的命名规则是：vx.y-任务名称，内部是vx.y.z-本次归档主题。
+5. 在完成一个进展之后，要把进展增添式地重新同步到进度差异总结code_building/progress_diff_summary.md里，方便下次同步当前进度，并查看整体进度。
+6. 当你形成一个关键归档文件的时候，请你把这个文件的位置和基本内容总结增添式地保存到重要文件索引目录my_proj_dir/code_building/key_files_index.md下，方便必要的时候查找。
+7. 当你形成一个关键结论（比如公式推导结果）的时候，请你把这个结论同步到关键结论文件my_proj_dir/code_building/key_conclusion.md下，以保证该文件中的结论都是最新的，以免我们被历史文件中的推导误导。
+8. 一旦有什么疑惑就去搜索相应的代码，当我们感到盲目的时候就去收集信息。
+9. 在你添加进展的时候，把【本轮命令】也加进去，让我们知道这次信息的指令是什么。
+10. 并不是每一次都需要在code_building/process_docs新建一个文件，大多时候只需要写在上一个进度文件中即可，只有任务主题进入下一阶段了，我们才需要新建一个新的文件。
+11. 具体代码建设委派子agent，主agent审查验收；按用户最新约定使用gpt-6.1-sol/high，替代历史sonnet约定。详见根目录AGENTS.md。
+12. **禁止使用 inline script（`python3 -c "..."`）跑实验。** 所有实验必须写成独立的 `.py` 脚本，保存在 `codex_coding/src` 对应子目录下。原因：inline script 跑完即丢失，无法复现、无法归档、无法在过程文档中引用。过程文档中的命令必须是 `python codex_coding/xxx.py`，不允许出现 inline code block。
+13. **控制变量 debug 原则**：遇到 bug 不要猜机制，要找变量。列出所有能跑和不能跑的 case，找到 PASS→FAIL 之间变化的那一个因素，然后设计实验只改变那一个因素。优先排除而非猜测。直接 printf 输出具体数据（地址、值、索引）是最好的工具 — 不要靠脑补推理，让数据说话。
+14. **画图文件组织**：模版在 `codex_coding/cite_plt_coding/plt/`（只读参考，禁止覆写）。画图源代码放 `codex_coding/src/plt/`，输出放 `codex_coding/results/plt/`。需要嵌入论文的图拷贝到对应论文项目的 `figures/` 目录。画图脚本的数据输入部分必须有清晰注释（数据来源、含义、单位），确保之后回来能直接看懂。
+15. **开发编号规则**：通常每个新开发轮次（含上下文恢复）将`vX.Y.Z.N`最后一位加1；但用户显式指定编号时以用户指示为准。**当前有效例外：保持v0.1.23.2/task2，在用户再次明确指示前不得改变。**
+16. **核心库与脚本分层原则**：会被 `import` 的产品代码（推理引擎、核心部件、库本体）放 `main_lib/`；`codex_coding/src` 只放"为了验证/测量/诊断而跑"的脚本。判据一句话：**会被 import 的进 main_lib，跑一次看结果的进 codex_coding/src。**
+17. **core dump 防护**：本机 `kernel.core_pattern=core`、`core_uses_pid=1`，且内核对每个崩溃进程 dump 整个显存
+    （单节点 8 卡 = 8 个 18–22 GB 文件）。**跑任何会让 GPU 进程崩溃的实验前，必须在 launcher 里加
+    `ulimit -c 0`**，否则一次崩溃即可写满 `/home`（2026-09-27 已发生，203 GB）。
+
+
+【上下文压缩前归档必做清单】
+每次上下文即将压缩时，必须完成以下归档，确保失忆后看完就能跟上当前状态：
+
+| # | 归档项 | 文件路径 | 说明 |
+|---|--------|---------|------|
+| 1 | 过程文档 | `code_building/process_docs/v0.1-init-project/v0.1.23.XX-主题.md` | 本轮所有实验数据、分析和结论 |
+| 2 | 进度差异总结 | `code_building/progress_diff_summary.md` | 增量追加本轮进展+关键命令 |
+| 3 | 关键文件索引 | `code_building/key_files_index.md` | 新产出的文件路径+作用 |
+| 4 | 关键结论 | `code_building/key_conclusion.md` | 本轮形成的关键结论（最新优先） |
+| 5 | 恢复记忆文件 | `history-chat.txt` | 覆盖为本轮恢复说明模版 |
+| 6 | 记忆归档 | `code_building/history_chat/v0.1-init-project/v0.1.23.XX-主题.txt` | 将 history-chat.txt 拷贝存档，防止被下次覆盖丢失 |
+
+过程文档详细程度要求（参考 v0.1.15.16）：
+- 每个实验必须包含：**设计动机、实现方式、命令、数据表格、结论**
+- 不能只写总结性结论，必须有支撑数据
+- 实验编号连续，失败的实验也要记录（含失败原因和排除的方向）
+
+恢复记忆文件（history-chat.txt）要求：
+- 包含所有关键状态变量的当前值（最优配置、path counts、ms/fwd 等）
+- 列出失忆后必读文档的完整路径和阅读顺序
+- 包含"最重要的恢复记忆句"（一段话概括本轮核心结论和下一步方向）
+- 包含代码改动清单（哪些文件改了什么）
+- 包含已排除方向的完整列表（避免重复尝试）

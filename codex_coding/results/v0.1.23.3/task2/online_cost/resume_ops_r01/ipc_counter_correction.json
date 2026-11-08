@@ -1,0 +1,50 @@
+{
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/probe_ipc_counter.py",
+      "sha256": "f9b33b25e13a3a24c0187c0c18a0d815b0a430351d8f5939e32a2f590c9cc336"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/check_ipc_probe_cpu.py",
+      "sha256": "feb44c4d4bdcd2c76c7a03ccb6f4ee9adfd876a4f125207b290bc60261a66830"
+    }
+  ],
+  "CPU_qualification_ref": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_host_ipc_cpu_resume_r01/qualification.json",
+  "actual_observations": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02/result.json",
+      "sha256": "b48174925c46cf0b33e8e507384188cf485883bed9096cb06ed4202d705559a5",
+      "torch_version": "2.10.0",
+      "imports": 1,
+      "allocated_retained_bytes": 0,
+      "cleanup_passed": true,
+      "legacy_refcounter_read_interpretation": "allocator_header_not_validated_IPCslot",
+      "numeric_IPC_counter_known": false,
+      "raw_unchanged": true
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02/result.json",
+      "sha256": "4101254f69fea7802c14cbd5b726bed66d0c7c536b8375162711578afecd0ba9",
+      "torch_version": "2.10.0",
+      "imports": 2,
+      "allocated_retained_bytes": 33554432,
+      "cleanup_passed": true,
+      "legacy_refcounter_read_interpretation": "allocator_header_not_validated_IPCslot",
+      "numeric_IPC_counter_known": false,
+      "raw_unchanged": true
+    }
+  ],
+  "new_counter_default": {
+    "known": false,
+    "measurement_performed": false,
+    "no_shm_open_or_pread": true
+  },
+  "upstream_checked_source": "https://raw.githubusercontent.com/pytorch/pytorch/v2.10.0/aten/src/ATen/MapAllocator.cpp",
+  "upstream_observation": "map_alloc_alignment=64; RefcountedMapAllocator::data returns base_ptr+64; exported index is not raw file byte origin",
+  "historical_source_audit_version": "2.8",
+  "actual_version": "2.10.0",
+  "additional_GPU_experiments": 0,
+  "r03_frozen_snapshot_preserved": true,
+  "r03_probe_snapshot": "legacy b2b7429ebf821cc8fc45bb510832ff1a150e294fbe825d3058ff5d31741e0738; not executed by fullmodel workflow",
+  "qualification_scope": "Controlled allocation-retention differential observed; numeric IPC slot values and fullmodel unique cause unknown"
+}

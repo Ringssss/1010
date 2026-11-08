@@ -1,0 +1,1 @@
+暂定新增物理实验配额每node HBM≤2GiB、DRAM≤2GiB，容器8GiB总量并单列Torch/驱动与临时峰值；代表数据量64MiB和512MiB，实际峰值审查后可缩小。优先本地DRAM→目标GPU、跨节点DRAM→目标GPU，通过真实执行primitive测同controller时间窗口，保活分配/触页/注册和GPU初始化另记。指定NUMA须实际mbind与页归属验证，不以默认分配碰巧位置替代；private普通容器seccomp曾有mbind错误，复用或新建SYS_NICE测量环境，原保活容器不借用。新容器/远端写入由父协调，30私有1GiBshm仅放小代码日志，payload走明确预算的内存分配。

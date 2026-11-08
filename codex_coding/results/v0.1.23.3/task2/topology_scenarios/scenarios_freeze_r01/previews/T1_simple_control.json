@@ -1,0 +1,317 @@
+{
+  "schema_version": "topology_preview.v1",
+  "rows": [
+    {
+      "layout": "rank_local_4plus4",
+      "scenario": "target_a",
+      "method": "janus_host",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "source_offset": 0,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "source_offset": 0,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 1.0047102587428571,
+        "planning_s": 7.61980190873146e-05,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 1.0047102587428571,
+          "1": 1.0047102587428571
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "f68e84feb46ed1857cf81b9bad2dd8f378e11d23d02aab08f209da5bee0532fd",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank_local_4plus4",
+      "scenario": "target_a",
+      "method": "fastest",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T1_simple_control/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T1_simple_control/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "1:hbm:3->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T1_simple_control/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T1_simple_control/1/1/2",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "1:hbm:3->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 30869891760,
+            "source_offset": 4294967296,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 4294967296,
+            "n": 30869891760,
+            "source_offset": 4294967296,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 0.9356839986285715,
+        "planning_s": 0.0001324908807873726,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 0.9356839986285715,
+          "1": 0.9356839986285715
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "0f10b11e7d0a9e9db5cf9d8703e175a433ba9834ea62b09e7bdc6aa80864a3cc",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank_local_4plus4",
+      "scenario": "target_a",
+      "method": "resource_lp",
+      "status": "pending",
+      "reasons": [
+        "planner_dependency_unavailable: No module named 'numpy'"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank_local_4plus4",
+      "scenario": "target_a",
+      "method": "sglang_ipc_hip",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_hbm_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "hip_adaptation",
+      "measurement_status": "not_measured"
+    }
+  ],
+  "decision_aliases": [],
+  "joint": {
+    "status": "blocked",
+    "error": "No module named 'numpy'"
+  },
+  "cpu_preview_wall_s": 0.003005305305123329,
+  "new_GPU_samples": 0,
+  "scope": "CPU adapters only; hypothetical candidates are not live source evidence",
+  "profile_source": "functional_provisional_assumption",
+  "estimated_values_are_performance_evidence": false
+}

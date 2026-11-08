@@ -1,0 +1,51 @@
+{
+  "status": "static_IPC_reimport_hazard_confirmed_runtime_counter_pending",
+  "GPU_actions_by_reviewer": 0,
+  "SSH_commands_by_reviewer": 0,
+  "library_source_version": "local SDK2.8.0+rocm6.3; exact deployed binary counter to be proved by main-owned small probe",
+  "references": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/capture.py",
+      "sha256": "8d16fb1f08664df7142d72370a227929a26d2d797ae8de51627c60b201ca9dcc"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/worker.py",
+      "sha256": "b55a47191c54317c52d887aefe51c7941048dc1d5040033f88af9ed34cb29494"
+    },
+    {
+      "path": "/home/zhujianian/miniconda3/envs/sglang/lib/python3.10/site-packages/torch/multiprocessing/reductions.py",
+      "sha256": "8d2ff4ea1fccf967b8dba8e51b3883f11ef41974d8b994b894e72cf807abc1f1"
+    },
+    {
+      "path": "/home/zhujianian/miniconda3/envs/sglang/lib/python3.10/site-packages/torch/include/torch/csrc/CudaIPCTypes.h",
+      "sha256": "aac6890be8b59f522a18f6227f6eb23c66ebfdb72b597bc71b6326398ab61a0b"
+    },
+    {
+      "path": "/home/zhujianian/miniconda3/envs/sglang/lib/python3.10/site-packages/torch/version.py",
+      "sha256": "bab32c3178b11a53b0f0b357b7736af1c015c2be40ee74c010925dcde6f99ae7"
+    }
+  ],
+  "primary_upstream_sources": [
+    "https://raw.githubusercontent.com/pytorch/pytorch/v2.8.0/torch/csrc/StorageSharing.cpp",
+    "https://raw.githubusercontent.com/pytorch/pytorch/v2.8.0/torch/csrc/CudaIPCTypes.cpp"
+  ],
+  "source_anchors": {
+    "CudaIPCTypes.cpp": "GetNewRefCountedSentData line226 set_counter1; nonzero counter retained in sent limbo",
+    "StorageSharing.cpp": "shareCuda301-310 wrapsfreshsentcounter;newSharedCuda469-510 distinctdeleter decrements suppliedcounter; getIpcDevPtr mappingcache alone doesnot shareStorageImpldeleter",
+    "local_reductions.py": "rebuild_cuda_tensor181-204: cachedStorage reuse still releasesNEW producer refcounter"
+  },
+  "same_export_tuple_imports": 2,
+  "producer_refcounter_initial": 1,
+  "expected_decrements": 2,
+  "producer_unsigned_counter_after_underflow": "18446744073709551615",
+  "observed_target_release_end": {
+    "allocated_bytes": 36496468992,
+    "previous_allocated_bytes": 36496468480,
+    "free_bytes": 29574037504,
+    "total_bytes_prior_actualHIP": 68702699520,
+    "implied_target_upper_bytes_at_park": 39128662016
+  },
+  "final_resource_failure_card_identified": false,
+  "minimal_repair": "Verify nativecapture created CPU regions against its still-live same HbmTarget; one mapping/import per export tuple; then drop once and publish capturemarker. Do not reopen identical tuple or manually change refcounter.",
+  "full_model_online_observations": 0
+}

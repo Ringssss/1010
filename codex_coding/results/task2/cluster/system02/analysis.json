@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "development": "v0.1.23.2",
+  "error": null,
+  "stages": [
+    {
+      "id": "1_resource_directory",
+      "name": "统一资源目录",
+      "passed": true
+    },
+    {
+      "id": "2_automatic_placement",
+      "name": "自动保活放置",
+      "passed": true
+    },
+    {
+      "id": "3_lifecycle",
+      "name": "保活生命周期",
+      "passed": true
+    },
+    {
+      "id": "4_gpu_source",
+      "name": "显存来源接入",
+      "passed": true
+    },
+    {
+      "id": "5_two_node_model",
+      "name": "双机恢复闭环",
+      "passed": true
+    },
+    {
+      "id": "6_multisource_fixture",
+      "name": "多源协同恢复",
+      "passed": true
+    },
+    {
+      "id": "7_joint_placement",
+      "name": "存放恢复联合规划",
+      "passed": true
+    },
+    {
+      "id": "8_three_node_model",
+      "name": "三机系统验收",
+      "passed": true
+    }
+  ],
+  "restores": [
+    {
+      "phase": "two_node_restore",
+      "target_node": "node27",
+      "strategy": "nearest",
+      "passed": true,
+      "load_begin_to_all_weights_ready_s": 2.300545085,
+      "planning_s": 0.00014191912487149239,
+      "prepare_s": 0.20542945386841893,
+      "execute_wall_s": 1.396761214826256,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "source_bytes_by_node": {
+        "node28": 70329718112
+      },
+      "verified_bytes": 70329718112,
+      "generated_replies": 3
+    },
+    {
+      "phase": "three_node_restore",
+      "target_node": "node29",
+      "strategy": "balanced",
+      "passed": true,
+      "load_begin_to_all_weights_ready_s": 2.730520786,
+      "planning_s": 0.0003860169090330601,
+      "prepare_s": 0.21169065684080124,
+      "execute_wall_s": 1.3857990098185837,
+      "source_bytes": {
+        "model/gpu/0": 1967128576,
+        "model/gpu/1": 1967128576,
+        "model/remote/0": 32837020336,
+        "model/remote/1": 32837020336,
+        "model/joint/0": 360710144,
+        "model/joint/1": 360710144
+      },
+      "source_bytes_by_node": {
+        "node28": 65674040672,
+        "node29": 721420288,
+        "node27": 3934257152
+      },
+      "verified_bytes": 70329718112,
+      "generated_replies": 3
+    }
+  ],
+  "cleanup_errors": [],
+  "summary_sha256": "83b9740a344f143afd42be9f24706a4b34d43fef8fdd9fbb4f39beeb9ffbf346",
+  "analyzer_sha256": "b553da46c1450d9143a054e799652feb84c732769133be111b07aebc1b33e5fb",
+  "recorded_code_files": 41,
+  "source_hash_mismatches": [],
+  "limitations": [
+    "one observation per model scenario; no statistical speedup claim",
+    "fixed TP2 tensor layout; no reshaping across TP sizes",
+    "bandwidth profile is provisional; objective values are planning estimates",
+    "collective communication failure may require restarting the isolated worker session",
+    "no native SGLang keepalive or SSD comparison in this run"
+  ],
+  "retained_logical_budget_GiB": {
+    "dram": 67.4996566772461,
+    "hbm": 8.0
+  },
+  "model_joint_decisions": {
+    "policy": "joint_greedy",
+    "decisions": [
+      {
+        "replica": {
+          "id": "model/joint/0",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 1073741824,
+          "worker": 6,
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "tier": "dram",
+          "state": "VALID",
+          "generation": 1,
+          "leases": 0
+        },
+        "marginal_predicted_gain_s": 0.03579139413333321
+      },
+      {
+        "replica": {
+          "id": "model/joint/1",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 1073741824,
+          "worker": 7,
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "tier": "dram",
+          "state": "VALID",
+          "generation": 1,
+          "leases": 0
+        },
+        "marginal_predicted_gain_s": 0.03579139413333321
+      }
+    ],
+    "extra_bytes": 2147483648,
+    "budget_bytes": 2147483648,
+    "estimated_before_s": 2.3443239370666666,
+    "estimated_after_s": 2.2727411488,
+    "unplaced": [],
+    "scope": "fixed candidate regions; heuristic placement under provisional bandwidth estimates"
+  },
+  "passed": true
+}

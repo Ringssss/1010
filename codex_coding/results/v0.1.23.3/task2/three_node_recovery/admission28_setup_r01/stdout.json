@@ -1,0 +1,180 @@
+{
+  "run": {
+    "argv": [
+      "docker",
+      "run",
+      "-d",
+      "--pull=never",
+      "--no-healthcheck",
+      "--entrypoint",
+      "/bin/sleep",
+      "--name",
+      "zjn-fluid-three-node-isolated_r02-n28",
+      "--hostname",
+      "m03r2n08",
+      "--label",
+      "fluidckpt.task=v0.1.23.3/task2/three_node_recovery",
+      "--memory",
+      "8g",
+      "--pids-limit",
+      "512",
+      "--network",
+      "host",
+      "--ipc",
+      "private",
+      "--shm-size",
+      "1g",
+      "--cap-add",
+      "IPC_LOCK",
+      "--ulimit",
+      "memlock=-1:-1",
+      "--ulimit",
+      "core=0:0",
+      "--device",
+      "/dev/kfd:/dev/kfd:rwm",
+      "--device",
+      "/dev/mkfd:/dev/mkfd:rwm",
+      "--device",
+      "/dev/dri:/dev/dri:rwm",
+      "--device",
+      "/dev/infiniband:/dev/infiniband:rwm",
+      "--mount",
+      "type=bind,src=/opt/hyhal,dst=/opt/hyhal,readonly",
+      "--mount",
+      "type=bind,src=/tmp/fluidckpt_three_node/isolated_r02_n28/project,dst=/home/zhujianian/zhujianian/fluidckpt_zjn",
+      "--workdir",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn",
+      "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "infinity"
+    ],
+    "returncode": 0,
+    "stdout": "e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba\n",
+    "stderr": ""
+  },
+  "device_evidence": {
+    "/dev/kfd": {
+      "exists": true,
+      "readable": true,
+      "writable": true
+    },
+    "/dev/mkfd": {
+      "exists": true,
+      "readable": true,
+      "writable": true
+    },
+    "/dev/dri": {
+      "exists": true,
+      "readable": true,
+      "writable": false
+    },
+    "/dev/infiniband": {
+      "exists": true,
+      "readable": true,
+      "writable": false
+    }
+  },
+  "stage": "/tmp/fluidckpt_three_node/isolated_r02_n28",
+  "cached_image": {
+    "argv": [
+      "docker",
+      "image",
+      "inspect",
+      "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "--format",
+      "{{.Id}}"
+    ],
+    "returncode": 0,
+    "stdout": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588\n",
+    "stderr": ""
+  },
+  "gpu_api_calls": 0,
+  "pulls": 0,
+  "result_utc": "2026-10-09T06:19:44.435071+00:00",
+  "container": {
+    "id": "e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba",
+    "name": "/zjn-fluid-three-node-isolated_r02-n28",
+    "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "created": "2026-10-09T06:19:44.209167949Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 908097,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-09T06:19:44.292587393Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "HostConfig": {
+      "Privileged": false,
+      "NetworkMode": "host",
+      "IpcMode": "private",
+      "Memory": 8589934592,
+      "PidsLimit": 512,
+      "ShmSize": 1073741824,
+      "CapAdd": [
+        "IPC_LOCK"
+      ],
+      "Devices": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "Ulimits": [
+        {
+          "Name": "core",
+          "Hard": 0,
+          "Soft": 0
+        },
+        {
+          "Name": "memlock",
+          "Hard": -1,
+          "Soft": -1
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/opt/hyhal",
+        "Destination": "/opt/hyhal",
+        "RW": false
+      },
+      {
+        "Type": "bind",
+        "Source": "/tmp/fluidckpt_three_node/isolated_r02_n28/project",
+        "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "RW": true
+      }
+    ],
+    "command": {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-three-node-isolated_r02-n28"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    }
+  }
+}

@@ -1,0 +1,505 @@
+{
+  "dispatch_s": 0.00278180799796246,
+  "dispatch_scope": "controller-minus-maximum-worker duration residual",
+  "flow": {
+    "control_mode": "compact",
+    "controller_timing": {
+      "all_targets_filled_ns": 121794632777836,
+      "all_targets_published_ns": 121794647574324,
+      "clock_domain": "controller/m03r2n07/769497/153bd64eab334d62845b69cfd6f3d585",
+      "load_begin_ns": 121794620017494
+    },
+    "coordinator_wall_s": 0.02755607001017779,
+    "epoch_snapshot_reused": false,
+    "execute_wall_s": 0.003160013002343476,
+    "execution": [
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 8.821487426757812e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 0
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 8.919276297092438e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 1
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 7.829628884792328e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 2
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 7.98981636762619e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 3
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 0.0003782050043810159,
+        "executor": "serial",
+        "records": [
+          {
+            "bytes": 4194304,
+            "elapsed_s": 0.00032950400782283396,
+            "kind": "local_hbm",
+            "op_id": 0,
+            "pipeline": {},
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "role": "both"
+          }
+        ],
+        "staging_bytes": 67108864,
+        "worker": 4
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 1.143099507316947e-05,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 5
+      }
+    ],
+    "executor": "serial",
+    "inventory_rpc_s": 0.005559165001614019,
+    "plan": {
+      "chunk_bytes": 33554432,
+      "estimated_transfer_s": null,
+      "executor": "serial",
+      "ops": [
+        {
+          "dst_w": 4,
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "kind": "local_hbm",
+          "n": 4194304,
+          "off": 0,
+          "op_id": 0,
+          "path": "4:hbm:0->4",
+          "replica_id": "costcal_runtime_r02/source0/hbm",
+          "resources": [],
+          "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+          "source_offset": 0,
+          "src_w": 4,
+          "target": "costcal_runtime_r02/p0_warm_small/target0",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "costcal_runtime_r02/p0_warm_small/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "costcal_runtime_r02/p0_warm_small/target0",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 4194304,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      ]
+    },
+    "prepare_rpc_s": 0.004040473999339156,
+    "prepare_s": 0.009599639000953175,
+    "rpc": {
+      "execute": [
+        {
+          "deserialize_s": 1.7559999832883477e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 1.1839991202577949e-05,
+          "transport_and_server_s": 0.001954387000296265
+        },
+        {
+          "deserialize_s": 1.6639998648315668e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 9.900002623908222e-06,
+          "transport_and_server_s": 0.002335291006602347
+        },
+        {
+          "deserialize_s": 1.68999977177009e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 9.4299903139472e-06,
+          "transport_and_server_s": 0.0016252519999397919
+        },
+        {
+          "deserialize_s": 1.6259989934042096e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 137,
+          "serialize_s": 1.3110009604133666e-05,
+          "transport_and_server_s": 0.0017972049972740933
+        },
+        {
+          "deserialize_s": 2.2510008420795202e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 307,
+          "serialize_s": 1.9660001271404326e-05,
+          "transport_and_server_s": 0.001749443996232003
+        },
+        {
+          "deserialize_s": 1.8229999113827944e-05,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 138,
+          "serialize_s": 9.839990525506437e-06,
+          "transport_and_server_s": 0.0011811060103354976
+        }
+      ],
+      "inventory": [
+        {
+          "deserialize_s": 4.117000207770616e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2925,
+          "serialize_s": 3.299937816336751e-07,
+          "transport_and_server_s": 0.0037294600042514503
+        },
+        {
+          "deserialize_s": 4.780000017490238e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2924,
+          "serialize_s": 2.6999623514711857e-07,
+          "transport_and_server_s": 0.0035524279956007376
+        },
+        {
+          "deserialize_s": 6.548099918290973e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 3623,
+          "serialize_s": 3.0999945010989904e-07,
+          "transport_and_server_s": 0.002700236000237055
+        },
+        {
+          "deserialize_s": 5.045100988354534e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2925,
+          "serialize_s": 3.0999945010989904e-07,
+          "transport_and_server_s": 0.002793556996039115
+        },
+        {
+          "deserialize_s": 9.291099559050053e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 5165,
+          "serialize_s": 3.2001116778701544e-07,
+          "transport_and_server_s": 0.004001633991720155
+        },
+        {
+          "deserialize_s": 4.31910011684522e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 2919,
+          "serialize_s": 3.500026650726795e-07,
+          "transport_and_server_s": 0.002584163987194188
+        }
+      ],
+      "prepare": [
+        {
+          "deserialize_s": 1.4000994269736111e-05,
+          "operation": "prepare",
+          "request_bytes": 1327,
+          "response_bytes": 31,
+          "serialize_s": 4.330099909566343e-05,
+          "transport_and_server_s": 0.0023427910055033863
+        },
+        {
+          "deserialize_s": 1.3760000001639128e-05,
+          "operation": "prepare",
+          "request_bytes": 1327,
+          "response_bytes": 31,
+          "serialize_s": 2.81510001514107e-05,
+          "transport_and_server_s": 0.0020186370093142614
+        },
+        {
+          "deserialize_s": 1.2609991244971752e-05,
+          "operation": "prepare",
+          "request_bytes": 1327,
+          "response_bytes": 31,
+          "serialize_s": 3.050999657716602e-05,
+          "transport_and_server_s": 0.0016971930017462
+        },
+        {
+          "deserialize_s": 1.6589998267591e-05,
+          "operation": "prepare",
+          "request_bytes": 1327,
+          "response_bytes": 31,
+          "serialize_s": 4.045000241603702e-05,
+          "transport_and_server_s": 0.0020398880005814135
+        },
+        {
+          "deserialize_s": 1.3060998753644526e-05,
+          "operation": "prepare",
+          "request_bytes": 1476,
+          "response_bytes": 31,
+          "serialize_s": 4.2351006413809955e-05,
+          "transport_and_server_s": 0.002268380005261861
+        },
+        {
+          "deserialize_s": 1.6649995814077556e-05,
+          "operation": "prepare",
+          "request_bytes": 1327,
+          "response_bytes": 31,
+          "serialize_s": 3.7640988011844456e-05,
+          "transport_and_server_s": 0.0013279880076879635
+        }
+      ],
+      "publish": [
+        {
+          "deserialize_s": 1.5869998605921865e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.3139986549504101e-05,
+          "transport_and_server_s": 0.002803138006129302
+        },
+        {
+          "deserialize_s": 1.689000055193901e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.078000059351325e-05,
+          "transport_and_server_s": 0.0022268100001383573
+        },
+        {
+          "deserialize_s": 1.5640005585737526e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 9.929994121193886e-06,
+          "transport_and_server_s": 0.001931456004967913
+        },
+        {
+          "deserialize_s": 1.592999615240842e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.3469994883053005e-05,
+          "transport_and_server_s": 0.002121299010468647
+        },
+        {
+          "deserialize_s": 1.353000698145479e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.109000004362315e-05,
+          "transport_and_server_s": 0.0016180819948203862
+        },
+        {
+          "deserialize_s": 1.2720993254333735e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 1.1759999324567616e-05,
+          "transport_and_server_s": 0.0016112710000015795
+        }
+      ]
+    },
+    "source_bytes": {
+      "costcal_runtime_r02/source0/hbm": 4194304
+    },
+    "timing_scope": "coordinator wall; excludes model layout before handoff",
+    "tx": "031ed563d1664361bcc4b1507f72fabc",
+    "verification": {
+      "algorithm": "SHA256 of every logical byte per operation",
+      "checked_bytes": 4194304,
+      "operations": {
+        "0": {
+          "n": 4194304,
+          "op_id": 0,
+          "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+          "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+        }
+      },
+      "passed": true
+    },
+    "verify_and_publish_s": 0.01479641800688114
+  },
+  "fresh_query_rpc": [
+    {
+      "deserialize_s": 6.494099216070026e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2924,
+      "serialize_s": 3.8999132812023163e-07,
+      "transport_and_server_s": 0.00418007600819692
+    },
+    {
+      "deserialize_s": 5.132101068738848e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2923,
+      "serialize_s": 2.899905666708946e-07,
+      "transport_and_server_s": 0.0035646379983518273
+    },
+    {
+      "deserialize_s": 7.299099524971098e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 3623,
+      "serialize_s": 2.6999623514711857e-07,
+      "transport_and_server_s": 0.0038141810073284432
+    },
+    {
+      "deserialize_s": 5.58709871256724e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2923,
+      "serialize_s": 3.00002284348011e-07,
+      "transport_and_server_s": 0.002635106007801369
+    },
+    {
+      "deserialize_s": 9.273100295104086e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 5165,
+      "serialize_s": 2.8000795282423496e-07,
+      "transport_and_server_s": 0.0037360709975473583
+    },
+    {
+      "deserialize_s": 4.949999856762588e-05,
+      "operation": "inventory?compact=1",
+      "request_bytes": 0,
+      "response_bytes": 2921,
+      "serialize_s": 3.0999945010989904e-07,
+      "transport_and_server_s": 0.0033724160020938143
+    }
+  ],
+  "frozen_model_ref": null,
+  "gate": {
+    "node27": {
+      "dram_current_bytes": 4315533312,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1826619392,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 320864256,
+      "require_idle": true,
+      "transactions": {
+        "4": [],
+        "5": []
+      }
+    },
+    "node28": {
+      "dram_current_bytes": 3473022976,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1119879168,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 1027604480,
+      "require_idle": true,
+      "transactions": {
+        "0": [],
+        "1": []
+      }
+    },
+    "node30": {
+      "dram_current_bytes": 4006678528,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1279262720,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 868220928,
+      "require_idle": true,
+      "transactions": {
+        "2": [],
+        "3": []
+      }
+    }
+  },
+  "label": "p0_warm_small",
+  "nbytes": 4194304,
+  "operations": 1,
+  "path": "4:hbm:0->4",
+  "pending_prediction_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small.pending.json",
+    "sha256": "074ab2d82fb030bc26f3ef6aaa3b694802ff99ac4d695981c178d2fe787cd998"
+  },
+  "prediction": null,
+  "preregistered_prediction_ref": null,
+  "request_timing": {
+    "clock_domain": "controller/m03r2n07/769497/153bd64eab334d62845b69cfd6f3d585",
+    "filled_ns": 121794632777836,
+    "gate_end_ns": 121794614812435,
+    "inventory_end_ns": 121794614731444,
+    "plan_end_ns": 121794614881846,
+    "published_ns": 121794647574324,
+    "request_begin_ns": 121794609545004,
+    "request_to_filled_s": 0.023232832,
+    "request_to_published_s": 0.03802932
+  },
+  "service_s": 0.00032950400782283396,
+  "ssd_io": {
+    "n0": {
+      "buffered_read": true,
+      "cold_disk_claim": false,
+      "committed_bytes": 0,
+      "logical_http_read_bytes": 0,
+      "server_kernel_read_bytes": 0,
+      "server_kernel_write_bytes": 0,
+      "written_bytes": 0
+    },
+    "n1": {
+      "buffered_read": true,
+      "cold_disk_claim": false,
+      "committed_bytes": 0,
+      "logical_http_read_bytes": 0,
+      "server_kernel_read_bytes": 0,
+      "server_kernel_write_bytes": 0,
+      "written_bytes": 0
+    },
+    "n2": {
+      "buffered_read": true,
+      "cold_disk_claim": false,
+      "committed_bytes": 0,
+      "logical_http_read_bytes": 0,
+      "server_kernel_read_bytes": 0,
+      "server_kernel_write_bytes": 0,
+      "written_bytes": 0
+    }
+  },
+  "target_s": 0.0003782050043810159
+}

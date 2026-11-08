@@ -1,0 +1,165 @@
+{
+  "development": "v0.1.23.3",
+  "experiment_id": "e1",
+  "run_id": "e1_c01_history_r01",
+  "execution_status": "completed",
+  "functional_audit": "pass",
+  "new_gpu_runs": 0,
+  "samples": [
+    {
+      "source_run": "serial_cost09",
+      "source_status": "passed",
+      "phase": "life_motivation_serial_cost09_001_B_parallel_path_model_0",
+      "policy": "parallel_path_model",
+      "fraction": 1.0,
+      "T_ready_s": 2.154568665,
+      "rank_s": {
+        "0": 2.154485903,
+        "1": 2.147017619
+      },
+      "first_token_s": 2.581654243171215,
+      "correct": true,
+      "metrics_directory": "codex_coding/results/glm_roundtrip/full_distributed02/metrics/life_motivation_serial_cost09_001_B_parallel_path_model_0",
+      "flow": {
+        "tx": "778da738618e4988b65717388a937b27",
+        "prepare_s": 0.08530281204730272,
+        "execute_wall_s": 1.6881684930995107,
+        "verify_and_publish_s": 0.015420082956552505
+      },
+      "source_bytes": null,
+      "dram_bytes": null,
+      "ssd_kernel_read_bytes": 500330496,
+      "selected_ssd_bytes": 498936496
+    },
+    {
+      "source_run": "serial_cost09",
+      "source_status": "passed",
+      "phase": "life_motivation_serial_cost09_002_B_serial_target_model_1",
+      "policy": "serial_target_model",
+      "fraction": 1.0,
+      "T_ready_s": 1.359955485,
+      "rank_s": {
+        "0": 1.359919446,
+        "1": 1.354423224
+      },
+      "first_token_s": 1.7800618829205632,
+      "correct": true,
+      "metrics_directory": "codex_coding/results/glm_roundtrip/full_distributed02/metrics/life_motivation_serial_cost09_002_B_serial_target_model_1",
+      "flow": {
+        "tx": "bf62469d02ab42aa842c45c40bc61d54",
+        "prepare_s": 0.09160996973514557,
+        "execute_wall_s": 0.8862848225980997,
+        "verify_and_publish_s": 0.014595318585634232
+      },
+      "source_bytes": null,
+      "dram_bytes": null,
+      "ssd_kernel_read_bytes": 0,
+      "selected_ssd_bytes": 0
+    },
+    {
+      "source_run": "serial_cost09",
+      "source_status": "passed",
+      "phase": "life_motivation_serial_cost09_003_B_serial_target_model_2",
+      "policy": "serial_target_model",
+      "fraction": 1.0,
+      "T_ready_s": 1.347286201,
+      "rank_s": {
+        "0": 1.347071367,
+        "1": 1.342000972
+      },
+      "first_token_s": 1.7817750396206975,
+      "correct": true,
+      "metrics_directory": "codex_coding/results/glm_roundtrip/full_distributed02/metrics/life_motivation_serial_cost09_003_B_serial_target_model_2",
+      "flow": {
+        "tx": "16d8497babaf4576b703711305e4defc",
+        "prepare_s": 0.09469573386013508,
+        "execute_wall_s": 0.882136900909245,
+        "verify_and_publish_s": 0.015076041221618652
+      },
+      "source_bytes": null,
+      "dram_bytes": null,
+      "ssd_kernel_read_bytes": 0,
+      "selected_ssd_bytes": 0
+    },
+    {
+      "source_run": "serial_cost09",
+      "source_status": "passed",
+      "phase": "life_motivation_serial_cost09_004_B_parallel_path_model_3",
+      "policy": "parallel_path_model",
+      "fraction": 1.0,
+      "T_ready_s": 2.139684271,
+      "rank_s": {
+        "0": 2.139611425,
+        "1": 2.133537889
+      },
+      "first_token_s": 2.562202734872699,
+      "correct": true,
+      "metrics_directory": "codex_coding/results/glm_roundtrip/full_distributed02/metrics/life_motivation_serial_cost09_004_B_parallel_path_model_3",
+      "flow": {
+        "tx": "50bc1876045b4f6f88aac8486128d073",
+        "prepare_s": 0.08627319801598787,
+        "execute_wall_s": 1.6828160751610994,
+        "verify_and_publish_s": 0.015424273908138275
+      },
+      "source_bytes": null,
+      "dram_bytes": null,
+      "ssd_kernel_read_bytes": 498937856,
+      "selected_ssd_bytes": 498936496
+    }
+  ],
+  "source_runs": {
+    "serial_cost09": {
+      "status": "passed",
+      "error": null,
+      "protocol": {
+        "fractions": [
+          1.0
+        ],
+        "cpu_first_ssd": false,
+        "policies": [
+          "parallel_path_model",
+          "serial_target_model"
+        ],
+        "local_dram_ssd": "same warm engine and processed format; local DRAM plus local SSD fallback",
+        "cluster_dram": "same warm engine and processed format; local and remote DRAM",
+        "comparison": "same allocated backing objects and physical environment; policy changes eligible sources",
+        "ssd_policy": "fsync and file-specific FADV_DONTNEED; record actual kernel read_bytes",
+        "repetitions": 1,
+        "role": "paired causal probe of executor/cost-model agreement",
+        "free_pages_only": true,
+        "sequence": [
+          false,
+          true,
+          true,
+          false
+        ]
+      }
+    }
+  },
+  "repeat_variation": {
+    "parallel_path_model": {
+      "values_s": [
+        2.154568665,
+        2.139684271
+      ],
+      "mean_s": 2.147126468,
+      "range_s": 0.014884394000000079,
+      "range_over_mean_pct": 0.6932239074796817
+    },
+    "serial_target_model": {
+      "values_s": [
+        1.359955485,
+        1.347286201
+      ],
+      "mean_s": 1.3536208429999999,
+      "range_s": 0.012669284000000003,
+      "range_over_mean_pct": 0.935955150625588
+    }
+  },
+  "scientific_status": "qualified_historical_reuse",
+  "limitations": [
+    "two observations per condition do not characterize tails",
+    "original 3.5s mapping anomaly remains unconfirmed",
+    "not an acceptance of current deployed binaries"
+  ]
+}

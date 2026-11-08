@@ -1,0 +1,3 @@
+新analysis_gpu4独立域完成，scope 8/8，CPU合成协议20/20。只替换configuration_id与topology两个字符串；测试文件逐字节一致。96MiB源、logicalrank0、全部数值门、顺序、OLS与停止条件未变，原analysis/test源码SHA保持。
+
+此次无GPU/SSH，不复用GPU0失败的费用或系数。source_refs与差异见qualification.json；最终含执行仪表的冻结由主agent在C0独审后建立，本目录不直接授权GPU启动。

@@ -1,0 +1,181 @@
+--- codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/common.py	2026-10-12 01:09:48.060584796 +0800
++++ codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/common.py	2026-10-12 01:28:31.747770427 +0800
+@@ -6,7 +6,8 @@
+ ROOT = Path(__file__).resolve().parents[6]
+ HERE = Path(__file__).resolve().parent
+ RESULTS = ROOT / 'codex_coding/results/v0.1.23.3/task2/cost_ledger'
+-PRIOR = ROOT / 'codex_coding/results/v0.1.23.3/task2/first_op_validation/execution_prepared_A_r02'
++PRIOR = ROOT / 'codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_prepared_C1_r01'
++ROLE_PRIOR = ROOT / 'codex_coding/results/v0.1.23.3/task2/first_op_validation/execution_prepared_A_r02'
+ sys.path.insert(0, str(ROOT / 'main_lib'))
+ def load(name, path):
+     spec = importlib.util.spec_from_file_location(name, path)
+@@ -30,16 +31,17 @@
+     import time
+     require(setup['purpose'] == 'physical' and len(setup['workers']) == 1, 'single physical worker required')
+     expected = setup['workers'][0]
+-    require((expected['worker'],expected['node'],expected['gpu'],expected['numa']) == (0,'node27',0,0), 'mapping changed')
+-    require(expected['actual_bdf'] == '0000:09:00.0', 'BDF changed')
++    require((expected['worker'],expected['node'],expected['gpu'],expected['numa']) == (0,'node27',4,4), 'mapping changed')
++    require(expected['actual_bdf'] == '0000:85:00.0', 'BDF changed')
+     require(len(expected['container_id']) == 64 and expected['boot_id'] and isinstance(expected['pid_start_ticks'],int), 'exact physical identities missing')
+     require(setup.get('ssd') == {} and setup['valid_until'] > time.time(), 'no SSD or expired setup')
+     for reference in setup['evidence_refs'].values(): check_reference(reference)
+ def budget_snapshot(workers,setup,*,incremental_reserve=96 << 20,require_idle=True):
+     require(len(workers)==1,'one worker required')
+     w, expected = workers[0], setup['workers'][0]
+-    require((w['worker'],w['node'],w['gpu'],w['numa'],w['session']) == (0,'node27',0,0,setup['session']), 'runtime mapping/session changed')
++    require((w['worker'],w['node'],w['gpu'],w['numa'],w['session']) == (0,'node27',4,4,setup['session']), 'runtime mapping/session changed')
+     rt=w['runtime_identity']
++    require(rt['pci_numa_node']==4,'physical PCI NUMA mapping changed')
+     for key in ('boot_id','actual_bdf'):
+         require(rt[key] == expected[key], 'runtime identity changed '+key)
+     require(rt['start_ticks'] == expected['pid_start_ticks'] and rt['pid'] == expected['pid'], 'runtime process changed')
+--- codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/cpu_check.py	2026-10-12 01:17:11.696263138 +0800
++++ codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/cpu_check.py	2026-10-12 01:27:59.663793614 +0800
+@@ -32,8 +32,8 @@
+     def tobytes(self):return bytes(self.array)
+ 
+ class Owner:
+-    def __init__(self,n):self.tensor=Tensor(bytearray([0xa5])*n);self.registered=True;self.numa=0
+-    def info(self):return dict(backend='numa_registered',numa=0,sampled_page_distribution={'0':1.0},placement_samples=256,closed=False)
++    def __init__(self,n):self.tensor=Tensor(bytearray([0xa5])*n);self.registered=True;self.numa=4
++    def info(self):return dict(backend='numa_registered',numa=4,sampled_page_distribution={'4':1.0},placement_samples=256,closed=False)
+     def close(self):self.tensor=None
+ 
+ def main():
+@@ -59,17 +59,17 @@
+         def checksum(self,snap,tp):return dict(sum=0,GiB=self.shards[snap,tp].nbytes/(1 << 30),CPU_REPLAY_ONLY=True)
+         def inventory(self,compact=False):
+             used=self.catalog.used();gpu_used=used['hbm']+(64*MIB if self.dist_ready else 0)
+-            return dict(worker=self.rank,node='node27',gpu=0,numa=0,epoch=self.epoch,session=self.a.session,pid=12345,
++            return dict(worker=self.rank,node='node27',gpu=4,numa=4,epoch=self.epoch,session=self.a.session,pid=12345,
+                 capabilities=['local_hbm','local_dram'],budget_bytes=self.catalog.budgets,used_bytes=used,
+                 replicas=self.catalog.inventory(compact),transactions=list(self.runs),transaction_phases={tx:r['phase'] for tx,r in self.runs.items()},
+                 staging_bytes=64*MIB,hbm_total_bytes=16 << 30,headroom_bytes={'hbm':(16 << 30)-gpu_used,'dram':8 << 30},
+-                runtime_identity=dict(boot_id=boot,pid=12345,start_ticks=123,actual_bdf='0000:09:00.0',pci_numa_node=0,
++                runtime_identity=dict(boot_id=boot,pid=12345,start_ticks=123,actual_bdf='0000:85:00.0',pci_numa_node=4,
+                     cgroup_memory_current_bytes=256*MIB,cgroup_memory_max_bytes=8 << 30),inventory_diagnosis={'mode':'cached'},CPU_REPLAY_ONLY=True)
+     servers=[]
+     def server_factory(address,handler):
+         server=worker_module.LedgerHTTPServer(('127.0.0.1',0),handler);servers.append(server);return server
+     worker_module.native.ClusterWorker=CPUWorker;worker_module.native.ThreadingHTTPServer=server_factory
+-    args=SimpleNamespace(node='node27',gpu=0,numa=0,port_base=0,mesh='node27:0-0',master='127.0.0.1:1',handoff=str(out/'handoff'),
++    args=SimpleNamespace(node='node27',gpu=4,numa=4,port_base=0,mesh='node27:4-4',master='127.0.0.1:1',handoff=str(out/'handoff'),
+         session='cost_ledger_runtime_C1_cpu_'+out.name,dram_budget=256*MIB,hbm_budget=384*MIB,ssd_budget=64*MIB,
+         inventory_mode_file=None,allow_static_cache=True,memory_backend='numa_registered',replica_budget_bytes=64*MIB)
+     worker_thread=threading.Thread(target=lambda:worker_module.native.main(args),daemon=True);worker_thread.start()
+@@ -77,11 +77,11 @@
+     while not servers and time.monotonic()<deadline:time.sleep(.01)
+     require(servers,'CPU HTTP startup failed');endpoint='http://127.0.0.1:'+str(servers[0].server_port)
+     runtime_setup=dict(purpose='physical',session=args.session,valid_until=time.time()+300,ssd={},evidence_refs={},CPU_REPLAY_ONLY=True,
+-        workers=[dict(worker=0,node='node27',gpu=0,numa=0,endpoint=endpoint,actual_bdf='0000:09:00.0',bdf='0000:09:00.0',
++        workers=[dict(worker=0,node='node27',gpu=4,numa=4,endpoint=endpoint,actual_bdf='0000:85:00.0',bdf='0000:85:00.0',
+             boot_id=boot,pid=12345,pid_start_ticks=123,container_id='c'*64)])
+     prepared=out/'prepared';prepared.mkdir();source_assets=[dict(relative_path=str(path.relative_to(ROOT)),sha256=native.sha(path)) for path in HERE.glob('*.py')]
+     write(prepared/'node27.setup.spec.json',dict(node='node27',assets=source_assets))
+-    analysis=load('cost_ledger_CPU_analysis',ROOT/'codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/analyze.py')
++    analysis=load('cost_ledger_CPU_analysis',ROOT/'codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/analyze.py')
+     predeclared=dict(artifact_type='cost-predeclared-v1',protocol=analysis.protocol(),protocol_sha256=analysis.canonical(analysis.protocol()),source_refs=[ref(HERE/'worker.py')])
+     write(out/'predeclared_protocol.json',predeclared)
+     launch=dict(session=args.session,experiment_stage='C1',protocol=protocol('C1'),setup_directory=str(prepared),workers=runtime_setup['workers'],prediction_ref=None,
+--- codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/gate.py	2026-10-12 01:17:11.696263138 +0800
++++ codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/gate.py	2026-10-12 01:27:59.663793614 +0800
+@@ -2,7 +2,7 @@
+ from pathlib import Path
+ from common import ROOT,load,native,require,check_reference
+ from protocol import STATE,MODE
+-ANALYSIS=ROOT/'codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/analyze.py'
++ANALYSIS=ROOT/'codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/analyze.py'
+ def predeclared_contract(reference):
+     check_reference(reference)
+     analysis=load('cost_ledger_predeclare_analysis',ANALYSIS)
+--- codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/prepare.py	2026-10-12 01:15:46.380324996 +0800
++++ codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/prepare.py	2026-10-12 01:27:59.663793614 +0800
+@@ -4,7 +4,7 @@
+ import copy
+ import json
+ from pathlib import Path
+-from common import ROOT,HERE,PRIOR,RESULTS,RUNTIME,native,ops,write,ref,require,fresh_output,quiet_readback,check_reference,specs
++from common import ROOT,HERE,PRIOR,ROLE_PRIOR,RESULTS,RUNTIME,native,ops,write,ref,require,fresh_output,quiet_readback,check_reference,specs
+ from protocol import protocol
+ from gate import prediction_contract,predeclared_contract
+ 
+@@ -14,7 +14,7 @@
+     p.add_argument('--out',type=Path,required=True)
+     p.add_argument('--prior-prepared',type=Path,default=PRIOR)
+     p.add_argument('--prepared',type=Path)
+-    p.add_argument('--session',default='cost_ledger_runtime_C1_r01')
++    p.add_argument('--session',default='cost_ledger_runtime_gpu4_C1_r01')
+     p.add_argument('--experiment-stage',choices=('C1','C2'),default='C1')
+     p.add_argument('--prediction',type=Path)
+     p.add_argument('--predeclared',type=Path)
+@@ -36,16 +36,18 @@
+             require(a.calibration_review is not None,'C2 requires independent C1 qualification')
+             prediction_contract(ref(a.prediction),a.session,review_reference=ref(a.calibration_review))
+         mode_path=RESULTS/(a.session+'.inventory_mode.json')
+-        workers=[copy.deepcopy(next(w for w in prior['workers'] if w['node']=='node27' and w['gpu']==0))]
++        role_source=native.read(ROLE_PRIOR/'launch_plan.json')
++        workers=[copy.deepcopy(next(w for w in role_source['workers'] if w['node']=='node27' and w['gpu']==4))]
+         workers[0]['worker']=0
+-        row=copy.deepcopy(next(r for r in prior['processes'] if r['kind']=='worker' and r['node']=='node27' and r['argv'][r['argv'].index('--gpu')+1]=='0'))
++        row=copy.deepcopy(next(r for r in role_source['processes'] if r['kind']=='worker' and r['node']=='node27' and r['argv'][r['argv'].index('--gpu')+1]=='4'))
+         row['worker']=0;row['out']=str(ops.RESULTS/f'operations_process_{a.session}_{row["key"]}')
+         row['argv'][1]=str(HERE/'worker.py')
+-        for flag,value in [('--session',a.session),('--mesh','node27:0-0'),('--master','12.11.3.27:29981'),('--inventory-mode-file',str(mode_path)),('--hbm-budget',str(384 << 20)),('--dram-budget',str(256 << 20))]:
++        for flag,value in [('--session',a.session),('--mesh','node27:4-4'),('--master','12.11.3.27:29981'),('--inventory-mode-file',str(mode_path)),('--hbm-budget',str(384 << 20)),('--dram-budget',str(256 << 20))]:
+             row['argv'][row['argv'].index(flag)+1]=value
+         row['env']['NCCL_TOPO_DUMP_FILE']=str(ops.RESULTS/('operations_dump_'+a.session)/(row['key']+'.runtime.dump.xml'))
+         plan.update(session=a.session,workers=workers,processes=[row],ssd={},setup_directory=str(out),
+             prior_setup_directory=str(a.prior_prepared),prior_plan_ref=ref(a.prior_prepared/'launch_plan.json'),
++            physical_role_mapping_ref=ref(ROLE_PRIOR/'launch_plan.json'),
+             inventory_mode_file=str(mode_path),protocol=protocol(a.experiment_stage),experiment_stage=a.experiment_stage,
+             prediction_ref=ref(a.prediction) if a.prediction else None,model_consumed=False,physical_ready=False,
+             calibration_review_ref=ref(a.calibration_review) if a.calibration_review else None,
+@@ -55,7 +57,7 @@
+         # Old model is a protected reference, never a consumed cost model.
+         assets=[]
+         asset_paths=sorted(HERE.glob('*.py'))+sorted(HERE.glob('*.json'))
+-        asset_paths += [ROOT/'codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/analyze.py']
++        asset_paths += [ROOT/'codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis_gpu4/analyze.py']
+         for path in asset_paths:
+             assets.append(dict(relative_path=str(path.relative_to(ROOT)),sha256=native.sha(path),base64=base64.b64encode(path.read_bytes()).decode()))
+         old=native.read(a.prior_prepared/'node27.setup.spec.json')
+@@ -64,8 +66,10 @@
+         require(all(r['relative_path'] not in old_hash or old_hash[r['relative_path']]==r['sha256'] for r in assets),'would overwrite frozen deployed asset')
+         additions=[r for r in assets if r['relative_path'] not in old_hash]
+         updated=copy.deepcopy(old);updated['assets'] += [{k:v for k,v in r.items() if k!='base64'} for r in additions]
+-        updated['ports']=sorted(set(old['ports'])|{29981})
+-        updated['roles']=[r for r in old['roles'] if r['gpu']==0]
++        updated['ports']=[35104,29981]
++        role_spec=native.read(ROLE_PRIOR/'node27.setup.spec.json')
++        updated['roles']=[r for r in role_spec['roles'] if r['gpu']==4]
++        updated.update(gpu=4,bdf='0000:85:00.0')
+         write(out/'node27.setup.spec.json',updated)
+         write(out/'append_assets.json',dict(assets=additions,revision='cost_ledger_'+out.name,inventory_mode_file=str(mode_path)))
+         write(out/'launch_plan.json',plan)
+--- codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/protocol.py	2026-10-12 01:09:48.060584796 +0800
++++ codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/protocol.py	2026-10-12 01:27:59.663793614 +0800
+@@ -5,9 +5,9 @@
+          'L3_repeat':[32,32], 'V1':[16,16,16], 'V2':[40,24,16]}
+ ORDERS = {'C1':['L3','L1','L4','L2','L5','L3_repeat'], 'C2':['V2','V1']}
+ MODE = 'native_serial_thread_scoped_noevents_v1'
+-STATE = dict(configuration_id='singleworker_node27_gpu0_local_native_v1',path='local_hbm',executor='serial',chunk_bytes=32*MIB,source_bytes=96*MIB,
++STATE = dict(configuration_id='singleworker_node27_gpu4_local_native_v1',path='local_hbm',executor='serial',chunk_bytes=32*MIB,source_bytes=96*MIB,
+     source_worker=0,target_worker=0,source_tier='hbm',target_tier='hbm',target_mode='replica',
+-    topology='single_worker_node27_gpu0_world1',inventory_mode='cached',control_mode='compact',
++    topology='single_worker_node27_gpu4_world1',inventory_mode='cached',control_mode='compact',
+     target_allocation='fresh_exact_size_each_request',target_writes_before=0,
+     handler='native_ThreadingHTTPServer_request_thread',queues=0,pretouch=False,
+     CUDA_events=0,copy_rounds=1,logger='native_json_stdout',profile_execute=False)
+--- codex_coding/src/v0.1.23.3/task2/cost_ledger/execution/runner.py	2026-10-12 01:16:23.976297738 +0800
++++ codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/runner.py	2026-10-12 01:27:59.663793614 +0800
+@@ -14,7 +14,7 @@
+     target=native.target_from(source,workers,session+'/'+case_id+'/target',0,'hbm',off=0,n=sum(CASES[case_id])*MIB)
+     plan=native.one_plan(source,target,workers);template=plan['ops'][0];ops=[];cursor=0
+     for i,n in enumerate(CASES[case_id]):
+-        ops.append(dict(template,op_id=i,n=n*MIB,off=cursor,source_offset=cursor,kind='local_hbm',path='0:hbm:0->0:hbm'))
++        ops.append(dict(template,op_id=i,n=n*MIB,off=cursor,source_offset=cursor,kind='local_hbm',path='0:hbm:'+str(workers[0]['numa'])+'->0:hbm'))
+         cursor+=n*MIB
+     plan.update(ops=ops,control_context=planning_context(workers,endpoints),
+         control_mode='compact',cost_ledger_case=case_id)

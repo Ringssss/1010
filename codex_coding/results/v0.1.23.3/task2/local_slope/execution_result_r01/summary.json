@@ -1,0 +1,1364 @@
+{
+  "actual_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/summary.json",
+    "sha256": "9d793e135177622b0821c6df2f6cae08c395e1df7d7f4af2a95793184d64e144"
+  },
+  "aggregate": {
+    "diagnostic": {
+      "by_size": {
+        "16": {
+          "gpu_event_elapsed_ms": [
+            0.09487999975681305,
+            0.10080000013113022
+          ],
+          "mean_event_elapsed_ms": 0.09783999994397163,
+          "mean_phase_thread_cpu_ms": {
+            "begin_log": 0.055371000000000004,
+            "copy_submit": 0.068791,
+            "device_sync": 0.0213005,
+            "event_begin_record": 0.045106,
+            "event_end_record": 0.02993,
+            "source_slice": 0.062251,
+            "target_slice": 0.00749
+          },
+          "mean_phase_wall_ms": {
+            "begin_log": 0.057305999999999996,
+            "copy_submit": 0.068851,
+            "device_sync": 0.021214999999999998,
+            "event_begin_record": 0.0449105,
+            "event_end_record": 0.0300205,
+            "source_slice": 0.062315999999999996,
+            "target_slice": 0.0076
+          },
+          "mean_post_service_diagnosis_ms": 0.37561,
+          "mean_service_ms": 0.292219,
+          "observations": 2,
+          "service_ms": [
+            0.290974,
+            0.293464
+          ]
+        },
+        "4": {
+          "gpu_event_elapsed_ms": [
+            0.10688000172376633,
+            0.10384000092744827
+          ],
+          "mean_event_elapsed_ms": 0.1053600013256073,
+          "mean_phase_thread_cpu_ms": {
+            "begin_log": 0.059211,
+            "copy_submit": 0.070111,
+            "device_sync": 0.0237905,
+            "event_begin_record": 0.0640155,
+            "event_end_record": 0.032370499999999996,
+            "source_slice": 0.0671505,
+            "target_slice": 0.0086805
+          },
+          "mean_phase_wall_ms": {
+            "begin_log": 0.061171,
+            "copy_submit": 0.070101,
+            "device_sync": 0.023745000000000002,
+            "event_begin_record": 0.06381049999999999,
+            "event_end_record": 0.032480999999999996,
+            "source_slice": 0.0670705,
+            "target_slice": 0.008930500000000001
+          },
+          "mean_post_service_diagnosis_ms": 0.4096655,
+          "mean_service_ms": 0.32730950000000003,
+          "observations": 2,
+          "service_ms": [
+            0.352955,
+            0.301664
+          ]
+        }
+      },
+      "service_large_minus_small_ms": -0.035090500000000024
+    },
+    "native": {
+      "by_size": {
+        "16": {
+          "mean_service_ms": 0.637673496385105,
+          "observations": 2,
+          "service_ms": [
+            0.23822300136089325,
+            1.0371239914093167
+          ]
+        },
+        "4": {
+          "mean_service_ms": 0.21338800434023142,
+          "observations": 2,
+          "service_ms": [
+            0.25393400574103,
+            0.17284200293943286
+          ]
+        }
+      },
+      "service_large_minus_small_ms": 0.42428549204487354
+    }
+  },
+  "decision_ready": false,
+  "diagnostic_large_minus_small_event_ms": -0.007520001381635666,
+  "diagnostic_large_minus_small_phase_ms": {
+    "begin_log": -0.0038650000000000073,
+    "copy_submit": -0.0012500000000000011,
+    "device_sync": -0.0025300000000000045,
+    "event_begin_record": -0.018899999999999993,
+    "event_end_record": -0.0024604999999999974,
+    "source_slice": -0.004754500000000009,
+    "target_slice": -0.001330500000000001
+  },
+  "diagnostic_minus_native_service_ms": {
+    "16": -0.34545449638510495,
+    "4": 0.11392149565976861
+  },
+  "fits": 0,
+  "limitations": [
+    "mode blocks confound temporal drift with instrumentation effect",
+    "diagnostic prepare additionally initializes events and synchronizes device",
+    "diagnostic bypasses native land dispatch branches and adds timing observers",
+    "event interval includes submission gaps; pure kernel duration unmeasured",
+    "post-service metadata included in controller/RPC window but excluded from worker execute/service",
+    "TID/ident can be reused; compare thread names and known ThreadingHTTPServer lifecycle",
+    "no new fit, no bandwidth, no model coefficient update",
+    "two observations per size and mode; no broad repeat or size-boundary scan"
+  ],
+  "model_updates": 0,
+  "raw": [
+    {
+      "bytes": 4194304,
+      "controller_execute_ms": 4.061603976879269,
+      "execute_thread": {
+        "ident": 140213879830080,
+        "name": "Thread-27 (process_request_thread)",
+        "native_tid": 6150,
+        "sampled_after_native_execute": true
+      },
+      "filled_ms": 21.302715,
+      "label": "native_0_4MiB",
+      "mode": "native",
+      "prepare_metadata": {
+        "bytes": 4194304,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 88080384,
+          "hip_free_bytes": 67740106752,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 104857600
+        },
+        "metadata_outside_service": true,
+        "mode": "native",
+        "pid": 6037,
+        "prepare_native_tid": 6148,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-26 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210929139712,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 37.569173,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/native_0_4MiB.json",
+        "sha256": "2e40c2b67e244ade790843b895a443571981441e823c9a5410abe60eed833065"
+      },
+      "service_ms": 0.25393400574103,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 4194304,
+        "operations": {
+          "0": {
+            "n": 4194304,
+            "op_id": 0,
+            "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+            "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.29245400219224393
+    },
+    {
+      "bytes": 16777216,
+      "controller_execute_ms": 5.3602819971274585,
+      "execute_thread": {
+        "ident": 140213879830080,
+        "name": "Thread-37 (process_request_thread)",
+        "native_tid": 6169,
+        "sampled_after_native_execute": true
+      },
+      "filled_ms": 24.239055,
+      "label": "native_1_16MiB",
+      "mode": "native",
+      "prepare_metadata": {
+        "bytes": 16777216,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 100663296,
+          "hip_free_bytes": 67744301056,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 100663296
+        },
+        "metadata_outside_service": true,
+        "mode": "native",
+        "pid": 6037,
+        "prepare_native_tid": 6167,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-36 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210933334016,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 75.420481,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/native_1_16MiB.json",
+        "sha256": "f5e0c447fb4fa7ccfc4f3f312dce0a4b188b0f5834af87df8206dc179730638b"
+      },
+      "service_ms": 0.23822300136089325,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 16777216,
+        "operations": {
+          "0": {
+            "n": 16777216,
+            "op_id": 0,
+            "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+            "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.2765940153039992
+    },
+    {
+      "bytes": 16777216,
+      "controller_execute_ms": 4.8051839985419065,
+      "execute_thread": {
+        "ident": 140213879830080,
+        "name": "Thread-47 (process_request_thread)",
+        "native_tid": 6188,
+        "sampled_after_native_execute": true
+      },
+      "filled_ms": 22.602193,
+      "label": "native_2_16MiB",
+      "mode": "native",
+      "prepare_metadata": {
+        "bytes": 16777216,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 100663296,
+          "hip_free_bytes": 67744301056,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 100663296
+        },
+        "metadata_outside_service": true,
+        "mode": "native",
+        "pid": 6037,
+        "prepare_native_tid": 6186,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-46 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210933334016,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 66.785785,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/native_2_16MiB.json",
+        "sha256": "c3bbf2e8d284009680e6703ca912549cc36a032845a45b34ff8bf7a5caeaba58"
+      },
+      "service_ms": 1.0371239914093167,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 16777216,
+        "operations": {
+          "0": {
+            "n": 16777216,
+            "op_id": 0,
+            "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+            "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 1.1558050173334777
+    },
+    {
+      "bytes": 4194304,
+      "controller_execute_ms": 4.457100993022323,
+      "execute_thread": {
+        "ident": 140213879830080,
+        "name": "Thread-57 (process_request_thread)",
+        "native_tid": 6207,
+        "sampled_after_native_execute": true
+      },
+      "filled_ms": 22.107967,
+      "label": "native_3_4MiB",
+      "mode": "native",
+      "prepare_metadata": {
+        "bytes": 4194304,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 88080384,
+          "hip_free_bytes": 67740106752,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 104857600
+        },
+        "metadata_outside_service": true,
+        "mode": "native",
+        "pid": 6037,
+        "prepare_native_tid": 6205,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-56 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210929139712,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 38.843371000000005,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/native_3_4MiB.json",
+        "sha256": "b82c3630914b2ca139fd191238ae136eaf462ce6b32cd7fc112382d85d82e47b"
+      },
+      "service_ms": 0.17284200293943286,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 4194304,
+        "operations": {
+          "0": {
+            "n": 4194304,
+            "op_id": 0,
+            "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+            "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.2110920031554997
+    },
+    {
+      "bytes": 4194304,
+      "controller_execute_ms": 4.777184978593141,
+      "diagnosis": {
+        "control_limitation": "native block precedes diagnostic block; instrumentation and temporal drift confounded",
+        "execute_native_tid": 6226,
+        "execute_thread_ident": 140213879830080,
+        "execute_thread_name": "Thread-67 (process_request_thread)",
+        "executor_difference": "expanded single local branch bypasses native land dispatch checks; timestamps/events add observer work",
+        "extra_execute_sync_before_service": false,
+        "extra_prepare_event_initialization_sync": true,
+        "gpu_event_elapsed_ms": 0.10688000172376633,
+        "gpu_event_scope": "stream event window includes copy submission/host gaps; not a pure kernel duration",
+        "host_phase_sum_ns": 352955,
+        "host_phases": {
+          "begin_log": {
+            "thread_cpu_ns": 62721,
+            "wall_ns": 65011
+          },
+          "copy_submit": {
+            "thread_cpu_ns": 71121,
+            "wall_ns": 71071
+          },
+          "device_sync": {
+            "thread_cpu_ns": 26401,
+            "wall_ns": 26380
+          },
+          "event_begin_record": {
+            "thread_cpu_ns": 79821,
+            "wall_ns": 79591
+          },
+          "event_end_record": {
+            "thread_cpu_ns": 32600,
+            "wall_ns": 32771
+          },
+          "source_slice": {
+            "thread_cpu_ns": 68111,
+            "wall_ns": 67921
+          },
+          "target_slice": {
+            "thread_cpu_ns": 9800,
+            "wall_ns": 10210
+          }
+        },
+        "host_residual_ns": 0,
+        "host_thread_cpu_ns": 350575,
+        "memory_after_sync": {
+          "allocated_bytes": 88080384,
+          "hip_free_bytes": 67740106752,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 104857600
+        },
+        "metadata_outside_service": true,
+        "phase_boundary_clock": "monotonic_ns and thread_time_ns, same ordered boundary pairs",
+        "phase_observer_overhead_included": true,
+        "post_service_diagnosis_scope": "included in HTTP/controller execute wall; excluded from reported worker execute_s and op service_s; not controller dispatch cost",
+        "post_service_diagnosis_wall_ns": 436086,
+        "residual_scope": "adjacent phase boundaries telescope; zero is not proof of zero observer overhead",
+        "service_begin_ns": 195889313820300,
+        "service_end_ns": 195889314173255,
+        "source_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "stream": 0,
+        "target_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210929139712,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        }
+      },
+      "filled_ms": 22.238438,
+      "label": "diagnostic_0_4MiB",
+      "mode": "diagnostic",
+      "prepare_metadata": {
+        "bytes": 4194304,
+        "event_prepare_elapsed_ns": 129561,
+        "event_prepare_native_tid": 6224,
+        "events_created_and_initialized_in_prepare": true,
+        "extra_prepare_event_initialization_sync": true,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 88080384,
+          "hip_free_bytes": 67740106752,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 104857600
+        },
+        "metadata_outside_service": true,
+        "mode": "diagnostic",
+        "pid": 6037,
+        "prepare_native_tid": 6224,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-66 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210929139712,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 38.542316,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/diagnostic_0_4MiB.json",
+        "sha256": "b6bef2d307ade0d9c0081eb39955ec033215d42281073f2c74f6f8bed4cc68f2"
+      },
+      "service_ms": 0.352955,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 4194304,
+        "operations": {
+          "0": {
+            "n": 4194304,
+            "op_id": 0,
+            "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+            "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.4055250028613955
+    },
+    {
+      "bytes": 16777216,
+      "controller_execute_ms": 4.431029985425994,
+      "diagnosis": {
+        "control_limitation": "native block precedes diagnostic block; instrumentation and temporal drift confounded",
+        "execute_native_tid": 6245,
+        "execute_thread_ident": 140213879830080,
+        "execute_thread_name": "Thread-77 (process_request_thread)",
+        "executor_difference": "expanded single local branch bypasses native land dispatch checks; timestamps/events add observer work",
+        "extra_execute_sync_before_service": false,
+        "extra_prepare_event_initialization_sync": true,
+        "gpu_event_elapsed_ms": 0.09487999975681305,
+        "gpu_event_scope": "stream event window includes copy submission/host gaps; not a pure kernel duration",
+        "host_phase_sum_ns": 290974,
+        "host_phases": {
+          "begin_log": {
+            "thread_cpu_ns": 56931,
+            "wall_ns": 59081
+          },
+          "copy_submit": {
+            "thread_cpu_ns": 66031,
+            "wall_ns": 66131
+          },
+          "device_sync": {
+            "thread_cpu_ns": 22030,
+            "wall_ns": 21960
+          },
+          "event_begin_record": {
+            "thread_cpu_ns": 45501,
+            "wall_ns": 45300
+          },
+          "event_end_record": {
+            "thread_cpu_ns": 29730,
+            "wall_ns": 29791
+          },
+          "source_slice": {
+            "thread_cpu_ns": 60981,
+            "wall_ns": 61081
+          },
+          "target_slice": {
+            "thread_cpu_ns": 7540,
+            "wall_ns": 7630
+          }
+        },
+        "host_residual_ns": 0,
+        "host_thread_cpu_ns": 288744,
+        "memory_after_sync": {
+          "allocated_bytes": 100663296,
+          "hip_free_bytes": 67744301056,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 100663296
+        },
+        "metadata_outside_service": true,
+        "phase_boundary_clock": "monotonic_ns and thread_time_ns, same ordered boundary pairs",
+        "phase_observer_overhead_included": true,
+        "post_service_diagnosis_scope": "included in HTTP/controller execute wall; excluded from reported worker execute_s and op service_s; not controller dispatch cost",
+        "post_service_diagnosis_wall_ns": 376625,
+        "residual_scope": "adjacent phase boundaries telescope; zero is not proof of zero observer overhead",
+        "service_begin_ns": 195889379012064,
+        "service_end_ns": 195889379303038,
+        "source_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "stream": 0,
+        "target_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210933334016,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        }
+      },
+      "filled_ms": 22.106667,
+      "label": "diagnostic_1_16MiB",
+      "mode": "diagnostic",
+      "prepare_metadata": {
+        "bytes": 16777216,
+        "event_prepare_elapsed_ns": 119942,
+        "event_prepare_native_tid": 6243,
+        "events_created_and_initialized_in_prepare": true,
+        "extra_prepare_event_initialization_sync": true,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 100663296,
+          "hip_free_bytes": 67744301056,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 100663296
+        },
+        "metadata_outside_service": true,
+        "mode": "diagnostic",
+        "pid": 6037,
+        "prepare_native_tid": 6243,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-76 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210933334016,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 65.818692,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/diagnostic_1_16MiB.json",
+        "sha256": "6ed5afb816c6307182527c4ecf1a08a87cfab65f71f5a285d57d99844a937ab5"
+      },
+      "service_ms": 0.290974,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 16777216,
+        "operations": {
+          "0": {
+            "n": 16777216,
+            "op_id": 0,
+            "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+            "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.33764398540370166
+    },
+    {
+      "bytes": 16777216,
+      "controller_execute_ms": 4.484979988774285,
+      "diagnosis": {
+        "control_limitation": "native block precedes diagnostic block; instrumentation and temporal drift confounded",
+        "execute_native_tid": 6264,
+        "execute_thread_ident": 140213879830080,
+        "execute_thread_name": "Thread-87 (process_request_thread)",
+        "executor_difference": "expanded single local branch bypasses native land dispatch checks; timestamps/events add observer work",
+        "extra_execute_sync_before_service": false,
+        "extra_prepare_event_initialization_sync": true,
+        "gpu_event_elapsed_ms": 0.10080000013113022,
+        "gpu_event_scope": "stream event window includes copy submission/host gaps; not a pure kernel duration",
+        "host_phase_sum_ns": 293464,
+        "host_phases": {
+          "begin_log": {
+            "thread_cpu_ns": 53811,
+            "wall_ns": 55531
+          },
+          "copy_submit": {
+            "thread_cpu_ns": 71551,
+            "wall_ns": 71571
+          },
+          "device_sync": {
+            "thread_cpu_ns": 20571,
+            "wall_ns": 20470
+          },
+          "event_begin_record": {
+            "thread_cpu_ns": 44711,
+            "wall_ns": 44521
+          },
+          "event_end_record": {
+            "thread_cpu_ns": 30130,
+            "wall_ns": 30250
+          },
+          "source_slice": {
+            "thread_cpu_ns": 63521,
+            "wall_ns": 63551
+          },
+          "target_slice": {
+            "thread_cpu_ns": 7440,
+            "wall_ns": 7570
+          }
+        },
+        "host_residual_ns": 0,
+        "host_thread_cpu_ns": 291735,
+        "memory_after_sync": {
+          "allocated_bytes": 100663296,
+          "hip_free_bytes": 67744301056,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 100663296
+        },
+        "metadata_outside_service": true,
+        "phase_boundary_clock": "monotonic_ns and thread_time_ns, same ordered boundary pairs",
+        "phase_observer_overhead_included": true,
+        "post_service_diagnosis_scope": "included in HTTP/controller execute wall; excluded from reported worker execute_s and op service_s; not controller dispatch cost",
+        "post_service_diagnosis_wall_ns": 374595,
+        "residual_scope": "adjacent phase boundaries telescope; zero is not proof of zero observer overhead",
+        "service_begin_ns": 195889473049374,
+        "service_end_ns": 195889473342838,
+        "source_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "stream": 0,
+        "target_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210933334016,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        }
+      },
+      "filled_ms": 21.775191999999997,
+      "label": "diagnostic_2_16MiB",
+      "mode": "diagnostic",
+      "prepare_metadata": {
+        "bytes": 16777216,
+        "event_prepare_elapsed_ns": 121371,
+        "event_prepare_native_tid": 6262,
+        "events_created_and_initialized_in_prepare": true,
+        "extra_prepare_event_initialization_sync": true,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 100663296,
+          "hip_free_bytes": 67744301056,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 100663296
+        },
+        "metadata_outside_service": true,
+        "mode": "diagnostic",
+        "pid": 6037,
+        "prepare_native_tid": 6262,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-86 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210933334016,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 65.868743,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/diagnostic_2_16MiB.json",
+        "sha256": "c92691a6b4058c413368ec3e9e3181e084ba32944d33bbafe99dde53ee94b152"
+      },
+      "service_ms": 0.293464,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 16777216,
+        "operations": {
+          "0": {
+            "n": 16777216,
+            "op_id": 0,
+            "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+            "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.3387250180821866
+    },
+    {
+      "bytes": 4194304,
+      "controller_execute_ms": 4.430498986039311,
+      "diagnosis": {
+        "control_limitation": "native block precedes diagnostic block; instrumentation and temporal drift confounded",
+        "execute_native_tid": 6283,
+        "execute_thread_ident": 140213879830080,
+        "execute_thread_name": "Thread-97 (process_request_thread)",
+        "executor_difference": "expanded single local branch bypasses native land dispatch checks; timestamps/events add observer work",
+        "extra_execute_sync_before_service": false,
+        "extra_prepare_event_initialization_sync": true,
+        "gpu_event_elapsed_ms": 0.10384000092744827,
+        "gpu_event_scope": "stream event window includes copy submission/host gaps; not a pure kernel duration",
+        "host_phase_sum_ns": 301664,
+        "host_phases": {
+          "begin_log": {
+            "thread_cpu_ns": 55701,
+            "wall_ns": 57331
+          },
+          "copy_submit": {
+            "thread_cpu_ns": 69101,
+            "wall_ns": 69131
+          },
+          "device_sync": {
+            "thread_cpu_ns": 21180,
+            "wall_ns": 21110
+          },
+          "event_begin_record": {
+            "thread_cpu_ns": 48210,
+            "wall_ns": 48030
+          },
+          "event_end_record": {
+            "thread_cpu_ns": 32141,
+            "wall_ns": 32191
+          },
+          "source_slice": {
+            "thread_cpu_ns": 66190,
+            "wall_ns": 66220
+          },
+          "target_slice": {
+            "thread_cpu_ns": 7561,
+            "wall_ns": 7651
+          }
+        },
+        "host_residual_ns": 0,
+        "host_thread_cpu_ns": 300084,
+        "memory_after_sync": {
+          "allocated_bytes": 88080384,
+          "hip_free_bytes": 67740106752,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 104857600
+        },
+        "metadata_outside_service": true,
+        "phase_boundary_clock": "monotonic_ns and thread_time_ns, same ordered boundary pairs",
+        "phase_observer_overhead_included": true,
+        "post_service_diagnosis_scope": "included in HTTP/controller execute wall; excluded from reported worker execute_s and op service_s; not controller dispatch cost",
+        "post_service_diagnosis_wall_ns": 383245,
+        "residual_scope": "adjacent phase boundaries telescope; zero is not proof of zero observer overhead",
+        "service_begin_ns": 195889569784011,
+        "service_end_ns": 195889570085675,
+        "source_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "stream": 0,
+        "target_view": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210929139712,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        }
+      },
+      "filled_ms": 23.254772,
+      "label": "diagnostic_3_4MiB",
+      "mode": "diagnostic",
+      "prepare_metadata": {
+        "bytes": 4194304,
+        "event_prepare_elapsed_ns": 120362,
+        "event_prepare_native_tid": 6281,
+        "events_created_and_initialized_in_prepare": true,
+        "extra_prepare_event_initialization_sync": true,
+        "manifest_is_copy_path": false,
+        "memory_after_target_allocate": {
+          "allocated_bytes": 88080384,
+          "hip_free_bytes": 67740106752,
+          "hip_total_bytes": 68702699520,
+          "reserved_bytes": 104857600
+        },
+        "metadata_outside_service": true,
+        "mode": "diagnostic",
+        "pid": 6037,
+        "prepare_native_tid": 6281,
+        "prepare_thread_ident": 140213879830080,
+        "prepare_thread_name": "Thread-96 (process_request_thread)",
+        "source": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210956402688,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 16777216,
+          "shape": [
+            16777216
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "source_identity": {
+          "epoch": "local_slope_runtime_r01/node27/0/6037/5f79ddc38aa446cabf793443ead816ba",
+          "generation": 1,
+          "id": "local_slope_runtime_r01/source0/hbm",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "n": 16777216,
+          "off": 0
+        },
+        "source_offset": 0,
+        "target": {
+          "alignment_remainders": {
+            "2097152": 0,
+            "256": 0,
+            "4096": 0
+          },
+          "contiguous": true,
+          "data_ptr": 140210929139712,
+          "device": "cuda:0",
+          "dtype": "torch.uint8",
+          "numel": 4194304,
+          "shape": [
+            4194304
+          ],
+          "storage_offset": 0,
+          "stride": [
+            1
+          ]
+        },
+        "target_offset": 0,
+        "tensor_manifest_index": {
+          "t0": [
+            0,
+            1048576
+          ],
+          "t1": [
+            1048576,
+            15728640
+          ]
+        }
+      },
+      "published_ms": 40.125858,
+      "raw_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/measure/diagnostic_3_4MiB.json",
+        "sha256": "29a94ffa67a6ad4829e7c5c87371d2757ad06d214db9faca84dd2994731f2321"
+      },
+      "service_ms": 0.301664,
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 4194304,
+        "operations": {
+          "0": {
+            "n": 4194304,
+            "op_id": 0,
+            "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+            "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+          }
+        },
+        "passed": true
+      },
+      "worker_execute_ms": 0.34911397960968316
+    }
+  ],
+  "root_cause_certified": false
+}

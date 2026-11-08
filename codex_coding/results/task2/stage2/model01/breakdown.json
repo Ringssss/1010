@@ -1,0 +1,640 @@
+{
+  "run": "stage2/model01",
+  "status": "passed",
+  "summary_sha256": "30491a9df8d91c70e6e1ee4d9974e6f8996cec01ac443fa9be30fd73c183bd98",
+  "analyzer_sha256": "1a486692f8cec6d342500a057998a8e59227c8b92b45108e8b4013affc77f44d",
+  "metric": "max(weights_ready) - min(load_begin), same-host monotonic clock",
+  "notes": [
+    "Per-sample critical-rank segments plus arrival skew exactly sum to the load window.",
+    "Critical rank is the rank with the latest weights_ready timestamp.",
+    "Target wait includes controller polling, planning, mapping, copying and notification.",
+    "Keeper and planner durations overlap rank segments; do not add them again.",
+    "Medians of individual segments need not sum to the median load window.",
+    "First solver invocation remains in the main statistics; no slow samples removed."
+  ],
+  "groups": {
+    "single_source/parallel": {
+      "samples": [
+        {
+          "phase": "restore_single_source_parallel_0",
+          "passed": true,
+          "load_s": 1.414631044,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.013131088,
+            "loader_entry_s": 0.001350328,
+            "model_layout_s": 0.32277895,
+            "target_export_s": 0.032710839,
+            "target_wait_s": 1.03269693,
+            "finalize_s": 0.011962909
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001200237,
+              "model_layout_s": 0.323140453,
+              "target_export_s": 0.032146445,
+              "target_wait_s": 0.921149904,
+              "finalize_s": 0.13696516
+            },
+            "1": {
+              "loader_entry_s": 0.001350328,
+              "model_layout_s": 0.32277895,
+              "target_export_s": 0.032710839,
+              "target_wait_s": 1.03269693,
+              "finalize_s": 0.011962909
+            }
+          },
+          "catalog_and_plan_s": 0.022836768999695778,
+          "actual_strategy": "nearest",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.03995912475511432,
+          "keeper_max_execute_s": 0.911959938,
+          "keeper_max_flow_s": 0.9521612748503685
+        },
+        {
+          "phase": "restore_single_source_parallel_1",
+          "passed": true,
+          "load_s": 1.402464211,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.009674947,
+            "loader_entry_s": 0.001277342,
+            "model_layout_s": 0.320664076,
+            "target_export_s": 0.032234364,
+            "target_wait_s": 1.027000626,
+            "finalize_s": 0.011612856
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001282162,
+              "model_layout_s": 0.321470193,
+              "target_export_s": 0.031631627,
+              "target_wait_s": 0.899837718,
+              "finalize_s": 0.148232593
+            },
+            "1": {
+              "loader_entry_s": 0.001277342,
+              "model_layout_s": 0.320664076,
+              "target_export_s": 0.032234364,
+              "target_wait_s": 1.027000626,
+              "finalize_s": 0.011612856
+            }
+          },
+          "catalog_and_plan_s": 0.02175993425771594,
+          "actual_strategy": "nearest",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04182088980451226,
+          "keeper_max_execute_s": 0.910815989,
+          "keeper_max_flow_s": 0.9480664818547666
+        },
+        {
+          "phase": "restore_single_source_parallel_2",
+          "passed": true,
+          "load_s": 1.430867665,
+          "critical_rank": "0",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.0,
+            "loader_entry_s": 0.00122538,
+            "model_layout_s": 0.31998549,
+            "target_export_s": 0.032068838,
+            "target_wait_s": 0.925350409,
+            "finalize_s": 0.152237548
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.00122538,
+              "model_layout_s": 0.31998549,
+              "target_export_s": 0.032068838,
+              "target_wait_s": 0.925350409,
+              "finalize_s": 0.152237548
+            },
+            "1": {
+              "loader_entry_s": 0.001306886,
+              "model_layout_s": 0.31985293,
+              "target_export_s": 0.032320549,
+              "target_wait_s": 1.05764245,
+              "finalize_s": 0.011128361
+            }
+          },
+          "catalog_and_plan_s": 0.02237880602478981,
+          "actual_strategy": "nearest",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04094562912359834,
+          "keeper_max_execute_s": 0.910345322,
+          "keeper_max_flow_s": 0.947911293245852
+        },
+        {
+          "phase": "restore_single_source_parallel_3",
+          "passed": true,
+          "load_s": 1.591415367,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.068441128,
+            "loader_entry_s": 0.001358778,
+            "model_layout_s": 0.333553739,
+            "target_export_s": 0.032343173,
+            "target_wait_s": 1.14406365,
+            "finalize_s": 0.011654899
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001037016,
+              "model_layout_s": 0.319789609,
+              "target_export_s": 0.03201729,
+              "target_wait_s": 1.088372126,
+              "finalize_s": 0.150128436
+            },
+            "1": {
+              "loader_entry_s": 0.001358778,
+              "model_layout_s": 0.333553739,
+              "target_export_s": 0.032343173,
+              "target_wait_s": 1.14406365,
+              "finalize_s": 0.011654899
+            }
+          },
+          "catalog_and_plan_s": 0.02237070072442293,
+          "actual_strategy": "nearest",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.15030527720227838,
+          "keeper_max_execute_s": 0.911356232,
+          "keeper_max_flow_s": 1.0540929292328656
+        },
+        {
+          "phase": "restore_single_source_parallel_4",
+          "passed": true,
+          "load_s": 1.56864908,
+          "critical_rank": "0",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.0,
+            "loader_entry_s": 0.000898867,
+            "model_layout_s": 0.315598246,
+            "target_export_s": 0.031620238,
+            "target_wait_s": 1.068121063,
+            "finalize_s": 0.152410666
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.000898867,
+              "model_layout_s": 0.315598246,
+              "target_export_s": 0.031620238,
+              "target_wait_s": 1.068121063,
+              "finalize_s": 0.152410666
+            },
+            "1": {
+              "loader_entry_s": 0.001280765,
+              "model_layout_s": 0.318725564,
+              "target_export_s": 0.031905124,
+              "target_wait_s": 1.108899066,
+              "finalize_s": 0.0109775
+            }
+          },
+          "catalog_and_plan_s": 0.021455211099237204,
+          "actual_strategy": "nearest",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04290567198768258,
+          "keeper_max_execute_s": 0.911336326,
+          "keeper_max_flow_s": 0.9487519920803607
+        }
+      ],
+      "attempts": 5,
+      "passed": 5,
+      "medians_s": {
+        "load_s": 1.430867665,
+        "catalog_and_plan_s": 0.02237070072442293,
+        "keeper_max_prepare_s": 0.04182088980451226,
+        "keeper_max_execute_s": 0.911336326,
+        "keeper_max_flow_s": 0.9487519920803607
+      },
+      "critical_rank_segment_medians_s": {
+        "arrival_skew_s": 0.009674947,
+        "loader_entry_s": 0.001277342,
+        "model_layout_s": 0.320664076,
+        "target_export_s": 0.032234364,
+        "target_wait_s": 1.03269693,
+        "finalize_s": 0.011962909
+      }
+    },
+    "balanced/parallel": {
+      "samples": [
+        {
+          "phase": "restore_balanced_parallel_0",
+          "passed": true,
+          "load_s": 1.575563298,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.008869741,
+            "loader_entry_s": 0.001259393,
+            "model_layout_s": 0.322660708,
+            "target_export_s": 0.031593854,
+            "target_wait_s": 1.199815171,
+            "finalize_s": 0.011364431
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001135075,
+              "model_layout_s": 0.314365418,
+              "target_export_s": 0.031895573,
+              "target_wait_s": 1.083384154,
+              "finalize_s": 0.144766526
+            },
+            "1": {
+              "loader_entry_s": 0.001259393,
+              "model_layout_s": 0.322660708,
+              "target_export_s": 0.031593854,
+              "target_wait_s": 1.199815171,
+              "finalize_s": 0.011364431
+            }
+          },
+          "catalog_and_plan_s": 0.025556771084666252,
+          "actual_strategy": "balanced",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.03825113596394658,
+          "keeper_max_execute_s": 0.934823177,
+          "keeper_max_flow_s": 0.9720593667589128
+        },
+        {
+          "phase": "restore_balanced_parallel_1",
+          "passed": true,
+          "load_s": 1.616309055,
+          "critical_rank": "0",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.003624106,
+            "loader_entry_s": 0.001321972,
+            "model_layout_s": 0.4307684,
+            "target_export_s": 0.031888575,
+            "target_wait_s": 1.016660922,
+            "finalize_s": 0.13204508
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001321972,
+              "model_layout_s": 0.4307684,
+              "target_export_s": 0.031888575,
+              "target_wait_s": 1.016660922,
+              "finalize_s": 0.13204508
+            },
+            "1": {
+              "loader_entry_s": 0.000828956,
+              "model_layout_s": 0.414598976,
+              "target_export_s": 0.031352956,
+              "target_wait_s": 1.158978448,
+              "finalize_s": 0.010529884
+            }
+          },
+          "catalog_and_plan_s": 0.021412191446870565,
+          "actual_strategy": "balanced",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04184163408353925,
+          "keeper_max_execute_s": 0.939185011,
+          "keeper_max_flow_s": 0.9774086847901344
+        },
+        {
+          "phase": "restore_balanced_parallel_2",
+          "passed": true,
+          "load_s": 1.567067302,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.006483722,
+            "loader_entry_s": 0.00131771,
+            "model_layout_s": 0.320729239,
+            "target_export_s": 0.032269914,
+            "target_wait_s": 1.195218815,
+            "finalize_s": 0.011047902
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001252898,
+              "model_layout_s": 0.320630901,
+              "target_export_s": 0.031991662,
+              "target_wait_s": 1.063519035,
+              "finalize_s": 0.149650527
+            },
+            "1": {
+              "loader_entry_s": 0.00131771,
+              "model_layout_s": 0.320729239,
+              "target_export_s": 0.032269914,
+              "target_wait_s": 1.195218815,
+              "finalize_s": 0.011047902
+            }
+          },
+          "catalog_and_plan_s": 0.025740304961800575,
+          "actual_strategy": "balanced",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.14409032696858048,
+          "keeper_max_execute_s": 0.936562999,
+          "keeper_max_flow_s": 1.080910624936223
+        },
+        {
+          "phase": "restore_balanced_parallel_3",
+          "passed": true,
+          "load_s": 1.674438914,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.004848089,
+            "loader_entry_s": 0.000891814,
+            "model_layout_s": 0.315984795,
+            "target_export_s": 0.031708244,
+            "target_wait_s": 1.15945072,
+            "finalize_s": 0.161555252
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.00125185,
+              "model_layout_s": 0.320567903,
+              "target_export_s": 0.032819222,
+              "target_wait_s": 1.30765342,
+              "finalize_s": 0.011940206
+            },
+            "1": {
+              "loader_entry_s": 0.000891814,
+              "model_layout_s": 0.315984795,
+              "target_export_s": 0.031708244,
+              "target_wait_s": 1.15945072,
+              "finalize_s": 0.161555252
+            }
+          },
+          "catalog_and_plan_s": 0.025358478538691998,
+          "actual_strategy": "balanced",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.03824120294302702,
+          "keeper_max_execute_s": 1.091808647,
+          "keeper_max_flow_s": 1.1300399326719344
+        },
+        {
+          "phase": "restore_balanced_parallel_4",
+          "passed": true,
+          "load_s": 1.56144389,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.013951865,
+            "loader_entry_s": 0.001305838,
+            "model_layout_s": 0.322969938,
+            "target_export_s": 0.032014916,
+            "target_wait_s": 1.17941583,
+            "finalize_s": 0.011785503
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001211131,
+              "model_layout_s": 0.320880613,
+              "target_export_s": 0.03226041,
+              "target_wait_s": 1.068238887,
+              "finalize_s": 0.138804099
+            },
+            "1": {
+              "loader_entry_s": 0.001305838,
+              "model_layout_s": 0.322969938,
+              "target_export_s": 0.032014916,
+              "target_wait_s": 1.17941583,
+              "finalize_s": 0.011785503
+            }
+          },
+          "catalog_and_plan_s": 0.026713062077760696,
+          "actual_strategy": "balanced",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04051881795749068,
+          "keeper_max_execute_s": 0.939902021,
+          "keeper_max_flow_s": 0.9806608161889017
+        }
+      ],
+      "attempts": 5,
+      "passed": 5,
+      "medians_s": {
+        "load_s": 1.575563298,
+        "catalog_and_plan_s": 0.025556771084666252,
+        "keeper_max_prepare_s": 0.04051881795749068,
+        "keeper_max_execute_s": 0.939185011,
+        "keeper_max_flow_s": 0.9806608161889017
+      },
+      "critical_rank_segment_medians_s": {
+        "arrival_skew_s": 0.006483722,
+        "loader_entry_s": 0.001305838,
+        "model_layout_s": 0.322660708,
+        "target_export_s": 0.031888575,
+        "target_wait_s": 1.17941583,
+        "finalize_s": 0.011785503
+      }
+    },
+    "resource_lp/parallel": {
+      "samples": [
+        {
+          "phase": "restore_resource_lp_parallel_0",
+          "passed": true,
+          "load_s": 1.76584007,
+          "critical_rank": "0",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.0,
+            "loader_entry_s": 0.001018228,
+            "model_layout_s": 0.315858085,
+            "target_export_s": 0.032380207,
+            "target_wait_s": 1.261627827,
+            "finalize_s": 0.154955723
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001018228,
+              "model_layout_s": 0.315858085,
+              "target_export_s": 0.032380207,
+              "target_wait_s": 1.261627827,
+              "finalize_s": 0.154955723
+            },
+            "1": {
+              "loader_entry_s": 0.001041277,
+              "model_layout_s": 0.31359045,
+              "target_export_s": 0.032739265,
+              "target_wait_s": 1.404013225,
+              "finalize_s": 0.011268818
+            }
+          },
+          "catalog_and_plan_s": 0.2882551490329206,
+          "actual_strategy": "resource_lp",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.14444615878164768,
+          "keeper_max_execute_s": 0.908941919,
+          "keeper_max_flow_s": 1.053636856842786
+        },
+        {
+          "phase": "restore_resource_lp_parallel_1",
+          "passed": true,
+          "load_s": 1.4052627,
+          "critical_rank": "0",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.0,
+            "loader_entry_s": 0.000790612,
+            "model_layout_s": 0.316027452,
+            "target_export_s": 0.031815743,
+            "target_wait_s": 0.905014906,
+            "finalize_s": 0.151613987
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.000790612,
+              "model_layout_s": 0.316027452,
+              "target_export_s": 0.031815743,
+              "target_wait_s": 0.905014906,
+              "finalize_s": 0.151613987
+            },
+            "1": {
+              "loader_entry_s": 0.000917865,
+              "model_layout_s": 0.317664132,
+              "target_export_s": 0.03205558,
+              "target_wait_s": 1.037363781,
+              "finalize_s": 0.011118378
+            }
+          },
+          "catalog_and_plan_s": 0.029556070920079947,
+          "actual_strategy": "resource_lp",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04097497882321477,
+          "keeper_max_execute_s": 0.910867397,
+          "keeper_max_flow_s": 0.9491309649311006
+        },
+        {
+          "phase": "restore_resource_lp_parallel_2",
+          "passed": true,
+          "load_s": 1.374006208,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.0,
+            "loader_entry_s": 0.000864366,
+            "model_layout_s": 0.313144596,
+            "target_export_s": 0.031627366,
+            "target_wait_s": 1.017113778,
+            "finalize_s": 0.011256102
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001296339,
+              "model_layout_s": 0.320877933,
+              "target_export_s": 0.032897724,
+              "target_wait_s": 0.864868547,
+              "finalize_s": 0.152844546
+            },
+            "1": {
+              "loader_entry_s": 0.000864366,
+              "model_layout_s": 0.313144596,
+              "target_export_s": 0.031627366,
+              "target_wait_s": 1.017113778,
+              "finalize_s": 0.011256102
+            }
+          },
+          "catalog_and_plan_s": 0.026809028815478086,
+          "actual_strategy": "resource_lp",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.041136716958135366,
+          "keeper_max_execute_s": 0.909496462,
+          "keeper_max_flow_s": 0.9472653931006789
+        },
+        {
+          "phase": "restore_resource_lp_parallel_3",
+          "passed": true,
+          "load_s": 1.569578544,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.128306432,
+            "loader_entry_s": 0.001312403,
+            "model_layout_s": 0.328592691,
+            "target_export_s": 0.032061644,
+            "target_wait_s": 1.068176106,
+            "finalize_s": 0.011129268
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001655397,
+              "model_layout_s": 0.318041506,
+              "target_export_s": 0.031856378,
+              "target_wait_s": 1.067921601,
+              "finalize_s": 0.150071535
+            },
+            "1": {
+              "loader_entry_s": 0.001312403,
+              "model_layout_s": 0.328592691,
+              "target_export_s": 0.032061644,
+              "target_wait_s": 1.068176106,
+              "finalize_s": 0.011129268
+            }
+          },
+          "catalog_and_plan_s": 0.02692259196192026,
+          "actual_strategy": "resource_lp",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.04246427584439516,
+          "keeper_max_execute_s": 0.910793709,
+          "keeper_max_flow_s": 0.9480272312648594
+        },
+        {
+          "phase": "restore_resource_lp_parallel_4",
+          "passed": true,
+          "load_s": 1.390582342,
+          "critical_rank": "1",
+          "critical_rank_segments_s": {
+            "arrival_skew_s": 0.009209727,
+            "loader_entry_s": 0.000851655,
+            "model_layout_s": 0.315614728,
+            "target_export_s": 0.031788767,
+            "target_wait_s": 1.021929041,
+            "finalize_s": 0.011188424
+          },
+          "rank_segments_s": {
+            "0": {
+              "loader_entry_s": 0.001244726,
+              "model_layout_s": 0.320488449,
+              "target_export_s": 0.032568414,
+              "target_wait_s": 0.874930858,
+              "finalize_s": 0.161342771
+            },
+            "1": {
+              "loader_entry_s": 0.000851655,
+              "model_layout_s": 0.315614728,
+              "target_export_s": 0.031788767,
+              "target_wait_s": 1.021929041,
+              "finalize_s": 0.011188424
+            }
+          },
+          "catalog_and_plan_s": 0.028783532325178385,
+          "actual_strategy": "resource_lp",
+          "fallback_reason": null,
+          "keeper_max_prepare_s": 0.041872916743159294,
+          "keeper_max_execute_s": 0.920808242,
+          "keeper_max_flow_s": 0.9629200878553092
+        }
+      ],
+      "attempts": 5,
+      "passed": 5,
+      "medians_s": {
+        "load_s": 1.4052627,
+        "catalog_and_plan_s": 0.028783532325178385,
+        "keeper_max_prepare_s": 0.041872916743159294,
+        "keeper_max_execute_s": 0.910793709,
+        "keeper_max_flow_s": 0.9491309649311006
+      },
+      "critical_rank_segment_medians_s": {
+        "arrival_skew_s": 0.0,
+        "loader_entry_s": 0.000864366,
+        "model_layout_s": 0.315858085,
+        "target_export_s": 0.031815743,
+        "target_wait_s": 1.021929041,
+        "finalize_s": 0.011256102
+      }
+    }
+  },
+  "replicas": [
+    {
+      "replica_id": "task2/0/partial",
+      "numa": 3,
+      "physical_bytes": 4294967296,
+      "build_s": 5.510192280635238,
+      "allocation_s": 0.9940398717299104,
+      "copy_s": 0.8850078610703349,
+      "verify_s": 3.6311445478349924
+    },
+    {
+      "replica_id": "task2/1/partial",
+      "numa": 0,
+      "physical_bytes": 4294967296,
+      "build_s": 5.958966148085892,
+      "allocation_s": 1.796630460768938,
+      "copy_s": 0.5276351273059845,
+      "verify_s": 3.6347005600109696
+    }
+  ]
+}

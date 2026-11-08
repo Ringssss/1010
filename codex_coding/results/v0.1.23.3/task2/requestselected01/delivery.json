@@ -1,0 +1,159 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "passed": true,
+  "accuracy": [
+    {
+      "case": "holdout192_three_0",
+      "actual_s": 0.012639950960874557,
+      "predicted_s": 0.01253763330169022,
+      "absolute_error_ms": 0.10231765918433666,
+      "relative_error_pct": 0.8094782922896507,
+      "verified_bytes": 201326592
+    },
+    {
+      "case": "holdout192_three_1",
+      "actual_s": 0.010205325670540333,
+      "predicted_s": 0.011867684544995427,
+      "absolute_error_ms": 1.6623588744550943,
+      "relative_error_pct": 16.289131068632315,
+      "verified_bytes": 201326592
+    },
+    {
+      "case": "holdout_mixed_three",
+      "actual_s": 0.012107684276998043,
+      "predicted_s": 0.012314317049458623,
+      "absolute_error_ms": 0.20663277246057987,
+      "relative_error_pct": 1.7066250468154098,
+      "verified_bytes": 201326592
+    },
+    {
+      "case": "current_cold",
+      "actual_s": 0.7697573760524392,
+      "predicted_s": 0.9578631820622832,
+      "absolute_error_ms": 188.10580600984395,
+      "relative_error_pct": 24.4370254656747,
+      "verified_bytes": 201326592
+    },
+    {
+      "case": "current_warm",
+      "actual_s": 0.011677178088575602,
+      "predicted_s": 0.012314317049458623,
+      "absolute_error_ms": 0.6371389608830214,
+      "relative_error_pct": 5.4562751038829145,
+      "verified_bytes": 201326592
+    },
+    {
+      "case": "selected_cold",
+      "actual_s": 0.5365929189138114,
+      "predicted_s": 0.5103646211791784,
+      "absolute_error_ms": 26.228297734633088,
+      "relative_error_pct": 4.887932138151441,
+      "verified_bytes": 201326592
+    },
+    {
+      "case": "selected_warm",
+      "actual_s": 0.013329222798347473,
+      "predicted_s": 0.01253763330169022,
+      "absolute_error_ms": 0.7915894966572523,
+      "relative_error_pct": 5.938752083545275,
+      "verified_bytes": 201326592
+    }
+  ],
+  "service_model": {
+    "schema_version": 2,
+    "topology_id": "16a91c017048061d3b821b07f9e1be2a5045608aa533df727346cf456eeeba0a",
+    "executor": "serial",
+    "paths": {
+      "2:hbm:2->6": {
+        "warm_GBps": 36.455172155599335,
+        "operation_s": 0.0,
+        "first_pair_s": 0.4477218771353364,
+        "fit_bytes": [
+          134217728,
+          268435456
+        ]
+      },
+      "4:dram:2->6": {
+        "warm_GBps": 32.51121007029687,
+        "operation_s": 0.0,
+        "first_pair_s": 0.49782698787748814,
+        "fit_bytes": [
+          134217728,
+          268435456
+        ]
+      }
+    },
+    "request_s": 0.001902811462059617,
+    "dispatch_s": 0.004442293429747224,
+    "fit_diagnostics": {
+      "2:hbm:2->6": {
+        "raw_operation_s": -1.2026634067296982e-05,
+        "raw_request_s": 0.0008099153637886047,
+        "clamped": true
+      },
+      "4:dram:2->6": {
+        "raw_operation_s": -0.0002996749244630337,
+        "raw_request_s": 0.0029957075603306293,
+        "clamped": true
+      }
+    },
+    "scope": "target-side service; equal-byte operation-count calibration; one shared request overhead; serial dependencies, no contention guarantee"
+  },
+  "selection": {
+    "status": "service_reranked",
+    "selected_proposal": "bandwidth_milp",
+    "bandwidth_solver": {
+      "objective_s": 0.006710886400000001,
+      "rounded_plan_s": 0.0067108864,
+      "status": "optimal",
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "dual_bound_s": 0.006710886400000001,
+      "solve_wall_s": 0.004212664905935526,
+      "candidate_count": 3,
+      "flow_variables": 6,
+      "tier_bytes": {
+        "dram": 0,
+        "hbm": 0
+      },
+      "scope": "optimal only within supplied finite candidates, one restore scenario and approximate resource/service model"
+    },
+    "proposals": [
+      {
+        "name": "bandwidth_milp",
+        "predicted_s": 0.5103646211791784
+      },
+      {
+        "name": "base_only",
+        "predicted_s": 0.5103646211791784
+      },
+      {
+        "name": "current",
+        "predicted_s": 0.9578631820622832
+      }
+    ],
+    "scope": "best of current, base-only and bandwidth-MILP proposal under cold service scoring; not globally service-optimal"
+  },
+  "layout_decision": "replace",
+  "comparisons": {
+    "cold": {
+      "current_s": 0.7697573760524392,
+      "selected_s": 0.5365929189138114,
+      "change_pct": -30.29064279115704
+    },
+    "warm": {
+      "current_s": 0.011677178088575602,
+      "selected_s": 0.013329222798347473,
+      "change_pct": 14.14763650293347
+    }
+  },
+  "archive_changed": [],
+  "limitations": [
+    "one sample per case; different isolated worker sessions for current and selected layouts",
+    "future cold pair policy explicitly requested, not a prediction of automatic runtime readiness",
+    "finite proposal reranking; bandwidth MILP objective is not globally replaced",
+    "two calibrated paths; no concurrent shared-link contention or full-model validation",
+    "request overhead is pooled across paths; negative fitted terms are explicitly clamped"
+  ]
+}

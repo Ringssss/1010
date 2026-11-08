@@ -1,0 +1,213 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "diagnostic_validation_passed": true,
+  "original_3_5s_root_cause_confirmed": false,
+  "original_event": {
+    "run": "baselocation03",
+    "variant": "local_base",
+    "gpu": 4,
+    "tp": 0,
+    "mapping_s": 3.502940622,
+    "fine_grained_trace_available": false
+  },
+  "instrumented_replay": {
+    "gpu_pair": [
+      6,
+      7
+    ],
+    "container": "fresh isolated image; original container stopped",
+    "scope": "hardware changed due occupancy; no identical-environment historical reproduction claim",
+    "rank_mapping": [
+      {
+        "variant": "remote_base",
+        "tp": 0,
+        "mapping_s": 0.1543169,
+        "ipc_s": 0.09916888399999997,
+        "ipc_cpu_s": 0.09895775799999991
+      },
+      {
+        "variant": "remote_base",
+        "tp": 1,
+        "mapping_s": 0.149755025,
+        "ipc_s": 0.09602390799999998,
+        "ipc_cpu_s": 0.09597546700000002
+      },
+      {
+        "variant": "local_base",
+        "tp": 0,
+        "mapping_s": 0.246618996,
+        "ipc_s": 0.1923179410000003,
+        "ipc_cpu_s": 0.18975991100000003
+      },
+      {
+        "variant": "local_base",
+        "tp": 1,
+        "mapping_s": 0.280518872,
+        "ipc_s": 0.22714277499999988,
+        "ipc_cpu_s": 0.22422807899999983
+      }
+    ],
+    "load_samples": [
+      {
+        "variant": "remote_base",
+        "load_s": 1.801471102,
+        "verified_bytes": 70329718112,
+        "generation_checks": 3
+      },
+      {
+        "variant": "local_base",
+        "load_s": 1.526230893,
+        "verified_bytes": 70329718112,
+        "generation_checks": 3
+      }
+    ]
+  },
+  "controlled_probes": [
+    {
+      "gpu": 6,
+      "numa": 6,
+      "storage_count": 1009,
+      "bytes": 35164859056,
+      "samples": [
+        {
+          "condition": "small_cache",
+          "mapping_s": 0.08460396388545632,
+          "ipc_wall_s": 0.04178519599999979,
+          "ipc_cpu_s": 0.041794341999999964,
+          "ipc_max_s": 0.000387903,
+          "sampled_bytes_correct": true,
+          "registered_bytes": 1073741824
+        },
+        {
+          "condition": "large_base_registered",
+          "mapping_s": 1.3567508608102798,
+          "ipc_wall_s": 0.03843696199999982,
+          "ipc_cpu_s": 0.03841062200000008,
+          "ipc_max_s": 0.000788726,
+          "sampled_bytes_correct": true,
+          "registered_bytes": 36238600880
+        },
+        {
+          "condition": "large_base_released",
+          "mapping_s": 0.10294980090111494,
+          "ipc_wall_s": 0.06190619699999948,
+          "ipc_cpu_s": 0.06188286700000002,
+          "ipc_max_s": 0.003064391,
+          "sampled_bytes_correct": true,
+          "registered_bytes": 1073741824
+        }
+      ],
+      "scope": "fresh same-size exporters, one importer; no inference, no complete weight validation",
+      "passed": true
+    },
+    {
+      "gpu": 6,
+      "numa": 6,
+      "storage_count": 1009,
+      "bytes": 35164859056,
+      "samples": [
+        {
+          "condition": "small_cache",
+          "mapping_s": 0.08385979384183884,
+          "ipc_wall_s": 0.04268530599999973,
+          "ipc_cpu_s": 0.042717877999999994,
+          "ipc_max_s": 0.000506704,
+          "sampled_bytes_correct": true,
+          "registered_bytes": 1073741824
+        },
+        {
+          "condition": "large_base_registered",
+          "mapping_s": 0.0809056144207716,
+          "ipc_wall_s": 0.04129168699999974,
+          "ipc_cpu_s": 0.04128146600000002,
+          "ipc_max_s": 0.000311845,
+          "sampled_bytes_correct": true,
+          "registered_bytes": 36238600880
+        },
+        {
+          "condition": "large_base_released",
+          "mapping_s": 0.09891551034525037,
+          "ipc_wall_s": 0.056466759999999526,
+          "ipc_cpu_s": 0.05652025299999996,
+          "ipc_max_s": 0.003017108,
+          "sampled_bytes_correct": true,
+          "registered_bytes": 1073741824
+        }
+      ],
+      "scope": "fresh same-size exporters, one importer; no inference, no complete weight validation",
+      "passed": true
+    }
+  ],
+  "captured_stall": {
+    "path": "HbmTarget.__init__ / pickle_read",
+    "manifest_bytes": 349898,
+    "total_mapping_s": 1.3567508608102798,
+    "file_loading_stage": {
+      "stage": "pickle_read",
+      "begin_ns": 4106198276701212,
+      "end_ns": 4106199557940080,
+      "wall_s": 1.281238868,
+      "thread_cpu_s": 0.003341635,
+      "minor_faults": 1,
+      "major_faults": 0,
+      "voluntary_switches": 1,
+      "involuntary_switches": 0,
+      "path": "codex_coding/results/v0.1.23.3/task2/ipcreg01/large_base_registered.pkl"
+    },
+    "ipc_total_s": 0.03843696199999982,
+    "ipc_max_s": 0.000788726,
+    "max_gc_s": 0.000534152,
+    "pickle_global_or_reduce_opcodes": [],
+    "interpretation": "intermittent blocking inside file open/read/unpickle/close stage; low thread CPU and short GC exclude decoding work or GC as dominant in this sample",
+    "unresolved": "this captured sample predates per-read tracing; exact syscall and lower-layer cause are unproven"
+  },
+  "backing_store_probe": {
+    "passed": true,
+    "payload_bytes": 349898,
+    "registered_bytes": 36238600880
+  },
+  "backing_store_samples": [
+    {
+      "storage": "disk",
+      "state": "first_read",
+      "read_s": 0.003780691,
+      "cpu_s": 0.003773358
+    },
+    {
+      "storage": "disk",
+      "state": "second_read",
+      "read_s": 0.004595888,
+      "cpu_s": 0.004593992
+    },
+    {
+      "storage": "tmpfs",
+      "state": "first_read",
+      "read_s": 0.003747516,
+      "cpu_s": 0.003745234
+    },
+    {
+      "storage": "tmpfs",
+      "state": "second_read",
+      "read_s": 0.003261275,
+      "cpu_s": 0.003260444
+    }
+  ],
+  "ruled_out_as_deterministic_explanation": [
+    "registered base always causes seconds of IPC import: second controlled pass remained fast",
+    "normal metadata decoding or steady storage import necessarily costs seconds",
+    "GC dominates the captured 1.28-second file-loading stall"
+  ],
+  "next_step": "retain opt-in per-open/read/close tracing; evaluate host-local memory-backed handoff with matched full-load A/B before promoting a fix",
+  "performance_fix_claimed": false,
+  "implementation": [
+    "opt-in target preparation trace with wall/CPU/fault/context-switch counters and GC events",
+    "per-storage IPC/tensor-binding timing; per-file-operation timing added after the captured stall",
+    "trace files flush after target_mapped; instrumentation remains off by default"
+  ],
+  "limitations": [
+    "synthetic IPC probes validate sampled sentinel bytes, not full model content",
+    "two controlled passes only; no tail-latency distribution or tmpfs speedup established",
+    "the diagnostic reader adds overhead; instrumented main-metric samples are not final benchmark results"
+  ]
+}

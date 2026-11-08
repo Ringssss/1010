@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "multitier_scenarios.retention_contract.v1",
+  "type": "object",
+  "required": ["schema_version", "development", "logical_tp", "block_unit_bytes", "payload_bytes", "snapshot", "workers", "locations", "blocks", "candidates", "supergraph", "phases", "retention_accounting", "physical_parameters", "actions", "readiness", "gpu_command"],
+  "properties": {
+    "schema_version": {"const": "multitier_scenarios.retention_contract.v1"},
+    "development": {"const": "v0.1.23.3/task2"},
+    "logical_tp": {"const": 4},
+    "block_unit_bytes": {"type": "integer", "minimum": 1},
+    "payload_bytes": {"type": "integer", "minimum": 1},
+    "gpu_command": {"type": "null"},
+    "snapshot": {"type": "object", "required": ["identity", "actual_model_binding", "repartitioning_allowed", "cold_checkpoint_transform", "model_payload_materialized"], "properties": {"actual_model_binding": {"type": "null"}, "repartitioning_allowed": {"const": false}, "model_payload_materialized": {"const": false}}},
+    "workers": {"type": "array", "minItems": 6, "maxItems": 6, "items": {"type": "object", "required": ["id", "node", "gpu", "numa", "target_rank", "physical_binding"], "properties": {"id": {"type": "string"}, "node": {"enum": ["n0", "n1", "n2"]}, "gpu": {"enum": ["g0", "g1"]}, "numa": {"enum": ["u0", "u1"]}, "target_rank": {"type": ["integer", "null"]}, "physical_binding": {"type": "null"}}}},
+    "locations": {"type": "array", "minItems": 15, "maxItems": 15, "items": {"type": "object", "required": ["id", "tier", "node", "numa", "worker", "role", "physical_binding"], "properties": {"tier": {"enum": ["hbm", "dram", "ssd"]}, "role": {"enum": ["optional_retention", "fixed_authoritative"]}, "physical_binding": {"type": "null"}}}},
+    "blocks": {"type": "array", "minItems": 5, "maxItems": 12, "items": {"type": "object", "required": ["id", "identity", "rank", "offset_bytes", "nbytes", "target_worker", "authoritative_location", "payload_digest"], "properties": {"rank": {"type": "integer", "minimum": 0, "maximum": 3}, "offset_bytes": {"type": "integer", "minimum": 0}, "nbytes": {"type": "integer", "minimum": 1}, "payload_digest": {"type": "null"}}}},
+    "candidates": {"type": "array", "minItems": 65, "maxItems": 156, "items": {"type": "object", "required": ["id", "block", "location", "nbytes", "fixed", "pause_charge_bytes"], "properties": {"nbytes": {"type": "integer", "minimum": 1}, "fixed": {"type": "boolean"}, "pause_charge_bytes": {"type": "integer", "minimum": 0}}}},
+    "supergraph": {"type": "object", "required": ["paths", "resources", "direct_unicast_only", "relay_allowed", "compression_allowed", "multicast_allowed", "queue_policy"], "properties": {
+      "direct_unicast_only": {"const": true}, "relay_allowed": {"const": false}, "compression_allowed": {"const": false}, "multicast_allowed": {"const": false}, "queue_policy": {"type": "null"},
+      "paths": {"type": "array", "minItems": 65, "maxItems": 156, "items": {"type": "object", "required": ["id", "candidate", "source_worker", "target_worker", "target_rank", "block", "resource_incidence", "rate_bytes_per_second", "physical_path_binding"], "properties": {"rate_bytes_per_second": {"type": "null"}, "physical_path_binding": {"type": "null"}, "resource_incidence": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["resource", "coefficient"], "properties": {"resource": {"type": "string"}, "coefficient": {"const": 1}}}}}}},
+      "resources": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["id", "kind", "capacity_bytes_per_second", "physical_identity"], "properties": {"capacity_bytes_per_second": {"type": "null"}, "physical_identity": {"type": "null"}}}}
+    }},
+    "phases": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "object", "required": ["id", "capacity_bytes", "aggregate_capacity_bytes", "sharing_mode", "constraint_resource_incidence", "witness", "fallback_policy", "selected_by_planner", "schedule", "predicted_ready_seconds"], "properties": {
+      "id": {"enum": ["C0", "C1", "C2a", "C2b", "C3"]},
+      "capacity_bytes": {"type": "object", "minProperties": 12, "maxProperties": 12, "additionalProperties": {"type": "integer", "minimum": 0}},
+      "aggregate_capacity_bytes": {"type": "object", "required": ["hbm", "dram"], "properties": {"hbm": {"type": "integer", "minimum": 0}, "dram": {"type": "integer", "minimum": 0}}},
+      "sharing_mode": {"enum": ["isolated_control", "shared_node_numa"]},
+      "constraint_resource_incidence": {"type": "object", "additionalProperties": {"type": "array", "items": {"type": "string"}}},
+      "witness": {"type": "array", "minItems": 5, "maxItems": 12, "items": {"type": "object", "required": ["block", "candidate", "nbytes"], "properties": {"nbytes": {"type": "integer", "minimum": 1}}}},
+      "selected_by_planner": {"const": false}, "schedule": {"type": "null"}, "predicted_ready_seconds": {"type": "null"}
+    }}},
+    "retention_accounting": {"type": "object", "required": ["optional_tiers", "ssd_authoritative_bytes_by_location", "ssd_authoritative_bytes", "target_hbm_restore_bytes", "target_hbm_charged_to_pause_budget", "peak_policy", "staging_bytes_by_worker", "runtime_bytes_by_worker", "physical_peak_bytes", "os_page_cache_policy"], "properties": {"target_hbm_charged_to_pause_budget": {"const": false}, "staging_bytes_by_worker": {"type": "null"}, "runtime_bytes_by_worker": {"type": "null"}, "physical_peak_bytes": {"type": "null"}}},
+    "physical_parameters": {"type": "object", "required": ["status", "topology_binding", "rates_bytes_per_second", "latencies_seconds", "runtime_budget_admission", "ssd_backing_type"], "properties": {"status": {"const": "unknown_not_calibrated"}, "topology_binding": {"type": "null"}, "rates_bytes_per_second": {"type": "null"}, "latencies_seconds": {"type": "null"}, "runtime_budget_admission": {"type": "null"}, "ssd_backing_type": {"type": "null"}}},
+    "actions": {"type": "object", "required": ["all_policies_share_candidates", "all_policies_share_fallback", "replication_allowed", "ssd_replication_allowed", "arbitrary_future_targets_implemented"], "properties": {"all_policies_share_candidates": {"const": true}, "all_policies_share_fallback": {"const": true}, "replication_allowed": {"const": true}, "ssd_replication_allowed": {"const": false}, "arbitrary_future_targets_implemented": {"const": false}}},
+    "readiness": {"type": "object", "required": ["structural_ready", "physical_ready", "cost_ready", "runtime_budget_ready", "actual_model_ready", "schedule_ready", "performance_ready"], "properties": {"structural_ready": {"type": "boolean"}}, "additionalProperties": {"const": false}},
+    "contract_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+  }
+}

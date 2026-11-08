@@ -1,0 +1,81 @@
+{
+  "status": "failed",
+  "checks": {
+    "no_performance_samples": true,
+    "raw_failure_preserved": true,
+    "no_completed_observations": true,
+    "registered_four_processes": true,
+    "cleanup_passed": false,
+    "original_128MiB_gate": false,
+    "keeper_preserved": false,
+    "code_unchanged_during_run": true,
+    "all_four_exact_processes_exited": false,
+    "rank0/preimport_input": true,
+    "rank1/preimport_input": true,
+    "rank2/preimport_input": true,
+    "rank3/preimport_input": true
+  },
+  "failed": [
+    "cleanup_passed",
+    "original_128MiB_gate",
+    "keeper_preserved",
+    "all_four_exact_processes_exited"
+  ],
+  "runtime_accepted": false,
+  "performance_ready": false,
+  "communication_processes_registered": 4,
+  "completed_gpu_observations": 0,
+  "environment": [
+    {
+      "rank": 0,
+      "preimport_environment_sha256": "3c6673889e043cc9e9408548edc48c90c540b462e209f4156335ee11a3b2903c",
+      "rank_result_exists": true,
+      "rank_result": {
+        "status": "failed",
+        "rank": 0,
+        "node": "node27",
+        "gpu": 0,
+        "pid": 13525,
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "cases": [],
+        "core_dump_limit": [
+          0,
+          0
+        ],
+        "error": "DistStoreError('Timed out after 91 seconds waiting for clients. 2/4 clients joined.')"
+      }
+    },
+    {
+      "rank": 1,
+      "preimport_environment_sha256": "d5f62bd65de4139869309e4d91d8a91581ce5203d8c3fd4b52f99c5f399f4512",
+      "rank_result_exists": true,
+      "rank_result": {
+        "status": "starting",
+        "rank": 1,
+        "node": "node27",
+        "gpu": 1,
+        "pid": 13543,
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "cases": [],
+        "core_dump_limit": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "rank": 2,
+      "preimport_environment_sha256": "db020301560a49c53ee43bc25014311993714870b818d862c5450a49afd14ca8",
+      "rank_result_exists": false,
+      "rank_result": null
+    },
+    {
+      "rank": 3,
+      "preimport_environment_sha256": "c6fd761286ac17ef2772a5de48bc6919cfda82974a36885acc7bb0508a769b8d",
+      "rank_result_exists": false,
+      "rank_result": null
+    }
+  ],
+  "raw_error": "RuntimeError('a disposable rank failed; see rank output and raw logs')",
+  "interpretation": "pre-Torch XML environment reached all ranks; incomplete rendezvous does not prove RCCL accepted or rejected XML"
+}

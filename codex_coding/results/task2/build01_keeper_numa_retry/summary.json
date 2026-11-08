@@ -1,0 +1,104 @@
+{
+  "counters_exported": [
+    1,
+    1,
+    1
+  ],
+  "capture": [
+    {
+      "ev": "capture",
+      "snap": "smoke",
+      "tp": 0,
+      "GiB": 0.0039100805297493935,
+      "n": 3,
+      "map_s": 0.0007009506225585938,
+      "pin_s": 0.0245974063873291,
+      "d2h_s": 0.038048505783081055,
+      "d2h_GBps": 0.11034380755805924,
+      "memory": {
+        "backend": "numa_registered",
+        "numa": 2,
+        "logical_bytes": 4198417,
+        "allocation_bytes": 4202496,
+        "sampled_page_distribution": {
+          "2": 1.0
+        },
+        "placement_samples": 256,
+        "timings": {
+          "allocate_bind_touch_s": 0.02352854097262025,
+          "register_s": 0.0010441397316753864,
+          "total_s": 0.02457505464553833
+        }
+      }
+    }
+  ],
+  "counters_after_capture": [
+    1,
+    1,
+    1
+  ],
+  "capture_verify": {
+    "checked_bytes": 4198417,
+    "expected_bytes": 4198417,
+    "mismatched_bytes": 0,
+    "storages": 3,
+    "passed": true,
+    "elapsed_s": 0.04899764386937022
+  },
+  "counters_after_verify": [
+    1,
+    1,
+    1
+  ],
+  "counters_after_release": [
+    0,
+    0,
+    0
+  ],
+  "before_restore": {
+    "checked_bytes": 4198417,
+    "expected_bytes": 4198417,
+    "mismatched_bytes": 3862093,
+    "storages": 3,
+    "passed": false,
+    "elapsed_s": 0.0018286053091287613
+  },
+  "missing_storage_rejected": true,
+  "local_failure_propagated": true,
+  "restore": {
+    "ev": "flow",
+    "into": "hbm",
+    "dst_tps": [
+      0
+    ],
+    "prep_s": 0.00012946128845214844,
+    "ib_s": 1.7404556274414062e-05,
+    "total_s": 0.017595767974853516,
+    "executor": "direct",
+    "chunk_bytes": 268435456,
+    "local": {
+      "buffer_prepare_s": 2.877507358789444e-05,
+      "copy_and_sync_s": 0.017192885745316744
+    },
+    "ib_bytes": 0,
+    "ssd_bytes": 0,
+    "h2d_bytes": 4198417
+  },
+  "restore_verify": {
+    "checked_bytes": 4198417,
+    "expected_bytes": 4198417,
+    "mismatched_bytes": 0,
+    "storages": 3,
+    "passed": true,
+    "elapsed_s": 0.0011993278749287128
+  },
+  "restore_counters_after_release": [
+    0,
+    0,
+    0
+  ],
+  "drop": {
+    "dropped": "smoke"
+  },
+  "status": "passed"
+}

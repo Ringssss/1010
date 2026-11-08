@@ -1,0 +1,113 @@
+{
+  "development": "v0.1.23.3/task2",
+  "scope": "one 64MiB local N4 to GPU4 H2D observation; no remote/GPU by reviewer",
+  "checks": {
+    "summary_passed": true,
+    "source_frozen_SHA": true,
+    "config_SHA": true,
+    "runtime_fingerprint_SHA": true,
+    "actual_BDF": true,
+    "NUMA_registered": true,
+    "NUMA_256_pages": true,
+    "full_expected_pattern_SHA": true,
+    "single_finite_sample": true,
+    "same_clock_duration": true,
+    "pure_H2D_timer": true,
+    "rate_bytes_duration": true,
+    "phases_separate": true,
+    "no_microprimitive_profile_promotion": true,
+    "precise_natural_cleanup": true,
+    "original_XML_preserved": true,
+    "new_container_identity_preserved": true,
+    "quiet_no_OOM_after": true,
+    "observed_GPU_increment_below_limit": true,
+    "observed_cgroup_increment_below_limit": true
+  },
+  "observed_checks_passed": true,
+  "full_physical_peak_budget_verified": false,
+  "formal_performance_ready": false,
+  "planner_profile_eligible": false,
+  "production_executor_equivalent": false,
+  "weights_ready_measured": false,
+  "sample": {
+    "primitive": "local_numa_h2d",
+    "direction": "host_to_gpu",
+    "bytes": 67108864,
+    "source_resource_id": "node30/numa/4",
+    "target_resource_id": "node30/pci/0000:85:00.0",
+    "duration_ns": 1471437,
+    "start_ns": 4870065553325802,
+    "end_ns": 4870065554797239,
+    "clock_domain": "node30:d9d6a6fb-013f-49ac-98f9-e77eca67952e:monotonic",
+    "completion": "cuda_device_synchronize",
+    "rate_Bps": 45607704577.22621,
+    "timer_scope": "NUMA registered H2D to completed target",
+    "full_SHA256": "98dc891b284e4d84ac25b0c0a24fdbe39a7f0dbd643ad5e8aa06e02fc6258254",
+    "verified_bytes": 67108864,
+    "config_sha256": "dda1efda6dcd1a01d28749b10d247eaffd8d2d5b22adb8ec5a24c076d572284a",
+    "runtime_fingerprint_sha256": "1c361c36e8a7f31b798e24a7d3bca310af6d52078eae62dea68357b2f87ea8e4",
+    "load_scope": "guarded_candidate_scope",
+    "owner_refs": [
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node30/stdout.json",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_owner_scope_r01/stdout.json"
+    ],
+    "capacity_is_physical_upper_bound": false,
+    "production_executor_equivalent": false,
+    "planner_profile_eligible": false
+  },
+  "observed_resources": {
+    "sample_count": 26,
+    "cgroup_current_max_bytes": 1672630272,
+    "cgroup_current_max_increment_from_parent_before_bytes": 1654616064,
+    "GPU_sysfs_used_max_bytes": 219078656,
+    "GPU_sysfs_max_increment_from_parent_before_bytes": 215252992,
+    "kernel_memory_peak_missing": true,
+    "coverage": "20ms samples start after GPU initialization; not an exact whole-process peak"
+  },
+  "source_refs": {
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_local64_node30_r01/summary.json": {
+      "sha256": "d0ffce9c0b10bac950e3655c0bf4afc90e0e3c1a6ac54ba5da6cc09f1bf5a7fc",
+      "bytes": 69213
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_local64_node30_r01/child.result.json": {
+      "sha256": "fb737371d78901c24c6446db35929440e8620bbb4e4c2e7dc7838638bf8264f1",
+      "bytes": 66261
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_local64_node30_r01/registration.json": {
+      "sha256": "0be4ce36749dfc6bb1efbd512bb15b20008e2c6dcd214e5c8187dc0dff5fd14e",
+      "bytes": 2476
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_local64_node30_r01/config.json": {
+      "sha256": "a23f62521fc4e661e7d1d7ead7aebd1c42420de4c66a012e613a3ab71c5bda9d",
+      "bytes": 1998
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_before_local64_node30_r01/stdout.json": {
+      "sha256": "0e652e4286a47b9b62a746655da084b9a41a633c7050a62f82377e4eab7bf386",
+      "bytes": 27290
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_after_local64_node30_r01/stdout.json": {
+      "sha256": "9f978702a1e76585f2cd9e09c6e6e72e3cd95555888c6464e0e865a76a16496b",
+      "bytes": 27290
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_local64_node30_r01/source.py": {
+      "sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9",
+      "bytes": 21372
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_minimal_candidate_2830_node28_r01/summary.json": {
+      "sha256": "a277c2c69de6d9ba2b8d7b5f75dc3ae4cd2c4357cc3e1b804e814809efe7148a",
+      "bytes": 21273
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_minimal_candidate_2830_node30_r01/summary.json": {
+      "sha256": "09ea5cb0df97b08a97788c2743191893dce97e0fb9d941ea802f787047964c41",
+      "bytes": 21277
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node30/stdout.json": {
+      "sha256": "cb6da7fd7c3f87c5a757ac8de70dcf04f9bb221635435d18998cb50b5356ff83",
+      "bytes": 62273
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_owner_scope_r01/stdout.json": {
+      "sha256": "a7717467dc3a78af0242f4b0955e29877d25cb06c5946f0bc955c76895973623",
+      "bytes": 2326
+    }
+  }
+}

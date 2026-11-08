@@ -1,0 +1,190 @@
+{
+  "run": "cluster/pipeline01",
+  "status": "passed",
+  "development": "v0.1.23.2",
+  "summary_sha256": "397e58541f029c71415b4cb76a2f7e42e645e54ebec1334aeee5e3fb1ccbad19",
+  "analyzer_sha256": "15af63922c2d05677559b6b534ff6eedb7902a38b60d520cc1cf9bf78392521b",
+  "restore_default": "nearest",
+  "executor_default": "serial",
+  "placement_default": "nearest",
+  "placement_evaluation": {
+    "policy": "joint_greedy",
+    "evaluation_requested_strategy": "resource_lp",
+    "evaluation_actual_strategy_counts": {
+      "resource_lp": 4
+    },
+    "evaluation_fallback_reasons": []
+  },
+  "fixtures": [
+    {
+      "executor": "serial",
+      "passed": true,
+      "execute_wall_s": 0.09595652716234326,
+      "planner": "resource_lp",
+      "workers": [
+        {
+          "worker": 4,
+          "execute_s": 0.08596756774932146,
+          "operation_s": 0.08587592840194702,
+          "setup_and_other_s": 9.163934737443924e-05
+        },
+        {
+          "worker": 5,
+          "execute_s": 0.09001965308561921,
+          "operation_s": 0.08987469086423516,
+          "setup_and_other_s": 0.00014496222138404846
+        },
+        {
+          "worker": 6,
+          "execute_s": 0.08663403103128076,
+          "operation_s": 0.08652444090694189,
+          "setup_and_other_s": 0.00010959012433886528
+        },
+        {
+          "worker": 7,
+          "execute_s": 0.08963960781693459,
+          "operation_s": 0.08951584668830037,
+          "setup_and_other_s": 0.0001237611286342144
+        }
+      ]
+    },
+    {
+      "executor": "double_buffer",
+      "passed": true,
+      "execute_wall_s": 0.09865340916439891,
+      "planner": "resource_lp",
+      "workers": [
+        {
+          "worker": 4,
+          "execute_s": 0.09478365490213037,
+          "operation_s": 0.08305939706042409,
+          "setup_and_other_s": 0.011724257841706276
+        },
+        {
+          "worker": 5,
+          "execute_s": 0.09290067432448268,
+          "operation_s": 0.07494193688035011,
+          "setup_and_other_s": 0.017958737444132566
+        },
+        {
+          "worker": 6,
+          "execute_s": 0.09379787975922227,
+          "operation_s": 0.07707534823566675,
+          "setup_and_other_s": 0.016722531523555517
+        },
+        {
+          "worker": 7,
+          "execute_s": 0.09267529519274831,
+          "operation_s": 0.07956260209903121,
+          "setup_and_other_s": 0.013112693093717098
+        }
+      ]
+    }
+  ],
+  "models": [
+    {
+      "executor": "serial",
+      "passed": true,
+      "load_s": 2.105820911,
+      "execute_wall_s": 1.6062317183241248,
+      "requested_planner": "resource_lp",
+      "actual_planner": "resource_lp",
+      "fallback_reason": null,
+      "byte_plan_sha256": "cf1e647fdc7146ef8d81ca573138d71055e613a20f8fb8557866a9662a650a98",
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.004239413,
+        "loader_entry_s": 0.002342103,
+        "model_layout_s": 0.314392786,
+        "export_s": 0.035497037,
+        "target_wait_s": 1.734376879,
+        "finalize_s": 0.014972693
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.041690541,
+        "target_mapping_s": 0.073362278,
+        "execute_dispatch_wait_s": 0.007714872,
+        "worker_execution_s": 1.350093526,
+        "completion_coordination_s": 0.25764362,
+        "ready_notice_wait_s": 0.003872042
+      },
+      "target_copy_finish_skew_s": 0.248221198,
+      "staging_bytes_per_worker": 67108864
+    },
+    {
+      "executor": "double_buffer",
+      "passed": true,
+      "load_s": 2.090149964,
+      "execute_wall_s": 1.595941187813878,
+      "requested_planner": "resource_lp",
+      "actual_planner": "resource_lp",
+      "fallback_reason": null,
+      "byte_plan_sha256": "cf1e647fdc7146ef8d81ca573138d71055e613a20f8fb8557866a9662a650a98",
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "target_segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002522204,
+        "model_layout_s": 0.316513018,
+        "export_s": 0.034987694,
+        "target_wait_s": 1.724116622,
+        "finalize_s": 0.012010426
+      },
+      "target_wait_details_s": {
+        "detection_planning_dispatch_s": 0.038827975,
+        "target_mapping_s": 0.070273041,
+        "execute_dispatch_wait_s": 0.007780883,
+        "worker_execution_s": 1.368105975,
+        "completion_coordination_s": 0.228909791,
+        "ready_notice_wait_s": 0.010218957
+      },
+      "target_copy_finish_skew_s": 0.220600795,
+      "staging_bytes_per_worker": 67108864
+    }
+  ],
+  "diagnostic_overlap": [
+    {
+      "worker": 4,
+      "role": "source",
+      "copy_collective_event_overlap_ms": 1.399521827697754,
+      "max_slots": 2
+    },
+    {
+      "worker": 6,
+      "role": "target",
+      "copy_collective_event_overlap_ms": 0.18864059448242188,
+      "max_slots": 2
+    }
+  ],
+  "source_hash_mismatches": [],
+  "limitations": [
+    "one observation per executor; no statistical speedup claim",
+    "microbenchmark has a preallocated target and is not a full model load",
+    "GPU event overlap includes waits and is not proof of simultaneous DMA-engine utilization",
+    "LP profile remains provisional; these results do not establish a planning speedup"
+  ],
+  "failure_and_retry_passed": true,
+  "comparison": {
+    "byte_plans_equal": true,
+    "load_s_saved": 0.015670946999999824,
+    "execution_s_saved": 0.010290530510246754
+  },
+  "passed": true
+}

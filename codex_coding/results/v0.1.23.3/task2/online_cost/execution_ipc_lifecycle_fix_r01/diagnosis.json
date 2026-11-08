@@ -1,0 +1,115 @@
+{
+  "scope": "r02 local evidence plus static/CPU correction; no new GPU/SSH actions by executor agent",
+  "r02_release": [
+    {
+      "rank": 0,
+      "release_begin": {
+        "event": "release_begin",
+        "rank": 0,
+        "pid": 257,
+        "host": "m03r2n07",
+        "monotonic_ns": 280965789342600,
+        "wall_ns": 1791797113173580723,
+        "allocated_bytes": 36496468480
+      },
+      "release_end": {
+        "event": "release_end",
+        "rank": 0,
+        "pid": 257,
+        "host": "m03r2n07",
+        "monotonic_ns": 280966769591440,
+        "wall_ns": 1791797114153830453,
+        "allocated_bytes": 36496468992,
+        "free_bytes": 29574037504
+      },
+      "engine_allocated_drop_bytes": -512
+    },
+    {
+      "rank": 1,
+      "release_begin": {
+        "event": "release_begin",
+        "rank": 1,
+        "pid": 258,
+        "host": "m03r2n07",
+        "monotonic_ns": 280965789406281,
+        "wall_ns": 1791797113173644394,
+        "allocated_bytes": 36496468480
+      },
+      "release_end": {
+        "event": "release_end",
+        "rank": 1,
+        "pid": 258,
+        "host": "m03r2n07",
+        "monotonic_ns": 280966767710115,
+        "wall_ns": 1791797114151948578,
+        "allocated_bytes": 36496468992,
+        "free_bytes": 29574037504
+      },
+      "engine_allocated_drop_bytes": -512
+    }
+  ],
+  "r02_ipc_limbo_warnings": [
+    {
+      "line": 196,
+      "text": "W1012 17:25:13.301800   257 CudaIPCTypes.cpp:100] Producer process tried to deallocate over 1000 memory blocks referred by consumer processes. Deallocation might be significantly slowed down. We assume it will never going to be the case, but if it is, please file but to https://github.com/pytorch/pytorch"
+    },
+    {
+      "line": 198,
+      "text": "W1012 17:25:13.304625   258 CudaIPCTypes.cpp:100] Producer process tried to deallocate over 1000 memory blocks referred by consumer processes. Deallocation might be significantly slowed down. We assume it will never going to be the case, but if it is, please file but to https://github.com/pytorch/pytorch"
+    }
+  ],
+  "r02_final_failed_card_values": null,
+  "r02_reason_values_missing": true,
+  "duplicate_token_bug": "experimental SHA wrapper reopened the exact producer IPC export token after native capture already imported and disposed it",
+  "counter_semantics": "one export initializes one counter; each independently imported storage disposes by decrementing it; signed -1 is positive when producer reads uint64",
+  "source_implementation_links": [
+    "https://raw.githubusercontent.com/pytorch/pytorch/v2.8.0/torch/csrc/CudaIPCTypes.cpp",
+    "https://raw.githubusercontent.com/pytorch/pytorch/v2.8.0/torch/csrc/StorageSharing.cpp"
+  ],
+  "actual_postfix_gpu_free_verified": false,
+  "actual_counter_values_read": false,
+  "accuracy_status": "not measured; zero C0/holdout online samples",
+  "hardware_status": "32MiB probe refused before producer tensor/consumer because other workload occupied selected GPU; no further GPU retries",
+  "fix": {
+    "product_only": "main_lib/fluidckpt/cluster/capture.py optional verify_full_sha=False default",
+    "single_mapping": "SHA runs while original HbmTarget alive; wrapper never imports token again",
+    "native_default_preserved": true,
+    "resource_gate": "all worker/card facts and concrete violations written before raising",
+    "bootstrap_checkpoints": "capture/SHA, golden reference, physical pause, helper transfer+inventory, cache transfer+inventory before final gate",
+    "physical_pause": "per rank both engine allocated drop and selected-card free gain >=90%complete weight volume; before helper build and after each online restore",
+    "budget_changed": false
+  },
+  "CPU_qualification_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_core_cpu_r05/qualification.json",
+    "sha256": "79aa8076406bb957ad5ebf161088bc3a829be35fe69fb914e26921880037a274"
+  },
+  "source_sha256": {
+    "main_lib/fluidckpt/cluster/capture.py": "2e39205d3fea6bd2ebe38e29a4442a8b8d4e13ae24cfdf1aa239feb406a97c93",
+    "codex_coding/src/v0.1.23.3/task2/online_cost/execution/worker.py": "b55a47191c54317c52d887aefe51c7941048dc1d5040033f88af9ed34cb29494",
+    "codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py": "ad9126be48fc23a2c2b6a93b15b784c5d6c297c19d205b7b9e0ec3d3e7c16b3f",
+    "codex_coding/src/v0.1.23.3/task2/online_cost/execution/contracts.py": "b2cdad103c122e47bb668199a02a4db11bcd02714d13c47572085ceeacb8cf01",
+    "codex_coding/src/v0.1.23.3/task2/online_cost/execution/cpu_check.py": "f5cd938ceb9d1700ba23aaed99427d09a551fe399fc786e501367ffa2d28f906"
+  },
+  "evidence_refs": [
+    {
+      "path": "/tmp/fluidckpt_three_node/online_qwen_two_node_r01_n27/project/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_qwen_two_node_r02/metrics/bootstrap/rank0.jsonl",
+      "sha256": "8992e15ae5d3029f5743cc02918dabb44913f0fb0fd0d4838bdde5724328cf34"
+    },
+    {
+      "path": "/tmp/fluidckpt_three_node/online_qwen_two_node_r01_n27/project/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_qwen_two_node_r02/metrics/bootstrap/rank1.jsonl",
+      "sha256": "8b3776ee7bf48ba8c31b57c2758c41a30409c4646e1c44e681ceb577a74c067f"
+    },
+    {
+      "path": "/tmp/fluidckpt_three_node/online_qwen_two_node_r01_n27/project/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_qwen_two_node_r02/operations_process_engine_node27/child.log",
+      "sha256": "1f6eb00ebff32bde5907bcde915a1d28e3c0bf63d37ea058aa77bb4343f91129"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_source_audit_r01/CudaIPCTypes.h",
+      "sha256": "76028eff4ca9a488258dc08359196a4643356a977e37340230e0793df9633e00"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_source_audit_r01/torch_reductions.py",
+      "sha256": "9e30a6fb517daf7213582280ad0ff1e3b70be7fb389842675183ee75d8555931"
+    }
+  ]
+}

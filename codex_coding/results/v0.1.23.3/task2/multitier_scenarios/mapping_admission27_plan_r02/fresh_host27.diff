@@ -1,0 +1,32 @@
+--- fresh_host.py
++++ fresh_host27.py
+@@ -118,16 +118,17 @@
+     mode=sys.argv[1]
+     if hashlib.sha256(Path(__file__).read_bytes()).hexdigest()!=spec["host_wrapper_sha256"]:
+         raise SystemExit("uploaded host wrapper SHA mismatch")
+-    if spec["node"] not in ("node28","node30") or os.uname().nodename != spec["hostname"] or read("/proc/sys/kernel/random/boot_id") != spec["boot_id"]:
++    if spec["node"] not in ("node27",) or os.uname().nodename != spec["hostname"] or read("/proc/sys/kernel/random/boot_id") != spec["boot_id"]:
+         raise SystemExit("fresh host identity mismatch")
+-    if spec["image_id"] != IMAGE or not re.fullmatch(r"zjn-fluid-three-node-[a-z0-9_]+-n(28|30)",spec["container_name"]):
++    if spec["image_id"] != IMAGE or not re.fullmatch(r"zjn-fluid-three-node-multitier_admission27_r01-n27",spec["container_name"]):
+         raise SystemExit("unexpected image/name")
+     stage=Path(spec["stage"])
+-    if stage.parent != Path("/tmp/fluidckpt_three_node") or not re.fullmatch(r"[a-z0-9_]+_n(28|30)",stage.name):
++    if stage.parent != Path("/tmp/fluidckpt_three_node") or not re.fullmatch(r"multitier_admission27_r01_n27",stage.name):
+         raise SystemExit("invalid isolated stage")
+     signal.signal(signal.SIGALRM,lambda *_:(_ for _ in ()).throw(TimeoutError("host wrapper deadline")))
+     signal.alarm(25)
+     if mode=="guard":
++        raise SystemExit("node27 adapter excludes driver-property guard; use read-only host_metadata instead")
+         result=guard(spec)
+         expected_id=spec.get("expected_container_id")
+         expected_started=spec.get("expected_container_started")
+@@ -154,7 +155,7 @@
+         if hashlib.sha256(data).hexdigest()!=asset["sha256"]:
+             raise SystemExit("asset source SHA mismatch")
+         dest=stage/"project"/rel;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+-    argv=["docker","run","-d","--pull=never","--no-healthcheck","--entrypoint","/bin/sleep","--name",spec["container_name"],"--hostname",spec["hostname"],"--label","fluidckpt.task=v0.1.23.3/task2/three_node_recovery","--memory","8g","--pids-limit","512","--network","host","--ipc","private","--shm-size","1g","--cap-add","IPC_LOCK","--ulimit","memlock=-1:-1","--ulimit","core=0:0"]
++    argv=["docker","run","-d","--pull=never","--no-healthcheck","--entrypoint","/bin/sleep","--name",spec["container_name"],"--hostname",spec["hostname"],"--label","fluidckpt.task=v0.1.23.3/task2/three_node_recovery","--memory","6g","--pids-limit","512","--network","host","--ipc","private","--shm-size","1g","--cap-add","IPC_LOCK","--ulimit","memlock=-1:-1","--ulimit","core=0:0"]
+     for device in DEVICES:argv += ["--device",device+":"+device+":rwm"]
+     argv += ["--mount","type=bind,src=/opt/hyhal,dst=/opt/hyhal,readonly","--mount",f"type=bind,src={stage}/project,dst={PROJECT}","--workdir",PROJECT,IMAGE,"infinity"]
+     run=command(argv,timeout=8)

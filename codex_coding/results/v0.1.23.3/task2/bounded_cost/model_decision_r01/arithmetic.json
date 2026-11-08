@@ -1,0 +1,178 @@
+{
+  "decision_ready": false,
+  "rows": [
+    {
+      "controller_residual_prediction_error_s": -0.00036105500475969166,
+      "controller_residual_s": 0.0030355009948834777,
+      "execute": {
+        "absolute_error_s": -0.00034172250161645934,
+        "actual_s": 0.0033474949887022376,
+        "prediction_s": 0.0030057724870857783,
+        "relative_error": -0.10208305098880488
+      },
+      "filled": {
+        "absolute_error_s": -0.0014289465115069032,
+        "actual_s": 0.023309653,
+        "prediction_s": 0.021880706488493096,
+        "relative_error": -0.06130277921798764
+      },
+      "full_control_prediction_error_s": -0.0010872240098904438,
+      "full_control_s": 0.019962158011297762,
+      "label": "local_novel8",
+      "maximum_worker_s": 0.0003119939938187599,
+      "mixed_pure_service_s": null,
+      "record_window_diagnostics": [
+        {
+          "record_duration_sum_s": 0.00026865399559028447,
+          "records": [
+            {
+              "bytes": 8388608,
+              "elapsed_s": 0.00026865399559028447,
+              "kind": "local_hbm",
+              "op_id": 0,
+              "pipeline": {},
+              "replica_id": "bounded_cost_runtime_r03/source0/hbm",
+              "role": "both"
+            }
+          ],
+          "worker": 4,
+          "worker_execute_minus_record_sum_s": 4.333999822847545e-05
+        }
+      ],
+      "target_worker_s": 0.0003119939938187599,
+      "worker": {
+        "absolute_error_s": 1.9332503143232316e-05,
+        "actual_s": 0.0003119939938187599,
+        "prediction_s": 0.00033132649696199223,
+        "relative_error": 0.06196434394971955
+      }
+    },
+    {
+      "controller_residual_prediction_error_s": -0.00047789599921088666,
+      "controller_residual_s": 0.0031523419893346727,
+      "execute": {
+        "absolute_error_s": -0.0009979281627844686,
+        "actual_s": 0.01728567198733799,
+        "prediction_s": 0.016287743824553523,
+        "relative_error": -0.05773152258792517
+      },
+      "filled": {
+        "absolute_error_s": -0.0027396611740391555,
+        "actual_s": 0.037902339,
+        "prediction_s": 0.035162677825960845,
+        "relative_error": -0.07228211361940369
+      },
+      "full_control_prediction_error_s": -0.0017417330112546904,
+      "full_control_s": 0.02061666701266201,
+      "label": "mixed_novel8",
+      "maximum_worker_s": 0.014133329998003319,
+      "mixed_pure_service_s": null,
+      "record_window_diagnostics": [
+        {
+          "record_duration_sum_s": 0.0011312495917081833,
+          "records": [
+            {
+              "bytes": 8388608,
+              "elapsed_s": 0.0011312495917081833,
+              "kind": "network",
+              "op_id": 1,
+              "pipeline": {},
+              "replica_id": "bounded_cost_runtime_r03/source1/dram",
+              "role": "source"
+            }
+          ],
+          "worker": 2,
+          "worker_execute_minus_record_sum_s": 4.609301686286926e-05
+        },
+        {
+          "record_duration_sum_s": 0.013912997004808858,
+          "records": [
+            {
+              "bytes": 8388608,
+              "elapsed_s": 0.0002659840101841837,
+              "kind": "local_hbm",
+              "op_id": 0,
+              "pipeline": {},
+              "replica_id": "bounded_cost_runtime_r03/source0/hbm",
+              "role": "both"
+            },
+            {
+              "bytes": 8388608,
+              "elapsed_s": 0.000732100015738979,
+              "kind": "network",
+              "op_id": 1,
+              "pipeline": {},
+              "replica_id": "bounded_cost_runtime_r03/source1/dram",
+              "role": "target"
+            },
+            {
+              "bytes": 8388608,
+              "elapsed_s": 0.012914912978885695,
+              "kind": "peer",
+              "op_id": 2,
+              "pipeline": {},
+              "replica_id": "bounded_cost_runtime_r03/source2/ssd",
+              "role": "source"
+            }
+          ],
+          "worker": 4,
+          "worker_execute_minus_record_sum_s": 0.00022033299319446087
+        },
+        {
+          "record_duration_sum_s": 0.013885565975215286,
+          "records": [
+            {
+              "bytes": 8388608,
+              "elapsed_s": 0.013885565975215286,
+              "kind": "peer",
+              "op_id": 2,
+              "pipeline": {},
+              "replica_id": "bounded_cost_runtime_r03/source2/ssd",
+              "role": "target"
+            }
+          ],
+          "worker": 5,
+          "worker_execute_minus_record_sum_s": 4.921102663502097e-05
+        }
+      ],
+      "target_worker_s": 0.014133329998003319,
+      "worker": {
+        "absolute_error_s": -0.0005200321635735836,
+        "actual_s": 0.014133329998003319,
+        "prediction_s": 0.013613297834429735,
+        "relative_error": -0.03679473723793692
+      }
+    }
+  ],
+  "scope": "Read-only arithmetic; record sums are same-worker window diagnostics, not pure-service estimates.",
+  "source_refs": {
+    "bound_model": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/bound_model.json",
+      "sha256": "e629c011a98e19bd7cea776af2fbe6eb5f6e93a89cc6541960e024c19751bee0"
+    },
+    "frozen_model": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+      "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+    },
+    "local_novel8": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/local_novel8.json",
+      "sha256": "e43f92eff5a3c14f4bc85cc881effc47be7b84ca13611886d1614ea3ea44b35f"
+    },
+    "mixed_novel8": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/mixed_novel8.json",
+      "sha256": "7ee020f5b3dc6fa90877d5f7bc1c5f218efdb2df835d28f515af84b6bceb7456"
+    },
+    "prediction_freeze": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/prediction_freeze.json",
+      "sha256": "fb18433f4010764a1b4f571d16f7c506d98dc5dedf8f7861260a2797e72b55b2"
+    },
+    "summary": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/summary.json",
+      "sha256": "5d4bd8243efc233f9f06d63984bcd956eec7efd6f4ef716bb75b46bf76b93321"
+    },
+    "validation": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/validation.json",
+      "sha256": "5902fd54ee1967131e78e9dce4cc48e22da0b46dd2d403fe91a82e3ca6911f23"
+    }
+  }
+}

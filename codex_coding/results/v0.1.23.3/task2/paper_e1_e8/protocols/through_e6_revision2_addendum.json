@@ -1,0 +1,23 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "date": "2026-10-06",
+  "parent_protocol": "through_e6_revision1.json",
+  "stage": "before e3-e6 hardware runs; after Qwen e1 gate",
+  "changes": [
+    {
+      "item": "GLM retained backing",
+      "reason": "Preflight found original complete source set includes 1GiB SSD; pure-DRAM filter falsely rejected rank4",
+      "policy": "A uses its original valid DRAM+SSD sources, unchanged; B retains complete DRAM requirement. Record tier bytes and actual owner-build source bytes; owner setup outside IPC hit, fresh export inside request metric. No source relocation to satisfy a mistaken preflight."
+    },
+    {
+      "item": "Strong greedy deterministic tie-break",
+      "reason": "CPU-only preview found equal objective/density choices; lexicographic-only tie could concentrate both blocks in one rank",
+      "policy": "Rank by marginal gain per allocated GiB rounded to 12 decimals; equal density prefers lower resulting objective (greater absolute gain) rounded to 12 decimals, then candidate IDs. Singleton and paired-rank bundles both available. No measured timing used to tune tie-break.",
+      "evidence": "placement_preview01 and placement_preview02",
+      "solver_sha256": "acc743d31e81f536832cf5119a1f8a57ed7ac93392638b9617d06863d52748bb"
+    }
+  ],
+  "unchanged": "budgets, target groups, scenario weights, primary metric, correctness, executor, sample counts and source retention",
+  "decision_identity": "Equal layout and route must be recorded as no decision increment; identical cases can reuse observations with aliases, never count them as independent samples"
+}

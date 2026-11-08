@@ -1,0 +1,631 @@
+{
+  "status": "passed",
+  "workflow": "simple_two_node_single_sender_v1",
+  "outer_domain": "post_one_fullrestore_samecontroller",
+  "context": {
+    "executor": "serial",
+    "chunk_bytes": 33554432,
+    "control_mode": "compact",
+    "load_state": "warm",
+    "workflow": "simple_two_node_single_sender_v1",
+    "clock_domain": "CPU_current_clock",
+    "clock_scope": "single_controller",
+    "worker_physical": [
+      {
+        "worker": 0,
+        "node": "node27",
+        "gpu": 4,
+        "numa": 4
+      },
+      {
+        "worker": 1,
+        "node": "node27",
+        "gpu": 5,
+        "numa": 7
+      },
+      {
+        "worker": 2,
+        "node": "node30",
+        "gpu": 4,
+        "numa": 4
+      }
+    ],
+    "worker_BDF": {
+      "0": "CPU_BDF0",
+      "1": "CPU_BDF1",
+      "2": "CPU_BDF2"
+    },
+    "path_context": {
+      "0:dram:4->0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "0:hbm:4->0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_hbm",
+        "source_tier": "hbm",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "2:dram:4->0": {
+        "endpoints": [
+          2,
+          0
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "1:dram:7->1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 7,
+        "tp_rank": 1
+      },
+      "1:hbm:7->1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_hbm",
+        "source_tier": "hbm",
+        "source_numa": 7,
+        "tp_rank": 1
+      },
+      "2:dram:7->1": {
+        "endpoints": [
+          2,
+          1
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 7,
+        "tp_rank": 1
+      }
+    },
+    "shared_resource_paths": {},
+    "operation_count_interval": [
+      66,
+      66
+    ],
+    "path_cost_policy": "exact_extent_service_points_v1",
+    "calibration_sizes": [
+      805120688,
+      1073741824
+    ],
+    "path_warmup_bytes": 1073741824,
+    "full_model_plan_workload": {
+      "targets": [
+        {
+          "worker": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 35164859056
+        },
+        {
+          "worker": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 35164859056
+        }
+      ],
+      "ordered_extents": [
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 1073741824,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 1073741824,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 2147483648,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 2147483648,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 3221225472,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 3221225472,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 4294967296,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 4294967296,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 5368709120,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 5368709120,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 6442450944,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 6442450944,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 7516192768,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 7516192768,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 8589934592,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 8589934592,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 9663676416,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 9663676416,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 10737418240,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 10737418240,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 11811160064,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 11811160064,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 12884901888,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 12884901888,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 13958643712,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 13958643712,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 15032385536,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 15032385536,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 16106127360,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 16106127360,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 17179869184,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 17179869184,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 18253611008,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 18253611008,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 19327352832,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 19327352832,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 20401094656,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 20401094656,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 21474836480,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 21474836480,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 22548578304,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 22548578304,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 23622320128,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 23622320128,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 24696061952,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 24696061952,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 25769803776,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 25769803776,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 26843545600,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 26843545600,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 27917287424,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 27917287424,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 28991029248,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 28991029248,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 30064771072,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 30064771072,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 31138512896,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 31138512896,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 32212254720,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 32212254720,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 33285996544,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 33285996544,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 34359738368,
+          "n": 805120688
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 34359738368,
+          "n": 805120688
+        }
+      ],
+      "N": 70329718112,
+      "K": 66,
+      "C": 2096
+    }
+  },
+  "current_path_calibration_samples": 0,
+  "current_path_warmup_samples": 0,
+  "inherited_path_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_old_source/CPU_checkpoint_path_model.json",
+    "sha256": "0da3c35acde0ecdb54c4c9661e0198addf189c297d3361f12094a1b9c747a8e6"
+  },
+  "bootstrap_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_bootstrap.json",
+    "sha256": "4a5e3fce9b794231f30ca344c58b47a8c69d1c201800cd762e6710bce519c1db"
+  },
+  "registration_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_sequence/outer_registration.json",
+    "sha256": "f52d51075868ae444bc76f49591cfb9aede78441f9935f0bfe73ab66e4b34a6b"
+  },
+  "prime_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_sequence/C0_prime_record.json",
+    "sha256": "7429d3bc873ba0a93e0e48e87f6607ed9951d612974550e939bd890f7679a04f"
+  },
+  "calibration_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_sequence/C0_cal_record.json",
+    "sha256": "20258d47c66d6e800fb2058c977e00941997430c485decb21f2c245770eacb44"
+  },
+  "frozen_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_sequence/frozen_prediction.json",
+    "sha256": "1926041fe4040d9c8881858870f501d650cd9f7af5cd6a5a4240fb3747e19afa"
+  },
+  "model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_sequence/model.json",
+    "sha256": "bafde36b512ddc188409418d3a6e1752afd2ab784b3797e553d431ba50d288e9"
+  },
+  "protocol_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/CPU_sequence/protocol.json",
+    "sha256": "3115b49d6a9bc73465966dc2ad3a91c8b485dbf4c2eee6587fb7925e3070523a"
+  }
+}

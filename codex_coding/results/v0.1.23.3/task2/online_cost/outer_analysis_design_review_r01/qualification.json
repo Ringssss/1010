@@ -1,0 +1,150 @@
+{
+  "passed": true,
+  "launch_blockers": [],
+  "decision": "ready_for_main_source_freeze_and_fresh_hardware_admission",
+  "checks": [
+    {
+      "name": "immutable_pre_outer_checkpoint_19files",
+      "passed": true,
+      "evidence": "outer_bundle authenticated fixed archive/checkpoint/plan SHA; independently compared every deployed byte to collected archive"
+    },
+    {
+      "name": "no_historical_outer_or_holdout_input",
+      "passed": true,
+      "evidence": "checkpoint online_outer_s None with exactly18 raw path refs; only 19-file whitelist"
+    },
+    {
+      "name": "exact_costs_original_raw_provenance",
+      "passed": true,
+      "evidence": "outer_model rebuilds original evidence and requires exact point_costs and original context/session"
+    },
+    {
+      "name": "fresh_epoch_NUMA_BDF_binding",
+      "passed": true,
+      "evidence": "current source assert_sources plus native transfer_service verifies physical mappings, source epoch/generation/NUMA/BDF and fresh worker incarnations"
+    },
+    {
+      "name": "single_controller_finite_four_restore_sequence",
+      "passed": true,
+      "evidence": "OuterHostOps RUN_PHASES bootstrap/sequence; sequence calls prime/cal/freeze/remote/near in one process with exact counters"
+    },
+    {
+      "name": "engine_incarnation_and_rank_ready_gate",
+      "passed": true,
+      "evidence": "raw engine_identity binds both rank host/PID and inclusive begin/weights_ready; unchanged from prime through heldouts"
+    },
+    {
+      "name": "cold_first_restore_full_cost_separate",
+      "passed": true,
+      "evidence": "C0_prime uses same full SimpleRun.online, stores exact time and correctness, excluded from fit and retained separately"
+    },
+    {
+      "name": "post_prime_domain_explicit",
+      "passed": true,
+      "evidence": "model/frozen/validation carry post_one_fullrestore_samecontroller; no cold model qualification"
+    },
+    {
+      "name": "one_C0_cal_exact_residual",
+      "passed": true,
+      "evidence": "once-only calibration online minus inherited original DAG; prime/cal raw costs verified, mutated/refit models refused"
+    },
+    {
+      "name": "freeze_both_before_reverse_order_holdouts",
+      "passed": true,
+      "evidence": "both plan predictions simultaneous immutable freeze; Hremote then Hnear each once with prefreeze/plan SHA gate"
+    },
+    {
+      "name": "inclusive_metric_required_work_preserved",
+      "passed": true,
+      "evidence": "SimpleRun.online begin before inventory/plan; engine materialize/export/native copy/publish/full resume ACK inside clock; full SHA after ready"
+    },
+    {
+      "name": "all_real_weights_three_correctness_checks",
+      "passed": true,
+      "evidence": "same complete66 extents70329718112B; postready fullSHA, exact golden output, two-rank physical park checks retained"
+    },
+    {
+      "name": "resource_samples_and_exact_cleanup",
+      "passed": true,
+      "evidence": "same resource_snapshot/sample guard budgets; native leases/transactions, owner supervisor closure and host cleanup retained"
+    },
+    {
+      "name": "CPU_scope_not_actual_qualification",
+      "passed": true,
+      "evidence": "41 core plus31 ops checks passed; actual_model_online_qualified false; new GPU measurement remains pending"
+    }
+  ],
+  "core_CPU_checks": 41,
+  "ops_CPU_checks": 31,
+  "new_GPU_actions": 0,
+  "new_SSH_actions": 0,
+  "new_Docker_actions": 0,
+  "actual_new_model_qualified": false,
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_model.py",
+      "sha256": "e7af44d90faa3672f5a50b3e9c41db870f187e9ac73f3bb6067fac7e241beb88"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_controller.py",
+      "sha256": "0828cf309cabc4992c4c66dfed10957f670d0330d9c3ae6f8a689bcf0076fc8b"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_bundle.py",
+      "sha256": "b38d4d6c20ef50affd206d5837f6cbe9b57a9ffef725ae8887aa7d02a42e8582"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_prepare.py",
+      "sha256": "8cd99a7030ee607a117a5d66b8fdf25b03d239c967e3c0ad6e9b203f4b78911f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_host.py",
+      "sha256": "13cffbe6d71c287ce3ece0699c8bfc4a8ac05462b915d62416123fef950ff92f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/outer_cpu.py",
+      "sha256": "4c46eff409963bf6dbcfcd53812d36f68ab4a9c12b30988fbf4545e63b7ffc0a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/check_outer_ops_cpu.py",
+      "sha256": "380c2313d8d791bef934af1318d7aa5ddf8f370adf8367b0b2a8dbda2dbad2ff"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/orchestrate.py",
+      "sha256": "30220963ff9d7a233a47ba0ed16939d8360f62206a445ae8cb9c34dc8cd7c8e8"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_controller.py",
+      "sha256": "d9a414978785f5f8ce45301d8b5ada83c52d5ea5621e0a7c62440af21ccd0071"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_model.py",
+      "sha256": "11db8392f4857c115d26dbf9dcec4f596461607d7c3d639724872c7c1f2870b8"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_resources.py",
+      "sha256": "eb4406ce57fbd95d1a789b903e2111c631fb4b0aa008d0cc6f3867f17dd6595e"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/derived_supervisor.py",
+      "sha256": "fae687b7fdfc672b03c957af0fba128af4c5229e840d0d28a6987ef8e74e16bf"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/docx/plans/2026-10-12_outer_online_calibration_plan.md",
+      "sha256": "ebd7bce6b061d24bef9e4d57b81221f095ab8ea2e4c18b30007054f940176e55"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r03/qualification.json",
+      "sha256": "d02397df48f6931b77258672ccf4792c7d0804a021e9903f61f8c2ebe4abe793"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/outer_ops_cpu_r01/qualification.json",
+      "sha256": "ba85dfa302843e37e2fbfa93a311ecd43b18c505119b5b40a437b5b1d7161f2c"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/outer_ops_source_bundle_r01/manifest.json",
+      "sha256": "aac9013ce58a2b43e64d2d1563076dea20df400e426795bd3bddbb2c9cff28fc"
+    }
+  ],
+  "verification_mode": "independent source review and exact archive-to-bundle byte comparison; existing targeted CPU evidence inspected, not rerun or broadened"
+}

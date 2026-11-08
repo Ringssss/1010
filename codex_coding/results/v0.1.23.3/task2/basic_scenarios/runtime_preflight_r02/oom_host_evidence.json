@@ -1,0 +1,24 @@
+{
+  "status": "observed",
+  "measurement_status": "not_measured",
+  "scope": "只读docker/host证据，无GPU进程启动",
+  "node27_old_container": {
+    "name": "zjn-fluid-glm-full_distributed02",
+    "state": {"Status": "exited", "Running": false, "OOMKilled": true, "ExitCode": 137, "Pid": 0, "FinishedAt": "2026-10-06T07:48:36.759676224Z"},
+    "configured_memory_bytes": 472446402560,
+    "configured_memory_swap_bytes": 472446402560,
+    "effective_live_cgroup_limit": null,
+    "cgroup_observation": "容器已退出；无法在其进程namespace读取live cgroup。仅报告docker HostConfig实际配置，未把配置当live测量。",
+    "cpu_owner": "host ps无fluidckpt.memory.owner存活进程；原socket文件存在为stale，不能证明owner存活"
+  },
+  "node27_host": {"gpu0_used_mib": 4, "gpu1_used_mib": 4, "mem_available_kib": 439941752},
+  "node29_host": {"gpu0_used_mib": 2582, "gpu1_used_mib": 1815, "mem_available_kib": 180881376},
+  "commands": [
+    "docker inspect zjn-fluid-glm-full_distributed02 --format '{{json .HostConfig.Memory}} {{json .HostConfig.MemorySwap}} {{json .State}}'",
+    "hy-smi --showmeminfo vram --json",
+    "cat /proc/meminfo",
+    "pgrep -af 'fluidckpt.memory.owner|cpu_owner'",
+    "ssh -o BatchMode=yes -o ConnectTimeout=5 node29 docker exec zjn-fluid-glm-full_distributed02 hy-smi --showmeminfo vram --json",
+    "ssh -o BatchMode=yes -o ConnectTimeout=5 node29 cat /proc/meminfo"
+  ]
+}

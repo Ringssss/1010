@@ -1,0 +1,32 @@
+test_active_external_owner_with_headroom (__main__.PlannerNegativeTests) ... ok
+test_bad_profiles_cannot_admit (__main__.PlannerNegativeTests) ... ok
+test_explicit_current_positive (__main__.PlannerNegativeTests) ... FAIL
+test_free_capacity_does_not_authorize_budget (__main__.PlannerNegativeTests) ... ok
+test_nominal_rate_is_not_measured_effective (__main__.PlannerNegativeTests) ... ok
+test_planning_input_drops_unadmitted_matching_evidence (__main__.PlannerNegativeTests) ... ERROR
+test_shared_ancestor_is_returned_once (__main__.PlannerNegativeTests) ... ok
+test_stale_owner_and_boot_mismatch (__main__.PlannerNegativeTests) ... ok
+test_unknown_and_duplicate_resource_scope (__main__.PlannerNegativeTests) ... ok
+
+======================================================================
+ERROR: test_planning_input_drops_unadmitted_matching_evidence (__main__.PlannerNegativeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/audit/test_planner_negative.py", line 88, in test_planning_input_drops_unadmitted_matching_evidence
+    result = rm.planning_input(self.mapping, self.request, now=1000, max_age_s=30)
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/topology/resource_map.py", line 209, in planning_input
+    raise PlanningNotReady(readiness)
+audited_map.PlanningNotReady: planning input rejected: duplicate GPU logical ordinal g1; no current matching admitted rate {"dst": "g1", "dst_tier": "HBM", "src": "g0", "src_tier": "HBM"}
+
+======================================================================
+FAIL: test_explicit_current_positive (__main__.PlannerNegativeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/resource_map/audit/test_planner_negative.py", line 54, in test_explicit_current_positive
+    self.assertTrue(self.check()["ready"], self.check())
+AssertionError: False is not true : {'structure_ready': False, 'runtime_ready': False, 'performance_ready': False, 'ready': False, 'reasons': ['duplicate GPU logical ordinal g1', 'no current matching admitted rate {"dst": "g1", "dst_tier": "HBM", "src": "g0", "src_tier": "HBM"}']}
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.002s
+
+FAILED (failures=1, errors=1)

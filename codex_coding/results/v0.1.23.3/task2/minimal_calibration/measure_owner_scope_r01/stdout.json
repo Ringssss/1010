@@ -1,0 +1,84 @@
+{
+  "node": "node30",
+  "owners": [
+    {
+      "pid": 3152797,
+      "expected_start_ticks": "486284133",
+      "actual_start_ticks": "486284133",
+      "state": "S",
+      "owner_matches": true,
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "argv": [
+        "/usr/bin/python3",
+        "/usr/local/bin/vllm",
+        "serve",
+        "/data/shared/GLM-4.7-Flash",
+        "--trust-remote-code",
+        "--dtype",
+        "bfloat16",
+        "--tensor-parallel-size",
+        "4",
+        "--gpu-memory-utilization",
+        "0.8",
+        "--max-model-len",
+        "32768",
+        "--max-num-batched-tokens",
+        "2048",
+        "--max-num-seqs",
+        "8",
+        "--no-enable-prefix-caching",
+        "--tool-call-parser",
+        "glm47",
+        "--reasoning-parser",
+        "glm45",
+        "--enable-auto-tool-choice",
+        "--served-model-name",
+        "glm-4.7-flash",
+        "--enforce-eager",
+        "--port",
+        "8001"
+      ],
+      "visibility": {
+        "unknown": "PermissionError(13, 'Permission denied')"
+      },
+      "container_metadata": {
+        "id": "4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf",
+        "name": "/glm-5.2-int",
+        "started": "2026-10-08T08:02:12.88801358Z",
+        "running": true,
+        "entrypoint": null,
+        "cmd": [
+          "sleep",
+          "infinity"
+        ]
+      }
+    },
+    {
+      "pid": 3153233,
+      "expected_start_ticks": "486286927",
+      "actual_start_ticks": "486286927",
+      "state": "S",
+      "owner_matches": true,
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "argv": [
+        "VLLM::EngineCore"
+      ],
+      "visibility": {
+        "unknown": "PermissionError(13, 'Permission denied')"
+      },
+      "container_metadata": {
+        "id": "4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf",
+        "name": "/glm-5.2-int",
+        "started": "2026-10-08T08:02:12.88801358Z",
+        "running": true,
+        "entrypoint": null,
+        "cmd": [
+          "sleep",
+          "infinity"
+        ]
+      }
+    }
+  ],
+  "GPU_calls": 0,
+  "scope": "exact process attribution only; unset visibility cannot prove an unused GPU"
+}

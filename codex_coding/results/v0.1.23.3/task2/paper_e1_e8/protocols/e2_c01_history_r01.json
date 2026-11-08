@@ -1,0 +1,30 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "created_at": "2026-10-06T01:33:38.578111+08:00",
+  "phase": "exploratory",
+  "do_not_mutate_existing_serving_session": true,
+  "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+  "historical_reanalysis_is_not_a_new_hardware_run": true,
+  "run_id": "e2_c01_history_r01",
+  "experiment_id": "e2",
+  "method": "read-only capacity-pressure reanalysis",
+  "sources": [
+    "motivation/verified_pressure",
+    "motivation/cpu_first03",
+    "motivation/cpu_first08"
+  ],
+  "question": "Does local DRAM scarcity expose a large cost for local-only recovery relative to cluster DRAM?",
+  "variable": "local DRAM fraction 0, approximately 0.5, 1; eligible source policy within each point",
+  "checks": [
+    "full DRAM coverage conserved in historical sample",
+    "same fraction within each policy pair",
+    "source run and metrics retained",
+    "policy source traffic recorded"
+  ],
+  "limits": [
+    "local-only baseline deliberately cannot access remote DRAM; this does not prove joint planning beats remote-aware greedy",
+    "100-percent point is from a repaired later run; do not aggregate it as a same-version sweep"
+  ],
+  "decision": "report within-point T_ready and resource/provenance evidence; classify locality motivation, not optimizer increment"
+}

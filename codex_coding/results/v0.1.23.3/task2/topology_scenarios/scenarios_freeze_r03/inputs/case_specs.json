@@ -1,0 +1,36 @@
+{
+  "schema_version": "topology_case_specs.v1",
+  "development": "v0.1.23.3/task2",
+  "cases": [
+    {
+      "case_id": "T1_simple_control",
+      "case_class": "simple_control",
+      "description": "本地4+4GiB作为强简单策略控制；同解时停止重复完整GPU比较",
+      "target_slots": [["target_a", 1.0]],
+      "location_gib": [4, 4, 0, 0],
+      "candidate_extents": [[0,0,0],[0,0,2],[1,1,0],[1,1,2]],
+      "fixed_layout_indices": [["rank_local_4plus4",[0,1,2,3]]],
+      "evidence_requirements": ["现有S4内容/输出和预算证据复用", "当前keeper有效来源和parked目标preflight", "当前执行器有效路径校准"]
+    },
+    {
+      "case_id": "T2_uneven_budget",
+      "case_class": "uneven_location_budget",
+      "description": "外部指定6+2GiB限制；两个未来目标互斥，各0.5为合成预登记，不宣称真实容量只剩6+2",
+      "target_slots": [["target_a",0.5],["target_b",0.5]],
+      "location_gib": [6,2,0,0],
+      "candidate_extents": [[0,0,0],[0,0,2],[0,0,4],[1,0,0],[1,0,2],[1,0,4],[0,1,0],[1,1,0]],
+      "fixed_layout_indices": [["rank0_6plus_rank1_2",[0,1,2,7]],["split_rank_prefix",[0,1,3,7]]],
+      "evidence_requirements": ["与control相同global8GiB及完整DRAM底本", "per-location cap合法且不超snapshot headroom", "缺反向/peer路径保持未测，功能假定与校准profile分开"]
+    },
+    {
+      "case_id": "T3_shared_resources",
+      "case_class": "shared_resources",
+      "description": "固定4+4GiB与两rank分片共享源；物理共享场景需真实并发证据，目前条件冻结",
+      "target_slots": [["target_b",1.0]],
+      "location_gib": [4,4,0,0],
+      "candidate_extents": [[0,0,0],[0,1,2],[1,0,0],[1,1,2]],
+      "fixed_layout_indices": [["shared_rank_prefix",[0,1,2,3]]],
+      "evidence_requirements": ["singleA/singleB/pairAB的同字节全SHA及目标host区间真实重叠", "NIC/HCA实际binding与counter交叉证据", "local H2D单双控制区分NUMA/PCIe影响", "当前serial恢复执行器的物理共享影响另需验证，RCCL证据不能自动替代"]
+    }
+  ]
+}

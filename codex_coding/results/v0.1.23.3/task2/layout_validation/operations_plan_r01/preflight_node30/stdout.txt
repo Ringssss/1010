@@ -1,0 +1,586 @@
+{
+  "started_utc": "2026-10-09T15:28:50.925324+00:00",
+  "hostname": "m03r2n10",
+  "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+  "host_memory": "MemTotal:       528095244 kB\nMemFree:        132109508 kB\nMemAvailable:   480836944 kB\nBuffers:         1101640 kB\nCached:         344550016 kB\nSwapCached:       104864 kB\nActive:         269972884 kB\nInactive:       105057856 kB\nActive(anon):     394160 kB\nInactive(anon): 28994640 kB\nActive(file):   269578724 kB\nInactive(file): 76063216 kB\nUnevictable:          64 kB\nMlocked:              64 kB\nSwapTotal:       8388604 kB\nSwapFree:        7712880 kB\nDirty:              1256 kB\nWriteback:             0 kB\nAnonPages:      29212772 kB\nMapped:          2194928 kB\nShmem:              9868 kB\nKReclaimable:    6203776 kB\nSlab:            7618748 kB\nSReclaimable:    6203776 kB\nSUnreclaim:      1414972 kB\nKernelStack:       70240 kB\nPageTables:       156528 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    272436224 kB\nCommitted_AS:   83231496 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      632060 kB\nVmallocChunk:          0 kB\nPercpu:           287744 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:  26734592 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:     4264584 kB\nDirectMap2M:    184231936 kB\nDirectMap1G:    348127232 kB",
+  "selected_gpu_sysfs": {
+    "mem_info_vram_total": "68702699520",
+    "mem_info_vram_used": "3842048",
+    "numa_node": "4"
+  },
+  "container_cgroup": {
+    "proc_cgroup": "0::/system.slice/docker-7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1.scope",
+    "files": {
+      "memory.current": "33386496",
+      "memory.max": "8589934592",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "1",
+      "pids.max": "512"
+    }
+  },
+  "container": {
+    "id": "7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1",
+    "name": "/zjn-fluid-three-node-minimal_measure_r01-n30",
+    "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "created": "2026-10-09T10:57:42.035624083Z",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 3249004,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-09T10:57:42.068061805Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "HostConfig": {
+      "Privileged": false,
+      "NetworkMode": "host",
+      "IpcMode": "private",
+      "Memory": 8589934592,
+      "PidsLimit": 512,
+      "ShmSize": 1073741824,
+      "CapAdd": [
+        "IPC_LOCK",
+        "SYS_NICE"
+      ],
+      "Devices": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "Ulimits": [
+        {
+          "Name": "core",
+          "Hard": 0,
+          "Soft": 0
+        },
+        {
+          "Name": "memlock",
+          "Hard": -1,
+          "Soft": -1
+        }
+      ]
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/tmp/fluidckpt_three_node/minimal_measure_r01_n30/project",
+        "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "RW": true
+      },
+      {
+        "Type": "bind",
+        "Source": "/opt/hyhal",
+        "Destination": "/opt/hyhal",
+        "RW": false
+      }
+    ],
+    "command": {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-three-node-minimal_measure_r01-n30"
+      ],
+      "returncode": 0,
+      "stderr": ""
+    }
+  },
+  "protected_containers": [],
+  "owners": [
+    {
+      "pid": 3152797,
+      "start_time_ticks": "486284133",
+      "state": "S",
+      "comm": "vllm",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32768",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153233,
+      "start_time_ticks": "486286927",
+      "state": "S",
+      "comm": "VLLM::EngineCor",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32769",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153602,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "55589330944",
+        "pasid": "32771",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153603,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "55589330944",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32770",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153604,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "0",
+        "vram_22078": "0",
+        "pasid": "32778",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "55589330944",
+        "vram_45786": "0"
+      }
+    },
+    {
+      "pid": 3153605,
+      "start_time_ticks": "486289537",
+      "state": "S",
+      "comm": "VLLM::Worker_TP",
+      "cgroup": "0::/system.slice/docker-4c6dd6a97200329a171c7b4a5b3192e91e744be240a350bea7e2b15b126412cf.scope",
+      "kfd_vram": {
+        "vram_1268": "0",
+        "vram_34430": "0",
+        "vram_20996": "55589330944",
+        "vram_22078": "0",
+        "pasid": "32780",
+        "vram_60191": "0",
+        "vram_32229": "0",
+        "vram_20902": "0",
+        "vram_45786": "0"
+      }
+    }
+  ],
+  "visibility_errors": [],
+  "source_assets": {
+    "main_lib/fluidckpt/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/benchmarks/__init__.py": {
+      "sha256": "143e6705a6027bc4bdd2cd75633204b6dd66d0cd921391ba6b7b2eec633f0d8d",
+      "expected_sha256": "143e6705a6027bc4bdd2cd75633204b6dd66d0cd921391ba6b7b2eec633f0d8d"
+    },
+    "main_lib/fluidckpt/benchmarks/baseline_scope.py": {
+      "sha256": "96470f050c9d86d6109b87009f72a76a8b6d68176db20ed71c73559fb54eb7d8",
+      "expected_sha256": "96470f050c9d86d6109b87009f72a76a8b6d68176db20ed71c73559fb54eb7d8"
+    },
+    "main_lib/fluidckpt/benchmarks/basic_scenarios.py": {
+      "sha256": "6c75cd8a09f1fe7f378f0f2937cdac62531a6092369457e4cf1ccde665b5837c",
+      "expected_sha256": "6c75cd8a09f1fe7f378f0f2937cdac62531a6092369457e4cf1ccde665b5837c"
+    },
+    "main_lib/fluidckpt/benchmarks/blitz_adapter.py": {
+      "sha256": "fd80537fc91020c56a4c0a157665540d40370c324e2a84db4b010143a7dcf651",
+      "expected_sha256": "fd80537fc91020c56a4c0a157665540d40370c324e2a84db4b010143a7dcf651"
+    },
+    "main_lib/fluidckpt/benchmarks/calibrated_recovery.py": {
+      "sha256": "fe9b7b17bffbacbaf3e9fe091193d58dbe99056f6a4c2e1a450b73b3978a4c84",
+      "expected_sha256": "fe9b7b17bffbacbaf3e9fe091193d58dbe99056f6a4c2e1a450b73b3978a4c84"
+    },
+    "main_lib/fluidckpt/benchmarks/frozen_layout.py": {
+      "sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64",
+      "expected_sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+    },
+    "main_lib/fluidckpt/benchmarks/keeper_bridge.py": {
+      "sha256": "ee597e6dad12d1ae4204a11cc7ec9566bfc57cafa362c2e9487d7eb35865b47e",
+      "expected_sha256": "ee597e6dad12d1ae4204a11cc7ec9566bfc57cafa362c2e9487d7eb35865b47e"
+    },
+    "main_lib/fluidckpt/benchmarks/serverless_adapter.py": {
+      "sha256": "aa8bbe64869c9e190ed6e91c9eac9785c5d667dbbe2d0d69feafb8ba29e92677",
+      "expected_sha256": "aa8bbe64869c9e190ed6e91c9eac9785c5d667dbbe2d0d69feafb8ba29e92677"
+    },
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": {
+      "sha256": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+      "expected_sha256": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c"
+    },
+    "main_lib/fluidckpt/benchmarks/topology_cases.py": {
+      "sha256": "9ea2287c7f3748ebf43adbd44d24b3002b22ca359399152af9fb0c728755fc39",
+      "expected_sha256": "9ea2287c7f3748ebf43adbd44d24b3002b22ca359399152af9fb0c728755fc39"
+    },
+    "main_lib/fluidckpt/cluster/__init__.py": {
+      "sha256": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c",
+      "expected_sha256": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c"
+    },
+    "main_lib/fluidckpt/cluster/block_migration.py": {
+      "sha256": "0c63dd9d696ef732346b9ae29d85035a08a5179a529f7c6c786a436e84d77f24",
+      "expected_sha256": "0c63dd9d696ef732346b9ae29d85035a08a5179a529f7c6c786a436e84d77f24"
+    },
+    "main_lib/fluidckpt/cluster/capture.py": {
+      "sha256": "fa09825191a4aa54c7307f923c265c135e29579fcb7f26e65200a1af28f780f2",
+      "expected_sha256": "fa09825191a4aa54c7307f923c265c135e29579fcb7f26e65200a1af28f780f2"
+    },
+    "main_lib/fluidckpt/cluster/catalog.py": {
+      "sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d",
+      "expected_sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d"
+    },
+    "main_lib/fluidckpt/cluster/control.py": {
+      "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed",
+      "expected_sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed"
+    },
+    "main_lib/fluidckpt/cluster/eviction.py": {
+      "sha256": "2abfa96049c831ddbb54a7d886c894c7253fedc2f9b8b891c1599d494d747601",
+      "expected_sha256": "2abfa96049c831ddbb54a7d886c894c7253fedc2f9b8b891c1599d494d747601"
+    },
+    "main_lib/fluidckpt/cluster/feedback.py": {
+      "sha256": "f53b48d2ab6b8af93bf0397d27af81198cf7d8e3925049997b61d6dad42a8879",
+      "expected_sha256": "f53b48d2ab6b8af93bf0397d27af81198cf7d8e3925049997b61d6dad42a8879"
+    },
+    "main_lib/fluidckpt/cluster/joint.py": {
+      "sha256": "fa6ef74c6ef631c190e0c04a30005e1e109860856dd42cb87016a7932b51c1cd",
+      "expected_sha256": "fa6ef74c6ef631c190e0c04a30005e1e109860856dd42cb87016a7932b51c1cd"
+    },
+    "main_lib/fluidckpt/cluster/managed.py": {
+      "sha256": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e",
+      "expected_sha256": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e"
+    },
+    "main_lib/fluidckpt/cluster/managed_control.py": {
+      "sha256": "06a332fad0b0f0159e8bd685240a007bf6adba03a202586af01a54bd0ebf8f97",
+      "expected_sha256": "06a332fad0b0f0159e8bd685240a007bf6adba03a202586af01a54bd0ebf8f97"
+    },
+    "main_lib/fluidckpt/cluster/multi_joint.py": {
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657",
+      "expected_sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657"
+    },
+    "main_lib/fluidckpt/cluster/path_catalog.py": {
+      "sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+      "expected_sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43"
+    },
+    "main_lib/fluidckpt/cluster/planning.py": {
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024",
+      "expected_sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024"
+    },
+    "main_lib/fluidckpt/cluster/service_cost.py": {
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14",
+      "expected_sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+    },
+    "main_lib/fluidckpt/cluster/wire.py": {
+      "sha256": "95c8846b3023688a5ce0d207c624bf46fb9f8aa6df47c86018ba4358fa79ff28",
+      "expected_sha256": "95c8846b3023688a5ce0d207c624bf46fb9f8aa6df47c86018ba4358fa79ff28"
+    },
+    "main_lib/fluidckpt/cluster/worker.py": {
+      "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6",
+      "expected_sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6"
+    },
+    "main_lib/fluidckpt/executor/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/executor/chunks.py": {
+      "sha256": "7e4852838302adeb02ecc973976474a8ca833ce5ec928fbf6f647c355ac52973",
+      "expected_sha256": "7e4852838302adeb02ecc973976474a8ca833ce5ec928fbf6f647c355ac52973"
+    },
+    "main_lib/fluidckpt/executor/pipeline.py": {
+      "sha256": "9e21412ea32c27bf2806d90b2cc2ec3494ccd9a56aee1ec67f76e0075fe916ec",
+      "expected_sha256": "9e21412ea32c27bf2806d90b2cc2ec3494ccd9a56aee1ec67f76e0075fe916ec"
+    },
+    "main_lib/fluidckpt/executor/profiling.py": {
+      "sha256": "75234718e56ce0c787fa609319c8d5b9245c7e6354106941825a4a65918c3039",
+      "expected_sha256": "75234718e56ce0c787fa609319c8d5b9245c7e6354106941825a4a65918c3039"
+    },
+    "main_lib/fluidckpt/executor/regions.py": {
+      "sha256": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d",
+      "expected_sha256": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d"
+    },
+    "main_lib/fluidckpt/executor/run_plans.py": {
+      "sha256": "bb41f9c53196dd5ab96d3c6843b6bef9a6fd2b6dfa54647f278f554fbff773ff",
+      "expected_sha256": "bb41f9c53196dd5ab96d3c6843b6bef9a6fd2b6dfa54647f278f554fbff773ff"
+    },
+    "main_lib/fluidckpt/memory/__init__.py": {
+      "sha256": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08",
+      "expected_sha256": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08"
+    },
+    "main_lib/fluidckpt/memory/bindings.py": {
+      "sha256": "2807f529a7ebf7d1e824535cb8773e02745611580b0f2534fe6df0e8f00115e9",
+      "expected_sha256": "2807f529a7ebf7d1e824535cb8773e02745611580b0f2534fe6df0e8f00115e9"
+    },
+    "main_lib/fluidckpt/memory/host.py": {
+      "sha256": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc",
+      "expected_sha256": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc"
+    },
+    "main_lib/fluidckpt/memory/numa.py": {
+      "sha256": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+      "expected_sha256": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9"
+    },
+    "main_lib/fluidckpt/memory/owned_host.py": {
+      "sha256": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15",
+      "expected_sha256": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15"
+    },
+    "main_lib/fluidckpt/memory/owner.py": {
+      "sha256": "aeb05db3d19ffba814f7b78c4ad75fdfffc776873e14b012a0b7091ebe324383",
+      "expected_sha256": "aeb05db3d19ffba814f7b78c4ad75fdfffc776873e14b012a0b7091ebe324383"
+    },
+    "main_lib/fluidckpt/memory/ssd.py": {
+      "sha256": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5",
+      "expected_sha256": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5"
+    },
+    "main_lib/fluidckpt/model/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/model/fit.py": {
+      "sha256": "bf032dba09b232acc7c2c580a239088c93e4d4c1260964ebe8babcd78b9c225a",
+      "expected_sha256": "bf032dba09b232acc7c2c580a239088c93e4d4c1260964ebe8babcd78b9c225a"
+    },
+    "main_lib/fluidckpt/model/fluid.py": {
+      "sha256": "1ee4033e30e02271b847d17899434a7f8b7759a1449382be8485b7af5e9df00a",
+      "expected_sha256": "1ee4033e30e02271b847d17899434a7f8b7759a1449382be8485b7af5e9df00a"
+    },
+    "main_lib/fluidckpt/model/ingest.py": {
+      "sha256": "be52d33acaefb8a20b06c623d602ba852e6dfe85ad2d21f68a6c0d9f7d012a0f",
+      "expected_sha256": "be52d33acaefb8a20b06c623d602ba852e6dfe85ad2d21f68a6c0d9f7d012a0f"
+    },
+    "main_lib/fluidckpt/model/resources.py": {
+      "sha256": "f08dda76b915665b07e38658fec5762033a2566b4859ec886c1c8285ad8f9915",
+      "expected_sha256": "f08dda76b915665b07e38658fec5762033a2566b4859ec886c1c8285ad8f9915"
+    },
+    "main_lib/fluidckpt/model/score_frozen.py": {
+      "sha256": "cb1f6b3b0cf81ec9e52305ec2e6b1502fbebe8830b747cc34c33bfcd3aa65ab3",
+      "expected_sha256": "cb1f6b3b0cf81ec9e52305ec2e6b1502fbebe8830b747cc34c33bfcd3aa65ab3"
+    },
+    "main_lib/fluidckpt/planner/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/planner/loading.py": {
+      "sha256": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010",
+      "expected_sha256": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010"
+    },
+    "main_lib/fluidckpt/planner/plans.py": {
+      "sha256": "6e01d118714bc08262fd03c98d19e15ea0df96a2acca22d0f0f3e26a40ed5ccb",
+      "expected_sha256": "6e01d118714bc08262fd03c98d19e15ea0df96a2acca22d0f0f3e26a40ed5ccb"
+    },
+    "main_lib/fluidckpt/planner/regions.py": {
+      "sha256": "bb416a8ad667f93caf6b87f3b273246f7199e20cecb7eed71901774e69fff0d0",
+      "expected_sha256": "bb416a8ad667f93caf6b87f3b273246f7199e20cecb7eed71901774e69fff0d0"
+    },
+    "main_lib/fluidckpt/profiler/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/profiler/numa.py": {
+      "sha256": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+      "expected_sha256": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5"
+    },
+    "main_lib/fluidckpt/profiler/run.py": {
+      "sha256": "6cab12fd102196ffa6e68b87abb8206fbed3b9bdfff4ec9bb0980c39d1d361a6",
+      "expected_sha256": "6cab12fd102196ffa6e68b87abb8206fbed3b9bdfff4ec9bb0980c39d1d361a6"
+    },
+    "main_lib/fluidckpt/profiler/workers.py": {
+      "sha256": "7b9fc98576e75e17b9e8d888dd457f5097705606f2d0542afc1a33663b67e4c8",
+      "expected_sha256": "7b9fc98576e75e17b9e8d888dd457f5097705606f2d0542afc1a33663b67e4c8"
+    },
+    "main_lib/fluidckpt/serving/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "main_lib/fluidckpt/serving/ctl.py": {
+      "sha256": "5d1f54a0e52138266d074582decc2211c400a5a3635dd00b1803079ae2b5e7b9",
+      "expected_sha256": "5d1f54a0e52138266d074582decc2211c400a5a3635dd00b1803079ae2b5e7b9"
+    },
+    "main_lib/fluidckpt/serving/handoff.py": {
+      "sha256": "43619da2af5eabfeafe1108ab86c2021b05e1c2296239213d8b4253b90418f42",
+      "expected_sha256": "43619da2af5eabfeafe1108ab86c2021b05e1c2296239213d8b4253b90418f42"
+    },
+    "main_lib/fluidckpt/serving/ipc_attach.py": {
+      "sha256": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4",
+      "expected_sha256": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4"
+    },
+    "main_lib/fluidckpt/serving/ipc_layout.py": {
+      "sha256": "19df6275ea35ea3ea008831310cd0aa1fad01cfc51364b6624c0fdbac4cb8f54",
+      "expected_sha256": "19df6275ea35ea3ea008831310cd0aa1fad01cfc51364b6624c0fdbac4cb8f54"
+    },
+    "main_lib/fluidckpt/serving/keeper.py": {
+      "sha256": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250",
+      "expected_sha256": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250"
+    },
+    "main_lib/fluidckpt/serving/layout.py": {
+      "sha256": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156",
+      "expected_sha256": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156"
+    },
+    "main_lib/fluidckpt/serving/lifecycle.py": {
+      "sha256": "fe2b035eff0c5e5ce9feef6d67ca11857767fed410beb54798f239b506f890a9",
+      "expected_sha256": "fe2b035eff0c5e5ce9feef6d67ca11857767fed410beb54798f239b506f890a9"
+    },
+    "main_lib/fluidckpt/serving/measure.py": {
+      "sha256": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a",
+      "expected_sha256": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a"
+    },
+    "main_lib/fluidckpt/serving/prepare_trace.py": {
+      "sha256": "32d18810810aaea0a8b19655fcc22529225eb7a8ed6aced5b304757ddb2bf889",
+      "expected_sha256": "32d18810810aaea0a8b19655fcc22529225eb7a8ed6aced5b304757ddb2bf889"
+    },
+    "main_lib/fluidckpt/serving/replicas.py": {
+      "sha256": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566",
+      "expected_sha256": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566"
+    },
+    "main_lib/fluidckpt/serving/sglang_hook.py": {
+      "sha256": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a",
+      "expected_sha256": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a"
+    },
+    "main_lib/fluidckpt/serving/ssd_store.py": {
+      "sha256": "ae8674271eb83fc1d2d78f88cfe0f422b5aa8ec0a9037a8854b4bb5d8ab0d164",
+      "expected_sha256": "ae8674271eb83fc1d2d78f88cfe0f422b5aa8ec0a9037a8854b4bb5d8ab0d164"
+    },
+    "main_lib/fluidckpt/topology/__init__.py": {
+      "sha256": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c",
+      "expected_sha256": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c"
+    },
+    "main_lib/fluidckpt/topology/discover.py": {
+      "sha256": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+      "expected_sha256": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66"
+    },
+    "main_lib/fluidckpt/topology/placement.py": {
+      "sha256": "435a3652111c9584c6b6abc564952e892b083749728fd64e74a7f52597971d94",
+      "expected_sha256": "435a3652111c9584c6b6abc564952e892b083749728fd64e74a7f52597971d94"
+    },
+    "main_lib/fluidckpt/topology/rccl_xml.py": {
+      "sha256": "8f1eaba98d409d826a4c57083962514bca37d5f18b7f592d76aecaef193d2f15",
+      "expected_sha256": "8f1eaba98d409d826a4c57083962514bca37d5f18b7f592d76aecaef193d2f15"
+    },
+    "main_lib/fluidckpt/topology/resource_map.py": {
+      "sha256": "88dde80e3ac43e2a4973f70a4ae9e1f79c64a68c9983bf16c8f49e888d7f45e4",
+      "expected_sha256": "88dde80e3ac43e2a4973f70a4ae9e1f79c64a68c9983bf16c8f49e888d7f45e4"
+    },
+    "main_lib/fluidckpt/transport/__init__.py": {
+      "sha256": "24fc75327a4783864f10cc0b4280595f0971a0365e1d69a5053cd38772158563",
+      "expected_sha256": "24fc75327a4783864f10cc0b4280595f0971a0365e1d69a5053cd38772158563"
+    },
+    "main_lib/fluidckpt/transport/bucket.py": {
+      "sha256": "0d5ec16c7f4dbeee76f105d91d8ca7461e07dcee90dcafe7155a6576c249343a",
+      "expected_sha256": "0d5ec16c7f4dbeee76f105d91d8ca7461e07dcee90dcafe7155a6576c249343a"
+    },
+    "main_lib/fluidckpt/transport/flowplan.py": {
+      "sha256": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103",
+      "expected_sha256": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103"
+    },
+    "main_lib/fluidckpt/transport/stream.py": {
+      "sha256": "5c5c3a36e90caff8398b23b80f34f3d96257acb6dc4203a46de305df53d6c05d",
+      "expected_sha256": "5c5c3a36e90caff8398b23b80f34f3d96257acb6dc4203a46de305df53d6c05d"
+    },
+    "codex_coding/src/v0.1.23.3/task2/three_node_recovery/admission28/runtime_gate_r03.py": {
+      "sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058",
+      "expected_sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/measurement_driver.py": {
+      "sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9",
+      "expected_sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9"
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_xml_2830_gdr0_r01/node30.physical.gdr0.xml": {
+      "sha256": "b0d2633711e3779784265aaa80c44f4ad0beaaf95728c0e6bef555b99503e9b5",
+      "expected_sha256": "b0d2633711e3779784265aaa80c44f4ad0beaaf95728c0e6bef555b99503e9b5"
+    },
+    "codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_xml_2830_gdr0_r01/node30.manifest.json": {
+      "sha256": "d2e928320a5128e4ef30d694d1d092cb688082c1a173b09faeac11b938ae38d9",
+      "expected_sha256": "d2e928320a5128e4ef30d694d1d092cb688082c1a173b09faeac11b938ae38d9"
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_driver_deploy_r01/local64_node30_r01.config.json": {
+      "sha256": "a23f62521fc4e661e7d1d7ead7aebd1c42420de4c66a012e613a3ab71c5bda9d",
+      "expected_sha256": "a23f62521fc4e661e7d1d7ead7aebd1c42420de4c66a012e613a3ab71c5bda9d"
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_driver_deploy_r01/remote64_node30_r01.config.json": {
+      "sha256": "36a4242d33e592685ccf62134025ac2590bad907f7a34f5f699d7c9fd00e8fe0",
+      "expected_sha256": "36a4242d33e592685ccf62134025ac2590bad907f7a34f5f699d7c9fd00e8fe0"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/build_contract.py": {
+      "sha256": "2507a54f8932f0d865518c3e5fa1cc695a5235bdcb791e3e0b21388b4ec13cc9",
+      "expected_sha256": "2507a54f8932f0d865518c3e5fa1cc695a5235bdcb791e3e0b21388b4ec13cc9"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/run_session.py": {
+      "sha256": "42e15919480e57020f7a6dce3ebd1b41f1748d0148ef7b2f39cfab7c7583dae1",
+      "expected_sha256": "42e15919480e57020f7a6dce3ebd1b41f1748d0148ef7b2f39cfab7c7583dae1"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/supervise_worker.py": {
+      "sha256": "6f0e7345264968f72fce35206191cab081858d1bf3902e7d05b3aed1535cdb2e",
+      "expected_sha256": "6f0e7345264968f72fce35206191cab081858d1bf3902e7d05b3aed1535cdb2e"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/test_integration.py": {
+      "sha256": "c8279cf72d20189f184e2c1238aa452f9af63daf69b9cf851a03a86fbcdaaef5",
+      "expected_sha256": "c8279cf72d20189f184e2c1238aa452f9af63daf69b9cf851a03a86fbcdaaef5"
+    },
+    "codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/README.md": {
+      "sha256": "12e119beb6c8ded281cb1c1d89a8e2066492f3bb7d13d38a54c6ae3a85cd079f",
+      "expected_sha256": "12e119beb6c8ded281cb1c1d89a8e2066492f3bb7d13d38a54c6ae3a85cd079f"
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_launch_cpu_r05/launch_plan.json": {
+      "sha256": "d068c07c0911baad0e1bd97fb4b2e45d1795b6998a336ddfff5e56703165941b",
+      "expected_sha256": "d068c07c0911baad0e1bd97fb4b2e45d1795b6998a336ddfff5e56703165941b"
+    }
+  },
+  "gpu_api_calls": 0,
+  "keeper_rpc_calls": 0,
+  "keepers": [],
+  "keeper_process_discovery": [],
+  "scope": "metadata/catalog only; canonical catalog excludes dynamic free/sample fields; no model-content reread; additional keep-v02 six identities have no catalog RPC",
+  "container_identity_checks": {
+    "id": true,
+    "started": true,
+    "image": true,
+    "running": true
+  }
+}

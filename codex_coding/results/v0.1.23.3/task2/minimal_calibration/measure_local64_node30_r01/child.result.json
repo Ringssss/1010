@@ -1,0 +1,616 @@
+{
+  "schema_version": "fluidckpt.minimal_calibration.measurement.v1",
+  "status": "passed",
+  "config": {
+    "node": "node30",
+    "hostname": "m03r2n10",
+    "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+    "container_id": "7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1",
+    "container_started_at": "2026-10-09T10:57:42.068061805Z",
+    "physical_gpu": 4,
+    "bdf": "0000:85:00.0",
+    "primitive": "local_numa_h2d",
+    "payload_bytes": 67108864,
+    "iterations": 1,
+    "flow_count": 1,
+    "source_node": "node30",
+    "source_numa": 4,
+    "source_resource_id": "node30/numa/4",
+    "source_gpu_resource_id": null,
+    "target_resource_id": "node30/pci/0000:85:00.0",
+    "runtime_source": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/admission28/runtime_gate_r03.py",
+    "runtime_source_sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058",
+    "main_lib_root": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+    "load_scope": "guarded_candidate_scope",
+    "qualification_ref": [
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_minimal_candidate_2830_node28_r01/summary.json",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_minimal_candidate_2830_node30_r01/summary.json"
+    ],
+    "guard_before_ref": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_before_local64_node30_r01/stdout.json",
+    "owner_refs": [
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node30/stdout.json",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_owner_scope_r01/stdout.json"
+    ],
+    "host_guard_bytes": 2147483648,
+    "gpu_guard_bytes": 2147483648,
+    "incremental_HBM_limit_bytes": 2147483648,
+    "incremental_DRAM_limit_bytes": 2147483648,
+    "planner_profile_eligible": false,
+    "production_executor_equivalent": false
+  },
+  "config_sha256": "dda1efda6dcd1a01d28749b10d247eaffd8d2d5b22adb8ec5a24c076d572284a",
+  "formal_performance_ready": false,
+  "capacity_is_physical_upper_bound": false,
+  "samples": [
+    {
+      "primitive": "local_numa_h2d",
+      "direction": "host_to_gpu",
+      "bytes": 67108864,
+      "source_resource_id": "node30/numa/4",
+      "target_resource_id": "node30/pci/0000:85:00.0",
+      "duration_ns": 1471437,
+      "start_ns": 4870065553325802,
+      "end_ns": 4870065554797239,
+      "clock_domain": "node30:d9d6a6fb-013f-49ac-98f9-e77eca67952e:monotonic",
+      "completion": "cuda_device_synchronize",
+      "rate_Bps": 45607704577.22621,
+      "timer_scope": "NUMA registered H2D to completed target",
+      "full_SHA256": "98dc891b284e4d84ac25b0c0a24fdbe39a7f0dbd643ad5e8aa06e02fc6258254",
+      "verified_bytes": 67108864,
+      "config_sha256": "dda1efda6dcd1a01d28749b10d247eaffd8d2d5b22adb8ec5a24c076d572284a",
+      "runtime_fingerprint_sha256": "1c361c36e8a7f31b798e24a7d3bca310af6d52078eae62dea68357b2f87ea8e4",
+      "load_scope": "guarded_candidate_scope",
+      "owner_refs": [
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_refresh_r01/node30/stdout.json",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_owner_scope_r01/stdout.json"
+      ],
+      "capacity_is_physical_upper_bound": false,
+      "production_executor_equivalent": false,
+      "planner_profile_eligible": false
+    }
+  ],
+  "costs_ns": {
+    "torch_import": 1865636227,
+    "gpu_init": 14260613002,
+    "target_or_source_staging_allocation": 40363186,
+    "host_allocate_touch_register": 42143238,
+    "prepare_pattern_and_full_host_SHA": 371754197,
+    "warmup": 3365201,
+    "completed_transfer": 1471437,
+    "verify_full_device_SHA": 68930576
+  },
+  "production_executor_equivalent": false,
+  "planner_profile_eligible": false,
+  "executor_scope": "whole-payload NUMA H2D/broadcast microprimitive; production chunk/staging/land measured separately",
+  "runtime_fingerprint": {
+    "torch": "2.10.0",
+    "torch_hip": "6.3.26113",
+    "driver_sha256": "feda34abf25949cf2756513d12ebde20cb4d188bafe54dc3afee27cae86490e9",
+    "runtime_source_sha256": "d1ae5e31c3bf801d36011cbb9a6e911b400fd4e64c6689c8c742d4aa78d4f058",
+    "HostAllocation_sha256": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc",
+    "environment": {
+      "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+      "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+      "NCCL_NET": "IBext_v8",
+      "NCCL_IB_HCA": "shca_0",
+      "NCCL_SOCKET_IFNAME": "ib0",
+      "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1"
+    },
+    "BDF": "0000:85:00.0",
+    "physical_gpu": 4,
+    "numa": 4,
+    "container_id": "7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1",
+    "container_started_at": "2026-10-09T10:57:42.068061805Z",
+    "plugin_sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+  },
+  "runtime_fingerprint_sha256": "1c361c36e8a7f31b798e24a7d3bca310af6d52078eae62dea68357b2f87ea8e4",
+  "actual_bdf": "0000:85:00.0",
+  "initial_hip_free_bytes": 68365058048,
+  "initial_hip_total_bytes": 68702699520,
+  "before_resources": {
+    "monotonic_ns": 4870065090302622,
+    "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40520452 kB\nVmSize:\t40373736 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2614660 kB\nVmRSS:\t 2542752 kB\nRssAnon:\t 1337648 kB\nRssFile:\t 1205100 kB\nRssShmem:\t       4 kB\nVmData:\t 1372228 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8420 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t2\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t169\nnonvoluntary_ctxt_switches:\t474",
+    "cgroup": "0::/",
+    "cgroup_memory": {
+      "memory.current": "1410068480",
+      "memory.max": "8589934592",
+      "memory.peak": {
+        "error": "FileNotFoundError(2, 'No such file or directory')"
+      },
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "4"
+    },
+    "sysfs_gpu_used_bytes": "3874816",
+    "sysfs_gpu_total_bytes": "68702699520"
+  },
+  "host_allocation": {
+    "backend": "numa_registered",
+    "numa": 4,
+    "logical_bytes": 67108864,
+    "allocation_bytes": 67108864,
+    "sampled_page_distribution": {
+      "4": 1.0
+    },
+    "placement_samples": 256,
+    "timings": {
+      "allocate_bind_touch_s": 0.04052657913416624,
+      "register_s": 0.0015886984765529633,
+      "total_s": 0.04211726784706116
+    }
+  },
+  "expected_sha256": "98dc891b284e4d84ac25b0c0a24fdbe39a7f0dbd643ad5e8aa06e02fc6258254",
+  "before_transfer_resources": {
+    "monotonic_ns": 4870065552890164,
+    "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40765904 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2798600 kB\nRssAnon:\t 1583312 kB\nRssFile:\t 1215284 kB\nRssShmem:\t       4 kB\nVmData:\t 1632180 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8928 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t266\nnonvoluntary_ctxt_switches:\t476",
+    "cgroup": "0::/",
+    "cgroup_memory": {
+      "memory.current": "1669484544",
+      "memory.max": "8589934592",
+      "memory.peak": {
+        "error": "FileNotFoundError(2, 'No such file or directory')"
+      },
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "6"
+    },
+    "sysfs_gpu_used_bytes": "219078656",
+    "sysfs_gpu_total_bytes": "68702699520"
+  },
+  "after_transfer_resources": {
+    "monotonic_ns": 4870065554933262,
+    "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40765904 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2798600 kB\nRssAnon:\t 1583312 kB\nRssFile:\t 1215284 kB\nRssShmem:\t       4 kB\nVmData:\t 1632180 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8928 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t267\nnonvoluntary_ctxt_switches:\t476",
+    "cgroup": "0::/",
+    "cgroup_memory": {
+      "memory.current": "1669484544",
+      "memory.max": "8589934592",
+      "memory.peak": {
+        "error": "FileNotFoundError(2, 'No such file or directory')"
+      },
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "pids.current": "6"
+    },
+    "sysfs_gpu_used_bytes": "219078656",
+    "sysfs_gpu_total_bytes": "68702699520"
+  },
+  "correctness": {
+    "passed": true,
+    "sha256": "98dc891b284e4d84ac25b0c0a24fdbe39a7f0dbd643ad5e8aa06e02fc6258254",
+    "expected_sha256": "98dc891b284e4d84ac25b0c0a24fdbe39a7f0dbd643ad5e8aa06e02fc6258254",
+    "verified_bytes": 67108864
+  },
+  "accounting": {
+    "logical_payload_bytes": 67108864,
+    "host_backing_bytes": 67108864,
+    "source_gpu_staging_bytes": 0,
+    "target_gpu_bytes": 67108864,
+    "verification_chunk_bytes": 8388608,
+    "pattern_scratch_bound_bytes": 67108864,
+    "gpu_peak_allocated_bytes": 67108864,
+    "gpu_peak_reserved_bytes": 67108864,
+    "runtime_overhead_in_physical_samples": true,
+    "memory_peak_scope": "sampled process/container/device usage; cgroup memory.peak can include earlier runs"
+  },
+  "resource_samples": [
+    {
+      "monotonic_ns": 4870065091645047,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40520452 kB\nVmSize:\t40447468 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2614660 kB\nVmRSS:\t 2544800 kB\nRssAnon:\t 1339696 kB\nRssFile:\t 1205100 kB\nRssShmem:\t       4 kB\nVmData:\t 1380420 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8428 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t3\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t171\nnonvoluntary_ctxt_switches:\t474",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1412165632",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "5"
+      },
+      "sysfs_gpu_used_bytes": "70991872",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065112290893,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40660960 kB\nVmSize:\t40658908 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2627680 kB\nVmRSS:\t 2627680 kB\nRssAnon:\t 1421432 kB\nRssFile:\t 1206244 kB\nRssShmem:\t       4 kB\nVmData:\t 1526428 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8596 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t171\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1495916544",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "217829376",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065134045739,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40663416 kB\nVmSize:\t40662388 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2687232 kB\nVmRSS:\t 2687232 kB\nRssAnon:\t 1479508 kB\nRssFile:\t 1207720 kB\nRssShmem:\t       4 kB\nVmData:\t 1528668 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8720 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t180\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1555550208",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065157789043,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tD (disk sleep)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40727924 kB\nVmSize:\t40727924 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2687556 kB\nVmRSS:\t 2687556 kB\nRssAnon:\t 1479768 kB\nRssFile:\t 1207784 kB\nRssShmem:\t       4 kB\nVmData:\t 1594204 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8720 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t211\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1556074496",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065178358527,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40760696 kB\nVmSize:\t40760696 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2757188 kB\nVmRSS:\t 2757188 kB\nRssAnon:\t 1549400 kB\nRssFile:\t 1207784 kB\nRssShmem:\t       4 kB\nVmData:\t 1626976 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8864 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t212\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1627639808",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065198905272,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40793468 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2800876 kB\nVmRSS:\t 2800876 kB\nRssAnon:\t 1592428 kB\nRssFile:\t 1208444 kB\nRssShmem:\t       4 kB\nVmData:\t 1659748 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8952 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t212\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1671680000",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065219452976,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40760696 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2786544 kB\nRssAnon:\t 1578092 kB\nRssFile:\t 1208448 kB\nRssShmem:\t       4 kB\nVmData:\t 1626976 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8920 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t212\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1656987648",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065245904659,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tD (disk sleep)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40732108 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2761756 kB\nRssAnon:\t 1549504 kB\nRssFile:\t 1212248 kB\nRssShmem:\t       4 kB\nVmData:\t 1598388 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8860 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t249\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1633124352",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065266460103,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40748492 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2776348 kB\nRssAnon:\t 1562676 kB\nRssFile:\t 1213668 kB\nRssShmem:\t       4 kB\nVmData:\t 1614772 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8888 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t249\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1646657536",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065287029158,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40748492 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2780520 kB\nRssAnon:\t 1565896 kB\nRssFile:\t 1214620 kB\nRssShmem:\t       4 kB\nVmData:\t 1614772 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8892 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1651507200",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065307575293,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40756684 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2784104 kB\nRssAnon:\t 1568936 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1622964 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8900 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1654652928",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065328108607,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40756684 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2789244 kB\nRssAnon:\t 1574076 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1622964 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8908 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1659895808",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065348607991,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2794132 kB\nRssAnon:\t 1578964 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8920 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t475",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1665150976",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065369130795,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668427776",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065389631038,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668427776",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065410148872,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668427776",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065430687117,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t263\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668440064",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065451207501,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t265\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668435968",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065471702934,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t265\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668435968",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065492202798,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t265\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668435968",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065512723252,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t265\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668435968",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065533249416,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40764876 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2797224 kB\nRssAnon:\t 1582056 kB\nRssFile:\t 1215164 kB\nRssShmem:\t       4 kB\nVmData:\t 1631156 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8924 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t265\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1668435968",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219074560",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065553791391,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40765904 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2798600 kB\nRssAnon:\t 1583312 kB\nRssFile:\t 1215284 kB\nRssShmem:\t       4 kB\nVmData:\t 1632180 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8928 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t267\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1669484544",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219078656",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065574339965,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40765904 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2798600 kB\nRssAnon:\t 1583312 kB\nRssFile:\t 1215284 kB\nRssShmem:\t       4 kB\nVmData:\t 1632180 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8932 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t267\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1669484544",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219078656",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065594859499,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40765904 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2798600 kB\nRssAnon:\t 1583312 kB\nRssFile:\t 1215284 kB\nRssShmem:\t       4 kB\nVmData:\t 1632180 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8932 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t267\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1669484544",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219078656",
+      "sysfs_gpu_total_bytes": "68702699520"
+    },
+    {
+      "monotonic_ns": 4870065615364993,
+      "proc_status": "Name:\tpython3\nUmask:\t0022\nState:\tR (running)\nTgid:\t39\nNgid:\t0\nPid:\t39\nPPid:\t33\nTracerPid:\t0\nUid:\t0\t0\t0\t0\nGid:\t0\t0\t0\t0\nFDSize:\t64\nGroups:\t0 \nNStgid:\t39\nNSpid:\t39\nNSpgid:\t39\nNSsid:\t39\nVmPeak:\t40793468 kB\nVmSize:\t40774096 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2819308 kB\nVmRSS:\t 2800700 kB\nRssAnon:\t 1584264 kB\nRssFile:\t 1216432 kB\nRssShmem:\t       4 kB\nVmData:\t 1640372 kB\nVmStk:\t     132 kB\nVmExe:\t    2772 kB\nVmLib:\t  838504 kB\nVmPTE:\t    8936 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t1\nThreads:\t4\nSigQ:\t0/2062388\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000000000\nSigIgn:\t0000000001001000\nSigCgt:\t0000000300000002\nCapInh:\t0000000000000000\nCapPrm:\t00000000a88465fb\nCapEff:\t00000000a88465fb\nCapBnd:\t00000000a88465fb\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t2\nSeccomp_filters:\t1\nSpeculation_Store_Bypass:\tthread force mitigated\nSpeculationIndirectBranch:\tconditional force disabled\nCpus_allowed:\tffffffff,ffffffff,ffffffff,ffffffff\nCpus_allowed_list:\t0-127\nMems_allowed:\t00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,000000ff\nMems_allowed_list:\t0-7\nvoluntary_ctxt_switches:\t267\nnonvoluntary_ctxt_switches:\t476",
+      "cgroup": "0::/",
+      "cgroup_memory": {
+        "memory.current": "1672630272",
+        "memory.max": "8589934592",
+        "memory.peak": {
+          "error": "FileNotFoundError(2, 'No such file or directory')"
+        },
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+        "pids.current": "6"
+      },
+      "sysfs_gpu_used_bytes": "219078656",
+      "sysfs_gpu_total_bytes": "68702699520"
+    }
+  ],
+  "cleanup_errors": [],
+  "original_xml_preserved": true,
+  "worker_elapsed_ns": 16717023048,
+  "sampled_at_utc": "2026-10-09T11:09:26.015307+00:00"
+}

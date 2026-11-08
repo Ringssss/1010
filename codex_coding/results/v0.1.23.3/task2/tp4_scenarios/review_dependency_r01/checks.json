@@ -1,0 +1,224 @@
+{
+  "checks": {
+    "independent_pairs_really_overlap_in_existing_scorer": true,
+    "single_source_is_not_four_independent_channels": true,
+    "local_then_remote_same_target_is_serial_five_not_four": true,
+    "distinct_workers_do_not_make_shared_cut_independent": true
+  },
+  "results": {
+    "independent": {
+      "estimated_execute_s": 8.0,
+      "estimated_worker_s": 8.0,
+      "request_s": 0.0,
+      "dispatch_s": 0.0,
+      "timeline": [
+        {
+          "op_id": "remote/0",
+          "path": "remote",
+          "start_s": 0.0,
+          "end_s": 8.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "remote/1",
+          "path": "remote",
+          "start_s": 0.0,
+          "end_s": 8.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "remote/2",
+          "path": "remote",
+          "start_s": 0.0,
+          "end_s": 8.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "remote/3",
+          "path": "remote",
+          "start_s": 0.0,
+          "end_s": 8.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        }
+      ],
+      "scope": "SYMBOLIC dependency probe; no measured coefficients or shared contention",
+      "strategy": "stateful_serial_service",
+      "bandwidth_plan_estimate_s": 0.0
+    },
+    "single_source": {
+      "estimated_execute_s": 32.0,
+      "estimated_worker_s": 32.0,
+      "request_s": 0.0,
+      "dispatch_s": 0.0,
+      "timeline": [
+        {
+          "op_id": "single/0",
+          "path": "remote",
+          "start_s": 0.0,
+          "end_s": 8.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "single/1",
+          "path": "remote",
+          "start_s": 8.0,
+          "end_s": 16.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 8.0
+        },
+        {
+          "op_id": "single/2",
+          "path": "remote",
+          "start_s": 16.0,
+          "end_s": 24.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 16.0
+        },
+        {
+          "op_id": "single/3",
+          "path": "remote",
+          "start_s": 24.0,
+          "end_s": 32.0,
+          "service_s": 8.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 24.0
+        }
+      ],
+      "scope": "SYMBOLIC dependency probe; no measured coefficients or shared contention",
+      "strategy": "stateful_serial_service",
+      "bandwidth_plan_estimate_s": 0.0
+    },
+    "local_then_remote": {
+      "estimated_execute_s": 5.0,
+      "estimated_worker_s": 5.0,
+      "request_s": 0.0,
+      "dispatch_s": 0.0,
+      "timeline": [
+        {
+          "op_id": "local/0",
+          "path": "local",
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "service_s": 1.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "tail/0",
+          "path": "remote",
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "service_s": 4.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 1.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "local/1",
+          "path": "local",
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "service_s": 1.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "tail/1",
+          "path": "remote",
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "service_s": 4.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 1.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "local/2",
+          "path": "local",
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "service_s": 1.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "tail/2",
+          "path": "remote",
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "service_s": 4.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 1.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "local/3",
+          "path": "local",
+          "start_s": 0.0,
+          "end_s": 1.0,
+          "service_s": 1.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 0.0,
+          "target_wait_s": 0.0
+        },
+        {
+          "op_id": "tail/3",
+          "path": "remote",
+          "start_s": 1.0,
+          "end_s": 5.0,
+          "service_s": 4.0,
+          "first_pair_s": 0.0,
+          "source_wait_s": 1.0,
+          "target_wait_s": 0.0
+        }
+      ],
+      "scope": "SYMBOLIC dependency probe; no measured coefficients or shared contention",
+      "strategy": "stateful_serial_service",
+      "bandwidth_plan_estimate_s": 0.0
+    },
+    "shared_cut_lower_bound_s": 32.0
+  },
+  "qualification": "symbolic_dependency_scope_verified_only",
+  "measured_rate_ready": false,
+  "real_model_T_ready_measured": false,
+  "new_GPU_samples": 0,
+  "SSH_actions": 0,
+  "product_mutations": 0,
+  "source_refs": [
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/tp4_scenarios/review/dependency_checks.py",
+      "sha256": "7c37d86023a7ddbbb8a9a48dbc5e7493be5da761e8e4198fb2954ec0f5a43ec2"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/service_cost.py",
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/path_catalog.py",
+      "sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43"
+    }
+  ]
+}

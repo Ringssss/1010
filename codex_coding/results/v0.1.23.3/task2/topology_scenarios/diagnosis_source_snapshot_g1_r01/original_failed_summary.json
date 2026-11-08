@@ -1,0 +1,2115 @@
+{
+  "schema_version": "topology_calibration.v1",
+  "status": "failed",
+  "session": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+  "session_overlay_sha256": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+  "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01",
+  "observations": [
+    {
+      "case_id": "network_single_a",
+      "kind": "network",
+      "node": null,
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4690155523324818,
+          "receiver_end_ns": 4690155621795790,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4690155523330438,
+              4690155529852545
+            ],
+            [
+              4690155529853755,
+              4690155535984911
+            ],
+            [
+              4690155535985971,
+              4690155542105415
+            ],
+            [
+              4690155542106365,
+              4690155548222930
+            ],
+            [
+              4690155548223820,
+              4690155554342635
+            ],
+            [
+              4690155554343705,
+              4690155560458940
+            ],
+            [
+              4690155560459790,
+              4690155566577835
+            ],
+            [
+              4690155566578705,
+              4690155572695980
+            ],
+            [
+              4690155572696900,
+              4690155578821265
+            ],
+            [
+              4690155578822315,
+              4690155585076531
+            ],
+            [
+              4690155585077361,
+              4690155591202846
+            ],
+            [
+              4690155591203786,
+              4690155597335791
+            ],
+            [
+              4690155597336801,
+              4690155603456556
+            ],
+            [
+              4690155603457346,
+              4690155609569761
+            ],
+            [
+              4690155609570511,
+              4690155615693636
+            ],
+            [
+              4690155615694356,
+              4690155621794710
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4690154967802517,
+            "end_ns": 4690155520907654,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4690155522774745,
+            "snapshot_end_ns": 4690155622388814,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4401400,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4321545084,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1668,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2144,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4690154765733013,
+            "snapshot_end_ns": 4690154966633880,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2116,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2976,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1252,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1614,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 332113230,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 9360823199,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137649780,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478296077,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690155522774745,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 333213580,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 10441209470,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137651448,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478298221,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690155622388814,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63866667008,
+          "numa_host_placement": null,
+          "service_s": 0.098470972,
+          "empirical_effective_GBps": 43.61658272246972,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4690148526598275,
+            "receiver_end_ns": 4690148624468121,
+            "chunk_intervals": [
+              [
+                4690148526604910,
+                4690148532489594
+              ],
+              [
+                4690148532493854,
+                4690148538634021
+              ],
+              [
+                4690148538636465,
+                4690148544692402
+              ],
+              [
+                4690148544694707,
+                4690148550856734
+              ],
+              [
+                4690148550859109,
+                4690148557013034
+              ],
+              [
+                4690148557016317,
+                4690148563095022
+              ],
+              [
+                4690148563097397,
+                4690148569219614
+              ],
+              [
+                4690148569221499,
+                4690148575333729
+              ],
+              [
+                4690148575337081,
+                4690148581467330
+              ],
+              [
+                4690148581469775,
+                4690148587572995
+              ],
+              [
+                4690148587575370,
+                4690148593824909
+              ],
+              [
+                4690148593827702,
+                4690148599997203
+              ],
+              [
+                4690148599999577,
+                4690148606043292
+              ],
+              [
+                4690148606045736,
+                4690148612179198
+              ],
+              [
+                4690148612182131,
+                4690148618336057
+              ],
+              [
+                4690148618338850,
+                4690148624463931
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": false,
+        "reason": "flow receiver port absent or ambiguous"
+      }
+    },
+    {
+      "case_id": "network_single_b",
+      "kind": "network",
+      "node": null,
+      "mode": "isolated",
+      "flows": [
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4690156818934445,
+          "receiver_end_ns": 4690156917337987,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4690156818939945,
+              4690156825483722
+            ],
+            [
+              4690156825485052,
+              4690156831601857
+            ],
+            [
+              4690156831603057,
+              4690156837714522
+            ],
+            [
+              4690156837715432,
+              4690156843824787
+            ],
+            [
+              4690156843825837,
+              4690156849938162
+            ],
+            [
+              4690156849939522,
+              4690156856041506
+            ],
+            [
+              4690156856042626,
+              4690156862350093
+            ],
+            [
+              4690156862350963,
+              4690156868451407
+            ],
+            [
+              4690156868452327,
+              4690156874566882
+            ],
+            [
+              4690156874568172,
+              4690156880673257
+            ],
+            [
+              4690156880674487,
+              4690156886784052
+            ],
+            [
+              4690156886785322,
+              4690156892901017
+            ],
+            [
+              4690156892901877,
+              4690156899018702
+            ],
+            [
+              4690156899019912,
+              4690156905128137
+            ],
+            [
+              4690156905129287,
+              4690156911234492
+            ],
+            [
+              4690156911235902,
+              4690156917336916
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4690156382810505,
+            "end_ns": 4690156816630702,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4690156818533393,
+            "snapshot_end_ns": 4690156917935670,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4398992,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4321541520,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1664,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 2032,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4690156181422485,
+            "snapshot_end_ns": 4690156382327442,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 0,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 792,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 880,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1416,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data": {
+                "raw": 245928,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data": {
+                "raw": 98997303,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137930900,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478568225,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690156818533393,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data": {
+                "raw": 1345676,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data": {
+                "raw": 1179382683,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137932564,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478570257,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690156917935670,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63424167936,
+          "numa_host_placement": null,
+          "service_s": 0.098403542,
+          "empirical_effective_GBps": 43.64647053050184,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4690149822214122,
+            "receiver_end_ns": 4690149920002184,
+            "chunk_intervals": [
+              [
+                4690149822220688,
+                4690149828097829
+              ],
+              [
+                4690149828101181,
+                4690149834242814
+              ],
+              [
+                4690149834245189,
+                4690149840347012
+              ],
+              [
+                4690149840349387,
+                4690149846430956
+              ],
+              [
+                4690149846433330,
+                4690149852494925
+              ],
+              [
+                4690149852496880,
+                4690149858663517
+              ],
+              [
+                4690149858665961,
+                4690149864752699
+              ],
+              [
+                4690149864755003,
+                4690149871136055
+              ],
+              [
+                4690149871138430,
+                4690149877223281
+              ],
+              [
+                4690149877226075,
+                4690149883309111
+              ],
+              [
+                4690149883313301,
+                4690149889398153
+              ],
+              [
+                4690149889402413,
+                4690149895528891
+              ],
+              [
+                4690149895531265,
+                4690149901656346
+              ],
+              [
+                4690149901659140,
+                4690149907750626
+              ],
+              [
+                4690149907753909,
+                4690149913836386
+              ],
+              [
+                4690149913840646,
+                4690149919997435
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "not_applicable",
+        "overlap_ns": 0,
+        "overlap_fraction": 0.0
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": false,
+        "reason": "flow receiver port absent or ambiguous"
+      }
+    },
+    {
+      "case_id": "network_pair",
+      "kind": "network",
+      "node": null,
+      "mode": "concurrent",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4690157669801802,
+          "receiver_end_ns": 4690157767846872,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4690157669806332,
+              4690157676104538
+            ],
+            [
+              4690157676105778,
+              4690157682231423
+            ],
+            [
+              4690157682232343,
+              4690157688350538
+            ],
+            [
+              4690157688351458,
+              4690157694463803
+            ],
+            [
+              4690157694464693,
+              4690157700582648
+            ],
+            [
+              4690157700583708,
+              4690157706692273
+            ],
+            [
+              4690157706693033,
+              4690157712807988
+            ],
+            [
+              4690157712808728,
+              4690157718922693
+            ],
+            [
+              4690157718923563,
+              4690157725048678
+            ],
+            [
+              4690157725049888,
+              4690157731162403
+            ],
+            [
+              4690157731163313,
+              4690157737283468
+            ],
+            [
+              4690157737284368,
+              4690157743396823
+            ],
+            [
+              4690157743397713,
+              4690157749509277
+            ],
+            [
+              4690157749510157,
+              4690157755632342
+            ],
+            [
+              4690157755633222,
+              4690157761750547
+            ],
+            [
+              4690157761751487,
+              4690157767845772
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "expected_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4690157661560685,
+            "end_ns": 4690157668084332,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4690157669417740,
+            "snapshot_end_ns": 4690157768411215,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4401152,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4321543904,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1400,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1636,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4690157459904314,
+            "snapshot_end_ns": 4690157660721780,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1672,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 3320,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 968,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1732,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 333368513,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 10508816136,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137962164,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478585169,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690157669417740,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 334468801,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 11589202112,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137963564,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478586805,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690157768411215,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63866667008,
+          "numa_host_placement": null,
+          "service_s": 0.09804507,
+          "empirical_effective_GBps": 43.80605058469539,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "f60855928c78695781923dd67fb551fd242b36ca339c55955c751380bef22956",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4690150673059539,
+            "receiver_end_ns": 4690150770519692,
+            "chunk_intervals": [
+              [
+                4690150673067082,
+                4690150678767313
+              ],
+              [
+                4690150678771085,
+                4690150684931156
+              ],
+              [
+                4690150684935416,
+                4690150690996592
+              ],
+              [
+                4690150691000363,
+                4690150697123558
+              ],
+              [
+                4690150697125933,
+                4690150703255274
+              ],
+              [
+                4690150703260931,
+                4690150709305134
+              ],
+              [
+                4690150709307509,
+                4690150715485460
+              ],
+              [
+                4690150715487415,
+                4690150721496069
+              ],
+              [
+                4690150721499841,
+                4690150727692529
+              ],
+              [
+                4690150727695881,
+                4690150733781152
+              ],
+              [
+                4690150733783596,
+                4690150739930817
+              ],
+              [
+                4690150739933191,
+                4690150746017065
+              ],
+              [
+                4690150746022373,
+                4690150752127479
+              ],
+              [
+                4690150752131320,
+                4690150758326871
+              ],
+              [
+                4690150758331551,
+                4690150764393215
+              ],
+              [
+                4690150764397056,
+                4690150770517387
+              ]
+            ]
+          }
+        },
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 268435456,
+          "iterations": 16,
+          "bytes": 4294967296,
+          "receiver_start_ns": 4690157669786282,
+          "receiver_end_ns": 4690157767979943,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4690157669792132,
+              4690157676040918
+            ],
+            [
+              4690157676042258,
+              4690157682149283
+            ],
+            [
+              4690157682150463,
+              4690157688289358
+            ],
+            [
+              4690157688290648,
+              4690157694403643
+            ],
+            [
+              4690157694404613,
+              4690157700651728
+            ],
+            [
+              4690157700652818,
+              4690157706764653
+            ],
+            [
+              4690157706765883,
+              4690157712883588
+            ],
+            [
+              4690157712884528,
+              4690157718983513
+            ],
+            [
+              4690157718984733,
+              4690157725104308
+            ],
+            [
+              4690157725105448,
+              4690157731204013
+            ],
+            [
+              4690157731204943,
+              4690157737316888
+            ],
+            [
+              4690157737317808,
+              4690157743429503
+            ],
+            [
+              4690157743430353,
+              4690157749531038
+            ],
+            [
+              4690157749531978,
+              4690157755646842
+            ],
+            [
+              4690157755647832,
+              4690157761889648
+            ],
+            [
+              4690157761890508,
+              4690157767978873
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "expected_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+            "verified_bytes": 268435456,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 268435456,
+            "start_ns": 4690157661567945,
+            "end_ns": 4690157667952942,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4690157669406760,
+            "snapshot_end_ns": 4690157768589916,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4398992,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 4321542292,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1400,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1636,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4690157460035315,
+            "snapshot_end_ns": 4690157660920312,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 0,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1320,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 968,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1772,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data": {
+                "raw": 1414412,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data": {
+                "raw": 1246908023,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137962164,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478585169,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690157669406760,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_xmit_data": {
+                "raw": 2514160,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_1/ports/1/counters/port_rcv_data": {
+                "raw": 2327293596,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 774137963564,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4035478586805,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4690157768589916,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 63424167936,
+          "numa_host_placement": null,
+          "service_s": 0.098193661,
+          "empirical_effective_GBps": 43.73976132736308,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "a2951224b27f90b29dff9dd269d3da959c1bc31d7cdf2166df21e94b91d7670e",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4690150673020358,
+            "receiver_end_ns": 4690150770624246,
+            "chunk_intervals": [
+              [
+                4690150673027901,
+                4690150678650467
+              ],
+              [
+                4690150678654239,
+                4690150684724424
+              ],
+              [
+                4690150684727217,
+                4690150690898254
+              ],
+              [
+                4690150690901956,
+                4690150697003430
+              ],
+              [
+                4690150697005734,
+                4690150703153095
+              ],
+              [
+                4690150703158263,
+                4690150709380284
+              ],
+              [
+                4690150709385522,
+                4690150715575836
+              ],
+              [
+                4690150715581074,
+                4690150721616687
+              ],
+              [
+                4690150721620947,
+                4690150727692529
+              ],
+              [
+                4690150727695881,
+                4690150733786390
+              ],
+              [
+                4690150733790720,
+                4690150740007992
+              ],
+              [
+                4690150740010856,
+                4690150746053592
+              ],
+              [
+                4690150746057294,
+                4690150752154997
+              ],
+              [
+                4690150752158279,
+                4690150758337697
+              ],
+              [
+                4690150758341049,
+                4690150764371983
+              ],
+              [
+                4690150764374776,
+                4690150770621033
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "observed",
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "overlap_ns": 98045070,
+        "overlap_fraction": 1.0,
+        "scope": "synchronous operation windows; not individual hardware kernel occupancy"
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": false,
+        "reason": "flow receiver port absent or ambiguous"
+      }
+    }
+  ],
+  "measurement_status": "measured",
+  "processes": [
+    {
+      "node": "node27",
+      "rank": 0,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_0.process.json",
+      "spec_sha256": "c3560d4741bd6970c8ba30dbb8aeeb6fdfcf4afbdaa320655b135b963aad82fa",
+      "start_reply": {
+        "pid": 10524,
+        "start_time": "469010452",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_0.process.json"
+      },
+      "stop_reply": "{\"stopped\": 10524}\n"
+    },
+    {
+      "node": "node27",
+      "rank": 1,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_1.process.json",
+      "spec_sha256": "f61e99c75a2b2bf3f3b9c8e589f60f20c7216b468ada9176e59ef10b1c03bc3f",
+      "start_reply": {
+        "pid": 10542,
+        "start_time": "469010467",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_1.process.json"
+      },
+      "stop_reply": "{\"stopped\": 10542}\n"
+    },
+    {
+      "node": "node29",
+      "rank": 2,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_2.process.json",
+      "spec_sha256": "7e52ba4e6fd4e70149082b10b99d03f4c25a8e1eb3590425fee0b5af35908fd1",
+      "start_reply": {
+        "pid": 18807,
+        "start_time": "469011199",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_2.process.json"
+      },
+      "stop_reply": "{\"stopped\": 18807}\n"
+    },
+    {
+      "node": "node29",
+      "rank": 3,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_3.process.json",
+      "spec_sha256": "8f408eaf99a60bd3ca26e26734ae8ba42ec172defbb654fb37afc35b9a97eff9",
+      "start_reply": {
+        "pid": 18825,
+        "start_time": "469011226",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_3.process.json"
+      },
+      "stop_reply": "{\"stopped\": 18825}\n"
+    }
+  ],
+  "cleanup": {
+    "passed": true,
+    "errors": [],
+    "process_states": {
+      "node27": [
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_0.process.pid.json",
+          "registered": {
+            "pid": 10524,
+            "start_time": "469010452",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_0.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 10524,
+            "state": "Z",
+            "start_time": "469010452"
+          }
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_1.process.pid.json",
+          "registered": {
+            "pid": 10542,
+            "start_time": "469010467",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_1.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 10542,
+            "state": "Z",
+            "start_time": "469010467"
+          }
+        }
+      ],
+      "node29": [
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_2.process.pid.json",
+          "registered": {
+            "pid": 18807,
+            "start_time": "469011199",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_2.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 18807,
+            "state": "Z",
+            "start_time": "469011199"
+          }
+        },
+        {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_3.process.pid.json",
+          "registered": {
+            "pid": 18825,
+            "start_time": "469011226",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_3.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 18825,
+            "state": "Z",
+            "start_time": "469011226"
+          }
+        }
+      ]
+    },
+    "physical_hbm_reclamation": {
+      "rows": [
+        {
+          "worker": 0,
+          "headroom_before_bytes": 64687177728,
+          "headroom_after_bytes": 64687177728,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 1,
+          "headroom_before_bytes": 64643137536,
+          "headroom_after_bytes": 64643137536,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 2,
+          "headroom_before_bytes": 64317554688,
+          "headroom_after_bytes": 64317554688,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 3,
+          "headroom_before_bytes": 63875055616,
+          "headroom_after_bytes": 63875055616,
+          "unreclaimed_bytes": 0
+        }
+      ],
+      "tolerance_bytes": 134217728,
+      "passed": true,
+      "scope": "total free-HBM before/after; concurrent unrelated changes remain confounded"
+    },
+    "status": "passed"
+  },
+  "capacity_is_physical_upper_bound": false,
+  "command": [
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/run_diagnosis.py",
+    "--session",
+    "codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+    "--out",
+    "codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01",
+    "--port",
+    "33971",
+    "--protect-session",
+    "codex_coding/results/motivation/fig4_lanes11/session.json",
+    "--execute"
+  ],
+  "code_sha256": {
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/inventory.py": "de76e06040f086647889982ab1ffd2081683169e042839de06d701a90d1d3f23",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/probe_rank.py": "fbbe137b77296b1b37c74a8dcee1d1692d577488e9361e7912e08d7026f9fbb5",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py": "96fa75c51395fd8905ad102a988cdfd7b9f552cbb335dd3125fbb18908204034",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/test_calibration.py": "c9e1ca615aeb6b63c9331e59e354fe27b15e4b6233b586825741eaa280a494bf",
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/run_diagnosis.py": "25d5a79ab5c80e3edfdea98c61425972f524cc54071feae50b6ee2fa5bd97088",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/test_diagnosis.py": "785ed65bbaaf8a841bfa6fd254a0495284bbfe29183cf0396f30cf71579db587",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/read_inventory.py": "0ec6ea2b3906259dccf6839d9bb345650688c95c4dd87e60313b4d1d9f94ae30"
+  },
+  "resource_admission": {
+    "status": "passed",
+    "passed": true,
+    "errors": [],
+    "gpu_required_headroom_bytes": 2147483648,
+    "host_required_headroom_bytes_per_node": 2751463424
+  },
+  "workers": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "gpu": 1,
+      "numa": 3
+    },
+    {
+      "worker": 2,
+      "node": "node29",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 3,
+      "node": "node29",
+      "gpu": 1,
+      "numa": 3
+    }
+  ],
+  "topology_id": "379dadc65c4afb8e67369ddb11cc0c3d52ee0add440e218754680a1362088a16",
+  "calibration_executor": "isolated_pair_rccl_broadcast",
+  "application_executor": "keeper_serial",
+  "protocol": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/protocol.json",
+  "input_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/protocol.json": "90ac436a25226d6374330dd4ae7120e837d19adab5f4b6be3a74de6265b0760e",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_0.process.json": "c3560d4741bd6970c8ba30dbb8aeeb6fdfcf4afbdaa320655b135b963aad82fa",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_1.process.json": "f61e99c75a2b2bf3f3b9c8e589f60f20c7216b468ada9176e59ef10b1c03bc3f",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_2.process.json": "7e52ba4e6fd4e70149082b10b99d03f4c25a8e1eb3590425fee0b5af35908fd1",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_scenarios/diagnosis_probe_split_r01/rank_3.process.json": "8f408eaf99a60bd3ca26e26734ae8ba42ec172defbb654fb37afc35b9a97eff9"
+  },
+  "binding": [
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 0,
+      "gdr_decision_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO NET/IBext_v8 : GPU Direct RDMA Disabled for HCA 0 'shca_0'",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10524:10561 [0] NCCL INFO GPU Direct RDMA Enabled for GPU 9000 / HCA 0 (distance 4 <= 4), read 1"
+      ],
+      "gdr_enabled_observed": true,
+      "gdr_disabled_observed": true,
+      "gdr_channel_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 08/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 09/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 10/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 11/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 12/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 13/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 14/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 15/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 16/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 17/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 18/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 19/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 20/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 21/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 22/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 23/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 24/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 25/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 26/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 27/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 28/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 29/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 30/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 31/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 01/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 02/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 03/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 04/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 05/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 06/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 07/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 08/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 09/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 10/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 11/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 12/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 13/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 14/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 15/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 16/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 17/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 18/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 19/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 20/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 21/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 22/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 23/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 24/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 25/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 26/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 27/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 28/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 29/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 30/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 31/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02"
+      ],
+      "all_channel_transport_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 08/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 09/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 10/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 11/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 12/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 13/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 14/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 15/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 16/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 17/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 18/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 19/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 20/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 21/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 22/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 23/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 24/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 25/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 26/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 27/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 28/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 29/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 30/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 31/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 01/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 02/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 03/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 04/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 05/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 06/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 07/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 08/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 09/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 10/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 11/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 12/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 13/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 14/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 15/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 16/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 17/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 18/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 19/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 20/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 21/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 22/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 23/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 24/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 25/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 26/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 27/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 28/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 29/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 30/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02",
+        "m03r2n07:10524:10561 [0] NCCL INFO Channel 31/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0/GDRDMA comm 0x558d789f14c0 nRanks 02"
+      ],
+      "affinity_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO Setting affinity for GPU 0 to ffff"
+      ],
+      "topology_file_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO Loading topology file /usr/local/built-in-508-topo-input-tj-default.xml",
+        "m03r2n07:10524:10561 [0] NCCL INFO Loading unnamed topology",
+        "m03r2n07:10524:10561 [0] NCCL INFO Rank:0 Get link topo from rocmDev:0 linkNum:8 link:0 linkState:1 remote type:1 bdf:0x9b00 topoType:2",
+        "m03r2n07:10524:10561 [0] NCCL INFO Transport init rank 0 useXdp 0 linkTopoType 2",
+        "m03r2n07:10524:10561 [0] NCCL INFO Init timings: rank 0 nranks 2 total 0.53 (kernels 0.05, bootstrap 0.13, allgathers 0.00, topo 0.06, graphs 0.00, connections 0.29, rest 0.00)"
+      ],
+      "initialization_core_lines": [
+        "m03r2n07:10524:10561 [0] NCCL INFO ncclCommInitRank comm 0x558d789f14c0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 9000 commId 0x7e0831c52ae80053 localSize 480 used 206160240 bytes on core 0 - Init COMPLETE"
+      ]
+    },
+    {
+      "requested_hca": "shca_1",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_1",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO NET/IB : Using [0]shca_1:1/IB ; OOB ib0:12.11.3.27<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 1,
+      "gdr_decision_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO NET/IBext_v8 : GPU Direct RDMA Disabled for HCA 0 'shca_1'",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 0",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1",
+        "m03r2n07:10542:10569 [1] NCCL INFO GPU Direct RDMA Enabled for GPU 36000 / HCA 0 (distance 4 <= 4), read 1"
+      ],
+      "gdr_enabled_observed": true,
+      "gdr_disabled_observed": true,
+      "gdr_channel_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 08/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 09/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 10/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 11/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 12/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 13/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 14/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 15/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 16/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 17/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 18/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 19/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 20/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 21/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 22/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 23/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 24/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 25/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 26/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 27/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 28/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 29/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 30/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 31/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 00/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 01/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 02/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 03/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 04/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 05/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 06/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 07/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 08/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 09/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 10/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 11/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 12/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 13/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 14/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 15/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 16/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 17/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 18/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 19/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 20/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 21/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 22/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 23/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 24/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 25/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 26/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 27/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 28/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 29/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 30/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 31/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02"
+      ],
+      "all_channel_transport_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 08/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 09/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 10/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 11/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 12/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 13/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 14/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 15/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 16/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 17/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 18/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 19/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 20/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 21/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 22/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 23/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 24/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 25/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 26/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 27/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 28/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 29/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 30/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 31/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 00/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 01/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 02/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 03/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 04/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 05/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 06/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 07/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 08/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 09/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 10/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 11/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 12/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 13/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 14/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 15/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 16/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 17/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 18/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 19/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 20/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 21/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 22/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 23/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 24/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 25/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 26/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 27/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 28/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 29/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 30/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02",
+        "m03r2n07:10542:10569 [1] NCCL INFO Channel 31/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0/GDRDMA comm 0x55aed954be40 nRanks 02"
+      ],
+      "affinity_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO Setting affinity for GPU 1 to ffff0000"
+      ],
+      "topology_file_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO Loading topology file /usr/local/built-in-508-topo-input-tj-default.xml",
+        "m03r2n07:10542:10569 [1] NCCL INFO Loading unnamed topology",
+        "m03r2n07:10542:10569 [1] NCCL INFO Rank:0 Get link topo from rocmDev:0 linkNum:8 link:0 linkState:1 remote type:1 bdf:0x9b00 topoType:2",
+        "m03r2n07:10542:10569 [1] NCCL INFO Transport init rank 0 useXdp 0 linkTopoType 2",
+        "m03r2n07:10542:10569 [1] NCCL INFO Init timings: rank 0 nranks 2 total 0.41 (kernels 0.03, bootstrap 0.13, allgathers 0.00, topo 0.02, graphs 0.00, connections 0.23, rest 0.00)"
+      ],
+      "initialization_core_lines": [
+        "m03r2n07:10542:10569 [1] NCCL INFO ncclCommInitRank comm 0x55aed954be40 rank 0 nranks 2 cudaDev 1 nvmlDev 1 busId 36000 commId 0x4804d3b99a6b6af0 localSize 480 used 206160240 bytes on core 19 - Init COMPLETE"
+      ]
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [],
+      "actual_oob_ifnames": [],
+      "selected_lines": [],
+      "transport_evidence": [],
+      "passed": false,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 2,
+      "gdr_decision_lines": [],
+      "gdr_enabled_observed": false,
+      "gdr_disabled_observed": false,
+      "gdr_channel_lines": [],
+      "all_channel_transport_lines": [],
+      "affinity_lines": [],
+      "topology_file_lines": [],
+      "initialization_core_lines": []
+    },
+    {
+      "requested_hca": "shca_1",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [],
+      "actual_oob_ifnames": [],
+      "selected_lines": [],
+      "transport_evidence": [],
+      "passed": false,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 3,
+      "gdr_decision_lines": [],
+      "gdr_enabled_observed": false,
+      "gdr_disabled_observed": false,
+      "gdr_channel_lines": [],
+      "all_channel_transport_lines": [],
+      "affinity_lines": [],
+      "topology_file_lines": [],
+      "initialization_core_lines": []
+    }
+  ],
+  "rank_resource_sampling": [
+    {
+      "rank": 0,
+      "sampling": {
+        "free_before_buffer_bytes": 64671973376,
+        "free_after_buffer_bytes": 64250445824,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    },
+    {
+      "rank": 1,
+      "sampling": {
+        "free_before_buffer_bytes": 64627933184,
+        "free_after_buffer_bytes": 64206405632,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    },
+    {
+      "rank": 2,
+      "sampling": {
+        "free_before_buffer_bytes": 64315457536,
+        "free_after_buffer_bytes": 63893929984,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    },
+    {
+      "rank": 3,
+      "sampling": {
+        "free_before_buffer_bytes": 63872958464,
+        "free_after_buffer_bytes": 63451430912,
+        "synthetic_buffer_bytes": 268435456,
+        "torch_allocated_bytes": 268435456,
+        "torch_reserved_bytes": 268435456,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    }
+  ],
+  "before_after_preservation": {
+    "status": "passed",
+    "passed": true,
+    "checks": {
+      "catalog_unchanged": true,
+      "protected_processes_unchanged": true,
+      "parked_commands_unchanged": true,
+      "legacy_accessible_catalogs_unchanged": true
+    },
+    "scope": "catalog identities/generations, registered processes and parked command files; no GPU content reread"
+  },
+  "code_sha256_after": {
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/inventory.py": "de76e06040f086647889982ab1ffd2081683169e042839de06d701a90d1d3f23",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/probe_rank.py": "fbbe137b77296b1b37c74a8dcee1d1692d577488e9361e7912e08d7026f9fbb5",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py": "96fa75c51395fd8905ad102a988cdfd7b9f552cbb335dd3125fbb18908204034",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/test_calibration.py": "c9e1ca615aeb6b63c9331e59e354fe27b15e4b6233b586825741eaa280a494bf",
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/run_diagnosis.py": "25d5a79ab5c80e3edfdea98c61425972f524cc54071feae50b6ee2fa5bd97088",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/test_diagnosis.py": "785ed65bbaaf8a841bfa6fd254a0495284bbfe29183cf0396f30cf71579db587",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/read_inventory.py": "0ec6ea2b3906259dccf6839d9bb345650688c95c4dd87e60313b4d1d9f94ae30"
+  },
+  "code_preservation": {
+    "changed": [],
+    "passed": true,
+    "status": "passed"
+  },
+  "input_preservation": {
+    "passed": true,
+    "status": "passed",
+    "changed": []
+  },
+  "shared_resource": {
+    "resources": [],
+    "application_attribution": "not_established",
+    "capacity_is_physical_upper_bound": false,
+    "independence_completion_threshold": 0.85,
+    "application_executor_contention_verified": false,
+    "gate_status": "blocked",
+    "reason": "binding, preservation or cleanup failed"
+  },
+  "profile": {
+    "status": "empirical_effective_partial",
+    "capacity_is_physical_upper_bound": false,
+    "application_executor_compatible": false,
+    "rates": {},
+    "directed_path_rates": {},
+    "unmeasured_paths": "peer, SSD, reverse network, DRAM-staged network",
+    "provenance": "isolated broadcast/H2D microprobes; no serial keeper service-capacity extrapolation"
+  },
+  "diagnosis_control": {
+    "flow_a_hca": "shca_0",
+    "flow_b_hca": "shca_1",
+    "flow_a_gdr_level_override": null,
+    "flow_b_gdr_level_override": null,
+    "gdr_intervention_requires_runtime_confirmation": true,
+    "baseline_comparison": "use matched singles in this run; HCA change also changes PCIe/NUMA route"
+  },
+  "error": "actual receiving port payload evidence failed"
+}

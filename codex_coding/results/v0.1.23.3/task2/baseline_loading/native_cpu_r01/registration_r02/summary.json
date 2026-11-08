@@ -1,0 +1,66 @@
+{
+  "status": "registered",
+  "measurement_status": "not_measured",
+  "run_id": "registration_r02",
+  "scenario_id": "S2",
+  "scenario_variant": "native_fresh_engine_file_cache",
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "adaptation_identity": "haiguang_vendor_sglang_native_checkpoint",
+  "target_slot": "node29_isolated_fresh",
+  "cases": [],
+  "cleanup_errors": [],
+  "owned_remaining": [],
+  "session_sha256": "3edadcaebb96b8923037cecba6f42b95ee1cf4d55603f9481f7d1c7539dee1c9",
+  "format_contract": {
+    "model_version": "530a225f6e1b5ad6d67ec1c76aac709261f8b6bcb0c08d545c10037be934e7d9",
+    "dtype": [
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "quantization": "captured_processed_layout",
+    "tp": 2,
+    "processed_snapshot_id": [
+      "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+      "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9"
+    ]
+  },
+  "protocol": {
+    "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+    "repetitions": 1,
+    "fresh_process_startup_separate": true,
+    "cache_state": "warm_file_cache",
+    "native_path": "installed DefaultModelLoader(AUTO) implementations preserved under boundary/stage observation wrappers",
+    "not_frozen_upstream_original": true,
+    "verification": "ready then all processed storage bytes/layout SHA plus exact frozen 32-token output",
+    "verification_in_startup": true,
+    "source_sha_scope": "frozen accepted SHA, current source metadata rechecked",
+    "fixture_dram_bytes": 70329718112,
+    "native_uses_fixture_dram": false,
+    "file_cache_counted_as_separate_host_residency": true,
+    "cache_scope": "Linux buffered file-page cache, not explicitly pinned host weights; underlying NFS/storage cache not asserted"
+  },
+  "code_sha256": {
+    "codex_coding/src/v0.1.23.3/task2/baseline_loading/native_loading.py": "94f616a9629cd7e26a7800ef8adbc7700b63a8627d0173c213afaf85366a761e",
+    "codex_coding/src/v0.1.23.3/task2/baseline_loading/inspect_baselines.py": "7852324159b08c730c3f7ca540cb640febd27565b16d14e12d071ff347bec2e0",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "main_lib/fluidckpt/serving/measure.py": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a",
+    "main_lib/fluidckpt/serving/layout.py": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156",
+    "main_lib/fluidckpt/serving/sglang_hook.py": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a"
+  },
+  "prepared_process_spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_cpu_r01/registration_r02/native_engine.process.json",
+  "expected_reference": {
+    "reference_summary": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/s2_r01/summary.json",
+    "reference_summary_sha256": "4a8081c086cf8ee15036e2f8ed98f8bc617568bea93f37c1e8467f3502053d97",
+    "scope": "frozen accepted all-byte retained source SHA; current source catalog identity/epoch/generation rechecked"
+  },
+  "isolated_container": "zjn-fluid-native-49c50b1f5e0e30",
+  "frozen_upstream_commits": {
+    "SGLang": "70f0b7351e74b372cc928db533824d3993d65922",
+    "Janus": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+    "BlitzScale": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+    "ServerlessLLM": "9f50241baa5386e06a9321c51f19a9ef5f964c2b"
+  },
+  "source_hash_mismatches": []
+}

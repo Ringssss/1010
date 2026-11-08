@@ -1,0 +1,121 @@
+{
+  "qualification": "failed",
+  "development": "v0.1.23.3/task2",
+  "contract_sha256": "6cbcada0097df02f9d298dda01f24ee3321778c8c821f785b515ca6e92f91575",
+  "contract_checks_passed": 44,
+  "contract_checks_total": 44,
+  "dependency_checks_passed": 4,
+  "dependency_checks_total": 4,
+  "feasibility_checks": {
+    "deployment_unadmitted": true,
+    "original_budget_not_raised": true,
+    "rates_and_concurrent_capacity_unknown": true,
+    "multiworker_runtime_and_peak_unknown": true,
+    "keeper_reuse_unadmitted": true,
+    "no_gpu_writes_signals": true,
+    "two_nodes_eight_distinct_workers/no_launch_or_readiness": true,
+    "two_nodes_eight_distinct_workers/distinct_node_gpu": true,
+    "two_nodes_eight_distinct_workers/bounded_bytes_illustration_ledger/content_accounting": true,
+    "two_nodes_eight_distinct_workers/bounded_bytes_illustration_ledger/projection_arithmetic_not_physical_lower_bound": true,
+    "two_nodes_eight_distinct_workers/bounded_C0_full_cache_ledger/content_accounting": true,
+    "two_nodes_eight_distinct_workers/bounded_C0_full_cache_ledger/projection_arithmetic_not_physical_lower_bound": true,
+    "three_nodes_eight_distinct_workers/no_launch_or_readiness": true,
+    "three_nodes_eight_distinct_workers/distinct_node_gpu": true,
+    "three_nodes_eight_distinct_workers/bounded_bytes_illustration_ledger/content_accounting": true,
+    "three_nodes_eight_distinct_workers/bounded_bytes_illustration_ledger/projection_arithmetic_not_physical_lower_bound": false,
+    "three_nodes_eight_distinct_workers/bounded_C0_full_cache_ledger/content_accounting": true,
+    "three_nodes_eight_distinct_workers/bounded_C0_full_cache_ledger/projection_arithmetic_not_physical_lower_bound": true,
+    "two_nodes_four_target_source_reused_workers/no_launch_or_readiness": true,
+    "two_nodes_four_target_source_reused_workers/distinct_node_gpu": true,
+    "two_nodes_four_target_source_reused_workers/bounded_bytes_illustration_ledger/content_accounting": true,
+    "two_nodes_four_target_source_reused_workers/bounded_bytes_illustration_ledger/projection_arithmetic_not_physical_lower_bound": false,
+    "two_nodes_four_target_source_reused_workers/bounded_C0_full_cache_ledger/content_accounting": true,
+    "two_nodes_four_target_source_reused_workers/bounded_C0_full_cache_ledger/projection_arithmetic_not_physical_lower_bound": true
+  },
+  "findings": [
+    {
+      "case_id": "C0_local_sufficient",
+      "independent_optimum_symbolic_time": 0.5,
+      "minimum_cache_blocks_at_optimum": 8,
+      "minimum_cache_bytes_at_optimum": 33554432,
+      "policies_dominated_in_cache_vs_primary_time": [],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    },
+    {
+      "case_id": "C1_equal_plateau_control",
+      "independent_optimum_symbolic_time": 1.25,
+      "minimum_cache_blocks_at_optimum": 4,
+      "minimum_cache_bytes_at_optimum": 16777216,
+      "policies_dominated_in_cache_vs_primary_time": [],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    },
+    {
+      "case_id": "C1_uneven_preregistered",
+      "independent_optimum_symbolic_time": 2.0,
+      "minimum_cache_blocks_at_optimum": 0,
+      "minimum_cache_bytes_at_optimum": 0,
+      "policies_dominated_in_cache_vs_primary_time": [
+        "bottleneck_balanced",
+        "local_capacity_fill"
+      ],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    },
+    {
+      "case_id": "C2_shared_source_export",
+      "independent_optimum_symbolic_time": 2.0,
+      "minimum_cache_blocks_at_optimum": 2,
+      "minimum_cache_bytes_at_optimum": 8388608,
+      "policies_dominated_in_cache_vs_primary_time": [
+        "bottleneck_balanced",
+        "local_capacity_fill"
+      ],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    }
+  ],
+  "findings_optimum_semantics": "Optimum of fixed symbolic resource/target capacity score only; neither finite scheduling optimum nor measured T_ready. Shared-resource constraints and source/target DAG must hold in one future execution schedule.",
+  "all_checks_passed": false,
+  "physical_deployment_ready": false,
+  "calibrated_cost_ready": false,
+  "real_T_ready_measured": false,
+  "joint_gain_over_strong_simple_plus_balanced": false,
+  "review_gpu_calls": 0,
+  "review_SSH_actions": 0,
+  "review_product_changes": 0,
+  "feasibility_metadata_SSH_calls": 2,
+  "gpu_launch_command": null,
+  "source_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/review_contract_r04/qualification.json",
+      "sha256": "81a373acb36f6977872768e8e0ec9bcad82abefd37c7ae9ecbde2fd61d8adbb3"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/review_dependency_r01/checks.json",
+      "sha256": "078258a182d1e5004dc143fb120fef350ca75d55492384a50eb6240ed55737ba"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/feasibility_r03/deployment_feasibility.json",
+      "sha256": "1e9c9a5faf2dc5e46a024d087062eea65b10986e0de27cb6de9981a8c66003b5"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/feasibility_r03/deployment_feasibility.md",
+      "sha256": "a308986259a8e1302950d3184aa58291ca47c672003c738662093ba4dde1fc8e"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/tp4_scenarios/review/finalize_review.py",
+      "sha256": "609697df9e8f2ddde68da49f3576ffc8faa2a65c734f15b1cf862ce86652792c"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/feasibility_r01/metadata_node28/stdout.json",
+      "sha256": "500ce8e63588353ac8f35bda6f22c1f8925442cb3a456cb51828405298be1787"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/feasibility_r01/metadata_node30/stdout.json",
+      "sha256": "678e9d28aa5cb99f4663aeedb9299c23aec370f4384aac9f680959ae3e9fa7da"
+    }
+  ],
+  "preserved_review_failures": {
+    "review_contract_r01": "Reviewer assumed staging unknown; delivery explicitly reserved 512MiB unallocated staging. Corrected review assumption.",
+    "review_contract_r02": "Builder source changed after intermediate contract source hash was frozen.",
+    "review_contract_r03": "Intermediate C2 duplicated (node,gpu), plus changed builder source; final r03 contract corrects both."
+  }
+}

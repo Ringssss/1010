@@ -1,0 +1,290 @@
+{
+  "schema_version": "fluidckpt.layout_validation.execution_review.v1",
+  "checks": {
+    "completed": true,
+    "one_two16MiB_case": true,
+    "same_session_ABCD_order": true,
+    "base_retirement": true,
+    "synthetic_scope": true,
+    "A/passed": true,
+    "A/actual_paths": true,
+    "A/executor": true,
+    "A/two_workers": true,
+    "A/worker0_roles_bytes_order": true,
+    "A/worker0_replica_binding": true,
+    "A/worker0_primitive": true,
+    "A/worker1_roles_bytes_order": true,
+    "A/worker1_replica_binding": true,
+    "A/worker1_primitive": true,
+    "A/source_generation_epoch_identity": true,
+    "A/common_physical_ledger": true,
+    "A/common_gate_8MiB": true,
+    "A/full_SHA": true,
+    "A/same_clock_order": true,
+    "A/phase_math": true,
+    "A/leases_transactions_clean": true,
+    "A/layout_retirement": true,
+    "B/passed": true,
+    "B/actual_paths": true,
+    "B/executor": true,
+    "B/two_workers": true,
+    "B/worker0_roles_bytes_order": true,
+    "B/worker0_replica_binding": true,
+    "B/worker0_primitive": true,
+    "B/worker1_roles_bytes_order": true,
+    "B/worker1_replica_binding": true,
+    "B/worker1_primitive": true,
+    "B/source_generation_epoch_identity": true,
+    "B/common_physical_ledger": true,
+    "B/common_gate_8MiB": true,
+    "B/full_SHA": true,
+    "B/same_clock_order": true,
+    "B/phase_math": true,
+    "B/leases_transactions_clean": true,
+    "B/layout_retirement": true,
+    "C/passed": true,
+    "C/actual_paths": true,
+    "C/executor": true,
+    "C/two_workers": true,
+    "C/worker0_roles_bytes_order": true,
+    "C/worker0_replica_binding": true,
+    "C/worker0_primitive": true,
+    "C/worker1_roles_bytes_order": true,
+    "C/worker1_replica_binding": true,
+    "C/worker1_primitive": true,
+    "C/source_generation_epoch_identity": true,
+    "C/common_physical_ledger": true,
+    "C/common_gate_8MiB": true,
+    "C/full_SHA": true,
+    "C/same_clock_order": true,
+    "C/phase_math": true,
+    "C/leases_transactions_clean": true,
+    "C/layout_retirement": true,
+    "D/passed": true,
+    "D/actual_paths": true,
+    "D/executor": true,
+    "D/two_workers": true,
+    "D/worker0_roles_bytes_order": true,
+    "D/worker0_replica_binding": true,
+    "D/worker0_primitive": true,
+    "D/worker1_roles_bytes_order": true,
+    "D/worker1_replica_binding": true,
+    "D/worker1_primitive": true,
+    "D/source_generation_epoch_identity": true,
+    "D/common_physical_ledger": true,
+    "D/common_gate_8MiB": true,
+    "D/full_SHA": true,
+    "D/same_clock_order": true,
+    "D/phase_math": true,
+    "D/leases_transactions_clean": true,
+    "D/layout_retirement": true,
+    "same_content_identity": true,
+    "same_full_SHA": true,
+    "same_controller_domain": true
+  },
+  "execution_passed": true,
+  "failures": [],
+  "layouts": {
+    "A": {
+      "filled_ms": 4.203326000000001,
+      "published_ms": 49.881059,
+      "prepare_ms": 2.362220999202691,
+      "execute_wall_ms": 1.8405750015517697,
+      "verify_publish_ms": 45.677802998397965,
+      "cache_preparation_ms": 86.6215319983894,
+      "records": {
+        "0": [
+          {
+            "op_id": 0,
+            "role": "both",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/A/cache/0",
+            "bytes": 16777216,
+            "kind": "local_hbm",
+            "elapsed_s": 0.00031348224729299545,
+            "pipeline": {}
+          }
+        ],
+        "1": [
+          {
+            "op_id": 1,
+            "role": "both",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/A/cache/1",
+            "bytes": 16777216,
+            "kind": "local_hbm",
+            "elapsed_s": 0.00031275488436222076,
+            "pipeline": {}
+          }
+        ]
+      },
+      "SHA256": [
+        "f51bc37cf41d2991f01bafa7b4543fbded4508256d6faeddb76b9843170bb853",
+        "5913d053013df3634a03d5097cff91ad14bd3343ce256834a533bf0f3929a97b"
+      ],
+      "network_payload_bytes": 0
+    },
+    "B": {
+      "filled_ms": 5.813058000000001,
+      "published_ms": 69.844086,
+      "prepare_ms": 2.181089002988301,
+      "execute_wall_ms": 3.6314089957159013,
+      "verify_publish_ms": 64.03104800119763,
+      "cache_preparation_ms": 91.02965999773005,
+      "records": {
+        "0": [
+          {
+            "op_id": 0,
+            "role": "both",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/B/cache/0",
+            "bytes": 16777216,
+            "kind": "local_hbm",
+            "elapsed_s": 0.000308232381939888,
+            "pipeline": {}
+          },
+          {
+            "op_id": 1,
+            "role": "source",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/B/cache/1",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.001419304870069027,
+            "pipeline": {}
+          }
+        ],
+        "1": [
+          {
+            "op_id": 1,
+            "role": "target",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/B/cache/1",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0021883100271224976,
+            "pipeline": {}
+          }
+        ]
+      },
+      "SHA256": [
+        "f51bc37cf41d2991f01bafa7b4543fbded4508256d6faeddb76b9843170bb853",
+        "5913d053013df3634a03d5097cff91ad14bd3343ce256834a533bf0f3929a97b"
+      ],
+      "network_payload_bytes": 16777216
+    },
+    "C": {
+      "filled_ms": 5.668976,
+      "published_ms": 67.461154,
+      "prepare_ms": 2.291970005899202,
+      "execute_wall_ms": 3.376435997779481,
+      "verify_publish_ms": 61.79225799860433,
+      "cache_preparation_ms": 62.03076199744828,
+      "records": {
+        "0": [
+          {
+            "op_id": 0,
+            "role": "target",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/C/cache/0",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0019323807209730148,
+            "pipeline": {}
+          }
+        ],
+        "1": [
+          {
+            "op_id": 0,
+            "role": "source",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/C/cache/0",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0016054585576057434,
+            "pipeline": {}
+          },
+          {
+            "op_id": 1,
+            "role": "both",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/C/cache/1",
+            "bytes": 16777216,
+            "kind": "local_hbm",
+            "elapsed_s": 0.00011578202247619629,
+            "pipeline": {}
+          }
+        ]
+      },
+      "SHA256": [
+        "f51bc37cf41d2991f01bafa7b4543fbded4508256d6faeddb76b9843170bb853",
+        "5913d053013df3634a03d5097cff91ad14bd3343ce256834a533bf0f3929a97b"
+      ],
+      "network_payload_bytes": 16777216
+    },
+    "D": {
+      "filled_ms": 6.908463,
+      "published_ms": 46.627805,
+      "prepare_ms": 2.244859999336768,
+      "execute_wall_ms": 4.663132996938657,
+      "verify_publish_ms": 39.71930200350471,
+      "cache_preparation_ms": 76.95321200299077,
+      "records": {
+        "0": [
+          {
+            "op_id": 0,
+            "role": "target",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/D/cache/0",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0019995318725705147,
+            "pipeline": {}
+          },
+          {
+            "op_id": 1,
+            "role": "source",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/D/cache/1",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0007577892392873764,
+            "pipeline": {}
+          }
+        ],
+        "1": [
+          {
+            "op_id": 0,
+            "role": "source",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/D/cache/0",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0017222017049789429,
+            "pipeline": {}
+          },
+          {
+            "op_id": 1,
+            "role": "target",
+            "replica_id": "minimal_calibration_r01/execution_r01/16MiB/D/cache/1",
+            "bytes": 16777216,
+            "kind": "network",
+            "elapsed_s": 0.0014567561447620392,
+            "pipeline": {}
+          }
+        ]
+      },
+      "SHA256": [
+        "f51bc37cf41d2991f01bafa7b4543fbded4508256d6faeddb76b9843170bb853",
+        "5913d053013df3634a03d5097cff91ad14bd3343ce256834a533bf0f3929a97b"
+      ],
+      "network_payload_bytes": 33554432
+    }
+  },
+  "time_hypotheses": {
+    "filled_order": [
+      "A",
+      "C",
+      "B",
+      "D"
+    ],
+    "A_shortest": "supported_this_observation",
+    "D_longest": "supported_this_observation",
+    "B_vs_C": "C_faster"
+  },
+  "runtime_path_and_exact_exit": "pending_separate_original_artifact_review",
+  "performance_ready": false,
+  "model_weights_ready_measured": false,
+  "formal_capacity_profile_admitted": false,
+  "full_physical_peak_verified": false,
+  "solver_decision_increment_proven": false
+}

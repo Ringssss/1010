@@ -1,0 +1,308 @@
+[
+  {
+    "id": "node27_pre_identity",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "inspect",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "--format",
+      "{{.Id}} {{.Name}} {{.Image}} {{json .State}} {{.HostConfig.Memory}} {{.HostConfig.MemorySwap}} {{.HostConfig.PidsLimit}} {{.HostConfig.IpcMode}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true
+  },
+  {
+    "id": "node27_start_owned",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "start",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d"
+    ],
+    "timeout_s": 20,
+    "condition": "Main verifies exact own CID/name/image/resource config and stopped state; node30 only if target27 passes and helper fresh query is needed"
+  },
+  {
+    "id": "node27_started_identity",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "inspect",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "--format",
+      "{{.Id}} {{.Name}} {{json .State}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true
+  },
+  {
+    "id": "node27_same_hip_query",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "-i",
+      "-e",
+      "OPENBLAS_NUM_THREADS=1",
+      "-e",
+      "OMP_NUM_THREADS=1",
+      "-e",
+      "MKL_NUM_THREADS=1",
+      "-e",
+      "NUMEXPR_NUM_THREADS=1",
+      "-e",
+      "RAYON_NUM_THREADS=1",
+      "-e",
+      "TOKENIZERS_PARALLELISM=false",
+      "-e",
+      "HIP_VISIBLE_DEVICES=0,1,2,3,4,5,6,7",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "python3",
+      "-",
+      "{\"node\":\"node27\",\"roles\":[{\"gpu\":4,\"bdf\":\"0000:85:00.0\",\"numa\":4,\"host_numa\":4},{\"gpu\":5,\"bdf\":\"0000:b5:00.0\",\"numa\":7,\"host_numa\":7}],\"minimum_initial_gpu_free_bytes\":55834574848,\"per_selected_gpu_hbm_cap_bytes\":51539607552,\"task_hbm_cap_bytes\":103079215104}"
+    ],
+    "stdin_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/resume_ops_r01/gpu_query.stdin.py",
+    "timeout_s": 55,
+    "intrinsic_exit_s": 45,
+    "read_only_gpu_query": true,
+    "no_payload_allocation": true
+  },
+  {
+    "id": "node27_post_query_identity",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "inspect",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "--format",
+      "{{.Id}} {{.Name}} {{json .State}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true
+  },
+  {
+    "id": "node30_pre_identity",
+    "node": "node30",
+    "argv": [
+      "docker",
+      "inspect",
+      "cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0",
+      "--format",
+      "{{.Id}} {{.Name}} {{.Image}} {{json .State}} {{.HostConfig.Memory}} {{.HostConfig.MemorySwap}} {{.HostConfig.PidsLimit}} {{.HostConfig.IpcMode}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true
+  },
+  {
+    "id": "node30_start_owned",
+    "node": "node30",
+    "argv": [
+      "docker",
+      "start",
+      "cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0"
+    ],
+    "timeout_s": 20,
+    "condition": "Main verifies exact own CID/name/image/resource config and stopped state; node30 only if target27 passes and helper fresh query is needed"
+  },
+  {
+    "id": "node30_started_identity",
+    "node": "node30",
+    "argv": [
+      "docker",
+      "inspect",
+      "cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0",
+      "--format",
+      "{{.Id}} {{.Name}} {{json .State}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true
+  },
+  {
+    "id": "node30_same_hip_query",
+    "node": "node30",
+    "argv": [
+      "docker",
+      "exec",
+      "-i",
+      "-e",
+      "OPENBLAS_NUM_THREADS=1",
+      "-e",
+      "OMP_NUM_THREADS=1",
+      "-e",
+      "MKL_NUM_THREADS=1",
+      "-e",
+      "NUMEXPR_NUM_THREADS=1",
+      "-e",
+      "RAYON_NUM_THREADS=1",
+      "-e",
+      "TOKENIZERS_PARALLELISM=false",
+      "-e",
+      "HIP_VISIBLE_DEVICES=0,1,2,3,4,5,6,7",
+      "cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0",
+      "python3",
+      "-",
+      "{\"node\":\"node30\",\"roles\":[{\"gpu\":4,\"bdf\":\"0000:85:00.0\",\"numa\":4,\"host_numa\":4},{\"gpu\":5,\"bdf\":\"0000:b5:00.0\",\"numa\":7,\"host_numa\":7}],\"minimum_initial_gpu_free_bytes\":2415919104,\"per_selected_gpu_hbm_cap_bytes\":2147483648,\"task_hbm_cap_bytes\":2147483648}"
+    ],
+    "stdin_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/resume_ops_r01/gpu_query.stdin.py",
+    "timeout_s": 55,
+    "intrinsic_exit_s": 45,
+    "read_only_gpu_query": true,
+    "no_payload_allocation": true
+  },
+  {
+    "id": "node30_post_query_identity",
+    "node": "node30",
+    "argv": [
+      "docker",
+      "inspect",
+      "cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0",
+      "--format",
+      "{{.Id}} {{.Name}} {{json .State}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true
+  },
+  {
+    "id": "probe_new_stage",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "python3",
+      "-c",
+      "from pathlib import Path; Path('/tmp/online_ipc_counter_probe_r02').mkdir(exist_ok=False)"
+    ],
+    "timeout_s": 10
+  },
+  {
+    "id": "probe_copy_source",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "cp",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/probe_ipc_counter.py",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d:/tmp/online_ipc_counter_probe_r02/probe.py"
+    ],
+    "timeout_s": 15
+  },
+  {
+    "id": "probe_once",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "-e",
+      "OPENBLAS_NUM_THREADS=1",
+      "-e",
+      "OMP_NUM_THREADS=1",
+      "-e",
+      "MKL_NUM_THREADS=1",
+      "-e",
+      "NUMEXPR_NUM_THREADS=1",
+      "-e",
+      "RAYON_NUM_THREADS=1",
+      "-e",
+      "TOKENIZERS_PARALLELISM=false",
+      "-e",
+      "HIP_VISIBLE_DEVICES=0,1,2,3,4,5,6,7",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "python3",
+      "/tmp/online_ipc_counter_probe_r02/probe.py",
+      "--imports",
+      "1",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02"
+    ],
+    "timeout_s": 75,
+    "intrinsic_producer_exit_s": 60,
+    "intrinsic_consumer_exit_s": 40,
+    "condition": "fresh selected GPU4 whole-card used <=2GiB; once must pass full payload/cleanup, twice diagnostic failure still collected; no full model launches"
+  },
+  {
+    "id": "probe_once_collect",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "cp",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d:/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_once_r02"
+    ],
+    "timeout_s": 15,
+    "collect_even_on_failure": true
+  },
+  {
+    "id": "probe_twice",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "-e",
+      "OPENBLAS_NUM_THREADS=1",
+      "-e",
+      "OMP_NUM_THREADS=1",
+      "-e",
+      "MKL_NUM_THREADS=1",
+      "-e",
+      "NUMEXPR_NUM_THREADS=1",
+      "-e",
+      "RAYON_NUM_THREADS=1",
+      "-e",
+      "TOKENIZERS_PARALLELISM=false",
+      "-e",
+      "HIP_VISIBLE_DEVICES=0,1,2,3,4,5,6,7",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "python3",
+      "/tmp/online_ipc_counter_probe_r02/probe.py",
+      "--imports",
+      "2",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02"
+    ],
+    "timeout_s": 75,
+    "intrinsic_producer_exit_s": 60,
+    "intrinsic_consumer_exit_s": 40,
+    "condition": "fresh selected GPU4 whole-card used <=2GiB; once must pass full payload/cleanup, twice diagnostic failure still collected; no full model launches"
+  },
+  {
+    "id": "probe_twice_collect",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "cp",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d:/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_ipc_probe_twice_r02"
+    ],
+    "timeout_s": 15,
+    "collect_even_on_failure": true
+  },
+  {
+    "id": "owned27_precise_stop",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "stop",
+      "--time",
+      "10",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d"
+    ],
+    "timeout_s": 20,
+    "always_after_query_or_probe": true,
+    "scope": "Exact own stopped/restarted container only; closes private IPC namespace"
+  },
+  {
+    "id": "owned27_stopped_evidence",
+    "node": "node27",
+    "argv": [
+      "docker",
+      "inspect",
+      "8b484137e72e13d49b546c9425aea09e643196cdeea93a515dbf3248cb4cfb0d",
+      "--format",
+      "{{.Id}} {{.Name}} {{json .State}}"
+    ],
+    "timeout_s": 10,
+    "read_only": true,
+    "acceptance": "Running false; Pid 0; OOMKilled false; preserve new StartedAt and both before/after records"
+  }
+]

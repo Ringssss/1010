@@ -1,0 +1,204 @@
+{
+  "GPU_actual_dump_check": {
+    "passed": true,
+    "checks": {
+      "selected_bdf_present": true,
+      "full_pci_chain": true,
+      "numa": true,
+      "affinity": true,
+      "rank": true,
+      "cuda_device_bound": true,
+      "dump_device_is_logged_nvml_device": true,
+      "gdr0_policy": true
+    },
+    "input": {
+      "cpu": {
+        "numaid": "4",
+        "affinity": "00000000,0000ffff,00000000,00000000"
+      },
+      "chain": [
+        "0000:80:01.1",
+        "0000:81:00.0",
+        "0000:82:01.0",
+        "0000:83:00.0",
+        "0000:84:00.0",
+        "0000:85:00.0"
+      ],
+      "gpu": {
+        "gdr": "0"
+      }
+    },
+    "actual": {
+      "cpu": {
+        "numaid": "4",
+        "affinity": "00000000,0000ffff,00000000,00000000",
+        "arch": "x86_64",
+        "vendor": "HygonGenuine",
+        "familyid": "159",
+        "modelid": "7"
+      },
+      "chain": [
+        "0000:80:01.1",
+        "0000:81:00.0",
+        "0000:82:01.0",
+        "0000:83:00.0",
+        "0000:84:00.0",
+        "0000:85:00.0"
+      ],
+      "gpu": {
+        "gdr": "0",
+        "dev": "4",
+        "sm": "80",
+        "gcn": "gfx936",
+        "arch": "169983",
+        "rank": "1"
+      }
+    },
+    "device_binding": {
+      "comm": "0x7fd07c0e0000",
+      "rank": 1,
+      "world_size": 2,
+      "cuda_device": 4,
+      "nvml_device": 4,
+      "bus_id": 544768,
+      "phase": "START",
+      "line": "m03r2n07:33:154 [4] NCCL INFO ncclCommInitRank comm 0x7fd07c0e0000 rank 1 nranks 2 cudaDev 4 nvmlDev 4 busId 85000 commId 0x42268c4611a96e82 - Init START",
+      "passed": true
+    },
+    "scope": "selected BDF/CPU/PCI ancestry/gdr0 plus exact communicator CUDA/NVML binding"
+  },
+  "HCA_actual_dump_check": {
+    "passed": false,
+    "checks": {
+      "owned_IBext_v8_transport": false,
+      "selected_shca0_port1": true,
+      "shca_0:1:present": true,
+      "shca_0:1:full_pci_chain": true,
+      "shca_0:1:numa": true,
+      "shca_0:1:affinity": true,
+      "shca_0:1:gdr0_policy": true
+    },
+    "selected": [
+      {
+        "name": "shca_0",
+        "port": "1",
+        "input": {
+          "cpu": {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff"
+          },
+          "chain": [
+            "0000:00:01.1",
+            "0000:01:00.0",
+            "0000:02:01.0",
+            "0000:03:00.0"
+          ],
+          "net": {
+            "name": "shca_0",
+            "port": "1",
+            "gdr": "0",
+            "speed": "400000"
+          }
+        },
+        "actual": {
+          "cpu": {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          },
+          "chain": [
+            "0000:00:01.1",
+            "0000:01:00.0",
+            "0000:02:01.0",
+            "0000:03:00.0"
+          ],
+          "net": {
+            "name": "shca_0",
+            "port": "1",
+            "gdr": "0",
+            "speed": "400000",
+            "dev": "0",
+            "latency": "0.000000",
+            "guid": "0x9a86651a61e808e5",
+            "maxconn": "1"
+          }
+        }
+      }
+    ],
+    "scope": "actual owned IBext_v8-selected HCA name/port and complete physical PCI/CPU/gdr0 path; no bandwidth claim"
+  },
+  "input_loading_lines": [
+    "m03r2n07:33:154 [4] NCCL INFO Loading topology file /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml"
+  ],
+  "fallback_mapping_lines": [],
+  "network_lines": [
+    "m03r2n07:33:154 [4] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>",
+    "m03r2n07:33:154 [4] NCCL INFO Using network IBext_v8"
+  ],
+  "channels": [
+    "m03r2n07:33:154 [4] NCCL INFO Channel 00/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 01/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 02/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 03/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 04/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 05/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 06/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 07/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 08/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 09/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 10/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 11/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 12/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 13/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 14/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 15/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 16/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 17/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 18/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 19/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 20/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 21/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 22/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 23/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 24/0 : 1[85000] -> 0[9000] via P2P/IPC comm 0x7fd07c0e0000 nRanks 02",
+    "m03r2n07:33:154 [4] NCCL INFO Channel 25/0 : 1[85000] -> 0[9000] via P2P/I1010 19:31:44.171979   144 ProcessGroupNCCL.cpp:3149] [PG ID 5 PG GUID 15 Rank 1] NCCL_DEBUG: INFO"
+  ],
+  "communicator_identities": [
+    {
+      "comm": "0x7fd07c0e0000",
+      "rank": 1,
+      "world_size": 2,
+      "cuda_device": 4,
+      "nvml_device": 4,
+      "bus_id": 544768,
+      "phase": "START",
+      "line": "m03r2n07:33:154 [4] NCCL INFO ncclCommInitRank comm 0x7fd07c0e0000 rank 1 nranks 2 cudaDev 4 nvmlDev 4 busId 85000 commId 0x42268c4611a96e82 - Init START"
+    }
+  ],
+  "raw_dump_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_actual_r01/artifacts_node27/raw/operations_dump_multitier_runtime_r02/w5.runtime.dump.xml",
+    "sha256": "2da18d132867a976bdebca2e10c226789d170f86ad118bac9dc740cc43ce0e1d"
+  },
+  "derived_view_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_result_r01/w5.parse_view.xml",
+    "sha256": "92ef4c20eb9c8b699df75b95d7df79f6f3c8b5ca155fae94b79e56db1a549b38"
+  },
+  "selected_HCA_physical_path_passed": true,
+  "cross_node_pair_participation_required": false,
+  "actual_IBext_network_channel_observed": false,
+  "mesh_and_actual_required_path_data_completed": true,
+  "completion_evidence_scope": "exact START communicator identity plus successful mesh/warm/data; C stdio COMPLETE log is incomplete for some workers",
+  "input_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml",
+    "sha256": "602fd985fac595c2f0520708efbb272e40eac2591bc15bc6366dce6f01d47938"
+  },
+  "log_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_actual_r01/artifacts_node27/raw/operations_process_multitier_runtime_r02_w5/child.log",
+    "sha256": "68374906d71e2f995320522518ca9fe433bf18a07fd3240b343c81c6d77170ef"
+  },
+  "passed": true,
+  "scope": "one per-worker observed necessary pair rank view plus own log channels; runtime dump can be overwritten by later pair, not certification of all 15 possible pairs"
+}

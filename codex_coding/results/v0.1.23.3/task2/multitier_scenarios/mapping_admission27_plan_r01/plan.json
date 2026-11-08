@@ -1,0 +1,60 @@
+{
+  "prepared_only": true,
+  "gpu_started": false,
+  "docker_created": false,
+  "setup_argv": [
+    "python3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_plan_r01/fresh_host27.source.py",
+    "setup",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_plan_r01/node27.setup.spec.json"
+  ],
+  "setup_timeout_seconds": 35,
+  "copy_entry": [
+    "python3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/run_admission27_copy.py",
+    "--plan",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_plan_r01",
+    "--setup",
+    "<captured_setup_stdout.json>",
+    "--out",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_admission27_run_r01",
+    "--execute"
+  ],
+  "copy_runtime_source": "codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/init_gate_diag60.py",
+  "copy_runtime_source_sha256": "d5331fa21f89df2428bce8faad3130bc41dbaa2a9b17b05fb0e5e042d217c90d",
+  "copy_runtime_unchanged": true,
+  "copy_inner_deadline_seconds": 60,
+  "copy_outer_timeout_seconds": 75,
+  "payload_bytes": 1048576,
+  "stage": "copy",
+  "visibility": "selected",
+  "node_dram_cap_bytes": 6442450944,
+  "node_hbm_cap_bytes": 2147483648,
+  "hbm_cap_enforced_by_cuda_allocator": false,
+  "note": "one 1MiB tensor only; runtime physical HBM <=2GiB must be checked from actual runtime/free delta, not payload label",
+  "source_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_refresh_r01/node27.stdout.json",
+      "sha256": "62326ffb9dc3c6194949e6c67387427a38e84e3122f9cda2f3f249e279326d62"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/mapping_pci_followup_r01/node27.stdout.json",
+      "sha256": "957f5909516cc82277dd25d7a475c71f99651f0085cc2a87e70bac3b56cefe14"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/three_node_recovery/inventory/fresh_host.py",
+      "sha256": "b4ffcd57635391064a22a18acdec2e6224f42710f94ef24d0bb6ddc9b05cb735"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/init_gate_diag60.py",
+      "sha256": "d5331fa21f89df2428bce8faad3130bc41dbaa2a9b17b05fb0e5e042d217c90d"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/mapping/run_admission27_copy.py",
+      "sha256": "60c685033b45bbdc91f00a1f9feba978fc18f2115e904baa78d9826b9a4c137d"
+    }
+  ],
+  "cleanup": "unchanged successful supervisor checks boot/PIDns/PID/start/PGID/SID/argv before TERM/KILL; unresolved D leaves pending, blocks escalation",
+  "after_protection": "exact fresh CID/StartedAt, original stopped-container identities unchanged, child/group empty, memory.events no OOM; no shared XML edits",
+  "shared_xml_inputs": "inherited original environment; no NCCL initialization in copy stage; files never edited"
+}

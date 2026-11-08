@@ -1,0 +1,798 @@
+{
+  "schema_version": 1,
+  "status": "planning_only",
+  "policies": {
+    "greedy": {
+      "selected": [],
+      "steps": [],
+      "solve_wall_s": 0.000230410136282444,
+      "tie_break": "gain per allocated GiB rounded to 12 decimals; then lower candidate score rounded to 12 decimals; then candidate IDs",
+      "scope": "remote-aware marginal gain per allocated byte, singleton and paired-rank bundles; fastest-path scorer",
+      "routing": {
+        "fastest": {
+          "predicted_expected_s": 0.004194304,
+          "scenario_plans": {
+            "s0": {
+              "targets": [
+                {
+                  "key": "t/0/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 0,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/0/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 1,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/0/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 0,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->0",
+                  "resources": [
+                    "in:0",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/0/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 1,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->1",
+                  "resources": [
+                    "in:1",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                }
+              ],
+              "strategy": "fastest",
+              "requested_strategy": "fastest",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": null,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 6.914418190717697e-05,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "0": 0.004194304,
+                "1": 0.004194304
+              }
+            },
+            "s1": {
+              "targets": [
+                {
+                  "key": "t/1/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 2,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/1/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 3,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/1/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 2,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->2",
+                  "resources": [
+                    "in:2",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/1/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 3,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->3",
+                  "resources": [
+                    "in:3",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                }
+              ],
+              "strategy": "fastest",
+              "requested_strategy": "fastest",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": null,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 5.6852586567401886e-05,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "2": 0.004194304,
+                "3": 0.004194304
+              }
+            }
+          }
+        },
+        "resource_lp": {
+          "predicted_expected_s": 0.004194304,
+          "scenario_plans": {
+            "s0": {
+              "targets": [
+                {
+                  "key": "t/0/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 0,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/0/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 1,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/0/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 0,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->0",
+                  "resources": [
+                    "in:0",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/0/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 1,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->1",
+                  "resources": [
+                    "in:1",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                }
+              ],
+              "strategy": "resource_lp",
+              "requested_strategy": "resource_lp",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": 0.004194304,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 0.0015703290700912476,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "0": 0.004194304,
+                "1": 0.004194304
+              }
+            },
+            "s1": {
+              "targets": [
+                {
+                  "key": "t/1/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 2,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/1/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 3,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/1/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 2,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->2",
+                  "resources": [
+                    "in:2",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/1/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 3,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->3",
+                  "resources": [
+                    "in:3",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                }
+              ],
+              "strategy": "resource_lp",
+              "requested_strategy": "resource_lp",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": 0.004194304,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 0.0015243738889694214,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "2": 0.004194304,
+                "3": 0.004194304
+              }
+            }
+          }
+        }
+      },
+      "allocated_hbm_bytes": 0
+    },
+    "joint": {
+      "selected": [],
+      "objective_s": 0.004194304,
+      "rounded_plan_s": 0.004194304,
+      "scenario_times_s": {
+        "s0": 0.004194304,
+        "s1": 0.004194304
+      },
+      "objective": "expected",
+      "status": "optimal",
+      "mip_gap": 0.0,
+      "dual_bound_s": 0.004194304,
+      "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "solve_wall_s": 0.011166212148964405,
+      "candidate_count": 4,
+      "flow_variables": 12,
+      "scope": "finite candidates, mutually exclusive scenarios, approximate service model; not simultaneous restores",
+      "routing": {
+        "fastest": {
+          "predicted_expected_s": 0.004194304,
+          "scenario_plans": {
+            "s0": {
+              "targets": [
+                {
+                  "key": "t/0/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 0,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/0/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 1,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/0/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 0,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->0",
+                  "resources": [
+                    "in:0",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/0/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 1,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->1",
+                  "resources": [
+                    "in:1",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                }
+              ],
+              "strategy": "fastest",
+              "requested_strategy": "fastest",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": null,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 6.718933582305908e-05,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "0": 0.004194304,
+                "1": 0.004194304
+              }
+            },
+            "s1": {
+              "targets": [
+                {
+                  "key": "t/1/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 2,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/1/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 3,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/1/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 2,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->2",
+                  "resources": [
+                    "in:2",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/1/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 3,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->3",
+                  "resources": [
+                    "in:3",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                }
+              ],
+              "strategy": "fastest",
+              "requested_strategy": "fastest",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": null,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 5.342904478311539e-05,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "2": 0.004194304,
+                "3": 0.004194304
+              }
+            }
+          }
+        },
+        "resource_lp": {
+          "predicted_expected_s": 0.004194304,
+          "scenario_plans": {
+            "s0": {
+              "targets": [
+                {
+                  "key": "t/0/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 0,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/0/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 1,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/0/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 0,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->0",
+                  "resources": [
+                    "in:0",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/0/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 1,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->1",
+                  "resources": [
+                    "in:1",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:a"
+                  ]
+                }
+              ],
+              "strategy": "resource_lp",
+              "requested_strategy": "resource_lp",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": 0.004194304,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 0.0015528695657849312,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "0": 0.004194304,
+                "1": 0.004194304
+              }
+            },
+            "s1": {
+              "targets": [
+                {
+                  "key": "t/1/0",
+                  "identity": "tiny",
+                  "tp": 0,
+                  "worker": 2,
+                  "off": 0,
+                  "n": 4194304
+                },
+                {
+                  "key": "t/1/1",
+                  "identity": "tiny",
+                  "tp": 1,
+                  "worker": 3,
+                  "off": 0,
+                  "n": 4194304
+                }
+              ],
+              "ops": [
+                {
+                  "op_id": 0,
+                  "target": "t/1/0",
+                  "tp": 0,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/0",
+                  "generation": 1,
+                  "src_w": 4,
+                  "dst_w": 2,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "4:dram:0->2",
+                  "resources": [
+                    "in:2",
+                    "dram:x:0",
+                    "out:4",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                },
+                {
+                  "op_id": 1,
+                  "target": "t/1/1",
+                  "tp": 1,
+                  "identity": "tiny",
+                  "off": 0,
+                  "n": 4194304,
+                  "source_offset": 0,
+                  "replica_id": "base/1",
+                  "generation": 1,
+                  "src_w": 5,
+                  "dst_w": 3,
+                  "source_epoch": null,
+                  "kind": "network",
+                  "path": "5:dram:1->3",
+                  "resources": [
+                    "in:3",
+                    "dram:x:1",
+                    "out:5",
+                    "net_out:x",
+                    "net_in:b"
+                  ]
+                }
+              ],
+              "strategy": "resource_lp",
+              "requested_strategy": "resource_lp",
+              "fallback_reason": null,
+              "bandwidth_lower_bound_s": 0.004194304,
+              "estimated_transfer_s": 0.004194304,
+              "planning_s": 0.0015158522874116898,
+              "profile": {
+                "rates": {
+                  "local_dram": 2,
+                  "local_hbm": 20,
+                  "peer": 5,
+                  "network": 1
+                },
+                "gpu_ingress_GBps": 20,
+                "gpu_egress_GBps": 20,
+                "dram_GBps": 20,
+                "network_node_GBps": 2,
+                "serial_target_execution": true
+              },
+              "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+              "serial_target_times_s": {
+                "2": 0.004194304,
+                "3": 0.004194304
+              }
+            }
+          }
+        }
+      },
+      "allocated_hbm_bytes": 0
+    }
+  },
+  "layout_signatures_equal": true,
+  "base_logical_bytes": 8388608,
+  "base_allocated_bytes": 8388608,
+  "scope": "finite candidate optimum under a provisional resource model; no measured recovery or global optimality claim",
+  "input_sha256": "fbb76762428783a9c46fc1e20d29bfedcd935dd033fcfb7b8f11fd1957f8bf26"
+}

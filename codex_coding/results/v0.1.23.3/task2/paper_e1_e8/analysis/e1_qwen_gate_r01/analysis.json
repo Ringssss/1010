@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "created_unix": 1791254650.2566206,
+  "inputs_unchanged": true,
+  "inputs_changed": [],
+  "runs": [
+    {
+      "kind": "ipc_gate",
+      "stage": "e1",
+      "run_id": "e1_c02_qwen_ipc_r01",
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/e1/e1_c02_qwen_ipc_r01",
+      "model": "B",
+      "execution_status": "passed",
+      "scientific_status": "baseline_functional_gate_passed",
+      "complete": true,
+      "gate_passed": true,
+      "generation_passed": true,
+      "owner_content_verified": true,
+      "timing_complete": true,
+      "owner_reclamation_passed": true,
+      "cpu_sources_unchanged": true,
+      "expected_hits": 2,
+      "observed_hits": 2,
+      "hits": [
+        {
+          "repetition": 0,
+          "phase": "e1_c02_qwen_ipc_r01_ipc_hit0",
+          "status": "passed",
+          "primary_T_ready_s": 0.160595298,
+          "per_host_T_ready_s": {
+            "m03r2n07": 0.160595298
+          },
+          "request_to_ready_ack_s": 0.19128446746617556,
+          "export_s": 0.00851766113191843,
+          "resume_rpc_s": 0.18172259628772736,
+          "request_to_first_token_s": 0.7688625464215875,
+          "generation_correct": true,
+          "consumer_release_verified": true
+        },
+        {
+          "repetition": 1,
+          "phase": "e1_c02_qwen_ipc_r01_ipc_hit1",
+          "status": "passed",
+          "primary_T_ready_s": 0.153791771,
+          "per_host_T_ready_s": {
+            "m03r2n07": 0.153791771
+          },
+          "request_to_ready_ack_s": 0.16856078803539276,
+          "export_s": 0.009678645990788937,
+          "resume_rpc_s": 0.15809425245970488,
+          "request_to_first_token_s": 0.7484037056565285,
+          "generation_correct": true,
+          "consumer_release_verified": true
+        }
+      ],
+      "owner_retirement": [
+        {
+          "worker": 0,
+          "allocated_delta_bytes": 0,
+          "reserved_delta_bytes": 0,
+          "physical_free_delta_bytes": 0,
+          "catalog_used_delta_bytes": 0,
+          "allocator_reclaimed": true,
+          "physical_reclaimed": true,
+          "catalog_reclaimed": true
+        },
+        {
+          "worker": 1,
+          "allocated_delta_bytes": 0,
+          "reserved_delta_bytes": 0,
+          "physical_free_delta_bytes": 0,
+          "catalog_used_delta_bytes": 0,
+          "allocator_reclaimed": true,
+          "physical_reclaimed": true,
+          "catalog_reclaimed": true
+        }
+      ],
+      "owner_bytes": 70329718112,
+      "owner_setup_request_s": 81.30249349400401,
+      "cleanup_errors": [],
+      "error": null,
+      "limitations": [
+        "two cycles validate lifecycle; they are not a performance confidence interval",
+        "cross-host coordinator acknowledgment includes export, RPC and final acknowledgment; not a global clock subtraction",
+        "CPU preservation checks metadata, not a post-run byte rehash",
+        "disk fingerprints alone do not certify code already loaded into persistent processes"
+      ],
+      "resource_samples": {
+        "window_begin_wall_ns": 1791254427514652160,
+        "window_end_wall_ns": 1791254525435097088,
+        "scope": "recorded coordinator event envelope; initial preflight may precede it",
+        "exact_high_water": false,
+        "sample_interval_target_s": 1,
+        "clock_alignment": "host wall clocks; inter-host clock error not calibrated",
+        "nodes": [
+          {
+            "node": "node27",
+            "source": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/resource_window02/node27_hbm.jsonl",
+            "snapshot": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/analysis/e1_qwen_gate_r01/resource_samples/e1_c02_qwen_ipc_r01/node27_hbm.jsonl",
+            "inside_sample_count": 98,
+            "sample_sha256": "b9a8d1762ed3eb7e6e3cd94adfce345b423351c485fb525bf11fd2b087c5c0cd",
+            "bracket_samples": 2,
+            "host": "m03r2n07",
+            "first_sample_wall_ns": 1791254427520964019,
+            "last_sample_wall_ns": 1791254524931595882,
+            "per_card_sampled_max_bytes": {
+              "card1": 40150593536,
+              "card2": 39406456832,
+              "card3": 1930514432,
+              "card4": 1662054400,
+              "card5": 1508614144,
+              "card6": 1508532224,
+              "card7": 1508470784,
+              "card8": 1508765696
+            },
+            "simultaneous_total_sampled_max_bytes": 89184002048,
+            "simultaneous_total_sampled_min_bytes": 18852364288,
+            "baseline_total_bytes": 18852524032,
+            "sampled_max_minus_baseline_bytes": 70331478016,
+            "cgroup_memory_current_sampled_max_bytes": 314042187776,
+            "host_mem_available_sampled_min_bytes": 137433038848,
+            "cgroup_oom_kill_counter_delta": 0
+          },
+          {
+            "node": "node28",
+            "source": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/resource_window02/node28_hbm.jsonl",
+            "snapshot": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/analysis/e1_qwen_gate_r01/resource_samples/e1_c02_qwen_ipc_r01/node28_hbm.jsonl",
+            "inside_sample_count": 98,
+            "sample_sha256": "d61bbb5a5a6dff4303e925056ebebd605d7fcc80570dcfb0c1c5ec23d42ff1f2",
+            "bracket_samples": 2,
+            "host": "m03r2n08",
+            "first_sample_wall_ns": 1791254427745904636,
+            "last_sample_wall_ns": 1791254525105762401,
+            "per_card_sampled_max_bytes": {
+              "card1": 56884273152,
+              "card2": 56884240384,
+              "card3": 1907077120,
+              "card4": 1638559744,
+              "card5": 1638526976,
+              "card6": 1638281216,
+              "card7": 1638039552,
+              "card8": 1638035456
+            },
+            "simultaneous_total_sampled_max_bytes": 123867033600,
+            "simultaneous_total_sampled_min_bytes": 123867033600,
+            "baseline_total_bytes": 123867033600,
+            "sampled_max_minus_baseline_bytes": 0,
+            "cgroup_memory_current_sampled_max_bytes": 314716356608,
+            "host_mem_available_sampled_min_bytes": 170654547968,
+            "cgroup_oom_kill_counter_delta": 0
+          },
+          {
+            "node": "node29",
+            "source": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/resource_window02/node29_hbm.jsonl",
+            "snapshot": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/analysis/e1_qwen_gate_r01/resource_samples/e1_c02_qwen_ipc_r01/node29_hbm.jsonl",
+            "inside_sample_count": 97,
+            "sample_sha256": "e39cf5374f7960a795bca081e870825296630d61403bf63a2a46393a873a9225",
+            "bracket_samples": 2,
+            "host": "m03r2n09",
+            "first_sample_wall_ns": 1791254428177173984,
+            "last_sample_wall_ns": 1791254524515646653,
+            "per_card_sampled_max_bytes": {
+              "card1": 2206064640,
+              "card2": 1669578752,
+              "card3": 1481986048,
+              "card4": 1482088448,
+              "card5": 1482022912,
+              "card6": 1482133504,
+              "card7": 1482104832,
+              "card8": 1482235904
+            },
+            "simultaneous_total_sampled_max_bytes": 12768215040,
+            "simultaneous_total_sampled_min_bytes": 12768215040,
+            "baseline_total_bytes": 12768215040,
+            "sampled_max_minus_baseline_bytes": 0,
+            "cgroup_memory_current_sampled_max_bytes": 331530276864,
+            "host_mem_available_sampled_min_bytes": 186546790400,
+            "cgroup_oom_kill_counter_delta": 0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "operations": [
+    {
+      "node": "node27",
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/runtime/qwen_bootstrap_r01/fresh_engine_node27.process.json",
+      "command": [
+        "docker",
+        "exec",
+        "zjn-fluid-glm-full_distributed02",
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/process.py",
+        "stop",
+        "--spec",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/runtime/qwen_bootstrap_r01/fresh_engine_node27.process.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"stopped\": 189880}\n",
+      "stderr": "",
+      "time": 1791257574.8482325
+    },
+    {
+      "node": "node29",
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/runtime/qwen_target_b_r01/fresh_engine_node29.process.json",
+      "command": [
+        "ssh",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "node29",
+        "docker exec zjn-fluid-glm-full_distributed02 python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/process.py stop --spec /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/paper_e1_e8/runtime/qwen_target_b_r01/fresh_engine_node29.process.json"
+      ],
+      "returncode": 0,
+      "stdout": "{\"stopped\": 126557}\n",
+      "stderr": "",
+      "time": 1791257576.220942
+    }
+  ],
+  "status": "passed",
+  "scope": "only new_engine_processes; CPU owners, keepers and original session untouched"
+}

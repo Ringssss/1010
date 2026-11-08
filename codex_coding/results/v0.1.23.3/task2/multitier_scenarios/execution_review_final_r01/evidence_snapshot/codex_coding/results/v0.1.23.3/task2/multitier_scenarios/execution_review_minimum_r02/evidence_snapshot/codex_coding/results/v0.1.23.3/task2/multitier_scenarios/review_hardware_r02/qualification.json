@@ -1,0 +1,96 @@
+{
+  "development": "v0.1.23.3/task2",
+  "qualification": "passed_local_historical_evidence_review_physical_unadmitted",
+  "checks": {
+    "node28/runtime_dram_independently_reconstructed": true,
+    "node28/runtime_hbm_independently_reconstructed": true,
+    "node28/same_historical_container_and_boot": true,
+    "node28/two_worker_projection_exceeds_2GiB": true,
+    "node28/one_worker_is_observation_not_full_peak": true,
+    "node28/metadata_refresh_is_not_runtime_admission": true,
+    "node30/runtime_dram_independently_reconstructed": true,
+    "node30/runtime_hbm_independently_reconstructed": true,
+    "node30/same_historical_container_and_boot": true,
+    "node30/two_worker_projection_exceeds_2GiB": true,
+    "node30/one_worker_is_observation_not_full_peak": true,
+    "node30/metadata_refresh_is_not_runtime_admission": true,
+    "node27_pending_not_cleared": true,
+    "node29_pending_not_cleared": true,
+    "existing_keeper_not_borrowable": true,
+    "static_six_gpu_mapping_not_runtime_qualified": true,
+    "HCA_independence_unknown": true,
+    "historical_qualified_path_exact": true,
+    "cgroup_ceiling_not_task_budget": true,
+    "checkpoint_storage_is_node28_local_other_nodes_NFS": true
+  },
+  "checks_passed": 20,
+  "checks_total": 20,
+  "observations": {
+    "node28": {
+      "single_worker_dram_increment_bytes": 2029518848,
+      "single_worker_hbm_increment_bytes": 371302400,
+      "two_worker_dram_projection_bytes": 4059037696,
+      "task_node_dram_budget_bytes": 2147483648,
+      "remaining_after_single_observed_runtime_bytes": 117964800,
+      "projection_is_physical_lower_bound": false,
+      "full_lifetime_peak_verified": false
+    },
+    "node30": {
+      "single_worker_dram_increment_bytes": 2038231040,
+      "single_worker_hbm_increment_bytes": 371310592,
+      "two_worker_dram_projection_bytes": 4076462080,
+      "task_node_dram_budget_bytes": 2147483648,
+      "remaining_after_single_observed_runtime_bytes": 109252608,
+      "projection_is_physical_lower_bound": false,
+      "full_lifetime_peak_verified": false
+    }
+  },
+  "node27_runtime_projection": {
+    "single_worker_dram_bytes": null,
+    "two_worker_dram_proxy_node30_bytes": 4076462080,
+    "proxy_is_measurement_or_lower_bound": false,
+    "pending_collector_exit_verified": false
+  },
+  "logical_three_nodes_two_gpu_each_ready": false,
+  "physical_ssd_path_per_node_verified": false,
+  "third_node_storage_only_option": {
+    "deployment_ready": false,
+    "SSD_HTTP_service_needs_fresh_GPU_on_storage_node": false,
+    "CPU_DRAM_owner_is_standalone_Cluster_transfer_endpoint": false,
+    "requires_changed_rolemap_paths_lifetime_budget_and_functional_gate": true
+  },
+  "GPU_calls": 0,
+  "SSH_actions": 0,
+  "remote_writes": 0,
+  "signals": 0,
+  "evidence_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/feasibility_r03/deployment_feasibility.json",
+      "sha256": "1e9c9a5faf2dc5e46a024d087062eea65b10986e0de27cb6de9981a8c66003b5"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/layout_validation/operations_baseline_r01/baseline_node28/stdout.json",
+      "sha256": "2817487cf40dc519cfde3fce82f291047d72c3ceebe021e484d54c0b0ecaa431"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/layout_validation/operations_control_r01/post_warm_node28/stdout.json",
+      "sha256": "dda948f9e5b616ca4d3d5c7b4029aa5248f66dc73ddfb6dd4b707390e0d1db3e"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/layout_validation/operations_baseline_r01/baseline_node30/stdout.json",
+      "sha256": "ee1a4dd5c0fadeb93e14d7213925f92d40a48ea86256e6d42a6ef01cb888755a"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/layout_validation/operations_control_r01/post_warm_node30/stdout.json",
+      "sha256": "9c88337f9e41c2f1c3ad9111f986a4f794c2bb1898e5e30a0750d050b314f558"
+    },
+    {
+      "path": "docx/plans/2026-10-03_three_node_glm_followup.md",
+      "sha256": "b1991f9f4e22532f2b7e4b2969188ea86ba88fb3ef9d302baa13e882ed723f02"
+    }
+  ],
+  "review_source": {
+    "path": "codex_coding/src/v0.1.23.3/task2/multitier_scenarios/review/audit_hardware.py",
+    "sha256": "abf2f5ac3ab4119a191cf71bcef9820575d34b66722352dbc9618f9c393b9442"
+  }
+}

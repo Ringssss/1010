@@ -1,0 +1,242 @@
+{
+  "GPU_actual_dump_check": {
+    "passed": true,
+    "checks": {
+      "selected_bdf_present": true,
+      "full_pci_chain": true,
+      "numa": true,
+      "affinity": true,
+      "rank": true,
+      "cuda_device_bound": true,
+      "dump_device_is_logged_nvml_device": true,
+      "gdr0_policy": true
+    },
+    "input": {
+      "cpu": {
+        "numaid": "7",
+        "affinity": "ffff0000,00000000,00000000,00000000"
+      },
+      "chain": [
+        "0000:b0:01.1",
+        "0000:b1:00.0",
+        "0000:b2:01.0",
+        "0000:b3:00.0",
+        "0000:b4:00.0",
+        "0000:b5:00.0"
+      ],
+      "gpu": {
+        "gdr": "0"
+      }
+    },
+    "actual": {
+      "cpu": {
+        "numaid": "7",
+        "affinity": "ffff0000,00000000,00000000,00000000",
+        "arch": "x86_64",
+        "vendor": "HygonGenuine",
+        "familyid": "159",
+        "modelid": "7"
+      },
+      "chain": [
+        "0000:b0:01.1",
+        "0000:b1:00.0",
+        "0000:b2:01.0",
+        "0000:b3:00.0",
+        "0000:b4:00.0",
+        "0000:b5:00.0"
+      ],
+      "gpu": {
+        "gdr": "0",
+        "dev": "5",
+        "sm": "80",
+        "gcn": "gfx936",
+        "arch": "169983",
+        "rank": "1"
+      }
+    },
+    "device_binding": {
+      "comm": "0x7f76dc0e17e0",
+      "rank": 1,
+      "world_size": 2,
+      "cuda_device": 5,
+      "nvml_device": 5,
+      "bus_id": 741376,
+      "phase": "START",
+      "line": "m03r2n10:35:186 [5] NCCL INFO ncclCommInitRank comm 0x7f76dc0e17e0 rank 1 nranks 2 cudaDev 5 nvmlDev 5 busId b5000 commId 0xa2c5c11f4de1c42f - Init START",
+      "passed": true
+    },
+    "scope": "selected BDF/CPU/PCI ancestry/gdr0 plus exact communicator CUDA/NVML binding"
+  },
+  "HCA_actual_dump_check": {
+    "passed": true,
+    "checks": {
+      "owned_IBext_v8_transport": true,
+      "selected_shca0_port1": true,
+      "shca_0:1:present": true,
+      "shca_0:1:full_pci_chain": true,
+      "shca_0:1:numa": true,
+      "shca_0:1:affinity": true,
+      "shca_0:1:gdr0_policy": true
+    },
+    "selected": [
+      {
+        "name": "shca_0",
+        "port": "1",
+        "input": {
+          "cpu": {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff"
+          },
+          "chain": [
+            "0000:00:01.1",
+            "0000:01:00.0",
+            "0000:02:01.0",
+            "0000:03:00.0"
+          ],
+          "net": {
+            "name": "shca_0",
+            "port": "1",
+            "gdr": "0",
+            "speed": "400000"
+          }
+        },
+        "actual": {
+          "cpu": {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          },
+          "chain": [
+            "0000:00:01.1",
+            "0000:01:00.0",
+            "0000:02:01.0",
+            "0000:03:00.0"
+          ],
+          "net": {
+            "name": "shca_0",
+            "port": "1",
+            "gdr": "0",
+            "speed": "400000",
+            "dev": "0",
+            "latency": "0.000000",
+            "guid": "0xa086651a61e808e5",
+            "maxconn": "1"
+          }
+        }
+      }
+    ],
+    "scope": "actual owned IBext_v8-selected HCA name/port and complete physical PCI/CPU/gdr0 path; no bandwidth claim"
+  },
+  "input_loading_lines": [
+    "m03r2n10:35:186 [5] NCCL INFO Loading topology file /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node30.physical.gdr0.xml"
+  ],
+  "fallback_mapping_lines": [],
+  "network_lines": [
+    "m03r2n10:35:186 [5] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.30<0>",
+    "m03r2n10:35:186 [5] NCCL INFO Using network IBext_v8"
+  ],
+  "channels": [
+    "m03r2n10:35:186 [5] NCCL INFO Channel 00/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 01/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 02/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 03/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 04/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 05/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 06/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 07/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 08/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 09/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 10/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 11/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 12/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 13/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 14/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 15/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 16/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 17/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 18/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 19/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 20/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 21/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 22/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 23/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 24/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 25/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 26/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 27/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 28/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 29/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 30/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 31/0 : 0[9000] -> 1[b5000] [receive] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 00/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 01/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 02/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 03/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 04/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 05/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 06/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 07/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 08/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 09/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 10/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 11/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 12/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 13/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 14/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 15/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 16/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 17/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 18/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 19/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 20/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 21/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 22/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 23/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 24/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 25/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 26/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 27/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 28/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 29/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 30/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02",
+    "m03r2n10:35:186 [5] NCCL INFO Channel 31/0 : 1[b5000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x7f76dc0e17e0 nRanks 02"
+  ],
+  "communicator_identities": [
+    {
+      "comm": "0x7f76dc0e17e0",
+      "rank": 1,
+      "world_size": 2,
+      "cuda_device": 5,
+      "nvml_device": 5,
+      "bus_id": 741376,
+      "phase": "START",
+      "line": "m03r2n10:35:186 [5] NCCL INFO ncclCommInitRank comm 0x7f76dc0e17e0 rank 1 nranks 2 cudaDev 5 nvmlDev 5 busId b5000 commId 0xa2c5c11f4de1c42f - Init START"
+    }
+  ],
+  "raw_dump_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_actual_r01/artifacts_node30/raw/operations_dump_multitier_runtime_r02/w3.runtime.dump.xml",
+    "sha256": "e71c47d5d3a5623111dcf4bdaaf725f0e63a7edd75af698b104528a7d5aa45bc"
+  },
+  "derived_view_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_result_r01/w3.parse_view.xml",
+    "sha256": "90932de68c5cc6e3a3c546afa7fc681f494d28a62519bc01dcfbfbb293494001"
+  },
+  "selected_HCA_physical_path_passed": true,
+  "cross_node_pair_participation_required": true,
+  "actual_IBext_network_channel_observed": true,
+  "mesh_and_actual_required_path_data_completed": true,
+  "completion_evidence_scope": "exact START communicator identity plus successful mesh/warm/data; C stdio COMPLETE log is incomplete for some workers",
+  "input_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node30.physical.gdr0.xml",
+    "sha256": "b0d2633711e3779784265aaa80c44f4ad0beaaf95728c0e6bef555b99503e9b5"
+  },
+  "log_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_actual_r01/artifacts_node30/raw/operations_process_multitier_runtime_r02_w3/child.log",
+    "sha256": "e882ee914aa879c52fea9c34fcba4d2aa26333061db93ecb5d78372a4f3f77d8"
+  },
+  "passed": true,
+  "scope": "one per-worker observed necessary pair rank view plus own log channels; runtime dump can be overwritten by later pair, not certification of all 15 possible pairs"
+}

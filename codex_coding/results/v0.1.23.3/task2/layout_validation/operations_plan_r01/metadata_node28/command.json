@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "ssh",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=5",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UpdateHostKeys=no",
+    "-o",
+    "ServerAliveInterval=3",
+    "-o",
+    "ServerAliveCountMax=1",
+    "-o",
+    "Hostname=12.11.3.28",
+    "node28",
+    "python3 - --binding '{\"node\": \"node28\", \"argv\": [\"python3\", \"-m\", \"fluidckpt.cluster.worker\", \"--node\", \"node28\", \"--gpu\", \"0\", \"--numa\", \"0\", \"--port-base\", \"34500\", \"--mesh\", \"node28:0-0,node30:0-0\", \"--master\", \"12.11.3.28:29970\", \"--handoff\", \"/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session\", \"--session\", \"minimal_calibration_r01\", \"--dram-budget\", \"2147483648\", \"--hbm-budget\", \"2080374784\"], \"env\": {\"PYTHONPATH\": \"/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib\", \"HIP_VISIBLE_DEVICES\": \"0\", \"CUDA_VISIBLE_DEVICES\": \"0\", \"OMP_NUM_THREADS\": \"1\", \"MKL_NUM_THREADS\": \"1\", \"HSA_FORCE_FINE_GRAIN_PCIE\": \"1\", \"NCCL_NET_PLUGIN\": \"librccl-net-shca.so\", \"NCCL_NET\": \"IBext_v8\", \"NCCL_IB_HCA\": \"shca_0\", \"NCCL_SOCKET_IFNAME\": \"ib0\", \"NCCL_TOPO_FILE\": \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_xml_2830_gdr0_r01/node28.physical.gdr0.xml\", \"NCCL_DEBUG\": \"INFO\", \"NCCL_DEBUG_SUBSYS\": \"INIT,GRAPH,NET\", \"NCCL_TOPO_DUMP_FILE_RANK\": \"0\", \"NCCL_TOPO_DUMP_FILE\": \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r02/node28.runtime.dump.xml\"}, \"unset_env\": [\"ROCR_VISIBLE_DEVICES\"], \"logical_gpu\": 0, \"boot_id\": \"5313e6f8-1712-45dc-9855-4c47358b6c4b\", \"container_id\": \"1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6\", \"container_started_at\": \"2026-10-09T10:57:19.204876643Z\", \"physical_gpu\": 0, \"bdf\": \"0000:09:00.0\", \"numa\": 0, \"physical_budget_bytes\": {\"dram\": 2147483648, \"hbm\": 2147483648}, \"staging_hbm_bytes\": 67108864, \"endpoint\": \"http://12.11.3.28:34500\", \"launch_by\": \"parent exact-owner supervisor\"}' --plan /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json"
+  ],
+  "timeout_s": 20,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_s": 0.29577178599720355
+}

@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "development": "v0.1.23.3/task2",
+  "run_id": "capability_r01",
+  "created_utc": "2026-10-10T09:52:31.524599+00:00",
+  "status": "read_only_capability_audit_complete",
+  "new_gpu_runs": 0,
+  "ssh_calls": 0,
+  "remote_writes": 0,
+  "product_changes": 0,
+  "baseline_changes": 0,
+  "physical_three_gpu_nodes_ready": false,
+  "budget_bytes_per_node": 2147483648,
+  "budget_change_authorized": false,
+  "complete_ssd_fallback_legal": true,
+  "matrix": [
+    {
+      "id": "hbm_dram_product",
+      "capability": "HBM缓存/DRAM底本+Cluster恢复",
+      "actual_current_configuration": "28/30，4布局各2×16MiB，实际SHA/filled通过",
+      "old_other_configuration": "旧全模型恢复另有证据",
+      "cpu_or_static_only": "多pool/TP4合同CPU通过",
+      "boundary": "新实测不是3节点多GPU或完整模型T_ready",
+      "evidence": [
+        "codex_coding/results/v0.1.23.3/task2/layout_validation/execution_r01/execution.json"
+      ]
+    },
+    {
+      "id": "ssd_http",
+      "capability": "独立CPU SSD HTTP range service",
+      "actual_current_configuration": "未在新28/30任务执行",
+      "old_other_configuration": "node28_01 16MiB HTTP读写fsync+SHA通过，v0.1.23.2",
+      "cpu_or_static_only": "服务实现不依赖GPU；本轮仅静态检查",
+      "boundary": "buffered IO + FADV_DONTNEED，不是O_DIRECT/GDS，不证明冷盘延迟",
+      "evidence": [
+        "codex_coding/results/ssd_probe/node28_01/summary.json",
+        "main_lib/fluidckpt/serving/ssd_store.py"
+      ]
+    },
+    {
+      "id": "ssd_full_restore",
+      "capability": "多块SSD完整后备/区域混合恢复",
+      "actual_current_configuration": "未在新配置执行",
+      "old_other_configuration": "local_pressure02 Qwen 70,329,718,112B，DRAM比例1/.5/0含全SSD，正确token通过",
+      "cpu_or_static_only": "restore_plan覆盖区间/path_for支持SSD",
+      "boundary": "旧v0.1.23.2结果/旧session/旧预算不能迁移为当前认证",
+      "evidence": [
+        "codex_coding/results/motivation/local_pressure02/summary.json",
+        "main_lib/fluidckpt/cluster/planning.py"
+      ]
+    },
+    {
+      "id": "ssd_local_file",
+      "capability": "本地SSD文件分块readinto→pinned→HBM",
+      "actual_current_configuration": "新任务未测",
+      "old_other_configuration": "旧keeper存在实现；未单独认证其新配置性能",
+      "cpu_or_static_only": "静态代码支持",
+      "boundary": "不走RemoteExtent；remote SSD在旧flowplan必须先入DRAM；不等于任意跨机直接文件读",
+      "evidence": [
+        "main_lib/fluidckpt/serving/keeper.py",
+        "main_lib/fluidckpt/transport/flowplan.py"
+      ]
+    },
+    {
+      "id": "ssd_remote_transfer",
+      "capability": "SSD服务→HTTP→GPU暂存→RCCL→目标",
+      "actual_current_configuration": "新任务未测",
+      "old_other_configuration": "旧local_pressure02有执行证据，但其合法具体路径需引用实际flow",
+      "cpu_or_static_only": "worker serial源owner.read；目标owner.write",
+      "boundary": "double_buffer传source tensor(None)给pipeline切片，因此SSD源未接通双缓冲；storage_node可异于GPU worker node",
+      "evidence": [
+        "main_lib/fluidckpt/cluster/worker.py",
+        "main_lib/fluidckpt/memory/ssd.py",
+        "main_lib/fluidckpt/executor/pipeline.py"
+      ]
+    },
+    {
+      "id": "ssd_durability",
+      "capability": "SSD fsync备份",
+      "actual_current_configuration": "新任务未测",
+      "old_other_configuration": "node28_01 committed_bytes=16MiB",
+      "cpu_or_static_only": "commit fsync文件，然后publish",
+      "boundary": "文件存在不等于掉电恢复协议：无目录fsync/原子manifest/catalog恢复；RemoteExtent构造必create(xb)，无open-existing；close会删extent",
+      "evidence": [
+        "main_lib/fluidckpt/serving/ssd_store.py",
+        "main_lib/fluidckpt/memory/ssd.py",
+        "main_lib/fluidckpt/cluster/worker.py"
+      ]
+    },
+    {
+      "id": "content_manifest",
+      "capability": "多块identity/tp/off/n + meta/index +内容校验",
+      "actual_current_configuration": "新2×16MiB全部SHA通过",
+      "old_other_configuration": "旧132量级block/每rank多个256MiB extent及全模型访问",
+      "cpu_or_static_only": "Catalog generation/lease/coverage；wire压缩manifest",
+      "boundary": "SSD store只hash key.bin不存权重manifest；manifest留worker/controller；不能以文件名恢复完整内容布局",
+      "evidence": [
+        "main_lib/fluidckpt/cluster/wire.py",
+        "main_lib/fluidckpt/cluster/worker.py",
+        "main_lib/fluidckpt/cluster/catalog.py"
+      ]
+    },
+    {
+      "id": "dram_owner",
+      "capability": "CPU-only DRAM memfd owner/NUMA/lease/adopt",
+      "actual_current_configuration": "新GPU应用DRAM通过，但本轮没有CPU owner重启认证",
+      "old_other_configuration": "owner_verify10重建后全GLM正确，旧v0.1.23.2；owner_verify07 NUMA失败保留",
+      "cpu_or_static_only": "owner不导入GPU，UNIX SCM_RIGHTS同host映射；worker HIP注册",
+      "boundary": "persistent指GPU worker退出后CPU进程保活；不是DRAM掉电持久；owner恢复依赖活client /proc FD",
+      "evidence": [
+        "main_lib/fluidckpt/memory/owner.py",
+        "main_lib/fluidckpt/memory/owned_host.py",
+        "codex_coding/results/motivation/owner_verify10/summary.json"
+      ]
+    },
+    {
+      "id": "cpu_endpoints",
+      "capability": "CPU-only存储角色与Cluster端点",
+      "actual_current_configuration": "未部署第三节点",
+      "old_other_configuration": "旧SSD独立CPU service存在",
+      "cpu_or_static_only": "SSD endpoint可放第三存储节点；DRAM owner仅本地",
+      "boundary": "ClusterWorker/Worker+mesh需GPU/CUDA/NCCL；CPU owner不是Cluster.transfer rank。第三CPU SSD节点是未来合法存储mapping，不构成三GPU节点准入",
+      "evidence": [
+        "main_lib/fluidckpt/cluster/worker.py",
+        "main_lib/fluidckpt/memory/owner.py",
+        "main_lib/fluidckpt/memory/ssd.py"
+      ]
+    },
+    {
+      "id": "placement_solver",
+      "capability": "多层候选放置与共同评分",
+      "actual_current_configuration": "新2节点路径子图可执行；未认证多层优化收益",
+      "old_other_configuration": "旧其他配置结果不认证当前",
+      "cpu_or_static_only": "joint_scenarios按tier/location通用预算可容SSD；path_for/restore支持SSD；placement_plan usage仅dram/hbm",
+      "boundary": "不要笼统重建solver：greedy SSD usage键/descriptor store_endpoint传播缺口；joint SSD候选也需执行manifest/store绑定与预算审查",
+      "evidence": [
+        "main_lib/fluidckpt/cluster/planning.py",
+        "main_lib/fluidckpt/cluster/multi_joint.py"
+      ]
+    },
+    {
+      "id": "sglang_upstream",
+      "capability": "SGLang Weight Cache/IPC复用",
+      "actual_current_configuration": "新配置未运行冻结upstream daemon",
+      "old_other_configuration": "vendor native node29全模型gate通过；自有HIP IPC旧S1通过",
+      "cpu_or_static_only": "冻结源码daemon postquant TP state_dict + Torch IPC/VMM FD + compatible CacheConfig",
+      "boundary": "upstream源码功能、vendor加载、项目适配分别标识；IPC同host同GPU producer需活；没有本轮SSD/DRAM联合放置证据",
+      "evidence": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/baselines.lock.json"
+      ]
+    },
+    {
+      "id": "janus_upstream",
+      "capability": "Janus sleep/wakeup/fork/xTensor",
+      "actual_current_configuration": "原系统未复现",
+      "old_other_configuration": "共同执行器Janus host/D2D mechanism control已有旧正确恢复",
+      "cpu_or_static_only": "冻结上游有host cached weights/light sleep/fork/xTensor",
+      "boundary": "复用源/lease/生命周期及共同执行器机制对照；不能称原Janus性能或任意SSD/多节点规划已支持",
+      "evidence": [
+        "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/llm_engine.cpp",
+        "lib_cite/baselines.lock.json"
+      ]
+    }
+  ],
+  "evidence_sha256": {
+    "AGENTS.md": "84dcd9d2d45c391c5bc28d0658dcc8db592b64fdc8976142ab5751d46d0710e6",
+    "docx/next_step.txt": "e87ac91df6836079a6e6c6bf9368fcbc951fad7a5119e8d700648d45f77ec83f",
+    "docx/debug_philosophy.md": "00ae060d427fbd37e0777a28dfc0deb0b88dc59d350eccf9f3dc9bc886f6d1c4",
+    "docx/01_paper_scope_management_guide.md": "d398b5cb5d9221d6fb4a918a939c5e1ec567dd3bba4ec8db38810a3685216321",
+    "docx/articles/2026-10-06_baselines_delta_and_research_roadmap.md": "5f044b43ffbebe2a1a6beecf505747d41364cfbbfda027f692411ab9bbeaf745",
+    "docx/plans/2026-10-10_multiple_placement_competition.md": "c0dc6666597f31203c08c1013384572ffd2e862ec0c6b628b8e53c28650887b8",
+    "docx/experiments/2026-10-04_v0.1.23.3_task2_paper_e1_e8_records.md": "1649ab5c4738b87ba54f755b18830f28b06624e98795b35d4ce8fc550f294599",
+    "main_lib/fluidckpt/memory/ssd.py": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5",
+    "main_lib/fluidckpt/serving/ssd_store.py": "ae8674271eb83fc1d2d78f88cfe0f422b5aa8ec0a9037a8854b4bb5d8ab0d164",
+    "main_lib/fluidckpt/memory/owner.py": "aeb05db3d19ffba814f7b78c4ad75fdfffc776873e14b012a0b7091ebe324383",
+    "main_lib/fluidckpt/memory/owned_host.py": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15",
+    "main_lib/fluidckpt/memory/bindings.py": "2807f529a7ebf7d1e824535cb8773e02745611580b0f2534fe6df0e8f00115e9",
+    "main_lib/fluidckpt/serving/keeper.py": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250",
+    "main_lib/fluidckpt/serving/ipc_attach.py": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4",
+    "main_lib/fluidckpt/serving/sglang_hook.py": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a",
+    "main_lib/fluidckpt/cluster/worker.py": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6",
+    "main_lib/fluidckpt/cluster/planning.py": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024",
+    "main_lib/fluidckpt/cluster/multi_joint.py": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657",
+    "main_lib/fluidckpt/cluster/catalog.py": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d",
+    "main_lib/fluidckpt/cluster/control.py": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed",
+    "main_lib/fluidckpt/cluster/wire.py": "95c8846b3023688a5ce0d207c624bf46fb9f8aa6df47c86018ba4358fa79ff28",
+    "main_lib/fluidckpt/cluster/service_cost.py": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14",
+    "main_lib/fluidckpt/executor/pipeline.py": "9e21412ea32c27bf2806d90b2cc2ec3494ccd9a56aee1ec67f76e0075fe916ec",
+    "main_lib/fluidckpt/transport/flowplan.py": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103",
+    "lib_cite/baselines.lock.json": "0798a0d887d49bd61a157a645c61803e06f49132fb651bccf6b5569e8d8a5409",
+    "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py": "046701fd8973435abca52142a6be88954610870397bbe3914c283f23ce74dfb6",
+    "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py": "14487b4d00cd47e2000821c77969afb879a4e19a1257e3a846b0bfec897f8c44",
+    "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/llm_engine.cpp": "a770d186116c9b970dcdde9841a2c1e245e021ed932238547a312fcea9249e37",
+    "codex_coding/results/ssd_probe/node28_01/summary.json": "198549f19af7d32cf984471cf6a3668747d78234cae04579bd6354c6c8f4a1bc",
+    "codex_coding/results/motivation/local_pressure02/summary.json": "4b53a93bbd3395c985a2db2e020c17fcb9b65499dea392904525263d6a8611a1",
+    "codex_coding/results/motivation/owner_verify10/summary.json": "b3326b24d4dea1207c41e1a63899acfac25b5ca71fa414c0010cd7b8ecc15314",
+    "codex_coding/results/motivation/owner_verify07/summary.json": "b1c40801a503ff38db3b49c675e3a70ec084b96d945dae02bf72e57184aac236",
+    "codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/summary.json": "8ea6f759998a358f0062097446afa6ff2e8c05071f066186b37b415c1243b56c",
+    "codex_coding/results/v0.1.23.3/task2/placement_competition/review_final_r02/qualification.json": "101cc1490f258a594af8890348c5cae63dfa08a198e19f75c9f3772e5c0562cc",
+    "codex_coding/results/v0.1.23.3/task2/layout_validation/execution_r01/execution.json": "580fa08c09c16e73cf902ca1926cfb923d75b559e73af13437b3ef79fbf17d80"
+  },
+  "static_checks": [
+    {
+      "path": "main_lib/fluidckpt/memory/ssd.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/ssd_store.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/memory/owner.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/memory/owned_host.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/memory/bindings.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/keeper.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/ipc_attach.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/sglang_hook.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/planning.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/multi_joint.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/catalog.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/control.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/wire.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/service_cost.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/executor/pipeline.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "main_lib/fluidckpt/transport/flowplan.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py",
+      "ast_parse": "passed"
+    },
+    {
+      "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+      "ast_parse": "passed"
+    }
+  ],
+  "failures": [
+    {
+      "command": "python - <<PY",
+      "reason": "python not found",
+      "resolution": "python3, no install"
+    }
+  ],
+  "uncertainties": [
+    "当前SSD服务路径/冷缓存/共享竞争未实测",
+    "第三GPU节点及多worker2GiB/node预算未准入",
+    "SSD掉电后的manifest/catalog恢复未提供",
+    "SSD double_buffer source尚无read callback"
+  ]
+}

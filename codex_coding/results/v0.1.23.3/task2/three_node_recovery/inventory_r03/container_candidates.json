@@ -1,0 +1,493 @@
+{
+  "node28": [
+    {
+      "name": "zjn-fluid-glm-full_distributed02",
+      "id": "0deafa1b72721d0ca8d27634f9f2bf71021d5900e631680baa41c88ff0f1fd8c",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "image_ref": "ee3b9807d9e9",
+      "created": "2026-10-04T01:14:43.708187457Z",
+      "started": "2026-10-04T01:14:43.800160031Z",
+      "pid": 62577,
+      "running": true,
+      "env_whitelist": {
+        "PATH": "/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "ROCM_PATH": "/opt/dtk",
+        "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml"
+      },
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/data/node28/shared",
+          "Destination": "/data/node28/shared",
+          "RW": false
+        },
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Type": "bind",
+          "Source": "/home/zhujianian",
+          "Destination": "/home/zhujianian",
+          "RW": true
+        }
+      ],
+      "host_config": {
+        "Privileged": false,
+        "NetworkMode": "host",
+        "IpcMode": "host",
+        "Memory": 472446402560,
+        "NanoCpus": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": [
+          {
+            "PathOnHost": "/dev/kfd",
+            "PathInContainer": "/dev/kfd",
+            "CgroupPermissions": "rwm"
+          },
+          {
+            "PathOnHost": "/dev/mkfd",
+            "PathInContainer": "/dev/mkfd",
+            "CgroupPermissions": "rwm"
+          },
+          {
+            "PathOnHost": "/dev/dri",
+            "PathInContainer": "/dev/dri",
+            "CgroupPermissions": "rwm"
+          },
+          {
+            "PathOnHost": "/dev/infiniband",
+            "PathInContainer": "/dev/infiniband",
+            "CgroupPermissions": "rwm"
+          }
+        ],
+        "GroupAdd": null
+      },
+      "cgroup": {
+        "proc_cgroup": "0::/system.slice/docker-0deafa1b72721d0ca8d27634f9f2bf71021d5900e631680baa41c88ff0f1fd8c.scope",
+        "files": {
+          "cpu.max": "max 100000",
+          "cpu.stat": "usage_usec 33189920647\nuser_usec 21567673472\nsystem_usec 11622247175\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0",
+          "cpuset.cpus.effective": "0-127",
+          "cpuset.mems.effective": "0-7",
+          "memory.current": "315617345536",
+          "memory.max": "472446402560",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "pids.current": "700",
+          "pids.max": "618716"
+        }
+      },
+      "python_metadata_command": {
+        "argv": [
+          "docker",
+          "exec",
+          "-i",
+          "0deafa1b72721d0ca8d27634f9f2bf71021d5900e631680baa41c88ff0f1fd8c",
+          "python3",
+          "-",
+          "[\"DTK_HOME\", \"DTK_ROOT\", \"HIP_VISIBLE_DEVICES\", \"LD_LIBRARY_PATH\", \"NCCL_CONF_FILE\", \"NCCL_IB_HCA\", \"NCCL_IGNORE_CPU_AFFINITY\", \"NCCL_NET_GDR_LEVEL\", \"NCCL_NET_PLUGIN\", \"NCCL_SOCKET_IFNAME\", \"NCCL_TOPO_FILE\", \"NCCL_TOPO_MAPPING_FILE\", \"PATH\", \"PYTHONPATH\", \"ROCM_PATH\", \"ROCR_VISIBLE_DEVICES\"]"
+        ],
+        "started_utc": "2026-10-08T08:00:58.897988+00:00",
+        "timeout_s": 6,
+        "returncode": 0,
+        "stdout": "{\"hostname\": \"m03r2n08\", \"python_executable\": \"/usr/bin/python3\", \"python_version\": \"3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]\", \"env_whitelist\": {\"PATH\": \"/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\", \"LD_LIBRARY_PATH\": \"/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:\", \"ROCM_PATH\": \"/opt/dtk\", \"NCCL_TOPO_FILE\": \"/usr/local/built-in-508-topo-input-tj-default.xml\"}, \"uid\": 0, \"paths\": {\"/opt/dtk\": {\"exists\": true, \"resolved\": \"/opt/dtk\"}, \"/opt/hyhal\": {\"exists\": true, \"resolved\": \"/opt/hyhal\"}, \"/opt/conda\": {\"exists\": false, \"resolved\": \"/opt/conda\"}, \"/usr/local/built-in-508-topo-input-tj-default.xml\": {\"exists\": true, \"resolved\": \"/usr/local/built-in-508-topo-input-tj-default.xml\"}}, \"python3_command\": \"/usr/bin/python3\", \"python_command\": \"/usr/bin/python\", \"devices\": {\"kfd\": true, \"render_nodes\": [\"renderD135\", \"renderD134\", \"renderD133\", \"renderD132\", \"renderD131\", \"renderD130\", \"renderD129\", \"renderD128\"]}}\n",
+        "stderr": "",
+        "ended_utc": "2026-10-08T08:00:59.033064+00:00",
+        "elapsed_s": 0.13511791918426752
+      },
+      "python_metadata": {
+        "hostname": "m03r2n08",
+        "python_executable": "/usr/bin/python3",
+        "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+        "env_whitelist": {
+          "PATH": "/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+          "ROCM_PATH": "/opt/dtk",
+          "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml"
+        },
+        "uid": 0,
+        "paths": {
+          "/opt/dtk": {
+            "exists": true,
+            "resolved": "/opt/dtk"
+          },
+          "/opt/hyhal": {
+            "exists": true,
+            "resolved": "/opt/hyhal"
+          },
+          "/opt/conda": {
+            "exists": false,
+            "resolved": "/opt/conda"
+          },
+          "/usr/local/built-in-508-topo-input-tj-default.xml": {
+            "exists": true,
+            "resolved": "/usr/local/built-in-508-topo-input-tj-default.xml"
+          }
+        },
+        "python3_command": "/usr/bin/python3",
+        "python_command": "/usr/bin/python",
+        "devices": {
+          "kfd": true,
+          "render_nodes": [
+            "renderD135",
+            "renderD134",
+            "renderD133",
+            "renderD132",
+            "renderD131",
+            "renderD130",
+            "renderD129",
+            "renderD128"
+          ]
+        }
+      }
+    },
+    {
+      "name": "zjn-keep-v02-n28",
+      "id": "177035641ac22e59854da0edd9af0941d7599c1820cf686491fea5a2a06c962c",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "image_ref": "ee3b9807d9e9",
+      "created": "2026-10-02T03:16:20.944947857Z",
+      "started": "2026-10-02T03:16:20.975758112Z",
+      "pid": 4003929,
+      "running": true,
+      "env_whitelist": {
+        "PATH": "/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "ROCM_PATH": "/opt/dtk",
+        "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml"
+      },
+      "mounts": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Type": "bind",
+          "Source": "/home/zhujianian",
+          "Destination": "/home/zhujianian",
+          "RW": true
+        },
+        {
+          "Type": "bind",
+          "Source": "/data/node28/shared/zhujianian",
+          "Destination": "/data/node28/shared/zhujianian",
+          "RW": false
+        }
+      ],
+      "host_config": {
+        "Privileged": false,
+        "NetworkMode": "host",
+        "IpcMode": "host",
+        "Memory": 0,
+        "NanoCpus": 0,
+        "CpusetCpus": "",
+        "CpusetMems": "",
+        "Devices": [
+          {
+            "PathOnHost": "/dev/kfd",
+            "PathInContainer": "/dev/kfd",
+            "CgroupPermissions": "rwm"
+          },
+          {
+            "PathOnHost": "/dev/mkfd",
+            "PathInContainer": "/dev/mkfd",
+            "CgroupPermissions": "rwm"
+          },
+          {
+            "PathOnHost": "/dev/dri",
+            "PathInContainer": "/dev/dri",
+            "CgroupPermissions": "rwm"
+          },
+          {
+            "PathOnHost": "/dev/infiniband",
+            "PathInContainer": "/dev/infiniband",
+            "CgroupPermissions": "rwm"
+          }
+        ],
+        "GroupAdd": null
+      },
+      "cgroup": {
+        "proc_cgroup": "0::/system.slice/docker-177035641ac22e59854da0edd9af0941d7599c1820cf686491fea5a2a06c962c.scope",
+        "files": {
+          "cpu.max": "max 100000",
+          "cpu.stat": "usage_usec 16961835973\nuser_usec 11746098929\nsystem_usec 5215737043\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0",
+          "cpuset.cpus.effective": "0-127",
+          "cpuset.mems.effective": "0-7",
+          "memory.current": "13516963840",
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "pids.current": "610",
+          "pids.max": "618716"
+        }
+      },
+      "python_metadata_command": {
+        "argv": [
+          "docker",
+          "exec",
+          "-i",
+          "177035641ac22e59854da0edd9af0941d7599c1820cf686491fea5a2a06c962c",
+          "python3",
+          "-",
+          "[\"DTK_HOME\", \"DTK_ROOT\", \"HIP_VISIBLE_DEVICES\", \"LD_LIBRARY_PATH\", \"NCCL_CONF_FILE\", \"NCCL_IB_HCA\", \"NCCL_IGNORE_CPU_AFFINITY\", \"NCCL_NET_GDR_LEVEL\", \"NCCL_NET_PLUGIN\", \"NCCL_SOCKET_IFNAME\", \"NCCL_TOPO_FILE\", \"NCCL_TOPO_MAPPING_FILE\", \"PATH\", \"PYTHONPATH\", \"ROCM_PATH\", \"ROCR_VISIBLE_DEVICES\"]"
+        ],
+        "started_utc": "2026-10-08T08:00:59.033214+00:00",
+        "timeout_s": 6,
+        "returncode": 0,
+        "stdout": "{\"hostname\": \"m03r2n08\", \"python_executable\": \"/usr/bin/python3\", \"python_version\": \"3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]\", \"env_whitelist\": {\"PATH\": \"/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin\", \"LD_LIBRARY_PATH\": \"/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:\", \"ROCM_PATH\": \"/opt/dtk\", \"NCCL_TOPO_FILE\": \"/usr/local/built-in-508-topo-input-tj-default.xml\"}, \"uid\": 0, \"paths\": {\"/opt/dtk\": {\"exists\": true, \"resolved\": \"/opt/dtk\"}, \"/opt/hyhal\": {\"exists\": true, \"resolved\": \"/opt/hyhal\"}, \"/opt/conda\": {\"exists\": false, \"resolved\": \"/opt/conda\"}, \"/usr/local/built-in-508-topo-input-tj-default.xml\": {\"exists\": true, \"resolved\": \"/usr/local/built-in-508-topo-input-tj-default.xml\"}}, \"python3_command\": \"/usr/bin/python3\", \"python_command\": \"/usr/bin/python\", \"devices\": {\"kfd\": true, \"render_nodes\": [\"renderD135\", \"renderD134\", \"renderD133\", \"renderD132\", \"renderD131\", \"renderD130\", \"renderD129\", \"renderD128\"]}}\n",
+        "stderr": "",
+        "ended_utc": "2026-10-08T08:00:59.154504+00:00",
+        "elapsed_s": 0.1213093576952815
+      },
+      "python_metadata": {
+        "hostname": "m03r2n08",
+        "python_executable": "/usr/bin/python3",
+        "python_version": "3.10.12 (main, Mar  3 2026, 11:56:32) [GCC 11.4.0]",
+        "env_whitelist": {
+          "PATH": "/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+          "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+          "ROCM_PATH": "/opt/dtk",
+          "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml"
+        },
+        "uid": 0,
+        "paths": {
+          "/opt/dtk": {
+            "exists": true,
+            "resolved": "/opt/dtk"
+          },
+          "/opt/hyhal": {
+            "exists": true,
+            "resolved": "/opt/hyhal"
+          },
+          "/opt/conda": {
+            "exists": false,
+            "resolved": "/opt/conda"
+          },
+          "/usr/local/built-in-508-topo-input-tj-default.xml": {
+            "exists": true,
+            "resolved": "/usr/local/built-in-508-topo-input-tj-default.xml"
+          }
+        },
+        "python3_command": "/usr/bin/python3",
+        "python_command": "/usr/bin/python",
+        "devices": {
+          "kfd": true,
+          "render_nodes": [
+            "renderD135",
+            "renderD134",
+            "renderD133",
+            "renderD132",
+            "renderD131",
+            "renderD130",
+            "renderD129",
+            "renderD128"
+          ]
+        }
+      }
+    }
+  ],
+  "node30_vendor_image": {
+    "id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "repo_tags": [
+      "harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10-sf_b075"
+    ],
+    "repo_digests": [
+      "harbor.sourcefind.cn:5443/dcu/admin/base/sglang@sha256:65e60bac61d0be4cd70a774c9da8a361b7fbe75ec353dd134faea7587ef504b1"
+    ],
+    "created": "2026-08-17T13:18:11.605330172Z",
+    "env_whitelist": {
+      "PATH": "/opt/dtk/bin:/opt/dtk/llvm/bin:/opt/dtk/hip/bin:/opt/dtk/hip/bin/hipify:/opt/hyhal/bin:/opt/dtk/opencl/bin:/opt/mpi/bin:/opt/ucx/bin:/opt/mpi/bin:/opt/hwloc/bin/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+      "ROCM_PATH": "/opt/dtk",
+      "NCCL_TOPO_FILE": "/usr/local/built-in-508-topo-input-tj-default.xml"
+    }
+  },
+  "node30_device_path_evidence": [
+    {
+      "container_name": "glm-5.2-int",
+      "devices_declared_in_HostConfig": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/shca-ioctl",
+          "PathInContainer": "/dev/shca-ioctl",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "hyhal_bind": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ]
+    },
+    {
+      "container_name": "vllm-glm52-dev",
+      "devices_declared_in_HostConfig": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "hyhal_bind": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "container_name": "chenyou-dcu-pytorch-stage-mem",
+      "devices_declared_in_HostConfig": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "hyhal_bind": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ]
+    },
+    {
+      "container_name": "wangpengcheng_sglang",
+      "devices_declared_in_HostConfig": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/infiniband",
+          "PathInContainer": "/dev/infiniband",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "hyhal_bind": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ]
+    },
+    {
+      "container_name": "pepe",
+      "devices_declared_in_HostConfig": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "hyhal_bind": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "container_name": "pzz",
+      "devices_declared_in_HostConfig": [
+        {
+          "PathOnHost": "/dev/kfd",
+          "PathInContainer": "/dev/kfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/mkfd",
+          "PathInContainer": "/dev/mkfd",
+          "CgroupPermissions": "rwm"
+        },
+        {
+          "PathOnHost": "/dev/dri",
+          "PathInContainer": "/dev/dri",
+          "CgroupPermissions": "rwm"
+        }
+      ],
+      "hyhal_bind": [
+        {
+          "Type": "bind",
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        }
+      ]
+    }
+  ],
+  "node30_actual_device_access_verified": false,
+  "State_scope": "r03 preserves Running/Pid/StartedAt plus container Created only; full Docker State not collected, no extra Docker call made",
+  "started_utc": "2026-10-08T08:00:58.415917+00:00"
+}

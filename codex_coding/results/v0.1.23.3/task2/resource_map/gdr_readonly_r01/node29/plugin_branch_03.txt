@@ -1,0 +1,25 @@
+
+/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000013860 <ncclIbInit>:
+   13860:	f3 0f 1e fa          	endbr64 
+   13864:	53                   	push   %rbx
+   13865:	31 c0                	xor    %eax,%eax
+   13867:	48 89 fb             	mov    %rdi,%rbx
+   1386a:	e8 91 74 ff ff       	call   ad00 <ncclParamIbDisable@plt>
+   1386f:	48 85 c0             	test   %rax,%rax
+   13872:	75 2c                	jne    138a0 <ncclIbInit+0x40>
+   13874:	48 8b 35 3d a6 01 00 	mov    0x1a63d(%rip),%rsi        # 2deb8 <ncclIbDevs@@Base-0x5148>
+   1387b:	49 89 d9             	mov    %rbx,%r9
+   1387e:	5b                   	pop    %rbx
+   1387f:	4c 8d 05 e2 18 02 00 	lea    0x218e2(%rip),%r8        # 35168 <ncclIbAsyncThread>
+   13886:	48 8d 0d e3 18 02 00 	lea    0x218e3(%rip),%rcx        # 35170 <ncclIbIfAddr>
+   1388d:	48 8d 15 fc 18 02 00 	lea    0x218fc(%rip),%rdx        # 35190 <ncclIbIfName>
+   13894:	48 8d 3d ed b3 01 00 	lea    0x1b3ed(%rip),%rdi        # 2ec88 <ncclNIbDevs>
+   1389b:	e9 b0 73 ff ff       	jmp    ac50 <nccl_p2p_ib_init@plt>
+   138a0:	b8 03 00 00 00       	mov    $0x3,%eax
+   138a5:	5b                   	pop    %rbx
+   138a6:	c3                   	ret    

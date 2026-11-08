@@ -1,0 +1,40 @@
+--- /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_fix_r03/executed_sources/codex_coding/src/v0.1.23.3/task2/bounded_cost/execution/runner.py	2026-10-11 16:38:30.638971800 +0800
++++ /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/bounded_cost/execution/runner.py	2026-10-11 16:38:30.670971776 +0800
+@@ -92,6 +92,21 @@
+     if journal.get('cleanup_failure') and not journal.get('failure'):
+         raise RuntimeError(journal['cleanup_failure'])
+ 
++def bootstrap_content_matches(bootstrap, old_bootstrap):
++    # Live verify() keys are integer op IDs; JSON reload turns them into strings.
++    def content(flow):
++        ops = flow['plan']['ops']
++        verification = flow['verification']
++        require(len(ops) == 1 and verification['passed'] and verification['checked_bytes'] == ops[0]['n'], 'bootstrap full-byte single-op SHA missing')
++        op_id = ops[0]['op_id']
++        rows = verification['operations']
++        require(len(rows) == 1, 'bootstrap verification operation count mismatch')
++        row = rows.get(op_id, rows.get(str(op_id)))
++        require(row is not None and row['op_id'] == op_id and row['n'] == ops[0]['n'], 'bootstrap op ID/size mismatch')
++        require(row['source_sha256'] == row['target_sha256'], 'bootstrap source-target SHA mismatch')
++        return {key:row[key] for key in ('n','source_sha256','target_sha256')}
++    require(content(bootstrap) == content(old_bootstrap), 'fresh bootstrap all-byte content differs from old source')
++
+ def main():
+     p = argparse.ArgumentParser()
+     for key in ('setup', 'plan', 'model', 'output'):
+@@ -146,13 +161,13 @@
+                 native.remember(journal['owned'], target, workers)
+                 write(out / 'journal.json', journal)
+                 bootstrap = cluster.transfer(native.one_plan(seed, target, workers))
++                write(out / f'bootstrap{index}.json', bootstrap)
+                 require(bootstrap['verification']['passed'] and bootstrap['verification']['checked_bytes'] == 16 * MIB, 'bootstrap all-byte SHA missing')
+                 old_bootstrap_path = prior_measure / f'bootstrap{index}.json'
+-                require(bootstrap['verification']['operations']['0'] == native.read(old_bootstrap_path)['verification']['operations']['0'], 'fresh bootstrap all-byte content differs from old source')
++                bootstrap_content_matches(bootstrap, native.read(old_bootstrap_path))
+                 source_evidence.update(old_bootstrap_ref=ref(old_bootstrap_path), full_old_source_SHA_compared=True)
+                 _, rows = cluster.inventory()
+                 seed = next(r for r in rows if r['id'] == target['id'])
+-                write(out / f'bootstrap{index}.json', bootstrap)
+             sources.append(seed)
+             source_lineage.append(source_evidence)
+         write(out / 'source_content_lineage.json', dict(sources=source_lineage, source1_full_old_SHA_comparison=False, source1_scope='identical frozen generator/schema/seed; all requested bytes separately verified in mixed request'))

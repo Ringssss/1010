@@ -1,0 +1,41 @@
+
+/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000012660 <ncclIbGetProperties_v6>:
+   12660:	f3 0f 1e fa          	endbr64 
+   12664:	53                   	push   %rbx
+   12665:	48 89 f3             	mov    %rsi,%rbx
+   12668:	89 fe                	mov    %edi,%esi
+   1266a:	48 83 ec 50          	sub    $0x50,%rsp
+   1266e:	48 8b 3d 43 b8 01 00 	mov    0x1b843(%rip),%rdi        # 2deb8 <ncclIbDevs@@Base-0x5148>
+   12675:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+   1267c:	00 00 
+   1267e:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+   12683:	31 c0                	xor    %eax,%eax
+   12685:	48 89 e2             	mov    %rsp,%rdx
+   12688:	e8 93 8a ff ff       	call   b120 <nccl_p2p_ib_get_properties@plt>
+   1268d:	85 c0                	test   %eax,%eax
+   1268f:	75 38                	jne    126c9 <ncclIbGetProperties_v6+0x69>
+   12691:	48 8b 54 24 10       	mov    0x10(%rsp),%rdx
+   12696:	f3 0f 7e 44 24 18    	movq   0x18(%rsp),%xmm0
+   1269c:	f3 0f 7e 4c 24 20    	movq   0x20(%rsp),%xmm1
+   126a2:	66 0f 6f 14 24       	movdqa (%rsp),%xmm2
+   126a7:	48 89 53 10          	mov    %rdx,0x10(%rbx)
+   126ab:	48 8b 54 24 24       	mov    0x24(%rsp),%rdx
+   126b0:	66 0f 62 c1          	punpckldq %xmm1,%xmm0
+   126b4:	0f 11 13             	movups %xmm2,(%rbx)
+   126b7:	48 89 53 20          	mov    %rdx,0x20(%rbx)
+   126bb:	48 8b 54 24 2c       	mov    0x2c(%rsp),%rdx
+   126c0:	66 0f d6 43 18       	movq   %xmm0,0x18(%rbx)
+   126c5:	48 89 53 28          	mov    %rdx,0x28(%rbx)
+   126c9:	48 8b 54 24 48       	mov    0x48(%rsp),%rdx
+   126ce:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+   126d5:	00 00 
+   126d7:	75 06                	jne    126df <ncclIbGetProperties_v6+0x7f>
+   126d9:	48 83 c4 50          	add    $0x50,%rsp
+   126dd:	5b                   	pop    %rbx
+   126de:	c3                   	ret    
+   126df:	e8 5c 80 ff ff       	call   a740 <__stack_chk_fail@plt>

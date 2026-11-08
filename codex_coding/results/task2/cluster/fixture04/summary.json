@@ -1,0 +1,3239 @@
+{
+  "task": "task2",
+  "development": "v0.1.23.2",
+  "run": "cluster/fixture04",
+  "status": "failed",
+  "repeats": 1,
+  "profile": {
+    "rates": {
+      "local_dram": 35,
+      "local_hbm": 80,
+      "peer": 35,
+      "network": 20
+    },
+    "gpu_ingress_GBps": 80,
+    "gpu_egress_GBps": 80,
+    "dram_GBps": 50,
+    "network_node_GBps": 30,
+    "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions"
+  },
+  "events": [
+    {
+      "time": 1790582913.9035316,
+      "event": "isolated_container_created",
+      "node": "node28",
+      "name": "zjn-fluidckpt-task2-cluster-fixture04",
+      "capability": "SYS_NICE"
+    },
+    {
+      "time": 1790582914.5022867,
+      "event": "isolated_container_created",
+      "node": "node29",
+      "name": "zjn-fluidckpt-task2-cluster-fixture04",
+      "capability": "SYS_NICE"
+    },
+    {
+      "time": 1790582915.4247286,
+      "event": "preflight_passed",
+      "nodes": [
+        "node27",
+        "node28",
+        "node29"
+      ]
+    },
+    {
+      "time": 1790582915.5883873,
+      "event": "process_started",
+      "node": "node27",
+      "name": "worker_node27_0",
+      "process": {
+        "pid": 537531,
+        "start_time": "390880918",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node27_0.process.json"
+      }
+    },
+    {
+      "time": 1790582915.75313,
+      "event": "process_started",
+      "node": "node27",
+      "name": "worker_node27_1",
+      "process": {
+        "pid": 537549,
+        "start_time": "390880935",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node27_1.process.json"
+      }
+    },
+    {
+      "time": 1790582916.017625,
+      "event": "process_started",
+      "node": "node27",
+      "name": "worker_node27_2",
+      "process": {
+        "pid": 537567,
+        "start_time": "390880962",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node27_2.process.json"
+      }
+    },
+    {
+      "time": 1790582916.1478832,
+      "event": "process_started",
+      "node": "node27",
+      "name": "worker_node27_3",
+      "process": {
+        "pid": 537585,
+        "start_time": "390880975",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node27_3.process.json"
+      }
+    },
+    {
+      "time": 1790582916.4580798,
+      "event": "process_started",
+      "node": "node28",
+      "name": "worker_node28_2",
+      "process": {
+        "pid": 100,
+        "start_time": "390880804",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node28_2.process.json"
+      }
+    },
+    {
+      "time": 1790582916.7620234,
+      "event": "process_started",
+      "node": "node28",
+      "name": "worker_node28_3",
+      "process": {
+        "pid": 118,
+        "start_time": "390880834",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node28_3.process.json"
+      }
+    },
+    {
+      "time": 1790582917.0527375,
+      "event": "process_started",
+      "node": "node29",
+      "name": "worker_node29_0",
+      "process": {
+        "pid": 100,
+        "start_time": "390881763",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node29_0.process.json"
+      }
+    },
+    {
+      "time": 1790582917.3588936,
+      "event": "process_started",
+      "node": "node29",
+      "name": "worker_node29_1",
+      "process": {
+        "pid": 118,
+        "start_time": "390881794",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/task2/cluster/fixture04/worker_node29_1.process.json"
+      }
+    },
+    {
+      "time": 1790582968.257911,
+      "event": "mesh_ready",
+      "workers": 8
+    },
+    {
+      "time": 1790583287.073684,
+      "event": "failed",
+      "error": "RuntimeError(\"abort failed: ['Remote end closed connection without response', 'Remote end closed connection without response']\")"
+    }
+  ],
+  "stages": {
+    "1_resource_directory": {
+      "passed": true,
+      "workers": [
+        {
+          "worker": 0,
+          "node": "node27",
+          "gpu": 0,
+          "numa": 0,
+          "epoch": "cluster/fixture04/node27/0/537531",
+          "session": "cluster/fixture04",
+          "pid": 537531,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 1,
+          "node": "node27",
+          "gpu": 1,
+          "numa": 3,
+          "epoch": "cluster/fixture04/node27/1/537549",
+          "session": "cluster/fixture04",
+          "pid": 537549,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 2,
+          "node": "node27",
+          "gpu": 2,
+          "numa": 2,
+          "epoch": "cluster/fixture04/node27/2/537567",
+          "session": "cluster/fixture04",
+          "pid": 537567,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 3,
+          "node": "node27",
+          "gpu": 3,
+          "numa": 1,
+          "epoch": "cluster/fixture04/node27/3/537585",
+          "session": "cluster/fixture04",
+          "pid": 537585,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 4,
+          "node": "node28",
+          "gpu": 2,
+          "numa": 2,
+          "epoch": "cluster/fixture04/node28/2/100",
+          "session": "cluster/fixture04",
+          "pid": 100,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 5,
+          "node": "node28",
+          "gpu": 3,
+          "numa": 1,
+          "epoch": "cluster/fixture04/node28/3/118",
+          "session": "cluster/fixture04",
+          "pid": 118,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 6,
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "epoch": "cluster/fixture04/node29/0/100",
+          "session": "cluster/fixture04",
+          "pid": 100,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        },
+        {
+          "worker": 7,
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "epoch": "cluster/fixture04/node29/1/118",
+          "session": "cluster/fixture04",
+          "pid": 118,
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "peer",
+            "network"
+          ],
+          "budget_bytes": {
+            "dram": 51539607552,
+            "hbm": 42949672960
+          },
+          "used_bytes": {
+            "dram": 0,
+            "hbm": 0
+          },
+          "replicas": [],
+          "transactions": [],
+          "staging_bytes": 33554432,
+          "hbm_allocated_bytes": 33554432
+        }
+      ]
+    },
+    "4_gpu_source": {
+      "passed": true,
+      "build": {
+        "placement": {
+          "policy": "nearest",
+          "decisions": [
+            {
+              "replica": {
+                "id": "fixture/gpu/0",
+                "identity": "6b49df327d20ed0224ed93be3751580402cff770fae3152a54813fa126b5ea01",
+                "tp": 0,
+                "off": 17,
+                "n": 33554435,
+                "worker": 2,
+                "node": "node27",
+                "gpu": 2,
+                "numa": 2,
+                "tier": "hbm",
+                "state": "VALID",
+                "generation": 1,
+                "leases": 0
+              },
+              "marginal_predicted_gain_s": null
+            },
+            {
+              "replica": {
+                "id": "fixture/gpu/1",
+                "identity": "bea3a5885db4c2f558a35b15f77a940a9fbf9f4194f7e403f6644bb366e72b11",
+                "tp": 1,
+                "off": 17,
+                "n": 33554435,
+                "worker": 3,
+                "node": "node27",
+                "gpu": 3,
+                "numa": 1,
+                "tier": "hbm",
+                "state": "VALID",
+                "generation": 1,
+                "leases": 0
+              },
+              "marginal_predicted_gain_s": null
+            }
+          ],
+          "extra_bytes": 67117056,
+          "budget_bytes": 134217728,
+          "estimated_before_s": null,
+          "estimated_after_s": null,
+          "unplaced": [],
+          "scope": "fixed candidate regions; heuristic placement under provisional bandwidth estimates"
+        },
+        "transfer": {
+          "tx": "ffde3161786740abb30c9ee28e357dca",
+          "plan": {
+            "targets": [
+              {
+                "id": "fixture/gpu/0",
+                "identity": "6b49df327d20ed0224ed93be3751580402cff770fae3152a54813fa126b5ea01",
+                "tp": 0,
+                "off": 17,
+                "n": 33554435,
+                "worker": 2,
+                "node": "node27",
+                "gpu": 2,
+                "numa": 2,
+                "tier": "hbm",
+                "state": "VALID",
+                "generation": 1,
+                "leases": 0,
+                "key": "fixture/gpu/0",
+                "mode": "replica",
+                "meta": {
+                  "tp_rank": 0,
+                  "synthetic": true,
+                  "model_identity": "fixture:2026",
+                  "tp_size": 2
+                },
+                "index": {
+                  "t0": [
+                    0,
+                    1048576
+                  ],
+                  "t1": [
+                    1048576,
+                    50331648
+                  ],
+                  "t2": [
+                    51380224,
+                    15728657
+                  ]
+                }
+              },
+              {
+                "id": "fixture/gpu/1",
+                "identity": "bea3a5885db4c2f558a35b15f77a940a9fbf9f4194f7e403f6644bb366e72b11",
+                "tp": 1,
+                "off": 17,
+                "n": 33554435,
+                "worker": 3,
+                "node": "node27",
+                "gpu": 3,
+                "numa": 1,
+                "tier": "hbm",
+                "state": "VALID",
+                "generation": 1,
+                "leases": 0,
+                "key": "fixture/gpu/1",
+                "mode": "replica",
+                "meta": {
+                  "tp_rank": 1,
+                  "synthetic": true,
+                  "model_identity": "fixture:2027",
+                  "tp_size": 2
+                },
+                "index": {
+                  "t0": [
+                    0,
+                    1048576
+                  ],
+                  "t1": [
+                    1048576,
+                    50331648
+                  ],
+                  "t2": [
+                    51380224,
+                    15728657
+                  ]
+                }
+              }
+            ],
+            "ops": [
+              {
+                "op_id": 0,
+                "target": "fixture/gpu/0",
+                "tp": 0,
+                "identity": "6b49df327d20ed0224ed93be3751580402cff770fae3152a54813fa126b5ea01",
+                "off": 17,
+                "n": 33554435,
+                "source_offset": 17,
+                "replica_id": "fixture/base/0",
+                "generation": 1,
+                "src_w": 0,
+                "dst_w": 2,
+                "source_epoch": "cluster/fixture04/node27/0/537531",
+                "kind": "peer",
+                "path": "0:dram:0->2",
+                "resources": [
+                  "in:2",
+                  "dram:node27:0",
+                  "out:0"
+                ]
+              },
+              {
+                "op_id": 1,
+                "target": "fixture/gpu/1",
+                "tp": 1,
+                "identity": "bea3a5885db4c2f558a35b15f77a940a9fbf9f4194f7e403f6644bb366e72b11",
+                "off": 17,
+                "n": 33554435,
+                "source_offset": 17,
+                "replica_id": "fixture/base/1",
+                "generation": 1,
+                "src_w": 1,
+                "dst_w": 3,
+                "source_epoch": "cluster/fixture04/node27/1/537549",
+                "kind": "peer",
+                "path": "1:dram:3->3",
+                "resources": [
+                  "in:3",
+                  "dram:node27:3",
+                  "out:1"
+                ]
+              }
+            ],
+            "strategy": "nearest",
+            "fallback_reason": null,
+            "bandwidth_lower_bound_s": null,
+            "estimated_transfer_s": 0.0009586981428571429,
+            "planning_s": 0.00013479497283697128,
+            "profile": {
+              "rates": {
+                "local_dram": 35,
+                "local_hbm": 80,
+                "peer": 35,
+                "network": 20
+              },
+              "gpu_ingress_GBps": 80,
+              "gpu_egress_GBps": 80,
+              "dram_GBps": 50,
+              "network_node_GBps": 30,
+              "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions"
+            },
+            "scope": "fixed layout; provisional capacity model excludes setup, chunk order and contention outside profile"
+          },
+          "execution": [
+            {
+              "worker": 0,
+              "records": [
+                {
+                  "op_id": 0,
+                  "role": "source",
+                  "replica_id": "fixture/base/0",
+                  "bytes": 33554435,
+                  "kind": "peer",
+                  "elapsed_s": 0.4429341587238014
+                }
+              ],
+              "execute_s": 0.4429507120512426
+            },
+            {
+              "worker": 1,
+              "records": [
+                {
+                  "op_id": 1,
+                  "role": "source",
+                  "replica_id": "fixture/base/1",
+                  "bytes": 33554435,
+                  "kind": "peer",
+                  "elapsed_s": 0.43468252616003156
+                }
+              ],
+              "execute_s": 0.4347004760056734
+            },
+            {
+              "worker": 2,
+              "records": [
+                {
+                  "op_id": 0,
+                  "role": "target",
+                  "replica_id": "fixture/base/0",
+                  "bytes": 33554435,
+                  "kind": "peer",
+                  "elapsed_s": 0.4430487002246082
+                }
+              ],
+              "execute_s": 0.4430676270276308
+            },
+            {
+              "worker": 3,
+              "records": [
+                {
+                  "op_id": 1,
+                  "role": "target",
+                  "replica_id": "fixture/base/1",
+                  "bytes": 33554435,
+                  "kind": "peer",
+                  "elapsed_s": 0.4350590449757874
+                }
+              ],
+              "execute_s": 0.4350723153911531
+            },
+            {
+              "worker": 4,
+              "records": [],
+              "execute_s": 4.629604518413544e-06
+            },
+            {
+              "worker": 5,
+              "records": [],
+              "execute_s": 6.010290235280991e-06
+            },
+            {
+              "worker": 6,
+              "records": [],
+              "execute_s": 5.189795047044754e-06
+            },
+            {
+              "worker": 7,
+              "records": [],
+              "execute_s": 5.760230123996735e-06
+            }
+          ],
+          "verification": {
+            "passed": true,
+            "checked_bytes": 67108870,
+            "algorithm": "SHA256 of every logical byte per operation",
+            "operations": {
+              "0": {
+                "op_id": 0,
+                "n": 33554435,
+                "source_sha256": "1568d15b9607cb384ff708f9e716f3461eac10b142b368dd52874272838af84f",
+                "target_sha256": "1568d15b9607cb384ff708f9e716f3461eac10b142b368dd52874272838af84f"
+              },
+              "1": {
+                "op_id": 1,
+                "n": 33554435,
+                "source_sha256": "2282acfde23c670f14cf396a604bf8b8bc7c839cd314ad3dbfc639dae0b60aad",
+                "target_sha256": "2282acfde23c670f14cf396a604bf8b8bc7c839cd314ad3dbfc639dae0b60aad"
+              }
+            }
+          },
+          "prepare_s": 0.010866730008274317,
+          "execute_wall_s": 0.44619592372328043,
+          "verify_and_publish_s": 0.05107795912772417,
+          "coordinator_wall_s": 0.5081406128592789,
+          "source_bytes": {
+            "fixture/base/0": 33554435,
+            "fixture/base/1": 33554435
+          },
+          "timing_scope": "coordinator wall; excludes model layout before handoff"
+        }
+      },
+      "peer_restore": {
+        "tx": "025e51acee4745d9b1497e7fcff9c43b",
+        "plan": {
+          "targets": [
+            {
+              "key": "fixture/peer/0",
+              "id": "fixture/peer/0",
+              "mode": "replica",
+              "worker": 0,
+              "tier": "hbm",
+              "identity": "6b49df327d20ed0224ed93be3751580402cff770fae3152a54813fa126b5ea01",
+              "tp": 0,
+              "off": 17,
+              "n": 33554435,
+              "meta": {
+                "tp_rank": 0,
+                "synthetic": true,
+                "model_identity": "fixture:2026",
+                "tp_size": 2
+              },
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  50331648
+                ],
+                "t2": [
+                  51380224,
+                  15728657
+                ]
+              }
+            },
+            {
+              "key": "fixture/peer/1",
+              "id": "fixture/peer/1",
+              "mode": "replica",
+              "worker": 1,
+              "tier": "hbm",
+              "identity": "bea3a5885db4c2f558a35b15f77a940a9fbf9f4194f7e403f6644bb366e72b11",
+              "tp": 1,
+              "off": 17,
+              "n": 33554435,
+              "meta": {
+                "tp_rank": 1,
+                "synthetic": true,
+                "model_identity": "fixture:2027",
+                "tp_size": 2
+              },
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  50331648
+                ],
+                "t2": [
+                  51380224,
+                  15728657
+                ]
+              }
+            }
+          ],
+          "ops": [
+            {
+              "op_id": 0,
+              "target": "fixture/peer/0",
+              "tp": 0,
+              "identity": "6b49df327d20ed0224ed93be3751580402cff770fae3152a54813fa126b5ea01",
+              "off": 17,
+              "n": 33554435,
+              "source_offset": 0,
+              "replica_id": "fixture/gpu/0",
+              "generation": 1,
+              "src_w": 2,
+              "dst_w": 0,
+              "source_epoch": "cluster/fixture04/node27/2/537567",
+              "kind": "peer",
+              "path": "2:hbm:2->0",
+              "resources": [
+                "in:0",
+                "out:2"
+              ]
+            },
+            {
+              "op_id": 1,
+              "target": "fixture/peer/1",
+              "tp": 1,
+              "identity": "bea3a5885db4c2f558a35b15f77a940a9fbf9f4194f7e403f6644bb366e72b11",
+              "off": 17,
+              "n": 33554435,
+              "source_offset": 0,
+              "replica_id": "fixture/gpu/1",
+              "generation": 1,
+              "src_w": 3,
+              "dst_w": 1,
+              "source_epoch": "cluster/fixture04/node27/3/537585",
+              "kind": "peer",
+              "path": "3:hbm:1->1",
+              "resources": [
+                "in:1",
+                "out:3"
+              ]
+            }
+          ],
+          "strategy": "nearest",
+          "fallback_reason": null,
+          "bandwidth_lower_bound_s": null,
+          "estimated_transfer_s": 0.0009586981428571429,
+          "planning_s": 0.00010176002979278564,
+          "profile": {
+            "rates": {
+              "local_dram": 35,
+              "local_hbm": 80,
+              "peer": 35,
+              "network": 20
+            },
+            "gpu_ingress_GBps": 80,
+            "gpu_egress_GBps": 80,
+            "dram_GBps": 50,
+            "network_node_GBps": 30,
+            "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions"
+          },
+          "scope": "fixed layout; provisional capacity model excludes setup, chunk order and contention outside profile"
+        },
+        "execution": [
+          {
+            "worker": 0,
+            "records": [
+              {
+                "op_id": 0,
+                "role": "target",
+                "replica_id": "fixture/gpu/0",
+                "bytes": 33554435,
+                "kind": "peer",
+                "elapsed_s": 0.0014609568752348423
+              }
+            ],
+            "execute_s": 0.001473249401897192
+          },
+          {
+            "worker": 1,
+            "records": [
+              {
+                "op_id": 1,
+                "role": "target",
+                "replica_id": "fixture/gpu/1",
+                "bytes": 33554435,
+                "kind": "peer",
+                "elapsed_s": 0.0023973300121724606
+              }
+            ],
+            "execute_s": 0.002409620676189661
+          },
+          {
+            "worker": 2,
+            "records": [
+              {
+                "op_id": 0,
+                "role": "source",
+                "replica_id": "fixture/gpu/0",
+                "bytes": 33554435,
+                "kind": "peer",
+                "elapsed_s": 0.001081086229532957
+              }
+            ],
+            "execute_s": 0.0010942849330604076
+          },
+          {
+            "worker": 3,
+            "records": [
+              {
+                "op_id": 1,
+                "role": "source",
+                "replica_id": "fixture/gpu/1",
+                "bytes": 33554435,
+                "kind": "peer",
+                "elapsed_s": 0.0010668379254639149
+              }
+            ],
+            "execute_s": 0.0010819942690432072
+          },
+          {
+            "worker": 4,
+            "records": [],
+            "execute_s": 3.4603290259838104e-06
+          },
+          {
+            "worker": 5,
+            "records": [],
+            "execute_s": 5.22984191775322e-06
+          },
+          {
+            "worker": 6,
+            "records": [],
+            "execute_s": 4.569999873638153e-06
+          },
+          {
+            "worker": 7,
+            "records": [],
+            "execute_s": 4.319939762353897e-06
+          }
+        ],
+        "verification": {
+          "passed": true,
+          "checked_bytes": 67108870,
+          "algorithm": "SHA256 of every logical byte per operation",
+          "operations": {
+            "0": {
+              "op_id": 0,
+              "n": 33554435,
+              "target_sha256": "1568d15b9607cb384ff708f9e716f3461eac10b142b368dd52874272838af84f",
+              "source_sha256": "1568d15b9607cb384ff708f9e716f3461eac10b142b368dd52874272838af84f"
+            },
+            "1": {
+              "op_id": 1,
+              "n": 33554435,
+              "target_sha256": "2282acfde23c670f14cf396a604bf8b8bc7c839cd314ad3dbfc639dae0b60aad",
+              "source_sha256": "2282acfde23c670f14cf396a604bf8b8bc7c839cd314ad3dbfc639dae0b60aad"
+            }
+          }
+        },
+        "prepare_s": 0.01068975031375885,
+        "execute_wall_s": 0.005187310744076967,
+        "verify_and_publish_s": 0.05357704916968942,
+        "coordinator_wall_s": 0.06945411022752523,
+        "source_bytes": {
+          "fixture/gpu/0": 33554435,
+          "fixture/gpu/1": 33554435
+        },
+        "timing_scope": "coordinator wall; excludes model layout before handoff"
+      }
+    }
+  },
+  "restores": [],
+  "scope": "fixed Qwen TP2 layout; DRAM/HBM sources on three nodes; no performance optimization claim",
+  "code_sha256": {
+    "main_lib/fluidckpt/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/model/score_frozen.py": "cb1f6b3b0cf81ec9e52305ec2e6b1502fbebe8830b747cc34c33bfcd3aa65ab3",
+    "main_lib/fluidckpt/model/resources.py": "f08dda76b915665b07e38658fec5762033a2566b4859ec886c1c8285ad8f9915",
+    "main_lib/fluidckpt/model/fit.py": "bf032dba09b232acc7c2c580a239088c93e4d4c1260964ebe8babcd78b9c225a",
+    "main_lib/fluidckpt/model/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/model/fluid.py": "1ee4033e30e02271b847d17899434a7f8b7759a1449382be8485b7af5e9df00a",
+    "main_lib/fluidckpt/topology/__init__.py": "2b5126014e866bc5106437bc7a9d8738e33e33a8a92b1e5c71d62354f42abd0c",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+    "main_lib/fluidckpt/serving/ctl.py": "5d1f54a0e52138266d074582decc2211c400a5a3635dd00b1803079ae2b5e7b9",
+    "main_lib/fluidckpt/serving/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/serving/keeper.py": "d177be96213d8966b630ae3085c15c5fade2da4b96c8b8401560e377158ef78d",
+    "main_lib/fluidckpt/serving/measure.py": "baf6edd909e1c63726c98db7c9a66a8dbc18e413741dbc71cd448aa5c608bc35",
+    "main_lib/fluidckpt/serving/replicas.py": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566",
+    "main_lib/fluidckpt/serving/sglang_hook.py": "efabf4c94d30d9427079d79f0586b470ce1c94535347d06b9ca15656480b1c41",
+    "main_lib/fluidckpt/profiler/workers.py": "7b9fc98576e75e17b9e8d888dd457f5097705606f2d0542afc1a33663b67e4c8",
+    "main_lib/fluidckpt/profiler/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/profiler/run.py": "6cab12fd102196ffa6e68b87abb8206fbed3b9bdfff4ec9bb0980c39d1d361a6",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/memory/__init__.py": "8601085d9424b302f91a5f0711ca38918007257b8b2c0f058945c3344a2c2e08",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/memory/host.py": "88c7935fd5e077cf737f69540ee2f1b15c0ec8804ca4200458844622a15cffbc",
+    "main_lib/fluidckpt/planner/plans.py": "6e01d118714bc08262fd03c98d19e15ea0df96a2acca22d0f0f3e26a40ed5ccb",
+    "main_lib/fluidckpt/planner/regions.py": "bb416a8ad667f93caf6b87f3b273246f7199e20cecb7eed71901774e69fff0d0",
+    "main_lib/fluidckpt/planner/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/planner/loading.py": "a35f05ee5d4a5cd6da63848ac22919d3f24fb50936e4c817fab08720b796d010",
+    "main_lib/fluidckpt/transport/bucket.py": "0d5ec16c7f4dbeee76f105d91d8ca7461e07dcee90dcafe7155a6576c249343a",
+    "main_lib/fluidckpt/transport/__init__.py": "24fc75327a4783864f10cc0b4280595f0971a0365e1d69a5053cd38772158563",
+    "main_lib/fluidckpt/transport/stream.py": "5c5c3a36e90caff8398b23b80f34f3d96257acb6dc4203a46de305df53d6c05d",
+    "main_lib/fluidckpt/transport/flowplan.py": "8a308fdb54f8c1c20525dcd26a10240d9a6beec59e9f0fdcd0e8d37f48887103",
+    "main_lib/fluidckpt/cluster/worker.py": "3474982a0da20b77f03ee4d163abb8429844e06566a328c5bad86691ed9bb293",
+    "main_lib/fluidckpt/cluster/__init__.py": "27493741a93e8e3605770a40159c28a502392b221330eb85d1a11b35a5d03b3c",
+    "main_lib/fluidckpt/cluster/catalog.py": "a3edb2547d02bf5972660d5fe220da9f076efd197e899c04c3b3163a8f603663",
+    "main_lib/fluidckpt/cluster/control.py": "e089b57fdf96a1939a199782b787402aaeb2d0a5536b49e42985f47b5531dedf",
+    "main_lib/fluidckpt/cluster/planning.py": "2e8751a5796da7b06e7382b19814b581a4389f452a9a6ff0e1fa2b6dab7573b4",
+    "main_lib/fluidckpt/executor/regions.py": "6731bdc78baf254316947c136b3a750a22ee27dc0d20b852c906c2e20ae8fc8d",
+    "main_lib/fluidckpt/executor/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "main_lib/fluidckpt/executor/run_plans.py": "bb41f9c53196dd5ab96d3c6843b6bef9a6fd2b6dfa54647f278f554fbff773ff",
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/task2/cluster/run_system.py": "fd2b6ecc6a6fe2d600ffeb759729eff50fcda610ea186b1a44b64cdcb6fb5916",
+    "codex_coding/src/task2/cluster/inspect_node.py": "f3440c7514e02cd4e9bdf05c492491fb1f1096e1d0230ac21eaafe15b92be8bf",
+    "codex_coding/src/serving/sglang_fluid_launch.py": "b1d03c0d68baa15a39e653456bb368eabd1af7712368e5ee970b24ab7f571252"
+  },
+  "preflight": {
+    "node27": {
+      "topology": {
+        "host": "m03r2n07",
+        "gpus": [
+          {
+            "bdf": "0000:09:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:08:00.0",
+              "0000:07:00.0",
+              "0000:02:06.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 0,
+            "smi_gpu": 0,
+            "drm": [
+              "card1"
+            ],
+            "identity": "m03r2n07/0000:09:00.0"
+          },
+          {
+            "bdf": "0000:36:00.0",
+            "numa_node": 3,
+            "ancestors": [
+              "0000:35:00.0",
+              "0000:34:00.0",
+              "0000:32:04.0",
+              "0000:31:00.0",
+              "0000:30:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 1,
+            "smi_gpu": 1,
+            "drm": [
+              "card2"
+            ],
+            "identity": "m03r2n07/0000:36:00.0"
+          },
+          {
+            "bdf": "0000:55:00.0",
+            "numa_node": 2,
+            "ancestors": [
+              "0000:54:00.0",
+              "0000:53:00.0",
+              "0000:52:00.0",
+              "0000:51:00.0",
+              "0000:50:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 2,
+            "smi_gpu": 2,
+            "drm": [
+              "card3"
+            ],
+            "identity": "m03r2n07/0000:55:00.0"
+          },
+          {
+            "bdf": "0000:77:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:76:00.0",
+              "0000:75:00.0",
+              "0000:72:03.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 3,
+            "smi_gpu": 3,
+            "drm": [
+              "card4"
+            ],
+            "identity": "m03r2n07/0000:77:00.0"
+          },
+          {
+            "bdf": "0000:85:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:84:00.0",
+              "0000:83:00.0",
+              "0000:82:01.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 4,
+            "smi_gpu": 4,
+            "drm": [
+              "card5"
+            ],
+            "identity": "m03r2n07/0000:85:00.0"
+          },
+          {
+            "bdf": "0000:b5:00.0",
+            "numa_node": 7,
+            "ancestors": [
+              "0000:b4:00.0",
+              "0000:b3:00.0",
+              "0000:b2:01.0",
+              "0000:b1:00.0",
+              "0000:b0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 5,
+            "smi_gpu": 5,
+            "drm": [
+              "card6"
+            ],
+            "identity": "m03r2n07/0000:b5:00.0"
+          },
+          {
+            "bdf": "0000:d5:00.0",
+            "numa_node": 6,
+            "ancestors": [
+              "0000:d4:00.0",
+              "0000:d3:00.0",
+              "0000:d2:00.0",
+              "0000:d1:00.0",
+              "0000:d0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 6,
+            "smi_gpu": 6,
+            "drm": [
+              "card7"
+            ],
+            "identity": "m03r2n07/0000:d5:00.0"
+          },
+          {
+            "bdf": "0000:f5:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f4:00.0",
+              "0000:f3:00.0",
+              "0000:f2:00.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 7,
+            "smi_gpu": 7,
+            "drm": [
+              "card8"
+            ],
+            "identity": "m03r2n07/0000:f5:00.0"
+          }
+        ],
+        "nodes": [
+          {
+            "node": 0,
+            "cpulist": "0-15",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "10 15 20 15 34 38 33 28",
+            "memory_bytes": {
+              "MemTotal": 67338162176,
+              "MemFree": 46880870400,
+              "MemUsed": 20457291776,
+              "SwapCached": 37326848,
+              "Active": 10712367104,
+              "Inactive": 6022397952,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 172032,
+              "Writeback": 0,
+              "FilePages": 12930748416,
+              "Mapped": 115478528,
+              "AnonPages": 3801927680,
+              "Shmem": 3690496,
+              "KernelStack": 41865216,
+              "PageTables": 53067776,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 814059520,
+              "Slab": 1211252736,
+              "SReclaimable": 814059520,
+              "SUnreclaim": 397193216,
+              "AnonHugePages": 377487360,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 1,
+            "cpulist": "16-31",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "15 10 15 20 38 34 28 33",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 4761907200,
+              "MemUsed": 62877003776,
+              "SwapCached": 15761408,
+              "Active": 48517111808,
+              "Inactive": 10724737024,
+              "Unevictable": 16384,
+              "Mlocked": 16384,
+              "Dirty": 8192,
+              "Writeback": 0,
+              "FilePages": 57437655040,
+              "Mapped": 80580608,
+              "AnonPages": 1801658368,
+              "Shmem": 2387968,
+              "KernelStack": 16142336,
+              "PageTables": 121909248,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 988467200,
+              "Slab": 1299877888,
+              "SReclaimable": 988467200,
+              "SUnreclaim": 311410688,
+              "AnonHugePages": 532676608,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 2,
+            "cpulist": "32-47",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "20 15 10 15 33 28 34 38",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 16624226304,
+              "MemUsed": 51014684672,
+              "SwapCached": 368254976,
+              "Active": 27376762880,
+              "Inactive": 20545998848,
+              "Unevictable": 98304,
+              "Mlocked": 98304,
+              "Dirty": 32768,
+              "Writeback": 0,
+              "FilePages": 44339240960,
+              "Mapped": 158224384,
+              "AnonPages": 3581579264,
+              "Shmem": 1671168,
+              "KernelStack": 14012416,
+              "PageTables": 46338048,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 889991168,
+              "Slab": 1139134464,
+              "SReclaimable": 889991168,
+              "SUnreclaim": 249143296,
+              "AnonHugePages": 1405091840,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 3,
+            "cpulist": "48-63",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "15 20 15 10 28 33 38 34",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 61171781632,
+              "MemUsed": 6467129344,
+              "SwapCached": 95895552,
+              "Active": 243859456,
+              "Inactive": 3272335360,
+              "Unevictable": 65536,
+              "Mlocked": 65536,
+              "Dirty": 0,
+              "Writeback": 0,
+              "FilePages": 172847104,
+              "Mapped": 11292672,
+              "AnonPages": 3341307904,
+              "Shmem": 602112,
+              "KernelStack": 10960896,
+              "PageTables": 24526848,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 852029440,
+              "Slab": 1081090048,
+              "SReclaimable": 852029440,
+              "SUnreclaim": 229060608,
+              "AnonHugePages": 903872512,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 4,
+            "cpulist": "64-79",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "34 38 33 28 10 15 20 15",
+            "memory_bytes": {
+              "MemTotal": 67603566592,
+              "MemFree": 27449978880,
+              "MemUsed": 40153587712,
+              "SwapCached": 46948352,
+              "Active": 27920994304,
+              "Inactive": 9598799872,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 24576,
+              "Writeback": 0,
+              "FilePages": 33913810944,
+              "Mapped": 336117760,
+              "AnonPages": 3605512192,
+              "Shmem": 1597440,
+              "KernelStack": 23035904,
+              "PageTables": 54427648,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 664113152,
+              "Slab": 932970496,
+              "SReclaimable": 664113152,
+              "SUnreclaim": 268857344,
+              "AnonHugePages": 1101004800,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 5,
+            "cpulist": "80-95",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "38 34 28 33 15 10 15 20",
+            "memory_bytes": {
+              "MemTotal": 67633246208,
+              "MemFree": 23816933376,
+              "MemUsed": 43816312832,
+              "SwapCached": 163614720,
+              "Active": 19187879936,
+              "Inactive": 20979888128,
+              "Unevictable": 16384,
+              "Mlocked": 16384,
+              "Dirty": 32768,
+              "Writeback": 0,
+              "FilePages": 34950471680,
+              "Mapped": 93024256,
+              "AnonPages": 5215076352,
+              "Shmem": 827392,
+              "KernelStack": 20889600,
+              "PageTables": 93065216,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 1418104832,
+              "Slab": 1727041536,
+              "SReclaimable": 1418104832,
+              "SUnreclaim": 308936704,
+              "AnonHugePages": 2145386496,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 6,
+            "cpulist": "96-111",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "33 28 34 38 20 15 10 15",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 11773046784,
+              "MemUsed": 55865864192,
+              "SwapCached": 103321600,
+              "Active": 39075885056,
+              "Inactive": 13973405696,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 32768,
+              "Writeback": 0,
+              "FilePages": 48482480128,
+              "Mapped": 849022976,
+              "AnonPages": 4529094656,
+              "Shmem": 3149824,
+              "KernelStack": 19660800,
+              "PageTables": 42512384,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 1145090048,
+              "Slab": 1433202688,
+              "SReclaimable": 1145090048,
+              "SUnreclaim": 288112640,
+              "AnonHugePages": 1147142144,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 7,
+            "cpulist": "112-127",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "28 33 38 34 15 20 15 10",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 35394134016,
+              "MemUsed": 32244776960,
+              "SwapCached": 71163904,
+              "Active": 20282978304,
+              "Inactive": 9292259328,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 32768,
+              "Writeback": 0,
+              "FilePages": 26553933824,
+              "Mapped": 155127808,
+              "AnonPages": 3018366976,
+              "Shmem": 528384,
+              "KernelStack": 12767232,
+              "PageTables": 110370816,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 980275200,
+              "Slab": 1274716160,
+              "SReclaimable": 980275200,
+              "SUnreclaim": 294440960,
+              "AnonHugePages": 1820327936,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          }
+        ],
+        "io": [
+          {
+            "bdf": "0000:0e:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:00:05.5"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "1",
+            "subsystem": "nvme",
+            "name": "nvme1"
+          },
+          {
+            "bdf": "0000:04:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:03.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "4",
+            "subsystem": "nvme",
+            "name": "nvme0"
+          },
+          {
+            "bdf": "0000:f6:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f2:03.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_3"
+          },
+          {
+            "bdf": "0000:73:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:72:01.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_1"
+          },
+          {
+            "bdf": "0000:86:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:82:03.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_2"
+          },
+          {
+            "bdf": "0000:03:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:01.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_0"
+          },
+          {
+            "bdf": "0000:11:00.4",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:00:08.1"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "eth0"
+          },
+          {
+            "bdf": "0000:f6:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f2:03.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib3"
+          },
+          {
+            "bdf": "0000:73:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:72:01.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib1"
+          },
+          {
+            "bdf": "0000:a1:00.4",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:80:08.1"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "eth1"
+          },
+          {
+            "bdf": "0000:86:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:82:03.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib2"
+          },
+          {
+            "bdf": "0000:03:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:01.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib0"
+          }
+        ],
+        "timestamp": 1790582915.3222914,
+        "schema_version": 1,
+        "visibility": {
+          "HIP_VISIBLE_DEVICES": null,
+          "CUDA_VISIBLE_DEVICES": null
+        },
+        "fingerprint": "1a538b9d917c0c83df7a45a9e46665b5fa189c9888d71fcf5dab9b6a3a6e9ed1",
+        "sources": {
+          "smi_bus": {
+            "card0": {
+              "PCI Bus": "0000:09:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card1": {
+              "PCI Bus": "0000:36:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card2": {
+              "PCI Bus": "0000:55:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card3": {
+              "PCI Bus": "0000:77:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card4": {
+              "PCI Bus": "0000:85:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card5": {
+              "PCI Bus": "0000:b5:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card6": {
+              "PCI Bus": "0000:d5:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card7": {
+              "PCI Bus": "0000:f5:00.0 --> SN: 01-000205-08VGT2"
+            }
+          },
+          "smi_topology": "\n================================= System Management Interface ==================================\n================================================================================================\nLink accessible between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[1]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[2]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[3]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[4]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[5]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[6]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[7]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \n================================================================================================\n================================================================================================\nWeight between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    0         0         0         0         0         0         0         0         \nHCU[1]    0         0         0         0         0         0         0         0         \nHCU[2]    0         0         0         0         0         0         0         0         \nHCU[3]    0         0         0         0         0         0         0         0         \nHCU[4]    0         0         0         0         0         0         0         0         \nHCU[5]    0         0         0         0         0         0         0         0         \nHCU[6]    0         0         0         0         0         0         0         0         \nHCU[7]    0         0         0         0         0         0         0         0         \n================================================================================================\n================================================================================================\nHops between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    0         1         1         1         1         1         1         1         \nHCU[1]    1         0         1         1         1         1         1         1         \nHCU[2]    1         1         0         1         1         1         1         1         \nHCU[3]    1         1         1         0         1         1         1         1         \nHCU[4]    1         1         1         1         0         1         1         1         \nHCU[5]    1         1         1         1         1         0         1         1         \nHCU[6]    1         1         1         1         1         1         0         1         \nHCU[7]    1         1         1         1         1         1         1         0         \n================================================================================================\n================================================================================================\nLink Type between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    None      HSW       HSW       HSW       HSW       HSW       HSW       HSW       \nHCU[1]    HSW       None      HSW       HSW       HSW       HSW       HSW       HSW       \nHCU[2]    HSW       HSW       None      HSW       HSW       HSW       HSW       HSW       \nHCU[3]    HSW       HSW       HSW       None      HSW       HSW       HSW       HSW       \nHCU[4]    HSW       HSW       HSW       HSW       None      HSW       HSW       HSW       \nHCU[5]    HSW       HSW       HSW       HSW       HSW       None      HSW       HSW       \nHCU[6]    HSW       HSW       HSW       HSW       HSW       HSW       None      HSW       \nHCU[7]    HSW       HSW       HSW       HSW       HSW       HSW       HSW       None      \n================================================================================================\n================================================================================================\nHCU[0]\t\t: (Topology) Numa Node 0\nHCU[0]\t\t: (Topology) Numa Affinity 0\nHCU[1]\t\t: (Topology) Numa Node 3\nHCU[1]\t\t: (Topology) Numa Affinity 3\nHCU[2]\t\t: (Topology) Numa Node 2\nHCU[2]\t\t: (Topology) Numa Affinity 2\nHCU[3]\t\t: (Topology) Numa Node 1\nHCU[3]\t\t: (Topology) Numa Affinity 1\nHCU[4]\t\t: (Topology) Numa Node 4\nHCU[4]\t\t: (Topology) Numa Affinity 4\nHCU[5]\t\t: (Topology) Numa Node 7\nHCU[5]\t\t: (Topology) Numa Affinity 7\nHCU[6]\t\t: (Topology) Numa Node 6\nHCU[6]\t\t: (Topology) Numa Affinity 6\nHCU[7]\t\t: (Topology) Numa Node 5\nHCU[7]\t\t: (Topology) Numa Affinity 5\n================================================================================================\n======================================== End of SMI Log ========================================\n\n"
+        }
+      },
+      "gpu_memory": {
+        "card0": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card1": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card2": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card3": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card4": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card5": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card6": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        },
+        "card7": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "8"
+        }
+      },
+      "numa_binding_probe": {
+        "0": 1.0
+      },
+      "listening_ports": [
+        58439,
+        53,
+        34887,
+        35315,
+        35117,
+        35573,
+        35621,
+        36351,
+        36671,
+        32997,
+        33163,
+        33411,
+        33323,
+        33769,
+        33587,
+        34219,
+        34457,
+        34813,
+        39115,
+        39723,
+        40045,
+        40408,
+        40195,
+        37895,
+        38853,
+        43217,
+        44931,
+        44867,
+        2224,
+        2222,
+        2223,
+        2049,
+        45267,
+        45763,
+        1164,
+        45721,
+        45597,
+        45969,
+        45897,
+        46185,
+        46557,
+        46763,
+        22,
+        111,
+        46595,
+        8118,
+        57563,
+        7892,
+        7890,
+        7891,
+        40845,
+        39506,
+        39507,
+        39504,
+        39505,
+        39502,
+        39503,
+        39500,
+        39501,
+        9991,
+        36563,
+        34665,
+        33919,
+        9090,
+        2223,
+        2049,
+        1162,
+        22,
+        111,
+        9991,
+        46803,
+        45397,
+        44913,
+        41333,
+        37311
+      ],
+      "software": {
+        "torch": "2.10.0+das.opt1.dtk2604.2608131652.g28498c",
+        "sglang": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+        "scipy": "1.15.3"
+      }
+    },
+    "node28": {
+      "topology": {
+        "host": "m03r2n08",
+        "gpus": [
+          {
+            "bdf": "0000:09:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:08:00.0",
+              "0000:07:00.0",
+              "0000:02:06.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 0,
+            "smi_gpu": 0,
+            "drm": [
+              "card1"
+            ],
+            "identity": "m03r2n08/0000:09:00.0"
+          },
+          {
+            "bdf": "0000:36:00.0",
+            "numa_node": 3,
+            "ancestors": [
+              "0000:35:00.0",
+              "0000:34:00.0",
+              "0000:32:04.0",
+              "0000:31:00.0",
+              "0000:30:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 1,
+            "smi_gpu": 1,
+            "drm": [
+              "card2"
+            ],
+            "identity": "m03r2n08/0000:36:00.0"
+          },
+          {
+            "bdf": "0000:55:00.0",
+            "numa_node": 2,
+            "ancestors": [
+              "0000:54:00.0",
+              "0000:53:00.0",
+              "0000:52:00.0",
+              "0000:51:00.0",
+              "0000:50:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 2,
+            "smi_gpu": 2,
+            "drm": [
+              "card3"
+            ],
+            "identity": "m03r2n08/0000:55:00.0"
+          },
+          {
+            "bdf": "0000:77:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:76:00.0",
+              "0000:75:00.0",
+              "0000:72:03.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 3,
+            "smi_gpu": 3,
+            "drm": [
+              "card4"
+            ],
+            "identity": "m03r2n08/0000:77:00.0"
+          },
+          {
+            "bdf": "0000:85:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:84:00.0",
+              "0000:83:00.0",
+              "0000:82:01.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 4,
+            "smi_gpu": 4,
+            "drm": [
+              "card5"
+            ],
+            "identity": "m03r2n08/0000:85:00.0"
+          },
+          {
+            "bdf": "0000:b5:00.0",
+            "numa_node": 7,
+            "ancestors": [
+              "0000:b4:00.0",
+              "0000:b3:00.0",
+              "0000:b2:01.0",
+              "0000:b1:00.0",
+              "0000:b0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 5,
+            "smi_gpu": 5,
+            "drm": [
+              "card6"
+            ],
+            "identity": "m03r2n08/0000:b5:00.0"
+          },
+          {
+            "bdf": "0000:d5:00.0",
+            "numa_node": 6,
+            "ancestors": [
+              "0000:d4:00.0",
+              "0000:d3:00.0",
+              "0000:d2:00.0",
+              "0000:d1:00.0",
+              "0000:d0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 6,
+            "smi_gpu": 6,
+            "drm": [
+              "card7"
+            ],
+            "identity": "m03r2n08/0000:d5:00.0"
+          },
+          {
+            "bdf": "0000:f5:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f4:00.0",
+              "0000:f3:00.0",
+              "0000:f2:00.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 7,
+            "smi_gpu": 7,
+            "drm": [
+              "card8"
+            ],
+            "identity": "m03r2n08/0000:f5:00.0"
+          }
+        ],
+        "nodes": [
+          {
+            "node": 0,
+            "cpulist": "0-15",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "10 15 20 15 34 38 33 28",
+            "memory_bytes": {
+              "MemTotal": 67338162176,
+              "MemFree": 2450096128,
+              "MemUsed": 64888066048,
+              "SwapCached": 153624576,
+              "Active": 26150883328,
+              "Inactive": 33926582272,
+              "Unevictable": 65536,
+              "Mlocked": 65536,
+              "Dirty": 151552,
+              "Writeback": 0,
+              "FilePages": 52670918656,
+              "Mapped": 126828544,
+              "AnonPages": 7388676096,
+              "Shmem": 4648960,
+              "KernelStack": 59379712,
+              "PageTables": 46043136,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 2006700032,
+              "Slab": 2410438656,
+              "SReclaimable": 2006700032,
+              "SUnreclaim": 403738624,
+              "AnonHugePages": 6039797760,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 1,
+            "cpulist": "16-31",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "15 10 15 20 38 34 28 33",
+            "memory_bytes": {
+              "MemTotal": 67603566592,
+              "MemFree": 443203584,
+              "MemUsed": 67160363008,
+              "SwapCached": 167981056,
+              "Active": 32510820352,
+              "Inactive": 30248603648,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 131072,
+              "Writeback": 0,
+              "FilePages": 60982358016,
+              "Mapped": 38346752,
+              "AnonPages": 1766694912,
+              "Shmem": 602112,
+              "KernelStack": 13946880,
+              "PageTables": 24764416,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 1924624384,
+              "Slab": 2203299840,
+              "SReclaimable": 1924624384,
+              "SUnreclaim": 278675456,
+              "AnonHugePages": 612368384,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 2,
+            "cpulist": "32-47",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "20 15 10 15 33 28 34 38",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 415678464,
+              "MemUsed": 67223232512,
+              "SwapCached": 467161088,
+              "Active": 30394359808,
+              "Inactive": 33353060352,
+              "Unevictable": 65536,
+              "Mlocked": 65536,
+              "Dirty": 16384,
+              "Writeback": 0,
+              "FilePages": 58048602112,
+              "Mapped": 157745152,
+              "AnonPages": 5692276736,
+              "Shmem": 253952,
+              "KernelStack": 14077952,
+              "PageTables": 48472064,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 1410928640,
+              "Slab": 1650597888,
+              "SReclaimable": 1410928640,
+              "SUnreclaim": 239669248,
+              "AnonHugePages": 1912602624,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 3,
+            "cpulist": "48-63",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "15 20 15 10 28 33 38 34",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 228237312,
+              "MemUsed": 67410673664,
+              "SwapCached": 51781632,
+              "Active": 27348910080,
+              "Inactive": 36669689856,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 86016,
+              "Writeback": 0,
+              "FilePages": 59407589376,
+              "Mapped": 175366144,
+              "AnonPages": 4601483264,
+              "Shmem": 2752512,
+              "KernelStack": 9142272,
+              "PageTables": 27738112,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 1409581056,
+              "Slab": 1628270592,
+              "SReclaimable": 1409581056,
+              "SUnreclaim": 218689536,
+              "AnonHugePages": 1551892480,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 4,
+            "cpulist": "64-79",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "34 38 33 28 10 15 20 15",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 91811840,
+              "MemUsed": 67547099136,
+              "SwapCached": 140877824,
+              "Active": 40874377216,
+              "Inactive": 24068259840,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 86016,
+              "Writeback": 0,
+              "FilePages": 63321219072,
+              "Mapped": 185360384,
+              "AnonPages": 1617911808,
+              "Shmem": 151552,
+              "KernelStack": 7782400,
+              "PageTables": 23904256,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 842797056,
+              "Slab": 1011781632,
+              "SReclaimable": 842797056,
+              "SUnreclaim": 168984576,
+              "AnonHugePages": 1308622848,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 5,
+            "cpulist": "80-95",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "38 34 28 33 15 10 15 20",
+            "memory_bytes": {
+              "MemTotal": 67633246208,
+              "MemFree": 120098816,
+              "MemUsed": 67513147392,
+              "SwapCached": 27709440,
+              "Active": 42975178752,
+              "Inactive": 21598355456,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 282624,
+              "Writeback": 0,
+              "FilePages": 63229919232,
+              "Mapped": 184397824,
+              "AnonPages": 1341550592,
+              "Shmem": 331776,
+              "KernelStack": 7454720,
+              "PageTables": 17440768,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 992272384,
+              "Slab": 1170419712,
+              "SReclaimable": 992272384,
+              "SUnreclaim": 178147328,
+              "AnonHugePages": 517996544,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 6,
+            "cpulist": "96-111",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "33 28 34 38 20 15 10 15",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 104779776,
+              "MemUsed": 67534131200,
+              "SwapCached": 12812288,
+              "Active": 41142054912,
+              "Inactive": 24137531392,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 24576,
+              "Writeback": 0,
+              "FilePages": 64335409152,
+              "Mapped": 122380288,
+              "AnonPages": 938889216,
+              "Shmem": 376832,
+              "KernelStack": 10379264,
+              "PageTables": 16945152,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 776867840,
+              "Slab": 941289472,
+              "SReclaimable": 776867840,
+              "SUnreclaim": 164421632,
+              "AnonHugePages": 201326592,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 7,
+            "cpulist": "112-127",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "28 33 38 34 15 20 15 10",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 80429056,
+              "MemUsed": 67558481920,
+              "SwapCached": 504147968,
+              "Active": 37815156736,
+              "Inactive": 27412103168,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 196608,
+              "Writeback": 0,
+              "FilePages": 59807027200,
+              "Mapped": 1118613504,
+              "AnonPages": 5411651584,
+              "Shmem": 278528,
+              "KernelStack": 18788352,
+              "PageTables": 68435968,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 819961856,
+              "Slab": 1015181312,
+              "SReclaimable": 819961856,
+              "SUnreclaim": 195219456,
+              "AnonHugePages": 4399824896,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          }
+        ],
+        "io": [
+          {
+            "bdf": "0000:0e:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:00:05.5"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "1",
+            "subsystem": "nvme",
+            "name": "nvme1"
+          },
+          {
+            "bdf": "0000:04:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:03.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "4",
+            "subsystem": "nvme",
+            "name": "nvme0"
+          },
+          {
+            "bdf": "0000:86:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:82:03.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_2"
+          },
+          {
+            "bdf": "0000:03:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:01.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_0"
+          },
+          {
+            "bdf": "0000:f6:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f2:03.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_3"
+          },
+          {
+            "bdf": "0000:73:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:72:01.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_1"
+          },
+          {
+            "bdf": "0000:73:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:72:01.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib1"
+          },
+          {
+            "bdf": "0000:a1:00.4",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:80:08.1"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "eth1"
+          },
+          {
+            "bdf": "0000:86:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:82:03.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib2"
+          },
+          {
+            "bdf": "0000:03:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:01.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib0"
+          },
+          {
+            "bdf": "0000:11:00.4",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:00:08.1"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "eth0"
+          },
+          {
+            "bdf": "0000:f6:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f2:03.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib3"
+          }
+        ],
+        "timestamp": 1790582915.328313,
+        "schema_version": 1,
+        "visibility": {
+          "HIP_VISIBLE_DEVICES": null,
+          "CUDA_VISIBLE_DEVICES": null
+        },
+        "fingerprint": "7b16ad3086ab9f8f781142bbad1233fef97b00804afc8a97e42ebee16a2b9722",
+        "sources": {
+          "smi_bus": {
+            "card0": {
+              "PCI Bus": "0000:09:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card1": {
+              "PCI Bus": "0000:36:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card2": {
+              "PCI Bus": "0000:55:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card3": {
+              "PCI Bus": "0000:77:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card4": {
+              "PCI Bus": "0000:85:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card5": {
+              "PCI Bus": "0000:b5:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card6": {
+              "PCI Bus": "0000:d5:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card7": {
+              "PCI Bus": "0000:f5:00.0 --> SN: 01-000205-08VGT2"
+            }
+          },
+          "smi_topology": "\n================================= System Management Interface ==================================\n================================================================================================\nLink accessible between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[1]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[2]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[3]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[4]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[5]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[6]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[7]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \n================================================================================================\n================================================================================================\nWeight between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    0         0         0         0         0         0         0         0         \nHCU[1]    0         0         0         0         0         0         0         0         \nHCU[2]    0         0         0         0         0         0         0         0         \nHCU[3]    0         0         0         0         0         0         0         0         \nHCU[4]    0         0         0         0         0         0         0         0         \nHCU[5]    0         0         0         0         0         0         0         0         \nHCU[6]    0         0         0         0         0         0         0         0         \nHCU[7]    0         0         0         0         0         0         0         0         \n================================================================================================\n================================================================================================\nHops between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    0         1         1         1         1         1         1         1         \nHCU[1]    1         0         1         1         1         1         1         1         \nHCU[2]    1         1         0         1         1         1         1         1         \nHCU[3]    1         1         1         0         1         1         1         1         \nHCU[4]    1         1         1         1         0         1         1         1         \nHCU[5]    1         1         1         1         1         0         1         1         \nHCU[6]    1         1         1         1         1         1         0         1         \nHCU[7]    1         1         1         1         1         1         1         0         \n================================================================================================\n================================================================================================\nLink Type between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    None      HSW       HSW       HSW       HSW       HSW       HSW       HSW       \nHCU[1]    HSW       None      HSW       HSW       HSW       HSW       HSW       HSW       \nHCU[2]    HSW       HSW       None      HSW       HSW       HSW       HSW       HSW       \nHCU[3]    HSW       HSW       HSW       None      HSW       HSW       HSW       HSW       \nHCU[4]    HSW       HSW       HSW       HSW       None      HSW       HSW       HSW       \nHCU[5]    HSW       HSW       HSW       HSW       HSW       None      HSW       HSW       \nHCU[6]    HSW       HSW       HSW       HSW       HSW       HSW       None      HSW       \nHCU[7]    HSW       HSW       HSW       HSW       HSW       HSW       HSW       None      \n================================================================================================\n================================================================================================\nHCU[0]\t\t: (Topology) Numa Node 0\nHCU[0]\t\t: (Topology) Numa Affinity 0\nHCU[1]\t\t: (Topology) Numa Node 3\nHCU[1]\t\t: (Topology) Numa Affinity 3\nHCU[2]\t\t: (Topology) Numa Node 2\nHCU[2]\t\t: (Topology) Numa Affinity 2\nHCU[3]\t\t: (Topology) Numa Node 1\nHCU[3]\t\t: (Topology) Numa Affinity 1\nHCU[4]\t\t: (Topology) Numa Node 4\nHCU[4]\t\t: (Topology) Numa Affinity 4\nHCU[5]\t\t: (Topology) Numa Node 7\nHCU[5]\t\t: (Topology) Numa Affinity 7\nHCU[6]\t\t: (Topology) Numa Node 6\nHCU[6]\t\t: (Topology) Numa Affinity 6\nHCU[7]\t\t: (Topology) Numa Node 5\nHCU[7]\t\t: (Topology) Numa Affinity 5\n================================================================================================\n======================================== End of SMI Log ========================================\n\n"
+        }
+      },
+      "gpu_memory": {
+        "card0": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "53695"
+        },
+        "card1": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "53695"
+        },
+        "card2": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "6"
+        },
+        "card3": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "6"
+        },
+        "card4": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "6"
+        },
+        "card5": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "6"
+        },
+        "card6": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "6"
+        },
+        "card7": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "6"
+        }
+      },
+      "numa_binding_probe": {
+        "0": 1.0
+      },
+      "listening_ports": [
+        39503,
+        39502,
+        39507,
+        39506,
+        39505,
+        39504,
+        46607,
+        46435,
+        45357,
+        46031,
+        44409,
+        43071,
+        43223,
+        43275,
+        43495,
+        43537,
+        43881,
+        42031,
+        42163,
+        42207,
+        53,
+        42645,
+        42757,
+        40977,
+        34313,
+        48019,
+        47987,
+        39307,
+        39381,
+        39423,
+        38333,
+        38817,
+        46741,
+        36109,
+        36237,
+        35277,
+        33129,
+        34219,
+        34247,
+        34641,
+        32899,
+        34167,
+        37795,
+        54171,
+        40769,
+        32901,
+        59961,
+        57543,
+        55851,
+        46615,
+        46613,
+        46095,
+        46299,
+        54771,
+        51619,
+        42457,
+        43645,
+        43351,
+        43451,
+        44889,
+        2222,
+        2049,
+        111,
+        22,
+        1164,
+        7891,
+        7892,
+        30051,
+        39047,
+        37491,
+        45673,
+        45079,
+        43225,
+        56749,
+        2049,
+        111,
+        22,
+        1162,
+        9090
+      ],
+      "software": {
+        "torch": "2.10.0+das.opt1.dtk2604.2608131652.g28498c",
+        "sglang": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+        "scipy": "1.15.3"
+      }
+    },
+    "node29": {
+      "topology": {
+        "host": "m03r2n09",
+        "gpus": [
+          {
+            "bdf": "0000:09:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:08:00.0",
+              "0000:07:00.0",
+              "0000:02:06.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 0,
+            "smi_gpu": 0,
+            "drm": [
+              "card1"
+            ],
+            "identity": "m03r2n09/0000:09:00.0"
+          },
+          {
+            "bdf": "0000:36:00.0",
+            "numa_node": 3,
+            "ancestors": [
+              "0000:35:00.0",
+              "0000:34:00.0",
+              "0000:32:04.0",
+              "0000:31:00.0",
+              "0000:30:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 1,
+            "smi_gpu": 1,
+            "drm": [
+              "card2"
+            ],
+            "identity": "m03r2n09/0000:36:00.0"
+          },
+          {
+            "bdf": "0000:55:00.0",
+            "numa_node": 2,
+            "ancestors": [
+              "0000:54:00.0",
+              "0000:53:00.0",
+              "0000:52:00.0",
+              "0000:51:00.0",
+              "0000:50:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 2,
+            "smi_gpu": 2,
+            "drm": [
+              "card3"
+            ],
+            "identity": "m03r2n09/0000:55:00.0"
+          },
+          {
+            "bdf": "0000:77:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:76:00.0",
+              "0000:75:00.0",
+              "0000:72:03.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 3,
+            "smi_gpu": 3,
+            "drm": [
+              "card4"
+            ],
+            "identity": "m03r2n09/0000:77:00.0"
+          },
+          {
+            "bdf": "0000:85:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:84:00.0",
+              "0000:83:00.0",
+              "0000:82:01.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 4,
+            "smi_gpu": 4,
+            "drm": [
+              "card5"
+            ],
+            "identity": "m03r2n09/0000:85:00.0"
+          },
+          {
+            "bdf": "0000:b5:00.0",
+            "numa_node": 7,
+            "ancestors": [
+              "0000:b4:00.0",
+              "0000:b3:00.0",
+              "0000:b2:01.0",
+              "0000:b1:00.0",
+              "0000:b0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 5,
+            "smi_gpu": 5,
+            "drm": [
+              "card6"
+            ],
+            "identity": "m03r2n09/0000:b5:00.0"
+          },
+          {
+            "bdf": "0000:d5:00.0",
+            "numa_node": 6,
+            "ancestors": [
+              "0000:d4:00.0",
+              "0000:d3:00.0",
+              "0000:d2:00.0",
+              "0000:d1:00.0",
+              "0000:d0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 6,
+            "smi_gpu": 6,
+            "drm": [
+              "card7"
+            ],
+            "identity": "m03r2n09/0000:d5:00.0"
+          },
+          {
+            "bdf": "0000:f5:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f4:00.0",
+              "0000:f3:00.0",
+              "0000:f2:00.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "logical_gpu": 7,
+            "smi_gpu": 7,
+            "drm": [
+              "card8"
+            ],
+            "identity": "m03r2n09/0000:f5:00.0"
+          }
+        ],
+        "nodes": [
+          {
+            "node": 0,
+            "cpulist": "0-15",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "10 15 20 15 34 38 33 28",
+            "memory_bytes": {
+              "MemTotal": 67338162176,
+              "MemFree": 5490851840,
+              "MemUsed": 61847310336,
+              "SwapCached": 29007872,
+              "Active": 39211126784,
+              "Inactive": 19858927616,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 73728,
+              "Writeback": 0,
+              "FilePages": 55890452480,
+              "Mapped": 263139328,
+              "AnonPages": 3177349120,
+              "Shmem": 995328,
+              "KernelStack": 15785984,
+              "PageTables": 26415104,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 307773440,
+              "Slab": 508940288,
+              "SReclaimable": 307773440,
+              "SUnreclaim": 201166848,
+              "AnonHugePages": 2579496960,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 1,
+            "cpulist": "16-31",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "15 10 15 20 38 34 28 33",
+            "memory_bytes": {
+              "MemTotal": 67603566592,
+              "MemFree": 11961626624,
+              "MemUsed": 55641939968,
+              "SwapCached": 95199232,
+              "Active": 26296569856,
+              "Inactive": 25763434496,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 36864,
+              "Writeback": 0,
+              "FilePages": 51499806720,
+              "Mapped": 36352000,
+              "AnonPages": 558202880,
+              "Shmem": 315392,
+              "KernelStack": 7065600,
+              "PageTables": 28590080,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 1122107392,
+              "Slab": 1337671680,
+              "SReclaimable": 1122107392,
+              "SUnreclaim": 215564288,
+              "AnonHugePages": 385875968,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 2,
+            "cpulist": "32-47",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "20 15 10 15 33 28 34 38",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 4640133120,
+              "MemUsed": 62998777856,
+              "SwapCached": 173092864,
+              "Active": 25156882432,
+              "Inactive": 35447877632,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 0,
+              "Writeback": 0,
+              "FilePages": 60028862464,
+              "Mapped": 28778496,
+              "AnonPages": 575926272,
+              "Shmem": 110592,
+              "KernelStack": 6328320,
+              "PageTables": 16343040,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 449253376,
+              "Slab": 583352320,
+              "SReclaimable": 449253376,
+              "SUnreclaim": 134098944,
+              "AnonHugePages": 503316480,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 3,
+            "cpulist": "48-63",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "15 20 15 10 28 33 38 34",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 3808014336,
+              "MemUsed": 63830896640,
+              "SwapCached": 17588224,
+              "Active": 24852434944,
+              "Inactive": 36628799488,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 24576,
+              "Writeback": 0,
+              "FilePages": 61325824000,
+              "Mapped": 22130688,
+              "AnonPages": 151244800,
+              "Shmem": 114688,
+              "KernelStack": 6000640,
+              "PageTables": 10244096,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 415625216,
+              "Slab": 560910336,
+              "SReclaimable": 415625216,
+              "SUnreclaim": 145285120,
+              "AnonHugePages": 83886080,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 4,
+            "cpulist": "64-79",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "34 38 33 28 10 15 20 15",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 6225895424,
+              "MemUsed": 61413015552,
+              "SwapCached": 90173440,
+              "Active": 21246451712,
+              "Inactive": 38009466880,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 81920,
+              "Writeback": 0,
+              "FilePages": 56978784256,
+              "Mapped": 21983232,
+              "AnonPages": 2277244928,
+              "Shmem": 192512,
+              "KernelStack": 12763136,
+              "PageTables": 32358400,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 385642496,
+              "Slab": 566661120,
+              "SReclaimable": 385642496,
+              "SUnreclaim": 181018624,
+              "AnonHugePages": 2111832064,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 5,
+            "cpulist": "80-95",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "38 34 28 33 15 10 15 20",
+            "memory_bytes": {
+              "MemTotal": 67633246208,
+              "MemFree": 4320587776,
+              "MemUsed": 63312658432,
+              "SwapCached": 23355392,
+              "Active": 34020024320,
+              "Inactive": 27303972864,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 20480,
+              "Writeback": 0,
+              "FilePages": 61141811200,
+              "Mapped": 18968576,
+              "AnonPages": 181506048,
+              "Shmem": 32768,
+              "KernelStack": 5275648,
+              "PageTables": 6615040,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 287571968,
+              "Slab": 429268992,
+              "SReclaimable": 287571968,
+              "SUnreclaim": 141697024,
+              "AnonHugePages": 109051904,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 6,
+            "cpulist": "96-111",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "33 28 34 38 20 15 10 15",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 10422411264,
+              "MemUsed": 57216499712,
+              "SwapCached": 81940480,
+              "Active": 26944524288,
+              "Inactive": 28527517696,
+              "Unevictable": 0,
+              "Mlocked": 0,
+              "Dirty": 118784,
+              "Writeback": 0,
+              "FilePages": 53357940736,
+              "Mapped": 22044672,
+              "AnonPages": 2113925120,
+              "Shmem": 77824,
+              "KernelStack": 7450624,
+              "PageTables": 21909504,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 343433216,
+              "Slab": 473882624,
+              "SReclaimable": 343433216,
+              "SUnreclaim": 130449408,
+              "AnonHugePages": 1491075072,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          },
+          {
+            "node": 7,
+            "cpulist": "112-127",
+            "reported_package_ids": [
+              0
+            ],
+            "distance": "28 33 38 34 15 20 15 10",
+            "memory_bytes": {
+              "MemTotal": 67638910976,
+              "MemFree": 17854353408,
+              "MemUsed": 49784557568,
+              "SwapCached": 34295808,
+              "Active": 30497943552,
+              "Inactive": 17267118080,
+              "Unevictable": 65536,
+              "Mlocked": 65536,
+              "Dirty": 741376,
+              "Writeback": 0,
+              "FilePages": 47226720256,
+              "Mapped": 682663936,
+              "AnonPages": 528973824,
+              "Shmem": 2891776,
+              "KernelStack": 33619968,
+              "PageTables": 21495808,
+              "NFS_Unstable": 0,
+              "Bounce": 0,
+              "WritebackTmp": 0,
+              "KReclaimable": 473128960,
+              "Slab": 692162560,
+              "SReclaimable": 473128960,
+              "SUnreclaim": 219033600,
+              "AnonHugePages": 186646528,
+              "ShmemHugePages": 0,
+              "ShmemPmdMapped": 0,
+              "FileHugePages": 0,
+              "FilePmdMapped": 0
+            }
+          }
+        ],
+        "io": [
+          {
+            "bdf": "0000:0e:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:00:05.5"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "1",
+            "subsystem": "nvme",
+            "name": "nvme1"
+          },
+          {
+            "bdf": "0000:04:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:03.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "16.0 GT/s PCIe",
+            "current_link_width": "4",
+            "subsystem": "nvme",
+            "name": "nvme0"
+          },
+          {
+            "bdf": "0000:f6:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f2:03.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_3"
+          },
+          {
+            "bdf": "0000:73:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:72:01.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_1"
+          },
+          {
+            "bdf": "0000:86:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:82:03.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_2"
+          },
+          {
+            "bdf": "0000:03:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:01.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "infiniband",
+            "name": "shca_0"
+          },
+          {
+            "bdf": "0000:11:00.4",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:00:08.1"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "eth0"
+          },
+          {
+            "bdf": "0000:86:00.0",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:82:03.0",
+              "0000:81:00.0",
+              "0000:80:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib2"
+          },
+          {
+            "bdf": "0000:03:00.0",
+            "numa_node": 0,
+            "ancestors": [
+              "0000:02:01.0",
+              "0000:01:00.0",
+              "0000:00:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib0"
+          },
+          {
+            "bdf": "0000:a1:00.4",
+            "numa_node": 4,
+            "ancestors": [
+              "0000:80:08.1"
+            ],
+            "current_link_speed": "8.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "eth1"
+          },
+          {
+            "bdf": "0000:f6:00.0",
+            "numa_node": 5,
+            "ancestors": [
+              "0000:f2:03.0",
+              "0000:f1:00.0",
+              "0000:f0:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib3"
+          },
+          {
+            "bdf": "0000:73:00.0",
+            "numa_node": 1,
+            "ancestors": [
+              "0000:72:01.0",
+              "0000:71:00.0",
+              "0000:70:01.1"
+            ],
+            "current_link_speed": "32.0 GT/s PCIe",
+            "current_link_width": "16",
+            "subsystem": "net",
+            "name": "ib1"
+          }
+        ],
+        "timestamp": 1790582915.3021455,
+        "schema_version": 1,
+        "visibility": {
+          "HIP_VISIBLE_DEVICES": null,
+          "CUDA_VISIBLE_DEVICES": null
+        },
+        "fingerprint": "bf0c95c50a4b4d1cd78a33897fe6fe1a8ace37880bd19a93c9ab3861e8a221e9",
+        "sources": {
+          "smi_bus": {
+            "card0": {
+              "PCI Bus": "0000:09:00.0 --> SN: 01-000206-07SCC2"
+            },
+            "card1": {
+              "PCI Bus": "0000:36:00.0 --> SN: 01-000206-07SCC2"
+            },
+            "card2": {
+              "PCI Bus": "0000:55:00.0 --> SN: 01-000206-07SCC2"
+            },
+            "card3": {
+              "PCI Bus": "0000:77:00.0 --> SN: 01-000206-07SCC2"
+            },
+            "card4": {
+              "PCI Bus": "0000:85:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card5": {
+              "PCI Bus": "0000:b5:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card6": {
+              "PCI Bus": "0000:d5:00.0 --> SN: 01-000205-08VGT2"
+            },
+            "card7": {
+              "PCI Bus": "0000:f5:00.0 --> SN: 01-000205-08VGT2"
+            }
+          },
+          "smi_topology": "\n================================= System Management Interface ==================================\n================================================================================================\nLink accessible between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[1]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[2]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[3]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[4]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[5]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[6]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \nHCU[7]    TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      TRUE      \n================================================================================================\n================================================================================================\nWeight between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    0         0         0         0         0         0         0         0         \nHCU[1]    0         0         0         0         0         0         0         0         \nHCU[2]    0         0         0         0         0         0         0         0         \nHCU[3]    0         0         0         0         0         0         0         0         \nHCU[4]    0         0         0         0         0         0         0         0         \nHCU[5]    0         0         0         0         0         0         0         0         \nHCU[6]    0         0         0         0         0         0         0         0         \nHCU[7]    0         0         0         0         0         0         0         0         \n================================================================================================\n================================================================================================\nHops between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    0         1         1         1         1         1         1         1         \nHCU[1]    1         0         1         1         1         1         1         1         \nHCU[2]    1         1         0         1         1         1         1         1         \nHCU[3]    1         1         1         0         1         1         1         1         \nHCU[4]    1         1         1         1         0         1         1         1         \nHCU[5]    1         1         1         1         1         0         1         1         \nHCU[6]    1         1         1         1         1         1         0         1         \nHCU[7]    1         1         1         1         1         1         1         0         \n================================================================================================\n================================================================================================\nLink Type between HCUs\n          HCU[0]    HCU[1]    HCU[2]    HCU[3]    HCU[4]    HCU[5]    HCU[6]    HCU[7]    \nHCU[0]    None      HSW       HSW       HSW       HSW       HSW       HSW       HSW       \nHCU[1]    HSW       None      HSW       HSW       HSW       HSW       HSW       HSW       \nHCU[2]    HSW       HSW       None      HSW       HSW       HSW       HSW       HSW       \nHCU[3]    HSW       HSW       HSW       None      HSW       HSW       HSW       HSW       \nHCU[4]    HSW       HSW       HSW       HSW       None      HSW       HSW       HSW       \nHCU[5]    HSW       HSW       HSW       HSW       HSW       None      HSW       HSW       \nHCU[6]    HSW       HSW       HSW       HSW       HSW       HSW       None      HSW       \nHCU[7]    HSW       HSW       HSW       HSW       HSW       HSW       HSW       None      \n================================================================================================\n================================================================================================\nHCU[0]\t\t: (Topology) Numa Node 0\nHCU[0]\t\t: (Topology) Numa Affinity 0\nHCU[1]\t\t: (Topology) Numa Node 3\nHCU[1]\t\t: (Topology) Numa Affinity 3\nHCU[2]\t\t: (Topology) Numa Node 2\nHCU[2]\t\t: (Topology) Numa Affinity 2\nHCU[3]\t\t: (Topology) Numa Node 1\nHCU[3]\t\t: (Topology) Numa Affinity 1\nHCU[4]\t\t: (Topology) Numa Node 4\nHCU[4]\t\t: (Topology) Numa Affinity 4\nHCU[5]\t\t: (Topology) Numa Node 7\nHCU[5]\t\t: (Topology) Numa Affinity 7\nHCU[6]\t\t: (Topology) Numa Node 6\nHCU[6]\t\t: (Topology) Numa Affinity 6\nHCU[7]\t\t: (Topology) Numa Node 5\nHCU[7]\t\t: (Topology) Numa Affinity 5\n================================================================================================\n======================================== End of SMI Log ========================================\n\n"
+        }
+      },
+      "gpu_memory": {
+        "card0": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card1": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card2": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card3": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card4": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card5": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card6": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        },
+        "card7": {
+          "vram Total Memory (MiB)": "65520",
+          "vram Total Used Memory (MiB)": "3"
+        }
+      },
+      "numa_binding_probe": {
+        "0": 1.0
+      },
+      "listening_ports": [
+        22,
+        111,
+        1164,
+        2049,
+        44467,
+        42719,
+        42475,
+        42433,
+        46781,
+        46485,
+        36655,
+        36725,
+        53,
+        34195,
+        33451,
+        33225,
+        40689,
+        39089,
+        37871,
+        44417,
+        45181,
+        35719,
+        39501,
+        39500,
+        39503,
+        39502,
+        39505,
+        39504,
+        39507,
+        39506,
+        50691,
+        51805,
+        22,
+        111,
+        1162,
+        2049,
+        48723,
+        36279,
+        40101,
+        40271,
+        56207
+      ],
+      "software": {
+        "torch": "2.10.0+das.opt1.dtk2604.2608131652.g28498c",
+        "sglang": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+        "scipy": "1.15.3"
+      }
+    }
+  },
+  "error": "RuntimeError(\"abort failed: ['Remote end closed connection without response', 'Remote end closed connection without response']\")",
+  "cleanup_errors": []
+}

@@ -1,0 +1,554 @@
+{
+  "status": "passed",
+  "measurement_status": "measured",
+  "run_id": "native_observed_r01",
+  "scenario_id": "S2",
+  "scenario_variant": "native_fresh_engine_file_cache",
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "adaptation_identity": "haiguang_vendor_sglang_native_checkpoint",
+  "target_slot": "node29_isolated_fresh",
+  "cases": [
+    {
+      "phase": "native",
+      "method_id": "sglang_vendor_native",
+      "adaptation_identity": "haiguang_vendor_sglang_native_checkpoint",
+      "status": "passed",
+      "cache_state": "observed_file_cache",
+      "correct": true,
+      "target_slot": "node29_isolated_fresh",
+      "process_start_request_monotonic_s": 4627664.878562975,
+      "timing": {
+        "load_s": 122.266963355,
+        "arrival_skew_s": 0.026004019,
+        "rank_s": {
+          "0": 122.266784294,
+          "1": 122.240959336
+        },
+        "ranks": {
+          "0": {
+            "begin_ns": 4627795899987869,
+            "end_ns": 4627918166772163,
+            "host": "m03r2n09",
+            "events": [
+              {
+                "event": "native_backend",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627795851747163,
+                "wall_ns": 1791301895247573052,
+                "backend": {
+                  "identity": "haiguang_vendor_sglang_native_checkpoint",
+                  "packages": {
+                    "sglang": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+                    "torch": "2.10.0+das.opt1.dtk2604.2608131652.g28498c",
+                    "transformers": "5.6.0",
+                    "safetensors": "0.8.0"
+                  },
+                  "loader_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                  "loader_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                  "loader_callable_sha256": "7e75141023e9747ba9d471f1372b1e14a7583c05e626b5791b0c3b41ff2d4bd7",
+                  "installed_key_sources": {
+                    "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                    "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/weight_utils.py": "5603146fe0c807617f419956e09b0f5be9643f9f946601801d08f3435ceab0f4",
+                    "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_executor/model_runner.py": "48494576a936814311756222230cfc05c21a9347fd3d02007f9a18c46d89968f"
+                  },
+                  "installed_source_commit": null,
+                  "package_direct_url": null,
+                  "packaged_build_revision": "cbf025",
+                  "git_probe": {
+                    "returncode": 128,
+                    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+                  },
+                  "worktree_status": null,
+                  "not_frozen_upstream_original": true
+                },
+                "runner": {
+                  "callable": "ModelRunner.load_model",
+                  "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_executor/model_runner.py",
+                  "source_file_sha256": "48494576a936814311756222230cfc05c21a9347fd3d02007f9a18c46d89968f",
+                  "source_first_line": 1403
+                }
+              },
+              {
+                "event": "load_begin",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627795899987869,
+                "wall_ns": 1791301895295812858,
+                "native_fresh_engine": true
+              },
+              {
+                "event": "native_loader_begin",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627795902015481,
+                "wall_ns": 1791301895297840450,
+                "callable": "DefaultModelLoader.load_model",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                "source_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                "source_first_line": 703,
+                "load_format": "LoadFormat.AUTO"
+              },
+              {
+                "event": "native_model_load_weights_begin",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796210614937,
+                "wall_ns": 1791301895606440656,
+                "callable": "Qwen3_5MoeForConditionalGeneration.load_weights",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/models/qwen3_5.py",
+                "source_file_sha256": "d8eb6d29defd58cb8300bf30950c3edf22d0470a23fd9f6ea71845ee77315066",
+                "source_first_line": 1705
+              },
+              {
+                "event": "native_weight_iterator_begin",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796216173099,
+                "wall_ns": 1791301895611998018,
+                "callable": "DefaultModelLoader._get_all_weights",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                "source_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                "source_first_line": 604
+              },
+              {
+                "event": "native_prepare_weights_begin",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796217514776,
+                "wall_ns": 1791301895613339655,
+                "callable": "DefaultModelLoader._prepare_weights",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                "source_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                "source_first_line": 408
+              },
+              {
+                "event": "native_prepare_weights_end",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796221307778,
+                "wall_ns": 1791301895617132707,
+                "prepared_checkpoint": "('/data/node28/shared/zhujianian/Qwen3.6-35B-A3B', ['/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00007-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00022-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00006-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00025-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00018-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00001-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00003-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00012-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00021-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00014-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00008-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00019-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00020-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00004-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00026-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00017-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00009-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00011-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00013-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00016-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00024-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00023-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00010-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00002-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00005-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00015-of-00026.safetensors'], True)"
+              },
+              {
+                "event": "native_weight_iterator_end",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627918091964515,
+                "wall_ns": 1791302017487790254,
+                "checkpoint_tensors": 1045
+              },
+              {
+                "event": "native_model_load_weights_end",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627918141756790,
+                "wall_ns": 1791302017537582589
+              },
+              {
+                "event": "native_loader_end",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627918160378866,
+                "wall_ns": 1791302017556203805
+              },
+              {
+                "event": "weights_ready",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627918166772163,
+                "wall_ns": 1791302017562597172,
+                "allocated_bytes": 35201885184
+              },
+              {
+                "event": "native_fingerprint_complete",
+                "rank": 0,
+                "pid": 335,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627991519216789,
+                "wall_ns": 1791302090915042768,
+                "passed": true,
+                "checked_bytes": 35164859056
+              }
+            ]
+          },
+          "1": {
+            "begin_ns": 4627795925991888,
+            "end_ns": 4627918166951224,
+            "host": "m03r2n09",
+            "events": [
+              {
+                "event": "native_backend",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627795888865696,
+                "wall_ns": 1791301895284692225,
+                "backend": {
+                  "identity": "haiguang_vendor_sglang_native_checkpoint",
+                  "packages": {
+                    "sglang": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+                    "torch": "2.10.0+das.opt1.dtk2604.2608131652.g28498c",
+                    "transformers": "5.6.0",
+                    "safetensors": "0.8.0"
+                  },
+                  "loader_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                  "loader_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                  "loader_callable_sha256": "7e75141023e9747ba9d471f1372b1e14a7583c05e626b5791b0c3b41ff2d4bd7",
+                  "installed_key_sources": {
+                    "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                    "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/weight_utils.py": "5603146fe0c807617f419956e09b0f5be9643f9f946601801d08f3435ceab0f4",
+                    "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_executor/model_runner.py": "48494576a936814311756222230cfc05c21a9347fd3d02007f9a18c46d89968f"
+                  },
+                  "installed_source_commit": null,
+                  "package_direct_url": null,
+                  "packaged_build_revision": "cbf025",
+                  "git_probe": {
+                    "returncode": 128,
+                    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+                  },
+                  "worktree_status": null,
+                  "not_frozen_upstream_original": true
+                },
+                "runner": {
+                  "callable": "ModelRunner.load_model",
+                  "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_executor/model_runner.py",
+                  "source_file_sha256": "48494576a936814311756222230cfc05c21a9347fd3d02007f9a18c46d89968f",
+                  "source_first_line": 1403
+                }
+              },
+              {
+                "event": "load_begin",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627795925991888,
+                "wall_ns": 1791301895321817237,
+                "native_fresh_engine": true
+              },
+              {
+                "event": "native_loader_begin",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627795927969030,
+                "wall_ns": 1791301895323794039,
+                "callable": "DefaultModelLoader.load_model",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                "source_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                "source_first_line": 703,
+                "load_format": "LoadFormat.AUTO"
+              },
+              {
+                "event": "native_model_load_weights_begin",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796237837392,
+                "wall_ns": 1791301895633663302,
+                "callable": "Qwen3_5MoeForConditionalGeneration.load_weights",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/models/qwen3_5.py",
+                "source_file_sha256": "d8eb6d29defd58cb8300bf30950c3edf22d0470a23fd9f6ea71845ee77315066",
+                "source_first_line": 1705
+              },
+              {
+                "event": "native_weight_iterator_begin",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796242874712,
+                "wall_ns": 1791301895638699691,
+                "callable": "DefaultModelLoader._get_all_weights",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                "source_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                "source_first_line": 604
+              },
+              {
+                "event": "native_prepare_weights_begin",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796244136639,
+                "wall_ns": 1791301895639961678,
+                "callable": "DefaultModelLoader._prepare_weights",
+                "source_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+                "source_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+                "source_first_line": 408
+              },
+              {
+                "event": "native_prepare_weights_end",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627796247856740,
+                "wall_ns": 1791301895643681759,
+                "prepared_checkpoint": "('/data/node28/shared/zhujianian/Qwen3.6-35B-A3B', ['/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00007-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00022-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00006-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00025-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00018-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00001-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00003-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00012-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00021-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00014-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00008-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00019-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00020-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00004-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00026-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00017-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00009-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00011-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00013-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00016-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00024-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00023-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00010-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00002-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00005-of-00026.safetensors', '/data/node28/shared/zhujianian/Qwen3.6-35B-A3B/model-00015-of-00026.safetensors'], True)"
+              },
+              {
+                "event": "native_weight_iterator_end",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627916627885887,
+                "wall_ns": 1791302016023712016,
+                "checkpoint_tensors": 1045
+              },
+              {
+                "event": "native_model_load_weights_end",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627916700128850,
+                "wall_ns": 1791302016095955689
+              },
+              {
+                "event": "native_loader_end",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627916718712007,
+                "wall_ns": 1791302016114537066
+              },
+              {
+                "event": "weights_ready",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627918166951224,
+                "wall_ns": 1791302017562776193,
+                "allocated_bytes": 35201885184
+              },
+              {
+                "event": "native_fingerprint_complete",
+                "rank": 1,
+                "pid": 536,
+                "host": "m03r2n09",
+                "monotonic_ns": 4627984611043010,
+                "wall_ns": 1791302084006870039,
+                "passed": true,
+                "checked_bytes": 35164859056
+              }
+            ]
+          }
+        }
+      },
+      "primary_T_ready_s": 122.266963355,
+      "fresh_start_to_model_info_s": 326.50008674524724,
+      "get_model_info": {
+        "model_path": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+        "tokenizer_path": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+        "is_generation": true,
+        "preferred_sampling_params": null,
+        "weight_version": "default",
+        "has_image_understanding": true,
+        "has_audio_understanding": false,
+        "model_type": "qwen3_5_moe",
+        "architectures": [
+          "Qwen3_5MoeForConditionalGeneration"
+        ]
+      },
+      "verification": {
+        "passed": true,
+        "checked_bytes": 70329718112,
+        "algorithm": "every processed storage byte SHA256 and exact layout vs frozen accepted retained reference",
+        "rank_artifacts": [
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/fingerprint_rank0.json",
+          "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/fingerprint_rank1.json"
+        ]
+      },
+      "post_ready_verification_s": 73.29812971595675,
+      "exports": [
+        {
+          "rank": 0,
+          "nbytes": 35164859056,
+          "kind": "fingerprint_only_no_ipc_export"
+        },
+        {
+          "rank": 1,
+          "nbytes": 35164859056,
+          "kind": "fingerprint_only_no_ipc_export"
+        }
+      ],
+      "reply": {
+        "text": " Paris, a city renowned for its rich history, culture, and iconic landmarks. Situated in the north-central part of the country, along the Seine River,",
+        "first_token_time": 4628064.640540766,
+        "tokens": 32
+      },
+      "request_to_first_correct_token_s": 399.76197779085487
+    }
+  ],
+  "cleanup_errors": [],
+  "owned_remaining": [],
+  "session_sha256": "3edadcaebb96b8923037cecba6f42b95ee1cf4d55603f9481f7d1c7539dee1c9",
+  "format_contract": {
+    "model_version": "530a225f6e1b5ad6d67ec1c76aac709261f8b6bcb0c08d545c10037be934e7d9",
+    "dtype": [
+      "torch.bfloat16",
+      "torch.float32"
+    ],
+    "quantization": "captured_processed_layout",
+    "tp": 2,
+    "processed_snapshot_id": [
+      "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+      "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9"
+    ]
+  },
+  "protocol": {
+    "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+    "repetitions": 1,
+    "fresh_process_startup_separate": true,
+    "cache_state": "observed_file_cache",
+    "native_path": "installed DefaultModelLoader(AUTO) implementations preserved under boundary/stage observation wrappers",
+    "not_frozen_upstream_original": true,
+    "verification": "ready then all processed storage bytes/layout SHA plus exact frozen 32-token output",
+    "verification_in_startup": true,
+    "source_sha_scope": "frozen accepted SHA, current source metadata rechecked",
+    "fixture_dram_bytes": 70329718112,
+    "native_uses_fixture_dram": false,
+    "file_cache_counted_as_separate_host_residency": true,
+    "cache_scope": "Linux buffered file-page cache, not explicitly pinned host weights; underlying NFS/storage cache not asserted"
+  },
+  "code_sha256": {
+    "codex_coding/src/v0.1.23.3/task2/baseline_loading/native_loading.py": "94f616a9629cd7e26a7800ef8adbc7700b63a8627d0173c213afaf85366a761e",
+    "codex_coding/src/v0.1.23.3/task2/baseline_loading/inspect_baselines.py": "7852324159b08c730c3f7ca540cb640febd27565b16d14e12d071ff347bec2e0",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "main_lib/fluidckpt/serving/measure.py": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a",
+    "main_lib/fluidckpt/serving/layout.py": "246a9f70baf01c7b73bcdb353a2e4a746a81b8b877ac5073a5959fa6915ea156",
+    "main_lib/fluidckpt/serving/sglang_hook.py": "778c4d68d1017d767ebde29680f460859af238a33bf52f8273b2af8c6b32055a"
+  },
+  "prepared_process_spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/native_engine.process.json",
+  "expected_reference": {
+    "reference_summary": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/s2_r01/summary.json",
+    "reference_summary_sha256": "4a8081c086cf8ee15036e2f8ed98f8bc617568bea93f37c1e8467f3502053d97",
+    "scope": "frozen accepted all-byte retained source SHA; current source catalog identity/epoch/generation rechecked"
+  },
+  "isolated_container": "zjn-fluid-native-35a026baee571b",
+  "frozen_upstream_commits": {
+    "SGLang": "70f0b7351e74b372cc928db533824d3993d65922",
+    "Janus": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+    "BlitzScale": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+    "ServerlessLLM": "9f50241baa5386e06a9321c51f19a9ef5f964c2b"
+  },
+  "admission": {
+    "host_available_bytes": 162773413888,
+    "container_cap_bytes": 137438953472,
+    "gpu_admission": [
+      {
+        "gpu": 0,
+        "free_bytes": 62073602048,
+        "required_bytes": 48049760944
+      },
+      {
+        "gpu": 1,
+        "free_bytes": 63622348800,
+        "required_bytes": 48049760944
+      }
+    ],
+    "ports": [
+      33640,
+      33740
+    ]
+  },
+  "backend": {
+    "identity": "haiguang_vendor_sglang_native_checkpoint",
+    "packages": {
+      "sglang": "0.5.12+das185.dtk2604.torch2100.2608121934.gcbf025",
+      "torch": "2.10.0+das.opt1.dtk2604.2608131652.g28498c",
+      "transformers": "5.6.0",
+      "safetensors": "0.8.0"
+    },
+    "loader_path": "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py",
+    "loader_file_sha256": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+    "loader_callable_sha256": "7e75141023e9747ba9d471f1372b1e14a7583c05e626b5791b0c3b41ff2d4bd7",
+    "installed_key_sources": {
+      "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/loader.py": "16dc9292dc1e5993831dc5a7884beb458614954b39eb08932f3b222cc6fec124",
+      "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_loader/weight_utils.py": "5603146fe0c807617f419956e09b0f5be9643f9f946601801d08f3435ceab0f4",
+      "/usr/local/lib/python3.10/dist-packages/sglang/srt/model_executor/model_runner.py": "48494576a936814311756222230cfc05c21a9347fd3d02007f9a18c46d89968f"
+    },
+    "installed_source_commit": null,
+    "package_direct_url": null,
+    "packaged_build_revision": "cbf025",
+    "git_probe": {
+      "returncode": 128,
+      "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+    },
+    "worktree_status": null,
+    "not_frozen_upstream_original": true
+  },
+  "vendor_image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+  "container_create": {
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=5",
+      "node29",
+      "docker run -d --name zjn-fluid-native-35a026baee571b --label fluidckpt.native_run=/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01 --network host --ipc host --cap-add SYS_NICE --ulimit memlock=-1:-1 --ulimit core=0:0 --memory 128g --memory-swap 128g --device /dev/kfd --device /dev/mkfd --device /dev/dri --device /dev/infiniband -v /opt/hyhal:/opt/hyhal:ro -v /home/zhujianian:/home/zhujianian -v /data/node28/shared/zhujianian:/data/node28/shared/zhujianian:ro sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588 sleep infinity"
+    ],
+    "returncode": 0,
+    "stdout": "67478d34f2882dcc8a2099bccab0f7a7ec46795a47e39299b07ad4fc2cf21ab1\n",
+    "stderr": ""
+  },
+  "cache_preparation": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/cache_preparation.json",
+    "resident_fraction": 0.5724158653846154
+  },
+  "process_start": {
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=5",
+      "node29",
+      "docker exec zjn-fluid-native-35a026baee571b bash -lc 'ulimit -c 0\nsource /opt/dtk/env.sh >/dev/null 2>&1\nexec python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/process.py start --spec /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/native_engine.process.json'"
+    ],
+    "returncode": 0,
+    "stdout": "{\"pid\": 41, \"start_time\": \"462767217\", \"spec\": \"/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/native_engine.process.json\"}\n",
+    "stderr": ""
+  },
+  "process_cleanup": {
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=5",
+      "node29",
+      "docker exec zjn-fluid-native-35a026baee571b bash -lc 'ulimit -c 0\nsource /opt/dtk/env.sh >/dev/null 2>&1\nexec python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/task2/cluster/process.py stop --spec /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/native_observed_r01/native_engine.process.json'"
+    ],
+    "returncode": 0,
+    "stdout": "{\"stopped\": 41}\n",
+    "stderr": ""
+  },
+  "container_cleanup": {
+    "command": [
+      "ssh",
+      "-o",
+      "BatchMode=yes",
+      "-o",
+      "ConnectTimeout=5",
+      "node29",
+      "docker rm -f zjn-fluid-native-35a026baee571b"
+    ],
+    "returncode": 0,
+    "stdout": "zjn-fluid-native-35a026baee571b\n",
+    "stderr": ""
+  },
+  "retained_base_unchanged": true,
+  "source_hash_mismatches": []
+}

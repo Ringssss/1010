@@ -1,0 +1,126 @@
+{
+  "started_utc": "2026-10-08T08:26:01.905495+00:00",
+  "hostname": "m03r2n08",
+  "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+  "commands": [
+    {
+      "argv": [
+        "df",
+        "-B1",
+        "--",
+        "/tmp",
+        "/dev/shm",
+        "/var/lib/docker",
+        "/data/node28",
+        "/home"
+      ],
+      "started_utc": "2026-10-08T08:26:01.905627+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "Filesystem           1B-blocks          Used    Available Use% Mounted on\n/dev/nvme1n1p3    468244996096  444563116032            0 100% /\ntmpfs             270384762880      28622848 270356140032   1% /dev/shm\n/dev/nvme1n1p3    468244996096  444563116032            0 100% /\n/dev/nvme0n1p1   1889087803392  950664843264 842387083264  54% /data/node28\nnode27-ib0:/home 1889088307200 1646080819200 146971557888  92% /home\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.907717+00:00"
+    },
+    {
+      "argv": [
+        "df",
+        "-i",
+        "--",
+        "/tmp",
+        "/dev/shm",
+        "/var/lib/docker",
+        "/data/node28",
+        "/home"
+      ],
+      "started_utc": "2026-10-08T08:26:01.907740+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "Filesystem          Inodes   IUsed     IFree IUse% Mounted on\n/dev/nvme1n1p3    29114368 1254939  27859429    5% /\ntmpfs             66011905     160  66011745    1% /dev/shm\n/dev/nvme1n1p3    29114368 1254939  27859429    5% /\n/dev/nvme0n1p1   117211136   67239 117143897    1% /data/node28\nnode27-ib0:/home 117211136 2477324 114733812    3% /home\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.909709+00:00"
+    },
+    {
+      "argv": [
+        "findmnt",
+        "-J",
+        "-T",
+        "/tmp",
+        "-o",
+        "TARGET,SOURCE,FSTYPE"
+      ],
+      "started_utc": "2026-10-08T08:26:01.909719+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/nvme1n1p3\",\n         \"fstype\": \"ext4\"\n      }\n   ]\n}\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.911999+00:00"
+    },
+    {
+      "argv": [
+        "findmnt",
+        "-J",
+        "-T",
+        "/dev/shm",
+        "-o",
+        "TARGET,SOURCE,FSTYPE"
+      ],
+      "started_utc": "2026-10-08T08:26:01.912010+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/dev/shm\",\n         \"source\": \"tmpfs\",\n         \"fstype\": \"tmpfs\"\n      }\n   ]\n}\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.913990+00:00"
+    },
+    {
+      "argv": [
+        "findmnt",
+        "-J",
+        "-T",
+        "/var/lib/docker",
+        "-o",
+        "TARGET,SOURCE,FSTYPE"
+      ],
+      "started_utc": "2026-10-08T08:26:01.914000+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/\",\n         \"source\": \"/dev/nvme1n1p3\",\n         \"fstype\": \"ext4\"\n      }\n   ]\n}\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.915905+00:00"
+    },
+    {
+      "argv": [
+        "findmnt",
+        "-J",
+        "-T",
+        "/data/node28",
+        "-o",
+        "TARGET,SOURCE,FSTYPE"
+      ],
+      "started_utc": "2026-10-08T08:26:01.915916+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/data/node28\",\n         \"source\": \"/dev/nvme0n1p1\",\n         \"fstype\": \"ext4\"\n      }\n   ]\n}\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.917773+00:00"
+    },
+    {
+      "argv": [
+        "findmnt",
+        "-J",
+        "-T",
+        "/home",
+        "-o",
+        "TARGET,SOURCE,FSTYPE"
+      ],
+      "started_utc": "2026-10-08T08:26:01.917781+00:00",
+      "timeout_s": 2,
+      "returncode": 0,
+      "stdout": "{\n   \"filesystems\": [\n      {\n         \"target\": \"/home\",\n         \"source\": \"systemd-1\",\n         \"fstype\": \"autofs\"\n      },{\n         \"target\": \"/home\",\n         \"source\": \"node27-ib0:/home\",\n         \"fstype\": \"nfs4\"\n      }\n   ]\n}\n",
+      "stderr": "",
+      "ended_utc": "2026-10-08T08:26:01.919627+00:00"
+    }
+  ],
+  "writes": 0,
+  "gpu_operations": 0,
+  "ended_utc": "2026-10-08T08:26:01.919636+00:00"
+}

@@ -1,0 +1,9 @@
+# 补充只读取证退出记录
+
+两机补充容器采集均返回137，stdout/stderr为空。未初始化GPU、未传输、未发signal、未写远端。准确argv、采集时间和源码SHA见manifest.json；source_copy/gdr_snapshot.py已按原manifest SHA核对。原始failed.txt与manifest保持不变。
+
+相对r01，新增memory_peers客户端路径查询、hycu/shca_core/shca_ib模块parameters读取，以及plugin nccl_p2p_gdr_support、nccl_p2p_dmabuf_support、nccl_p2p_ib_get_properties和ibDmaBufSupportInitOnce反汇编候选。补充退出发生在最终JSON打印之前，不能确定终止所在语句。容器压力或具体sysfs参数读取原因尚未定位，137不等于已证明OOM。
+
+在主agent暂停令到达前，另一次node27极小只读查询返回container running、OOMKilled=false、PID561107；memory_peers目录存在，clients仅gpukfd，amdkfd/version不存在。这次查询仅以本会话tool输出为据，未独立双机冻结，因此不提升为两机完整采样。
+
+主agent要求停止后不再执行远端诊断。下一步由主agent核对容器/keeper和events；如准入，只取已知小symbol范围与指定sysfs路径，不重复大nm/strings或全量parameters。

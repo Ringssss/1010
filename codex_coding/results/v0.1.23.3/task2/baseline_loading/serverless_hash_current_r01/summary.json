@@ -1,0 +1,91 @@
+{
+  "status": "failed",
+  "case": "current",
+  "container": "zjn-serverless-hash-current-r01",
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-basic-1bce3897a2075b",
+        "--format",
+        "{{.Image}}"
+      ],
+      "returncode": 0,
+      "stdout": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "zjn-serverless-hash-current-r01",
+        "--label",
+        "fluidckpt.serverless_probe=serverless_hash_current_r01",
+        "--ipc",
+        "host",
+        "--network",
+        "host",
+        "--memory",
+        "8g",
+        "--cpus",
+        "4",
+        "--ulimit",
+        "core=0:0",
+        "--ulimit",
+        "memlock=-1:-1",
+        "--security-opt",
+        "seccomp=unconfined",
+        "-v",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn:/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "-v",
+        "/opt/hyhal:/opt/hyhal:ro",
+        "--device",
+        "/dev/kfd",
+        "--device",
+        "/dev/mkfd",
+        "--device",
+        "/dev/dri",
+        "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+        "sleep",
+        "infinity"
+      ],
+      "returncode": 0,
+      "stdout": "70940559ae429d71fe450f70286c8b6b7ac87a2325483f18e5be71e5aeca1aa1\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "rm",
+        "-f",
+        "zjn-serverless-hash-current-r01"
+      ],
+      "returncode": 0,
+      "stdout": "zjn-serverless-hash-current-r01\n",
+      "stderr": ""
+    }
+  ],
+  "worker_argv": [
+    "docker",
+    "exec",
+    "zjn-serverless-hash-current-r01",
+    "env",
+    "PYTHONPATH=/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+    "HIP_VISIBLE_DEVICES=0,1",
+    "HSA_FORCE_FINE_GRAIN_PCIE=1",
+    "LD_LIBRARY_PATH=/opt/dtk/dcc/gcvm/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/hip/lib:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/.hyhal/lib:/opt/dtk/.hyhal/lib64:/opt/dtk/.hyhal/rocm_smi/lib",
+    "python",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/baseline_loading/serverless/hash_probe.py",
+    "--case",
+    "current",
+    "--source-checkout",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/ServerlessLLM-hip",
+    "--out",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_current_r01/worker"
+  ],
+  "worker_exit_code": 139,
+  "container_removed": true
+}

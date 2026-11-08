@@ -1,0 +1,123 @@
+{
+  "argv": [
+    "docker",
+    "exec",
+    "-e",
+    "OMP_NUM_THREADS=1",
+    "-e",
+    "MKL_NUM_THREADS=1",
+    "075a141cb53022cbe564318fadc948f0e1a75a39078c14c8ad9086c17260128b",
+    "python3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/init_gate_diag60.py",
+    "--node",
+    "node27",
+    "--container-id",
+    "075a141cb53022cbe564318fadc948f0e1a75a39078c14c8ad9086c17260128b",
+    "--container-started-at",
+    "2026-10-10T10:50:06.843541118Z",
+    "--host-boot-id",
+    "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+    "--expected-container-hostname",
+    "m03r2n07",
+    "--gpu",
+    "0",
+    "--bdf",
+    "0000:09:00.0",
+    "--visibility",
+    "selected",
+    "--stage",
+    "copy",
+    "--out",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_multitier_node27_copy60_r01"
+  ],
+  "execute": true,
+  "timeout_seconds": 75,
+  "before": {
+    "id": "075a141cb53022cbe564318fadc948f0e1a75a39078c14c8ad9086c17260128b",
+    "name": "/zjn-fluid-three-node-multitier_admission27_r01-n27",
+    "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+    "State": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 722318,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-10-10T10:50:06.843541118Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "memory_cap_bytes": 6442450944
+  },
+  "protected_before": [
+    {
+      "id": "432fa6e686a38f9fb27d9c596c34c14180af99a84ac4e79a79af785be16300fd",
+      "name": "/zjn-fluid-basic-1bce3897a2075b",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 255,
+        "Error": "",
+        "StartedAt": "2026-10-06T12:39:01.987891033Z",
+        "FinishedAt": "2026-10-09T03:22:45.209752677Z"
+      },
+      "memory_cap_bytes": 171798691840
+    },
+    {
+      "id": "d61e05c8f0eb47f438695e66b6f825bf701afbedcf0a75a88ae9218ee35dfdfb",
+      "name": "/zjn-fluid-glm-full_distributed02",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": true,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 137,
+        "Error": "",
+        "StartedAt": "2026-10-04T01:14:42.514355717Z",
+        "FinishedAt": "2026-10-06T07:48:36.759676224Z"
+      },
+      "memory_cap_bytes": 472446402560
+    },
+    {
+      "id": "9ecd23e9201fa9bd78c065e0d81d6d0a5d95ca9a6e63447479cbc08391d06ed5",
+      "name": "/zjn-keep-v02-n27",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "State": {
+        "Status": "exited",
+        "Running": false,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 0,
+        "ExitCode": 137,
+        "Error": "",
+        "StartedAt": "2026-10-02T03:16:11.869000648Z",
+        "FinishedAt": "2026-10-06T07:49:43.584743721Z"
+      },
+      "memory_cap_bytes": 0
+    }
+  ],
+  "cgroup_before": {
+    "path": "/sys/fs/cgroup/system.slice/docker-075a141cb53022cbe564318fadc948f0e1a75a39078c14c8ad9086c17260128b.scope",
+    "memory.current": "397312",
+    "memory.max": "6442450944",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+    "pids.current": "1"
+  },
+  "runtime_source_sha256": "d5331fa21f89df2428bce8faad3130bc41dbaa2a9b17b05fb0e5e042d217c90d",
+  "setup_sha256": "2162f1c9ecf4600bd096e0989f414360abb1680edc84fde25bb9ba06c48abdd5",
+  "plan_sha256": "c6893f2a86ae13b546af64cfd98a7539093a0ff4367593507ca2b0ac061e54c4"
+}

@@ -1,0 +1,57 @@
+{
+  "status": "cpu_protocol_qualified",
+  "hardware_measurements": false,
+  "protocol": "preliminary_only_main_final_freeze_required",
+  "latest_cpu": "analysis_cpu_r05/cpu_qualification.json",
+  "tests_run": 20,
+  "tests_passed": 20,
+  "sources": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/README.md",
+      "sha256": "b9c479986224ad1e8f0cde2ad509b752e22542f0eed5962728bdd5e524ef901a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/analyze.py",
+      "sha256": "b286bae0bd76a6c00a365a4024a1a7a8aa8c7e39d15c757687a64246524aaa14"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/test_analysis.py",
+      "sha256": "1830064515260c1713784cc00187906c4586eba79a5c4bde355ca717eef479dd"
+    }
+  ],
+  "prior_runs": [
+    {
+      "run": "analysis_cpu_r01",
+      "tests_run": 19,
+      "failures": 1,
+      "reason": "Synthetic d=20us made three-term max residual exactly 2E=10us; implementation correctly selected simpler a_bN_cK, test incorrectly expected four-term. Changed synthetic full-required fixture d to60us; no gate relaxation."
+    },
+    {
+      "run": "analysis_cpu_r02",
+      "tests_run": 19,
+      "failures": 0
+    },
+    {
+      "run": "analysis_cpu_r03",
+      "tests_run": 20,
+      "failures": 0,
+      "added": "Failed prereg simpler model cannot automatically promote finer model without each-layer improvement."
+    },
+    {
+      "run": "analysis_cpu_r04",
+      "tests_run": 20,
+      "failures": 1,
+      "reason": "New complete-lifecycle integrity gate correctly rejected raw tampering at cleanup hash first because synthetic raw and cleanup shared one fixture; expected raw-hash error reason differed. Separated cleanup fixture, preserved gates."
+    },
+    {
+      "run": "analysis_cpu_r05",
+      "tests_run": 20,
+      "failures": 0
+    }
+  ],
+  "remaining": [
+    "Final execution-source freeze and independent raw-ledger audit before any GPU launch",
+    "Real calibration and conditional holdout are not yet observed by this CPU artifact"
+  ],
+  "launch_ready": false
+}

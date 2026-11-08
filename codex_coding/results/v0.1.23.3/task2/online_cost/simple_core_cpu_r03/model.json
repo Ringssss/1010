@@ -1,0 +1,1391 @@
+{
+  "schema": "online_path_model_v1",
+  "context": {
+    "executor": "serial",
+    "chunk_bytes": 33554432,
+    "control_mode": "compact",
+    "load_state": "warm",
+    "workflow": "simple_two_node_single_sender_v1",
+    "clock_domain": "CPU_controller_no_hardware",
+    "clock_scope": "single_controller",
+    "worker_physical": [
+      {
+        "worker": 0,
+        "node": "node27",
+        "gpu": 4,
+        "numa": 4
+      },
+      {
+        "worker": 1,
+        "node": "node27",
+        "gpu": 5,
+        "numa": 7
+      },
+      {
+        "worker": 2,
+        "node": "node30",
+        "gpu": 4,
+        "numa": 4
+      }
+    ],
+    "worker_BDF": {
+      "0": "CPU_BDF0",
+      "1": "CPU_BDF1",
+      "2": "CPU_BDF2"
+    },
+    "path_context": {
+      "0:dram:4->0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "0:hbm:4->0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_hbm",
+        "source_tier": "hbm",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "2:dram:4->0": {
+        "endpoints": [
+          2,
+          0
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 4,
+        "tp_rank": 0
+      },
+      "1:dram:7->1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 7,
+        "tp_rank": 1
+      },
+      "1:hbm:7->1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_hbm",
+        "source_tier": "hbm",
+        "source_numa": 7,
+        "tp_rank": 1
+      },
+      "2:dram:7->1": {
+        "endpoints": [
+          2,
+          1
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 7,
+        "tp_rank": 1
+      }
+    },
+    "shared_resource_paths": {},
+    "operation_count_interval": [
+      66,
+      66
+    ],
+    "full_model_plan_workload": {
+      "targets": [
+        {
+          "worker": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 35164859056
+        },
+        {
+          "worker": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 35164859056
+        }
+      ],
+      "ordered_extents": [
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 1073741824,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 1073741824,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 2147483648,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 2147483648,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 3221225472,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 3221225472,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 4294967296,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 4294967296,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 5368709120,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 5368709120,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 6442450944,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 6442450944,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 7516192768,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 7516192768,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 8589934592,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 8589934592,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 9663676416,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 9663676416,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 10737418240,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 10737418240,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 11811160064,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 11811160064,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 12884901888,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 12884901888,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 13958643712,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 13958643712,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 15032385536,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 15032385536,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 16106127360,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 16106127360,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 17179869184,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 17179869184,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 18253611008,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 18253611008,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 19327352832,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 19327352832,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 20401094656,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 20401094656,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 21474836480,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 21474836480,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 22548578304,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 22548578304,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 23622320128,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 23622320128,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 24696061952,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 24696061952,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 25769803776,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 25769803776,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 26843545600,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 26843545600,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 27917287424,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 27917287424,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 28991029248,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 28991029248,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 30064771072,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 30064771072,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 31138512896,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 31138512896,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 32212254720,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 32212254720,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 33285996544,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 33285996544,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 0,
+          "identity": "CPU_rank0",
+          "tp": 0,
+          "off": 34359738368,
+          "n": 805120688
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_rank1",
+          "tp": 1,
+          "off": 34359738368,
+          "n": 805120688
+        }
+      ],
+      "N": 70329718112,
+      "K": 66,
+      "C": 2096
+    }
+  },
+  "topology_id": "36fd408131ba36e44074313077af5c560a68a3e5e1bb7549a98cc8edb86c1962",
+  "paths": {
+    "0:dram:4->0": {
+      "warm_GBps": 20.0,
+      "operation_s": 0.0010000000000000009,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "0:hbm:4->0": {
+      "warm_GBps": 20.0,
+      "operation_s": 0.0010000000000000009,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "2:dram:4->0": {
+      "warm_GBps": 2.0,
+      "operation_s": 0.0010000000000000009,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "1:dram:7->1": {
+      "warm_GBps": 20.0,
+      "operation_s": 0.0010000000000000009,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "1:hbm:7->1": {
+      "warm_GBps": 20.0,
+      "operation_s": 0.0010000000000000009,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "2:dram:7->1": {
+      "warm_GBps": 2.0,
+      "operation_s": 0.0010000000000000009,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    }
+  },
+  "shared_qualifiers": {},
+  "diagnostics": {
+    "0:dram:4->0": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0010000000000000009,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "0:hbm:4->0": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0010000000000000009,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "2:dram:4->0": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0010000000000000009,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "1:dram:7->1": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0010000000000000009,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "1:hbm:7->1": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0010000000000000009,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "2:dram:7->1": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0010000000000000009,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    }
+  },
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/simple_core_cpu_r03/CPU_fixture_raw.json",
+      "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/simple_core_cpu_r03/CPU_fixture_raw.json",
+      "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+    }
+  ],
+  "calibration_sessions": [
+    "CPU_fixture"
+  ],
+  "online_outer_s": 2.500000000399968,
+  "online_qualified": false,
+  "physical_capacity_certified": false,
+  "execution_interpretation": "Unmodified product worker-order DAG serializes both remote paths on worker2; no shared-disjoint multiplier.",
+  "outer_interpretation": "One inclusive full-model online-minus-service residual, including control/materialize/IPC/handoff; not a per-term causal identification.",
+  "outer_calibration_service": {
+    "estimated_transfer_service_s": 18.128118677600032,
+    "worker_dag_s": 18.128118677600032,
+    "isolated_worker_dag_s": 18.128118677600032,
+    "timeline": [
+      {
+        "op_id": 0,
+        "path": "0:hbm:4->0",
+        "start_s": 0.0,
+        "end_s": 0.0546870912,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 1,
+        "path": "1:hbm:7->1",
+        "start_s": 0.0,
+        "end_s": 0.0546870912,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 2,
+        "path": "2:dram:4->0",
+        "start_s": 0.0546870912,
+        "end_s": 0.5925580032000001,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0546870912,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 3,
+        "path": "2:dram:7->1",
+        "start_s": 0.5925580032000001,
+        "end_s": 1.1304289152,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.537870912
+      },
+      {
+        "op_id": 4,
+        "path": "2:dram:4->0",
+        "start_s": 1.1304289152,
+        "end_s": 1.6682998272,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999999
+      },
+      {
+        "op_id": 5,
+        "path": "2:dram:7->1",
+        "start_s": 1.6682998272,
+        "end_s": 2.2061707392,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.537870912
+      },
+      {
+        "op_id": 6,
+        "path": "2:dram:4->0",
+        "start_s": 2.2061707392,
+        "end_s": 2.7440416512,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.537870912
+      },
+      {
+        "op_id": 7,
+        "path": "2:dram:7->1",
+        "start_s": 2.7440416512,
+        "end_s": 3.2819125631999997,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 8,
+        "path": "2:dram:4->0",
+        "start_s": 3.2819125631999997,
+        "end_s": 3.8197834751999995,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 9,
+        "path": "2:dram:7->1",
+        "start_s": 3.8197834751999995,
+        "end_s": 4.357654387199999,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 10,
+        "path": "2:dram:4->0",
+        "start_s": 4.357654387199999,
+        "end_s": 4.895525299199999,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 11,
+        "path": "2:dram:7->1",
+        "start_s": 4.895525299199999,
+        "end_s": 5.433396211199999,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 12,
+        "path": "2:dram:4->0",
+        "start_s": 5.433396211199999,
+        "end_s": 5.971267123199999,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 13,
+        "path": "2:dram:7->1",
+        "start_s": 5.971267123199999,
+        "end_s": 6.509138035199999,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 14,
+        "path": "2:dram:4->0",
+        "start_s": 6.509138035199999,
+        "end_s": 7.047008947199998,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 15,
+        "path": "2:dram:7->1",
+        "start_s": 7.047008947199998,
+        "end_s": 7.584879859199998,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 16,
+        "path": "2:dram:4->0",
+        "start_s": 7.584879859199998,
+        "end_s": 8.122750771199998,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 17,
+        "path": "2:dram:7->1",
+        "start_s": 8.122750771199998,
+        "end_s": 8.660621683199999,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999998
+      },
+      {
+        "op_id": 18,
+        "path": "2:dram:4->0",
+        "start_s": 8.660621683199999,
+        "end_s": 9.1984925952,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 19,
+        "path": "2:dram:7->1",
+        "start_s": 9.1984925952,
+        "end_s": 9.7363635072,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 20,
+        "path": "2:dram:4->0",
+        "start_s": 9.7363635072,
+        "end_s": 10.2742344192,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 21,
+        "path": "2:dram:7->1",
+        "start_s": 10.2742344192,
+        "end_s": 10.812105331200002,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 22,
+        "path": "2:dram:4->0",
+        "start_s": 10.812105331200002,
+        "end_s": 11.349976243200002,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 23,
+        "path": "2:dram:7->1",
+        "start_s": 11.349976243200002,
+        "end_s": 11.887847155200003,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 24,
+        "path": "2:dram:4->0",
+        "start_s": 11.887847155200003,
+        "end_s": 12.425718067200004,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 25,
+        "path": "2:dram:7->1",
+        "start_s": 12.425718067200004,
+        "end_s": 12.963588979200004,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 26,
+        "path": "2:dram:4->0",
+        "start_s": 12.963588979200004,
+        "end_s": 13.501459891200005,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 27,
+        "path": "2:dram:7->1",
+        "start_s": 13.501459891200005,
+        "end_s": 14.039330803200006,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 28,
+        "path": "2:dram:4->0",
+        "start_s": 14.039330803200006,
+        "end_s": 14.577201715200006,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 29,
+        "path": "2:dram:7->1",
+        "start_s": 14.577201715200006,
+        "end_s": 15.115072627200007,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 30,
+        "path": "2:dram:4->0",
+        "start_s": 15.115072627200007,
+        "end_s": 15.652943539200008,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 31,
+        "path": "2:dram:7->1",
+        "start_s": 15.652943539200008,
+        "end_s": 16.19081445120001,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 32,
+        "path": "2:dram:4->0",
+        "start_s": 16.19081445120001,
+        "end_s": 16.728685363200007,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709120000007
+      },
+      {
+        "op_id": 33,
+        "path": "2:dram:7->1",
+        "start_s": 16.728685363200007,
+        "end_s": 17.266556275200006,
+        "service_s": 0.537870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.5378709119999989
+      },
+      {
+        "op_id": 34,
+        "path": "0:dram:4->0",
+        "start_s": 16.728685363200007,
+        "end_s": 16.78337245440001,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 35,
+        "path": "1:dram:7->1",
+        "start_s": 17.266556275200006,
+        "end_s": 17.321243366400008,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 36,
+        "path": "0:dram:4->0",
+        "start_s": 16.78337245440001,
+        "end_s": 16.83805954560001,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 37,
+        "path": "1:dram:7->1",
+        "start_s": 17.321243366400008,
+        "end_s": 17.37593045760001,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 38,
+        "path": "0:dram:4->0",
+        "start_s": 16.83805954560001,
+        "end_s": 16.892746636800013,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 39,
+        "path": "1:dram:7->1",
+        "start_s": 17.37593045760001,
+        "end_s": 17.43061754880001,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 40,
+        "path": "0:dram:4->0",
+        "start_s": 16.892746636800013,
+        "end_s": 16.947433728000014,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 41,
+        "path": "1:dram:7->1",
+        "start_s": 17.43061754880001,
+        "end_s": 17.485304640000013,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 42,
+        "path": "0:dram:4->0",
+        "start_s": 16.947433728000014,
+        "end_s": 17.002120819200016,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 43,
+        "path": "1:dram:7->1",
+        "start_s": 17.485304640000013,
+        "end_s": 17.539991731200015,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 44,
+        "path": "0:dram:4->0",
+        "start_s": 17.002120819200016,
+        "end_s": 17.056807910400018,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 45,
+        "path": "1:dram:7->1",
+        "start_s": 17.539991731200015,
+        "end_s": 17.594678822400017,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 46,
+        "path": "0:dram:4->0",
+        "start_s": 17.056807910400018,
+        "end_s": 17.11149500160002,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 47,
+        "path": "1:dram:7->1",
+        "start_s": 17.594678822400017,
+        "end_s": 17.64936591360002,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 48,
+        "path": "0:dram:4->0",
+        "start_s": 17.11149500160002,
+        "end_s": 17.16618209280002,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 49,
+        "path": "1:dram:7->1",
+        "start_s": 17.64936591360002,
+        "end_s": 17.70405300480002,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 50,
+        "path": "0:dram:4->0",
+        "start_s": 17.16618209280002,
+        "end_s": 17.220869184000023,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 51,
+        "path": "1:dram:7->1",
+        "start_s": 17.70405300480002,
+        "end_s": 17.75874009600002,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 52,
+        "path": "0:dram:4->0",
+        "start_s": 17.220869184000023,
+        "end_s": 17.275556275200024,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 53,
+        "path": "1:dram:7->1",
+        "start_s": 17.75874009600002,
+        "end_s": 17.813427187200023,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 54,
+        "path": "0:dram:4->0",
+        "start_s": 17.275556275200024,
+        "end_s": 17.330243366400026,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 55,
+        "path": "1:dram:7->1",
+        "start_s": 17.813427187200023,
+        "end_s": 17.868114278400025,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 56,
+        "path": "0:dram:4->0",
+        "start_s": 17.330243366400026,
+        "end_s": 17.384930457600028,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 57,
+        "path": "1:dram:7->1",
+        "start_s": 17.868114278400025,
+        "end_s": 17.922801369600027,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 58,
+        "path": "0:dram:4->0",
+        "start_s": 17.384930457600028,
+        "end_s": 17.43961754880003,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 59,
+        "path": "1:dram:7->1",
+        "start_s": 17.922801369600027,
+        "end_s": 17.97748846080003,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 60,
+        "path": "0:dram:4->0",
+        "start_s": 17.43961754880003,
+        "end_s": 17.49430464000003,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 61,
+        "path": "1:dram:7->1",
+        "start_s": 17.97748846080003,
+        "end_s": 18.03217555200003,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 62,
+        "path": "0:dram:4->0",
+        "start_s": 17.49430464000003,
+        "end_s": 17.548991731200033,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 63,
+        "path": "1:dram:7->1",
+        "start_s": 18.03217555200003,
+        "end_s": 18.086862643200032,
+        "service_s": 0.0546870912,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 64,
+        "path": "0:dram:4->0",
+        "start_s": 17.548991731200033,
+        "end_s": 17.590247765600033,
+        "service_s": 0.0412560344,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 65,
+        "path": "1:dram:7->1",
+        "start_s": 18.086862643200032,
+        "end_s": 18.128118677600032,
+        "service_s": 0.0412560344,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      }
+    ],
+    "shared_phase_qualifiers": {},
+    "shared_score_interpretation": "Empirical concurrent factor applied only to registered matched contiguous two-flow phases, then original worker DAG reused.",
+    "physical_capacity_certified": false
+  }
+}

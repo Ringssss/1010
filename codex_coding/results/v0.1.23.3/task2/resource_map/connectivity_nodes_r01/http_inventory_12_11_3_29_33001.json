@@ -1,0 +1,50 @@
+{
+  "kind": "http_inventory",
+  "node": "node29",
+  "target": "12.11.3.29",
+  "started_at": "2026-10-08T07:15:47.112037+00:00",
+  "resolved_address": "12.11.3.29",
+  "route": {
+    "argv": [
+      "ip",
+      "-j",
+      "route",
+      "get",
+      "12.11.3.29"
+    ],
+    "started_at": "2026-10-08T07:15:47.099020+00:00",
+    "timeout_s": 2,
+    "returncode": 0,
+    "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+    "stderr": "",
+    "finished_at": "2026-10-08T07:15:47.111993+00:00",
+    "elapsed_s": 0.012988671660423279
+  },
+  "source_node": "node27",
+  "port": 33001,
+  "url": "http://12.11.3.29:33001/inventory?compact=1",
+  "argv": [
+    "curl",
+    "--noproxy",
+    "*",
+    "--connect-timeout",
+    "4",
+    "--max-time",
+    "4",
+    "-sS",
+    "-D",
+    "-",
+    "-o",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/node29_33001.inventory.raw",
+    "-w",
+    "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+    "http://12.11.3.29:33001/inventory?compact=1"
+  ],
+  "timeout_s": 5,
+  "returncode": 28,
+  "stdout": "\nhttp_status=000\nlocal_ip=12.11.3.27\nremote_ip=12.11.3.29\n",
+  "stderr": "curl: (28) Operation timed out after 4001 milliseconds with 0 bytes received\n",
+  "finished_at": "2026-10-08T07:15:51.122454+00:00",
+  "elapsed_s": 4.01044840645045,
+  "status": "http_failed"
+}

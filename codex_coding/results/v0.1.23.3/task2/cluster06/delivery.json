@@ -1,0 +1,44 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "cpu_tests_passed": 62,
+  "gpu_run_passed": true,
+  "current_source_matches_measured": true,
+  "source_changes_after_run": [],
+  "archive_files_changed": [
+    "history-chat.txt",
+    "code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md",
+    "docx/plans/2026-09-29_task2_joint_planning_control_plan.md",
+    "code_building/progress_diff_summary.md",
+    "code_building/key_files_index.md",
+    "code_building/key_conclusion.md",
+    "docx/context_index/00_document_registry.md",
+    "docx/context_index/01_stage_summary.md",
+    "docx/context_index/02_active_threads.md",
+    "docx/context_index/03_current_required_process_docs.md",
+    "docx/context_index/04_insight_ledger.md"
+  ],
+  "cross_node_validated": true,
+  "summary_sha256": "3bf93b3cf19fd2fdf13d1fbef1980853dad8dfb39cee302542c3186d50df34e1",
+  "limitations": [
+    "single model, single known restore scenario, serial executor",
+    "an immutable base must cover all demanded bytes; complete-base migration is not implemented",
+    "one coordinator; external catalog mutations cause rejection, not distributed atomic rollback",
+    "headroom is sampled before actions, not globally reserved against other workloads",
+    "reported peak is managed replica allocation accounting, not a sampled physical memory high-water mark",
+    "one model restore, no paired speedup claim; path profile remains provisional"
+  ],
+  "earlier_local_validation": {
+    "status": "passed",
+    "source_changes_after_that_run": [
+      "main_lib/fluidckpt/cluster/managed.py",
+      "main_lib/fluidckpt/cluster/planning.py",
+      "main_lib/fluidckpt/cluster/managed_control.py",
+      "codex_coding/src/task2/cluster/run_system.py",
+      "codex_coding/src/v0.1.23.3/task2/run_managed.py",
+      "codex_coding/src/v0.1.23.3/task2/test_managed.py"
+    ],
+    "note": "post-local-run changes added GPU-alias validation, explicit replanning, verified network/build-route admission and capacity-aware initial NUMA binding; CPU-tested and included in the later run"
+  },
+  "passed": false
+}

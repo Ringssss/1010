@@ -1,0 +1,627 @@
+{
+ "schema": "decision_value_cpu_r01",
+ "date": "2026-10-25",
+ "development": "v0.1.23.3/task2",
+ "gpu_used": 0,
+ "ssh_used": 0,
+ "scorer": "simple_exact_extent_model_v1 @ checkpoint_path_model.json",
+ "outer_residual_s": 0.4235804238204,
+ "metric": "T_ready_total = service_s + outer_residual_s",
+ "delta_rule": "max(0.100s, 0.05 * best_T_ready_total)",
+ "note": "T_ready_total here contains T_exec + common outer residual only. T_plan is reported separately and T_pre is not measured on CPU. Every strategy's raw output passes through strategies.normalize (one_class_per_extent projection) before scoring; dropped rows are recorded per strategy under `projection`.",
+ "rows": [
+  {
+   "hbm_per_card_gib": 8,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.6373078923206776,
+     "ready_total_s": 1.0608883161410776,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 17179869184
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.6373078923206776,
+     "ready_total_s": 1.0608883161410776,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.5,
+     "hbm_used": 17179869184
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.6429799163597636,
+     "ready_total_s": 1.0665603401801635,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 60.4,
+     "hbm_used": 16642626912
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.6373078923206776,
+     "ready_total_s": 1.0608883161410776,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 48.1,
+     "hbm_used": 17179869184
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.6373078923206776,
+     "ready_total_s": 1.0608883161410776,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.4,
+     "hbm_used": 17179869184
+    }
+   },
+   "spread_s": 0.005672024039085954,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 12,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.5506632921751589,
+     "ready_total_s": 0.9742437159955588,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 25769803776
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.5506632921751589,
+     "ready_total_s": 0.9742437159955588,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.5,
+     "hbm_used": 25769803776
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.5563353162142448,
+     "ready_total_s": 0.9799157400346448,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 64.1,
+     "hbm_used": 25232561504
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.5506632921751589,
+     "ready_total_s": 0.9742437159955588,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 48.2,
+     "hbm_used": 25769803776
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.5506632921751589,
+     "ready_total_s": 0.9742437159955588,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 25769803776
+    }
+   },
+   "spread_s": 0.005672024039085954,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 16,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.4640186920296401,
+     "ready_total_s": 0.88759911585004,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 34359738368
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.4640186920296401,
+     "ready_total_s": 0.88759911585004,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.5,
+     "hbm_used": 34359738368
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.46969071606872603,
+     "ready_total_s": 0.893271139889126,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 67.6,
+     "hbm_used": 33822496096
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.4640186920296401,
+     "ready_total_s": 0.88759911585004,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 48.2,
+     "hbm_used": 34359738368
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.4640186920296401,
+     "ready_total_s": 0.88759911585004,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 34359738368
+    }
+   },
+   "spread_s": 0.005672024039085954,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 24,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.2915617390535772,
+     "ready_total_s": 0.7151421628739771,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 51539607552
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.2915617390535772,
+     "ready_total_s": 0.7151421628739771,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.5,
+     "hbm_used": 51539607552
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.2969281510449946,
+     "ready_total_s": 0.7205085748653945,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 71.8,
+     "hbm_used": 51002365280
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.2915617390535772,
+     "ready_total_s": 0.7151421628739771,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 48.3,
+     "hbm_used": 51539607552
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.2915617390535772,
+     "ready_total_s": 0.7151421628739771,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 51539607552
+    }
+   },
+   "spread_s": 0.005366411991417408,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 32,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.12024847557768226,
+     "ready_total_s": 0.5438288993980822,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 68719476736
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.12024847557768226,
+     "ready_total_s": 0.5438288993980822,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.4,
+     "hbm_used": 68719476736
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.12561488756909966,
+     "ready_total_s": 0.5491953113894996,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 73.7,
+     "hbm_used": 68182234464
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.12024847557768226,
+     "ready_total_s": 0.5438288993980822,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 48.0,
+     "hbm_used": 68719476736
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.12024847557768226,
+     "ready_total_s": 0.5438288993980822,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 68719476736
+    }
+   },
+   "spread_s": 0.005366411991417408,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 36,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 70329718112
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.4,
+     "hbm_used": 70329718112
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 73.3,
+     "hbm_used": 70329718112
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 47.9,
+     "hbm_used": 70329718112
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 67,
+      "dropped": [
+       "cache/r0/e21/local"
+      ]
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 70329718112
+    }
+   },
+   "spread_s": 0.0,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 47,
+   "strategies": {
+    "base_only": {
+     "status": "ok",
+     "n": 0,
+     "service_s": 4.276468216965441,
+     "ready_total_s": 4.700048640785841,
+     "projection": {
+      "raw_rows": 0,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 0
+    },
+    "fastest_seq": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 70329718112
+    },
+    "balanced": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 0.5,
+     "hbm_used": 70329718112
+    },
+    "strong_simple": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 73.6,
+     "hbm_used": 70329718112
+    },
+    "exchange": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 66,
+      "dropped": []
+     },
+     "error": null,
+     "wall_s": 48.0,
+     "hbm_used": 70329718112
+    },
+    "joint": {
+     "status": "ok",
+     "n": 66,
+     "service_s": 0.1042007296346128,
+     "ready_total_s": 0.5277811534550128,
+     "projection": {
+      "raw_rows": 67,
+      "dropped": [
+       "cache/r0/e21/local"
+      ]
+     },
+     "error": null,
+     "wall_s": 0.0,
+     "hbm_used": 70329718112
+    }
+   },
+   "spread_s": 0.0,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": true
+  }
+ ]
+}

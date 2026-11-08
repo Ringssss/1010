@@ -1,0 +1,63 @@
+diff --git a/csrc/hardware_amd_support.cpp b/csrc/hardware_amd_support.cpp
+index c7c779d..b825e29 100644
+--- a/csrc/hardware_amd_support.cpp
++++ b/csrc/hardware_amd_support.cpp
+@@ -1,5 +1,6 @@
+ #include "hardware_amd_support.h"
+ #include "core.h"
++#include "api_forwarder.h"
+ 
+ #if TMS_ROCM_LEGACY_CHUNKED
+ 
+@@ -174,7 +175,7 @@ namespace ROCmHIPImplementation {
+ 
+         // Reserve aligned memory address
+         hipDeviceptr_t d_mem;
+-        CURESULT_CHECK(hipMemAddressReserve(&d_mem, aligned_size, granularity, 0, node_id));
++        CURESULT_CHECK(hipMemAddressReserve(&d_mem, aligned_size, granularity, 0, 0));
+         *ptr = (void*)d_mem;
+ 
+         // Create and map chunks
+@@ -223,7 +224,9 @@ namespace ROCmHIPImplementation {
+         AllocationMetadata metadata;
+         {
+             const std::lock_guard<std::mutex> lock(allocator_metadata_mutex);
+-            SIMPLE_CHECK(allocation_metadata.count(ptr), "Trying to free a pointer not allocated here");
++            if (allocation_metadata.count(ptr) == 0) {
++                return APIForwarder::call_real_cuda_free(ptr);
++            }
+             metadata = std::move(allocation_metadata[ptr]);
+             allocation_metadata.erase(ptr);
+         }
+diff --git a/test/test_examples.py b/test/test_examples.py
+index 87d92a4..d0455c5 100644
+--- a/test/test_examples.py
++++ b/test/test_examples.py
+@@ -24,6 +24,8 @@ from examples import (
+     nested_region,
+     pause_inflight,
+     xpu_scenarios,
++    high_device_cpu_backup,
++    foreign_allocation,
+ )
+ 
+ # XPU only supports hook_mode='torch'
+@@ -61,6 +63,18 @@ def test_cpu_backup(hook_mode):
+     _test_core(cpu_backup.run, hook_mode=hook_mode)
+ 
+ 
++@pytest.mark.skipif(torch.version.hip is None or torch.cuda.device_count() < 5,
++                    reason='requires a HIP device with ordinal at least four')
++@pytest.mark.parametrize('hook_mode', _HOOK_MODES)
++def test_high_device_cpu_backup(hook_mode):
++    _test_core(high_device_cpu_backup.run, hook_mode=hook_mode)
++
++
++@_skip_on_xpu
++def test_preload_foreign_allocation():
++    _test_core(foreign_allocation.run, hook_mode='preload')
++
++
+ @_skip_on_xpu
+ @_multi_device_only
+ @pytest.mark.skipif(torch.version.hip is not None, reason="mmap CPU backup is CUDA-only")

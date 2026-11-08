@@ -1,0 +1,110 @@
+{
+  "checks": {
+    "canonical_contract_hash": true,
+    "comparison_bound_to_contract": true,
+    "frozen_sources_match": false,
+    "real_rates_and_execution_stay_unknown": true,
+    "no_gpu_command": true,
+    "C0_local_sufficient/distinct_worker_node_gpu_and_replica_consistency": true,
+    "C0_local_sufficient/four_distinct_targets_and_tp": true,
+    "C0_local_sufficient/immutable_full_base": true,
+    "C0_local_sufficient/exact_two_blocks_each_rank": true,
+    "C0_local_sufficient/base_cache_target_staging_separate": true,
+    "C0_local_sufficient/all_policies_have_same_finite_opportunity": true,
+    "C0_local_sufficient/physical_path_capacities_unknown": true,
+    "C0_local_sufficient/independent_capacity_formula": true,
+    "C0_local_sufficient/optimum_and_minimum_cache": true,
+    "C1_equal_plateau_control/distinct_worker_node_gpu_and_replica_consistency": true,
+    "C1_equal_plateau_control/four_distinct_targets_and_tp": true,
+    "C1_equal_plateau_control/immutable_full_base": true,
+    "C1_equal_plateau_control/exact_two_blocks_each_rank": true,
+    "C1_equal_plateau_control/base_cache_target_staging_separate": true,
+    "C1_equal_plateau_control/all_policies_have_same_finite_opportunity": true,
+    "C1_equal_plateau_control/physical_path_capacities_unknown": true,
+    "C1_equal_plateau_control/independent_capacity_formula": true,
+    "C1_equal_plateau_control/optimum_and_minimum_cache": true,
+    "C1_uneven_preregistered/distinct_worker_node_gpu_and_replica_consistency": true,
+    "C1_uneven_preregistered/four_distinct_targets_and_tp": true,
+    "C1_uneven_preregistered/immutable_full_base": true,
+    "C1_uneven_preregistered/exact_two_blocks_each_rank": true,
+    "C1_uneven_preregistered/base_cache_target_staging_separate": true,
+    "C1_uneven_preregistered/all_policies_have_same_finite_opportunity": true,
+    "C1_uneven_preregistered/physical_path_capacities_unknown": true,
+    "C1_uneven_preregistered/independent_capacity_formula": true,
+    "C1_uneven_preregistered/optimum_and_minimum_cache": true,
+    "C2_shared_source_export/distinct_worker_node_gpu_and_replica_consistency": false,
+    "C2_shared_source_export/four_distinct_targets_and_tp": true,
+    "C2_shared_source_export/immutable_full_base": true,
+    "C2_shared_source_export/exact_two_blocks_each_rank": true,
+    "C2_shared_source_export/base_cache_target_staging_separate": true,
+    "C2_shared_source_export/all_policies_have_same_finite_opportunity": true,
+    "C2_shared_source_export/physical_path_capacities_unknown": true,
+    "C2_shared_source_export/independent_capacity_formula": true,
+    "C2_shared_source_export/optimum_and_minimum_cache": true,
+    "C1_C2_same_budget_candidates_targets_rates": true,
+    "C1_C2_only_source_export_incidence_merge": true,
+    "balanced_rule_is_singleton_lexicographic_not_oracle": true
+  },
+  "findings": [
+    {
+      "case_id": "C0_local_sufficient",
+      "independent_optimum_symbolic_time": 0.5,
+      "minimum_cache_blocks_at_optimum": 8,
+      "minimum_cache_bytes_at_optimum": 33554432,
+      "policies_dominated_in_cache_vs_primary_time": [],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    },
+    {
+      "case_id": "C1_equal_plateau_control",
+      "independent_optimum_symbolic_time": 1.25,
+      "minimum_cache_blocks_at_optimum": 4,
+      "minimum_cache_bytes_at_optimum": 16777216,
+      "policies_dominated_in_cache_vs_primary_time": [],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    },
+    {
+      "case_id": "C1_uneven_preregistered",
+      "independent_optimum_symbolic_time": 2.0,
+      "minimum_cache_blocks_at_optimum": 0,
+      "minimum_cache_bytes_at_optimum": 0,
+      "policies_dominated_in_cache_vs_primary_time": [
+        "bottleneck_balanced",
+        "local_capacity_fill"
+      ],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    },
+    {
+      "case_id": "C2_shared_source_export",
+      "independent_optimum_symbolic_time": 2.0,
+      "minimum_cache_blocks_at_optimum": 2,
+      "minimum_cache_bytes_at_optimum": 8388608,
+      "policies_dominated_in_cache_vs_primary_time": [
+        "bottleneck_balanced",
+        "local_capacity_fill"
+      ],
+      "secondary_rank_time_semantics": "Improving noncritical target times can consume cache without reducing all-rank maximum."
+    }
+  ],
+  "contract_sha256": "ca5ba12e0e7110f475c5e5c891cbf84f2135ff88aea7928f367ce458072fc2a9",
+  "qualification": "failed",
+  "real_rate_ready": false,
+  "physical_budget_admitted": false,
+  "real_model_T_ready_measured": false,
+  "new_GPU_samples": 0,
+  "review_SSH_actions": 0,
+  "product_mutations": 0,
+  "source_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/contract_cpu_r02/contract.json",
+      "sha256": "65235293b462966f1b59f9c26ef5c8ff5f4bbb9545bc917dc0d1ea450ec29a21"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/contract_cpu_r02/comparison.json",
+      "sha256": "da4909b5015940498c50fdb71ec5bd7e66bb633880e6ad06e7b6d064b499b4ab"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/tp4_scenarios/review/audit_contract.py",
+      "sha256": "b72883686512d67191918d67b2bd4f16f2cad57820240e2497985ca8ed248a13"
+    }
+  ]
+}

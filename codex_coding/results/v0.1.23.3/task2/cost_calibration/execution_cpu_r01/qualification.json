@@ -1,0 +1,54 @@
+{
+  "GPU_launches": 0,
+  "checks": [
+    "native mixed plan validates",
+    "native four-op offsets validate",
+    "original affine warm-only fit identifies",
+    "shared request expected",
+    "source-target serial dependency",
+    "no fabricated nonpositive slope"
+  ],
+  "passed": true,
+  "prediction": {
+    "bandwidth_plan_estimate_s": null,
+    "dispatch_s": 0.002,
+    "estimated_execute_s": 0.045748736,
+    "estimated_worker_s": 0.043748735999999996,
+    "request_s": 0.002999999999999999,
+    "scope": "target-side service; equal-byte operation-count calibration; one shared request overhead; serial dependencies, no contention guarantee; warm-only gamma is unmeasured and constrained zero; requires successful necessary-pair warm in these incarnations",
+    "strategy": "stateful_serial_service",
+    "timeline": [
+      {
+        "end_s": 0.013582912,
+        "first_pair_s": 0.0,
+        "op_id": 0,
+        "path": "4:hbm:0->4",
+        "service_s": 0.013582912,
+        "source_wait_s": 0.0,
+        "start_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "end_s": 0.027165824,
+        "first_pair_s": 0.0,
+        "op_id": 1,
+        "path": "2:dram:4->4",
+        "service_s": 0.013582912,
+        "source_wait_s": 0.013582912,
+        "start_s": 0.013582912,
+        "target_wait_s": 0.0
+      },
+      {
+        "end_s": 0.040748736,
+        "first_pair_s": 0.0,
+        "op_id": 2,
+        "path": "4:ssd:0->5",
+        "service_s": 0.013582912,
+        "source_wait_s": 0.0,
+        "start_s": 0.027165824,
+        "target_wait_s": 0.027165824
+      }
+    ]
+  },
+  "remote_writes": 0
+}

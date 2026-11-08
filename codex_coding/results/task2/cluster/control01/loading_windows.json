@@ -1,0 +1,78 @@
+{
+  "run": "cluster/control01",
+  "status": "passed",
+  "samples": [
+    {
+      "phase": "control_legacy",
+      "node": "node29",
+      "strategy": "nearest",
+      "load_s": 2.305256825,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002740706,
+        "model_layout_s": 0.328438993,
+        "export_s": 0.035162665,
+        "target_wait_s": 1.926802034,
+        "finalize_s": 0.012112427
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.454544053,
+        "target_mapping_s": 0.072594442,
+        "execute_dispatch_wait_s": 0.007438682,
+        "worker_execution_s": 1.377692276,
+        "completion_coordination_s": 0.006783258,
+        "ready_notice_wait_s": 0.007749323
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.20685018179938197,
+        "execute_wall_s": 1.3846554174087942,
+        "verify_and_publish_s": 0.008402211591601372,
+        "coordinator_wall_s": 1.5999078107997775
+      },
+      "coordinator_plan_s": 0.21794445673003793,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "passed": true
+    },
+    {
+      "phase": "control_compact",
+      "node": "node29",
+      "strategy": "nearest",
+      "load_s": 1.955184827,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.002615915,
+        "loader_entry_s": 0.002029331,
+        "model_layout_s": 0.314239673,
+        "export_s": 0.036558393,
+        "target_wait_s": 1.58801697,
+        "finalize_s": 0.011724545
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.029493594,
+        "target_mapping_s": 0.158243208,
+        "execute_dispatch_wait_s": 0.008106435,
+        "worker_execution_s": 1.377085689,
+        "completion_coordination_s": 0.00710672,
+        "ready_notice_wait_s": 0.007981324
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.17822526395320892,
+        "execute_wall_s": 1.3840659498237073,
+        "verify_and_publish_s": 0.008198762312531471,
+        "coordinator_wall_s": 1.5704899760894477
+      },
+      "coordinator_plan_s": 0.008241783827543259,
+      "source_bytes": {
+        "model/remote/0": 35164859056,
+        "model/remote/1": 35164859056
+      },
+      "passed": true
+    }
+  ],
+  "summary_sha256": "145f4cb6d077213d8a53266730b6234cdff8320b72494b8013c54e1d9b1686a2",
+  "scope": "exact additive target-host segments; coordinator durations are nested diagnostics, not extra load time"
+}

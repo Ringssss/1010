@@ -1,0 +1,121 @@
+{
+ "schema": "decision_value_cpu_r01",
+ "date": "2026-10-25",
+ "development": "v0.1.23.3/task2",
+ "gpu_used": 0,
+ "ssh_used": 0,
+ "scorer": "simple_exact_extent_model_v1 @ checkpoint_path_model.json",
+ "outer_residual_s": 0.4235804238204,
+ "metric": "T_ready_total = service_s + outer_residual_s",
+ "delta_rule": "max(0.100s, 0.05 * best_T_ready_total)",
+ "note": "T_ready_total here contains T_exec + common outer residual only. T_plan is reported separately (joint 0.028-0.040s; greedy <0.1s) and T_pre is not measured on CPU.",
+ "rows": [
+  {
+   "hbm_per_card_gib": 8,
+   "base_only": 4.700049,
+   "fastest_seq": 1.060888,
+   "balanced": 1.060888,
+   "strong_simple": 1.06656,
+   "exchange": 1.060888,
+   "joint": 1.060888,
+   "spread_s": 0.005672,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 12,
+   "base_only": 4.700049,
+   "fastest_seq": 0.974244,
+   "balanced": 0.974244,
+   "strong_simple": 0.979916,
+   "exchange": 0.974244,
+   "joint": 0.974244,
+   "spread_s": 0.005672,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 16,
+   "base_only": 4.700049,
+   "fastest_seq": 0.887599,
+   "balanced": 0.887599,
+   "strong_simple": 0.893271,
+   "exchange": 0.887599,
+   "joint": 0.887599,
+   "spread_s": 0.005672,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 24,
+   "base_only": 4.700049,
+   "fastest_seq": 0.715142,
+   "balanced": 0.715142,
+   "strong_simple": 0.720509,
+   "exchange": 0.715142,
+   "joint": 0.715142,
+   "spread_s": 0.005367,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 32,
+   "base_only": 4.700049,
+   "fastest_seq": 0.543829,
+   "balanced": 0.543829,
+   "strong_simple": 0.549195,
+   "exchange": 0.543829,
+   "joint": 0.543829,
+   "spread_s": 0.005366,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 36,
+   "base_only": 4.700049,
+   "fastest_seq": 0.527781,
+   "balanced": 0.527781,
+   "strong_simple": 0.527781,
+   "exchange": 0.527781,
+   "joint": 0.527781,
+   "spread_s": 0.0,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": false
+  },
+  {
+   "hbm_per_card_gib": 47,
+   "base_only": 4.700049,
+   "fastest_seq": 0.527781,
+   "balanced": 0.527781,
+   "strong_simple": 0.527781,
+   "exchange": 0.527781,
+   "joint": 0.527781,
+   "spread_s": 0.0,
+   "delta_s": 0.1,
+   "gate2": false,
+   "registered": true
+  }
+ ],
+ "joint_solver": {
+  "status": "optimal",
+  "solve_wall_s": [
+   0.0277,
+   0.0403
+  ],
+  "fallback": "none at any budget point"
+ },
+ "conclusion": "GATE2_FAIL",
+ "detail": "At the registered 47 GiB/card budget all six strategies return T_ready_total = 0.527781 s (all 66 extents in HBM; 32.75 GiB of demand against 47 GiB of capacity, 14.25 GiB headroom). Sweeping 8-47 GiB/card, the spread never exceeds 5.7 ms against a 100 ms threshold, so GATE2 fails at every point, including points where the cap genuinely binds (8 GiB/card = 75% of weights demoted). The only divergence anywhere is strong_simple, which stops 0.5 GiB short of the cap at 8-32 GiB/card and is 5.37-5.67 ms slower: 5.7% of the threshold and inside the model's own -0.19%..-6.04% error band. joint returns an optimal MILP solution at every point with no fallback, numerically identical to plain per-extent fastest-class fill.",
+ "audit_notes": [
+  "Scoring identity is independent of the one-class-per-extent rule; only the SET identity depends on it. With the rule removed, fastest_seq/balanced add 66 dead duplicate copies at 47 GiB (132 rows) and score exactly the same.",
+  "The product MILP emits a redundant duplicate copy of one extent at 47 GiB (67 rows for 66 extents). Deduplicated to the fastest class the score is unchanged at 0.527781.",
+  "balanced was rewritten during this round: the first version had a byte-identical traversal order to fastest_seq and did not consult the scorer. It now equalises rank chain ends using the real timeline, and still converges to the same answer. Earlier 'balanced is 20-40% slower' readings were a harness turn-cap artifact and are withdrawn.",
+  "T_pre is not measured on CPU. T_plan is separate: joint 0.020-0.040 s, greedy selectors <=0.5 s wall for the whole sweep point."
+ ]
+}

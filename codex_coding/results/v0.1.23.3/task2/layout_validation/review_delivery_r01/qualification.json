@@ -1,0 +1,42 @@
+{
+  "schema_version": "fluidckpt.layout_validation.delivery_review.v1",
+  "checks": {
+    "original_per_worker_serial_semantics_reviewed": true,
+    "ABCD_actual_plan_assertion_matches_independent_prediction": true,
+    "actual_worker_roles_bytes_order_checked": true,
+    "both_nodes48MiB_application_HBM_bound": true,
+    "original2GiB_incremental_budget_and8MiB_margin": true,
+    "original_preworker_baseline_retained": true,
+    "each_layout_static_postwarm_evidence_revalidation_labeled": true,
+    "cache_after_restore_after_retirement_catalog_leases_transactions_saved": true,
+    "actual_launch_plan_ref_key_SHA_bound": true,
+    "controller_requires_all_four_complete_results": true,
+    "parent_finally_STOP_matches_frozen_plan_SHA": true,
+    "fresh_exact_owner_absence_and_group_empty_collection": true,
+    "original_XML_default_mapping_hash_readback": true,
+    "CPU7_targeted_tests_passed": true
+  },
+  "passed": true,
+  "GPU_runtime_completed": false,
+  "review_scope": "local code and CPU7; initial existing preflight artifacts; no remote/GPU calls",
+  "cpu_command": "python3 codex_coding/src/v0.1.23.3/task2/layout_validation/test_runner.py",
+  "cpu_tests": 7,
+  "cpu_returncode": 0,
+  "runtime_pending": [
+    "actual own communicator IB/XML",
+    "ABCD full payload SHA and per-op paths/roles/order",
+    "controller timing relationships",
+    "lifetime resource observations",
+    "owned exact STOP exit and old protections"
+  ],
+  "previous_issue_resolution": {
+    "node30_hbm_bound": "corrected from32MiB to48MiB",
+    "weak_application_success_gate": "requires passed ABCD/fullSHA/cleanup",
+    "absence_only_from_supervisor": "fresh exact owned read-only check added"
+  },
+  "performance_ready": false,
+  "model_weights_ready_measured": false,
+  "formal_capacity_profile_admitted": false,
+  "full_physical_peak_verified": false,
+  "solver_decision_increment_proven": false
+}

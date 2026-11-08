@@ -1,0 +1,93 @@
+{
+  "development": "v0.1.23.3/task2",
+  "review_scope": "local draft artifacts only; no remote/GPU",
+  "contracts": {
+    "64MiB": {
+      "checks": {
+        "supported_executor_chunk": true,
+        "fixed_worker_staging_charged": true,
+        "same_physical_copy_bytes": true,
+        "not_prediction_ready": true,
+        "not_performance_ready": true,
+        "not_physical_peak_verified": true,
+        "near_source/physical_peak_per_location": true,
+        "near_source/no_derived_latency_estimates": true,
+        "distributed/physical_peak_per_location": true,
+        "distributed/no_derived_latency_estimates": true,
+        "synthetic_replica_verification_protocol_agrees_with_runtime": false
+      },
+      "passed": false,
+      "scope": "CPU contracts only; no runtime/capacity/model performance qualification"
+    },
+    "512MiB": {
+      "checks": {
+        "supported_executor_chunk": true,
+        "fixed_worker_staging_charged": true,
+        "same_physical_copy_bytes": true,
+        "not_prediction_ready": true,
+        "not_performance_ready": true,
+        "not_physical_peak_verified": true,
+        "near_source/physical_peak_per_location": true,
+        "near_source/no_derived_latency_estimates": true,
+        "distributed/physical_peak_per_location": true,
+        "distributed/no_derived_latency_estimates": true,
+        "synthetic_replica_verification_protocol_agrees_with_runtime": false
+      },
+      "passed": false,
+      "scope": "CPU contracts only; no runtime/capacity/model performance qualification"
+    }
+  },
+  "setup_assets": {
+    "node28": {
+      "asset_payload_SHA_passed": true,
+      "asset_count": 80,
+      "local_changed_since_setup_freeze": [
+        "main_lib/fluidckpt/benchmarks/calibrated_recovery.py",
+        "main_lib/fluidckpt/cluster/control.py",
+        "codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/measurement_driver.py"
+      ],
+      "actual_remote_deployment_observed_by_this_review": false
+    },
+    "node30": {
+      "asset_payload_SHA_passed": true,
+      "asset_count": 80,
+      "local_changed_since_setup_freeze": [
+        "main_lib/fluidckpt/benchmarks/calibrated_recovery.py",
+        "main_lib/fluidckpt/cluster/control.py",
+        "codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/measurement_driver.py"
+      ],
+      "actual_remote_deployment_observed_by_this_review": false
+    }
+  },
+  "accepted_for_formal_runtime": false,
+  "revision_feedback": [
+    "synthetic replica publication requires prior full SHA; CPU protocol must explicitly distinguish filled buffers and verified publication",
+    "revised measurement/control sources require new deploy evidence before actual execution"
+  ],
+  "refs": {
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_contract_r01/case_64MiB.json": {
+      "sha256": "60c3af6b744674789a5f048bd82ec50a66c9e527ad0d62c1091c9fe8e4d4a5d7",
+      "bytes": 4747
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_contract_r01/protocol_64MiB.json": {
+      "sha256": "312ed5fe97bf1b40327f759f95ccb206e98782c976148deefbf77bfa8cc8f3c5",
+      "bytes": 11260
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_contract_r01/case_512MiB.json": {
+      "sha256": "6918b1c5aa2a5a0ec359510807f5d3cd811f338e2176246f0505f9e9afb72f5a",
+      "bytes": 4767
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_contract_r01/protocol_512MiB.json": {
+      "sha256": "2ab7493d459f4a79b443d8a41ec9979e293b6ebd2b340c10ec3cde60d69d4f7c",
+      "bytes": 11303
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_setup_plan_r01/node28.spec.json": {
+      "sha256": "1c88696ef784b9687f599e24a90f01e378b5293d5a9eca0294b6d8f4711d732d",
+      "bytes": 818383
+    },
+    "codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_setup_plan_r01/node30.spec.json": {
+      "sha256": "ad456ead7b6e20fe5172af6c4fdc9e5885a9839e877799d06ce3dc84aa58dfa7",
+      "bytes": 814394
+    }
+  }
+}

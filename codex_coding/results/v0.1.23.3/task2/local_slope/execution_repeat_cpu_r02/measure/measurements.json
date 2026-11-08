@@ -1,0 +1,896 @@
+[
+  {
+    "case": {
+      "copy_rounds": 2,
+      "label": "host_repeat_4MiB",
+      "mode": "host_repeat",
+      "nbytes": 4194304,
+      "operations": 1,
+      "order_index": 0,
+      "source_offset": 0
+    },
+    "clock_scope": "controller single monotonic clock for request; worker durations independently recorded",
+    "fit": null,
+    "flow": {
+      "control_mode": "compact",
+      "controller_timing": {
+        "all_targets_filled_ns": 196502963668924,
+        "all_targets_published_ns": 196502983958186,
+        "clock_domain": "controller/m03r2n07/999274/a10803a41a7e4d87a074cd72a208f3b4",
+        "load_begin_ns": 196502943334982
+      },
+      "coordinator_wall_s": 0.04062100398004986,
+      "epoch_snapshot_reused": false,
+      "execute_wall_s": 0.01816615299321711,
+      "execution": [
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 4.579982487484813e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 0
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 2.949993358924985e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 1
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 2.410000888630748e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 2
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 2.0700099412351847e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 3
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 0.018023979995632544,
+          "executor": "serial",
+          "executor_source": "host_only_same_handler_two_copy_rounds",
+          "local_slope_prepare": {
+            "copy_rounds": 2,
+            "metadata_after_both_rounds": true,
+            "mode": "host_repeat",
+            "same_handler": true,
+            "source": {
+              "alignment_remainders": {
+                "2097152": 737296,
+                "256": 16,
+                "4096": 16
+              },
+              "contiguous": true,
+              "data_ptr": 22746113982480,
+              "device": "cuda:0",
+              "dtype": "torch.uint8",
+              "numel": 16777216,
+              "shape": [
+                16777216
+              ],
+              "storage_offset": 0,
+              "stride": [
+                1
+              ]
+            },
+            "source_offset": 0,
+            "target": {
+              "alignment_remainders": {
+                "2097152": 733200,
+                "256": 16,
+                "4096": 16
+              },
+              "contiguous": true,
+              "data_ptr": 22746109784080,
+              "device": "cuda:0",
+              "dtype": "torch.uint8",
+              "numel": 4194304,
+              "shape": [
+                4194304
+              ],
+              "storage_offset": 0,
+              "stride": [
+                1
+              ]
+            },
+            "target_offset": 0
+          },
+          "records": [
+            {
+              "actual_copy_bytes": 8388608,
+              "bytes": 4194304,
+              "copy_rounds": 2,
+              "elapsed_s": 0.01801674,
+              "kind": "local_hbm",
+              "local_slope_diagnosis": {
+                "CUDA_events": 0,
+                "actual_copy_bytes": 8388608,
+                "between_round_and_bookkeeping_ns": 9910,
+                "extra_prepare_sync": false,
+                "extra_prewarm": false,
+                "limitations": "second round changes host first-use and target first-touch/cache; does not isolate pure copy bandwidth or constitute optimization",
+                "logical_SHA_bytes": 4194304,
+                "memory_after_both_rounds": {
+                  "allocated_bytes": 0,
+                  "hip_free_bytes": 16106127360,
+                  "hip_total_bytes": 17179869184,
+                  "reserved_bytes": 0
+                },
+                "phase_observer_overhead_included": true,
+                "post_service_diagnosis_scope": "within controller/RPC window, outside reported worker execute/service",
+                "post_service_diagnosis_wall_ns": 89392,
+                "rounds": [
+                  {
+                    "bytes": 4194304,
+                    "elapsed_ns": 9079691,
+                    "host_phases": {
+                      "begin_log": {
+                        "thread_cpu_ns": 4761,
+                        "wall_ns": 16970
+                      },
+                      "copy_submit": {
+                        "thread_cpu_ns": 9044588,
+                        "wall_ns": 9044411
+                      },
+                      "device_sync": {
+                        "thread_cpu_ns": 2240,
+                        "wall_ns": 2470
+                      },
+                      "source_slice": {
+                        "thread_cpu_ns": 8680,
+                        "wall_ns": 8770
+                      },
+                      "target_slice": {
+                        "thread_cpu_ns": 7070,
+                        "wall_ns": 7070
+                      }
+                    },
+                    "host_residual_ns": 0,
+                    "metadata_after_both_rounds": true,
+                    "native_tid": 999274,
+                    "round": 0,
+                    "source_view": {
+                      "alignment_remainders": {
+                        "2097152": 737296,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746113982480,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 4194304,
+                      "shape": [
+                        4194304
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "target_view": {
+                      "alignment_remainders": {
+                        "2097152": 733200,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746109784080,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 4194304,
+                      "shape": [
+                        4194304
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "thread_ident": 22746185818560,
+                    "thread_name": "MainThread"
+                  },
+                  {
+                    "bytes": 4194304,
+                    "elapsed_ns": 8927139,
+                    "host_phases": {
+                      "begin_log": {
+                        "thread_cpu_ns": 2440,
+                        "wall_ns": 2470
+                      },
+                      "copy_submit": {
+                        "thread_cpu_ns": 8914086,
+                        "wall_ns": 8913739
+                      },
+                      "device_sync": {
+                        "thread_cpu_ns": 1780,
+                        "wall_ns": 2150
+                      },
+                      "source_slice": {
+                        "thread_cpu_ns": 5230,
+                        "wall_ns": 5210
+                      },
+                      "target_slice": {
+                        "thread_cpu_ns": 3540,
+                        "wall_ns": 3570
+                      }
+                    },
+                    "host_residual_ns": 0,
+                    "metadata_after_both_rounds": true,
+                    "native_tid": 999274,
+                    "round": 1,
+                    "source_view": {
+                      "alignment_remainders": {
+                        "2097152": 737296,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746113982480,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 4194304,
+                      "shape": [
+                        4194304
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "target_view": {
+                      "alignment_remainders": {
+                        "2097152": 733200,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746109784080,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 4194304,
+                      "shape": [
+                        4194304
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "thread_ident": 22746185818560,
+                    "thread_name": "MainThread"
+                  }
+                ],
+                "same_source_view_address": true,
+                "same_target_view_address": true,
+                "service_begin_ns": 196502945540282,
+                "service_end_ns": 196502963557022,
+                "stream_after_both_rounds": 0
+              },
+              "logical_SHA_bytes": 4194304,
+              "op_id": 0,
+              "pipeline": {},
+              "replica_id": "local_slope_runtime_repeat_cpu/source0/hbm",
+              "role": "both"
+            }
+          ],
+          "staging_bytes": 67108864,
+          "worker": 4
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 4.060013452544808e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 5
+        }
+      ],
+      "executor": "serial",
+      "inventory_rpc_s": 0.00060217798454687,
+      "plan": {
+        "chunk_bytes": 33554432,
+        "executor": "serial",
+        "local_slope_repeat": 2,
+        "local_slope_repeat_label": "host_repeat_4MiB",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 4194304,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "local_slope_runtime_repeat_cpu/source0/hbm",
+            "resources": [],
+            "source_epoch": "cpu_repeat/4",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "local_slope_runtime_repeat_cpu/host_repeat_4MiB/target0",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "local_slope_runtime_repeat_cpu/host_repeat_4MiB/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "local_slope_runtime_repeat_cpu/host_repeat_4MiB/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 4194304,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "prepare_rpc_s": 0.0015649010019842535,
+      "prepare_s": 0.0021670789865311235,
+      "rpc": {
+        "execute": [],
+        "inventory": [],
+        "prepare": [],
+        "publish": []
+      },
+      "source_bytes": {
+        "local_slope_runtime_repeat_cpu/source0/hbm": 4194304
+      },
+      "timing_scope": "coordinator wall; excludes model layout before handoff",
+      "tx": "526ae22a3ffd4e2099ba3eb141e90735",
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 4194304,
+        "operations": {
+          "0": {
+            "n": 4194304,
+            "op_id": 0,
+            "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+            "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+          }
+        },
+        "passed": true
+      },
+      "verify_and_publish_s": 0.02028777200030163
+    },
+    "fresh_query_rpc": [],
+    "gate": {
+      "node27": {
+        "dram_current_bytes": 4228091904,
+        "dram_limit_bytes": 6442450944,
+        "hbm_absolute_upper_bytes": 1811939328,
+        "hbm_limit_bytes": 2147483648,
+        "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+        "peak_measured": false,
+        "planned_incremental_upper_bytes": 67108864,
+        "remaining_hbm_bytes": 335544320,
+        "require_idle": true,
+        "transactions": {
+          "4": [],
+          "5": []
+        }
+      },
+      "node28": {
+        "dram_current_bytes": 3469787136,
+        "dram_limit_bytes": 6442450944,
+        "hbm_absolute_upper_bytes": 1124073472,
+        "hbm_limit_bytes": 2147483648,
+        "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+        "peak_measured": false,
+        "planned_incremental_upper_bytes": 67108864,
+        "remaining_hbm_bytes": 1023410176,
+        "require_idle": true,
+        "transactions": {
+          "0": [],
+          "1": []
+        }
+      },
+      "node30": {
+        "dram_current_bytes": 3978616832,
+        "dram_limit_bytes": 6442450944,
+        "hbm_absolute_upper_bytes": 1281359872,
+        "hbm_limit_bytes": 2147483648,
+        "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+        "peak_measured": false,
+        "planned_incremental_upper_bytes": 67108864,
+        "remaining_hbm_bytes": 866123776,
+        "require_idle": true,
+        "transactions": {
+          "2": [],
+          "3": []
+        }
+      }
+    },
+    "inventory_end_ns": 196502941394906,
+    "model_frozen_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+      "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+    },
+    "prediction": null,
+    "preregistration_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_repeat_cpu_r02/measure/preregistration.json",
+      "sha256": "fcffc3b040cf3ec0f3284d85e90c8f2c3bed5c6c6910a031b95a7cc1bb661538"
+    },
+    "request_begin_ns": 196502940804948,
+    "request_to_filled_s": 0.022863976,
+    "request_to_published_s": 0.043153238,
+    "service_s": 0.01801674,
+    "worker_execute_s": 0.018023979995632544
+  },
+  {
+    "case": {
+      "copy_rounds": 2,
+      "label": "host_repeat_16MiB",
+      "mode": "host_repeat",
+      "nbytes": 16777216,
+      "operations": 1,
+      "order_index": 1,
+      "source_offset": 0
+    },
+    "clock_scope": "controller single monotonic clock for request; worker durations independently recorded",
+    "fit": null,
+    "flow": {
+      "control_mode": "compact",
+      "controller_timing": {
+        "all_targets_filled_ns": 196503068355457,
+        "all_targets_published_ns": 196503138534238,
+        "clock_domain": "controller/m03r2n07/999274/a10803a41a7e4d87a074cd72a208f3b4",
+        "load_begin_ns": 196502989475740
+      },
+      "coordinator_wall_s": 0.14905720800743438,
+      "epoch_snapshot_reused": false,
+      "execute_wall_s": 0.07270506498753093,
+      "execution": [
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 5.379988579079509e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 0
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 2.8199865482747555e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 1
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 2.3900065571069717e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 2
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 2.3700122255831957e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 3
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 0.07247300198650919,
+          "executor": "serial",
+          "executor_source": "host_only_same_handler_two_copy_rounds",
+          "local_slope_prepare": {
+            "copy_rounds": 2,
+            "metadata_after_both_rounds": true,
+            "mode": "host_repeat",
+            "same_handler": true,
+            "source": {
+              "alignment_remainders": {
+                "2097152": 737296,
+                "256": 16,
+                "4096": 16
+              },
+              "contiguous": true,
+              "data_ptr": 22746113982480,
+              "device": "cuda:0",
+              "dtype": "torch.uint8",
+              "numel": 16777216,
+              "shape": [
+                16777216
+              ],
+              "storage_offset": 0,
+              "stride": [
+                1
+              ]
+            },
+            "source_offset": 0,
+            "target": {
+              "alignment_remainders": {
+                "2097152": 733200,
+                "256": 16,
+                "4096": 16
+              },
+              "contiguous": true,
+              "data_ptr": 22746097201168,
+              "device": "cuda:0",
+              "dtype": "torch.uint8",
+              "numel": 16777216,
+              "shape": [
+                16777216
+              ],
+              "storage_offset": 0,
+              "stride": [
+                1
+              ]
+            },
+            "target_offset": 0
+          },
+          "records": [
+            {
+              "actual_copy_bytes": 33554432,
+              "bytes": 16777216,
+              "copy_rounds": 2,
+              "elapsed_s": 0.072450301,
+              "kind": "local_hbm",
+              "local_slope_diagnosis": {
+                "CUDA_events": 0,
+                "actual_copy_bytes": 33554432,
+                "between_round_and_bookkeeping_ns": 35850,
+                "extra_prepare_sync": false,
+                "extra_prewarm": false,
+                "limitations": "second round changes host first-use and target first-touch/cache; does not isolate pure copy bandwidth or constitute optimization",
+                "logical_SHA_bytes": 16777216,
+                "memory_after_both_rounds": {
+                  "allocated_bytes": 0,
+                  "hip_free_bytes": 16106127360,
+                  "hip_total_bytes": 17179869184,
+                  "reserved_bytes": 0
+                },
+                "phase_observer_overhead_included": true,
+                "post_service_diagnosis_scope": "within controller/RPC window, outside reported worker execute/service",
+                "post_service_diagnosis_wall_ns": 143071,
+                "rounds": [
+                  {
+                    "bytes": 16777216,
+                    "elapsed_ns": 36304517,
+                    "host_phases": {
+                      "begin_log": {
+                        "thread_cpu_ns": 4610,
+                        "wall_ns": 9860
+                      },
+                      "copy_submit": {
+                        "thread_cpu_ns": 36273274,
+                        "wall_ns": 36270327
+                      },
+                      "device_sync": {
+                        "thread_cpu_ns": 5590,
+                        "wall_ns": 8420
+                      },
+                      "source_slice": {
+                        "thread_cpu_ns": 11330,
+                        "wall_ns": 11420
+                      },
+                      "target_slice": {
+                        "thread_cpu_ns": 4500,
+                        "wall_ns": 4490
+                      }
+                    },
+                    "host_residual_ns": 0,
+                    "metadata_after_both_rounds": true,
+                    "native_tid": 999274,
+                    "round": 0,
+                    "source_view": {
+                      "alignment_remainders": {
+                        "2097152": 737296,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746113982480,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 16777216,
+                      "shape": [
+                        16777216
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "target_view": {
+                      "alignment_remainders": {
+                        "2097152": 733200,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746097201168,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 16777216,
+                      "shape": [
+                        16777216
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "thread_ident": 22746185818560,
+                    "thread_name": "MainThread"
+                  },
+                  {
+                    "bytes": 16777216,
+                    "elapsed_ns": 36109934,
+                    "host_phases": {
+                      "begin_log": {
+                        "thread_cpu_ns": 5310,
+                        "wall_ns": 5340
+                      },
+                      "copy_submit": {
+                        "thread_cpu_ns": 36075751,
+                        "wall_ns": 36073073
+                      },
+                      "device_sync": {
+                        "thread_cpu_ns": 4650,
+                        "wall_ns": 7280
+                      },
+                      "source_slice": {
+                        "thread_cpu_ns": 19941,
+                        "wall_ns": 19941
+                      },
+                      "target_slice": {
+                        "thread_cpu_ns": 4290,
+                        "wall_ns": 4300
+                      }
+                    },
+                    "host_residual_ns": 0,
+                    "metadata_after_both_rounds": true,
+                    "native_tid": 999274,
+                    "round": 1,
+                    "source_view": {
+                      "alignment_remainders": {
+                        "2097152": 737296,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746113982480,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 16777216,
+                      "shape": [
+                        16777216
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "target_view": {
+                      "alignment_remainders": {
+                        "2097152": 733200,
+                        "256": 16,
+                        "4096": 16
+                      },
+                      "contiguous": true,
+                      "data_ptr": 22746097201168,
+                      "device": "cuda:0",
+                      "dtype": "torch.uint8",
+                      "numel": 16777216,
+                      "shape": [
+                        16777216
+                      ],
+                      "storage_offset": 0,
+                      "stride": [
+                        1
+                      ]
+                    },
+                    "thread_ident": 22746185818560,
+                    "thread_name": "MainThread"
+                  }
+                ],
+                "same_source_view_address": true,
+                "same_target_view_address": true,
+                "service_begin_ns": 196502995695433,
+                "service_end_ns": 196503068145734,
+                "stream_after_both_rounds": 0
+              },
+              "logical_SHA_bytes": 16777216,
+              "op_id": 0,
+              "pipeline": {},
+              "replica_id": "local_slope_runtime_repeat_cpu/source0/hbm",
+              "role": "both"
+            }
+          ],
+          "staging_bytes": 67108864,
+          "worker": 4
+        },
+        {
+          "chunk_bytes": 33554432,
+          "execute_s": 8.830014849081635e-06,
+          "executor": "serial",
+          "records": [],
+          "staging_bytes": 67108864,
+          "worker": 5
+        }
+      ],
+      "executor": "serial",
+      "inventory_rpc_s": 0.0006073279946576804,
+      "plan": {
+        "chunk_bytes": 33554432,
+        "executor": "serial",
+        "local_slope_repeat": 2,
+        "local_slope_repeat_label": "host_repeat_16MiB",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 16777216,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "local_slope_runtime_repeat_cpu/source0/hbm",
+            "resources": [],
+            "source_epoch": "cpu_repeat/4",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "local_slope_runtime_repeat_cpu/host_repeat_16MiB/target0",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "local_slope_runtime_repeat_cpu/host_repeat_16MiB/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "local_slope_runtime_repeat_cpu/host_repeat_16MiB/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 16777216,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "prepare_rpc_s": 0.005566664010984823,
+      "prepare_s": 0.0061739920056425035,
+      "rpc": {
+        "execute": [],
+        "inventory": [],
+        "prepare": [],
+        "publish": []
+      },
+      "source_bytes": {
+        "local_slope_runtime_repeat_cpu/source0/hbm": 16777216
+      },
+      "timing_scope": "coordinator wall; excludes model layout before handoff",
+      "tx": "f316f379c9294eeabc4869a8e10838c3",
+      "verification": {
+        "algorithm": "SHA256 of every logical byte per operation",
+        "checked_bytes": 16777216,
+        "operations": {
+          "0": {
+            "n": 16777216,
+            "op_id": 0,
+            "source_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde",
+            "target_sha256": "f7615f14071531c515b07e35edb5ac7f8b1e8b9ed7a71f77ac5503508c256dde"
+          }
+        },
+        "passed": true
+      },
+      "verify_and_publish_s": 0.07017815101426095
+    },
+    "fresh_query_rpc": [],
+    "gate": {
+      "node27": {
+        "dram_current_bytes": 4228091904,
+        "dram_limit_bytes": 6442450944,
+        "hbm_absolute_upper_bytes": 1811939328,
+        "hbm_limit_bytes": 2147483648,
+        "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+        "peak_measured": false,
+        "planned_incremental_upper_bytes": 67108864,
+        "remaining_hbm_bytes": 335544320,
+        "require_idle": true,
+        "transactions": {
+          "4": [],
+          "5": []
+        }
+      },
+      "node28": {
+        "dram_current_bytes": 3469787136,
+        "dram_limit_bytes": 6442450944,
+        "hbm_absolute_upper_bytes": 1124073472,
+        "hbm_limit_bytes": 2147483648,
+        "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+        "peak_measured": false,
+        "planned_incremental_upper_bytes": 67108864,
+        "remaining_hbm_bytes": 1023410176,
+        "require_idle": true,
+        "transactions": {
+          "0": [],
+          "1": []
+        }
+      },
+      "node30": {
+        "dram_current_bytes": 3978616832,
+        "dram_limit_bytes": 6442450944,
+        "hbm_absolute_upper_bytes": 1281359872,
+        "hbm_limit_bytes": 2147483648,
+        "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+        "peak_measured": false,
+        "planned_incremental_upper_bytes": 67108864,
+        "remaining_hbm_bytes": 866123776,
+        "require_idle": true,
+        "transactions": {
+          "2": [],
+          "3": []
+        }
+      }
+    },
+    "inventory_end_ns": 196502988653879,
+    "model_frozen_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+      "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+    },
+    "prediction": null,
+    "preregistration_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_repeat_cpu_r02/measure/preregistration.json",
+      "sha256": "fcffc3b040cf3ec0f3284d85e90c8f2c3bed5c6c6910a031b95a7cc1bb661538"
+    },
+    "request_begin_ns": 196502988027021,
+    "request_to_filled_s": 0.080328436,
+    "request_to_published_s": 0.150507217,
+    "service_s": 0.072450301,
+    "worker_execute_s": 0.07247300198650919
+  }
+]

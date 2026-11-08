@@ -1,0 +1,11 @@
+# 按节点保存的自有物理XML候选
+
+node27/node29独立输入均为system version=2，覆盖8GPU、4HCA、8NUMA与全部sysfs PCI祖先。来源为本轮resource_map/provenance_r01的host/container raw；逐node manifest绑定输入与两份source SHA。CPU完整对照revision02每node360项通过，runtime_accepted/performance_accepted均false。
+
+每条PCI链保留完整root→leaf桥层，不将GPU1重排到NUMA1，不将shca1附到PCI31。CPU affinity取真实cpulist；PCI speed/width取当前协商sysfs值，net speed取port rate，均不声称是实测可持续带宽。未知字段省略并写unknown，runtime可能fallback单列。
+
+GPU/net gdr=0是保守实验策略，与物理图字段分离。rank/dev/GUID、GPU sm/gcn/arch、CPU架构元数据及GPU interconnect由新communicator填充，不从单rank dump复制或虚构全卡互联。相同物理BDF布局可产生字节相同的XML，节点身份和各自source SHA仍单独绑定；不把不同node的设备实体合并。
+
+build_owned_xml.py要求全新resource_map/xml_*目录，拒绝覆盖已有run。run_owned_startup.py按每个process的node绑定XML并校验manifest/source/input SHA；dump写新xml_startup_*目录且拒绝与输入相同。只允许startup：1MiB/流、1 iteration、4rank，两机GPU0/1，非性能。旧probe、原厂XML、default mapping和全局env未改。复制postexit证据函数只改wanted XML按node核对与summary字段，读证据helper独立适配新路径guard。
+
+CPU --emit-plan及四rank独立spec节点绑定通过，独立review将继续检查负例和runtime输出；主agent统一资源与实机准入。source/hash冻结由startup runner包含新wrapper/read helper/product helper/两XML/两manifest及旧probe源完成。生成时原manifest保存初次CPU检查，后续加强结果另存validation_revision02.json，没有覆盖原始结果。

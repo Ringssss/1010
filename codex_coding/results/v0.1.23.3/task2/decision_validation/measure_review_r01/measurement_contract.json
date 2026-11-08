@@ -1,0 +1,222 @@
+{
+  "schema_version": "decision_validation.minimum_measurement_contract.v1",
+  "development": "v0.1.23.3/task2",
+  "status": "CPU_contract_only_wait_case_gate",
+  "GPU_launches": 0,
+  "remote_writes": 0,
+  "signals": 0,
+  "case": {
+    "targets": [
+      {
+        "tp": 0,
+        "worker": 0,
+        "node": "node28",
+        "nbytes": 16777216
+      },
+      {
+        "tp": 1,
+        "worker": 0,
+        "node": "node28",
+        "nbytes": 16777216
+      }
+    ],
+    "base_dram": {
+      "worker": 0,
+      "node": "node28",
+      "blocks": 2,
+      "block_nbytes": 16777216,
+      "total_nbytes": 33554432
+    },
+    "hbm_cache_total_bytes": 33554432,
+    "hbm_cache_cap_by_worker": {
+      "0": 16777216,
+      "1": 16777216
+    },
+    "target_hbm_total_bytes": 33554432,
+    "executor": "serial",
+    "chunk_bytes": 33554432,
+    "staging_bytes_per_worker": 67108864
+  },
+  "gate": {
+    "required": "case report proves different source/layout decisions under same measured finite cost oracle and same constraints, or identifies one unresolved choice that this observation can resolve",
+    "case_gate_ready": false,
+    "future_GPU_pairable": null,
+    "fresh_runtime_admission": false,
+    "actual_worker_launch_plan_ref": null,
+    "new_run_ids": null,
+    "statement": "No GPU command executable before parent freezes fresh identities, budget, case decision signatures and exact new-run bindings."
+  },
+  "source_identity_contract": {
+    "nbytes": 16777216,
+    "same_logical_source_for_alternatives": true,
+    "same_identity_tp_offset_length": true,
+    "same_full_content_sha256": true,
+    "HBM_cache_materialized_from_registered_DRAM_base": true,
+    "placement_preparation_outside_restore_timer": true,
+    "pair_state": "warmed original pair 0:1; same worker session/epoch for calibration and holdout"
+  },
+  "calibration": [
+    {
+      "id": "cal_local_dram28",
+      "count": 1,
+      "ops": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "source_tier": "dram",
+          "target_tier": "hbm",
+          "nbytes": 16777216,
+          "role": "both"
+        }
+      ]
+    },
+    {
+      "id": "cal_remote_hbm30_to28",
+      "count": 1,
+      "ops": [
+        {
+          "src_w": 1,
+          "dst_w": 0,
+          "source_tier": "hbm",
+          "target_tier": "hbm",
+          "nbytes": 16777216,
+          "roles": {
+            "1": "source",
+            "0": "target"
+          }
+        }
+      ]
+    }
+  ],
+  "optional_control": {
+    "id": "control_local_hbm28",
+    "enabled": false,
+    "count_if_required": 1,
+    "reason_to_enable": "Only if the case gate requires an actual localHBM cost inequality; never as a blind repeat.",
+    "ops": [
+      {
+        "src_w": 0,
+        "dst_w": 0,
+        "source_tier": "hbm",
+        "target_tier": "hbm",
+        "nbytes": 16777216
+      }
+    ]
+  },
+  "holdout": {
+    "id": "holdout_two_op_mixed",
+    "count": 1,
+    "ops": [
+      {
+        "op_id": 0,
+        "tp": 0,
+        "src_w": 0,
+        "dst_w": 0,
+        "source_tier": "dram",
+        "target_tier": "hbm",
+        "nbytes": 16777216
+      },
+      {
+        "op_id": 1,
+        "tp": 1,
+        "src_w": 1,
+        "dst_w": 0,
+        "source_tier": "hbm",
+        "target_tier": "hbm",
+        "nbytes": 16777216
+      }
+    ],
+    "scope": "one mixed localDRAM then remoteHBM dependency/composition check on shared target worker; no concurrent pair capacity claim",
+    "must_freeze_before_dispatch": [
+      "observation scalar definition",
+      "coefficient inputs limited to calibration",
+      "predicted composition value or explicit nonpredictive status",
+      "error criterion",
+      "case selection signatures"
+    ],
+    "not_fit_input": true,
+    "no_recompute_from_holdout": true,
+    "no_repeat_default": true,
+    "selection_benefit_claim": false
+  },
+  "timing": {
+    "controller_clock": "single monotonic clock domain only",
+    "primary_observed": "prepare_s and execute_wall_s, load_begin_ns->all_targets_filled_ns",
+    "separate": "verify_and_publish_s and cache preparation",
+    "worker_diagnostics": [
+      "execute_s",
+      "records.elapsed_s",
+      "role",
+      "op_id",
+      "bytes"
+    ],
+    "source_target_elapsed_addition_allowed": false,
+    "cross_host_monotonic_subtraction_allowed": false,
+    "n_over_elapsed_as_constant_bandwidth_allowed": false,
+    "single_size_fixed_byte_fit_allowed": false,
+    "isolated_single_op_scope": "removes preceding-op wait; RPC skew/collective rendezvous wait remains visible",
+    "calibration_interpretation": "finite 16MiB service observation; no formal capacity profile"
+  },
+  "budget": {
+    "task_increment_limit_per_node_bytes": 2147483648,
+    "baseline": "fresh before-worker owned-container cgroup baseline; never substitute post-init baseline",
+    "dram_base_total_bytes": 33554432,
+    "sharded_reuse": true,
+    "no_additional_base_copy": true,
+    "target_retire_before_next_stage": true,
+    "cache_retire_and_rebuild_as_needed": true,
+    "runtime_staging_hash_temporaries_accounted_separately": true,
+    "full_physical_peak_verified": false,
+    "last_node28_observed_headroom_bytes": 29224960,
+    "margin_must_cover_actual_growth_before_admission": true
+  },
+  "prepared_reuse_plan": {
+    "runtime_worker_changed": false,
+    "source_refs": [
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/control.py",
+        "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/worker.py",
+        "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/service_cost.py",
+        "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/benchmarks/calibrated_recovery.py",
+        "sha256": "fe9b7b17bffbacbaf3e9fe091193d58dbe99056f6a4c2e1a450b73b3978a4c84"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/run_session.py",
+        "sha256": "42e15919480e57020f7a6dce3ebd1b41f1748d0148ef7b2f39cfab7c7583dae1"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/layout_validation/operations/control_layout.py",
+        "sha256": "f3154366e462c480aa41d513663a8302b18fa83ef13d25e7c871478dcd848ab6"
+      }
+    ],
+    "existing_controller_API": "fluidckpt.cluster.control.Cluster.transfer(plan, verify_before_ready=True)",
+    "collection_API": "fluidckpt.benchmarks.calibrated_recovery.execute_collection(..., collection_kind=\"synthetic_blocks\", clock_domain=CONTROLLER_CLOCK_DOMAIN)",
+    "call_sequence": [
+      "parent fresh guards/baseline/ports/exact new worker launch",
+      "reuse original mesh warm and postwarm budget gate",
+      "synth/adopt original two16MiB DRAM blocks, prepare only necessary cache outside loading windows",
+      "single localDRAM calibration, verify, retire target, leases/transactions check",
+      "single remoteHBM calibration with same logical block identity, verify, retire target, leases/transactions check",
+      "freeze inputs and combination expectation; run heldout mixed two-op plan once",
+      "retire own target/cache/base, matching STOP, independent exact-exit/old-keeper/XML guard and collect"
+    ],
+    "GPU_launch_command": null,
+    "command_status": "Deferred until case_gate_ready; old layout/minimal output names must never be rerun. Existing parent-run requires a new bounded thin controller/plan binding, not an immediate reusable launch command."
+  },
+  "formal_performance_ready": false,
+  "solver_capacity_profile": null,
+  "model_weights_ready_measured": false,
+  "refresh_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/decision_validation/measure_refresh_r01/summary.json",
+    "sha256": "21e4277c1005e06a4dbbf288927794c1bf59f51476bc3c78861f0663beb1c668"
+  }
+}

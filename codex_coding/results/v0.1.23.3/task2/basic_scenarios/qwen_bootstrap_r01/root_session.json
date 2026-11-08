@@ -1,0 +1,60 @@
+{
+  "nodes": {
+    "node27": {
+      "ip": "12.11.3.27",
+      "gpus": [
+        0,
+        1
+      ],
+      "container": "zjn-fluid-basic-1bce3897a2075b"
+    },
+    "node29": {
+      "ip": "12.11.3.29",
+      "gpus": [
+        0,
+        1
+      ],
+      "container": "zjn-fluid-basic-1bce3897a2075b"
+    }
+  },
+  "env": {
+    "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+    "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+    "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+    "NCCL_DEBUG": "WARN",
+    "AMD_SERIALIZE_KERNEL": "0",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "NCCL_SOCKET_IFNAME": "ib0",
+    "GLOO_SOCKET_IFNAME": "ib0",
+    "SGLANG_ROCM_USE_AITER_MOE": "0",
+    "NCCL_IB_HCA": "shca_0",
+    "HIP_VISIBLE_DEVICES": "0,1,2,3,4,5,6,7",
+    "SGLANG_KV_LAYOUT_HCU_FA": "false"
+  },
+  "members": [
+    [
+      "node27",
+      0
+    ],
+    [
+      "node27",
+      1
+    ],
+    [
+      "node29",
+      0
+    ],
+    [
+      "node29",
+      1
+    ]
+  ],
+  "endpoints": [
+    "http://12.11.3.27:33000",
+    "http://12.11.3.27:33001",
+    "http://12.11.3.29:33000",
+    "http://12.11.3.29:33001"
+  ],
+  "handoff": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/handoff"
+}

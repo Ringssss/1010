@@ -1,0 +1,9 @@
+# 建设收口与下一步
+
+本轮停止GPU扩矩阵。桥接证明实际DRAM-staged keeper路径正确且资源可回收；薄runner已完成T2固定复制布局的完整模型功能smoke。三场景CPU强simple与joint均同布局及有序操作，没有新增求解器或重复完整GPU策略比较的证据。
+
+继续复用可靠service model与共同合法NIC/transport机会：当前profile仍provisional，隔离probe的共享退化和GDR路径组合证据不得替换生产路径预测。小extent RPC/worker耗时可作为路径桥接参考，但不能定为固定capacity或物理S5-P。完整smoke的live target同步事件可验证应用执行窗口，仍混有软件共享源的serial依赖，无匹配控制组可单独归因硬件争用。
+
+当前无充分证据新增共享成本项。仅当同预算、同来源、同复制机会、同NIC合法机会下存在实际选源/布局差异，且生产执行证据表明当前service模型遗漏影响主指标的等待或干扰，才补一项必要评分/约束并有界验收T_ready。简单方法持续同解时采用简单方法；不通过新增有利场景救算法。
+
+审查脚本全为本地读文件；GPU/HTTP/SSH调用0，新增GPU样本0。raw GPU、失败初审及重试均保留。

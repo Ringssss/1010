@@ -1,0 +1,183 @@
+{
+  "analysis_predeclared_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_cpu_r04/predeclared_protocol.json",
+    "sha256": "aca3c75f2ea2f8a0581a7f7d045a913bf99aad513487233eccf4c512bd2f0585"
+  },
+  "experiment_stage": "C1",
+  "prediction_ref": null,
+  "protocol": {
+    "anchor_id": "L3_repeat",
+    "bootstrap_bytes": 100663296,
+    "cases": [
+      {
+        "K": 2,
+        "N_mib": 64,
+        "expected_chunk_mib": [
+          32,
+          32
+        ],
+        "id": "L3",
+        "op_mib": [
+          32,
+          32
+        ]
+      },
+      {
+        "K": 1,
+        "N_mib": 32,
+        "expected_chunk_mib": [
+          32
+        ],
+        "id": "L1",
+        "op_mib": [
+          32
+        ]
+      },
+      {
+        "K": 2,
+        "N_mib": 64,
+        "expected_chunk_mib": [
+          32,
+          16,
+          16
+        ],
+        "id": "L4",
+        "op_mib": [
+          48,
+          16
+        ]
+      },
+      {
+        "K": 1,
+        "N_mib": 64,
+        "expected_chunk_mib": [
+          32,
+          32
+        ],
+        "id": "L2",
+        "op_mib": [
+          64
+        ]
+      },
+      {
+        "K": 1,
+        "N_mib": 96,
+        "expected_chunk_mib": [
+          32,
+          32,
+          32
+        ],
+        "id": "L5",
+        "op_mib": [
+          96
+        ]
+      },
+      {
+        "K": 2,
+        "N_mib": 64,
+        "expected_chunk_mib": [
+          32,
+          32
+        ],
+        "id": "L3_repeat",
+        "op_mib": [
+          32,
+          32
+        ]
+      }
+    ],
+    "gates": {
+      "drift": {
+        "anchor_relative": 0.1,
+        "floor_ns": 20000,
+        "observation_floor_ns": 5000
+      },
+      "independent": {
+        "controller_execute_abs_ns": 1000000,
+        "controller_execute_relative": 0.2,
+        "full_filled_abs_ns": 2000000,
+        "full_filled_relative": 0.2,
+        "service_abs_ns": 50000,
+        "service_relative": 0.2,
+        "worker_abs_ns": 250000,
+        "worker_relative": 0.2
+      },
+      "ledger": {
+        "exact_integer_closure": true,
+        "legacy_float_tolerance_ns": 1000
+      },
+      "no_more_than_eight_requests": true,
+      "published_prediction": null,
+      "structure": {
+        "byte32_E": 4,
+        "c_E": 2,
+        "d_E": 2,
+        "fifth_consistency_E": 4,
+        "max_residual_E": 2
+      },
+      "weights_ready_prediction": null
+    },
+    "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+    "new_session_holdout": true,
+    "order": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5",
+      "L3_repeat"
+    ],
+    "repetitions": 1,
+    "schema_version": "cost-ledger-v1",
+    "source_reused_within_session": true,
+    "stage": "C1",
+    "state_contract": {
+      "CUDA_events": 0,
+      "chunk_bytes": 33554432,
+      "configuration_id": "singleworker_node27_gpu0_local_native_v1",
+      "control_mode": "compact",
+      "copy_rounds": 1,
+      "executor": "serial",
+      "handler": "native_ThreadingHTTPServer_request_thread",
+      "inventory_mode": "cached",
+      "logger": "native_json_stdout",
+      "path": "local_hbm",
+      "pretouch": false,
+      "profile_execute": false,
+      "queues": 0,
+      "source_bytes": 100663296,
+      "source_tier": "hbm",
+      "source_worker": 0,
+      "target_allocation": "fresh_exact_size_each_request",
+      "target_mode": "replica",
+      "target_tier": "hbm",
+      "target_worker": 0,
+      "target_writes_before": 0,
+      "topology": "single_worker_node27_gpu0_world1"
+    },
+    "training_ids": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5"
+    ]
+  },
+  "session": "cost_ledger_runtime_C1_cpu_execution_cpu_r04",
+  "setup_directory": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_cpu_r04/prepared",
+  "workers": [
+    {
+      "actual_bdf": "0000:09:00.0",
+      "bdf": "0000:09:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "endpoint": "http://127.0.0.1:35647",
+      "gpu": 0,
+      "node": "node27",
+      "numa": 0,
+      "pid": 12345,
+      "pid_start_ticks": 123,
+      "worker": 0
+    }
+  ]
+}

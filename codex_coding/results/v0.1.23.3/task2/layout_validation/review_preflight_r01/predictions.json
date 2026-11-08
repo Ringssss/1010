@@ -1,0 +1,282 @@
+{
+  "schema_version": "fluidckpt.layout_validation.review_predictions.v1",
+  "development": "v0.1.23.3/task2",
+  "created_utc": "2026-10-09T15:28:03.845978+00:00",
+  "status": "frozen_before_new_GPU_runs",
+  "scope": "two 16MiB HBM cached synthetic blocks; selected original executor only",
+  "workers": {
+    "0": {
+      "node": "node28",
+      "physical_gpu": 0,
+      "BDF": "0000:09:00.0",
+      "NUMA": 0
+    },
+    "1": {
+      "node": "node30",
+      "physical_gpu": 4,
+      "BDF": "0000:85:00.0",
+      "NUMA": 4
+    }
+  },
+  "layouts": {
+    "A": {
+      "cache_locations": [
+        0,
+        1
+      ],
+      "cache_bytes_by_worker": [
+        16777216,
+        16777216
+      ],
+      "ops": [
+        {
+          "tp": 0,
+          "src_w": 0,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "local_hbm"
+        },
+        {
+          "tp": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "local_hbm"
+        }
+      ],
+      "expected_records_by_worker": {
+        "0": [
+          {
+            "tp": 0,
+            "role": "both",
+            "bytes": 16777216,
+            "kind": "local_hbm"
+          }
+        ],
+        "1": [
+          {
+            "tp": 1,
+            "role": "both",
+            "bytes": 16777216,
+            "kind": "local_hbm"
+          }
+        ]
+      },
+      "cross_node_payload_bytes": 0
+    },
+    "B": {
+      "cache_locations": [
+        0,
+        0
+      ],
+      "cache_bytes_by_worker": [
+        33554432,
+        0
+      ],
+      "ops": [
+        {
+          "tp": 0,
+          "src_w": 0,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "local_hbm"
+        },
+        {
+          "tp": 1,
+          "src_w": 0,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "network"
+        }
+      ],
+      "expected_records_by_worker": {
+        "0": [
+          {
+            "tp": 0,
+            "role": "both",
+            "bytes": 16777216,
+            "kind": "local_hbm"
+          },
+          {
+            "tp": 1,
+            "role": "source",
+            "bytes": 16777216,
+            "kind": "network"
+          }
+        ],
+        "1": [
+          {
+            "tp": 1,
+            "role": "target",
+            "bytes": 16777216,
+            "kind": "network"
+          }
+        ]
+      },
+      "cross_node_payload_bytes": 16777216
+    },
+    "C": {
+      "cache_locations": [
+        1,
+        1
+      ],
+      "cache_bytes_by_worker": [
+        0,
+        33554432
+      ],
+      "ops": [
+        {
+          "tp": 0,
+          "src_w": 1,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "network"
+        },
+        {
+          "tp": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "local_hbm"
+        }
+      ],
+      "expected_records_by_worker": {
+        "0": [
+          {
+            "tp": 0,
+            "role": "target",
+            "bytes": 16777216,
+            "kind": "network"
+          }
+        ],
+        "1": [
+          {
+            "tp": 0,
+            "role": "source",
+            "bytes": 16777216,
+            "kind": "network"
+          },
+          {
+            "tp": 1,
+            "role": "both",
+            "bytes": 16777216,
+            "kind": "local_hbm"
+          }
+        ]
+      },
+      "cross_node_payload_bytes": 16777216
+    },
+    "D": {
+      "cache_locations": [
+        1,
+        0
+      ],
+      "cache_bytes_by_worker": [
+        16777216,
+        16777216
+      ],
+      "ops": [
+        {
+          "tp": 0,
+          "src_w": 1,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "network"
+        },
+        {
+          "tp": 1,
+          "src_w": 0,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "network"
+        }
+      ],
+      "expected_records_by_worker": {
+        "0": [
+          {
+            "tp": 0,
+            "role": "target",
+            "bytes": 16777216,
+            "kind": "network"
+          },
+          {
+            "tp": 1,
+            "role": "source",
+            "bytes": 16777216,
+            "kind": "network"
+          }
+        ],
+        "1": [
+          {
+            "tp": 0,
+            "role": "source",
+            "bytes": 16777216,
+            "kind": "network"
+          },
+          {
+            "tp": 1,
+            "role": "target",
+            "bytes": 16777216,
+            "kind": "network"
+          }
+        ]
+      },
+      "cross_node_payload_bytes": 33554432
+    }
+  },
+  "common_budget": {
+    "total_cache_bytes": 33554432,
+    "allowed_cache_bytes_by_worker": [
+      33554432,
+      33554432
+    ],
+    "source_DRAM_bytes_by_worker": [
+      33554432,
+      0
+    ],
+    "target_bytes_by_worker": [
+      16777216,
+      16777216
+    ],
+    "staging_bytes_by_worker": [
+      67108864,
+      67108864
+    ],
+    "incremental_DRAM_limit_per_node": 2147483648,
+    "incremental_HBM_limit_per_node": 2147483648,
+    "dynamic_admission_margin_bytes": 8388608
+  },
+  "hard_conditions": [
+    "fixed source catalog identity/epoch/generation and full target SHA",
+    "actual plan and worker record source/target/kind/role/bytes/order match frozen ops",
+    "same explicit physical allocation budget across layouts",
+    "original serial32MiB chunk64MiB staging",
+    "cache/build/restore/retire lease and transaction evidence",
+    "own actual IBext_v8 shca_0:1 gdr0 GPU/NIC chain verified from logs and raw XML",
+    "same controller monotonic filled/published phase math",
+    "fresh original preworker baseline and owned exact exit"
+  ],
+  "weak_time_hypotheses": {
+    "A_filled_is_shortest": "compare against all B/C/D; report supported/refuted/unresolved",
+    "D_filled_is_longest": "compare against all A/B/C; report supported/refuted/unresolved",
+    "B_vs_C": "unknown before measurement"
+  },
+  "execution_semantics": {
+    "A": "two local operations can advance independently on disjoint workers",
+    "B": "worker0 local block0 then forward block1; worker1 waits forward block1",
+    "C": "reverse block0 then worker1 local block1",
+    "D": "reverse block0 then forward block1; sequential pair collectives",
+    "timing_start": "controller transfer before inventory/prepare",
+    "filled_end": "controller observes all synchronized execute returns",
+    "published_end": "controller observes full-SHA verification and publication returns",
+    "worker_elapsed": "compare per-worker records; never sum cross-node clocks",
+    "gdr0_host_pages": "runtime internal host page NUMA location unknown without residency evidence"
+  },
+  "claims": {
+    "formal_capacity_profile_admitted": false,
+    "performance_ready": false,
+    "model_weights_ready_measured": false,
+    "solver_decision_increment_proven": false,
+    "full_physical_peak_verified": false
+  }
+}

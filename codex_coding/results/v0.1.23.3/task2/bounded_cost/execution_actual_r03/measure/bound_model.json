@@ -1,0 +1,218 @@
+{
+  "attestation_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/migration_attestation.json",
+    "sha256": "f7bbfb9563b5da6a859a4a4f4f51df251235b28d682673e070aa9fe429d46499"
+  },
+  "model": {
+    "binding": {
+      "artifact_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+        "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+      },
+      "attestation_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_actual_r03/measure/migration_attestation.json",
+        "sha256": "f7bbfb9563b5da6a859a4a4f4f51df251235b28d682673e070aa9fe429d46499"
+      },
+      "incarnations": [
+        [
+          "bounded_cost_runtime_r03",
+          "bounded_cost_runtime_r03/node28/0/5838/d590b8321ffd41be8a2ccc8bf978af27"
+        ],
+        [
+          "bounded_cost_runtime_r03",
+          "bounded_cost_runtime_r03/node28/1/5839/adf0a3c654b54c7589bdab17fd2ade6c"
+        ],
+        [
+          "bounded_cost_runtime_r03",
+          "bounded_cost_runtime_r03/node30/4/5839/70ebd3229a85427dbf66da6d435f37f9"
+        ],
+        [
+          "bounded_cost_runtime_r03",
+          "bounded_cost_runtime_r03/node30/5/5838/597bb989d0b048b8b3c41f778a650c1f"
+        ],
+        [
+          "bounded_cost_runtime_r03",
+          "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94"
+        ],
+        [
+          "bounded_cost_runtime_r03",
+          "bounded_cost_runtime_r03/node27/4/5788/192109ea1cfb41d5bb58c4c9e93985e5"
+        ]
+      ],
+      "model_sha256": "3eaac58b63756c6fb0328eec4e6168195fba23467c5da744d843325d27cb61fb",
+      "source_lineage": {
+        "2:dram:4->4": {
+          "generation": 1,
+          "identity": "c4762e0576175160b3863aaba985842727996ddef01e9a918b098269dccf9a31",
+          "numa": 4,
+          "replica_id": "bounded_cost_runtime_r03/source1/dram",
+          "source_epoch": "bounded_cost_runtime_r03/node30/4/5839/70ebd3229a85427dbf66da6d435f37f9",
+          "tier": "dram",
+          "worker": 2
+        },
+        "4:hbm:0->4": {
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "numa": 0,
+          "replica_id": "bounded_cost_runtime_r03/source0/hbm",
+          "source_epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "tier": "hbm",
+          "worker": 4
+        },
+        "4:ssd:0->5": {
+          "generation": 1,
+          "identity": "e5d80a080d0c81bf403f5e644691daf38c0b681ac4d7c3f86e91a34a1ab8c15d",
+          "numa": 0,
+          "replica_id": "bounded_cost_runtime_r03/source2/ssd",
+          "source_epoch": "bounded_cost_runtime_r03/node27/0/5786/a0cd85bdb80445f5b52bc1ffebe87e94",
+          "tier": "ssd",
+          "worker": 4
+        }
+      }
+    },
+    "chunk_bytes": 33554432,
+    "control_mode": "cached",
+    "dispatch_rule": "Median of nine aggregate training controller-minus-maximum-worker residuals; not exact dispatch decomposition.",
+    "dispatch_s": 0.002674445990123786,
+    "domain": {
+      "batch_1mib_qualification_separate": true,
+      "max_ops_per_path": 1,
+      "max_request_ops": 3,
+      "required_binding_warm_pairs": [
+        "2:4",
+        "4:5"
+      ],
+      "simultaneous_shared_contention_certified": false,
+      "single_op_bytes": [
+        4194304,
+        16777216
+      ],
+      "warm_only": true
+    },
+    "executor": "serial",
+    "full_request_overhead": {
+      "publication_size_model_identified": false,
+      "rule": "Original nine training-request medians, same prior cached workflow; diagnostic portability hypothesis.",
+      "to_filled_without_execute_s": 0.018874934001407318,
+      "verify_publish_s": 0.01607988600153476
+    },
+    "paths": {
+      "2:dram:4->4": {
+        "byte_slope_s_per_byte": 9.816145928505844e-11,
+        "endpoints": [
+          2,
+          4
+        ],
+        "first_pair_s": null,
+        "fit_bytes": [
+          4194304,
+          16777216
+        ],
+        "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope",
+        "kind": "effective_affine",
+        "operation_kind": "network",
+        "operation_s": 0.0003707910024483378,
+        "single_op_domain_bytes": [
+          4194304,
+          16777216
+        ],
+        "source_numa": 4,
+        "source_tier": "dram",
+        "warm_GBps": 10.187297614392882
+      },
+      "4:hbm:0->4": {
+        "byte_slope_s_per_byte": null,
+        "empirical_service_range_s": [
+          0.00021949299843981862,
+          0.000333784002577886
+        ],
+        "endpoints": [
+          4,
+          4
+        ],
+        "first_pair_s": null,
+        "fit_rule": "Arithmetic mean of all four original plus prescribed-retry single-op service observations.",
+        "kind": "bounded_constant",
+        "operation_kind": "local_hbm",
+        "operation_s": 0.00028079600451746956,
+        "single_op_domain_bytes": [
+          4194304,
+          16777216
+        ],
+        "source_numa": 0,
+        "source_tier": "hbm",
+        "warm_GBps": null
+      },
+      "4:ssd:0->5": {
+        "byte_slope_s_per_byte": 1.0888698900868299e-09,
+        "endpoints": [
+          4,
+          5
+        ],
+        "first_pair_s": null,
+        "fit_bytes": [
+          4194304,
+          16777216
+        ],
+        "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope",
+        "kind": "effective_affine",
+        "operation_kind": "peer",
+        "operation_s": 0.0029536396614275873,
+        "single_op_domain_bytes": [
+          4194304,
+          16777216
+        ],
+        "source_numa": 0,
+        "source_tier": "ssd",
+        "warm_GBps": 0.9183833707811104
+      }
+    },
+    "request_rule": "Median of six aggregate single-op target-minus-service residuals, added once after the DAG; shared-overhead hypothesis.",
+    "request_s": 5.053049244452268e-05,
+    "schema_version": "bounded_warm_serial_v1",
+    "scope": "Bounded single-op effective service, serial source/target dependencies, warm-only explicit incarnation binding; no solver or capacity claim.",
+    "worker_physical": [
+      {
+        "gpu": 0,
+        "node": "node28",
+        "numa": 0,
+        "worker": 0
+      },
+      {
+        "gpu": 1,
+        "node": "node28",
+        "numa": 3,
+        "worker": 1
+      },
+      {
+        "gpu": 4,
+        "node": "node30",
+        "numa": 4,
+        "worker": 2
+      },
+      {
+        "gpu": 5,
+        "node": "node30",
+        "numa": 7,
+        "worker": 3
+      },
+      {
+        "gpu": 0,
+        "node": "node27",
+        "numa": 0,
+        "worker": 4
+      },
+      {
+        "gpu": 4,
+        "node": "node27",
+        "numa": 4,
+        "worker": 5
+      }
+    ]
+  },
+  "source_frozen_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "training_in_this_session": false
+}

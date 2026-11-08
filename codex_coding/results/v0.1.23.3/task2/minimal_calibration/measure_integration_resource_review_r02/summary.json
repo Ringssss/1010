@@ -1,0 +1,238 @@
+{
+  "schema_version": "fluidckpt.minimal_calibration.integration_resource_review.v1",
+  "checks": {
+    "controller_application_passed": true,
+    "application_resource_gate_passed": true,
+    "two16MiB_scope": true,
+    "node28_sampled_DRAM_within_limit": true,
+    "node28_matching_STOP_exact_cleanup": true,
+    "node28_plan_SHA": true,
+    "node28_after_container_and_sources": true,
+    "node28_retained_owner_identities": true,
+    "node28_retained_catalogs": true,
+    "node28_noOOM_pids1": true,
+    "node30_sampled_DRAM_within_limit": true,
+    "node30_matching_STOP_exact_cleanup": true,
+    "node30_plan_SHA": true,
+    "node30_after_container_and_sources": true,
+    "node30_retained_owner_identities": true,
+    "node30_retained_catalogs": true,
+    "node30_noOOM_pids1": true,
+    "source_concentrated_full32MiB_SHA": true,
+    "target_local_distributed_full32MiB_SHA": true,
+    "same_cache_budget": true,
+    "no_owned_replicas_or_cleanup_errors": true
+  },
+  "observed_checks_passed": true,
+  "worker_resource_rows": [
+    {
+      "node": "node28",
+      "worker_pid": 99,
+      "worker_start_ticks": "487269393",
+      "preworker_container_memory_current_bytes": 17010688,
+      "lifetime_sampled_cgroup_peak_bytes": 2121732096,
+      "lifetime_sampled_increment_bytes": 2104721408,
+      "incremental_DRAM_limit_bytes": 2147483648,
+      "observed_margin_bytes": 42762240,
+      "observed_usage_within_2GiB": true,
+      "kernel_memory_peak_available": false,
+      "full_physical_peak_verified": false,
+      "sampling_period_s": 0.25,
+      "projected_postwarm_runtime_plus_application_bytes": 2098905088,
+      "observed_increment_minus_gate_projection_bytes": 5816320,
+      "stop_reason": "owned_stop_marker",
+      "supervisor_cleanup_passed": true,
+      "fresh_PID_absent_and_group_empty": true,
+      "after_pids_current": "1",
+      "startup_ready_s": 16.53322701063007
+    },
+    {
+      "node": "node30",
+      "worker_pid": 112,
+      "worker_start_ticks": "487270213",
+      "preworker_container_memory_current_bytes": 32575488,
+      "lifetime_sampled_cgroup_peak_bytes": 2102640640,
+      "lifetime_sampled_increment_bytes": 2070065152,
+      "incremental_DRAM_limit_bytes": 2147483648,
+      "observed_margin_bytes": 77418496,
+      "observed_usage_within_2GiB": true,
+      "kernel_memory_peak_available": false,
+      "full_physical_peak_verified": false,
+      "sampling_period_s": 0.25,
+      "projected_postwarm_runtime_plus_application_bytes": 2069721088,
+      "observed_increment_minus_gate_projection_bytes": 344064,
+      "stop_reason": "owned_stop_marker",
+      "supervisor_cleanup_passed": true,
+      "fresh_PID_absent_and_group_empty": true,
+      "after_pids_current": "1",
+      "startup_ready_s": 16.280473203398287
+    }
+  ],
+  "layout_observations": [
+    {
+      "layout": "source_concentrated",
+      "synthetic_blocks_published_ready_s": 0.069624693,
+      "logical_cache_bytes": 33554432,
+      "physical_cache_allocated_bytes": 33554432,
+      "cache_build_s": 0.09757955799796036,
+      "verified_bytes": 33554432,
+      "target_SHA256": [
+        "f51bc37cf41d2991f01bafa7b4543fbded4508256d6faeddb76b9843170bb853",
+        "5913d053013df3634a03d5097cff91ad14bd3343ce256834a533bf0f3929a97b"
+      ],
+      "physical_ledger": [
+        {
+          "worker": 0,
+          "base_dram_bytes": 33554432,
+          "cache_hbm_bytes": 33554432,
+          "target_hbm_bytes": 16777216,
+          "staging_hbm_bytes": 67108864,
+          "projected_hbm_bytes": 117440512,
+          "conservative_allocator_peak_bytes": 117440512,
+          "driver_context_peak_verified": false,
+          "sampled_hbm_free_bytes": 67949821952,
+          "sampled_hbm_allocated_bytes": 100663296,
+          "sampled_hbm_reserved_bytes": 100663296
+        },
+        {
+          "worker": 1,
+          "base_dram_bytes": 0,
+          "cache_hbm_bytes": 0,
+          "target_hbm_bytes": 16777216,
+          "staging_hbm_bytes": 67108864,
+          "projected_hbm_bytes": 83886080,
+          "conservative_allocator_peak_bytes": 83886080,
+          "driver_context_peak_verified": false,
+          "sampled_hbm_free_bytes": 67985473536,
+          "sampled_hbm_allocated_bytes": 67108864,
+          "sampled_hbm_reserved_bytes": 67108864
+        }
+      ]
+    },
+    {
+      "layout": "target_local_distributed",
+      "synthetic_blocks_published_ready_s": 0.04322658,
+      "logical_cache_bytes": 33554432,
+      "physical_cache_allocated_bytes": 33554432,
+      "cache_build_s": 0.0783575599998585,
+      "verified_bytes": 33554432,
+      "target_SHA256": [
+        "f51bc37cf41d2991f01bafa7b4543fbded4508256d6faeddb76b9843170bb853",
+        "5913d053013df3634a03d5097cff91ad14bd3343ce256834a533bf0f3929a97b"
+      ],
+      "physical_ledger": [
+        {
+          "worker": 0,
+          "base_dram_bytes": 33554432,
+          "cache_hbm_bytes": 16777216,
+          "target_hbm_bytes": 16777216,
+          "staging_hbm_bytes": 67108864,
+          "projected_hbm_bytes": 100663296,
+          "conservative_allocator_peak_bytes": 100663296,
+          "driver_context_peak_verified": false,
+          "sampled_hbm_free_bytes": 67966599168,
+          "sampled_hbm_allocated_bytes": 83886080,
+          "sampled_hbm_reserved_bytes": 83886080
+        },
+        {
+          "worker": 1,
+          "base_dram_bytes": 0,
+          "cache_hbm_bytes": 16777216,
+          "target_hbm_bytes": 16777216,
+          "staging_hbm_bytes": 67108864,
+          "projected_hbm_bytes": 100663296,
+          "conservative_allocator_peak_bytes": 100663296,
+          "driver_context_peak_verified": false,
+          "sampled_hbm_free_bytes": 67968696320,
+          "sampled_hbm_allocated_bytes": 83886080,
+          "sampled_hbm_reserved_bytes": 83886080
+        }
+      ]
+    }
+  ],
+  "evidence_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_integration_controller_r02/summary.json",
+      "sha256": "3e21648d1c8d3dd490e4dbd07ec6175159ad354ea39bbfea9d396b07894864bd"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_product_r02/execution.json",
+      "sha256": "2eac8f6e0f91e60d9a1cb8d22e3f50f7ee32fe28e4137208eb51024423f20e67"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json",
+      "sha256": "1f63a9b35227b4f02f9fbd48770ff9166c7a9cb737631a16b8e4621060df4241"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node28_r02/raw/integration_worker_node28_r02/supervisor.summary.json",
+      "sha256": "83b7eecbde83dbb65178fec419bc5780fde53b3fbfb80b3503fc741d6bc28cf0"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node28_r02/raw/integration_worker_node28_r02/worker.owner.json",
+      "sha256": "40b849a47686aab84da704c235e446081960eab2d9ac02730df4e07162c4efad"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node28_r02/raw/integration_worker_node28_r02/worker.log",
+      "sha256": "23ee64ee4e88f0b63cd3ca4c4b6c233bc4929aa2cb17416d9cce621a388833df"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node28_r02/raw/integration_worker_node28_r02/STOP.json",
+      "sha256": "9046c1af18ae4a2da2755dcb271b94846b294da9294be1d55e0344ac1b3303a4"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_cleanup_audit_node28_r02/stdout.json",
+      "sha256": "656d3c6b6f64b664d71d1d17f270409a9fecba75a10e58c7676b5d1e00eda263"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_before_integration_r02_node28_r01/stdout.json",
+      "sha256": "a8b7cf06f6f5d203043018a798fc103f60d2840f6eec41062c8b46cea9cbe08d"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_after_integration_r02_node28_r01/stdout.json",
+      "sha256": "b690f56f7b1295e7131bc45daef3cc38402db37d2acd05c2eb1f2f8812fe00fe"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node28_r02/raw/worker_session_r02/node28.runtime.dump.xml",
+      "sha256": "28f675b13247dd99422e70563c947d686a321381e764c27f60a6fad037518212"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node30_r02/raw/integration_worker_node30_r02/supervisor.summary.json",
+      "sha256": "39d6718a11d00afddfd451c3fd2c35218968b344402769fbae3390c6005e13da"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node30_r02/raw/integration_worker_node30_r02/worker.owner.json",
+      "sha256": "5bd6afce5b0ff46e63815c9a9100a8171f6aed29973e5b85fadf6bab010e763a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node30_r02/raw/integration_worker_node30_r02/worker.log",
+      "sha256": "236f349a7c27981d31dfb8b2cfe6cfeaaefa754dac7e6fa22b0ad64e02916c34"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node30_r02/raw/integration_worker_node30_r02/STOP.json",
+      "sha256": "9046c1af18ae4a2da2755dcb271b94846b294da9294be1d55e0344ac1b3303a4"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_cleanup_audit_node30_r02/stdout.json",
+      "sha256": "f0011fd2ad5615d58c30372b0b1659f5d156001217805c6ffd80e2d24520cfd2"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_before_integration_r02_node30_r01/stdout.json",
+      "sha256": "023ed9867ec5f12d51430179b4ccd0f2736dd931b851103de73f265f1b7bdf4f"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_guard_after_integration_r02_node30_r01/stdout.json",
+      "sha256": "fcc31fb9b57bff2a236dff688414d5e3b643fec4639f626fcfc5d68fae0da6cf"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node30_r02/raw/worker_session_r02/node30.runtime.dump.xml",
+      "sha256": "3c2fc05e09d7d11fbc0d28d17ca6996e276018fd15e434b4d78e64de87013321"
+    }
+  ],
+  "automatic_planner_admitted": false,
+  "model_weights_ready_measured": false,
+  "formal_performance_ready": false,
+  "full_physical_peak_verified": false,
+  "scope": "one original serial product executor run; two16MiB synthetic blocks; current shared system load; lifetime samples plus application ledger, not complete physical peak proof",
+  "micro64_budget_failure_preserved": true,
+  "r01_stale_guard_mesh_failure_preserved": true
+}

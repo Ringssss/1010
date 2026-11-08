@@ -1,0 +1,788 @@
+{
+  "schema_version": 1,
+  "request": {
+    "schema_version": 1,
+    "scope": "qwen_tp2",
+    "executor": "serial",
+    "block_bytes": 1073741824,
+    "base_ids": [
+      "model/remote/0",
+      "model/remote/1"
+    ],
+    "managed_ids": [
+      "model/gpu/0",
+      "model/gpu/1",
+      "model/joint/0",
+      "model/joint/1"
+    ],
+    "targets": [
+      {
+        "key": "qwen_tp2/0",
+        "worker": 0,
+        "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+        "tp": 0,
+        "n": 35164859056,
+        "off": 0
+      },
+      {
+        "key": "qwen_tp2/1",
+        "worker": 1,
+        "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+        "tp": 1,
+        "n": 35164859056,
+        "off": 0
+      }
+    ],
+    "budget": {
+      "tier_bytes": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "temporary_tier_bytes": {
+        "dram": 0,
+        "hbm": 0
+      },
+      "locations": [
+        {
+          "worker": 0,
+          "tier": "hbm",
+          "max_bytes": 8589934592,
+          "reserve_free_bytes": 42949672960,
+          "temporary_bytes": 0
+        },
+        {
+          "worker": 1,
+          "tier": "hbm",
+          "max_bytes": 8589934592,
+          "reserve_free_bytes": 42949672960,
+          "temporary_bytes": 0
+        },
+        {
+          "worker": 2,
+          "tier": "hbm",
+          "max_bytes": 8589934592,
+          "reserve_free_bytes": 2147483648,
+          "temporary_bytes": 0
+        },
+        {
+          "worker": 3,
+          "tier": "hbm",
+          "max_bytes": 8589934592,
+          "reserve_free_bytes": 2147483648,
+          "temporary_bytes": 0
+        },
+        {
+          "worker": 0,
+          "tier": "dram",
+          "max_bytes": 2147483648,
+          "reserve_free_bytes": 2147483648,
+          "temporary_bytes": 0
+        },
+        {
+          "worker": 1,
+          "tier": "dram",
+          "max_bytes": 2147483648,
+          "reserve_free_bytes": 2147483648,
+          "temporary_bytes": 0
+        }
+      ]
+    },
+    "max_candidates": 2048,
+    "minimum_gain_s": 0.001
+  },
+  "initial_state": "b69335ebef0fe27389579dfa63e79abcb4203f3d125d3daa2ad936706ef91270",
+  "profile_hash": "99a9eb1ba8ab830fdf2790feafa6e31b303c97c8f6fa62e0727a45a673bdb6b6",
+  "protected_source_ids": [
+    "model/remote/0",
+    "model/remote/1"
+  ],
+  "profile_provenance": "one current-hardware 1GiB sample per path, two ranks; contiguous targets, provisional",
+  "limits": {
+    "tiers": {
+      "dram": 2147483648,
+      "hbm": 8589934592
+    },
+    "locations": {
+      "0:hbm": 8589934592,
+      "1:hbm": 8589934592,
+      "2:hbm": 8589934592,
+      "3:hbm": 8589934592,
+      "0:dram": 2147483648,
+      "1:dram": 2147483648
+    },
+    "physical": {
+      "hbm:0": 24842862592,
+      "hbm:1": 24842862592,
+      "hbm:2": 65668644864,
+      "hbm:3": 65668644864,
+      "dram:node27:0": 51780145152,
+      "dram:node27:3": 58008276992
+    },
+    "peak_tiers": {
+      "dram": 2147483648,
+      "hbm": 8589934592
+    },
+    "peak_locations": {
+      "0:hbm": 8589934592,
+      "1:hbm": 8589934592,
+      "2:hbm": 8589934592,
+      "3:hbm": 8589934592,
+      "0:dram": 2147483648,
+      "1:dram": 2147483648
+    },
+    "peak_physical": {
+      "hbm:0": 24842862592,
+      "hbm:1": 24842862592,
+      "hbm:2": 65668644864,
+      "hbm:3": 65668644864,
+      "dram:node27:0": 51780145152,
+      "dram:node27:3": 58008276992
+    },
+    "groups": {
+      "hbm:0": [
+        "0:hbm"
+      ],
+      "hbm:1": [
+        "1:hbm"
+      ],
+      "hbm:2": [
+        "2:hbm"
+      ],
+      "hbm:3": [
+        "3:hbm"
+      ],
+      "dram:node27:0": [
+        "0:dram"
+      ],
+      "dram:node27:3": [
+        "1:dram"
+      ]
+    }
+  },
+  "candidates": {
+    "count": 400,
+    "coverage": [
+      {
+        "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+        "tp": 0,
+        "off": 0,
+        "n": 35164859056,
+        "blocks": 33
+      },
+      {
+        "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+        "tp": 1,
+        "off": 0,
+        "n": 35164859056,
+        "blocks": 33
+      }
+    ],
+    "filtered": {},
+    "scope": "full demand blocks plus reusable existing allocations; candidate_only is never publication"
+  },
+  "selected": [
+    {
+      "id": "managed/a025a03c271ce55f24a69d98cbbd76cf",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 20401094656,
+      "n": 1073741824,
+      "worker": 0,
+      "tier": "dram",
+      "numa": 0
+    },
+    {
+      "id": "managed/55e1c36b085e4734492b5ceb8de31905",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 4294967296,
+      "n": 1073741824,
+      "worker": 0,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/5b16521f766268c4535872913b3f1a0c",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 12884901888,
+      "n": 1073741824,
+      "worker": 0,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/6edb5e6920d136bbcc8409fb2d8e2ba8",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 15032385536,
+      "n": 1073741824,
+      "worker": 0,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/b681d49fc424cc1a2beae23e29dc6de4",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 27917287424,
+      "n": 1073741824,
+      "worker": 0,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/bd4f249872b80459c5aeca79e512f220",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 22548578304,
+      "n": 1073741824,
+      "worker": 1,
+      "tier": "dram",
+      "numa": 3
+    },
+    {
+      "id": "managed/509c704f237ad2a0b3567e7db769b267",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 6442450944,
+      "n": 1073741824,
+      "worker": 1,
+      "tier": "hbm",
+      "numa": 3
+    },
+    {
+      "id": "managed/703f23d43fa6720e0b78e08d37fb1b21",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 8589934592,
+      "n": 1073741824,
+      "worker": 1,
+      "tier": "hbm",
+      "numa": 3
+    },
+    {
+      "id": "managed/0b3ec7341a959a61c6be2c753f4d055b",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 19327352832,
+      "n": 1073741824,
+      "worker": 1,
+      "tier": "hbm",
+      "numa": 3
+    },
+    {
+      "id": "managed/8602c17d8f85b9fa2ae4fd7ec523541a",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 28991029248,
+      "n": 1073741824,
+      "worker": 1,
+      "tier": "hbm",
+      "numa": 3
+    }
+  ],
+  "transition": {
+    "actions": [
+      {
+        "kind": "retire",
+        "replica": {
+          "id": "model/gpu/0",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 4294967296,
+          "worker": 2,
+          "tier": "hbm",
+          "numa": 4
+        },
+        "before_state": "b69335ebef0fe27389579dfa63e79abcb4203f3d125d3daa2ad936706ef91270",
+        "after_state": "5addb546d7f167a3a601d08998713dc72dd4ef9e03b6cc7d57f81a0b8832e858",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 4294967296
+          },
+          "locations": {
+            "3:hbm": 4294967296,
+            "0:dram": 1073741824,
+            "1:dram": 1073741824
+          },
+          "physical": {
+            "hbm:3": 4294967296,
+            "dram:node27:0": 1073741824,
+            "dram:node27:3": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "retire",
+        "replica": {
+          "id": "model/gpu/1",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 4294967296,
+          "worker": 3,
+          "tier": "hbm",
+          "numa": 7
+        },
+        "before_state": "5addb546d7f167a3a601d08998713dc72dd4ef9e03b6cc7d57f81a0b8832e858",
+        "after_state": "63247ceaaf918206f8f85d19255e99443fdcf6346347f75356bd9b385d146918",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 0
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "1:dram": 1073741824
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "dram:node27:3": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "retire",
+        "replica": {
+          "id": "model/joint/0",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 1073741841,
+          "n": 1073741824,
+          "worker": 0,
+          "tier": "dram",
+          "numa": 0
+        },
+        "before_state": "63247ceaaf918206f8f85d19255e99443fdcf6346347f75356bd9b385d146918",
+        "after_state": "34500cff36923fbb119fc721b14fa2543a27bcbc569591c3d086fd4227e8381e",
+        "usage": {
+          "tiers": {
+            "dram": 1073741824,
+            "hbm": 0
+          },
+          "locations": {
+            "1:dram": 1073741824
+          },
+          "physical": {
+            "dram:node27:3": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/a025a03c271ce55f24a69d98cbbd76cf",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 20401094656,
+          "n": 1073741824,
+          "worker": 0,
+          "tier": "dram",
+          "numa": 0
+        },
+        "before_state": "34500cff36923fbb119fc721b14fa2543a27bcbc569591c3d086fd4227e8381e",
+        "after_state": "fc2216df0d605734067d3f5db995a8da23e7e01c6c774020ce3a10fe46064605",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 0
+          },
+          "locations": {
+            "1:dram": 1073741824,
+            "0:dram": 1073741824
+          },
+          "physical": {
+            "dram:node27:3": 1073741824,
+            "dram:node27:0": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/55e1c36b085e4734492b5ceb8de31905",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 4294967296,
+          "n": 1073741824,
+          "worker": 0,
+          "tier": "hbm",
+          "numa": 0
+        },
+        "before_state": "fc2216df0d605734067d3f5db995a8da23e7e01c6c774020ce3a10fe46064605",
+        "after_state": "3f1bf7cf1d367fbbee642eabda7204ff90a8b141a207aeae3c5d6fe8b180fb43",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 1073741824
+          },
+          "locations": {
+            "1:dram": 1073741824,
+            "0:dram": 1073741824,
+            "0:hbm": 1073741824
+          },
+          "physical": {
+            "dram:node27:3": 1073741824,
+            "dram:node27:0": 1073741824,
+            "hbm:0": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/5b16521f766268c4535872913b3f1a0c",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 12884901888,
+          "n": 1073741824,
+          "worker": 0,
+          "tier": "hbm",
+          "numa": 0
+        },
+        "before_state": "3f1bf7cf1d367fbbee642eabda7204ff90a8b141a207aeae3c5d6fe8b180fb43",
+        "after_state": "5ad58e32c2c9f976b4df512297f0f568f1790d85c36af5b2aa2383e557420052",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 2147483648
+          },
+          "locations": {
+            "1:dram": 1073741824,
+            "0:dram": 1073741824,
+            "0:hbm": 2147483648
+          },
+          "physical": {
+            "dram:node27:3": 1073741824,
+            "dram:node27:0": 1073741824,
+            "hbm:0": 2147483648
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/6edb5e6920d136bbcc8409fb2d8e2ba8",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 15032385536,
+          "n": 1073741824,
+          "worker": 0,
+          "tier": "hbm",
+          "numa": 0
+        },
+        "before_state": "5ad58e32c2c9f976b4df512297f0f568f1790d85c36af5b2aa2383e557420052",
+        "after_state": "85af23b6546014568a0463ac868ab234a045307ea2c6ba21d4c84cc09238fc19",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 3221225472
+          },
+          "locations": {
+            "1:dram": 1073741824,
+            "0:dram": 1073741824,
+            "0:hbm": 3221225472
+          },
+          "physical": {
+            "dram:node27:3": 1073741824,
+            "dram:node27:0": 1073741824,
+            "hbm:0": 3221225472
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/b681d49fc424cc1a2beae23e29dc6de4",
+          "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+          "tp": 0,
+          "off": 27917287424,
+          "n": 1073741824,
+          "worker": 0,
+          "tier": "hbm",
+          "numa": 0
+        },
+        "before_state": "85af23b6546014568a0463ac868ab234a045307ea2c6ba21d4c84cc09238fc19",
+        "after_state": "6d1438aa3677a7a19d0c9bde678f19376a050d7ccca85215f1eba100cd727c18",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 4294967296
+          },
+          "locations": {
+            "1:dram": 1073741824,
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296
+          },
+          "physical": {
+            "dram:node27:3": 1073741824,
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296
+          }
+        }
+      },
+      {
+        "kind": "retire",
+        "replica": {
+          "id": "model/joint/1",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 1073741841,
+          "n": 1073741824,
+          "worker": 1,
+          "tier": "dram",
+          "numa": 3
+        },
+        "before_state": "6d1438aa3677a7a19d0c9bde678f19376a050d7ccca85215f1eba100cd727c18",
+        "after_state": "03c4944751d2959e73d4e6a2900b8dbf00067957297dd178f8869d836a08fad6",
+        "usage": {
+          "tiers": {
+            "dram": 1073741824,
+            "hbm": 4294967296
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/bd4f249872b80459c5aeca79e512f220",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 22548578304,
+          "n": 1073741824,
+          "worker": 1,
+          "tier": "dram",
+          "numa": 3
+        },
+        "before_state": "03c4944751d2959e73d4e6a2900b8dbf00067957297dd178f8869d836a08fad6",
+        "after_state": "05497ff6ebf383f9f8e4ee0fc9580a7b41f32b4074dbf8f5986926083b5cfb82",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 4294967296
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296,
+            "1:dram": 1073741824
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296,
+            "dram:node27:3": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/509c704f237ad2a0b3567e7db769b267",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 6442450944,
+          "n": 1073741824,
+          "worker": 1,
+          "tier": "hbm",
+          "numa": 3
+        },
+        "before_state": "05497ff6ebf383f9f8e4ee0fc9580a7b41f32b4074dbf8f5986926083b5cfb82",
+        "after_state": "6c8c52d62feda22a7bc62f3cdc435fc9e8123371890c022b0cc72bd7125b855a",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 5368709120
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296,
+            "1:dram": 1073741824,
+            "1:hbm": 1073741824
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296,
+            "dram:node27:3": 1073741824,
+            "hbm:1": 1073741824
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/703f23d43fa6720e0b78e08d37fb1b21",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 8589934592,
+          "n": 1073741824,
+          "worker": 1,
+          "tier": "hbm",
+          "numa": 3
+        },
+        "before_state": "6c8c52d62feda22a7bc62f3cdc435fc9e8123371890c022b0cc72bd7125b855a",
+        "after_state": "3db361d0915c6bb860bc68045eb6d45a3bd8d3c6156ea35de28862a30687c1ba",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 6442450944
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296,
+            "1:dram": 1073741824,
+            "1:hbm": 2147483648
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296,
+            "dram:node27:3": 1073741824,
+            "hbm:1": 2147483648
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/0b3ec7341a959a61c6be2c753f4d055b",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 19327352832,
+          "n": 1073741824,
+          "worker": 1,
+          "tier": "hbm",
+          "numa": 3
+        },
+        "before_state": "3db361d0915c6bb860bc68045eb6d45a3bd8d3c6156ea35de28862a30687c1ba",
+        "after_state": "1e009ed3ab53393c15a6d997617bb268aabbd43c467a2d9db8fafc4f3fffb1a5",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 7516192768
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296,
+            "1:dram": 1073741824,
+            "1:hbm": 3221225472
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296,
+            "dram:node27:3": 1073741824,
+            "hbm:1": 3221225472
+          }
+        }
+      },
+      {
+        "kind": "build",
+        "replica": {
+          "id": "managed/8602c17d8f85b9fa2ae4fd7ec523541a",
+          "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+          "tp": 1,
+          "off": 28991029248,
+          "n": 1073741824,
+          "worker": 1,
+          "tier": "hbm",
+          "numa": 3
+        },
+        "before_state": "1e009ed3ab53393c15a6d997617bb268aabbd43c467a2d9db8fafc4f3fffb1a5",
+        "after_state": "b3c19ff8fe90c12e286664362bc89e960134e053774227f14b442e4c51fa19ac",
+        "usage": {
+          "tiers": {
+            "dram": 2147483648,
+            "hbm": 8589934592
+          },
+          "locations": {
+            "0:dram": 1073741824,
+            "0:hbm": 4294967296,
+            "1:dram": 1073741824,
+            "1:hbm": 4294967296
+          },
+          "physical": {
+            "dram:node27:0": 1073741824,
+            "hbm:0": 4294967296,
+            "dram:node27:3": 1073741824,
+            "hbm:1": 4294967296
+          }
+        }
+      }
+    ],
+    "peak_usage": {
+      "tiers": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "locations": {
+        "2:hbm": 4294967296,
+        "3:hbm": 4294967296,
+        "0:dram": 1073741824,
+        "1:dram": 1073741824,
+        "0:hbm": 4294967296,
+        "1:hbm": 4294967296
+      },
+      "physical": {
+        "hbm:2": 4294967296,
+        "hbm:3": 4294967296,
+        "dram:node27:0": 1073741824,
+        "dram:node27:3": 1073741824,
+        "hbm:0": 4294967296,
+        "hbm:1": 4294967296
+      }
+    },
+    "final_usage": {
+      "tiers": {
+        "dram": 2147483648,
+        "hbm": 8589934592
+      },
+      "locations": {
+        "0:dram": 1073741824,
+        "0:hbm": 4294967296,
+        "1:dram": 1073741824,
+        "1:hbm": 4294967296
+      },
+      "physical": {
+        "dram:node27:0": 1073741824,
+        "hbm:0": 4294967296,
+        "dram:node27:3": 1073741824,
+        "hbm:1": 4294967296
+      }
+    },
+    "final_state": "b3c19ff8fe90c12e286664362bc89e960134e053774227f14b442e4c51fa19ac",
+    "base_ids": [
+      "model/remote/0",
+      "model/remote/1"
+    ],
+    "scope": "single coordinator, immutable complete base, verified per-replica publication; not global atomic replacement"
+  },
+  "decision": "replace",
+  "fallback_reason": null,
+  "solver": {
+    "objective_s": 0.9932447325977883,
+    "rounded_plan_s": 0.9932447342324348,
+    "status": "optimal",
+    "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "mip_gap": 0.0,
+    "dual_bound_s": 0.9932447325977883,
+    "solve_wall_s": 0.3277930049225688,
+    "candidate_count": 400,
+    "flow_variables": 520,
+    "tier_bytes": {
+      "dram": 2147483648,
+      "hbm": 8589934592
+    },
+    "scope": "optimal only within supplied finite candidates, one restore scenario and approximate resource/service model"
+  },
+  "predicted_before_s": 1.0444080397608966,
+  "predicted_after_s": 0.9932447342324348,
+  "plan_id": "f7fc19502b4695adf369cf1356ea426ebfdf877c19bc6e010694718699fe6d18"
+}

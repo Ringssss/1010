@@ -1,0 +1,137 @@
+{
+  "status": "passed",
+  "case": "set_device",
+  "container": "zjn-serverless-hash-set-device-r01",
+  "commands": [
+    {
+      "argv": [
+        "docker",
+        "inspect",
+        "zjn-fluid-basic-1bce3897a2075b",
+        "--format",
+        "{{.Image}}"
+      ],
+      "returncode": 0,
+      "stdout": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "run",
+        "-d",
+        "--name",
+        "zjn-serverless-hash-set-device-r01",
+        "--label",
+        "fluidckpt.serverless_probe=serverless_hash_set_device_r01",
+        "--ipc",
+        "host",
+        "--network",
+        "host",
+        "--memory",
+        "8g",
+        "--cpus",
+        "4",
+        "--ulimit",
+        "core=0:0",
+        "--ulimit",
+        "memlock=-1:-1",
+        "--security-opt",
+        "seccomp=unconfined",
+        "-v",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn:/home/zhujianian/zhujianian/fluidckpt_zjn",
+        "-v",
+        "/opt/hyhal:/opt/hyhal:ro",
+        "--device",
+        "/dev/kfd",
+        "--device",
+        "/dev/mkfd",
+        "--device",
+        "/dev/dri",
+        "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+        "sleep",
+        "infinity"
+      ],
+      "returncode": 0,
+      "stdout": "5c6b2b384d65420a2ee1236e249156cc4d16e2a2a072e97346d22394a1bc8886\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "docker",
+        "rm",
+        "-f",
+        "zjn-serverless-hash-set-device-r01"
+      ],
+      "returncode": 0,
+      "stdout": "zjn-serverless-hash-set-device-r01\n",
+      "stderr": ""
+    }
+  ],
+  "worker_argv": [
+    "docker",
+    "exec",
+    "zjn-serverless-hash-set-device-r01",
+    "env",
+    "PYTHONPATH=/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+    "HIP_VISIBLE_DEVICES=0,1",
+    "HSA_FORCE_FINE_GRAIN_PCIE=1",
+    "LD_LIBRARY_PATH=/opt/dtk/dcc/gcvm/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/hip/lib:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/.hyhal/lib:/opt/dtk/.hyhal/lib64:/opt/dtk/.hyhal/rocm_smi/lib",
+    "python",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/baseline_loading/serverless/hash_probe.py",
+    "--case",
+    "set_device",
+    "--source-checkout",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/ServerlessLLM-hip",
+    "--out",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_set_device_r01/worker"
+  ],
+  "worker_exit_code": 0,
+  "worker_result": {
+    "status": "passed",
+    "case": "set_device",
+    "store": {
+      "model_path": "rank_0",
+      "replica_uuid": "fc782aa0-0d15-4acb-9e33-c3c21e5f4725",
+      "load_begin_unix_s": 1791306194.2696412,
+      "file_bytes": 24576,
+      "logical_bytes": 24576,
+      "padding_bytes": 0,
+      "storage_count": 3,
+      "allocation_count": 2,
+      "nonzero_allocation_offsets": 2,
+      "ipc_handle_formats": {
+        "pytorch_version2_malloc_66": 3
+      },
+      "destination_chunk_geometry": [
+        {
+          "file_offset": 0,
+          "logical_bytes": 4096,
+          "allocator_offset": 0,
+          "allocation_index": 0
+        },
+        {
+          "file_offset": 4096,
+          "logical_bytes": 8192,
+          "allocator_offset": 4096,
+          "allocation_index": 1
+        },
+        {
+          "file_offset": 12288,
+          "logical_bytes": 12288,
+          "allocator_offset": 12288,
+          "allocation_index": 1
+        }
+      ],
+      "store_ready_unix_s": 1791306194.3163862,
+      "store_load_s": 0.04674506187438965
+    },
+    "target_sha256": "86f98d4c69f6c9156b448e1fff87f7805e3d5a44fd9454b7f0938dc35666cfcf",
+    "source_sha256": "86f98d4c69f6c9156b448e1fff87f7805e3d5a44fd9454b7f0938dc35666cfcf",
+    "owner": {
+      "sha256": "86f98d4c69f6c9156b448e1fff87f7805e3d5a44fd9454b7f0938dc35666cfcf",
+      "guards_unchanged": true
+    }
+  },
+  "container_removed": true
+}

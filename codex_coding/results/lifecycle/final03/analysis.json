@@ -1,0 +1,322 @@
+{
+  "status": "passed",
+  "kind": "analysis_of_existing_lifecycle_run",
+  "transitions": [
+    {
+      "phase": "A_local_smoke",
+      "model": "A",
+      "node": "node27",
+      "mode": "restore",
+      "first_correct_token_s": 1.8161743339151144,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_dram",
+          "n": 35164859056,
+          "replica_id": "A/base/0"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_dram",
+          "n": 35164859056,
+          "replica_id": "A/base/1"
+        }
+      ]
+    },
+    {
+      "phase": "baseline_ipc_hit",
+      "model": "A",
+      "node": "node27",
+      "mode": "ipc",
+      "first_correct_token_s": 0.8277498884126544,
+      "correct": true
+    },
+    {
+      "phase": "baseline_A_disk",
+      "model": "A",
+      "node": "node27",
+      "mode": "disk",
+      "first_correct_token_s": 76.38270326051861,
+      "correct": true
+    },
+    {
+      "phase": "baseline_A_to_B_disk",
+      "model": "B",
+      "node": "node27",
+      "mode": "disk",
+      "first_correct_token_s": 3.912899313494563,
+      "switch_to_first_token_s": 4.771355758421123,
+      "release_s": 0.8383094519376755,
+      "correct": true
+    },
+    {
+      "phase": "baseline_B_to_A_disk",
+      "model": "A",
+      "node": "node27",
+      "mode": "disk",
+      "first_correct_token_s": 15.820335702970624,
+      "switch_to_first_token_s": 16.558623971417546,
+      "release_s": 0.7176283551380038,
+      "correct": true
+    },
+    {
+      "phase": "baseline_remote_A_disk",
+      "model": "A",
+      "node": "node29",
+      "mode": "disk",
+      "first_correct_token_s": 14.617183550260961,
+      "correct": true
+    },
+    {
+      "phase": "fluid_A_to_B",
+      "model": "B",
+      "node": "node27",
+      "mode": "restore",
+      "first_correct_token_s": 0.6279639136046171,
+      "switch_to_first_token_s": 1.2708340100944042,
+      "release_s": 0.6188089437782764,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_dram",
+          "n": 8252825600,
+          "replica_id": "B/base/0"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_dram",
+          "n": 8252825600,
+          "replica_id": "B/base/1"
+        }
+      ]
+    },
+    {
+      "phase": "fluid_remote_A",
+      "model": "A",
+      "node": "node29",
+      "mode": "restore",
+      "first_correct_token_s": 4.701271961443126,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 4,
+          "kind": "network",
+          "n": 536870912,
+          "replica_id": "A/placed/0"
+        },
+        {
+          "src_w": 2,
+          "dst_w": 4,
+          "kind": "network",
+          "n": 34627988144,
+          "replica_id": "A/placed/1"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 5,
+          "kind": "network",
+          "n": 536870912,
+          "replica_id": "A/placed/2"
+        },
+        {
+          "src_w": 3,
+          "dst_w": 5,
+          "kind": "network",
+          "n": 34627988144,
+          "replica_id": "A/placed/3"
+        }
+      ]
+    },
+    {
+      "phase": "fluid_B_to_A",
+      "model": "A",
+      "node": "node27",
+      "mode": "restore",
+      "first_correct_token_s": 6.761646240018308,
+      "switch_to_first_token_s": 7.236737308092415,
+      "release_s": 0.44290483742952347,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_ssd",
+          "n": 536870912,
+          "replica_id": "A/placed/0"
+        },
+        {
+          "src_w": 2,
+          "dst_w": 0,
+          "kind": "network",
+          "n": 34627988144,
+          "replica_id": "A/placed/1"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_ssd",
+          "n": 536870912,
+          "replica_id": "A/placed/2"
+        },
+        {
+          "src_w": 3,
+          "dst_w": 1,
+          "kind": "network",
+          "n": 34627988144,
+          "replica_id": "A/placed/3"
+        }
+      ]
+    },
+    {
+      "phase": "fluid_repeat_A_to_B",
+      "model": "B",
+      "node": "node27",
+      "mode": "restore",
+      "first_correct_token_s": 0.674107663333416,
+      "switch_to_first_token_s": 1.2702345559373498,
+      "release_s": 0.5655097337439656,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_dram",
+          "n": 8252825600,
+          "replica_id": "B/base/0"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_dram",
+          "n": 8252825600,
+          "replica_id": "B/base/1"
+        }
+      ]
+    },
+    {
+      "phase": "fluid_repeat_B_to_A",
+      "model": "A",
+      "node": "node27",
+      "mode": "restore",
+      "first_correct_token_s": 6.4221748588606715,
+      "switch_to_first_token_s": 7.199150886386633,
+      "release_s": 0.7434750897809863,
+      "correct": true,
+      "routes": [
+        {
+          "src_w": 0,
+          "dst_w": 0,
+          "kind": "local_ssd",
+          "n": 536870912,
+          "replica_id": "A/placed/0"
+        },
+        {
+          "src_w": 2,
+          "dst_w": 0,
+          "kind": "network",
+          "n": 34627988144,
+          "replica_id": "A/placed/1"
+        },
+        {
+          "src_w": 1,
+          "dst_w": 1,
+          "kind": "local_ssd",
+          "n": 536870912,
+          "replica_id": "A/placed/2"
+        },
+        {
+          "src_w": 3,
+          "dst_w": 1,
+          "kind": "network",
+          "n": 34627988144,
+          "replica_id": "A/placed/3"
+        }
+      ]
+    }
+  ],
+  "scope": "Hygon DCU; adapted HIP IPC and warm disk fallback; eager mode; one trace, not a P99 study",
+  "paired_observations": [
+    {
+      "baseline": "baseline_A_to_B_disk",
+      "candidate": "fluid_A_to_B",
+      "metric": "switch_to_first_token_s",
+      "baseline_s": 4.771355758421123,
+      "candidate_s": 1.2708340100944042,
+      "ratio": 3.75450744984916
+    },
+    {
+      "baseline": "baseline_B_to_A_disk",
+      "candidate": "fluid_B_to_A",
+      "metric": "switch_to_first_token_s",
+      "baseline_s": 16.558623971417546,
+      "candidate_s": 7.236737308092415,
+      "ratio": 2.2881339015720545
+    },
+    {
+      "baseline": "baseline_remote_A_disk",
+      "candidate": "fluid_remote_A",
+      "metric": "first_correct_token_s",
+      "baseline_s": 14.617183550260961,
+      "candidate_s": 4.701271961443126,
+      "ratio": 3.109197610804459
+    }
+  ],
+  "B_samples": {
+    "idle_count": 5,
+    "during_movement_count": 22,
+    "errors": [],
+    "idle": {
+      "median_ttft_s": 0.20571801252663136,
+      "max_ttft_s": 0.20827856194227934,
+      "median_generation_s": 3.353821685537696
+    },
+    "during_movement": {
+      "median_ttft_s": 0.21347795519977808,
+      "max_ttft_s": 0.2619100119918585,
+      "median_generation_s": 3.3959145955741405
+    },
+    "all_outputs_match": true
+  },
+  "placement": {
+    "solve_s": 0.05558968149125576,
+    "optimal": true,
+    "mip_gap": 0.0,
+    "predicted_mean_s": 2.8051412311998614,
+    "scope": "one-copy block placement, configured serial path estimates, two exclusive future destinations",
+    "bytes_by_location": {
+      "node30:ssd": 1073741824,
+      "node28:dram": 69255976288
+    },
+    "total_weight_bytes": 70329718112
+  },
+  "migration": {
+    "prepare_s": 13.757601950317621,
+    "execute_wall_s": 5.61299367249012,
+    "verify_and_publish_s": 39.628316537477076,
+    "coordinator_wall_s": 58.99891216028482,
+    "verification": {
+      "passed": true,
+      "checked_bytes": 70329718112,
+      "algorithm": "SHA256 of every logical byte per operation"
+    }
+  },
+  "ssd": {
+    "read_bytes": 5368709120,
+    "written_bytes": 1073741824,
+    "committed_bytes": 1073741824,
+    "root": "/tmp/fluidckpt-final03",
+    "policy": "buffered IO; fsync and POSIX_FADV_DONTNEED",
+    "files": 2
+  },
+  "service_reserve_bytes_per_gpu": 23622320128,
+  "changed_source_files_since_start": [],
+  "cleanup_errors": [],
+  "passed": true
+}

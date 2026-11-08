@@ -1,0 +1,237 @@
+{
+  "schema_version": "topology_case.v1",
+  "development": "v0.1.23.3/task2",
+  "case_id": "synthetic_blocks_16777216",
+  "workers": [
+    {
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "epoch": "CPU-unbound",
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "peer",
+        "network"
+      ]
+    },
+    {
+      "worker": 1,
+      "node": "node30",
+      "gpu": 0,
+      "numa": 4,
+      "epoch": "CPU-unbound",
+      "capabilities": [
+        "local_dram",
+        "local_hbm",
+        "peer",
+        "network"
+      ]
+    }
+  ],
+  "topology_id": "2124f7e91bfc548dfec08ae0d0851dd81f45d2bf57e0812bace03fa57571cf79",
+  "collection_kind": "synthetic_blocks",
+  "physical_binding_by_worker": {
+    "0": {
+      "logical_gpu": 0,
+      "physical_gpu": 0,
+      "resource_id": "node28/pci/0000:09:00.0",
+      "numa": 0
+    },
+    "1": {
+      "logical_gpu": 0,
+      "physical_gpu": 4,
+      "resource_id": "node30/pci/0000:85:00.0",
+      "numa": 4
+    }
+  },
+  "scenario_semantics": "mutually_exclusive_restores",
+  "objective": "worst",
+  "format_contract": {
+    "model_version": "synthetic_only",
+    "dtype": "uint8",
+    "quantization": "none",
+    "tp": 2,
+    "processed_snapshot_id": [
+      "synthetic-blocks/rank0",
+      "synthetic-blocks/rank1"
+    ]
+  },
+  "base": [
+    {
+      "id": "CPU-base/0",
+      "identity": "synthetic-blocks/rank0",
+      "tp": 0,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "tier": "dram",
+      "off": 0,
+      "n": 16777216,
+      "state": "VALID",
+      "leases": 0,
+      "allocated_bytes": 16777216,
+      "epoch": "CPU-unbound",
+      "generation": 1
+    },
+    {
+      "id": "CPU-base/1",
+      "identity": "synthetic-blocks/rank1",
+      "tp": 1,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "tier": "dram",
+      "off": 0,
+      "n": 16777216,
+      "state": "VALID",
+      "leases": 0,
+      "allocated_bytes": 16777216,
+      "epoch": "CPU-unbound",
+      "generation": 1
+    }
+  ],
+  "candidates": [
+    {
+      "id": "CPU-cache/0/0",
+      "identity": "synthetic-blocks/rank0",
+      "tp": 0,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "tier": "hbm",
+      "off": 0,
+      "n": 16777216,
+      "state": "VALID",
+      "leases": 0,
+      "allocated_bytes": 16777216,
+      "epoch": "CPU-unbound",
+      "generation": 1,
+      "preview_only": true
+    },
+    {
+      "id": "CPU-cache/0/1",
+      "identity": "synthetic-blocks/rank0",
+      "tp": 0,
+      "worker": 1,
+      "node": "node30",
+      "gpu": 0,
+      "numa": 4,
+      "tier": "hbm",
+      "off": 0,
+      "n": 16777216,
+      "state": "VALID",
+      "leases": 0,
+      "allocated_bytes": 16777216,
+      "epoch": "CPU-unbound",
+      "generation": 1,
+      "preview_only": true
+    },
+    {
+      "id": "CPU-cache/1/0",
+      "identity": "synthetic-blocks/rank1",
+      "tp": 1,
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0,
+      "tier": "hbm",
+      "off": 0,
+      "n": 16777216,
+      "state": "VALID",
+      "leases": 0,
+      "allocated_bytes": 16777216,
+      "epoch": "CPU-unbound",
+      "generation": 1,
+      "preview_only": true
+    },
+    {
+      "id": "CPU-cache/1/1",
+      "identity": "synthetic-blocks/rank1",
+      "tp": 1,
+      "worker": 1,
+      "node": "node30",
+      "gpu": 0,
+      "numa": 4,
+      "tier": "hbm",
+      "off": 0,
+      "n": 16777216,
+      "state": "VALID",
+      "leases": 0,
+      "allocated_bytes": 16777216,
+      "epoch": "CPU-unbound",
+      "generation": 1,
+      "preview_only": true
+    }
+  ],
+  "restore_scenarios": [
+    {
+      "name": "both_targets",
+      "weight": 1,
+      "targets": [
+        {
+          "key": "CPU-target/0",
+          "identity": "synthetic-blocks/rank0",
+          "tp": 0,
+          "worker": 0,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "mode": "replica"
+        },
+        {
+          "key": "CPU-target/1",
+          "identity": "synthetic-blocks/rank1",
+          "tp": 1,
+          "worker": 1,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "mode": "replica"
+        }
+      ]
+    }
+  ],
+  "fixed_layouts": [
+    {
+      "name": "source_concentrated",
+      "candidate_ids": [
+        "CPU-cache/0/0",
+        "CPU-cache/1/0"
+      ]
+    },
+    {
+      "name": "target_local_distributed",
+      "candidate_ids": [
+        "CPU-cache/0/0",
+        "CPU-cache/1/1"
+      ]
+    }
+  ],
+  "budget": {
+    "tier_budgets": {
+      "hbm": 33554432
+    },
+    "location_budgets": {
+      "0:hbm": 33554432,
+      "1:hbm": 33554432
+    },
+    "base_dram_bytes": 33554432,
+    "target_allocation_bytes": 33554432,
+    "staging_bytes": 134217728,
+    "staging_by_location": {
+      "0:hbm": 67108864,
+      "1:hbm": 67108864
+    },
+    "budget_origin": "externally_assigned_scenario_constraints"
+  },
+  "execution_contract": {
+    "schedule": "rank_interleaved",
+    "verification_position": "before_replica_publish"
+  },
+  "demand_origin": "synthetic_preregistered_weights_not_trace_prediction"
+}

@@ -1,0 +1,766 @@
+{
+  "status": "original_plan_and_source_audit_passed",
+  "cases": [
+    {
+      "label": "warm_small",
+      "plan": {
+        "chunk_bytes": 33554432,
+        "estimated_transfer_s": null,
+        "executor": "serial",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 4194304,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_small/target0",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "costcal_runtime_r02/p0_warm_small/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_small/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 4194304,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "old_record_us": [
+        329.50400782283396
+      ],
+      "old_execute_us": 378.2050043810159,
+      "old_controller_execute_us": 3160.013002343476,
+      "worker_outside_record_sum_us": 48.70099655818194,
+      "first_vs_later_mean_ratio": null,
+      "source_level_expected_copy_count": 1,
+      "source_level_expected_synchronization_count": 1,
+      "actual_gpu_dispatch_observed": false
+    },
+    {
+      "label": "warm_large",
+      "plan": {
+        "chunk_bytes": 33554432,
+        "estimated_transfer_s": null,
+        "executor": "serial",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 16777216,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_large/target0",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "costcal_runtime_r02/p0_warm_large/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_large/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 16777216,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "old_record_us": [
+        240.40300922933966
+      ],
+      "old_execute_us": 280.80400079488754,
+      "old_controller_execute_us": 3330.874998937361,
+      "worker_outside_record_sum_us": 40.40099156554788,
+      "first_vs_later_mean_ratio": null,
+      "source_level_expected_copy_count": 1,
+      "source_level_expected_synchronization_count": 1,
+      "actual_gpu_dispatch_observed": false
+    },
+    {
+      "label": "warm_batch",
+      "plan": {
+        "chunk_bytes": 33554432,
+        "estimated_transfer_s": null,
+        "executor": "serial",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch/target0",
+            "tp": 0
+          },
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 1048576,
+            "op_id": 1,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 1048576,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch/target1",
+            "tp": 0
+          },
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 2097152,
+            "op_id": 2,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 2097152,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch/target2",
+            "tp": 0
+          },
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 3145728,
+            "op_id": 3,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 3145728,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch/target3",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          },
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch/target1",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch/target1",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 1048576,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          },
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch/target2",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch/target2",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 2097152,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          },
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch/target3",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch/target3",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 3145728,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "old_record_us": [
+        338.9950143173337,
+        83.381004515104,
+        77.34099926892668,
+        72.79100827872753
+      ],
+      "old_execute_us": 712.5100091798231,
+      "old_controller_execute_us": 3204.6730048023164,
+      "worker_outside_record_sum_us": 140.0019827997312,
+      "first_vs_later_mean_ratio": 4.355153633488653,
+      "source_level_expected_copy_count": 4,
+      "source_level_expected_synchronization_count": 4,
+      "actual_gpu_dispatch_observed": false
+    },
+    {
+      "label": "warm_batch_retry1",
+      "plan": {
+        "chunk_bytes": 33554432,
+        "estimated_transfer_s": null,
+        "executor": "serial",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch_retry1/target0",
+            "tp": 0
+          },
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 1048576,
+            "op_id": 1,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 1048576,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch_retry1/target1",
+            "tp": 0
+          },
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 2097152,
+            "op_id": 2,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 2097152,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch_retry1/target2",
+            "tp": 0
+          },
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 1048576,
+            "off": 3145728,
+            "op_id": 3,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 3145728,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_batch_retry1/target3",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch_retry1/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch_retry1/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          },
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch_retry1/target1",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch_retry1/target1",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 1048576,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          },
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch_retry1/target2",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch_retry1/target2",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 2097152,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          },
+          {
+            "id": "costcal_runtime_r02/p0_warm_batch_retry1/target3",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_batch_retry1/target3",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 1048576,
+            "numa": 0,
+            "off": 3145728,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "old_record_us": [
+        258.58399749267846,
+        89.3019896466285,
+        91.44099021796137,
+        73.05100734811276
+      ],
+      "old_execute_us": 638.5489978129044,
+      "old_controller_execute_us": 3158.48299942445,
+      "worker_outside_record_sum_us": 126.17101310752332,
+      "first_vs_later_mean_ratio": 3.0566208482625874,
+      "source_level_expected_copy_count": 4,
+      "source_level_expected_synchronization_count": 4,
+      "actual_gpu_dispatch_observed": false
+    },
+    {
+      "label": "warm_large_retry1",
+      "plan": {
+        "chunk_bytes": 33554432,
+        "estimated_transfer_s": null,
+        "executor": "serial",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 16777216,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_large_retry1/target0",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "costcal_runtime_r02/p0_warm_large_retry1/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_large_retry1/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 16777216,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "old_record_us": [
+        219.49299843981862
+      ],
+      "old_execute_us": 273.91299954615533,
+      "old_controller_execute_us": 3208.102993085049,
+      "worker_outside_record_sum_us": 54.42000110633671,
+      "first_vs_later_mean_ratio": null,
+      "source_level_expected_copy_count": 1,
+      "source_level_expected_synchronization_count": 1,
+      "actual_gpu_dispatch_observed": false
+    },
+    {
+      "label": "warm_small_retry1",
+      "plan": {
+        "chunk_bytes": 33554432,
+        "estimated_transfer_s": null,
+        "executor": "serial",
+        "ops": [
+          {
+            "dst_w": 4,
+            "generation": 1,
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "kind": "local_hbm",
+            "n": 4194304,
+            "off": 0,
+            "op_id": 0,
+            "path": "4:hbm:0->4",
+            "replica_id": "costcal_runtime_r02/source0/hbm",
+            "resources": [],
+            "source_epoch": "costcal_runtime_r02/node27/0/4801/94866934aa874bddb5e55f38e0ac5dbb",
+            "source_offset": 0,
+            "src_w": 4,
+            "target": "costcal_runtime_r02/p0_warm_small_retry1/target0",
+            "tp": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "costcal_runtime_r02/p0_warm_small_retry1/target0",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "index": {
+              "t0": [
+                0,
+                1048576
+              ],
+              "t1": [
+                1048576,
+                15728640
+              ]
+            },
+            "key": "costcal_runtime_r02/p0_warm_small_retry1/target0",
+            "meta": {
+              "model_identity": "fixture:3100",
+              "synthetic": true,
+              "tp_rank": 0,
+              "tp_size": 4
+            },
+            "mode": "replica",
+            "n": 4194304,
+            "numa": 0,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 4
+          }
+        ]
+      },
+      "old_record_us": [
+        333.784002577886
+      ],
+      "old_execute_us": 384.4960010610521,
+      "old_controller_execute_us": 3283.6449972819537,
+      "worker_outside_record_sum_us": 50.7119984831661,
+      "first_vs_later_mean_ratio": null,
+      "source_level_expected_copy_count": 1,
+      "source_level_expected_synchronization_count": 1,
+      "actual_gpu_dispatch_observed": false
+    }
+  ],
+  "evidence_refs": [
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "sha256": "267429220f7a3f2fe46d9a3ab36bdf1822e3f2d0604a4924244b61c2b1a752d9"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/catalog.py",
+      "sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d"
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/keeper.py",
+      "sha256": "352abd11a86265a82430b6849a3cba548c63e84a4443345a003295e49e845250"
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/measure.py",
+      "sha256": "c1560ae36fdf9a1c386ffa05d911a7a375c553dcc239fc6430e075212e23170a"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/cost_calibration/execution/runner.py",
+      "sha256": "21f45e85f524089ecaea8a9ed77937dbc1582894e1ca9cd8cb1e7cde8a0d6ecf"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+      "sha256": "ec4484f364f193dbbfc18240625285d92ecfccd5c08ff9e9e844d1f5bb9509f9"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/multitier_runtime/runner/runtime_worker.py",
+      "sha256": "b9484b62a7b4ae397b412e995435c90534b620b66253b519ebe1b56b2904104c"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small.pending.json",
+      "sha256": "074ab2d82fb030bc26f3ef6aaa3b694802ff99ac4d695981c178d2fe787cd998"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small.json",
+      "sha256": "14c6a885ba85abcb12327cbd14e50da16edae3f9e63043204822236a9cd495fe"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_large.pending.json",
+      "sha256": "0ce7b58a0523caf0e7742f58de2d1ed985f12887a4b3a61b49628505ef5bcb19"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_large.json",
+      "sha256": "6428df4d4d65b0a088b1a0cf31d06be2f49090dab12f44866cab49a26500df0a"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_batch.pending.json",
+      "sha256": "721caed16a6bb2cf7fea65e559959c853dee800bc2b3669508cd8cd02bf1d5c6"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_batch.json",
+      "sha256": "431f8f218d08378a6055440a8e25c5d6489bb71d003448a4ca83c6dee4c827a1"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_batch_retry1.pending.json",
+      "sha256": "481640afa8b9d7cfbd862568262bed06834f552410b56d3e093d0366023fd19d"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_batch_retry1.json",
+      "sha256": "729494229e3bc86c3c92ed0eaf29dc995056a3cd0ce58edcb67e2a8f86fbf841"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_large_retry1.pending.json",
+      "sha256": "8079a7ad1785d1ae39b750d31ef22a20fe239f5eff66f928968a8921d2c7180a"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_large_retry1.json",
+      "sha256": "98890c102f746340aeab8457f5c56f2ab27cf82720a13159bb4f3cfa25817ea6"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small_retry1.pending.json",
+      "sha256": "6aff4addb11175148fca1a3e07b62730dabf7a16877cc623c268e19292d51668"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/cost_calibration/execution_actual_r02/measure/p0_warm_small_retry1.json",
+      "sha256": "e0c405a01a0d17b1b83026f810e1550a60cd0f7837286001d8acb63534e948d6"
+    }
+  ],
+  "source_identity_stable": true,
+  "source_index_unused_in_copy_methods": true,
+  "cuda_pointer_alignment_historical": null,
+  "cuda_runtime_dispatch_historical": null,
+  "scope": "static code and original timing; no generated tensor, GPU execution, or fitted model"
+}

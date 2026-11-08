@@ -1,0 +1,791 @@
+{
+  "development": "v0.1.23.3/task2",
+  "schema": "minimum_multitier_execution_v1",
+  "contract_internal_sha256": "741def7882e9163fb6afd299c27c1bff9c0207529d9d555c754d66f5492111fe",
+  "allowed_physical_nodes": [
+    "node27",
+    "node28",
+    "node30"
+  ],
+  "required_physical_gpu_nodes": 3,
+  "required_physical_gpu_count": 6,
+  "new_scenario_budget": {
+    "dram_bytes_per_node": 6442450944,
+    "hbm_bytes_per_node": 2147483648,
+    "container_ceiling_bytes": 8589934592,
+    "postwarm_application_margin_bytes": 268435456,
+    "physical_free_reserve_dram_bytes_per_node": 2147483648,
+    "physical_free_reserve_hbm_bytes_per_selected_gpu": 2147483648,
+    "scope": "aggregate incremental runtime, HTTP/pagecache, buffers, checksum and retained/target bytes",
+    "authorization": "parent task coordination explicitly accepted a new finite cap for current user-authorized three-node six-GPU scenario",
+    "fresh_gate": "min(task cap, measured available minus physical reserve, cgroup available); selected NUMA must also admit touching/registering allocation",
+    "historical_2GiB_result_policy": "preserve old failed_observed_budget and old contracts; new scenario has separate run IDs and cap"
+  },
+  "budget_origin": {
+    "historical": "temporary incremental budget for old two-worker small experiment",
+    "user_hard_limit_original_quote_found": false,
+    "first_documented_statement": "docx/plans/2026-10-04_v0.1.23.3_task2_paper_e1_e8_plan.md:660",
+    "exact_excerpt": "暂定新增物理实验配额每node HBM≤2GiB、DRAM≤2GiB，容器8GiB总量并单列Torch/驱动与临时峰值"
+  },
+  "sequence": [
+    "read_only_binding_provenance_and_old_owner_protection",
+    "fresh_selected_GPU_runtime_BDF_NUMA_mesh_qualification",
+    "create_fsync_verify_protect_complete_SSD_4_2_2_manifest",
+    "SSD_only_once",
+    "C0_once",
+    "C1_once",
+    "C3_once",
+    "exact_owned_cleanup_and_final_protection"
+  ],
+  "scenarios": [
+    {
+      "id": "SSD_only",
+      "repetitions": 1,
+      "payload_bytes": 33554432,
+      "routes": [
+        {
+          "block": "b0",
+          "candidate": "b0@ssd/n0",
+          "tier": "ssd",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b1",
+          "candidate": "b1@ssd/n0",
+          "tier": "ssd",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b2",
+          "candidate": "b2@ssd/n0",
+          "tier": "ssd",
+          "source_worker": "w0",
+          "target_worker": "w2",
+          "source_node": "n0",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b3",
+          "candidate": "b3@ssd/n0",
+          "tier": "ssd",
+          "source_worker": "w0",
+          "target_worker": "w2",
+          "source_node": "n0",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b4",
+          "candidate": "b4@ssd/n1",
+          "tier": "ssd",
+          "source_worker": "w2",
+          "target_worker": "w4",
+          "source_node": "n1",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b5",
+          "candidate": "b5@ssd/n1",
+          "tier": "ssd",
+          "source_worker": "w2",
+          "target_worker": "w4",
+          "source_node": "n1",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b6",
+          "candidate": "b6@ssd/n2",
+          "tier": "ssd",
+          "source_worker": "w4",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b7",
+          "candidate": "b7@ssd/n2",
+          "tier": "ssd",
+          "source_worker": "w4",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        }
+      ],
+      "ledger_by_logical_node": {
+        "n0": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 0,
+          "retained_dram_bytes": 0,
+          "fixed_ssd_bytes": 16777216,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 142606336,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n1": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 0,
+          "retained_dram_bytes": 0,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 142606336,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n2": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 16777216,
+          "retained_hbm_bytes": 0,
+          "retained_dram_bytes": 0,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 150994944,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        }
+      },
+      "mode": "functional_observation_original_serial_Cluster_transfer",
+      "time_windows": [
+        "save_build_and_publish",
+        "prepare",
+        "execute_filled",
+        "verify_publish",
+        "retirement"
+      ],
+      "expected_sha_blocks": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ],
+      "expected_target_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expected_ssd_logical_source_bytes": 33554432,
+      "physical_disk_read_bytes_claim": null
+    },
+    {
+      "id": "C0",
+      "repetitions": 1,
+      "payload_bytes": 33554432,
+      "routes": [
+        {
+          "block": "b0",
+          "candidate": "b0@hbm/w0",
+          "tier": "hbm",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b1",
+          "candidate": "b1@hbm/w0",
+          "tier": "hbm",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b2",
+          "candidate": "b2@hbm/w2",
+          "tier": "hbm",
+          "source_worker": "w2",
+          "target_worker": "w2",
+          "source_node": "n1",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b3",
+          "candidate": "b3@hbm/w2",
+          "tier": "hbm",
+          "source_worker": "w2",
+          "target_worker": "w2",
+          "source_node": "n1",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b4",
+          "candidate": "b4@hbm/w4",
+          "tier": "hbm",
+          "source_worker": "w4",
+          "target_worker": "w4",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b5",
+          "candidate": "b5@hbm/w4",
+          "tier": "hbm",
+          "source_worker": "w4",
+          "target_worker": "w4",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b6",
+          "candidate": "b6@hbm/w5",
+          "tier": "hbm",
+          "source_worker": "w5",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b7",
+          "candidate": "b7@hbm/w5",
+          "tier": "hbm",
+          "source_worker": "w5",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        }
+      ],
+      "ledger_by_logical_node": {
+        "n0": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 8388608,
+          "retained_dram_bytes": 0,
+          "fixed_ssd_bytes": 16777216,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 150994944,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n1": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 8388608,
+          "retained_dram_bytes": 0,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 150994944,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n2": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 16777216,
+          "retained_hbm_bytes": 16777216,
+          "retained_dram_bytes": 0,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 167772160,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        }
+      },
+      "mode": "functional_observation_original_serial_Cluster_transfer",
+      "time_windows": [
+        "save_build_and_publish",
+        "prepare",
+        "execute_filled",
+        "verify_publish",
+        "retirement"
+      ],
+      "expected_sha_blocks": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ],
+      "expected_target_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expected_ssd_logical_source_bytes": 0,
+      "physical_disk_read_bytes_claim": null
+    },
+    {
+      "id": "C1",
+      "repetitions": 1,
+      "payload_bytes": 33554432,
+      "routes": [
+        {
+          "block": "b0",
+          "candidate": "b0@hbm/w0",
+          "tier": "hbm",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b1",
+          "candidate": "b1@dram/w0",
+          "tier": "dram",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b2",
+          "candidate": "b2@hbm/w2",
+          "tier": "hbm",
+          "source_worker": "w2",
+          "target_worker": "w2",
+          "source_node": "n1",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b3",
+          "candidate": "b3@dram/w2",
+          "tier": "dram",
+          "source_worker": "w2",
+          "target_worker": "w2",
+          "source_node": "n1",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b4",
+          "candidate": "b4@hbm/w4",
+          "tier": "hbm",
+          "source_worker": "w4",
+          "target_worker": "w4",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b5",
+          "candidate": "b5@dram/w4",
+          "tier": "dram",
+          "source_worker": "w4",
+          "target_worker": "w4",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b6",
+          "candidate": "b6@hbm/w5",
+          "tier": "hbm",
+          "source_worker": "w5",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b7",
+          "candidate": "b7@dram/w5",
+          "tier": "dram",
+          "source_worker": "w5",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        }
+      ],
+      "ledger_by_logical_node": {
+        "n0": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 4194304,
+          "retained_dram_bytes": 4194304,
+          "fixed_ssd_bytes": 16777216,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 146800640,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n1": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 4194304,
+          "retained_dram_bytes": 4194304,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 146800640,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n2": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 16777216,
+          "retained_hbm_bytes": 8388608,
+          "retained_dram_bytes": 8388608,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 159383552,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        }
+      },
+      "mode": "functional_observation_original_serial_Cluster_transfer",
+      "time_windows": [
+        "save_build_and_publish",
+        "prepare",
+        "execute_filled",
+        "verify_publish",
+        "retirement"
+      ],
+      "expected_sha_blocks": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ],
+      "expected_target_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expected_ssd_logical_source_bytes": 0,
+      "physical_disk_read_bytes_claim": null
+    },
+    {
+      "id": "C3",
+      "repetitions": 1,
+      "payload_bytes": 33554432,
+      "routes": [
+        {
+          "block": "b0",
+          "candidate": "b0@hbm/w0",
+          "tier": "hbm",
+          "source_worker": "w0",
+          "target_worker": "w0",
+          "source_node": "n0",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b1",
+          "candidate": "b1@hbm/w3",
+          "tier": "hbm",
+          "source_worker": "w3",
+          "target_worker": "w0",
+          "source_node": "n1",
+          "target_node": "n0",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b2",
+          "candidate": "b2@hbm/w1",
+          "tier": "hbm",
+          "source_worker": "w1",
+          "target_worker": "w2",
+          "source_node": "n0",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b3",
+          "candidate": "b3@dram/w0",
+          "tier": "dram",
+          "source_worker": "w0",
+          "target_worker": "w2",
+          "source_node": "n0",
+          "target_node": "n1",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b4",
+          "candidate": "b4@hbm/w4",
+          "tier": "hbm",
+          "source_worker": "w4",
+          "target_worker": "w4",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b5",
+          "candidate": "b5@dram/w2",
+          "tier": "dram",
+          "source_worker": "w2",
+          "target_worker": "w4",
+          "source_node": "n1",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u0",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b6",
+          "candidate": "b6@dram/w5",
+          "tier": "dram",
+          "source_worker": "w5",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u1",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        },
+        {
+          "block": "b7",
+          "candidate": "b7@ssd/n2",
+          "tier": "ssd",
+          "source_worker": "w4",
+          "target_worker": "w5",
+          "source_node": "n2",
+          "target_node": "n2",
+          "nbytes": 4194304,
+          "source_numa": "u0",
+          "target_numa": "u1",
+          "physical_route_proof_required": true
+        }
+      ],
+      "ledger_by_logical_node": {
+        "n0": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 8388608,
+          "retained_dram_bytes": 4194304,
+          "fixed_ssd_bytes": 16777216,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 150994944,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n1": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 8388608,
+          "retained_hbm_bytes": 4194304,
+          "retained_dram_bytes": 4194304,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 146800640,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        },
+        "n2": {
+          "staging_hbm_bytes": 134217728,
+          "target_hbm_bytes": 16777216,
+          "retained_hbm_bytes": 4194304,
+          "retained_dram_bytes": 4194304,
+          "fixed_ssd_bytes": 8388608,
+          "runtime_hbm_bytes": null,
+          "runtime_dram_bytes": null,
+          "http_and_pagecache_peak_bytes": null,
+          "checksum_and_registration_peak_bytes": null,
+          "known_allocated_hbm_bytes_before_runtime": 155189248,
+          "staging_already_in_measured_runtime_must_not_be_added_twice": true
+        }
+      },
+      "mode": "functional_observation_original_serial_Cluster_transfer",
+      "time_windows": [
+        "save_build_and_publish",
+        "prepare",
+        "execute_filled",
+        "verify_publish",
+        "retirement"
+      ],
+      "expected_sha_blocks": [
+        "b0",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "b6",
+        "b7"
+      ],
+      "expected_target_ranks": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expected_ssd_logical_source_bytes": 4194304,
+      "physical_disk_read_bytes_claim": null
+    }
+  ],
+  "third_node_runtime_rule": "node27 unchanged boot with still-D owned pending process blocks blind HIP retry; obtain driver/process recovery evidence or explicitly use a different separately approved execution graph",
+  "ssd_rule": "three actual local block-device mounts bound to run-owned directories; shared NFS is a different storage graph",
+  "persistent_base_rule": "keep authoritative extents live throughout all phases; temporary retirement excludes base IDs; close invokes delete, so shutdown needs explicit base-safe lifecycle evidence",
+  "shared_workpoint_rule": "only after original executor proves two disjoint concurrent pairs and measured shared physical incidence; C2a remains logical reference",
+  "physical_ready": false,
+  "gpu_command": null,
+  "claim_scope": "CPU frozen admission design; actual three-node runtime, performance and model T_ready require measured evidence",
+  "evidence_refs": [
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/contract_cpu_r02/contract.json",
+      "sha256": "4e08d81546c19aef96b0aa0b025b3e01fdaf6c2670cd093be983896e9ec5abb7"
+    },
+    {
+      "path": "docx/plans/2026-10-04_v0.1.23.3_task2_paper_e1_e8_plan.md",
+      "sha256": "38b4e6b26676d7737293a33a71f0eb39dfc0932d361d7157c83fc1d8a0a551b7"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/build_setup_plan.py",
+      "sha256": "a33d97c6c649d6e2afa5e6de368a645b41acc23ab4896cae16b9795d16ea9aeb"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_scenarios/review_hardware_r02/qualification.json",
+      "sha256": "be68c62f014da2a1d0b475bb4c3c4acc997a6300db115fdae327f6f50cd53927"
+    },
+    {
+      "path": "main_lib/fluidckpt/memory/ssd.py",
+      "sha256": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/control.py",
+      "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed"
+    }
+  ]
+}

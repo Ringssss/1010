@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "scope": "Read-only supplemental source consumer detach review; only compare timestamps within the source host",
+  "source_host": "m03r2n07",
+  "rank0": {
+    "path": "../blitz_s3_r02/metrics/blitz_3edadcae_blitz_s3_r02_active_attach/rank0.jsonl",
+    "load_begin_ns": 4629202720506877,
+    "weights_ready_ns": 4629202944012441,
+    "release_begin_ns": 4629267945871749,
+    "release_end_ns": 4629268605660348,
+    "final_event": "release_end",
+    "IPC_consumer_torch_allocated_bytes_after_release": 1315797504
+  },
+  "rank1": {
+    "path": "../blitz_s3_r02/metrics/blitz_3edadcae_blitz_s3_r02_active_attach/rank1.jsonl",
+    "load_begin_ns": 4629202793056180,
+    "weights_ready_ns": 4629202943962294,
+    "release_begin_ns": 4629267946089866,
+    "release_end_ns": 4629268605531699,
+    "final_event": "release_end",
+    "IPC_consumer_torch_allocated_bytes_after_release": 1315797504
+  },
+  "interpretation": "Both source TP consumers reached release_end. Their imported weights are owned by keepers, so consumer PyTorch allocation counters alone do not prove physical retirement; independent before/after keeper catalog, allocator and physical HBM comparisons in review.json provide that evidence. No cross-host monotonic subtraction was used."
+}

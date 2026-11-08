@@ -1,0 +1,11 @@
+# 首次有效holdout重试资格独审
+
+结论`launch_ready`，34项独立条件通过。仅本地CPU审查，未GPU/SSH。
+
+已从r02冻结包还原本轮失败时runner，与新runner独立diff。修订仅涉及mesh前raw inventory身份/空状态检查、mesh后严格inventory、未mesh完成时raw finally，以及保留primary异常不被cleanup异常遮盖。实际holdout测量主体除标记`mesh_initialized=True`外逐字节相同；正式模型SHA`e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f`与两个预定8MiB配置保持。
+
+独立CPU fixture使用r01实际六个rank=null的startup行和真实`Cluster.inventory`，复现旧endpoint顺序拒绝。修正后raw→mesh→strict顺序通过；实体BDF错误在mesh前拒绝，未mesh的空状态finally不制造worker rank。5项独立行为检查通过，入口`review_lifecycle_r02/qualification.json`。独立fixture首版因未创建wrong_BDF日志目录提前停止，记录保留在`review_lifecycle_r01`；仅审查驱动错误，修正不涉及运行源码或模型。
+
+新session为`bounded_cost_runtime_r02`。r03包只更新一个runner，prior spec与已stage r02全部旧资产精确匹配；三node其余setup/CID/boot/输入XML、配额和shared helper保持。九process仅新session/mode/dump/output名称变化。r01失败未执行任何payload/holdout，71项清理证据通过，因此这是脚本修正后的首次有效holdout机会，不是性能重复。
+
+主agent可按新冻结计划执行；实际warm、身份迁移、预算、两预测事前冻结、全SHA、退役和误差仍待本地运行证据。`decision_ready=false`保持。

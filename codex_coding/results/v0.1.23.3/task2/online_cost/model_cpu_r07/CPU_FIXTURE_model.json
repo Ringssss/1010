@@ -1,0 +1,276 @@
+{
+  "schema": "online_path_model_v1",
+  "context": {
+    "executor": "serial",
+    "chunk_bytes": 33554432,
+    "control_mode": "native",
+    "load_state": "warm",
+    "clock_domain": "CPU_controller",
+    "clock_scope": "single_controller",
+    "worker_BDF": {
+      "0": "CPU_BDF0",
+      "1": "CPU_BDF1",
+      "2": "CPU_BDF2",
+      "3": "CPU_BDF3"
+    },
+    "worker_physical": [
+      {
+        "worker": 0,
+        "node": "target",
+        "gpu": 0,
+        "numa": 0
+      },
+      {
+        "worker": 1,
+        "node": "target",
+        "gpu": 1,
+        "numa": 1
+      },
+      {
+        "worker": 2,
+        "node": "source2",
+        "gpu": 2,
+        "numa": 2
+      },
+      {
+        "worker": 3,
+        "node": "source3",
+        "gpu": 3,
+        "numa": 3
+      }
+    ],
+    "path_context": {
+      "near0": {
+        "endpoints": [
+          0,
+          0
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 0
+      },
+      "near1": {
+        "endpoints": [
+          1,
+          1
+        ],
+        "operation_kind": "local_dram",
+        "source_tier": "dram",
+        "source_numa": 1
+      },
+      "remote0": {
+        "endpoints": [
+          2,
+          0
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 2
+      },
+      "remote1": {
+        "endpoints": [
+          3,
+          1
+        ],
+        "operation_kind": "network",
+        "source_tier": "dram",
+        "source_numa": 3
+      }
+    },
+    "shared_resource_paths": {
+      "target_HCA": [
+        "remote0",
+        "remote1"
+      ]
+    },
+    "operation_count_interval": [
+      2,
+      128
+    ],
+    "full_model_plan_workload": {
+      "targets": [
+        {
+          "worker": 0,
+          "identity": "CPU_weights",
+          "tp": 0,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "worker": 1,
+          "identity": "CPU_weights",
+          "tp": 1,
+          "off": 0,
+          "n": 1073741824
+        }
+      ],
+      "ordered_extents": [
+        {
+          "dst_w": 0,
+          "identity": "CPU_weights",
+          "tp": 0,
+          "off": 0,
+          "n": 1073741824
+        },
+        {
+          "dst_w": 1,
+          "identity": "CPU_weights",
+          "tp": 1,
+          "off": 0,
+          "n": 1073741824
+        }
+      ],
+      "N": 2147483648,
+      "K": 2,
+      "C": 64
+    }
+  },
+  "topology_id": "7d89061d7cc67558102c8e8110d3da812f3da90c3a5bd2ab265e9019c85e88ed",
+  "paths": {
+    "near0": {
+      "warm_GBps": 67.10886400000001,
+      "operation_s": 0.0020000000000000018,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "near1": {
+      "warm_GBps": 67.10886400000001,
+      "operation_s": 0.0020000000000000018,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "remote0": {
+      "warm_GBps": 67.10886400000001,
+      "operation_s": 0.0020000000000000018,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    },
+    "remote1": {
+      "warm_GBps": 67.10886400000001,
+      "operation_s": 0.0020000000000000018,
+      "first_pair_s": 0.0,
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "fit_scope": "per-op fixed plus effective chunked byte service; chunk overhead folded into slope"
+    }
+  },
+  "shared_qualifiers": {
+    "target_HCA": {
+      "concurrent_service_factor": 2.777777777777778,
+      "raw_factors": [
+        2.777777777777778
+      ],
+      "calibration_total_bytes": [
+        2147483648
+      ],
+      "flow_count": 2,
+      "interpretation": "Observed paired concurrent/isolated service ratio, only matching contiguous two-flow phases; not physical capacity or a strict bound."
+    }
+  },
+  "diagnostics": {
+    "near0": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0020000000000000018,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "near1": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0020000000000000018,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "remote0": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0020000000000000018,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    },
+    "remote1": {
+      "fit_bytes": [
+        536870912,
+        1073741824
+      ],
+      "raw_intercept_s": 0.0020000000000000018,
+      "interpretation": "Aggregate operation service; coefficients are not bare bandwidth/API latency."
+    }
+  },
+  "source_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/model_cpu_r07/CPU_FIXTURE_raw.json",
+      "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/model_cpu_r07/CPU_FIXTURE_raw.json",
+      "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+    }
+  ],
+  "calibration_sessions": [
+    "CPU_train"
+  ],
+  "online_outer_s": 0.019999999999999997,
+  "online_qualified": false,
+  "physical_capacity_certified": false,
+  "outer_interpretation": "One inclusive full-model online-minus-service residual, including control/materialize/IPC/handoff; not a per-term causal identification.",
+  "outer_calibration_service": {
+    "estimated_transfer_service_s": 0.05000000000000001,
+    "worker_dag_s": 0.05000000000000001,
+    "isolated_worker_dag_s": 0.018,
+    "timeline": [
+      {
+        "op_id": 0,
+        "path": "remote0",
+        "start_s": 0.0,
+        "end_s": 0.05000000000000001,
+        "service_s": 0.05000000000000001,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": 1,
+        "path": "remote1",
+        "start_s": 0.0,
+        "end_s": 0.05000000000000001,
+        "service_s": 0.05000000000000001,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      }
+    ],
+    "shared_phase_qualifiers": {
+      "target_HCA": {
+        "paths": [
+          "remote0",
+          "remote1"
+        ],
+        "concurrent_service_factor": 2.777777777777778,
+        "phase_begin": 0,
+        "phase_bytes_per_flow": 1073741824,
+        "phase_ops_per_flow": 1
+      }
+    },
+    "shared_score_interpretation": "Empirical concurrent factor applied only to registered matched contiguous two-flow phases, then original worker DAG reused.",
+    "physical_capacity_certified": false
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "formal": {
+    "schema_version": "topology_calibration.v1",
+    "workers": [
+      {
+        "worker": 0,
+        "node": "node27",
+        "gpu": 0,
+        "numa": 0
+      },
+      {
+        "worker": 1,
+        "node": "node27",
+        "gpu": 1,
+        "numa": 1
+      },
+      {
+        "worker": 2,
+        "node": "node29",
+        "gpu": 0,
+        "numa": 0
+      },
+      {
+        "worker": 3,
+        "node": "node29",
+        "gpu": 1,
+        "numa": 1
+      }
+    ],
+    "topology_id": "b8e6c759036112bf73059914221136648f290df5d05c21447944a100553b039d",
+    "session_overlay_sha256": "session-sha",
+    "cases": [
+      {
+        "case_id": "network_single_a",
+        "kind": "network",
+        "node": null,
+        "mode": "isolated",
+        "flow_ids": [
+          0
+        ],
+        "buffer_bytes": 268435456,
+        "iterations": 16,
+        "bytes_per_flow": 4294967296,
+        "warmup_iterations": 1
+      },
+      {
+        "case_id": "network_single_b",
+        "kind": "network",
+        "node": null,
+        "mode": "isolated",
+        "flow_ids": [
+          1
+        ],
+        "buffer_bytes": 268435456,
+        "iterations": 16,
+        "bytes_per_flow": 4294967296,
+        "warmup_iterations": 1
+      },
+      {
+        "case_id": "network_pair",
+        "kind": "network",
+        "node": null,
+        "mode": "concurrent",
+        "flow_ids": [
+          0,
+          1
+        ],
+        "buffer_bytes": 268435456,
+        "iterations": 16,
+        "bytes_per_flow": 4294967296,
+        "warmup_iterations": 1
+      }
+    ],
+    "samples_per_configuration": 1,
+    "calibration_executor": "isolated_pair_rccl_broadcast",
+    "h2d_calibration_executor": "isolated_numa_registered_copy",
+    "application_executor": "keeper_serial",
+    "capacity_is_physical_upper_bound": false,
+    "resource_limits": {
+      "synthetic_hbm_bytes_per_gpu": 268435456,
+      "verification_temporary_bytes_per_rank": 33554432,
+      "pinned_host_bytes_per_h2d_rank": 268435456,
+      "minimum_physical_hbm_headroom_bytes": 2147483648,
+      "host_bytes_per_node_admission": 603979776,
+      "host_guard_bytes": 2147483648,
+      "runtime_overhead": "separate physical sampling; not part of synthetic buffer"
+    }
+  },
+  "startup": {
+    "schema_version": "topology_calibration.v1",
+    "workers": [
+      {
+        "worker": 0,
+        "node": "node27",
+        "gpu": 0,
+        "numa": 0
+      },
+      {
+        "worker": 1,
+        "node": "node27",
+        "gpu": 1,
+        "numa": 1
+      },
+      {
+        "worker": 2,
+        "node": "node29",
+        "gpu": 0,
+        "numa": 0
+      },
+      {
+        "worker": 3,
+        "node": "node29",
+        "gpu": 1,
+        "numa": 1
+      }
+    ],
+    "topology_id": "b8e6c759036112bf73059914221136648f290df5d05c21447944a100553b039d",
+    "session_overlay_sha256": "session-sha",
+    "cases": [
+      {
+        "case_id": "network_pair",
+        "kind": "network",
+        "node": null,
+        "mode": "concurrent",
+        "flow_ids": [
+          0,
+          1
+        ],
+        "buffer_bytes": 1048576,
+        "iterations": 1,
+        "bytes_per_flow": 1048576,
+        "warmup_iterations": 1
+      }
+    ],
+    "samples_per_configuration": 0,
+    "calibration_executor": "isolated_pair_rccl_broadcast",
+    "h2d_calibration_executor": "isolated_numa_registered_copy",
+    "application_executor": "keeper_serial",
+    "capacity_is_physical_upper_bound": false,
+    "resource_limits": {
+      "synthetic_hbm_bytes_per_gpu": 1048576,
+      "verification_temporary_bytes_per_rank": 33554432,
+      "pinned_host_bytes_per_h2d_rank": 268435456,
+      "minimum_physical_hbm_headroom_bytes": 2147483648,
+      "host_bytes_per_node_admission": 603979776,
+      "host_guard_bytes": 2147483648,
+      "runtime_overhead": "separate physical sampling; not part of synthetic buffer"
+    },
+    "startup_only": true
+  }
+}

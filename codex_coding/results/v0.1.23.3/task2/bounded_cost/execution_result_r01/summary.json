@@ -1,0 +1,935 @@
+{
+  "GPU_launches": 0,
+  "actual_validation_requests": 0,
+  "all_observed_SHA_passed": null,
+  "both_predictions_frozen": false,
+  "bound_model_created": false,
+  "budget": {
+    "node27": {
+      "continuous_peak_measured": false,
+      "dram_limit_bytes": 6442450944,
+      "dram_reserve_bytes": 268435456,
+      "dram_sampled_peak_bytes": 3281494016,
+      "hbm_limit_bytes": 2147483648,
+      "postwarm_gate_observed": false,
+      "startup_same_HIP_absolute_hbm_upper_bytes": 675282944
+    },
+    "node28": {
+      "continuous_peak_measured": false,
+      "dram_limit_bytes": 6442450944,
+      "dram_reserve_bytes": 268435456,
+      "dram_sampled_peak_bytes": 3253780480,
+      "hbm_limit_bytes": 2147483648,
+      "postwarm_gate_observed": false,
+      "startup_same_HIP_absolute_hbm_upper_bytes": 675282944
+    },
+    "node30": {
+      "continuous_peak_measured": false,
+      "dram_limit_bytes": 6442450944,
+      "dram_reserve_bytes": 268435456,
+      "dram_sampled_peak_bytes": 3261640704,
+      "hbm_limit_bytes": 2147483648,
+      "postwarm_gate_observed": false,
+      "startup_same_HIP_absolute_hbm_upper_bytes": 675282944
+    }
+  },
+  "cases": [],
+  "claims": "Analysis only. A new session can validate migration; it does not certify old-incarnation warm state, shared capacity, placement ranking, or model handoff.",
+  "cleanup_complete": true,
+  "decision_ready": false,
+  "elapsed_scope": "supervisor init through controllers and STOP; not restore latency",
+  "failure": "RuntimeError('controller failed 1')",
+  "final_catalog_ssd_verified": false,
+  "final_payload_inventory": null,
+  "layout_ranking_validated": false,
+  "local_service_validated": false,
+  "measure_journal": null,
+  "mesh_journal": {
+    "cleanup": [
+      {
+        "event": "explicit_end_of_run",
+        "objects": []
+      }
+    ],
+    "cleanup_failure": "ValueError('worker identities do not match endpoint order')",
+    "cold_disk_claim": false,
+    "cold_pair_claim": false,
+    "failure": "ValueError('worker identities do not match endpoint order')",
+    "migration_validation": true,
+    "owned": [],
+    "status": "failed",
+    "synthetic": true,
+    "training_requests": 0
+  },
+  "model_T_ready_validated": false,
+  "necessary_pair_warm_completed": false,
+  "operations": {
+    "node27": {
+      "exact_collection_passed": true,
+      "exact_container_unchanged": true,
+      "frozen_assets_unchanged": true,
+      "no_OOM": true,
+      "original_XML_unchanged": true,
+      "own_children_absent_and_groups_empty": true,
+      "processes": [
+        {
+          "child_returncode": null,
+          "key": "w4",
+          "summary": {
+            "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5519,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                  "--node",
+                  "node27",
+                  "--gpu",
+                  "0",
+                  "--numa",
+                  "0",
+                  "--port-base",
+                  "35100",
+                  "--mesh",
+                  "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                  "--master",
+                  "12.11.3.28:29981",
+                  "--handoff",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                  "--session",
+                  "bounded_cost_runtime_r01",
+                  "--dram-budget",
+                  "3221225472",
+                  "--hbm-budget",
+                  "1006632960",
+                  "--inventory-mode-file",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                  "--allow-static-cache"
+                ],
+                "live": true,
+                "pgid": 5519,
+                "pid": 5519,
+                "sid": 5519,
+                "start_time": "19090886",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                    "--node",
+                    "node27",
+                    "--gpu",
+                    "0",
+                    "--numa",
+                    "0",
+                    "--port-base",
+                    "35100",
+                    "--mesh",
+                    "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                    "--master",
+                    "12.11.3.28:29981",
+                    "--handoff",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                    "--session",
+                    "bounded_cost_runtime_r01",
+                    "--dram-budget",
+                    "3221225472",
+                    "--hbm-budget",
+                    "1006632960",
+                    "--inventory-mode-file",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                    "--allow-static-cache"
+                  ],
+                  "live": true,
+                  "pgid": 5519,
+                  "pid": 5519,
+                  "sid": 5519,
+                  "start_time": "19090886",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+            "elapsed_s": 19.202386251999997,
+            "key": "w4",
+            "passed": true,
+            "pid_namespace": "pid:[4026541136]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        },
+        {
+          "child_returncode": null,
+          "key": "w5",
+          "summary": {
+            "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5521,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                  "--node",
+                  "node27",
+                  "--gpu",
+                  "4",
+                  "--numa",
+                  "4",
+                  "--port-base",
+                  "35100",
+                  "--mesh",
+                  "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                  "--master",
+                  "12.11.3.28:29981",
+                  "--handoff",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                  "--session",
+                  "bounded_cost_runtime_r01",
+                  "--dram-budget",
+                  "3221225472",
+                  "--hbm-budget",
+                  "1006632960",
+                  "--inventory-mode-file",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                  "--allow-static-cache"
+                ],
+                "live": true,
+                "pgid": 5521,
+                "pid": 5521,
+                "sid": 5521,
+                "start_time": "19090887",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                    "--node",
+                    "node27",
+                    "--gpu",
+                    "4",
+                    "--numa",
+                    "4",
+                    "--port-base",
+                    "35100",
+                    "--mesh",
+                    "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                    "--master",
+                    "12.11.3.28:29981",
+                    "--handoff",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                    "--session",
+                    "bounded_cost_runtime_r01",
+                    "--dram-budget",
+                    "3221225472",
+                    "--hbm-budget",
+                    "1006632960",
+                    "--inventory-mode-file",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                    "--allow-static-cache"
+                  ],
+                  "live": true,
+                  "pgid": 5521,
+                  "pid": 5521,
+                  "sid": 5521,
+                  "start_time": "19090887",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+            "elapsed_s": 19.202265910978895,
+            "key": "w5",
+            "passed": true,
+            "pid_namespace": "pid:[4026541136]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        },
+        {
+          "child_returncode": null,
+          "key": "ssd_n2",
+          "summary": {
+            "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5520,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "-m",
+                  "fluidckpt.serving.ssd_store",
+                  "--directory",
+                  "/task_ssd",
+                  "--port",
+                  "35402"
+                ],
+                "live": true,
+                "pgid": 5520,
+                "pid": 5520,
+                "sid": 5520,
+                "start_time": "19090886",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "-m",
+                    "fluidckpt.serving.ssd_store",
+                    "--directory",
+                    "/task_ssd",
+                    "--port",
+                    "35402"
+                  ],
+                  "live": true,
+                  "pgid": 5520,
+                  "pid": 5520,
+                  "sid": 5520,
+                  "start_time": "19090886",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+            "elapsed_s": 19.043083772994578,
+            "key": "ssd_n2",
+            "passed": true,
+            "pid_namespace": "pid:[4026541136]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        }
+      ],
+      "protected_container_count": 4,
+      "protected_containers_unchanged": true,
+      "protected_owner_count": 0,
+      "protected_owners_unchanged": true,
+      "quiet_pids": "1"
+    },
+    "node28": {
+      "exact_collection_passed": true,
+      "exact_container_unchanged": true,
+      "frozen_assets_unchanged": true,
+      "no_OOM": true,
+      "original_XML_unchanged": true,
+      "own_children_absent_and_groups_empty": true,
+      "processes": [
+        {
+          "child_returncode": null,
+          "key": "w0",
+          "summary": {
+            "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5599,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                  "--node",
+                  "node28",
+                  "--gpu",
+                  "0",
+                  "--numa",
+                  "0",
+                  "--port-base",
+                  "35100",
+                  "--mesh",
+                  "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                  "--master",
+                  "12.11.3.28:29981",
+                  "--handoff",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                  "--session",
+                  "bounded_cost_runtime_r01",
+                  "--dram-budget",
+                  "3221225472",
+                  "--hbm-budget",
+                  "1006632960",
+                  "--inventory-mode-file",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                  "--allow-static-cache"
+                ],
+                "live": true,
+                "pgid": 5599,
+                "pid": 5599,
+                "sid": 5599,
+                "start_time": "503294801",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                    "--node",
+                    "node28",
+                    "--gpu",
+                    "0",
+                    "--numa",
+                    "0",
+                    "--port-base",
+                    "35100",
+                    "--mesh",
+                    "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                    "--master",
+                    "12.11.3.28:29981",
+                    "--handoff",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                    "--session",
+                    "bounded_cost_runtime_r01",
+                    "--dram-budget",
+                    "3221225472",
+                    "--hbm-budget",
+                    "1006632960",
+                    "--inventory-mode-file",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                    "--allow-static-cache"
+                  ],
+                  "live": true,
+                  "pgid": 5599,
+                  "pid": 5599,
+                  "sid": 5599,
+                  "start_time": "503294801",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+            "elapsed_s": 19.252614450640976,
+            "key": "w0",
+            "passed": true,
+            "pid_namespace": "pid:[4026541426]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        },
+        {
+          "child_returncode": null,
+          "key": "w1",
+          "summary": {
+            "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5600,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                  "--node",
+                  "node28",
+                  "--gpu",
+                  "1",
+                  "--numa",
+                  "3",
+                  "--port-base",
+                  "35100",
+                  "--mesh",
+                  "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                  "--master",
+                  "12.11.3.28:29981",
+                  "--handoff",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                  "--session",
+                  "bounded_cost_runtime_r01",
+                  "--dram-budget",
+                  "3221225472",
+                  "--hbm-budget",
+                  "1006632960",
+                  "--inventory-mode-file",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                  "--allow-static-cache"
+                ],
+                "live": true,
+                "pgid": 5600,
+                "pid": 5600,
+                "sid": 5600,
+                "start_time": "503294801",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                    "--node",
+                    "node28",
+                    "--gpu",
+                    "1",
+                    "--numa",
+                    "3",
+                    "--port-base",
+                    "35100",
+                    "--mesh",
+                    "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                    "--master",
+                    "12.11.3.28:29981",
+                    "--handoff",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                    "--session",
+                    "bounded_cost_runtime_r01",
+                    "--dram-budget",
+                    "3221225472",
+                    "--hbm-budget",
+                    "1006632960",
+                    "--inventory-mode-file",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                    "--allow-static-cache"
+                  ],
+                  "live": true,
+                  "pgid": 5600,
+                  "pid": 5600,
+                  "sid": 5600,
+                  "start_time": "503294801",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+            "elapsed_s": 19.054888904094696,
+            "key": "w1",
+            "passed": true,
+            "pid_namespace": "pid:[4026541426]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        },
+        {
+          "child_returncode": null,
+          "key": "ssd_n0",
+          "summary": {
+            "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5598,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "-m",
+                  "fluidckpt.serving.ssd_store",
+                  "--directory",
+                  "/task_ssd",
+                  "--port",
+                  "35400"
+                ],
+                "live": true,
+                "pgid": 5598,
+                "pid": 5598,
+                "sid": 5598,
+                "start_time": "503294800",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "-m",
+                    "fluidckpt.serving.ssd_store",
+                    "--directory",
+                    "/task_ssd",
+                    "--port",
+                    "35400"
+                  ],
+                  "live": true,
+                  "pgid": 5598,
+                  "pid": 5598,
+                  "sid": 5598,
+                  "start_time": "503294800",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+            "elapsed_s": 19.042828602716327,
+            "key": "ssd_n0",
+            "passed": true,
+            "pid_namespace": "pid:[4026541426]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        }
+      ],
+      "protected_container_count": 6,
+      "protected_containers_unchanged": true,
+      "protected_owner_count": 13,
+      "protected_owners_unchanged": true,
+      "quiet_pids": "1"
+    },
+    "node30": {
+      "exact_collection_passed": true,
+      "exact_container_unchanged": true,
+      "frozen_assets_unchanged": true,
+      "no_OOM": true,
+      "original_XML_unchanged": true,
+      "own_children_absent_and_groups_empty": true,
+      "processes": [
+        {
+          "child_returncode": null,
+          "key": "w2",
+          "summary": {
+            "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5569,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                  "--node",
+                  "node30",
+                  "--gpu",
+                  "4",
+                  "--numa",
+                  "4",
+                  "--port-base",
+                  "35100",
+                  "--mesh",
+                  "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                  "--master",
+                  "12.11.3.28:29981",
+                  "--handoff",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                  "--session",
+                  "bounded_cost_runtime_r01",
+                  "--dram-budget",
+                  "3221225472",
+                  "--hbm-budget",
+                  "1006632960",
+                  "--inventory-mode-file",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                  "--allow-static-cache"
+                ],
+                "live": true,
+                "pgid": 5569,
+                "pid": 5569,
+                "sid": 5569,
+                "start_time": "503295601",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                    "--node",
+                    "node30",
+                    "--gpu",
+                    "4",
+                    "--numa",
+                    "4",
+                    "--port-base",
+                    "35100",
+                    "--mesh",
+                    "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                    "--master",
+                    "12.11.3.28:29981",
+                    "--handoff",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                    "--session",
+                    "bounded_cost_runtime_r01",
+                    "--dram-budget",
+                    "3221225472",
+                    "--hbm-budget",
+                    "1006632960",
+                    "--inventory-mode-file",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                    "--allow-static-cache"
+                  ],
+                  "live": true,
+                  "pgid": 5569,
+                  "pid": 5569,
+                  "sid": 5569,
+                  "start_time": "503295601",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+            "elapsed_s": 19.20788036007434,
+            "key": "w2",
+            "passed": true,
+            "pid_namespace": "pid:[4026541311]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        },
+        {
+          "child_returncode": null,
+          "key": "w3",
+          "summary": {
+            "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5568,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                  "--node",
+                  "node30",
+                  "--gpu",
+                  "5",
+                  "--numa",
+                  "7",
+                  "--port-base",
+                  "35100",
+                  "--mesh",
+                  "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                  "--master",
+                  "12.11.3.28:29981",
+                  "--handoff",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                  "--session",
+                  "bounded_cost_runtime_r01",
+                  "--dram-budget",
+                  "3221225472",
+                  "--hbm-budget",
+                  "1006632960",
+                  "--inventory-mode-file",
+                  "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                  "--allow-static-cache"
+                ],
+                "live": true,
+                "pgid": 5568,
+                "pid": 5568,
+                "sid": 5568,
+                "start_time": "503295600",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+                    "--node",
+                    "node30",
+                    "--gpu",
+                    "5",
+                    "--numa",
+                    "7",
+                    "--port-base",
+                    "35100",
+                    "--mesh",
+                    "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+                    "--master",
+                    "12.11.3.28:29981",
+                    "--handoff",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+                    "--session",
+                    "bounded_cost_runtime_r01",
+                    "--dram-budget",
+                    "3221225472",
+                    "--hbm-budget",
+                    "1006632960",
+                    "--inventory-mode-file",
+                    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/bounded_cost_runtime_r01.inventory_mode.json",
+                    "--allow-static-cache"
+                  ],
+                  "live": true,
+                  "pgid": 5568,
+                  "pid": 5568,
+                  "sid": 5568,
+                  "start_time": "503295600",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+            "elapsed_s": 19.21141528338194,
+            "key": "w3",
+            "passed": true,
+            "pid_namespace": "pid:[4026541311]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        },
+        {
+          "child_returncode": null,
+          "key": "ssd_n1",
+          "summary": {
+            "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+            "cgroup_path": "/sys/fs/cgroup",
+            "child_returncode": -15,
+            "cleanup": {
+              "after": {
+                "live": false,
+                "pid": 5570,
+                "state": "absent"
+              },
+              "before": {
+                "argv": [
+                  "python3",
+                  "-m",
+                  "fluidckpt.serving.ssd_store",
+                  "--directory",
+                  "/task_ssd",
+                  "--port",
+                  "35401"
+                ],
+                "live": true,
+                "pgid": 5570,
+                "pid": 5570,
+                "sid": 5570,
+                "start_time": "503295601",
+                "state": "S"
+              },
+              "group_before": [
+                {
+                  "argv": [
+                    "python3",
+                    "-m",
+                    "fluidckpt.serving.ssd_store",
+                    "--directory",
+                    "/task_ssd",
+                    "--port",
+                    "35401"
+                  ],
+                  "live": true,
+                  "pgid": 5570,
+                  "pid": 5570,
+                  "sid": 5570,
+                  "start_time": "503295601",
+                  "state": "S"
+                }
+              ],
+              "passed": true,
+              "pending_group_members": [],
+              "signals": [
+                "TERM"
+              ]
+            },
+            "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+            "elapsed_s": 19.041482352651656,
+            "key": "ssd_n1",
+            "passed": true,
+            "pid_namespace": "pid:[4026541311]",
+            "plan_sha256": "1e0d523830b572da41f36c63cf1007e372ca0ad55f4ec38845923c824bd74f0e",
+            "source_sha256": "97d34a58d94bb0abee8a8b65081e631672bf39b653996f232122db18e21ac7d5",
+            "stop_reason": "owned_stop_marker"
+          },
+          "supervisor_returncode": 0
+        }
+      ],
+      "protected_container_count": 2,
+      "protected_containers_unchanged": true,
+      "protected_owner_count": 0,
+      "protected_owners_unchanged": true,
+      "quiet_pids": "1"
+    }
+  },
+  "query_AB_requests": 0,
+  "remote_writes": 0,
+  "session": "bounded_cost_runtime_r01",
+  "session_elapsed_s": 19.56576151101035,
+  "source_model_digest": "3eaac58b63756c6fb0328eec4e6168195fba23467c5da744d843325d27cb61fb",
+  "source_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "status": "failed",
+  "training_requests": 0,
+  "verified_bytes": 0
+}

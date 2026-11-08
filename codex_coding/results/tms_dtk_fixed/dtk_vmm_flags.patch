@@ -1,0 +1,39 @@
+diff --git a/csrc/hardware_amd_support.cpp b/csrc/hardware_amd_support.cpp
+index c7c779d..e3ce5ca 100644
+--- a/csrc/hardware_amd_support.cpp
++++ b/csrc/hardware_amd_support.cpp
+@@ -174,7 +174,7 @@ namespace ROCmHIPImplementation {
+ 
+         // Reserve aligned memory address
+         hipDeviceptr_t d_mem;
+-        CURESULT_CHECK(hipMemAddressReserve(&d_mem, aligned_size, granularity, 0, node_id));
++        CURESULT_CHECK(hipMemAddressReserve(&d_mem, aligned_size, granularity, 0, 0));
+         *ptr = (void*)d_mem;
+ 
+         // Create and map chunks
+diff --git a/test/test_examples.py b/test/test_examples.py
+index 87d92a4..8b4a800 100644
+--- a/test/test_examples.py
++++ b/test/test_examples.py
+@@ -24,6 +24,7 @@ from examples import (
+     nested_region,
+     pause_inflight,
+     xpu_scenarios,
++    high_device_cpu_backup,
+ )
+ 
+ # XPU only supports hook_mode='torch'
+@@ -61,6 +62,13 @@ def test_cpu_backup(hook_mode):
+     _test_core(cpu_backup.run, hook_mode=hook_mode)
+ 
+ 
++@pytest.mark.skipif(torch.version.hip is None or torch.cuda.device_count() < 5,
++                    reason='requires a HIP device with ordinal at least four')
++@pytest.mark.parametrize('hook_mode', _HOOK_MODES)
++def test_high_device_cpu_backup(hook_mode):
++    _test_core(high_device_cpu_backup.run, hook_mode=hook_mode)
++
++
+ @_skip_on_xpu
+ @_multi_device_only
+ @pytest.mark.skipif(torch.version.hip is not None, reason="mmap CPU backup is CUDA-only")

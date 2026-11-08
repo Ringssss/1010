@@ -1,0 +1,786 @@
+{
+  "begin_ns": 222836765807336,
+  "end_ns": 222837629498596,
+  "fit_sample": false,
+  "flow": {
+    "control_mode": "compact",
+    "controller_timing": {
+      "all_targets_filled_ns": 222837362305034,
+      "all_targets_published_ns": 222837627775252,
+      "clock_domain": "controller/m03r2n07/1257803/a8708a49637c4f0b9aa2085980f7ef04",
+      "load_begin_ns": 222837099699994
+    },
+    "coordinator_wall_s": 0.5280707979982253,
+    "cost_ledger_controller": {
+      "clock_domain": "controller/m03r2n07/1257803/a8708a49637c4f0b9aa2085980f7ef04",
+      "controller_execute_ns": 227866693,
+      "inventory_checked_ns": 222837100961771,
+      "native_clocks": [
+        [
+          222837.099700584,
+          222837099700734
+        ],
+        [
+          222837.100961571,
+          222837100961771
+        ],
+        [
+          222837.134438201,
+          222837134438341
+        ],
+        [
+          222837.362299034,
+          222837362300054
+        ],
+        [
+          222837.627771382,
+          222837627771522
+        ]
+      ],
+      "native_execute_wall_ns": 227860833,
+      "prepared_ns": 222837134438341,
+      "transfer_method_span": {
+        "begin_ns": 222837099689654,
+        "end_ns": 222837629490015
+      }
+    },
+    "epoch_snapshot_reused": false,
+    "execute_wall_s": 0.22786083299433812,
+    "execution": [
+      {
+        "chunk_bytes": 33554432,
+        "cost_ledger": {
+          "CUDA_events": 0,
+          "actor": {
+            "birth": "dd8d53bab64a4946a67af28b29ad11f4",
+            "born_ns": 222837135413624,
+            "clock_domain": "worker/m03r2n07/1257803/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+            "generation": 12,
+            "ident": 22500540446272,
+            "name": "Thread-13 (process_request_thread)",
+            "native_tid": 1257826,
+            "pid": 1257803
+          },
+          "actual": {
+            "K": 1,
+            "N_mib": 96.0,
+            "chunk_mib": [
+              32.0,
+              32.0,
+              32.0
+            ],
+            "copy_count": 3,
+            "land_count": 3,
+            "logical_bytes": 100663296,
+            "submitted_copy_bytes": 100663296,
+            "sync_count": 3
+          },
+          "actual_op_chunk_bytes": {
+            "0": [
+              33554432,
+              33554432,
+              33554432
+            ]
+          },
+          "clock_domain": "worker/m03r2n07/1257803/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+          "copy_submit_spans": [
+            {
+              "begin_ns": 222837136248726,
+              "bytes": 33554432,
+              "chunk_index": 0,
+              "end_ns": 222837210986070,
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211088982,
+              "bytes": 33554432,
+              "chunk_index": 1,
+              "end_ns": 222837285838896,
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285915997,
+              "bytes": 33554432,
+              "chunk_index": 2,
+              "end_ns": 222837360684962,
+              "op_id": 0
+            }
+          ],
+          "identities": [
+            {
+              "sources": [
+                {
+                  "epoch": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/node27/0/1257803/d377305b0dc249a996f17490598f76f5",
+                  "generation": 1,
+                  "history": null,
+                  "identity": "b8fa8a24737bce61d9ea8d76a884abb3a658ceff08c5adbe51fcd63fc2ead26c",
+                  "replica_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/dram"
+                }
+              ],
+              "target": {
+                "allocate_begin_ns": 222837101782712,
+                "allocate_end_ns": 222837133715922,
+                "allocation_birth": "5c8601c89f4946a788bb7351e5cc85a0",
+                "allocation_generation": 1,
+                "clock_domain": "worker/m03r2n07/1257803/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+                "id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/hbm",
+                "initialization": "no_task_target_write",
+                "n": 100663296,
+                "owner": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/node27/0/1257803/d377305b0dc249a996f17490598f76f5",
+                "strategy": "native_torch_empty_exact_size",
+                "tier": "hbm",
+                "writes": []
+              },
+              "target_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/hbm"
+            }
+          ],
+          "metadata_begin_ns": 222837360914966,
+          "metadata_end_ns": 222837361097368,
+          "native_execute_s": 0.22488375200191513,
+          "native_service_ns": 224714220,
+          "original_copy_path": "inherited fluidckpt.cluster.worker.ClusterWorker.execute/_execute/land",
+          "partition": [
+            {
+              "begin_ns": 222837136000222,
+              "end_ns": 222837136011842,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222837136011842,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222837136014493,
+              "name": "set_device",
+              "op_id": null
+            },
+            {
+              "begin_ns": 222837136014493,
+              "end_ns": 222837136044983,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222837136044983,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222837136199405,
+              "name": "begin_log",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837136199405,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222837136231545,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837136231545,
+              "bytes": 33554432,
+              "chunk_index": 0,
+              "end_ns": 222837211000911,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211000911,
+              "end_ns": 222837211036631,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222837211036631,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222837211047811,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211047811,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222837211075972,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211075972,
+              "bytes": 33554432,
+              "chunk_index": 1,
+              "end_ns": 222837285852267,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285852267,
+              "end_ns": 222837285865057,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222837285865057,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222837285876647,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285876647,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222837285901537,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285901537,
+              "bytes": 33554432,
+              "chunk_index": 2,
+              "end_ns": 222837360698473,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837360698473,
+              "end_ns": 222837360712223,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222837360712223,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222837360739713,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837360739713,
+              "end_ns": 222837360763984,
+              "name": "unattributed_gap"
+            },
+            {
+              "begin_ns": 222837360763984,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222837360893355,
+              "name": "end_log",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837360893355,
+              "end_ns": 222837360913816,
+              "name": "unattributed_gap"
+            }
+          ],
+          "primary_span": {
+            "begin_ns": 222837136000222,
+            "end_ns": 222837360913816,
+            "name": "complete_native_execute_method"
+          },
+          "primitive_spans": [
+            {
+              "begin_ns": 222837136011842,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222837136014493,
+              "name": "set_device",
+              "op_id": null
+            },
+            {
+              "begin_ns": 222837136044983,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222837136199405,
+              "name": "begin_log",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837136199405,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222837136231545,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837136231545,
+              "bytes": 33554432,
+              "chunk_index": 0,
+              "end_ns": 222837211000911,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211036631,
+              "bytes": 0,
+              "chunk_index": 0,
+              "end_ns": 222837211047811,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211047811,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222837211075972,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837211075972,
+              "bytes": 33554432,
+              "chunk_index": 1,
+              "end_ns": 222837285852267,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285865057,
+              "bytes": 0,
+              "chunk_index": 1,
+              "end_ns": 222837285876647,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285876647,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222837285901537,
+              "name": "source_slice_and_loop",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837285901537,
+              "bytes": 33554432,
+              "chunk_index": 2,
+              "end_ns": 222837360698473,
+              "name": "land_submit",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837360712223,
+              "bytes": 0,
+              "chunk_index": 2,
+              "end_ns": 222837360739713,
+              "name": "device_sync",
+              "op_id": 0
+            },
+            {
+              "begin_ns": 222837360763984,
+              "bytes": 0,
+              "chunk_index": null,
+              "end_ns": 222837360893355,
+              "name": "end_log",
+              "op_id": 0
+            }
+          ],
+          "raw_log_bounded_service_ns": 224719001,
+          "raw_service_ns": 224714240,
+          "raw_tape": {
+            "chunk": 2,
+            "copies": [
+              [
+                0,
+                0,
+                222837136248726,
+                222837210986070,
+                33554432
+              ],
+              [
+                0,
+                1,
+                222837211088982,
+                222837285838896,
+                33554432
+              ],
+              [
+                0,
+                2,
+                222837285915997,
+                222837360684962,
+                33554432
+              ]
+            ],
+            "lands": [
+              [
+                0,
+                0,
+                0,
+                33554432
+              ],
+              [
+                0,
+                1,
+                33554432,
+                33554432
+              ],
+              [
+                0,
+                2,
+                67108864,
+                33554432
+              ]
+            ],
+            "native_clock_samples": [
+              [
+                222837.136022083,
+                222837136022353
+              ],
+              [
+                222837.136037263,
+                222837136037653
+              ],
+              [
+                222837.360751483,
+                222837360751893
+              ],
+              [
+                222837.360760503,
+                222837360761023
+              ],
+              [
+                222837.360905835,
+                222837360905995
+              ]
+            ],
+            "op": 0,
+            "op_begins": [
+              [
+                0,
+                222837136044983,
+                100663296
+              ]
+            ],
+            "op_ends": [
+              [
+                0,
+                222837360763984
+              ]
+            ],
+            "source_bundle_begin": 222837360739713,
+            "spans": [
+              [
+                "set_device",
+                null,
+                null,
+                222837136011842,
+                222837136014493,
+                0
+              ],
+              [
+                "begin_log",
+                0,
+                null,
+                222837136044983,
+                222837136199405,
+                0
+              ],
+              [
+                "source_slice_and_loop",
+                0,
+                0,
+                222837136199405,
+                222837136231545,
+                0
+              ],
+              [
+                "land_submit",
+                0,
+                0,
+                222837136231545,
+                222837211000911,
+                33554432
+              ],
+              [
+                "device_sync",
+                0,
+                0,
+                222837211036631,
+                222837211047811,
+                0
+              ],
+              [
+                "source_slice_and_loop",
+                0,
+                1,
+                222837211047811,
+                222837211075972,
+                0
+              ],
+              [
+                "land_submit",
+                0,
+                1,
+                222837211075972,
+                222837285852267,
+                33554432
+              ],
+              [
+                "device_sync",
+                0,
+                1,
+                222837285865057,
+                222837285876647,
+                0
+              ],
+              [
+                "source_slice_and_loop",
+                0,
+                2,
+                222837285876647,
+                222837285901537,
+                0
+              ],
+              [
+                "land_submit",
+                0,
+                2,
+                222837285901537,
+                222837360698473,
+                33554432
+              ],
+              [
+                "device_sync",
+                0,
+                2,
+                222837360712223,
+                222837360739713,
+                0
+              ],
+              [
+                "end_log",
+                0,
+                null,
+                222837360763984,
+                222837360893355,
+                0
+              ]
+            ],
+            "syncs": [
+              [
+                0,
+                0,
+                222837211036631,
+                222837211047811
+              ],
+              [
+                0,
+                1,
+                222837285865057,
+                222837285876647
+              ],
+              [
+                0,
+                2,
+                222837360712223,
+                222837360739713
+              ]
+            ]
+          },
+          "service_spans": [
+            {
+              "begin_ns": 222837136037653,
+              "elapsed_s": 0.22471422000671737,
+              "end_ns": 222837360751893,
+              "native_float_difference_ns": -20,
+              "op_id": 0
+            }
+          ],
+          "setup_span": {
+            "begin_ns": 222837135909791,
+            "end_ns": 222837136000222
+          },
+          "target_histories_after": [
+            {
+              "allocate_begin_ns": 222837101782712,
+              "allocate_end_ns": 222837133715922,
+              "allocation_birth": "5c8601c89f4946a788bb7351e5cc85a0",
+              "allocation_generation": 1,
+              "clock_domain": "worker/m03r2n07/1257803/359fdde8-1501-43e0-a58a-c5b9b08e6f75/monotonic_ns",
+              "id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/hbm",
+              "initialization": "no_task_target_write",
+              "n": 100663296,
+              "owner": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/node27/0/1257803/d377305b0dc249a996f17490598f76f5",
+              "strategy": "native_torch_empty_exact_size",
+              "tier": "hbm",
+              "writes": [
+                {
+                  "copy_chunks": [
+                    {
+                      "chunk_index": 0,
+                      "n": 33554432,
+                      "off": 0,
+                      "op_id": 0
+                    },
+                    {
+                      "chunk_index": 1,
+                      "n": 33554432,
+                      "off": 33554432,
+                      "op_id": 0
+                    },
+                    {
+                      "chunk_index": 2,
+                      "n": 33554432,
+                      "off": 67108864,
+                      "op_id": 0
+                    }
+                  ],
+                  "method_begin_ns": 222837136000222,
+                  "method_end_ns": 222837360913816,
+                  "tx": "8ecceb080c5349ff906ed6e3d3fece5b"
+                }
+              ]
+            }
+          ],
+          "worker_ns": 224913594,
+          "wrapper_observed_end_ns": 222837361098728
+        },
+        "execute_s": 0.22488375200191513,
+        "executor": "serial",
+        "records": [
+          {
+            "bytes": 100663296,
+            "elapsed_s": 0.22471422000671737,
+            "kind": "local_dram",
+            "op_id": 0,
+            "pipeline": {},
+            "replica_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/dram",
+            "role": "both"
+          }
+        ],
+        "staging_bytes": 67108864,
+        "worker": 0
+      }
+    ],
+    "executor": "serial",
+    "inventory_rpc_s": 0.0012609870173037052,
+    "plan": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "ops": [
+        {
+          "dst_w": 0,
+          "generation": 1,
+          "identity": "b8fa8a24737bce61d9ea8d76a884abb3a658ceff08c5adbe51fcd63fc2ead26c",
+          "kind": "local_dram",
+          "n": 100663296,
+          "off": 0,
+          "op_id": 0,
+          "replica_id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/dram",
+          "resources": [],
+          "source_epoch": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/node27/0/1257803/d377305b0dc249a996f17490598f76f5",
+          "source_offset": 0,
+          "src_w": 0,
+          "target": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/hbm",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/hbm",
+          "identity": "b8fa8a24737bce61d9ea8d76a884abb3a658ceff08c5adbe51fcd63fc2ead26c",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              50331648
+            ],
+            "t2": [
+              51380224,
+              32505856
+            ],
+            "t3": [
+              83886080,
+              14680064
+            ],
+            "t4": [
+              98566144,
+              2097152
+            ]
+          },
+          "key": "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/hbm",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 100663296,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 0
+        }
+      ]
+    },
+    "prepare_rpc_s": 0.03347662999294698,
+    "prepare_s": 0.03473761701025069,
+    "rpc": {
+      "execute": [
+        {
+          "deserialize_s": 0.00024046300677582622,
+          "operation": "execute",
+          "request_bytes": 42,
+          "response_bytes": 9197,
+          "serialize_s": 1.6071018762886524e-05,
+          "transport_and_server_s": 0.22723417400266044
+        }
+      ],
+      "inventory": [
+        {
+          "deserialize_s": 3.8219994166865945e-05,
+          "operation": "inventory?compact=1",
+          "request_bytes": 0,
+          "response_bytes": 1325,
+          "serialize_s": 3.3600081223994493e-06,
+          "transport_and_server_s": 0.0009920239972416312
+        }
+      ],
+      "prepare": [
+        {
+          "deserialize_s": 3.3199990866705775e-05,
+          "operation": "prepare",
+          "request_bytes": 1260,
+          "response_bytes": 31,
+          "serialize_s": 3.82009893655777e-05,
+          "transport_and_server_s": 0.03315385599853471
+        }
+      ],
+      "publish": [
+        {
+          "deserialize_s": 3.479100996628404e-05,
+          "operation": "complete",
+          "request_bytes": 60,
+          "response_bytes": 28,
+          "serialize_s": 2.7149973902851343e-05,
+          "transport_and_server_s": 0.001556681003421545
+        }
+      ]
+    },
+    "source_bytes": {
+      "cost_ledger_runtime_C1_cpu_execution_cpu_r03/source/dram": 100663296
+    },
+    "timing_scope": "coordinator wall; excludes model layout before handoff",
+    "tx": "8ecceb080c5349ff906ed6e3d3fece5b",
+    "verification": {
+      "algorithm": "SHA256 of every logical byte per operation",
+      "checked_bytes": 100663296,
+      "operations": {
+        "0": {
+          "n": 100663296,
+          "op_id": 0,
+          "source_sha256": "70ad706673615ec2a63eb3dc59c354854edda0b19b3bd1f789ba58037707c7d2",
+          "target_sha256": "70ad706673615ec2a63eb3dc59c354854edda0b19b3bd1f789ba58037707c7d2"
+        }
+      },
+      "passed": true
+    },
+    "verify_and_publish_s": 0.2654723479936365
+  }
+}

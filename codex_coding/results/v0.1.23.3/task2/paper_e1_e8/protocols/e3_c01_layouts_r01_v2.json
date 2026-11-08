@@ -1,0 +1,84 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "created_at": "2026-10-06T01:33:38.578111+08:00",
+  "phase": "exploratory",
+  "do_not_mutate_existing_serving_session": true,
+  "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+  "historical_reanalysis_is_not_a_new_hardware_run": true,
+  "run_id": "e3_c01_layouts_r01",
+  "experiment_id": "e3",
+  "method": "isolated synthetic weight-region recovery",
+  "question": "At the same extra HBM budget, do concentrated, distributed, replicated and hybrid layouts produce different real source use and recovery costs?",
+  "nodes": [
+    "node28"
+  ],
+  "physical_gpus": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "target_sets": {
+    "A": [
+      0,
+      1
+    ],
+    "B": [
+      2,
+      3
+    ]
+  },
+  "rank_bytes": 2147483665,
+  "complete_base_dram_bytes": 4294967330,
+  "extra_hbm_bytes": 2147483648,
+  "per_worker_staging_bytes": 67108864,
+  "target_output_bytes": 4294967330,
+  "executor": "serial",
+  "chunk_bytes": 33554432,
+  "layout_order": [
+    "concentrated",
+    "distributed",
+    "replicated",
+    "hybrid"
+  ],
+  "scenario_order": [
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "A"
+    ],
+    [
+      "A",
+      "B"
+    ],
+    [
+      "B",
+      "A"
+    ]
+  ],
+  "scenario_weights": {
+    "A": 0.5,
+    "B": 0.5
+  },
+  "per_configuration_repeats": 1,
+  "identical_baseline_repeats": 2,
+  "observed_metric": "synthetic data-fill wall = prepare_s + execute_wall_s; verified-publication wall includes SHA and is reported separately; not SGLang T_ready",
+  "gate": "scientific performance outcome remains inconclusive if spread/gain is comparable to repeated baseline variation; no full-model gain claim",
+  "safety": [
+    "separate container/mesh, no calls that mutate protected worker sessions",
+    "allow only known low-memory background keepers; GPU use below 4GiB, at least 12GiB free",
+    "require free-only NUMA headroom for own base and initialization scratch",
+    "abort on failed path warmup"
+  ],
+  "limits": [
+    "synthetic functional execution comparison is an e3 precursor; full model primary-metric acceptance remains for e5",
+    "co-resident keeper contexts and any interference are recorded; no exclusive-hardware claim"
+  ],
+  "protocol_revision": 2,
+  "supersedes": "e3_c01_layouts_r01.json",
+  "revision_reason": "Existing replica publication requires verification; keep that correctness gate and measure data-fill separately"
+}

@@ -1,0 +1,110 @@
+{
+  "chunk_bytes": 33554432,
+  "config_verified": true,
+  "control_mode": "cached",
+  "evidence_scope": "CPU API fixture; no actual physical or GPU qualification",
+  "executor": "serial",
+  "model_source_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_draft_r01/frozen_model.json",
+    "sha256": "a9a5d6b639c790875de0ee781416568925504dfbaf20bcf53eec6c28d7a53986"
+  },
+  "physical_gate_passed": true,
+  "source_lineage": {
+    "2:dram:4->4": {
+      "generation": 1,
+      "identity": "CPU_FIXTURE_identity_2:dram:4->4",
+      "numa": 4,
+      "replica_id": "CPU_FIXTURE_2:dram:4->4",
+      "source_epoch": "CPU_FIXTURE_epoch_2",
+      "tier": "dram",
+      "worker": 2
+    },
+    "4:hbm:0->4": {
+      "generation": 1,
+      "identity": "CPU_FIXTURE_identity_4:hbm:0->4",
+      "numa": 0,
+      "replica_id": "CPU_FIXTURE_4:hbm:0->4",
+      "source_epoch": "CPU_FIXTURE_epoch_4",
+      "tier": "hbm",
+      "worker": 4
+    },
+    "4:ssd:0->5": {
+      "generation": 1,
+      "identity": "CPU_FIXTURE_identity_4:ssd:0->5",
+      "numa": 0,
+      "replica_id": "CPU_FIXTURE_4:ssd:0->5",
+      "source_epoch": "CPU_FIXTURE_epoch_4",
+      "tier": "ssd",
+      "worker": 4
+    }
+  },
+  "source_lineage_verified": true,
+  "warm_pairs": [
+    "2:4",
+    "4:5"
+  ],
+  "worker_incarnations": [
+    [
+      "CPU_FIXTURE_NO_GPU",
+      "CPU_FIXTURE_epoch_0"
+    ],
+    [
+      "CPU_FIXTURE_NO_GPU",
+      "CPU_FIXTURE_epoch_1"
+    ],
+    [
+      "CPU_FIXTURE_NO_GPU",
+      "CPU_FIXTURE_epoch_2"
+    ],
+    [
+      "CPU_FIXTURE_NO_GPU",
+      "CPU_FIXTURE_epoch_3"
+    ],
+    [
+      "CPU_FIXTURE_NO_GPU",
+      "CPU_FIXTURE_epoch_4"
+    ],
+    [
+      "CPU_FIXTURE_NO_GPU",
+      "CPU_FIXTURE_epoch_5"
+    ]
+  ],
+  "worker_physical": [
+    {
+      "gpu": 0,
+      "node": "node28",
+      "numa": 0,
+      "worker": 0
+    },
+    {
+      "gpu": 1,
+      "node": "node28",
+      "numa": 3,
+      "worker": 1
+    },
+    {
+      "gpu": 4,
+      "node": "node30",
+      "numa": 4,
+      "worker": 2
+    },
+    {
+      "gpu": 5,
+      "node": "node30",
+      "numa": 7,
+      "worker": 3
+    },
+    {
+      "gpu": 0,
+      "node": "node27",
+      "numa": 0,
+      "worker": 4
+    },
+    {
+      "gpu": 4,
+      "node": "node27",
+      "numa": 4,
+      "worker": 5
+    }
+  ]
+}

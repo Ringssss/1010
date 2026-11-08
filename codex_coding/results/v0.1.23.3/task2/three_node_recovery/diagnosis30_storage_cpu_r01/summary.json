@@ -1,0 +1,82 @@
+{
+  "checks": {
+    "natural_exit": true,
+    "timeout_exact_owned": true,
+    "missing_path_explicit": true
+  },
+  "passed": true,
+  "natural": {
+    "argv": [
+      "/usr/bin/python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/test_storage_cpu.py",
+      "--fixture",
+      "exit"
+    ],
+    "owner": {
+      "pid": 40381,
+      "start_time": "1062118",
+      "state": "R",
+      "pgid": 40381,
+      "sid": 40381,
+      "argv": [
+        "/usr/bin/python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/test_storage_cpu.py",
+        "--fixture",
+        "exit"
+      ]
+    },
+    "deadline_seconds": 2,
+    "signals": [],
+    "timed_out": false,
+    "returncode": 0,
+    "actual_after": {
+      "pid": 40381,
+      "state": "absent"
+    },
+    "elapsed_ns": 44591021,
+    "stdout": "cpu fixture\n",
+    "stderr": "",
+    "cleanup_proven": true
+  },
+  "timeout": {
+    "argv": [
+      "/usr/bin/python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/test_storage_cpu.py",
+      "--fixture",
+      "sleep"
+    ],
+    "owner": {
+      "pid": 40382,
+      "start_time": "1062122",
+      "state": "R",
+      "pgid": 40382,
+      "sid": 40382,
+      "argv": [
+        "/usr/bin/python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/diagnosis30/test_storage_cpu.py",
+        "--fixture",
+        "sleep"
+      ]
+    },
+    "deadline_seconds": 0.2,
+    "signals": [
+      "SIGTERM"
+    ],
+    "timed_out": true,
+    "returncode": -15,
+    "actual_after": {
+      "pid": 40382,
+      "state": "absent"
+    },
+    "elapsed_ns": 201872782,
+    "stdout": "",
+    "stderr": "",
+    "cleanup_proven": true
+  },
+  "missing_path": {
+    "path": "/fluidckpt_diagnosis30_nonexistent_fixture",
+    "error": "FileNotFoundError(2, 'No such file or directory')"
+  },
+  "gpu_operations": 0,
+  "ssh_calls": 0
+}

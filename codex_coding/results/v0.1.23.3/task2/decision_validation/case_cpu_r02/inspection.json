@@ -1,0 +1,3892 @@
+{
+  "contract_sha256": "09677ccf4c7c5f2f12a1406f2e6d3957ac348be49489afd8eeaa3cc1e56dc67d",
+  "cpu_sensitivity": [
+    {
+      "case": "original_split_targets_dependency_diagnostic",
+      "coefficients": {
+        "local_hbm_ms": 1,
+        "network_hbm_ms": 3,
+        "base_dram_ms": 40,
+        "provenance": "symbolic, not observations"
+      },
+      "finite_layout_count": 9,
+      "layouts": [
+        {
+          "selected_ids": [],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 80.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.04,
+              "end_s": 0.08,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 41.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.001,
+              "end_s": 0.041,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.001
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 43.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.003,
+              "end_s": 0.043000000000000003,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 43.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.04,
+              "end_s": 0.043000000000000003,
+              "service_s": 0.003,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 40.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 41.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.001,
+              "end_s": 0.041,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.001
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 1.0,
+          "ordered_service_ms": 1.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1",
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 3.0,
+          "ordered_service_ms": 6.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.003,
+              "end_s": 0.006,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 40.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        }
+      ],
+      "finite_oracle": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.0,
+        "ordered_service_ms": 1.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_ordered_marginal_enumerator": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.0,
+        "ordered_service_ms": 1.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_greedy_steps": [
+        {
+          "candidate_id": "cache/1/1",
+          "before_ms": 80.0,
+          "after_ms": 40.0
+        },
+        {
+          "candidate_id": "cache/0/0",
+          "before_ms": 40.0,
+          "after_ms": 1.0
+        }
+      ],
+      "diagnostic_marginal_is_existing_baseline": false,
+      "existing_strong_simple": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.0,
+        "ordered_service_ms": 1.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "winner": "paired_fastest"
+      },
+      "existing_bandwidth_joint": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.0,
+        "ordered_service_ms": 1.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "solver_objective_ms": 1.0,
+        "solver_status": "optimal"
+      },
+      "joint_ordered_service_regret_ms": 0.0,
+      "greedy_matches_finite_oracle": true,
+      "existing_simple_joint_signature_alias": true,
+      "existing_simple_joint_ordered_cost_alias": true,
+      "interpretation": "no joint advantage under shared ordered-service objective"
+    },
+    {
+      "case": "original_split_targets_dependency_diagnostic",
+      "coefficients": {
+        "local_hbm_ms": 2,
+        "network_hbm_ms": 2,
+        "base_dram_ms": 40,
+        "provenance": "symbolic, not observations"
+      },
+      "finite_layout_count": 9,
+      "layouts": [
+        {
+          "selected_ids": [],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 80.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.04,
+              "end_s": 0.08,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.002,
+              "end_s": 0.042,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.002
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.002,
+              "end_s": 0.042,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.04,
+              "end_s": 0.042,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 40.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.002,
+              "end_s": 0.042,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.002
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 2.0,
+          "ordered_service_ms": 2.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1",
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 2.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.002,
+              "end_s": 0.004,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 40.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        }
+      ],
+      "finite_oracle": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 2.0,
+        "ordered_service_ms": 2.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_ordered_marginal_enumerator": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 2.0,
+        "ordered_service_ms": 2.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_greedy_steps": [
+        {
+          "candidate_id": "cache/1/1",
+          "before_ms": 80.0,
+          "after_ms": 40.0
+        },
+        {
+          "candidate_id": "cache/0/0",
+          "before_ms": 40.0,
+          "after_ms": 2.0
+        }
+      ],
+      "diagnostic_marginal_is_existing_baseline": false,
+      "existing_strong_simple": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 2.0,
+        "ordered_service_ms": 2.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "winner": "paired_fastest"
+      },
+      "existing_bandwidth_joint": {
+        "selected_ids": [
+          "cache/0/1",
+          "cache/1/0"
+        ],
+        "bandwidth_bound_ms": 2.0,
+        "ordered_service_ms": 4.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          },
+          {
+            "replica_id": "cache/1/0",
+            "src_w": 0,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:hbm:0->1",
+            "start_s": 0.002,
+            "end_s": 0.004,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "solver_objective_ms": 2.0,
+        "solver_status": "optimal"
+      },
+      "joint_ordered_service_regret_ms": 2.0,
+      "greedy_matches_finite_oracle": true,
+      "existing_simple_joint_signature_alias": false,
+      "existing_simple_joint_ordered_cost_alias": false,
+      "interpretation": "symbolic objective misranking"
+    },
+    {
+      "case": "original_split_targets_dependency_diagnostic",
+      "coefficients": {
+        "local_hbm_ms": 3,
+        "network_hbm_ms": 2,
+        "base_dram_ms": 40,
+        "provenance": "symbolic, not observations"
+      },
+      "finite_layout_count": 9,
+      "layouts": [
+        {
+          "selected_ids": [],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 80.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.04,
+              "end_s": 0.08,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 43.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.003,
+              "end_s": 0.043000000000000003,
+              "service_s": 0.04,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.003
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.002,
+              "end_s": 0.042,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.04,
+              "end_s": 0.042,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 40.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->1",
+              "start_s": 0.002,
+              "end_s": 0.042,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 3.0,
+          "ordered_service_ms": 3.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->1",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1",
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 2.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.002,
+              "end_s": 0.004,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 40.0,
+          "ordered_service_ms": 42.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 1,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->1"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.04,
+              "service_s": 0.04,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->1",
+              "start_s": 0.04,
+              "end_s": 0.042,
+              "service_s": 0.002,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.04
+            }
+          ]
+        }
+      ],
+      "finite_oracle": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 3.0,
+        "ordered_service_ms": 3.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.003,
+            "service_s": 0.003,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.003,
+            "service_s": 0.003,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_ordered_marginal_enumerator": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 3.0,
+        "ordered_service_ms": 3.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.003,
+            "service_s": 0.003,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->1",
+            "start_s": 0.0,
+            "end_s": 0.003,
+            "service_s": 0.003,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_greedy_steps": [
+        {
+          "candidate_id": "cache/1/1",
+          "before_ms": 80.0,
+          "after_ms": 40.0
+        },
+        {
+          "candidate_id": "cache/0/0",
+          "before_ms": 40.0,
+          "after_ms": 3.0
+        }
+      ],
+      "diagnostic_marginal_is_existing_baseline": false,
+      "existing_strong_simple": {
+        "selected_ids": [
+          "cache/0/1",
+          "cache/1/0"
+        ],
+        "bandwidth_bound_ms": 2.0,
+        "ordered_service_ms": 4.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          },
+          {
+            "replica_id": "cache/1/0",
+            "src_w": 0,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:hbm:0->1",
+            "start_s": 0.002,
+            "end_s": 0.004,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "winner": "paired_fastest"
+      },
+      "existing_bandwidth_joint": {
+        "selected_ids": [
+          "cache/0/1",
+          "cache/1/0"
+        ],
+        "bandwidth_bound_ms": 2.0,
+        "ordered_service_ms": 4.0,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          },
+          {
+            "replica_id": "cache/1/0",
+            "src_w": 0,
+            "dst_w": 1,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->1"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:hbm:0->1",
+            "start_s": 0.002,
+            "end_s": 0.004,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "solver_objective_ms": 2.0000000000000018,
+        "solver_status": "optimal"
+      },
+      "joint_ordered_service_regret_ms": 1.0,
+      "greedy_matches_finite_oracle": true,
+      "existing_simple_joint_signature_alias": true,
+      "existing_simple_joint_ordered_cost_alias": true,
+      "interpretation": "symbolic objective misranking"
+    },
+    {
+      "case": "both_targets_at28_cache_cap_insufficient",
+      "coefficients": {
+        "local_hbm_ms": 0.5,
+        "network_hbm_ms": 3,
+        "base_dram_ms": 1,
+        "provenance": "symbolic, not observations"
+      },
+      "finite_layout_count": 9,
+      "layouts": [
+        {
+          "selected_ids": [],
+          "bandwidth_bound_ms": 2.0,
+          "ordered_service_ms": 2.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.001,
+              "end_s": 0.002,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0015,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 2.0,
+          "ordered_service_ms": 2.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.001,
+              "end_s": 0.002,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.001,
+              "end_s": 0.0015,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 2.0,
+          "ordered_service_ms": 2.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.001,
+              "end_s": 0.002,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0015,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0015,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1",
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.001,
+              "end_s": 0.0015,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.001,
+              "end_s": 0.0015,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        }
+      ],
+      "finite_oracle": {
+        "selected_ids": [
+          "cache/0/0"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "base/1",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:dram:0->0",
+            "start_s": 0.0005,
+            "end_s": 0.0015,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_ordered_marginal_enumerator": {
+        "selected_ids": [
+          "cache/0/0"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "base/1",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:dram:0->0",
+            "start_s": 0.0005,
+            "end_s": 0.0015,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_greedy_steps": [
+        {
+          "candidate_id": "cache/0/0",
+          "before_ms": 2.0,
+          "after_ms": 1.5
+        }
+      ],
+      "diagnostic_marginal_is_existing_baseline": false,
+      "existing_strong_simple": {
+        "selected_ids": [
+          "cache/0/0"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "base/1",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:dram:0->0",
+            "start_s": 0.0005,
+            "end_s": 0.0015,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "winner": "marginal_resource_lp"
+      },
+      "existing_bandwidth_joint": {
+        "selected_ids": [
+          "cache/1/0"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "base/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          },
+          {
+            "replica_id": "cache/1/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:dram:0->0",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:hbm:0->0",
+            "start_s": 0.001,
+            "end_s": 0.0015,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "solver_objective_ms": 1.5,
+        "solver_status": "optimal"
+      },
+      "joint_ordered_service_regret_ms": 0.0,
+      "greedy_matches_finite_oracle": true,
+      "existing_simple_joint_signature_alias": false,
+      "existing_simple_joint_ordered_cost_alias": true,
+      "interpretation": "no joint advantage under shared ordered-service objective"
+    },
+    {
+      "case": "both_targets_at28_cache_cap_insufficient",
+      "coefficients": {
+        "local_hbm_ms": 0.5,
+        "network_hbm_ms": 2,
+        "base_dram_ms": 2,
+        "provenance": "symbolic, not observations"
+      },
+      "finite_layout_count": 9,
+      "layouts": [
+        {
+          "selected_ids": [],
+          "bandwidth_bound_ms": 4.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.002,
+              "end_s": 0.004,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0"
+          ],
+          "bandwidth_bound_ms": 2.5,
+          "ordered_service_ms": 2.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0025,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 4.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.002,
+              "end_s": 0.004,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 2.5,
+          "ordered_service_ms": 2.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.002,
+              "end_s": 0.0025,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 4.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.002,
+              "end_s": 0.004,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 2.5,
+          "ordered_service_ms": 2.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0025,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 2.5,
+          "ordered_service_ms": 2.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0025,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1",
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 2.5,
+          "ordered_service_ms": 2.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.002,
+              "end_s": 0.0025,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 2.5,
+          "ordered_service_ms": 2.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.002,
+              "service_s": 0.002,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.002,
+              "end_s": 0.0025,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        }
+      ],
+      "finite_oracle": {
+        "selected_ids": [
+          "cache/0/0"
+        ],
+        "bandwidth_bound_ms": 2.5,
+        "ordered_service_ms": 2.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "base/1",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:dram:0->0",
+            "start_s": 0.0005,
+            "end_s": 0.0025,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_ordered_marginal_enumerator": {
+        "selected_ids": [
+          "cache/0/0"
+        ],
+        "bandwidth_bound_ms": 2.5,
+        "ordered_service_ms": 2.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "base/1",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:dram:0->0",
+            "start_s": 0.0005,
+            "end_s": 0.0025,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_greedy_steps": [
+        {
+          "candidate_id": "cache/0/0",
+          "before_ms": 4.0,
+          "after_ms": 2.5
+        }
+      ],
+      "diagnostic_marginal_is_existing_baseline": false,
+      "existing_strong_simple": {
+        "selected_ids": [
+          "cache/0/0"
+        ],
+        "bandwidth_bound_ms": 2.5,
+        "ordered_service_ms": 2.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "base/1",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:dram:0->0",
+            "start_s": 0.0005,
+            "end_s": 0.0025,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "winner": "marginal_resource_lp"
+      },
+      "existing_bandwidth_joint": {
+        "selected_ids": [
+          "cache/1/0"
+        ],
+        "bandwidth_bound_ms": 2.5,
+        "ordered_service_ms": 2.5,
+        "ordered_ops": [
+          {
+            "replica_id": "base/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:dram:0->0"
+          },
+          {
+            "replica_id": "cache/1/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:dram:0->0",
+            "start_s": 0.0,
+            "end_s": 0.002,
+            "service_s": 0.002,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:hbm:0->0",
+            "start_s": 0.002,
+            "end_s": 0.0025,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "solver_objective_ms": 2.5,
+        "solver_status": "optimal"
+      },
+      "joint_ordered_service_regret_ms": 0.0,
+      "greedy_matches_finite_oracle": true,
+      "existing_simple_joint_signature_alias": false,
+      "existing_simple_joint_ordered_cost_alias": true,
+      "interpretation": "no joint advantage under shared ordered-service objective"
+    },
+    {
+      "case": "both_targets_at28_cache_cap_insufficient",
+      "coefficients": {
+        "local_hbm_ms": 0.5,
+        "network_hbm_ms": 1,
+        "base_dram_ms": 3,
+        "provenance": "symbolic, not observations"
+      },
+      "finite_layout_count": 9,
+      "layouts": [
+        {
+          "selected_ids": [],
+          "bandwidth_bound_ms": 6.0,
+          "ordered_service_ms": 6.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.003,
+              "end_s": 0.006,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0"
+          ],
+          "bandwidth_bound_ms": 3.5,
+          "ordered_service_ms": 3.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0035,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 4.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.001,
+              "end_s": 0.004,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 3.5,
+          "ordered_service_ms": 3.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.003,
+              "end_s": 0.0035,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 4.0,
+          "ordered_service_ms": 4.0,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->0",
+              "start_s": 0.003,
+              "end_s": 0.004,
+              "service_s": 0.001,
+              "first_pair_s": 0,
+              "source_wait_s": 0.003,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/0/1"
+          ],
+          "bandwidth_bound_ms": 3.5,
+          "ordered_service_ms": 3.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "base/1",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:dram:0->0",
+              "start_s": 0.0005,
+              "end_s": 0.0035,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            },
+            {
+              "replica_id": "cache/1/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:hbm:0->0",
+              "start_s": 0.0,
+              "end_s": 0.0005,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0005,
+              "end_s": 0.0015,
+              "service_s": 0.001,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0005,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/0/1",
+            "cache/1/0"
+          ],
+          "bandwidth_bound_ms": 1.5,
+          "ordered_service_ms": 1.5,
+          "ordered_ops": [
+            {
+              "replica_id": "cache/0/1",
+              "src_w": 1,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "1:hbm:4->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "1:hbm:4->0",
+              "start_s": 0.0,
+              "end_s": 0.001,
+              "service_s": 0.001,
+              "first_pair_s": 0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.001,
+              "end_s": 0.0015,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        },
+        {
+          "selected_ids": [
+            "cache/1/0",
+            "cache/1/1"
+          ],
+          "bandwidth_bound_ms": 3.5,
+          "ordered_service_ms": 3.5,
+          "ordered_ops": [
+            {
+              "replica_id": "base/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:dram:0->0"
+            },
+            {
+              "replica_id": "cache/1/0",
+              "src_w": 0,
+              "dst_w": 0,
+              "off": 0,
+              "n": 16777216,
+              "path": "0:hbm:0->0"
+            }
+          ],
+          "timeline": [
+            {
+              "op_id": 0,
+              "path": "0:dram:0->0",
+              "start_s": 0.0,
+              "end_s": 0.003,
+              "service_s": 0.003,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            },
+            {
+              "op_id": 1,
+              "path": "0:hbm:0->0",
+              "start_s": 0.003,
+              "end_s": 0.0035,
+              "service_s": 0.0005,
+              "first_pair_s": 0.0,
+              "source_wait_s": 0.0,
+              "target_wait_s": 0.0
+            }
+          ]
+        }
+      ],
+      "finite_oracle": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0005,
+            "end_s": 0.0015,
+            "service_s": 0.001,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0005,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_ordered_marginal_enumerator": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0005,
+            "end_s": 0.0015,
+            "service_s": 0.001,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0005,
+            "target_wait_s": 0.0
+          }
+        ]
+      },
+      "diagnostic_greedy_steps": [
+        {
+          "candidate_id": "cache/0/0",
+          "before_ms": 6.0,
+          "after_ms": 3.5
+        },
+        {
+          "candidate_id": "cache/1/1",
+          "before_ms": 3.5,
+          "after_ms": 1.5
+        }
+      ],
+      "diagnostic_marginal_is_existing_baseline": false,
+      "existing_strong_simple": {
+        "selected_ids": [
+          "cache/0/0",
+          "cache/1/1"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          },
+          {
+            "replica_id": "cache/1/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "0:hbm:0->0",
+            "start_s": 0.0,
+            "end_s": 0.0005,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0005,
+            "end_s": 0.0015,
+            "service_s": 0.001,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0005,
+            "target_wait_s": 0.0
+          }
+        ],
+        "winner": "marginal_resource_lp"
+      },
+      "existing_bandwidth_joint": {
+        "selected_ids": [
+          "cache/0/1",
+          "cache/1/0"
+        ],
+        "bandwidth_bound_ms": 1.5,
+        "ordered_service_ms": 1.5,
+        "ordered_ops": [
+          {
+            "replica_id": "cache/0/1",
+            "src_w": 1,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "1:hbm:4->0"
+          },
+          {
+            "replica_id": "cache/1/0",
+            "src_w": 0,
+            "dst_w": 0,
+            "off": 0,
+            "n": 16777216,
+            "path": "0:hbm:0->0"
+          }
+        ],
+        "timeline": [
+          {
+            "op_id": 0,
+            "path": "1:hbm:4->0",
+            "start_s": 0.0,
+            "end_s": 0.001,
+            "service_s": 0.001,
+            "first_pair_s": 0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          },
+          {
+            "op_id": 1,
+            "path": "0:hbm:0->0",
+            "start_s": 0.001,
+            "end_s": 0.0015,
+            "service_s": 0.0005,
+            "first_pair_s": 0.0,
+            "source_wait_s": 0.0,
+            "target_wait_s": 0.0
+          }
+        ],
+        "solver_objective_ms": 1.5,
+        "solver_status": "optimal"
+      },
+      "joint_ordered_service_regret_ms": 0.0,
+      "greedy_matches_finite_oracle": true,
+      "existing_simple_joint_signature_alias": false,
+      "existing_simple_joint_ordered_cost_alias": true,
+      "interpretation": "no joint advantage under shared ordered-service objective"
+    }
+  ],
+  "real_measured_decision_delta": "unknown",
+  "real_joint_benefit_proven": false,
+  "dependency_model_available": true,
+  "new_solver_required": false,
+  "action": "stop GPU strategy comparison until independently measured costs change a real decision"
+}

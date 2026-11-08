@@ -1,0 +1,263 @@
+{
+  "checks": {
+    "two_helper_four_target_dag_is_two_not_independent_one": true,
+    "each_helper_has_two_serial_operations": true,
+    "reused_pool_target_roles_have_cross_role_predecessors": true,
+    "same_worker_remote_waits_for_local_even_different_target": true,
+    "shared_nic_not_in_original_service_dag": true,
+    "max_resource_bound_and_dag_can_be_strictly_unattainable": true,
+    "explicit_fixed_queue_shared_witness_matches_release_cut_bound": true,
+    "all_256_assignment_exchange_conditions_exact": true
+  },
+  "two_helpers": {
+    "estimated_execute_s": 2.0,
+    "estimated_worker_s": 2.0,
+    "request_s": 0.0,
+    "dispatch_s": 0.0,
+    "timeline": [
+      {
+        "op_id": "r0",
+        "path": "remote",
+        "start_s": 0.0,
+        "end_s": 1.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "r1",
+        "path": "remote",
+        "start_s": 0.0,
+        "end_s": 1.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "r2",
+        "path": "remote",
+        "start_s": 1.0,
+        "end_s": 2.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 1.0
+      },
+      {
+        "op_id": "r3",
+        "path": "remote",
+        "start_s": 1.0,
+        "end_s": 2.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 1.0
+      }
+    ],
+    "scope": "SYMBOLIC isolated service and worker dependencies; no shared NIC dynamics",
+    "strategy": "stateful_serial_service",
+    "bandwidth_plan_estimate_s": 0.0
+  },
+  "reused_roles": {
+    "estimated_execute_s": 2.0,
+    "estimated_worker_s": 2.0,
+    "request_s": 0.0,
+    "dispatch_s": 0.0,
+    "timeline": [
+      {
+        "op_id": "local0",
+        "path": "local",
+        "start_s": 0.0,
+        "end_s": 1.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "local1",
+        "path": "local",
+        "start_s": 0.0,
+        "end_s": 1.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "pool0_to_r2",
+        "path": "remote",
+        "start_s": 1.0,
+        "end_s": 2.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 1.0
+      },
+      {
+        "op_id": "pool1_to_r3",
+        "path": "remote",
+        "start_s": 1.0,
+        "end_s": 2.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 1.0
+      }
+    ],
+    "scope": "SYMBOLIC isolated service and worker dependencies; no shared NIC dynamics",
+    "strategy": "stateful_serial_service",
+    "bandwidth_plan_estimate_s": 0.0
+  },
+  "local_first_worker_dag": {
+    "estimated_execute_s": 2.0,
+    "estimated_worker_s": 2.0,
+    "request_s": 0.0,
+    "dispatch_s": 0.0,
+    "timeline": [
+      {
+        "op_id": "local0",
+        "path": "local",
+        "start_s": 0.0,
+        "end_s": 1.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "local1",
+        "path": "local",
+        "start_s": 0.0,
+        "end_s": 1.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 0.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "remote0",
+        "path": "remote",
+        "start_s": 1.0,
+        "end_s": 2.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 1.0,
+        "target_wait_s": 0.0
+      },
+      {
+        "op_id": "remote1",
+        "path": "remote",
+        "start_s": 1.0,
+        "end_s": 2.0,
+        "service_s": 1.0,
+        "first_pair_s": 0.0,
+        "source_wait_s": 1.0,
+        "target_wait_s": 0.0
+      }
+    ],
+    "scope": "SYMBOLIC isolated service and worker dependencies; no shared NIC dynamics",
+    "strategy": "stateful_serial_service",
+    "bandwidth_plan_estimate_s": 0.0
+  },
+  "fixed_local_first_shared_resource": {
+    "cut_load_bound": 2,
+    "target_serial_bound": 2,
+    "worker_dag_score": 2,
+    "fixed_queue_release_cut_bound": 3,
+    "feasible_witness": [
+      {
+        "op_id": "local0",
+        "start": 0,
+        "end": 1,
+        "workers": [
+          0
+        ],
+        "resources": []
+      },
+      {
+        "op_id": "local1",
+        "start": 0,
+        "end": 1,
+        "workers": [
+          1
+        ],
+        "resources": []
+      },
+      {
+        "op_id": "remote0",
+        "start": 1,
+        "end": 2,
+        "workers": [
+          4,
+          0
+        ],
+        "resources": [
+          "U"
+        ]
+      },
+      {
+        "op_id": "remote1",
+        "start": 2,
+        "end": 3,
+        "workers": [
+          5,
+          1
+        ],
+        "resources": [
+          "U"
+        ]
+      }
+    ],
+    "scope": "fixed zero-setup unit-service symbolic queues, exclusive U; exact for this explicit queue only"
+  },
+  "exchange_condition": {
+    "first": "s/min(a,d)",
+    "crossed": "s/min(b,c)",
+    "strict_improvement": "min(b,c) > min(a,d)",
+    "nearest_first": "a > b, or declared tie",
+    "assumptions": "equal size, two one-slot pools, independent source-target pairs, direct-only complete coverage, no fallback or setup, adequate ingress"
+  },
+  "source_refs": [
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/placement_competition/objective/check_objective.py",
+      "sha256": "a887a309afb47a049cea91de0ae08b708433028c413e11fe2cf795a991416818"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/service_cost.py",
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/planning.py",
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/multi_joint.py",
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/managed.py",
+      "sha256": "fa6734c333f8a708e39e2ca9168f6f8b5becfd44f905a79146225810f100948e"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "sha256": "534fdfebd90c71004728ccbe212154570e5725a075b18914e15c7f958a78f2a6"
+    },
+    {
+      "path": "main_lib/fluidckpt/benchmarks/frozen_layout.py",
+      "sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+    },
+    {
+      "path": "main_lib/fluidckpt/benchmarks/topology_cases.py",
+      "sha256": "9ea2287c7f3748ebf43adbd44d24b3002b22ca359399152af9fb0c728755fc39"
+    }
+  ],
+  "qualification": "CPU_symbolic_objective_scope_only",
+  "new_GPU_samples": 0,
+  "SSH_actions": 0,
+  "product_mutations": 0,
+  "actual_T_ready_measured": false,
+  "shared_contention_calibrated": false
+}

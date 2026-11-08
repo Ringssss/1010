@@ -1,0 +1,2360 @@
+{
+  "schema_version": 1,
+  "development_stage": "v0.1.23.3/task2",
+  "run_kind": "cpu_source_scope_audit",
+  "status": "passed",
+  "new_gpu_measurements": 0,
+  "baseline_scopes": [
+    {
+      "method_id": "sglang_original",
+      "identity": "original_system",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "conditional",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [
+        "同模型TP与格式建立成本对齐",
+        "原生冷加载驱动、page-cache状态与计时协议"
+      ],
+      "reason": "原生checkpoint冷加载可作为各场景存储后备；尚未做本轮原版baseline测量",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_original",
+      "identity": "original_system",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "conditional",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [
+        "同模型TP与格式建立成本对齐",
+        "原生冷加载驱动、page-cache状态与计时协议"
+      ],
+      "reason": "原生checkpoint冷加载可作为各场景存储后备；尚未做本轮原版baseline测量",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_original",
+      "identity": "original_system",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "conditional",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [
+        "同模型TP与格式建立成本对齐",
+        "原生冷加载驱动、page-cache状态与计时协议"
+      ],
+      "reason": "原生checkpoint冷加载可作为各场景存储后备；尚未做本轮原版baseline测量",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_original",
+      "identity": "original_system",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "conditional",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [
+        "同模型TP与格式建立成本对齐",
+        "原生冷加载驱动、page-cache状态与计时协议"
+      ],
+      "reason": "原生checkpoint冷加载可作为各场景存储后备；尚未做本轮原版baseline测量",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_original",
+      "identity": "original_system",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "conditional",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [
+        "同模型TP与格式建立成本对齐",
+        "原生冷加载驱动、page-cache状态与计时协议"
+      ],
+      "reason": "原生checkpoint冷加载可作为各场景存储后备；尚未做本轮原版baseline测量",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "janus_original",
+      "identity": "original_system",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_original",
+      "identity": "original_system",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_original",
+      "identity": "original_system",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_original",
+      "identity": "original_system",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_original",
+      "identity": "original_system",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_original",
+      "identity": "original_system",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_original",
+      "identity": "original_system",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_original",
+      "identity": "original_system",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_original",
+      "identity": "original_system",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_original",
+      "identity": "original_system",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_original",
+      "identity": "original_system",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_original",
+      "identity": "original_system",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_original",
+      "identity": "original_system",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_original",
+      "identity": "original_system",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_original",
+      "identity": "original_system",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "平台与模型/TP2布局准入",
+        "原版端到端正确性、计时与资源账本验收"
+      ],
+      "reason": "冻结官方源码已取得，原版系统尚未安装/复现；能力可研究但无本项目性能验收",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_ipc_hip",
+      "identity": "hip_adaptation",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [
+        "codex_coding/results/v0.1.23.3/task2/paper_e1_e8/e1"
+      ],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [],
+      "reason": "完整兼容目标HBM及活owner允许专用HIP IPC接管",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_ipc_hip",
+      "identity": "hip_adaptation",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "infeasible",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [],
+      "reason": "该场景没有完整目标HBM；IPC机制不能由host/active/部分块补齐",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_ipc_hip",
+      "identity": "hip_adaptation",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "infeasible",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [],
+      "reason": "该场景没有完整目标HBM；IPC机制不能由host/active/部分块补齐",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_ipc_hip",
+      "identity": "hip_adaptation",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "infeasible",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [],
+      "reason": "额外HBM预算8589934592字节小于完整模型70329718112字节；完整HBM保活不可行，host后备仍合法",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "sglang_ipc_hip",
+      "identity": "hip_adaptation",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+        "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py"
+      ],
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "minimal_gap": [],
+      "reason": "只有存在完整兼容目标HBM时IPC可用；本轮S5不据软件串行证据推断物理fabric",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 85,
+          "symbol": "load_model"
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "line": 584,
+          "symbol": "_fallback_load"
+        }
+      ]
+    },
+    {
+      "method_id": "janus_host",
+      "identity": "mechanism",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "infeasible",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "此机制只有copy操作；S1契约仅有目标HBM IPC源",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_host",
+      "identity": "mechanism",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [
+        "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s2_r01"
+      ],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "目标主机完整host保留可恢复；D2D机制在无active时使用host后备",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_host",
+      "identity": "mechanism",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "需目标主机完整host底本；只有远端host且无本地warm cache时此机制不可行",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_host",
+      "identity": "mechanism",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "核查完整host底本实际位置；远端底本不冒充Janus本地warm"
+      ],
+      "reason": "完整目标本地host可作为后备；8GiB部分HBM不等于Janus完整warm/D2D源",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_host",
+      "identity": "mechanism",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "先证明合法本地host或完整受保护active源及实际共享瓶颈；软件worker串行不证明物理fabric",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_d2d",
+      "identity": "mechanism",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "infeasible",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "此机制只有copy操作；S1契约仅有目标HBM IPC源",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_d2d",
+      "identity": "mechanism",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "目标主机完整host保留可恢复；D2D机制在无active时使用host后备",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_d2d",
+      "identity": "mechanism",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [
+        "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s3_r01"
+      ],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "受复制保护的完整单逻辑active实例按TP对应复制；无源时允许目标本地host后备",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_d2d",
+      "identity": "mechanism",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [
+        "核查完整host底本实际位置；远端底本不冒充Janus本地warm"
+      ],
+      "reason": "完整目标本地host可作为后备；8GiB部分HBM不等于Janus完整warm/D2D源",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "janus_d2d",
+      "identity": "mechanism",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp"
+      ],
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "minimal_gap": [],
+      "reason": "先证明合法本地host或完整受保护active源及实际共享瓶颈；软件worker串行不证明物理fabric",
+      "decision_gain": "not_established",
+      "source_references": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 203,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup("
+        },
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "line": 258,
+          "symbol": "bool ModelInstanceMgr::send_model_wakeup_d2d("
+        }
+      ]
+    },
+    {
+      "method_id": "fastest",
+      "identity": "mechanism",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "fastest",
+      "identity": "mechanism",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "fastest",
+      "identity": "mechanism",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "fastest",
+      "identity": "mechanism",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "fastest",
+      "identity": "mechanism",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [
+        "共享资源归属、并发与调度等待证据",
+        "规划资源与真实执行语义一致性"
+      ],
+      "reason": "只可对已测worker串行资源提出结论；物理fabric共享未测，需对应证据才能扩大范围",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "resource_lp",
+      "identity": "mechanism",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "resource_lp",
+      "identity": "mechanism",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [
+        "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s2_r01"
+      ],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "resource_lp",
+      "identity": "mechanism",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [
+        "codex_coding/results/v0.1.23.3/task2/basic_scenarios/s3_r01"
+      ],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "resource_lp",
+      "identity": "mechanism",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "applicable",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [],
+      "reason": "共享相同合法来源、预算与IPC机会；运行前仍须过内容覆盖、profile与实际执行器准入",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "resource_lp",
+      "identity": "mechanism",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "conditional",
+      "implementation": "implemented",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "main_lib/fluidckpt/cluster/planning.py"
+      ],
+      "source_url": null,
+      "upstream_commit": null,
+      "minimal_gap": [
+        "共享资源归属、并发与调度等待证据",
+        "规划资源与真实执行语义一致性"
+      ],
+      "reason": "只可对已测worker串行资源提出结论；物理fabric共享未测，需对应证据才能扩大范围",
+      "decision_gain": "not_established",
+      "source_references": []
+    },
+    {
+      "method_id": "blitzscale_distribution",
+      "identity": "mechanism",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "完整TP逻辑实例与机器缓存状态映射",
+        "NVLink/RDMA等价传输及源/目标状态与semaphore保护",
+        "现执行器不支持upstream广播/relay/逐层提前服务；需单独限定分发子机制验收"
+      ],
+      "reason": "源码具备机器缓存TTL/已加载rank、NVLink semaphore准入及完整TP组分发；本轮只审查；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "source_audit_only",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_distribution",
+      "identity": "mechanism",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "完整TP逻辑实例与机器缓存状态映射",
+        "NVLink/RDMA等价传输及源/目标状态与semaphore保护",
+        "现执行器不支持upstream广播/relay/逐层提前服务；需单独限定分发子机制验收"
+      ],
+      "reason": "源码具备机器缓存TTL/已加载rank、NVLink semaphore准入及完整TP组分发；本轮只审查；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "source_audit_only",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_distribution",
+      "identity": "mechanism",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "完整TP逻辑实例与机器缓存状态映射",
+        "NVLink/RDMA等价传输及源/目标状态与semaphore保护",
+        "现执行器不支持upstream广播/relay/逐层提前服务；需单独限定分发子机制验收"
+      ],
+      "reason": "源码具备机器缓存TTL/已加载rank、NVLink semaphore准入及完整TP组分发；本轮只审查；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "source_audit_only",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_distribution",
+      "identity": "mechanism",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "完整TP逻辑实例与机器缓存状态映射",
+        "NVLink/RDMA等价传输及源/目标状态与semaphore保护",
+        "现执行器不支持upstream广播/relay/逐层提前服务；需单独限定分发子机制验收"
+      ],
+      "reason": "源码具备机器缓存TTL/已加载rank、NVLink semaphore准入及完整TP组分发；本轮只审查；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "source_audit_only",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "blitzscale_distribution",
+      "identity": "mechanism",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "minimal_gap": [
+        "完整TP逻辑实例与机器缓存状态映射",
+        "NVLink/RDMA等价传输及源/目标状态与semaphore保护",
+        "现执行器不支持upstream广播/relay/逐层提前服务；需单独限定分发子机制验收"
+      ],
+      "reason": "源码具备机器缓存TTL/已加载rank、NVLink semaphore准入及完整TP组分发；本轮只审查；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "source_audit_only",
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_locality",
+      "identity": "mechanism",
+      "scenario_id": "S1",
+      "scenario": "目标HBM完整兼容权重",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "真实整模型store/硬件带宽状态映射",
+        "当前处理后TP2快照的加载后端与逐rank覆盖准入",
+        "若比较位置选择，需允许多个合法目标；固定目标不能冒充位置感知调度收益"
+      ],
+      "reason": "整模型pinned命中/磁盘等待估价与迁移候选节点排序；保留原版分支与稳定排序；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "decision_only_not_runtime",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_locality",
+      "identity": "mechanism",
+      "scenario_id": "S2",
+      "scenario": "完整host保活，无active源",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "真实整模型store/硬件带宽状态映射",
+        "当前处理后TP2快照的加载后端与逐rank覆盖准入",
+        "若比较位置选择，需允许多个合法目标；固定目标不能冒充位置感知调度收益"
+      ],
+      "reason": "整模型pinned命中/磁盘等待估价与迁移候选节点排序；保留原版分支与稳定排序；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "decision_only_not_runtime",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_locality",
+      "identity": "mechanism",
+      "scenario_id": "S3",
+      "scenario": "active逻辑实例TP对应复制，可host后备",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "真实整模型store/硬件带宽状态映射",
+        "当前处理后TP2快照的加载后端与逐rank覆盖准入",
+        "若比较位置选择，需允许多个合法目标；固定目标不能冒充位置感知调度收益"
+      ],
+      "reason": "整模型pinned命中/磁盘等待估价与迁移候选节点排序；保留原版分支与稳定排序；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "decision_only_not_runtime",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_locality",
+      "identity": "mechanism",
+      "scenario_id": "S4",
+      "scenario": "完整DRAM底本与分散8GiB额外HBM预算",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "真实整模型store/硬件带宽状态映射",
+        "当前处理后TP2快照的加载后端与逐rank覆盖准入",
+        "若比较位置选择，需允许多个合法目标；固定目标不能冒充位置感知调度收益"
+      ],
+      "reason": "整模型pinned命中/磁盘等待估价与迁移候选节点排序；保留原版分支与稳定排序；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "decision_only_not_runtime",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    },
+    {
+      "method_id": "serverlessllm_locality",
+      "identity": "mechanism",
+      "scenario_id": "S5",
+      "scenario": "共享资源证据门槛",
+      "applicability": "not_adapted",
+      "implementation": "not_adapted",
+      "measurement_status": "not_measured",
+      "historical_evidence": [],
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+        "lib_cite/ServerlessLLM/sllm/store_manager.py"
+      ],
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "minimal_gap": [
+        "真实整模型store/硬件带宽状态映射",
+        "当前处理后TP2快照的加载后端与逐rank覆盖准入",
+        "若比较位置选择，需允许多个合法目标；固定目标不能冒充位置感知调度收益"
+      ],
+      "reason": "整模型pinned命中/磁盘等待估价与迁移候选节点排序；保留原版分支与稳定排序；尚未形成此场景可执行恢复方法",
+      "decision_gain": "not_established",
+      "scope_level": "decision_only_not_runtime",
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 97,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 106,
+          "symbol": "load_to_host"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 179,
+          "symbol": "_lru_eviction"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 331,
+          "symbol": "get_store_info"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "line": 346,
+          "symbol": "load_to_host"
+        }
+      ]
+    }
+  ],
+  "algorithm_adaptations": [
+    {
+      "algorithm_id": "serverlessllm_whole_model_loading_and_target",
+      "implementation": "implemented_cpu_subset",
+      "identity": "policy_subset",
+      "source_files": [
+        "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py"
+      ],
+      "upstream_symbols": [
+        "StorageAwareScheduler._get_model_loading_time",
+        "StorageAwareScheduler._get_migration_target"
+      ],
+      "scope": "整模型pinned命中/磁盘等待估价与迁移候选节点排序；保留原版分支与稳定排序",
+      "fixed_target_behavior": "单合法目标时仅输出该目标与估价，不产生独立放置增量",
+      "scope_level": "decision_only_not_runtime",
+      "units": {
+        "model_size": "bytes",
+        "bandwidth": "bytes/s",
+        "latency": "s"
+      },
+      "out_of_scope_conditions": [
+        "任意HBM部分块、多源跨rank取数不属于此整模型估价函数",
+        "候选节点不可选时不比较位置感知调度增量"
+      ],
+      "executable_restore_plan": false,
+      "measurement_status": "not_measured",
+      "minimal_gap": [
+        "真实整模型store/硬件带宽状态映射",
+        "当前处理后TP2快照的加载后端与逐rank覆盖准入",
+        "若比较位置选择，需允许多个合法目标；固定目标不能冒充位置感知调度收益"
+      ],
+      "source_references": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 454,
+          "symbol": "_get_model_loading_time"
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "line": 477,
+          "symbol": "_get_migration_target"
+        }
+      ],
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git"
+    },
+    {
+      "algorithm_id": "blitzscale_cache_and_tp_distribution",
+      "implementation": "not_adapted",
+      "identity": "source_audit",
+      "source_files": [
+        "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+        "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs"
+      ],
+      "upstream_symbols": [
+        "Steersman::machine_has_cache",
+        "Steersman::find_one_rank_within_cache"
+      ],
+      "scope": "源码具备机器缓存TTL/已加载rank、NVLink semaphore准入及完整TP组分发；本轮只审查",
+      "scope_level": "source_audit_only",
+      "out_of_scope_conditions": [
+        "单目标串行copy不提供多接收者broadcast/relay调度接口",
+        "没有真实NVLink/RDMA及源端保护证据时不声称已复现分发",
+        "以全部权重ready衡量时不评价逐层提前服务的原版收益"
+      ],
+      "fixed_target_behavior": "准入元数据不提供跨机器transfer plan，也不能将不同TP内容rank组成单内容广播",
+      "executable_restore_plan": false,
+      "measurement_status": "not_measured",
+      "minimal_gap": [
+        "完整TP逻辑实例与机器缓存状态映射",
+        "NVLink/RDMA等价传输及源/目标状态与semaphore保护",
+        "现执行器不支持upstream广播/relay/逐层提前服务；需单独限定分发子机制验收"
+      ],
+      "source_references": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 103,
+          "symbol": "machine_has_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 126,
+          "symbol": "find_one_rank_within_cache"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 263,
+          "symbol": "assign_nvlink_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "line": 297,
+          "symbol": "assign_tanz_chains"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1437,
+          "symbol": "max_lane_num"
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "line": 1855,
+          "symbol": "rdma_broadcast"
+        }
+      ],
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git"
+    }
+  ],
+  "source_manifest": [
+    {
+      "name": "SGLang",
+      "upstream_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "observed_commit": "70f0b7351e74b372cc928db533824d3993d65922",
+      "head_matches_lock": true,
+      "worktree_clean": true,
+      "source_url": "https://github.com/sgl-project/sglang.git",
+      "source_files": [
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/ipc_loader.py",
+          "sha256": "14487b4d00cd47e2000821c77969afb879a4e19a1257e3a846b0bfec897f8c44",
+          "bytes": 26301
+        },
+        {
+          "path": "lib_cite/sglang/python/sglang/srt/weight_cache/daemon.py",
+          "sha256": "046701fd8973435abca52142a6be88954610870397bbe3914c283f23ce74dfb6",
+          "bytes": 35858
+        }
+      ]
+    },
+    {
+      "name": "Janus",
+      "upstream_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "observed_commit": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+      "head_matches_lock": true,
+      "worktree_clean": true,
+      "source_url": "https://github.com/Janus2026/Janus.git",
+      "source_files": [
+        {
+          "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+          "sha256": "c34ff33679399b6739532294413db7ef5fe838af4e1c8079850c316c251318f1",
+          "bytes": 28792
+        }
+      ]
+    },
+    {
+      "name": "BlitzScale",
+      "upstream_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "observed_commit": "594e91127714349c183d935ac68d7b0eb63fc1ed",
+      "head_matches_lock": true,
+      "worktree_clean": true,
+      "source_url": "https://github.com/blitz-serving/blitz-scale.git",
+      "source_files": [
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/steersman/mod.rs",
+          "sha256": "38c754d18e7218c43a6c6b1a3ac2a92f74aecc0853b3329e92adf3c45d0a48a7",
+          "bytes": 14250
+        },
+        {
+          "path": "lib_cite/blitz-scale/router_v2/src/replica/cybernetics/exec_blitz.rs",
+          "sha256": "2d8faa6dab96b8f4a2a47499936c1802b6a7bdd99fd10f37eb1460e87eac7f49",
+          "bytes": 115097
+        }
+      ]
+    },
+    {
+      "name": "ServerlessLLM",
+      "upstream_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "observed_commit": "9f50241baa5386e06a9321c51f19a9ef5f964c2b",
+      "head_matches_lock": true,
+      "worktree_clean": true,
+      "source_url": "https://github.com/ServerlessLLM/ServerlessLLM.git",
+      "source_files": [
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/schedulers/storage_aware_scheduler.py",
+          "sha256": "b7779e41f451a3328eb73337533d6d9b117aafe6ee6b78f9b28e9b5f5e2b0567",
+          "bytes": 22370
+        },
+        {
+          "path": "lib_cite/ServerlessLLM/sllm/store_manager.py",
+          "sha256": "29eac0acabcfcf821e43da0fb226c4451007e34559d8ae9212e2f875d55db2a5",
+          "bytes": 22187
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "command": [
+      "/usr/bin/python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/basic_scenarios/test_baseline_scope.py"
+    ],
+    "returncode": 0,
+    "log_path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/baseline_scope_r01/review_r01/cpu_validation.log",
+    "oracle": "AST extracted actual frozen upstream methods"
+  },
+  "status_semantics": {
+    "applicable": "已实现机制能表达该场景，仍需现场准入；非本次GPU测量",
+    "conditional": "合法来源/位置/证据或冷加载驱动条件待验收",
+    "not_adapted": "系统或transfer策略未形成可执行适配，保留源码能力及缺口",
+    "infeasible": "该具体机制在场景合法来源/容量下不可行，非完整系统无后备"
+  }
+}

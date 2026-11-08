@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "ssh",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=5",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UpdateHostKeys=no",
+    "-o",
+    "ServerAliveInterval=3",
+    "-o",
+    "ServerAliveCountMax=1",
+    "-o",
+    "Hostname=12.11.3.30",
+    "node30",
+    "docker exec -i -e OPENBLAS_NUM_THREADS=1 -e OMP_NUM_THREADS=1 -e MKL_NUM_THREADS=1 -e NUMEXPR_NUM_THREADS=1 -e RAYON_NUM_THREADS=1 -e TOKENIZERS_PARALLELISM=false -e HIP_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 -e ROCR_VISIBLE_DEVICES= -e CUDA_VISIBLE_DEVICES= cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0 python3 - '{\"node\": \"node30\", \"roles\": [{\"gpu\": 4, \"bdf\": \"0000:85:00.0\", \"numa\": 4, \"host_numa\": 4}, {\"gpu\": 5, \"bdf\": \"0000:b5:00.0\", \"numa\": 7, \"host_numa\": 7}], \"minimum_initial_gpu_free_bytes\": 2415919104, \"per_selected_gpu_hbm_cap_bytes\": 2147483648, \"task_hbm_cap_bytes\": 2147483648}'"
+  ],
+  "timeout_s": 55,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_s": 18.981876983947586
+}

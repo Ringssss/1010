@@ -1,0 +1,138 @@
+{
+  "schema": "fluidckpt.three_node_qualification.v1",
+  "development": "v0.1.23.3/task2",
+  "created_utc": "2026-10-08T08:32:06.253630+00:00",
+  "built_offline": true,
+  "evidence": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_summary_r03/summary.json",
+      "sha256": "cfbaad70e070164d736c2b671cd152d93f7e5b7c975a58059d95473d76bcae47"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_dockerroot_node28_r01/stdout.json",
+      "sha256": "2400a3f748a476d4e2b4f749a8ef2a5e4dbb579ef880a85f6935db8017423b25"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_disk_node28_r01/stdout.json",
+      "sha256": "b5eb9091d88912b2c9b3b5119935028d0a440def099ec55bff68d6dbc2f44548"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_setup_node30_r01/stdout.json",
+      "sha256": "c9b206a5d1d18fcc59b989f371763691e1fd59157e09f56cd8f0db6e42ff96fd"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_guard_node30_before_r01/stdout.json",
+      "sha256": "5ab80f54b261c15f6a639ffb3690e8939a125a03b3687d2bf7c442f9e9f2c7fa"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_setup_node28_r02/command.json",
+      "sha256": "0653cc504c9d40124d3d0df47f161448adf287c1c0aeadf5ba257e0d72ce5ce2"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_r03/partial_completion.json",
+      "sha256": "580f34aba44b94b1563e5d3c7d3843a6334342e52e647fc8708ac5d661669295"
+    }
+  ],
+  "nodes": {
+    "node27": {
+      "status": "runtime_and_collector_blocked",
+      "fresh_inventory_obtained": false,
+      "physical_map_evidence": "historical resume_map_r02 only, not current availability",
+      "runtime_accepted": false,
+      "selected_gpu_qualification": false,
+      "pending_own_collector": {
+        "pid": 4037472,
+        "start_time_ticks": "477235183",
+        "ppid": 4037469,
+        "pgid": 4037469,
+        "state": "D",
+        "wchan": "__flush_work.isra.0",
+        "blocked_fd": "/sys/devices/virtual/kfd/kfd/proc/561325/vramtbl_45786",
+        "automatic_subprocess_timeout_sigkill_attempted": true,
+        "exited_verified": false
+      },
+      "controller_exited_verified": true,
+      "further_runtime_or_vramtable_attempts": false,
+      "performance_ready": false
+    },
+    "node28": {
+      "status": "storage_blocked",
+      "hostname": "m03r2n08",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "resource_snapshot": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_r03/node28.stdout.json",
+      "resource_snapshot_current_live_claim": false,
+      "gpu_count": 8,
+      "hca_count": 4,
+      "docker_root_dir": "/var/lib/docker",
+      "docker_root_available_bytes": 0,
+      "new_isolated_container_created": false,
+      "new_container_attempts_stopped": true,
+      "alternative_scratch_plan": "inventory_setup_plan_r07, offline only; not authorized for execution after full Docker root confirmed",
+      "runtime_accepted": false,
+      "performance_ready": false,
+      "actions_not_taken": [
+        "delete user data",
+        "move Docker global root",
+        "reuse keeper container for new probes",
+        "GPU startup"
+      ]
+    },
+    "node30": {
+      "status": "isolated_container_ready_runtime_pending",
+      "hostname": "m03r2n10",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "resource_snapshot": "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_r03/node30.stdout.json",
+      "gpu_count": 8,
+      "hca_count": 4,
+      "selected_gpu": {
+        "logical_sysfs": 0,
+        "bdf": "0000:09:00.0",
+        "hip_mapping_verified": false
+      },
+      "isolated_container": {
+        "id": "7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695",
+        "started_at": "2026-10-08T08:19:06.916290051Z",
+        "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+        "stage": "/tmp/fluidckpt_three_node/isolated_r01_n30"
+      },
+      "before_container_identity_checks": {
+        "id": true,
+        "started": true,
+        "image": true,
+        "running": true
+      },
+      "source_asset_sha_checks": {
+        "codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/init_gate.py": true,
+        "codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/container_namespace.py": true,
+        "codex_coding/results/v0.1.23.3/task2/three_node_recovery/inventory_frozen_isolated_r01/node30.json": true
+      },
+      "node30_runtime_status": "pending_parent",
+      "runtime_accepted": false,
+      "runtime_evidence_paths": [],
+      "hip_free_guard_verified": false,
+      "copy_validated": false,
+      "owned_xml_runtime_accepted": false,
+      "cross_node_communication_validated": false,
+      "external_kfd_contexts_present": true,
+      "performance_ready": false,
+      "runtime_scope": "status is parent-reported init only; copy/XML/network require their own saved result"
+    }
+  },
+  "node29": {
+    "accessed_by_this_task": false,
+    "old_pending_unchanged": [
+      {
+        "container": "zjn-fluid-basic-1bce3897a2075b",
+        "pid": 21883,
+        "start_time_ticks": "475875814"
+      },
+      {
+        "container": "zjn-fluid-basic-1bce3897a2075b",
+        "pid": 21901,
+        "start_time_ticks": "475875846"
+      }
+    ]
+  },
+  "performance_ready": false,
+  "measurement_samples_added": 0
+}

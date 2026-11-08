@@ -1,0 +1,29 @@
+{
+  "label": "container_identity",
+  "argv": [
+    "ssh",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=3",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UpdateHostKeys=no",
+    "-o",
+    "ServerAliveInterval=2",
+    "-o",
+    "ServerAliveCountMax=1",
+    "-o",
+    "Hostname=12.11.3.30",
+    "node30",
+    "docker inspect --format '{\"id\":{{json .Id}},\"started\":{{json .State.StartedAt}},\"running\":{{json .State.Running}}}' 7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695"
+  ],
+  "started_utc": "2026-10-08T08:33:51.091974+00:00",
+  "returncode": 0,
+  "stdout": "{\"id\":\"7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695\",\"started\":\"2026-10-08T08:19:06.916290051Z\",\"running\":true}\n",
+  "stderr": ""
+}

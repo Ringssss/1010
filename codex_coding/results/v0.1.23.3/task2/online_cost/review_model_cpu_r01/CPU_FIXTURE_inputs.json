@@ -1,0 +1,340 @@
+{
+  "calibration_run_ids": [
+    "CPU_train_run"
+  ],
+  "calibration_incarnation_digests": [
+    "6d34a21f45a07f1e4302414cf748816acdd5dc9e68ed274831318d0b385f1093"
+  ],
+  "scenarios": {
+    "near": {
+      "plan": {
+        "targets": [
+          {
+            "key": "t0",
+            "worker": 0,
+            "identity": "CPU_weights",
+            "tp": 0,
+            "off": 0,
+            "n": 1073741824
+          },
+          {
+            "key": "t1",
+            "worker": 1,
+            "identity": "CPU_weights",
+            "tp": 1,
+            "off": 0,
+            "n": 1073741824
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "t0",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "src_w": 0,
+            "dst_w": 0,
+            "path": "near0",
+            "replica_id": "near0",
+            "identity": "CPU_weights",
+            "tp": 0,
+            "generation": 1,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram"
+          },
+          {
+            "op_id": 1,
+            "target": "t1",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "src_w": 1,
+            "dst_w": 1,
+            "path": "near1",
+            "replica_id": "near1",
+            "identity": "CPU_weights",
+            "tp": 1,
+            "generation": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram"
+          }
+        ],
+        "executor": "serial",
+        "chunk_bytes": 33554432
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "node": "target",
+          "gpu": 0,
+          "numa": 0,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch0"
+        },
+        {
+          "worker": 1,
+          "node": "target",
+          "gpu": 1,
+          "numa": 1,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch1"
+        },
+        {
+          "worker": 2,
+          "node": "source2",
+          "gpu": 2,
+          "numa": 2,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch2"
+        },
+        {
+          "worker": 3,
+          "node": "source3",
+          "gpu": 3,
+          "numa": 3,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch3"
+        }
+      ],
+      "state": {
+        "incarnations": [
+          [
+            "CPU_holdout",
+            "CPU_epoch0"
+          ],
+          [
+            "CPU_holdout",
+            "CPU_epoch1"
+          ],
+          [
+            "CPU_holdout",
+            "CPU_epoch2"
+          ],
+          [
+            "CPU_holdout",
+            "CPU_epoch3"
+          ]
+        ],
+        "warm_pairs": [
+          "0:2",
+          "1:3"
+        ],
+        "fresh_binding_verified": true,
+        "load_state": "warm",
+        "config_sha256": "85e691907ead8bc31175f0694ce717aea5919a09075bae2c1c8cf1af86d02f42",
+        "source_lineage": {
+          "near0": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 0,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "near1": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 1,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "remote0": {
+            "worker": 2,
+            "tier": "dram",
+            "numa": 2,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch2"
+          },
+          "remote1": {
+            "worker": 3,
+            "tier": "dram",
+            "numa": 3,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch3"
+          }
+        },
+        "worker_BDF": {
+          "0": "CPU_BDF0",
+          "1": "CPU_BDF1",
+          "2": "CPU_BDF2",
+          "3": "CPU_BDF3"
+        },
+        "binding_source_refs": [
+          {
+            "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/review_model_cpu_r01/CPU_FIXTURE_raw.json",
+            "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+          }
+        ]
+      }
+    },
+    "remote": {
+      "plan": {
+        "targets": [
+          {
+            "key": "t0",
+            "worker": 0,
+            "identity": "CPU_weights",
+            "tp": 0,
+            "off": 0,
+            "n": 1073741824
+          },
+          {
+            "key": "t1",
+            "worker": 1,
+            "identity": "CPU_weights",
+            "tp": 1,
+            "off": 0,
+            "n": 1073741824
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "t0",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "src_w": 2,
+            "dst_w": 0,
+            "path": "remote0",
+            "replica_id": "remote0",
+            "identity": "CPU_weights",
+            "tp": 0,
+            "generation": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network"
+          },
+          {
+            "op_id": 1,
+            "target": "t1",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "src_w": 3,
+            "dst_w": 1,
+            "path": "remote1",
+            "replica_id": "remote1",
+            "identity": "CPU_weights",
+            "tp": 1,
+            "generation": 1,
+            "source_epoch": "CPU_epoch3",
+            "kind": "network"
+          }
+        ],
+        "executor": "serial",
+        "chunk_bytes": 33554432
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "node": "target",
+          "gpu": 0,
+          "numa": 0,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch0"
+        },
+        {
+          "worker": 1,
+          "node": "target",
+          "gpu": 1,
+          "numa": 1,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch1"
+        },
+        {
+          "worker": 2,
+          "node": "source2",
+          "gpu": 2,
+          "numa": 2,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch2"
+        },
+        {
+          "worker": 3,
+          "node": "source3",
+          "gpu": 3,
+          "numa": 3,
+          "session": "CPU_holdout",
+          "epoch": "CPU_epoch3"
+        }
+      ],
+      "state": {
+        "incarnations": [
+          [
+            "CPU_holdout",
+            "CPU_epoch0"
+          ],
+          [
+            "CPU_holdout",
+            "CPU_epoch1"
+          ],
+          [
+            "CPU_holdout",
+            "CPU_epoch2"
+          ],
+          [
+            "CPU_holdout",
+            "CPU_epoch3"
+          ]
+        ],
+        "warm_pairs": [
+          "0:2",
+          "1:3"
+        ],
+        "fresh_binding_verified": true,
+        "load_state": "warm",
+        "config_sha256": "85e691907ead8bc31175f0694ce717aea5919a09075bae2c1c8cf1af86d02f42",
+        "source_lineage": {
+          "near0": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 0,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "near1": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 1,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "remote0": {
+            "worker": 2,
+            "tier": "dram",
+            "numa": 2,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch2"
+          },
+          "remote1": {
+            "worker": 3,
+            "tier": "dram",
+            "numa": 3,
+            "identity": "CPU_weights",
+            "generation": 1,
+            "source_epoch": "CPU_epoch3"
+          }
+        },
+        "worker_BDF": {
+          "0": "CPU_BDF0",
+          "1": "CPU_BDF1",
+          "2": "CPU_BDF2",
+          "3": "CPU_BDF3"
+        },
+        "binding_source_refs": [
+          {
+            "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/review_model_cpu_r01/CPU_FIXTURE_raw.json",
+            "sha256": "c49318d2fa858daa987c997a4462d6393dcdab978cb3afaf5b7c98f1e8e0c576"
+          }
+        ]
+      }
+    }
+  }
+}

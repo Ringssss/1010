@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_controller.py", line 310, in <module>
+    main()
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_controller.py", line 306, in main
+    native.main()
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py", line 487, in main
+    {'init': run.init, 'bootstrap': run.setup, 'calibrate': run.calibrate, 'validate': run.validate, 'cleanup': run.cleanup}[a.action]()
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_controller.py", line 263, in calibrate
+    model = build_model(context, workers, samples, shared, refs)
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_model.py", line 14, in build_model
+    model = native_build_model(context, workers, samples, shared_samples, source_refs)
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/model/predictor.py", line 61, in build_model
+    c = fit_path(rows[0], rows[0], rows[1])
+  File "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib/fluidckpt/cluster/service_cost.py", line 21, in fit_path
+    raise ValueError('invalid or non-increasing calibration samples')
+ValueError: invalid or non-increasing calibration samples

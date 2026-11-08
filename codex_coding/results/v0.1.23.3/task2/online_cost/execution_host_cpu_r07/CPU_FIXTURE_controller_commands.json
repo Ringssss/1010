@@ -1,0 +1,112 @@
+[
+  {
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "1111111111111111111111111111111111111111111111111111111111111111",
+      "python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+      "--plan",
+      "/CPU_FIXTURE/launch_plan.json",
+      "--action",
+      "init",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_init",
+      "--deadline-s",
+      "180",
+      "--execute"
+    ],
+    "timeout_s": 195
+  },
+  {
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "1111111111111111111111111111111111111111111111111111111111111111",
+      "python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+      "--plan",
+      "/CPU_FIXTURE/launch_plan.json",
+      "--action",
+      "bootstrap",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_bootstrap",
+      "--deadline-s",
+      "1800",
+      "--execute",
+      "--binding",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_init/init.json"
+    ],
+    "timeout_s": 1815
+  },
+  {
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "1111111111111111111111111111111111111111111111111111111111111111",
+      "python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+      "--plan",
+      "/CPU_FIXTURE/launch_plan.json",
+      "--action",
+      "calibrate",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_calibrate",
+      "--deadline-s",
+      "1800",
+      "--execute",
+      "--bootstrap",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_bootstrap/bootstrap.json"
+    ],
+    "timeout_s": 1815
+  },
+  {
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "1111111111111111111111111111111111111111111111111111111111111111",
+      "python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+      "--plan",
+      "/CPU_FIXTURE/launch_plan.json",
+      "--action",
+      "validate",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_validate",
+      "--deadline-s",
+      "1800",
+      "--execute",
+      "--bootstrap",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_bootstrap/bootstrap.json",
+      "--calibration",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_calibrate/calibration.json"
+    ],
+    "timeout_s": 1815
+  },
+  {
+    "node": "node27",
+    "argv": [
+      "docker",
+      "exec",
+      "1111111111111111111111111111111111111111111111111111111111111111",
+      "python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/controller.py",
+      "--plan",
+      "/CPU_FIXTURE/launch_plan.json",
+      "--action",
+      "cleanup",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_cleanup",
+      "--deadline-s",
+      "180",
+      "--execute",
+      "--bootstrap",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_CPU_FIXTURE/phase_bootstrap/bootstrap.json"
+    ],
+    "timeout_s": 195
+  }
+]

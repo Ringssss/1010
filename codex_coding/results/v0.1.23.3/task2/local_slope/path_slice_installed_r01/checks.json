@@ -1,0 +1,42 @@
+{
+  "status": "installed_header_single_slice_fastpath_disabled",
+  "artifact": {
+    "path": "codex_coding/results/v0.1.23.3/task2/local_slope/path_installed_r01.json",
+    "sha256": "4412ddc002239e0d585d266b6503c09b81936092c4cb59544e01bbe53d2981ca"
+  },
+  "package_directory": "/usr/local/lib/python3.10/dist-packages/torch",
+  "version": {
+    "path": "/usr/local/lib/python3.10/dist-packages/torch/version.py",
+    "sha256": "f7df4ad5873256c5282da571178e349cf9c21cb95042ecc0e57f1b10196a92d7",
+    "values": {
+      "__version__": "2.10.0",
+      "debug": false,
+      "cuda": null,
+      "git_version": "28498cd684b22c1f420f7f30c4a5e5771147ca77",
+      "hip": "6.3.26113"
+    }
+  },
+  "header": {
+    "path": "/usr/local/lib/python3.10/dist-packages/torch/include/ATen/TensorIndexing.h",
+    "sha256": "5c2e1d9afce367d606d4f39e0ee8ebd81782f7acdf4032ce64cf1d3d8ff16526"
+  },
+  "checks": {
+    "single_index_branch": true,
+    "single_slice_calls_applySlice": true,
+    "disable_slice_optimization_true": true,
+    "return_self_guard_requires_false": true,
+    "fallback_slice_symint": true
+  },
+  "anchors": {
+    "single_index": 648,
+    "single_slice": 653,
+    "applySlice_call": 654,
+    "disable_true": 660,
+    "optimization_guard": 225,
+    "return_self": 228,
+    "fallback_slice_symint": 231
+  },
+  "conclusion": "Installed TensorIndexing.h disables full-slice return-self optimization for a single slice index; both full and partial 1-D get_item slices use slice_symint.",
+  "scope": "Installed source header check, not binary dispatcher tracing or timing attribution",
+  "new_experiment_requested": false
+}

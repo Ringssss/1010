@@ -1,0 +1,664 @@
+{
+  "passed": true,
+  "scope": "single Qwen TP2 destination node29; immutable node28 DRAM base; full-model candidates; up to 8GiB HBM + 2GiB DRAM; per-GPU HBM up to 8GiB; zero temporary allowance; one observed restore per layout",
+  "summary_sha256": "986c5e2a0b292fdbe95e33dc1e352e86a0dfddf55400bcefcc0924c0caf4b495",
+  "candidate_audit": {
+    "count": 400,
+    "coverage": [
+      {
+        "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+        "tp": 0,
+        "off": 0,
+        "n": 35164859056,
+        "blocks": 33
+      },
+      {
+        "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+        "tp": 1,
+        "off": 0,
+        "n": 35164859056,
+        "blocks": 33
+      }
+    ],
+    "filtered": {},
+    "scope": "full demand blocks plus reusable existing allocations; candidate_only is never publication"
+  },
+  "decision": "replace",
+  "solver": {
+    "objective_s": 1.2361268025910508,
+    "rounded_plan_s": 1.2361268043255276,
+    "status": "optimal",
+    "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "mip_gap": 0.0,
+    "dual_bound_s": 1.2361268025910508,
+    "solve_wall_s": 0.2941245730035007,
+    "candidate_count": 400,
+    "flow_variables": 520,
+    "tier_bytes": {
+      "dram": 2147483648,
+      "hbm": 8589934592
+    },
+    "scope": "optimal only within supplied finite candidates, one restore scenario and approximate resource/service model"
+  },
+  "selected": [
+    {
+      "id": "managed/9bd1725cb5f05cc4a9839c1a6e69143a",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 20401094656,
+      "n": 1073741824,
+      "worker": 6,
+      "tier": "dram",
+      "numa": 0
+    },
+    {
+      "id": "managed/dd5e0c9bbaf7dfcde44de09f3d3980e3",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 5368709120,
+      "n": 1073741824,
+      "worker": 6,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/a94dd603ad11f2ad6b416b704a93b5b5",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 17179869184,
+      "n": 1073741824,
+      "worker": 6,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/7605c54b0ec9484fe5320e59214862fc",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 26843545600,
+      "n": 1073741824,
+      "worker": 6,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/1fd52bdc00488e0d8a7caa12ae5a6a87",
+      "identity": "930a856fd9e6959a8f963893c233c1d17a1f79c95ff28d4bf5367708f38eaf9a",
+      "tp": 0,
+      "off": 33285996544,
+      "n": 1073741824,
+      "worker": 6,
+      "tier": "hbm",
+      "numa": 0
+    },
+    {
+      "id": "managed/7e818a8f57630562af3ac497e06a8c8d",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 23622320128,
+      "n": 1073741824,
+      "worker": 7,
+      "tier": "dram",
+      "numa": 3
+    },
+    {
+      "id": "managed/0cc700c7d95672d63f9e8df9761f03b2",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 3221225472,
+      "n": 1073741824,
+      "worker": 7,
+      "tier": "hbm",
+      "numa": 3
+    },
+    {
+      "id": "managed/a0527da9b9be8634d90efab5751bae33",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 17179869184,
+      "n": 1073741824,
+      "worker": 7,
+      "tier": "hbm",
+      "numa": 3
+    },
+    {
+      "id": "managed/377b9dcf9fb7ceefb7fc45065cdab79f",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 26843545600,
+      "n": 1073741824,
+      "worker": 7,
+      "tier": "hbm",
+      "numa": 3
+    },
+    {
+      "id": "managed/0b336af7864aae475901305a8928064d",
+      "identity": "dedd3241a3954f4547fc9b80ebb72d4b32c16b986ef63f5bf22b136cf38094bf",
+      "tp": 1,
+      "off": 31138512896,
+      "n": 1073741824,
+      "worker": 7,
+      "tier": "hbm",
+      "numa": 3
+    }
+  ],
+  "transition_peak_usage": {
+    "tiers": {
+      "dram": 2147483648,
+      "hbm": 8589934592
+    },
+    "locations": {
+      "2:hbm": 4294967296,
+      "3:hbm": 4294967296,
+      "6:dram": 1073741824,
+      "7:dram": 1073741824,
+      "6:hbm": 4294967296,
+      "7:hbm": 4294967296
+    },
+    "physical": {
+      "hbm:2": 4294967296,
+      "hbm:3": 4294967296,
+      "dram:node29:0": 1073741824,
+      "dram:node29:3": 1073741824,
+      "hbm:6": 4294967296,
+      "hbm:7": 4294967296
+    }
+  },
+  "final_usage": {
+    "tiers": {
+      "dram": 2147483648,
+      "hbm": 8589934592
+    },
+    "locations": {
+      "6:dram": 1073741824,
+      "6:hbm": 4294967296,
+      "7:dram": 1073741824,
+      "7:hbm": 4294967296
+    },
+    "physical": {
+      "dram:node29:0": 1073741824,
+      "hbm:6": 4294967296,
+      "dram:node29:3": 1073741824,
+      "hbm:7": 4294967296
+    }
+  },
+  "transition_wall_s": 27.312727110926062,
+  "measured": [
+    {
+      "phase": "managed_existing",
+      "load_s": 2.034551148,
+      "last_copy_rank": "1",
+      "segments_s": {
+        "entry_and_start_skew": 0.002600535,
+        "layout": 0.31950608,
+        "export": 0.035454268,
+        "detect_plan_dispatch": 0.099454084,
+        "map": 0.15785708,
+        "execute_dispatch": 0.019172587,
+        "last_copy_worker_execute": 1.371638634,
+        "after_all_copies_until_ready": 0.02886788
+      },
+      "workers": [
+        {
+          "worker": 2,
+          "execute_s": 0.1893886849284172,
+          "ops": [
+            {
+              "op_id": 2,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.18929684162139893
+            }
+          ]
+        },
+        {
+          "worker": 3,
+          "execute_s": 0.19918745895847678,
+          "ops": [
+            {
+              "op_id": 6,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.199125440325588
+            }
+          ]
+        },
+        {
+          "worker": 4,
+          "execute_s": 1.3496341528370976,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 1073741841,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.05303042009472847
+            },
+            {
+              "op_id": 3,
+              "bytes": 29796149919,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 1.296457131858915
+            }
+          ]
+        },
+        {
+          "worker": 5,
+          "execute_s": 1.3705845223739743,
+          "ops": [
+            {
+              "op_id": 4,
+              "bytes": 1073741841,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.05930735822767019
+            },
+            {
+              "op_id": 7,
+              "bytes": 29796149919,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 1.3111502132378519
+            }
+          ]
+        },
+        {
+          "worker": 6,
+          "execute_s": 1.352243925910443,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 1073741841,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.05232069082558155
+            },
+            {
+              "op_id": 1,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.02417422505095601
+            },
+            {
+              "op_id": 2,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.10986822238191962
+            },
+            {
+              "op_id": 3,
+              "bytes": 29796149919,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 1.163438763935119
+            }
+          ]
+        },
+        {
+          "worker": 7,
+          "execute_s": 1.374717271886766,
+          "ops": [
+            {
+              "op_id": 4,
+              "bytes": 1073741841,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.057788362726569176
+            },
+            {
+              "op_id": 5,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.024345246143639088
+            },
+            {
+              "op_id": 6,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.11504963226616383
+            },
+            {
+              "op_id": 7,
+              "bytes": 29796149919,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 1.172657205723226
+            }
+          ]
+        }
+      ],
+      "copy_finish_skew_s": 0.020996117,
+      "predicted_transfer_s": 1.3727342813012966,
+      "execute_wall_s": 1.3798453360795975,
+      "verified_bytes": 70329718112,
+      "prediction_relative_error": -0.005153515827001837,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "generation_checks": 3
+    },
+    {
+      "phase": "managed_optimized",
+      "load_s": 1.722078996,
+      "last_copy_rank": "1",
+      "segments_s": {
+        "entry_and_start_skew": 0.00361918,
+        "layout": 0.314756384,
+        "export": 0.034930245,
+        "detect_plan_dispatch": 0.052481012,
+        "map": 0.069549528,
+        "execute_dispatch": 0.007443951,
+        "last_copy_worker_execute": 1.214132556,
+        "after_all_copies_until_ready": 0.02516614
+      },
+      "workers": [
+        {
+          "worker": 4,
+          "execute_s": 1.2039479399099946,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 5368709120,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.21135835209861398
+            },
+            {
+              "op_id": 2,
+              "bytes": 10737418240,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.4223114103078842
+            },
+            {
+              "op_id": 4,
+              "bytes": 2147483648,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.08771227998659015
+            },
+            {
+              "op_id": 6,
+              "bytes": 5368709120,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.23318064073100686
+            },
+            {
+              "op_id": 8,
+              "bytes": 5368709120,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.21357735712081194
+            },
+            {
+              "op_id": 10,
+              "bytes": 805120688,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.035487978253513575
+            }
+          ]
+        },
+        {
+          "worker": 5,
+          "execute_s": 1.2136541958898306,
+          "ops": [
+            {
+              "op_id": 11,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.1296305269934237
+            },
+            {
+              "op_id": 13,
+              "bytes": 12884901888,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.5088783167302608
+            },
+            {
+              "op_id": 15,
+              "bytes": 5368709120,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.21493445103988051
+            },
+            {
+              "op_id": 17,
+              "bytes": 2147483648,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.10844452586025
+            },
+            {
+              "op_id": 19,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.13091433187946677
+            },
+            {
+              "op_id": 21,
+              "bytes": 2952604336,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.1206043791025877
+            }
+          ]
+        },
+        {
+          "worker": 6,
+          "execute_s": 1.2070143846794963,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 5368709120,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.20931867603212595
+            },
+            {
+              "op_id": 1,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004130993038415909
+            },
+            {
+              "op_id": 2,
+              "bytes": 10737418240,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.4182357699610293
+            },
+            {
+              "op_id": 3,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.0041703833267092705
+            },
+            {
+              "op_id": 4,
+              "bytes": 2147483648,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.08348808577284217
+            },
+            {
+              "op_id": 5,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.024069213774055243
+            },
+            {
+              "op_id": 6,
+              "bytes": 5368709120,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.20908855507150292
+            },
+            {
+              "op_id": 7,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004410825204104185
+            },
+            {
+              "op_id": 8,
+              "bytes": 5368709120,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.20912162493914366
+            },
+            {
+              "op_id": 9,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004102363251149654
+            },
+            {
+              "op_id": 10,
+              "bytes": 805120688,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.03234317013993859
+            }
+          ]
+        },
+        {
+          "worker": 7,
+          "execute_s": 1.215574773028493,
+          "ops": [
+            {
+              "op_id": 11,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.12795943301171064
+            },
+            {
+              "op_id": 12,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004441095050424337
+            },
+            {
+              "op_id": 13,
+              "bytes": 12884901888,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.5043591097928584
+            },
+            {
+              "op_id": 14,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004557345993816853
+            },
+            {
+              "op_id": 15,
+              "bytes": 5368709120,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.21035526180639863
+            },
+            {
+              "op_id": 16,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.02446564706042409
+            },
+            {
+              "op_id": 17,
+              "bytes": 2147483648,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.08391670696437359
+            },
+            {
+              "op_id": 18,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004770815838128328
+            },
+            {
+              "op_id": 19,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.12611572304740548
+            },
+            {
+              "op_id": 20,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004818647168576717
+            },
+            {
+              "op_id": 21,
+              "bytes": 2952604336,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.1168919219635427
+            }
+          ]
+        }
+      ],
+      "copy_finish_skew_s": 0.010547659,
+      "predicted_transfer_s": 1.2361268043255276,
+      "execute_wall_s": 1.221304782666266,
+      "verified_bytes": 70329718112,
+      "prediction_relative_error": 0.012136218468663671,
+      "source_bytes": {
+        "model/remote/0": 29796149936,
+        "managed/dd5e0c9bbaf7dfcde44de09f3d3980e3": 1073741824,
+        "managed/a94dd603ad11f2ad6b416b704a93b5b5": 1073741824,
+        "managed/9bd1725cb5f05cc4a9839c1a6e69143a": 1073741824,
+        "managed/7605c54b0ec9484fe5320e59214862fc": 1073741824,
+        "managed/1fd52bdc00488e0d8a7caa12ae5a6a87": 1073741824,
+        "model/remote/1": 29796149936,
+        "managed/0cc700c7d95672d63f9e8df9761f03b2": 1073741824,
+        "managed/a0527da9b9be8634d90efab5751bae33": 1073741824,
+        "managed/7e818a8f57630562af3ac497e06a8c8d": 1073741824,
+        "managed/377b9dcf9fb7ceefb7fc45065cdab79f": 1073741824,
+        "managed/0b336af7864aae475901305a8928064d": 1073741824
+      },
+      "generation_checks": 3
+    }
+  ],
+  "limitations": [
+    "one observation per layout, existing first; no stable performance ranking",
+    "single target, fixed complete base and finite planning blocks; no multi-target claim",
+    "contiguous calibration excludes real model scatter and per-op overhead",
+    "budget accounting uses page-rounded logical allocations; device allocator slack is covered by headroom reserve",
+    "checkpoint interruption is after a committed action, not a node/network crash",
+    "load-window and transport changes are reported separately; no SGLang keepalive comparison"
+  ],
+  "observed_change": {
+    "load_reduction_fraction": 0.15358284420972435,
+    "transfer_reduction_fraction": 0.1148973361491189
+  }
+}

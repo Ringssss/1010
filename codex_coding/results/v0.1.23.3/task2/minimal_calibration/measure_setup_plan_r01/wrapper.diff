@@ -1,0 +1,18 @@
+--- frozen_fresh_host.py
++++ measurement_host.source.py
+@@ -148,13 +148,13 @@
+     stage.mkdir(parents=True,exist_ok=False)
+     for asset in spec["assets"]:
+         rel=Path(asset["relative_path"])
+-        if rel.is_absolute() or ".." in rel.parts or not str(rel).startswith("codex_coding/"):
++        if rel.is_absolute() or ".." in rel.parts or not str(rel).startswith(("codex_coding/", "main_lib/fluidckpt/")):
+             raise SystemExit("asset outside isolated project")
+         data=base64.b64decode(asset["base64"],validate=True)
+         if hashlib.sha256(data).hexdigest()!=asset["sha256"]:
+             raise SystemExit("asset source SHA mismatch")
+         dest=stage/"project"/rel;dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)
+-    argv=["docker","run","-d","--pull=never","--no-healthcheck","--entrypoint","/bin/sleep","--name",spec["container_name"],"--hostname",spec["hostname"],"--label","fluidckpt.task=v0.1.23.3/task2/three_node_recovery","--memory","8g","--pids-limit","512","--network","host","--ipc","private","--shm-size","1g","--cap-add","IPC_LOCK","--ulimit","memlock=-1:-1","--ulimit","core=0:0"]
++    argv=["docker","run","-d","--pull=never","--no-healthcheck","--entrypoint","/bin/sleep","--name",spec["container_name"],"--hostname",spec["hostname"],"--label","fluidckpt.task=v0.1.23.3/task2/three_node_recovery","--memory","8g","--pids-limit","512","--network","host","--ipc","private","--shm-size","1g","--cap-add","IPC_LOCK","--cap-add","SYS_NICE","--ulimit","memlock=-1:-1","--ulimit","core=0:0"]
+     for device in DEVICES:argv += ["--device",device+":"+device+":rwm"]
+     argv += ["--mount","type=bind,src=/opt/hyhal,dst=/opt/hyhal,readonly","--mount",f"type=bind,src={stage}/project,dst={PROJECT}","--workdir",PROJECT,IMAGE,"infinity"]
+     run=command(argv,timeout=8)

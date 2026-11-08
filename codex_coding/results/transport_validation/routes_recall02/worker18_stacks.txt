@@ -1,0 +1,952 @@
+[New LWP 333]
+[New LWP 334]
+[New LWP 335]
+[New LWP 336]
+[New LWP 337]
+[New LWP 338]
+[New LWP 339]
+[New LWP 340]
+[New LWP 341]
+[New LWP 342]
+[New LWP 343]
+[New LWP 344]
+[New LWP 345]
+[New LWP 346]
+[New LWP 347]
+[New LWP 348]
+[New LWP 349]
+[New LWP 350]
+[New LWP 351]
+[New LWP 352]
+[New LWP 353]
+[New LWP 354]
+[New LWP 355]
+[New LWP 356]
+[New LWP 357]
+[New LWP 358]
+[New LWP 359]
+[New LWP 360]
+[New LWP 361]
+[New LWP 362]
+[New LWP 363]
+[New LWP 364]
+[New LWP 365]
+[New LWP 366]
+[New LWP 367]
+[New LWP 368]
+[New LWP 369]
+[New LWP 370]
+[New LWP 371]
+[New LWP 372]
+[New LWP 373]
+[New LWP 374]
+[New LWP 375]
+[New LWP 376]
+[New LWP 377]
+[New LWP 378]
+[New LWP 379]
+[New LWP 380]
+[New LWP 381]
+[New LWP 382]
+[New LWP 383]
+[New LWP 384]
+[New LWP 385]
+[New LWP 386]
+[New LWP 387]
+[New LWP 388]
+[New LWP 389]
+[New LWP 390]
+[New LWP 391]
+[New LWP 392]
+[New LWP 393]
+[New LWP 394]
+[New LWP 395]
+[New LWP 608]
+[New LWP 698]
+[New LWP 703]
+[New LWP 713]
+[New LWP 717]
+[New LWP 725]
+[New LWP 730]
+[New LWP 739]
+[New LWP 744]
+[New LWP 748]
+[New LWP 754]
+[New LWP 756]
+[New LWP 759]
+[New LWP 764]
+[New LWP 766]
+[New LWP 773]
+[New LWP 775]
+[New LWP 783]
+[New LWP 785]
+[New LWP 791]
+[New LWP 793]
+[New LWP 798]
+[New LWP 800]
+[New LWP 806]
+[New LWP 810]
+[New LWP 813]
+[New LWP 816]
+[New LWP 821]
+[New LWP 824]
+[New LWP 829]
+[New LWP 832]
+[New LWP 840]
+[New LWP 842]
+[New LWP 849]
+[New LWP 851]
+[New LWP 857]
+[New LWP 859]
+[New LWP 866]
+[New LWP 872]
+[New LWP 873]
+[New LWP 877]
+[New LWP 880]
+[New LWP 882]
+[New LWP 885]
+[New LWP 887]
+[New LWP 897]
+[New LWP 1101]
+[New LWP 1107]
+[New LWP 1108]
+[New LWP 1109]
+[New LWP 1110]
+[New LWP 1111]
+[New LWP 1112]
+[New LWP 1113]
+[New LWP 1115]
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+0x00007fa8627f6c4f in poll () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 119 (Thread 0x7fa71c6d5640 (LWP 1115) "python3"):
+#0  0x00007fa8627f89cf in ioctl () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f53b893 in kmtIoctl (fd=3, request=request@entry=3222817548, arg=arg@entry=0x7fa71c6d4b20) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/libhsakmt.c:19
+#2  0x00007fa71f523238 in hsaKmtWaitOnMultipleEvents_Ext (Events=Events@entry=0x7fa71c6d4c08, NumEvents=NumEvents@entry=1, WaitOnAll=WaitOnAll@entry=true, Milliseconds=15, event_age=event_age@entry=0x7fa71c6d4c80) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/events.c:456
+#3  0x00007fa71f525127 in hsaKmtWaitOnEvent_Ext (Event=<optimized out>, Milliseconds=<optimized out>, event_age=event_age@entry=0x7fa71c6d4c80) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/events.c:259
+#4  0x00007fa71f47d10d in rocr::core::InterruptSignal::WaitRelaxed (this=<optimized out>, condition=HSA_SIGNAL_CONDITION_NE, compare_value=1, timeout=<optimized out>, wait_hint=HSA_WAIT_STATE_BLOCKED) at /home/jenkins/workspace/ROCR-Runtime_6.3_docker/src/core/runtime/interrupt_signal.cpp:325
+
+Thread 118 (Thread 0x7f9dc1dfd640 (LWP 1113) "python3"):
+#0  0x00007fa86288519e in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa7c51e6b30 in ncclProxyProgress(void*) () from /opt/dtk/lib/librccl.so.1
+#2  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 117 (Thread 0x7f9dc25fe640 (LWP 1112) "python3"):
+#0  0x00007fa8627f6c4f in poll () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa7c51eb9b2 in ncclProxyServiceUDS(void*) () from /opt/dtk/lib/librccl.so.1
+#2  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 116 (Thread 0x7f9dc2dff640 (LWP 1111) "python3"):
+#0  0x00007fa8627f6c4f in poll () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa7c51e9870 in ncclProxyService(void*) () from /opt/dtk/lib/librccl.so.1
+#2  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#3  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 115 (Thread 0x7f9dc9bff640 (LWP 1110) "python3"):
+#0  0x00007fa8627f289c in read () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f8fb8c4 in read (__nbytes=16, __buf=0x7f9dc9bfeda0, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/unistd.h:38
+#2  __ibv_get_async_event_1_1 (context=0x7f9dcc0bf030, event=0x7f9dc9bfee00) at /code/jenkins/workspace/hercules_pipeline3/hercules/os_build/Ubuntu_22.04_server/ofed-5.9-0.5.6.0/rdma_core/libibverbs/device.c:459
+#3  0x00007fa730b3370d in wrap_ibv_get_async_event (context=<optimized out>, event=event@entry=0x7f9dc9bfee00) at ibvwrap.c:88
+#4  0x00007fa730b3911c in ncclIbAsyncThreadMain (args=0x7fa730b5b300 <ncclIbDevs+768>) at p2p_plugin.c:322
+
+Thread 114 (Thread 0x7f9dd0ffe640 (LWP 1109) "python3"):
+#0  0x00007fa8627f289c in read () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f8fb8c4 in read (__nbytes=16, __buf=0x7f9dd0ffdda0, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/unistd.h:38
+#2  __ibv_get_async_event_1_1 (context=0x7f9dcc09eb20, event=0x7f9dd0ffde00) at /code/jenkins/workspace/hercules_pipeline3/hercules/os_build/Ubuntu_22.04_server/ofed-5.9-0.5.6.0/rdma_core/libibverbs/device.c:459
+#3  0x00007fa730b3370d in wrap_ibv_get_async_event (context=<optimized out>, event=event@entry=0x7f9dd0ffde00) at ibvwrap.c:88
+#4  0x00007fa730b3911c in ncclIbAsyncThreadMain (args=0x7fa730b5b200 <ncclIbDevs+512>) at p2p_plugin.c:322
+
+Thread 113 (Thread 0x7f9dd17ff640 (LWP 1108) "python3"):
+#0  0x00007fa8627f289c in read () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f8fb8c4 in read (__nbytes=16, __buf=0x7f9dd17feda0, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/unistd.h:38
+#2  __ibv_get_async_event_1_1 (context=0x7f9dcc07e610, event=0x7f9dd17fee00) at /code/jenkins/workspace/hercules_pipeline3/hercules/os_build/Ubuntu_22.04_server/ofed-5.9-0.5.6.0/rdma_core/libibverbs/device.c:459
+#3  0x00007fa730b3370d in wrap_ibv_get_async_event (context=<optimized out>, event=event@entry=0x7f9dd17fee00) at ibvwrap.c:88
+#4  0x00007fa730b3911c in ncclIbAsyncThreadMain (args=0x7fa730b5b100 <ncclIbDevs+256>) at p2p_plugin.c:322
+
+Thread 112 (Thread 0x7f9ddc9fc640 (LWP 1107) "python3"):
+#0  0x00007fa8627f289c in read () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f8fb8c4 in read (__nbytes=16, __buf=0x7f9ddc9fbda0, __fd=<optimized out>) at /usr/include/x86_64-linux-gnu/bits/unistd.h:38
+#2  __ibv_get_async_event_1_1 (context=0x7f9dcc05e100, event=0x7f9ddc9fbe00) at /code/jenkins/workspace/hercules_pipeline3/hercules/os_build/Ubuntu_22.04_server/ofed-5.9-0.5.6.0/rdma_core/libibverbs/device.c:459
+#3  0x00007fa730b3370d in wrap_ibv_get_async_event (context=<optimized out>, event=event@entry=0x7f9ddc9fbe00) at ibvwrap.c:88
+#4  0x00007fa730b3911c in ncclIbAsyncThreadMain (args=0x7fa730b5b000 <ncclIbDevs>) at p2p_plugin.c:322
+
+Thread 111 (Thread 0x7f9e5e7ff640 (LWP 1101) "python3"):
+#0  0x00007fa8627f89cf in ioctl () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f53b893 in kmtIoctl (fd=3, request=request@entry=3222817548, arg=arg@entry=0x7f9e5e7fcc20) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/libhsakmt.c:19
+#2  0x00007fa71f523238 in hsaKmtWaitOnMultipleEvents_Ext (Events=Events@entry=0x7f9e5e7fcd08, NumEvents=NumEvents@entry=1, WaitOnAll=WaitOnAll@entry=true, Milliseconds=5000, event_age=event_age@entry=0x7f9e5e7fcd80) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/events.c:456
+#3  0x00007fa71f525127 in hsaKmtWaitOnEvent_Ext (Event=<optimized out>, Milliseconds=<optimized out>, event_age=event_age@entry=0x7f9e5e7fcd80) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/events.c:259
+#4  0x00007fa71f47d10d in rocr::core::InterruptSignal::WaitRelaxed (this=<optimized out>, condition=HSA_SIGNAL_CONDITION_LT, compare_value=1, timeout=<optimized out>, wait_hint=HSA_WAIT_STATE_BLOCKED) at /home/jenkins/workspace/ROCR-Runtime_6.3_docker/src/core/runtime/interrupt_signal.cpp:325
+
+Thread 110 (Thread 0x7f9ddf9ff640 (LWP 897) "python3"):
+#0  0x00007fa8627f89cf in ioctl () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f53b893 in kmtIoctl (fd=3, request=request@entry=3222817548, arg=arg@entry=0x7f9ddf9feaf0) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/libhsakmt.c:19
+#2  0x00007fa71f523238 in hsaKmtWaitOnMultipleEvents_Ext (Events=Events@entry=0x7f9dd8001320, NumEvents=NumEvents@entry=4, WaitOnAll=WaitOnAll@entry=false, Milliseconds=4294967294, event_age=event_age@entry=0x7f9ddf9febd0) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/events.c:456
+#3  0x00007fa71f4a9718 in rocr::core::Signal::WaitAny (signal_count=signal_count@entry=13, hsa_signals=hsa_signals@entry=0x7f9dd8000fa0, conds=conds@entry=0x7f9dd8000ca0, values=values@entry=0x7f9dd8001030, timeout=timeout@entry=18446744073709551615, wait_hint=<optimized out>, wait_hint@entry=HSA_WAIT_STATE_BLOCKED, satisfying_value=0x7f9ddf9fedc8) at /home/jenkins/workspace/ROCR-Runtime_6.3_docker/src/core/runtime/signal.cpp:282
+#4  0x00007fa71f4760ae in rocr::GPU::hsa_ext_signal_wait_any (signal_count=13, hsa_signals=0x7f9dd8000fa0, conds=0x7f9dd8000ca0, values=0x7f9dd8001030, timeout_hint=timeout_hint@entry=18446744073709551615, wait_hint=wait_hint@entry=HSA_WAIT_STATE_BLOCKED, satisfying_value=0x7f9ddf9fedc8) at /home/jenkins/workspace/ROCR-Runtime_6.3_docker/src/core/runtime/hsa_ext_gpu.cpp:586
+
+Thread 109 (Thread 0x7f9df8ff9640 (LWP 887) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 108 (Thread 0x7f9df97fa640 (LWP 885) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 107 (Thread 0x7f9df9ffb640 (LWP 882) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 106 (Thread 0x7f9dfa7fc640 (LWP 880) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 105 (Thread 0x7f9dfaffd640 (LWP 877) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 104 (Thread 0x7f9dfb7fe640 (LWP 873) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 103 (Thread 0x7f9dfbfff640 (LWP 872) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 102 (Thread 0x7f9e08ff9640 (LWP 866) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 101 (Thread 0x7f9e097fa640 (LWP 859) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 100 (Thread 0x7f9e09ffb640 (LWP 857) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 99 (Thread 0x7f9e0a7fc640 (LWP 851) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 98 (Thread 0x7f9e0affd640 (LWP 849) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 97 (Thread 0x7f9e0b7fe640 (LWP 842) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 96 (Thread 0x7f9e0bfff640 (LWP 840) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 95 (Thread 0x7f9e1cff9640 (LWP 832) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 94 (Thread 0x7f9e1d7fa640 (LWP 829) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 93 (Thread 0x7f9e1dffb640 (LWP 824) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 92 (Thread 0x7f9e1e7fc640 (LWP 821) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 91 (Thread 0x7f9e1effd640 (LWP 816) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 90 (Thread 0x7f9e1f7fe640 (LWP 813) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 89 (Thread 0x7f9e1ffff640 (LWP 810) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 88 (Thread 0x7f9e2cff9640 (LWP 806) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 87 (Thread 0x7f9e2d7fa640 (LWP 800) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 86 (Thread 0x7f9e2dffb640 (LWP 798) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 85 (Thread 0x7f9e2e7fc640 (LWP 793) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 84 (Thread 0x7f9e2effd640 (LWP 791) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 83 (Thread 0x7f9e2f7fe640 (LWP 785) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 82 (Thread 0x7f9e2ffff640 (LWP 783) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 81 (Thread 0x7f9e40ff9640 (LWP 775) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 80 (Thread 0x7f9e417fa640 (LWP 773) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 79 (Thread 0x7f9e41ffb640 (LWP 766) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 78 (Thread 0x7f9e427fc640 (LWP 764) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 77 (Thread 0x7f9e42ffd640 (LWP 759) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 76 (Thread 0x7f9e437fe640 (LWP 756) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 75 (Thread 0x7f9e43fff640 (LWP 754) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 74 (Thread 0x7f9e54ff9640 (LWP 748) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 73 (Thread 0x7f9e557fa640 (LWP 744) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 72 (Thread 0x7f9e55ffb640 (LWP 739) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 71 (Thread 0x7f9e567fc640 (LWP 730) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 70 (Thread 0x7f9e56ffd640 (LWP 725) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 69 (Thread 0x7f9e577fe640 (LWP 717) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 68 (Thread 0x7f9e57fff640 (LWP 713) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 67 (Thread 0x7f9e5ca3c640 (LWP 703) "pt_nccl_heartbt"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b59b68 in c10d::ProcessGroupNCCL::HeartbeatMonitor::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+#4  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 66 (Thread 0x7f9e5d23d640 (LWP 698) "pt_nccl_watchdg"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771e9b in pthread_cond_timedwait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa811b60075 in c10d::ProcessGroupNCCL::Watchdog::runLoop() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#3  0x00007fa811b6322b in c10d::ProcessGroupNCCL::Watchdog::run() () from /usr/local/lib/python3.10/dist-packages/torch/lib/libtorch_hip.so
+#4  0x00007fa80cab0253 in ?? () from /lib/x86_64-linux-gnu/libstdc++.so.6
+
+Thread 65 (Thread 0x7fa67adff640 (LWP 608) "python3"):
+#0  0x00007fa8627f89cf in ioctl () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa71f53b893 in kmtIoctl (fd=3, request=request@entry=3222817548, arg=arg@entry=0x7fa67adfec20) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/libhsakmt.c:19
+#2  0x00007fa71f523238 in hsaKmtWaitOnMultipleEvents_Ext (Events=Events@entry=0x55c88ec6dc50, NumEvents=NumEvents@entry=3, WaitOnAll=WaitOnAll@entry=false, Milliseconds=Milliseconds@entry=4294967295, event_age=event_age@entry=0x7fa67adfed00) at /home/jenkins/workspace/ROCT-Thunk-Interface_6.3_docker/src/events.c:456
+#3  0x00007fa71f4aa8dc in rocr::core::Signal::WaitAnyExceptions (signal_count=3, hsa_signals=0x7fa574000b70, conds=0x55c88ec6dcb0, values=0x7fa574000ba0, satisfying_value=satisfying_value@entry=0x7fa67adfedc8) at /home/jenkins/workspace/ROCR-Runtime_6.3_docker/src/core/runtime/signal.cpp:390
+#4  0x00007fa71f49728e in rocr::core::Runtime::AsyncEventsLoop (_eventsInfo=_eventsInfo@entry=0x55c88e7711c8) at /home/jenkins/workspace/ROCR-Runtime_6.3_docker/src/core/runtime/runtime.cpp:1295
+
+Thread 64 (Thread 0x7fa682dc1640 (LWP 395) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 63 (Thread 0x7fa6855c2640 (LWP 394) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 62 (Thread 0x7fa687dc3640 (LWP 393) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 61 (Thread 0x7fa68a5c4640 (LWP 392) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 60 (Thread 0x7fa68cdc5640 (LWP 391) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 59 (Thread 0x7fa68f5c6640 (LWP 390) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 58 (Thread 0x7fa691dc7640 (LWP 389) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 57 (Thread 0x7fa6945c8640 (LWP 388) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 56 (Thread 0x7fa696dc9640 (LWP 387) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 55 (Thread 0x7fa6995ca640 (LWP 386) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 54 (Thread 0x7fa69bdcb640 (LWP 385) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 53 (Thread 0x7fa69e5cc640 (LWP 384) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 52 (Thread 0x7fa6a0dcd640 (LWP 383) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 51 (Thread 0x7fa6a35ce640 (LWP 382) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 50 (Thread 0x7fa6a5dcf640 (LWP 381) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 49 (Thread 0x7fa6a85d0640 (LWP 380) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 48 (Thread 0x7fa6aadd1640 (LWP 379) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 47 (Thread 0x7fa6ad5d2640 (LWP 378) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 46 (Thread 0x7fa6afdd3640 (LWP 377) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 45 (Thread 0x7fa6b25d4640 (LWP 376) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 44 (Thread 0x7fa6b4dd5640 (LWP 375) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 43 (Thread 0x7fa6b75d6640 (LWP 374) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 42 (Thread 0x7fa6b9dd7640 (LWP 373) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 41 (Thread 0x7fa6bc5d8640 (LWP 372) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 40 (Thread 0x7fa6bedd9640 (LWP 371) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 39 (Thread 0x7fa6c15da640 (LWP 370) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 38 (Thread 0x7fa6c3ddb640 (LWP 369) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 37 (Thread 0x7fa6c65dc640 (LWP 368) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 36 (Thread 0x7fa6c8ddd640 (LWP 367) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 35 (Thread 0x7fa6cb5de640 (LWP 366) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 34 (Thread 0x7fa6cdddf640 (LWP 365) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 33 (Thread 0x7fa6d05e0640 (LWP 364) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 32 (Thread 0x7fa6d2de1640 (LWP 363) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 31 (Thread 0x7fa6d55e2640 (LWP 362) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 30 (Thread 0x7fa6d7de3640 (LWP 361) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 29 (Thread 0x7fa6da5e4640 (LWP 360) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 28 (Thread 0x7fa6dcde5640 (LWP 359) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 27 (Thread 0x7fa6df5e6640 (LWP 358) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 26 (Thread 0x7fa6e1de7640 (LWP 357) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 25 (Thread 0x7fa6e45e8640 (LWP 356) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 24 (Thread 0x7fa6e6de9640 (LWP 355) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 23 (Thread 0x7fa6e95ea640 (LWP 354) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 22 (Thread 0x7fa6ebdeb640 (LWP 353) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 21 (Thread 0x7fa6ee5ec640 (LWP 352) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 20 (Thread 0x7fa6f0ded640 (LWP 351) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 19 (Thread 0x7fa6f55ee640 (LWP 350) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 18 (Thread 0x7fa6f5def640 (LWP 349) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 17 (Thread 0x7fa6f85f0640 (LWP 348) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 16 (Thread 0x7fa6fadf1640 (LWP 347) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 15 (Thread 0x7fa6fd5f2640 (LWP 346) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 14 (Thread 0x7fa6ffdf3640 (LWP 345) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 13 (Thread 0x7fa7025f4640 (LWP 344) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 12 (Thread 0x7fa704df5640 (LWP 343) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 11 (Thread 0x7fa7075f6640 (LWP 342) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 10 (Thread 0x7fa709df7640 (LWP 341) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 9 (Thread 0x7fa70c5f8640 (LWP 340) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 8 (Thread 0x7fa70edf9640 (LWP 339) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 7 (Thread 0x7fa7115fa640 (LWP 338) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 6 (Thread 0x7fa713dfb640 (LWP 337) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 5 (Thread 0x7fa7165fc640 (LWP 336) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 4 (Thread 0x7fa718dfd640 (LWP 335) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 3 (Thread 0x7fa71b5fe640 (LWP 334) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 2 (Thread 0x7fa71bdff640 (LWP 333) "python3"):
+#0  0x00007fa86276f117 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007fa862771a41 in pthread_cond_wait () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007fa71ca3377b in blas_thread_server () from /usr/local/lib/python3.10/dist-packages/numpy/core/../../numpy.libs/libopenblas64_p-r0-7a851222.3.23.so
+#3  0x00007fa862772ac3 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#4  0x00007fa862803a84 in clone () from /lib/x86_64-linux-gnu/libc.so.6
+
+Thread 1 (Thread 0x7fa8626db740 (LWP 171) "python3"):
+#0  0x00007fa8627f6c4f in poll () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x000055c883f7fee2 in ?? ()
+#2  0x000055c883e57d29 in ?? ()
+#3  0x000055c883e33d17 in _PyEval_EvalFrameDefault ()
+#4  0x000055c883e4968c in _PyFunction_Vectorcall ()
+[Inferior 1 (process 171) detached]

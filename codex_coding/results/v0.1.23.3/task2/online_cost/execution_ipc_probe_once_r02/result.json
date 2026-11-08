@@ -1,0 +1,93 @@
+{
+  "schema": "ipc_counter_probe.v1",
+  "scope": "diagnostic only; no complete-model unique-cause or cost qualification",
+  "imports": 1,
+  "producer_share_calls": 1,
+  "payload_bytes": 33554432,
+  "consumer_cleanup": {
+    "passed": true,
+    "signals": [],
+    "reaped": [],
+    "returncode": 0
+  },
+  "failure": null,
+  "samples": [
+    {
+      "phase": "producer_init",
+      "monotonic_ns": 284853602762643,
+      "gpu": 4,
+      "bdf": "0000:85:00.0",
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "free_bytes": 68365058048,
+      "total_bytes": 68702699520,
+      "whole_card_used_upper_bytes": 337641472,
+      "cap_bytes": 2147483648
+    },
+    {
+      "phase": "producer_shared_once",
+      "monotonic_ns": 284853675118394,
+      "gpu": 4,
+      "bdf": "0000:85:00.0",
+      "allocated_bytes": 33554432,
+      "reserved_bytes": 33554432,
+      "free_bytes": 68176314368,
+      "total_bytes": 68702699520,
+      "whole_card_used_upper_bytes": 526385152,
+      "cap_bytes": 2147483648
+    },
+    {
+      "phase": "producer_after_child_exit",
+      "monotonic_ns": 284874317809292,
+      "gpu": 4,
+      "bdf": "0000:85:00.0",
+      "allocated_bytes": 33554432,
+      "reserved_bytes": 33554432,
+      "free_bytes": 68176314368,
+      "total_bytes": 68702699520,
+      "whole_card_used_upper_bytes": 526385152,
+      "cap_bytes": 2147483648
+    },
+    {
+      "phase": "producer_after_drop_gc_empty_ipc_sync",
+      "monotonic_ns": 284874419528688,
+      "gpu": 4,
+      "bdf": "0000:85:00.0",
+      "allocated_bytes": 0,
+      "reserved_bytes": 0,
+      "free_bytes": 68209868800,
+      "total_bytes": 68702699520,
+      "whole_card_used_upper_bytes": 492830720,
+      "cap_bytes": 2147483648
+    }
+  ],
+  "refcounter_reads": [
+    {
+      "phase": "producer_after_share",
+      "known": true,
+      "read_only": true,
+      "own_shm_basename": "torch_34_720800230_0",
+      "offset": 0,
+      "unsigned": 1,
+      "signed": 1
+    },
+    {
+      "phase": "producer_after_child_exit",
+      "known": true,
+      "read_only": true,
+      "own_shm_basename": "torch_34_720800230_0",
+      "offset": 0,
+      "unsigned": 1,
+      "signed": 1
+    },
+    {
+      "phase": "producer_after_drop",
+      "known": false,
+      "read_only": true,
+      "inconclusive_reason": "FileNotFoundError(2, 'No such file or directory')"
+    }
+  ],
+  "allocated_retained_bytes": 0,
+  "passed": true,
+  "torch_version": "2.10.0"
+}

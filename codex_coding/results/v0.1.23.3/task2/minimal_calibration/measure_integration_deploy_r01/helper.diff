@@ -1,0 +1,11 @@
+--- stage_measurement_host.py
++++ stage_integration_host.source.py
+@@ -26,7 +26,7 @@
+     rows = []
+     for asset in bundle["assets"]:
+         rel = Path(asset["relative_path"])
+-        if rel.is_absolute() or ".." in rel.parts or not str(rel).startswith("codex_coding/"):
++        if rel.is_absolute() or ".." in rel.parts or not str(rel).startswith(("codex_coding/", "main_lib/fluidckpt/")):
+             raise ValueError("small deployment asset outside codex_coding")
+         data = base64.b64decode(asset["base64"], validate=True)
+         if hashlib.sha256(data).hexdigest() != asset["sha256"]:

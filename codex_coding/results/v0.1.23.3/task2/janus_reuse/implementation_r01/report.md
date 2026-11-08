@@ -1,0 +1,78 @@
+# Janus 冻结实现：权重保活、恢复调用链及海光复用边界
+
+日期：2026-10-11。开发编号：`v0.1.23.3/task2`。基准：`lib_cite/Janus`，HEAD `ec1beca2dbef5628b38e266fdc9afa0dba451678`，检查前后工作区干净。仅本地源码阅读和 CPU 文件证据核对；未安装、构建、联网更新、SSH 或运行 GPU。仓库获取状态和已有共同执行器机制实测身份以 [lib_cite/README.md](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/README.md:85) 及锁定清单为准。
+
+## 1. 判断
+
+Janus 已有真实的完整 host 保活、设备页共享池、模型睡眠/唤醒、活跃实例整副本复制和 NPU 层级 rolling H2D 实装；这些能力不能重新称为 Fluid 的独有贡献。但该版本的可用保活模型 hooks 实装位于 NPU 模型和 ACL/ATB manual loader，不能因跨后端 Worker 接口存在就认定 CUDA 或海光已具备同等 warm/D2D 路径。当前没有经海光验证、可直接接入 Fluid 的 Janus 模块。
+
+最低建设成本的选择是保留 Fluid 现有目录、HostAllocation/owner、lease、HIP IPC 和传输执行器，把 Janus 的完整 host/H2D 与完整活跃源/rank 对应 D2D 用作机制合同。Janus 的缓存身份、发布/引用计数和页分段描述可以作为具体 adapter 契约参照；直接迁入 C++ cache、manual loader 或 xTensor 不会消除后端与布局适配成本。复杂拓扑增量应落在明确缺失的块驻留/取数决策，不能以这份实现报告断言 Janus 完全没有拓扑或服务干扰考虑。调度/NUMA 和 Fluid 接口映射由同任务另一报告核查。
+
+## 2. 保活状态与端到端调用链
+
+| 状态/操作 | 实际链路 | 数据和资源含义 |
+| --- | --- | --- |
+| LIGHT_SLEEP | `LLMEngine::sleep` → `worker->sleep_async` → `WorkerImpl::sleep` → `model_->lazy_load_model` → NPU model host cache → `PageAllocator::sleep_model` | 先让每 worker 保留 host 权重，再回收模型的设备 weight/KV 页。已有 host cache 时直接保留；已有 compatible device storage 时可 D2H 建 host cache；否则读取 checkpoint 后构造 host cache。不是每次都必然 D2H，也不是必然重新读 SSD。 |
+| DEEP_SLEEP | `LLMEngine::sleep` 先 `PageAllocator::sleep_model`，再 worker `model_->free_model_weights` | 模型释放自己的 host cache 引用；共享引用尚存时 cache 仍在。权重后备仍为 checkpoint 文件。 |
+| 本地 warm wakeup | `LLMEngine::wakeup` 先 `PageAllocator::wakeup_model`，再 worker `wakeup_local` → `reload_model_weights` → loader `allocate_device_storage` / H2D / tensor 重新绑定 | 设备 weight/KV 页重新配给，host processed storage 分段 H2D；NPU model 尾部同步 stream。warm model 对象/loader/layout 状态仍在。 |
+| 本地 deep wakeup | 同上分配设备页；worker `ModelLoader::create(model_weights_path_)` → `load_model` | 重新按模型 loader 读取 checkpoint、处理权重；文件 cache 状态并未在此路径强制冷化。只能称 checkpoint 后备路径，不能从 DEEP_SLEEP 名字推出 cold SSD 实测。 |
+| remote wakeup | API `Wakeup` JSON 包含 `remote_addrs/src_weight_segments` → master/engine → 每 worker `wakeup_from_remote_weights` → Mooncake READ → `reload_model_weights_from_device` | 实装仅 `USE_NPU`。从活跃实例的 processed device region 复制，不执行 HF 名称级 reshard。 |
+| fork master | `ForkMasterHttp` → `ParseForkMasterRequest` → `fork_master` → `create_master/LLMAssistantMaster` → `new_master->run()` | 在常驻 engine 进程内构造新 Master，使用新的 model ID/path/地址等配置；不是 POSIX `fork()` 复制地址空间。独立 protobuf `ForkMaster` handler 仍 TODO。 |
+
+关键源码：[LLMEngine sleep/wakeup](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/distributed_runtime/llm_engine.cpp:1298)，[Worker sleep/local/remote wakeup](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/runtime/worker_impl.cpp:726)，[NPU lazy/free/reload hooks](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/models/llm/npu/llm_model_base.h:474)，[HTTP fork](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/api_service/api_service.cpp:946)，[Master construction](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/distributed_runtime/master.cpp:376)。
+
+LIGHT_SLEEP 顺序有实质意义：[engine:1340](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/distributed_runtime/llm_engine.cpp:1340) 明确在 worker materialize host 权重后才释放设备页，支持 manual loader 的 D2H 建缓存。不能先归还/覆盖源页再保存 host。wakeup 先全 worker 检查 weight+KV 页需求，再重映射/分配，见 [page_allocator:295](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/page_allocator.cpp:295)。
+
+## 3. Host 存储：owner、寿命、身份与 tensor layout
+
+`PinnedHostMemoryCache` 是 C++ 进程内 singleton，其 `entries_` 是 key→`shared_ptr<PinnedHostMemoryEntry>`，entry 保存 pinned segments、总 storage size、weight slices、loading/ready、手工 ref_count、mutex/cv；没有跨进程共享 handle。`acquire_or_create` 为新 key 设置 loading/ref_count=1；复用方 ref++ 并等待发布；`publish` 写 layout、ready=true/loading=false 后通知。loader destructor 和 `free_weights()` 经过 `release_host_storage` 归还引用；只有 ref_count=0 且 loading=false，cache 才擦除 entry 并 `aclrtFreeHost`。这是当前进程的引用保活，不是独立 daemon，也没有这段实现内的字节预算、替换优先级或 cache quota。
+
+证据：[entry 与 API](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/pinned_host_memory_cache.h:17)，[acquire/allocate/publish/release](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/pinned_host_memory_cache.cpp:9)，[loader destructor/free](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/base_manual_loader.cpp:29)，[loader release](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/base_manual_loader.cpp:316)。
+
+cache key 为 lexical-normalized model_path + component（例如 decoder_layer_编号）+ rank + world_size + dtype + quant。它区分模型处理组件和并行身份，但没有模型文件 digest、版本 epoch 或布局 SHA，也没有直接包含 dp_size。不能在原路径内容改变或并行策略改变后直接把相同 key 当作相同不可变内容的证明。需要复用 Fluid 已有 manifest/version/coverage/lease 约束。证据：[key construction](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/base_manual_loader.cpp:363)，[layer component key](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/models/llm/npu/llm_model_base.h:44)。
+
+保留的是每 rank 的处理后 layer/component storage。`weight_slices` 保存 offset/bytes/sizes/dtype，按 alignment 连续组织；loader 合并 QKV/MLP/量化权重后构造 slices，再从 host tensor 或已存在 device storage 保存。恢复使用相同 slice 信息将指针重新包装成 torch tensor，其中 NZ 权重指定 `ACL_FORMAT_FRACTAL_NZ`。因此不是可以直接与 Fluid/HIP snapshot 混用的 HF 原始 tensor 表。并行切分在加载阶段：`BaseLoader` 按 DP 内 TP rank/size，`StateDict::get_sharded_tensor` 仅 dim0/1 均匀 chunk（太小维度返回整 tensor），manual model 的 weight-specific shard map 决定哪些权重分片。证据：[slices/host population/H2D](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/base_manual_loader.cpp:132)，[tensor binding](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/base_manual_loader.cpp:282)，[TP ownership](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/base_loader.cpp:20)，[Qwen2 shard map use](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/qwen2_decoder_manual_loader.cpp:155)，[StateDict sharding](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/state_dict/state_dict.cpp:123)。
+
+checkpoint 路径扫描并排序 `.safetensors` 文件，用 32-thread pool 读取 state dict；底层 open/mmap MAP_PRIVATE + tensor from_blob 引用 mapping，可按环境 mlock。这类 mmap/page-cache 底本须与显式 `aclrtMallocHost` 的 processed pinned DRAM 分开记账。不是 Janus 本地持久化 processed TP snapshot store 的证据。证据：[HF loader](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/hf_model_loader.cpp:301)，[mapping/mlock/from_blob](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/state_dict/state_dict.cpp:190)。
+
+## 4. HBM 共享池与 remote segment 的边界
+
+`PhyPagePool::init` 预分配全部 `PhyPage` physical handles，`GlobalXTensor::init` 将全池映射到全局虚拟地址。模型 weight allocation 通常从右侧取连续页，记录全局 offset/length，再按组件顺序做 bump allocation；不连续时借第二个 XTensor 虚拟连续映射，记录多个物理区段。`free_weight` 清除模型 region record 并把页归还池；连续 weight `free_weight_pages` 只改 allocated bitmap/free IDs。KV 和 fallback XTensor 可以解除 model view 映射并还池，physical handle 仍由 pool 持有。因此 sleep 释放的是 Janus 内模型可复用份额，不能直接称已对外部进程释放同等物理 HBM。该区分会影响与 Fluid 独立 owner 的保活空间比较。
+
+证据：[pool preallocation](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/phy_page_pool.cpp:10)，[global mapping](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/global_xtensor.cpp:12)，[region records](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/xtensor_allocator.cpp:701)，[free weight](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/xtensor_allocator.cpp:974)，[pool free bookkeeping](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/phy_page_pool.cpp:247)，[XTensor destructor](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/xtensor.cpp:135)。pool 大小受启动 max_memory_utilization/max_cache_size 控制，见 [janus init](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/janus.cpp:318)。
+
+remote 权重传输注册整个 GlobalXTensor 的 base/total_size 一次。每次 weight READ 用源和目标的全局 offset，提交 Mooncake transfer batch，轮询完成后再重绑 model device tensors。允许传入远端 IP:port，不限同进程；实际同节点/跨节点 transport、硬件可达性和性能须运行验收。此接口不是把源 HBM IPC alias 给目标，目标仍需自己的完整设备权重空间。证据：[registration/pull_weights](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/kv_cache/mooncake_weight_transfer.cpp:27)，[session](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/kv_cache/mooncake_transfer_engine.cpp:92)，[global-offset READ/WRITE and wait](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/kv_cache/mooncake_transfer_engine.cpp:487)。
+
+engine 在地址数量等于 worker 数时将 worker i 与源地址 i 的 segment list 对应。worker 把一个源的各段依次写入目的 base；多个 remote 地址时每个地址都重新从目的 base 开始，不能解读为不同源分担不相交任意 block 的通用 gather。目的 base offset 通过 `weight_base_ptr - GlobalXTensor.base` 得到，代码注释明确假设目的连续；源 segments 只含 offset/size，不携带 tensor name/rank/content/epoch 校验。这条路径必须保持同模型、TP/rank 对应、processed layout、注册区域及有效源寿命合同。证据：[TP dispatch](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/distributed_runtime/llm_engine.cpp:1381)，[destination and serial segment pulls](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/runtime/worker_impl.cpp:820)。
+
+service 的源选择也并非任意多源组合：有 model segments/p2p 地址且 awake 的候选中取最大 EPDT 的单个逻辑实例；其 segment vector 对每个 p2p 地址重复填入。候选检查本身没有逐 rank 内容/TP/layout digest 检验，不能以源已 awake 推出可任意重分片。证据：[eligible source / EPDT / payload](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_service/janus_service/scheduler/managers/instance_mgr.cpp:2993)。具体源保护/回退生命周期由配套调度报告说明。
+
+适配验收待项：fragmented source 的原 `page_ids` 由右到左收集并按输入次序映射，但用于 transfer 的 segment 描述对 page IDs 排序后合段；需证明这两种次序能保持恢复字节顺序。fallback target 的虚拟 base 也未必在 GlobalXTensor 注册 base 内。这是静态合同疑点，不是已执行故障、Janus 性能结论或 Fluid 优势。本轮不扩建 Janus 调试。证据：[allocation order](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/phy_page_pool.cpp:210)，[virtual map order](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/xtensor.cpp:221)，[segments sort](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/xtensor/xtensor_allocator.cpp:755)。
+
+## 5. Streaming 实装与比较终点
+
+NPU rolling load 确实存在：完整 host-pinned decoder 权重为 source of truth，有限设备 slots 承载层权重，非 decoder 权重另恢复；load stream 做 H2D、compute stream 在 h2d event 上等，load stream 在该 slot 上次 compute event 后才能覆盖。`RollingLayerGuard::before_layer/after_layer` 把 pipeline 放进逐层 forward。warm wakeup 复用 host 和 rolling state，不必重新读 checkpoint；remote wakeup 明确拒绝 rolling load。因此不能说 Janus 只有全 HBM 副本一种执行方式，也不能把 rolling 的逐层服务终点等同于“全部权重同时到齐”。该路径仍是 NPU layer-aware pipeline，不是拓扑任意 block scheduler。
+
+证据：[worker rolling init](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/runtime/worker_impl.cpp:959)，[rolling buffer API](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/rolling_weight_buffer.h:12)，[events/preload/refill](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/rolling_load_manager.cpp:99)，[guard](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/layers/npu/loader/rolling_load_manager.h:130)，[remote rejects rolling](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/runtime/worker_impl.cpp:778)。
+
+## 6. 具体复用级别和最小接口
+
+| 候选模块/API | 源码可复用部分 | 海光/Fluid 处理 | 分类 |
+| --- | --- | --- | --- |
+| `PinnedHostMemoryEntry`, `acquire_or_create/publish/release` | entry layout、单 producer 发布、引用生命周期；allocator/free 两处可抽成 backend 接口 | 数据结构仍依赖 torch dtype；物理分配/free 是 ACL。可以移植该小 cache，但 Fluid 已有 owner/HostAllocation/Catalog，不建议新增重复 cache。现有对象补缺失的身份/发布合同即可。 | C++ 源码可提取，需 allocator/type/lifecycle adapter；当前保留 Fluid 组件 |
+| `PinnedHostMemoryWeightSlice`, `BaseManualLoader::init_weight_slices/init_device_at_weights` | offset/bytes/shape/dtype 组织与 tensor rebind seam | NPU NZ、ATB 权重合并、alignment、torch_npu storage 与 HIP/SGLang 格式不通用；用已有 snapshot manifest/scatter/IPC attach 绑定。 | 元数据合同可复用；模型数据面需深 adapter |
+| `PageAllocator::sleep_model/wakeup_model` | 每 worker weight+KV 一起准入、pending map 等待、局部失败账本保留 | 依赖 Janus distributed RPC、block manager、shared physical pool。Fluid 继续用预算/事务/coverage/lease，不迁入另一套页池。 | 完整 Janus backend adapter 候选；本轮只借接口合同 |
+| `XTensorAllocator`, `GlobalXTensor`, `vmm::*` | 虚拟连续映射、连续/碎片 region、模型内 bump allocation、offset segment 描述 | backend 有 NPU/MLU/CUDA/ILU/MUSA，无 HIP；CUDA 用 cuMemCreate/Map/SetAccess 等 Driver API。HIP 转换需要真实 granularity、access、registration、回收及池成本验收。现有 Fluid HIP IPC 已解决本地共享，不能为复杂拓扑重建此池。 | 非即插即用；只有明确缺项才做适配 |
+| `MooncakeWeightTransfer::pull_weights/push_weights/link_d2d` | 调用 seam 明确：remote address、src/dst offset、size，READ/WRITE、session refcount | serving worker 构造/调用都受 USE_NPU；还需 Mooncake transport、GlobalXTensor registration、目标 layout 及同后端库构建。当前 Fluid local copy/NCCL/HIP 路径承担传输。 | 可移植调用协议，数据面需 adapter |
+| `WorkerImpl::sleep/wakeup`, `WakeupOptions` | 分清 host 保留/丢弃、local/remote 唤醒、rank dispatch，保留完整 host 后备 | generic model 接口存在但缺 hooks 会 LOG(FATAL)。以 Fluid 现有完整模型 owner 与 restore 策略实现 Janus 式机制对照。 | 生命周期合同可直接采用；不是官方海光系统 |
+| `RollingLoadManager/RollingLayerGuard` | 层 slots、H2D 与 compute events、避免覆盖 live layer 的依赖 | ACL stream/event + NPU model forward hooks；要改变引擎层执行，超过当前暂停恢复主线。 | 可参考 pipeline，非本轮实施 |
+
+海光阻碍有具体代码，而非名称推断：[CMake 后端开关](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/CMakeLists.txt:4) 没有 HIP；CUDA build 要求 CUDA language/CUDAToolkit，[CUDA dependencies](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/CMakeLists.txt:216)；[vmm CUDA Driver API](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/platform/vmm_api.cpp:95)；NPU host cache 明确 `aclrtMallocHost/aclrtFreeHost`；[Worker remote gate](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/runtime/worker_impl.cpp:740)。
+
+尤须核实 generic hooks：全 `models/` 的 `lazy_load_model/free_model_weights/reload_model_weights/reload_model_weights_from_device` 具体实现仅在 NPU `llm_model_base.h`。generic [LlmForCausalLMImplBase](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/models/llm/llm_model_base.h:197) 只有常规 `load_model`；[CausalLMImpl traits](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/model/causal_lm.h:149) 缺 hook 会回落 [CausalLM default](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/framework/model/causal_lm.h:111)，[NOT_IMPLEMENTED](/home/zhujianian/zhujianian/fluidckpt_zjn/lib_cite/Janus/janus_engine/janus/core/common/macros.h:75) 是 `LOG(FATAL)`。它们是跨后端接口，不能作为 CUDA warm 已实装证明。
+
+## 7. 静态验收和未定项
+
+`evidence_refs.json` 记录报告所有基线文件 SHA256、行锚及关键行文本；`qualification.json` 核对文件/行存在、HEAD 与锁定值、基线 clean、报告无未知引用。此验收只认证当前报告可追溯，不认证 Janus 在本硬件可运行、该版本所有功能正确或性能优越。
+
+尚未执行：Janus 构建与完整系统复现；NPU 实机 warm/deep/remote/rolling；HIP/xTensor/Mooncake registration 适配；fragmented source/target 合同运行验收；完整模型首次输出与物理资源释放。当前无需为解释复杂拓扑而启动上述全套移植。先让现有 Fluid 的完整 host、完整活跃源和块布局共享同内容/预算/来源机会，必要的新增约束再由真实计划差异决定。

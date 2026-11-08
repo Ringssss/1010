@@ -1,0 +1,40 @@
+{
+  "kind": "icmp",
+  "node": "node29",
+  "target": "10.211.3.29",
+  "started_at": "2026-10-08T07:15:32.919934+00:00",
+  "resolved_address": "10.211.3.29",
+  "route": {
+    "argv": [
+      "ip",
+      "-j",
+      "route",
+      "get",
+      "10.211.3.29"
+    ],
+    "started_at": "2026-10-08T07:15:32.906128+00:00",
+    "timeout_s": 2,
+    "returncode": 0,
+    "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+    "stderr": "",
+    "finished_at": "2026-10-08T07:15:32.919916+00:00",
+    "elapsed_s": 0.013801983557641506
+  },
+  "source_node": "node27",
+  "argv": [
+    "ping",
+    "-n",
+    "-c",
+    "1",
+    "-W",
+    "2",
+    "10.211.3.29"
+  ],
+  "timeout_s": 3,
+  "returncode": 1,
+  "stdout": "PING 10.211.3.29 (10.211.3.29) 56(84) bytes of data.\n\n--- 10.211.3.29 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n",
+  "stderr": "",
+  "finished_at": "2026-10-08T07:15:34.926423+00:00",
+  "elapsed_s": 2.0065217996016145,
+  "status": "no_reply"
+}

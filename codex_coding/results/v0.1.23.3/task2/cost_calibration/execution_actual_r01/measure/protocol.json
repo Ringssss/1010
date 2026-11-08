@@ -1,0 +1,52 @@
+{
+  "holdout": {
+    "bytes_each": 12582912,
+    "repeat_modes": [
+      "cached",
+      "legacy"
+    ],
+    "route_order": [
+      0,
+      1,
+      2
+    ]
+  },
+  "model_frozen_before_holdout": true,
+  "nonincreasing_retry_rule": "only failing path original three configurations once more in reverse order; keep all; arithmetic mean both observations per configuration; no third run or new size",
+  "recalibrate_on_failure": false,
+  "routes": [
+    [
+      4,
+      "hbm",
+      4
+    ],
+    [
+      2,
+      "dram",
+      4
+    ],
+    [
+      4,
+      "ssd",
+      5
+    ]
+  ],
+  "selection_rule": "cached faster; legacy library >=50% wall; library reduction >=70% wall reduction; all exact static identity equal; fresh_fields retained",
+  "train": [
+    {
+      "label": "warm_small",
+      "operations": 1,
+      "total_bytes": 4194304
+    },
+    {
+      "label": "warm_large",
+      "operations": 1,
+      "total_bytes": 16777216
+    },
+    {
+      "label": "warm_batch",
+      "operations": 4,
+      "total_bytes": 4194304
+    }
+  ]
+}

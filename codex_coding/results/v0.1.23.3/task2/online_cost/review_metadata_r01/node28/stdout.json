@@ -1,0 +1,1402 @@
+{
+  "node": "node28",
+  "hostname": "m03r2n08",
+  "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+  "gpu_api_calls": 0,
+  "device_opens": 0,
+  "gpu_resource_queries": 0,
+  "remote_file_writes": 0,
+  "signals_sent": 0,
+  "container_execs": 0,
+  "node29_accesses": 0,
+  "physical_gpu_available": null,
+  "self_cgroup": {
+    "raw": "0::/user.slice/user-1020.slice/session-7093.scope",
+    "v2": true,
+    "path": "/sys/fs/cgroup/user.slice/user-1020.slice/session-7093.scope",
+    "fields": {
+      "memory.current": "14860288",
+      "memory.peak": {
+        "error": "FileNotFoundError(2, 'No such file or directory')"
+      },
+      "memory.max": "max",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+      "memory.stat": "anon 9834496\nfile 4169728\nkernel_stack 32768\npagetables 139264\npercpu 0\nsock 0\nshmem 0\nfile_mapped 1650688\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 9793536\nactive_anon 4096\ninactive_file 3989504\nactive_file 180224\nunevictable 0\nslab_reclaimable 261400\nslab_unreclaimable 155168\nslab 416568\nworkingset_refault_anon 0\nworkingset_refault_file 627\nworkingset_activate_anon 0\nworkingset_activate_file 28\nworkingset_restore_anon 0\nworkingset_restore_file 28\nworkingset_nodereclaim 0\npgfault 3547\npgmajfault 27\npgrefill 0\npgscan 0\npgsteal 0\npgactivate 0\npgdeactivate 0\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 0\nthp_collapse_alloc 0",
+      "pids.current": "3"
+    },
+    "stat_bytes": {
+      "anon": 9834496,
+      "file": 4169728,
+      "shmem": 0,
+      "file_mapped": 1650688,
+      "file_dirty": 0,
+      "file_writeback": 0
+    }
+  },
+  "host_memory": {
+    "MemTotal": 540769529856,
+    "MemAvailable": 94160228352,
+    "Cached": 383758929920,
+    "Shmem": 294135185408,
+    "SReclaimable": 4657012736
+  },
+  "host_memory_admission": {
+    "minimum_available_bytes": 137438953472,
+    "passed": false
+  },
+  "protected_containers": [
+    {
+      "id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+      "name": "/zjn-fluid-three-node-multitier_runtime_r02-n28",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-10T11:21:19.374728572Z",
+      "pid": 1027366,
+      "host_config": {
+        "Memory": 8589934592,
+        "MemorySwap": 17179869184,
+        "PidsLimit": 512,
+        "ShmSize": 1073741824,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/tmp/fluidckpt_three_node/multitier_runtime_r02_n28/project",
+          "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+          "RW": true
+        },
+        {
+          "Source": "/data/node28/shared/multitier_runtime_r02",
+          "Destination": "/task_ssd",
+          "RW": true
+        }
+      ],
+      "pid_stat": "1027366 (sleep) S 1027345 1027366 1027366 0 -1 4194560 625 0 1 0 1 1 0 0 20 0 1 0 495717103 5910528 24 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 55 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6.scope",
+        "fields": {
+          "memory.current": "2473984",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "8589934592",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 106496\nfile 135168\nkernel_stack 16384\npagetables 40960\npercpu 4608\nsock 0\nshmem 4096\nfile_mapped 0\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 106496\nactive_anon 4096\ninactive_file 73728\nactive_file 57344\nunevictable 0\nslab_reclaimable 2057248\nslab_unreclaimable 78800\nslab 2136048\nworkingset_refault_anon 0\nworkingset_refault_file 7\nworkingset_activate_anon 0\nworkingset_activate_file 4\nworkingset_restore_anon 0\nworkingset_restore_file 3\nworkingset_nodereclaim 21\npgfault 19113441\npgmajfault 0\npgrefill 1334\npgscan 29803\npgsteal 786\npgactivate 1500\npgdeactivate 1334\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 21252\nthp_collapse_alloc 0",
+          "pids.current": "1"
+        },
+        "stat_bytes": {
+          "anon": 106496,
+          "file": 135168,
+          "shmem": 4096,
+          "file_mapped": 0,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6",
+      "name": "/zjn-fluid-three-node-minimal_measure_r01-n28",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-09T10:57:19.204876643Z",
+      "pid": 929337,
+      "host_config": {
+        "Memory": 8589934592,
+        "MemorySwap": 17179869184,
+        "PidsLimit": 512,
+        "ShmSize": 1073741824,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/tmp/fluidckpt_three_node/minimal_measure_r01_n28/project",
+          "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+          "RW": true
+        }
+      ],
+      "pid_stat": "929337 (sleep) S 929316 929337 929337 0 -1 4194560 628 0 0 0 2 0 0 0 20 0 1 0 486933091 5910528 23 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 18 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6.scope",
+        "fields": {
+          "memory.current": "1343488",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "8589934592",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 102400\nfile 978944\nkernel_stack 16384\npagetables 40960\npercpu 4608\nsock 0\nshmem 4096\nfile_mapped 0\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 102400\nactive_anon 4096\ninactive_file 327680\nactive_file 647168\nunevictable 0\nslab_reclaimable 92616\nslab_unreclaimable 78448\nslab 171064\nworkingset_refault_anon 0\nworkingset_refault_file 2247\nworkingset_activate_anon 0\nworkingset_activate_file 13\nworkingset_restore_anon 0\nworkingset_restore_file 12\nworkingset_nodereclaim 0\npgfault 2294234\npgmajfault 56\npgrefill 1661\npgscan 3041\npgsteal 3011\npgactivate 1781\npgdeactivate 1661\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 11264\nthp_collapse_alloc 0",
+          "pids.current": "1"
+        },
+        "stat_bytes": {
+          "anon": 102400,
+          "file": 978944,
+          "shmem": 4096,
+          "file_mapped": 0,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "bcee43e68fc88a6bcea76cc58a11241646bd5b2d5605aaab7a7cda156a675d99",
+      "name": "/zjn-fluid-three-node-isolated_r04-n28",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-09T06:36:37.844554212Z",
+      "pid": 910181,
+      "host_config": {
+        "Memory": 8589934592,
+        "MemorySwap": 17179869184,
+        "PidsLimit": 512,
+        "ShmSize": 1073741824,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/tmp/fluidckpt_three_node/isolated_r02_n28/project",
+          "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+          "RW": true
+        }
+      ],
+      "pid_stat": "910181 (sleep) S 910160 910181 910181 0 -1 4194560 732 0 0 0 1 1 0 0 20 0 1 0 485368950 5910528 22 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 58 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-bcee43e68fc88a6bcea76cc58a11241646bd5b2d5605aaab7a7cda156a675d99.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-bcee43e68fc88a6bcea76cc58a11241646bd5b2d5605aaab7a7cda156a675d99.scope",
+        "fields": {
+          "memory.current": "872448",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "8589934592",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 98304\nfile 57344\nkernel_stack 16384\npagetables 36864\npercpu 4608\nsock 0\nshmem 4096\nfile_mapped 0\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 98304\nactive_anon 4096\ninactive_file 45056\nactive_file 8192\nunevictable 0\nslab_reclaimable 544888\nslab_unreclaimable 78448\nslab 623336\nworkingset_refault_anon 0\nworkingset_refault_file 0\nworkingset_activate_anon 0\nworkingset_activate_file 0\nworkingset_restore_anon 0\nworkingset_restore_file 0\nworkingset_nodereclaim 113\npgfault 171231\npgmajfault 0\npgrefill 0\npgscan 7244\npgsteal 7244\npgactivate 1\npgdeactivate 0\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 2078\nthp_collapse_alloc 0",
+          "pids.current": "1"
+        },
+        "stat_bytes": {
+          "anon": 98304,
+          "file": 57344,
+          "shmem": 4096,
+          "file_mapped": 0,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "421c5202306b9cdd446f3ca4d9d1ed7cff4d8a6cf39d471331fbbcc4381be766",
+      "name": "/zjn-fluid-three-node-isolated_r03-n28",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-09T06:27:55.821264364Z",
+      "pid": 909441,
+      "host_config": {
+        "Memory": 8589934592,
+        "MemorySwap": 17179869184,
+        "PidsLimit": 512,
+        "ShmSize": 1073741824,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/tmp/fluidckpt_three_node/isolated_r02_n28/project",
+          "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ],
+      "pid_stat": "909441 (sleep) S 909419 909441 909441 0 -1 4194560 722 0 0 0 1 1 0 0 20 0 1 0 485316749 5910528 23 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 88 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-421c5202306b9cdd446f3ca4d9d1ed7cff4d8a6cf39d471331fbbcc4381be766.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-421c5202306b9cdd446f3ca4d9d1ed7cff4d8a6cf39d471331fbbcc4381be766.scope",
+        "fields": {
+          "memory.current": "323584",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "8589934592",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 102400\nfile 16384\nkernel_stack 16384\npagetables 36864\npercpu 4608\nsock 0\nshmem 0\nfile_mapped 0\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 98304\nactive_anon 4096\ninactive_file 8192\nactive_file 8192\nunevictable 0\nslab_reclaimable 39368\nslab_unreclaimable 74584\nslab 113952\nworkingset_refault_anon 0\nworkingset_refault_file 7791\nworkingset_activate_anon 0\nworkingset_activate_file 104\nworkingset_restore_anon 0\nworkingset_restore_file 104\nworkingset_nodereclaim 119\npgfault 172172\npgmajfault 38\npgrefill 8857\npgscan 15487\npgsteal 15487\npgactivate 8696\npgdeactivate 8857\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 2063\nthp_collapse_alloc 0",
+          "pids.current": "1"
+        },
+        "stat_bytes": {
+          "anon": 102400,
+          "file": 16384,
+          "shmem": 0,
+          "file_mapped": 0,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba",
+      "name": "/zjn-fluid-three-node-isolated_r02-n28",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-09T06:19:44.292587393Z",
+      "pid": 908097,
+      "host_config": {
+        "Memory": 8589934592,
+        "MemorySwap": 17179869184,
+        "PidsLimit": 512,
+        "ShmSize": 1073741824,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/tmp/fluidckpt_three_node/isolated_r02_n28/project",
+          "Destination": "/home/zhujianian/zhujianian/fluidckpt_zjn",
+          "RW": true
+        }
+      ],
+      "pid_stat": "908097 (sleep) S 908076 908097 908097 0 -1 4194560 623 0 0 0 1 1 0 0 20 0 1 0 485267598 5910528 23 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 21 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba.scope",
+        "fields": {
+          "memory.current": "520192",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "8589934592",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 102400\nfile 24576\nkernel_stack 16384\npagetables 36864\npercpu 4608\nsock 0\nshmem 0\nfile_mapped 24576\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 98304\nactive_anon 4096\ninactive_file 8192\nactive_file 16384\nunevictable 0\nslab_reclaimable 226928\nslab_unreclaimable 77680\nslab 304608\nworkingset_refault_anon 0\nworkingset_refault_file 303372\nworkingset_activate_anon 0\nworkingset_activate_file 6481\nworkingset_restore_anon 0\nworkingset_restore_file 5772\nworkingset_nodereclaim 1741\npgfault 3231254\npgmajfault 5773\npgrefill 490453\npgscan 445648\npgsteal 363731\npgactivate 428286\npgdeactivate 437826\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 15084\nthp_collapse_alloc 0",
+          "pids.current": "1"
+        },
+        "stat_bytes": {
+          "anon": 102400,
+          "file": 24576,
+          "shmem": 0,
+          "file_mapped": 24576,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "9097b52630d3dfb888a23a2b0eb4cf4436a9b2bf60c552cabc09ab7806b9ebba",
+      "name": "/glm-5.2-int",
+      "image_id": "sha256:60acc1e53e735fed09e701b40cf7a74ac74c3e22bc7ed9b9f0572820445220f2",
+      "running": true,
+      "started_at": "2026-10-08T09:36:52.41540352Z",
+      "pid": 590594,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 274877906944,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "Destination": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "RW": false
+        },
+        {
+          "Source": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "Destination": "/usr/lib/x86_64-linux-gnu/libshca-rdmav34.so",
+          "RW": false
+        },
+        {
+          "Source": "/var/log/shca",
+          "Destination": "/var/log/shca",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/home/wangpengcheng",
+          "Destination": "/home/wangpengcheng",
+          "RW": true
+        },
+        {
+          "Source": "/home/wangpengcheng/.config/glm52/shca.driver",
+          "Destination": "/etc/libibverbs.d/shca.driver",
+          "RW": false
+        },
+        {
+          "Source": "/home/wangpengcheng/.config/glm52",
+          "Destination": "/usr/etc/libibverbs.d",
+          "RW": false
+        },
+        {
+          "Source": "/usr/lib/x86_64-linux-gnu/libibverbs.so.1.14.44.0",
+          "Destination": "/usr/lib/x86_64-linux-gnu/libibverbs.so.1.14.47.0",
+          "RW": false
+        },
+        {
+          "Source": "/home_aclsylqidf/shared",
+          "Destination": "/data/shared",
+          "RW": true
+        }
+      ],
+      "pid_stat": "590594 (sleep) S 590573 590594 590594 0 -1 4194560 352 0 0 0 1 1 0 0 20 0 1 0 477810405 5910528 0 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 11 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-9097b52630d3dfb888a23a2b0eb4cf4436a9b2bf60c552cabc09ab7806b9ebba.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-9097b52630d3dfb888a23a2b0eb4cf4436a9b2bf60c552cabc09ab7806b9ebba.scope",
+        "fields": {
+          "memory.current": "185009172480",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 94381797376\nfile 88861331456\nkernel_stack 11927552\npagetables 279212032\npercpu 0\nsock 3612672\nshmem 23662592\nfile_mapped 1628475392\nfile_dirty 0\nfile_writeback 0\nswapcached 196608\nanon_thp 22552772608\nfile_thp 0\nshmem_thp 0\ninactive_anon 94404755456\nactive_anon 876544\ninactive_file 31356563456\nactive_file 57481097216\nunevictable 0\nslab_reclaimable 1450104976\nslab_unreclaimable 20400712\nslab 1470505688\nworkingset_refault_anon 236934\nworkingset_refault_file 510123552\nworkingset_activate_anon 144868\nworkingset_activate_file 43810841\nworkingset_restore_anon 0\nworkingset_restore_file 33636933\nworkingset_nodereclaim 1952100\npgfault 821579277\npgmajfault 13133684\npgrefill 388380203\npgscan 828873518\npgsteal 777114453\npgactivate 361378900\npgdeactivate 388094668\npglazyfree 18\npglazyfreed 0\nthp_fault_alloc 196212\nthp_collapse_alloc 292",
+          "pids.current": "729"
+        },
+        "stat_bytes": {
+          "anon": 94381797376,
+          "file": 88861331456,
+          "shmem": 23662592,
+          "file_mapped": 1628475392,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "0deafa1b72721d0ca8d27634f9f2bf71021d5900e631680baa41c88ff0f1fd8c",
+      "name": "/zjn-fluid-glm-full_distributed02",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-04T01:14:43.800160031Z",
+      "pid": 62577,
+      "host_config": {
+        "Memory": 472446402560,
+        "MemorySwap": 472446402560,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/home/zhujianian",
+          "Destination": "/home/zhujianian",
+          "RW": true
+        },
+        {
+          "Source": "/data/node28/shared",
+          "Destination": "/data/node28/shared",
+          "RW": false
+        }
+      ],
+      "pid_stat": "62577 (sleep) S 62556 62577 62577 0 -1 4194560 1124 0 14 0 1 2 0 0 20 0 1 0 440237548 5910528 23 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 24 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-0deafa1b72721d0ca8d27634f9f2bf71021d5900e631680baa41c88ff0f1fd8c.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-0deafa1b72721d0ca8d27634f9f2bf71021d5900e631680baa41c88ff0f1fd8c.scope",
+        "fields": {
+          "memory.current": "314109034496",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "472446402560",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 17978474496\nfile 294176153600\nkernel_stack 11354112\npagetables 1227124736\npercpu 73728\nsock 3784704\nshmem 294101880832\nfile_mapped 294107357184\nfile_dirty 282624\nfile_writeback 0\nswapcached 0\nanon_thp 14629732352\nfile_thp 0\nshmem_thp 0\ninactive_anon 311303630848\nactive_anon 776724480\ninactive_file 69451776\nactive_file 4734976\nunevictable 0\nslab_reclaimable 699163536\nslab_unreclaimable 11950928\nslab 711114464\nworkingset_refault_anon 0\nworkingset_refault_file 303657\nworkingset_activate_anon 0\nworkingset_activate_file 113025\nworkingset_restore_anon 0\nworkingset_restore_file 108217\nworkingset_nodereclaim 0\npgfault 638665430\npgmajfault 12782\npgrefill 385942\npgscan 1963885\npgsteal 1857475\npgactivate 483587\npgdeactivate 376861\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 460180\nthp_collapse_alloc 5649",
+          "pids.current": "700"
+        },
+        "stat_bytes": {
+          "anon": 17978474496,
+          "file": 294176153600,
+          "shmem": 294101880832,
+          "file_mapped": 294107357184,
+          "file_dirty": 282624,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "177035641ac22e59854da0edd9af0941d7599c1820cf686491fea5a2a06c962c",
+      "name": "/zjn-keep-v02-n28",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-10-02T03:16:20.975758112Z",
+      "pid": 4003929,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/data/node28/shared/zhujianian",
+          "Destination": "/data/node28/shared/zhujianian",
+          "RW": false
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/home/zhujianian",
+          "Destination": "/home/zhujianian",
+          "RW": true
+        }
+      ],
+      "pid_stat": "4003929 (sleep) S 4003907 4003929 4003929 0 -1 4194560 620 0 0 0 2 1 0 0 20 0 1 0 423687263 5910528 14 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 64 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-177035641ac22e59854da0edd9af0941d7599c1820cf686491fea5a2a06c962c.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-177035641ac22e59854da0edd9af0941d7599c1820cf686491fea5a2a06c962c.scope",
+        "fields": {
+          "memory.current": "6336806912",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 4864356352\nfile 62316544\nkernel_stack 9748480\npagetables 58621952\npercpu 50688\nsock 0\nshmem 16384\nfile_mapped 1605632\nfile_dirty 233472\nfile_writeback 0\nswapcached 1298087936\nanon_thp 3355443200\nfile_thp 0\nshmem_thp 0\ninactive_anon 4879048704\nactive_anon 1283411968\ninactive_file 58834944\nactive_file 3395584\nunevictable 0\nslab_reclaimable 36083048\nslab_unreclaimable 6979848\nslab 43062896\nworkingset_refault_anon 112243\nworkingset_refault_file 14694316\nworkingset_activate_anon 108954\nworkingset_activate_file 1811398\nworkingset_restore_anon 1578\nworkingset_restore_file 551972\nworkingset_nodereclaim 117675\npgfault 333100166\npgmajfault 140810\npgrefill 14129445\npgscan 39533663\npgsteal 34576362\npgactivate 12656918\npgdeactivate 14090137\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 682701\nthp_collapse_alloc 2443",
+          "pids.current": "610"
+        },
+        "stat_bytes": {
+          "anon": 4864356352,
+          "file": 62316544,
+          "shmem": 16384,
+          "file_mapped": 1605632,
+          "file_dirty": 233472,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "9d6cb404c1e5bcaa03ab922c2d7249a8bcc737dede899b2fc41726132f2fb725",
+      "name": "/baoming_infiniops_hygon",
+      "image_id": "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa",
+      "running": true,
+      "started_at": "2026-09-08T01:52:11.198503886Z",
+      "pid": 237328,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "private",
+        "NetworkMode": "bridge",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/home/libaoming/InfiniOps_benchmark",
+          "Destination": "/workspace/InfiniOps_benchmark",
+          "RW": true
+        },
+        {
+          "Source": "/usr/local/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ],
+      "pid_stat": "237328 (sleep) S 237097 237328 237328 0 -1 4194560 445 0 0 0 0 1 0 0 20 0 1 0 215822286 5910528 23 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 1 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-9d6cb404c1e5bcaa03ab922c2d7249a8bcc737dede899b2fc41726132f2fb725.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-9d6cb404c1e5bcaa03ab922c2d7249a8bcc737dede899b2fc41726132f2fb725.scope",
+        "fields": {
+          "memory.current": "7712768",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 102400\nfile 598016\nkernel_stack 16384\npagetables 40960\npercpu 0\nsock 0\nshmem 32768\nfile_mapped 0\nfile_dirty 0\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 131072\nactive_anon 4096\ninactive_file 217088\nactive_file 348160\nunevictable 0\nslab_reclaimable 6406528\nslab_unreclaimable 522488\nslab 6929016\nworkingset_refault_anon 0\nworkingset_refault_file 60680\nworkingset_activate_anon 0\nworkingset_activate_file 7210\nworkingset_restore_anon 0\nworkingset_restore_file 7094\nworkingset_nodereclaim 34419\npgfault 105939449\npgmajfault 1830\npgrefill 125619\npgscan 2299076\npgsteal 2299075\npgactivate 151974\npgdeactivate 125341\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 326281\nthp_collapse_alloc 0",
+          "pids.current": "2"
+        },
+        "stat_bytes": {
+          "anon": 102400,
+          "file": 598016,
+          "shmem": 32768,
+          "file_mapped": 0,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "59fa9323952ad13ad9786bc93352dccd19e9a5c6dbe945682b1c40fced1678a8",
+      "name": "/lzm",
+      "image_id": "sha256:1877169a5828615cab893a68343d65c366852da2f49ea5acdd401174730bfd92",
+      "running": true,
+      "started_at": "2026-09-02T05:21:18.135362613Z",
+      "pid": 1045506,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 8589934592,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/opt/dtk-25.04.4",
+          "Destination": "/opt/dtk",
+          "RW": false
+        },
+        {
+          "Source": "/usr/local/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/opt/hpc/software/app/rccl/shca_rdma_plugins/v8/lib",
+          "Destination": "/opt/rccl-rdma-sharp-plugins/lib",
+          "RW": false
+        },
+        {
+          "Source": "/home/lizimin",
+          "Destination": "/home/lizimin",
+          "RW": true
+        },
+        {
+          "Source": "/home/lizimin/.ssh",
+          "Destination": "/home/lizimin/.ssh",
+          "RW": true
+        }
+      ],
+      "pid_stat": "1045506 (docker-init) S 1045483 1045506 1045506 0 -1 1077936384 420 213158670 2 483685 874 2406 402549 452276 20 0 1 0 165236979 1032192 0 18446744073709551615 1 1 0 0 0 0 0 3145728 0 0 0 0 17 15 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-59fa9323952ad13ad9786bc93352dccd19e9a5c6dbe945682b1c40fced1678a8.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-59fa9323952ad13ad9786bc93352dccd19e9a5c6dbe945682b1c40fced1678a8.scope",
+        "fields": {
+          "memory.current": "617521152",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 496242688\nfile 7008256\nkernel_stack 5783552\npagetables 17240064\npercpu 0\nsock 0\nshmem 4096\nfile_mapped 5644288\nfile_dirty 0\nfile_writeback 0\nswapcached 64274432\nanon_thp 329252864\nfile_thp 0\nshmem_thp 0\ninactive_anon 416686080\nactive_anon 143835136\ninactive_file 3354624\nactive_file 3649536\nunevictable 0\nslab_reclaimable 15279776\nslab_unreclaimable 5400328\nslab 20680104\nworkingset_refault_anon 4013\nworkingset_refault_file 207343\nworkingset_activate_anon 859\nworkingset_activate_file 85534\nworkingset_restore_anon 22\nworkingset_restore_file 48392\nworkingset_nodereclaim 3298\npgfault 850945574\npgmajfault 247122\npgrefill 595842\npgscan 1576982\npgsteal 1175159\npgactivate 909852\npgdeactivate 546701\npglazyfree 30\npglazyfreed 0\nthp_fault_alloc 156426\nthp_collapse_alloc 922",
+          "pids.current": "369"
+        },
+        "stat_bytes": {
+          "anon": 496242688,
+          "file": 7008256,
+          "shmem": 4096,
+          "file_mapped": 5644288,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "4f176dc806ed3fa5296f9a3da55f25f8677aa582141feb8c76c77d53af4ad395",
+      "name": "/lzm_before_shmfix_20260902-132107",
+      "image_id": "sha256:f1244e74b56c4867949f27259c8b2a4de7a3d36844ffcd0a3bac312f953bc2e9",
+      "running": false,
+      "started_at": "2026-09-02T03:16:31.501568425Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/home/lizimin",
+          "Destination": "/home/lizimin",
+          "RW": true
+        },
+        {
+          "Source": "/home/lizimin/.ssh",
+          "Destination": "/home/lizimin/.ssh",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/opt/dtk-25.04.4",
+          "Destination": "/opt/dtk",
+          "RW": false
+        },
+        {
+          "Source": "/usr/local/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/opt/hpc/software/app/rccl/shca_rdma_plugins/v8/lib",
+          "Destination": "/opt/rccl-rdma-sharp-plugins/lib",
+          "RW": false
+        }
+      ]
+    },
+    {
+      "id": "a940c2bcc292262891ff914351439ef8b89e50cc87fd456c6c95f6791aa1082f",
+      "name": "/sglang-dsv4-hg2",
+      "image_id": "sha256:491f35f631372db383a61d58ecf84c6192dd9a8dc7a441ce97b6470f2154d3ed",
+      "running": false,
+      "started_at": "2026-08-30T13:08:07.429430601Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "private",
+        "NetworkMode": "bridge",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf/shared/hygon_DeepSeek-V4-Flash-Channel-INT8-w8a8",
+          "Destination": "/shared/hygon_DeepSeek-V4-Flash-Channel-INT8-w8a8",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "id": "635e8cf5f6a67d1f3b0e3c275d2cb2b4db3ebce15c1d3d57780a6239cfdf98a9",
+      "name": "/sglang-glm52",
+      "image_id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "running": true,
+      "started_at": "2026-08-30T07:25:01.008571541Z",
+      "pid": 2023499,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": false
+      },
+      "mounts": [
+        {
+          "Source": "/home_aclsylqidf/shared",
+          "Destination": "/home_aclsylqidf/shared",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ],
+      "pid_stat": "2023499 (sleep) S 2023477 2023499 2023499 0 -1 4194560 844 0 0 0 1 2 0 0 20 0 1 0 140059267 5910528 0 18446744073709551615 1 1 0 0 0 0 0 0 0 0 0 0 17 63 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-635e8cf5f6a67d1f3b0e3c275d2cb2b4db3ebce15c1d3d57780a6239cfdf98a9.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-635e8cf5f6a67d1f3b0e3c275d2cb2b4db3ebce15c1d3d57780a6239cfdf98a9.scope",
+        "fields": {
+          "memory.current": "13746176",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 4096\nfile 1413120\nkernel_stack 16384\npagetables 40960\npercpu 23040\nsock 0\nshmem 90112\nfile_mapped 700416\nfile_dirty 0\nfile_writeback 0\nswapcached 16384\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 106496\nactive_anon 4096\ninactive_file 503808\nactive_file 819200\nunevictable 0\nslab_reclaimable 11774328\nslab_unreclaimable 377368\nslab 12151696\nworkingset_refault_anon 28\nworkingset_refault_file 5470192\nworkingset_activate_anon 28\nworkingset_activate_file 5317151\nworkingset_restore_anon 0\nworkingset_restore_file 259257\nworkingset_nodereclaim 235392\npgfault 55329985\npgmajfault 224939\npgrefill 19946673\npgscan 23372334\npgsteal 21770568\npgactivate 14975158\npgdeactivate 19902909\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 128546\nthp_collapse_alloc 0",
+          "pids.current": "26"
+        },
+        "stat_bytes": {
+          "anon": 4096,
+          "file": 1413120,
+          "shmem": 90112,
+          "file_mapped": 700416,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "7640719bcd0244fed9163b2443a7700476458fc50cdb57c9625e1af780708302",
+      "name": "/yaowenxuan_megatron",
+      "image_id": "sha256:57b4f26079d5aaaefbff2966a7522c089561cd337f5051802b71889ffcce80d3",
+      "running": true,
+      "started_at": "2026-08-20T08:44:31.761594078Z",
+      "pid": 3852423,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/usr/local/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        },
+        {
+          "Source": "/home/yaowenxuan/ff/megatron-hygon",
+          "Destination": "/workspace/megatron-env",
+          "RW": false
+        },
+        {
+          "Source": "/home/yaowenxuan/ff/megatron-hygon/workspace",
+          "Destination": "/workspace/megatron",
+          "RW": true
+        },
+        {
+          "Source": "/home/yaowenxuan/ff/megatron-hygon/wheels",
+          "Destination": "/workspace/wheels",
+          "RW": false
+        },
+        {
+          "Source": "/home_aclsylqidf/shared/yaowenxuan-megatron-assets",
+          "Destination": "/workspace/shared-assets",
+          "RW": false
+        },
+        {
+          "Source": "/home/yaowenxuan/ff/rccl-study",
+          "Destination": "/workspace/rccl-study",
+          "RW": true
+        }
+      ],
+      "pid_stat": "3852423 (bash) S 3852398 3852423 3852423 34816 3852423 4194560 1248 3573 0 0 1 1 2 1 20 0 1 0 54136341 7815168 122 18446744073709551615 1 1 0 0 0 0 0 3686404 1266761467 0 0 0 17 52 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-7640719bcd0244fed9163b2443a7700476458fc50cdb57c9625e1af780708302.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-7640719bcd0244fed9163b2443a7700476458fc50cdb57c9625e1af780708302.scope",
+        "fields": {
+          "memory.current": "9732096",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 499712\nfile 704512\nkernel_stack 16384\npagetables 45056\npercpu 0\nsock 0\nshmem 0\nfile_mapped 0\nfile_dirty 0\nfile_writeback 0\nswapcached 12288\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 507904\nactive_anon 4096\ninactive_file 241664\nactive_file 462848\nunevictable 0\nslab_reclaimable 7987000\nslab_unreclaimable 448568\nslab 8435568\nworkingset_refault_anon 143\nworkingset_refault_file 297892\nworkingset_activate_anon 143\nworkingset_activate_file 265850\nworkingset_restore_anon 0\nworkingset_restore_file 23991\nworkingset_nodereclaim 2375\npgfault 123534597\npgmajfault 9919\npgrefill 369295\npgscan 575087\npgsteal 388049\npgactivate 108411\npgdeactivate 368823\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 234720\nthp_collapse_alloc 0",
+          "pids.current": "1"
+        },
+        "stat_bytes": {
+          "anon": 499712,
+          "file": 704512,
+          "shmem": 0,
+          "file_mapped": 0,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "2c295af43a5994696c6ff7d8a0e38357bfe5239356bd406058644c2c125d9946",
+      "name": "/lzm_before_rcclnet_20260902-111620",
+      "image_id": "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa",
+      "running": false,
+      "started_at": "2026-08-21T03:39:26.295881288Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/home/lizimin",
+          "Destination": "/home/lizimin",
+          "RW": true
+        },
+        {
+          "Source": "/home/lizimin/.ssh",
+          "Destination": "/home/lizimin/.ssh",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/opt/dtk-25.04.4",
+          "Destination": "/opt/dtk",
+          "RW": false
+        },
+        {
+          "Source": "/usr/local/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ]
+    },
+    {
+      "id": "946d4e8b683d5b8f51fb91dbe62fc771da048305f11fb49624d5348e854e10ce",
+      "name": "/lf",
+      "image_id": "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53",
+      "running": false,
+      "started_at": "2026-08-04T09:02:02.919507086Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/data",
+          "Destination": "/data",
+          "RW": true
+        },
+        {
+          "Source": "/data-aisoft",
+          "Destination": "/data-aisoft",
+          "RW": true
+        },
+        {
+          "Source": "/home/lifei",
+          "Destination": "/home/lifei",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/model-home",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "id": "58e9a84fdb686b3f3c61efb565b05190e7a4b653675ebcea263f2d9b0e95d1df",
+      "name": "/infinibench-stack-20260724-hygon",
+      "image_id": "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa",
+      "running": false,
+      "started_at": "2026-07-24T05:13:49.832585729Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 67108864,
+        "IpcMode": "private",
+        "NetworkMode": "bridge",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/home/libaoming/infinibench-builds/20260724-stack-v1",
+          "Destination": "/workspace",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "id": "a2519624266538338550696d9c31168f6eeb65a9ad5db0c3de2df1bb90c5dd3f",
+      "name": "/pzz",
+      "image_id": "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53",
+      "running": false,
+      "started_at": "2026-08-04T06:54:03.25770575Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/data",
+          "Destination": "/data",
+          "RW": true
+        },
+        {
+          "Source": "/data-aisoft",
+          "Destination": "/data-aisoft",
+          "RW": true
+        },
+        {
+          "Source": "/home/panzezhong",
+          "Destination": "/home/panzezhong",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/model-home",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "id": "a6e88e509beabaefcf457efd0be06f9cd7b4aec9a52945bcda88cca96b3a0aa5",
+      "name": "/libaoming_accel_test_hygon_20260714_145051",
+      "image_id": "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa",
+      "running": false,
+      "started_at": "2026-07-14T06:51:14.659347438Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "private",
+        "NetworkMode": "bridge",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ]
+    },
+    {
+      "id": "2f109fb6761118e3c3ce1f87eacd7cac3f39b02f50ba03941e15e06461b576a5",
+      "name": "/pepe",
+      "image_id": "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53",
+      "running": true,
+      "started_at": "2026-08-14T09:30:34.55082373Z",
+      "pid": 265394,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/data",
+          "Destination": "/data",
+          "RW": true
+        },
+        {
+          "Source": "/data-aisoft",
+          "Destination": "/data-aisoft",
+          "RW": true
+        },
+        {
+          "Source": "/home/wuwei",
+          "Destination": "/home/wuwei",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/model-home",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        },
+        {
+          "Source": "/home/wuwei",
+          "Destination": "/workspace",
+          "RW": true
+        }
+      ],
+      "pid_stat": "265394 (bash) S 265373 265394 265394 34816 265394 4194560 942 68225460 0 6067 1 8 807227 20323 20 0 1 0 2572620 7950336 8 18446744073709551615 1 1 0 0 0 0 0 3686404 1266761467 0 0 0 17 69 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-2f109fb6761118e3c3ce1f87eacd7cac3f39b02f50ba03941e15e06461b576a5.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-2f109fb6761118e3c3ce1f87eacd7cac3f39b02f50ba03941e15e06461b576a5.scope",
+        "fields": {
+          "memory.current": "13099008",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 12288\nfile 1089536\nkernel_stack 16384\npagetables 122880\npercpu 0\nsock 0\nshmem 0\nfile_mapped 491520\nfile_dirty 0\nfile_writeback 0\nswapcached 12288\nanon_thp 0\nfile_thp 0\nshmem_thp 0\ninactive_anon 20480\nactive_anon 4096\ninactive_file 290816\nactive_file 798720\nunevictable 0\nslab_reclaimable 11310712\nslab_unreclaimable 478728\nslab 11789440\nworkingset_refault_anon 1565\nworkingset_refault_file 302838260\nworkingset_activate_anon 1559\nworkingset_activate_file 20366796\nworkingset_restore_anon 0\nworkingset_restore_file 891319\nworkingset_nodereclaim 2719376\npgfault 653019999\npgmajfault 13062847\npgrefill 40771945\npgscan 482575006\npgsteal 477530873\npgactivate 24116589\npgdeactivate 40769963\npglazyfree 0\npglazyfreed 0\nthp_fault_alloc 168467\nthp_collapse_alloc 110",
+          "pids.current": "3"
+        },
+        "stat_bytes": {
+          "anon": 12288,
+          "file": 1089536,
+          "shmem": 0,
+          "file_mapped": 491520,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "93fd5dba938f4c5dfd294a375e096556933dfb783f5af65ca8888dcfb4282dd9",
+      "name": "/wangpengcheng",
+      "image_id": "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53",
+      "running": true,
+      "started_at": "2026-08-14T07:28:43.306782321Z",
+      "pid": 33134,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 274877906944,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/home_aclsylqidf/shared",
+          "Destination": "/data/shared",
+          "RW": true
+        },
+        {
+          "Source": "/home/wangpengcheng",
+          "Destination": "/home/wangpengcheng",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ],
+      "pid_stat": "33134 (bash) S 33112 33134 33134 34816 33134 4194560 926 1584 54 20 1 1 0 1 20 0 1 0 1841499 8085504 5 18446744073709551615 1 1 0 0 0 0 0 3686404 1266761467 0 0 0 17 32 0 0 0 0 0 0 0 0 0 0 0 0 0",
+      "cgroup": {
+        "raw": "0::/system.slice/docker-93fd5dba938f4c5dfd294a375e096556933dfb783f5af65ca8888dcfb4282dd9.scope",
+        "v2": true,
+        "path": "/sys/fs/cgroup/system.slice/docker-93fd5dba938f4c5dfd294a375e096556933dfb783f5af65ca8888dcfb4282dd9.scope",
+        "fields": {
+          "memory.current": "1947967488",
+          "memory.peak": {
+            "error": "FileNotFoundError(2, 'No such file or directory')"
+          },
+          "memory.max": "max",
+          "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+          "memory.stat": "anon 1518784512\nfile 40685568\nkernel_stack 27885568\npagetables 92237824\npercpu 0\nsock 0\nshmem 4096\nfile_mapped 31547392\nfile_dirty 0\nfile_writeback 0\nswapcached 103563264\nanon_thp 652214272\nfile_thp 0\nshmem_thp 0\ninactive_anon 1064632320\nactive_anon 557719552\ninactive_file 18726912\nactive_file 21954560\nunevictable 0\nslab_reclaimable 96401192\nslab_unreclaimable 26710528\nslab 123111720\nworkingset_refault_anon 364464\nworkingset_refault_file 116980837\nworkingset_activate_anon 284303\nworkingset_activate_file 42237223\nworkingset_restore_anon 28424\nworkingset_restore_file 15166032\nworkingset_nodereclaim 1610503\npgfault 7249956650\npgmajfault 7927510\npgrefill 185588869\npgscan 264077163\npgsteal 242595517\npgactivate 173250199\npgdeactivate 185160347\npglazyfree 385\npglazyfreed 0\nthp_fault_alloc 4918651\nthp_collapse_alloc 9472",
+          "pids.current": "1851"
+        },
+        "stat_bytes": {
+          "anon": 1518784512,
+          "file": 40685568,
+          "shmem": 4096,
+          "file_mapped": 31547392,
+          "file_dirty": 0,
+          "file_writeback": 0
+        }
+      }
+    },
+    {
+      "id": "aad0849f3ac4b0260c5b3554beb1f53d3ec900d80d375e7df56579a7627de459",
+      "name": "/qinyiqun",
+      "image_id": "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53",
+      "running": false,
+      "started_at": "2026-10-08T09:00:04.849244523Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "host",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/model-home",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": true
+        },
+        {
+          "Source": "/home/qinyiqun",
+          "Destination": "/workspace",
+          "RW": true
+        },
+        {
+          "Source": "/data",
+          "Destination": "/data",
+          "RW": true
+        },
+        {
+          "Source": "/data-aisoft",
+          "Destination": "/data-aisoft",
+          "RW": true
+        },
+        {
+          "Source": "/home/qinyiqun",
+          "Destination": "/home/qinyiqun",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        }
+      ]
+    },
+    {
+      "id": "ae956449cf819b50a7b307da0ceb1aea95909b8bf51d1a9b0d31f9b199e24af8",
+      "name": "/baoming_test",
+      "image_id": "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa",
+      "running": false,
+      "started_at": "2026-06-30T12:12:29.668417372Z",
+      "pid": 0,
+      "host_config": {
+        "Memory": 0,
+        "MemorySwap": 0,
+        "PidsLimit": null,
+        "ShmSize": 68719476736,
+        "IpcMode": "private",
+        "NetworkMode": "host",
+        "Privileged": true
+      },
+      "mounts": [
+        {
+          "Source": "/data",
+          "Destination": "/data",
+          "RW": true
+        },
+        {
+          "Source": "/data-aisoft",
+          "Destination": "/data-aisoft",
+          "RW": true
+        },
+        {
+          "Source": "/home/libaoming",
+          "Destination": "/home/libaoming",
+          "RW": true
+        },
+        {
+          "Source": "/home_aclsylqidf",
+          "Destination": "/home_aclsylqidf",
+          "RW": true
+        },
+        {
+          "Source": "/opt/hyhal",
+          "Destination": "/opt/hyhal",
+          "RW": false
+        }
+      ]
+    }
+  ],
+  "candidate_name_free": true,
+  "images": {
+    "sha256:1877169a5828615cab893a68343d65c366852da2f49ea5acdd401174730bfd92": {
+      "Id": "sha256:1877169a5828615cab893a68343d65c366852da2f49ea5acdd401174730bfd92",
+      "RepoTags": [
+        "lzm-preserved-before-shmfix:20260902-132107"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-09-02T05:21:07.577594738Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 95002783799,
+      "status": null
+    },
+    "sha256:491f35f631372db383a61d58ecf84c6192dd9a8dc7a441ce97b6470f2154d3ed": {
+      "Id": "sha256:491f35f631372db383a61d58ecf84c6192dd9a8dc7a441ce97b6470f2154d3ed",
+      "RepoTags": [
+        "sglang-dsv4-patched:tilelang-fix"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-08-30T12:00:15.990008061Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 34595545348,
+      "status": null
+    },
+    "sha256:57b4f26079d5aaaefbff2966a7522c089561cd337f5051802b71889ffcce80d3": {
+      "Id": "sha256:57b4f26079d5aaaefbff2966a7522c089561cd337f5051802b71889ffcce80d3",
+      "RepoTags": [
+        "harbor.sourcefind.cn:5443/dcu/admin/base/pytorch:2.7.1-ubuntu22.04-dtk26.04-py3.11"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-04-07T18:14:52.477050056+08:00",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 27403504126,
+      "status": null
+    },
+    "sha256:60acc1e53e735fed09e701b40cf7a74ac74c3e22bc7ed9b9f0572820445220f2": {
+      "Id": "sha256:60acc1e53e735fed09e701b40cf7a74ac74c3e22bc7ed9b9f0572820445220f2",
+      "RepoTags": [
+        "harbor.sourcefind.cn:5443/dcu/admin/base/vllm:0.18.1-ubuntu22.04-dtk26.04-py3.10-release-glm5.2"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-06-22T01:18:48.330034903Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 32206317525,
+      "status": null
+    },
+    "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa": {
+      "Id": "sha256:bd6613149d4922f3c490b4b3e2474e41b40e985929ee9b4efa06ef2f676dc9aa",
+      "RepoTags": [
+        "accelerator-dev/hygon:latest",
+        "baoming_test:infinilm-optimized-20260630"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-06-30T07:52:10.182453902Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 94991774853,
+      "status": null
+    },
+    "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53": {
+      "Id": "sha256:e21f9041ba4f1de587c725964a99a445e7a7e021288e5a7affcfddd7143dde53",
+      "RepoTags": [
+        "pepe_wip:v1"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-06-29T04:40:05.660007795Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 44312190488,
+      "status": null
+    },
+    "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588": {
+      "Id": "sha256:ee3b9807d9e90cdc3e6ab9c1058f0b78dabcafa6a0fc7661d9c5af69ce1f9588",
+      "RepoTags": [
+        "harbor.sourcefind.cn:5443/dcu/admin/base/sglang:0.5.12-ubuntu22.04-dtk2604-py3.10-sf_b075"
+      ],
+      "RepoDigests": [
+        "harbor.sourcefind.cn:5443/dcu/admin/base/sglang@sha256:65e60bac61d0be4cd70a774c9da8a361b7fbe75ec353dd134faea7587ef504b1"
+      ],
+      "Created": "2026-08-17T13:18:11.605330172Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 34581470716,
+      "status": null
+    },
+    "sha256:f1244e74b56c4867949f27259c8b2a4de7a3d36844ffcd0a3bac312f953bc2e9": {
+      "Id": "sha256:f1244e74b56c4867949f27259c8b2a4de7a3d36844ffcd0a3bac312f953bc2e9",
+      "RepoTags": [
+        "lzm-preserved-before-rcclnet:20260902-111620"
+      ],
+      "RepoDigests": [],
+      "Created": "2026-09-02T03:16:20.965333124Z",
+      "Architecture": "amd64",
+      "Os": "linux",
+      "Size": 95001969289,
+      "status": null
+    }
+  },
+  "requested_image_present": true,
+  "selected_gpus": [
+    {
+      "gpu": 4,
+      "bdf": "0000:85:00.0",
+      "numa": 4,
+      "exists": true,
+      "safe_pci": {
+        "vendor": "0x1d94",
+        "device": "0x6320",
+        "class": "0x0b4000",
+        "numa_node": "4"
+      }
+    }
+  ],
+  "ports_free": {
+    "36014": true
+  },
+  "original_xml_sha256": {
+    "/usr/local/built-in-508-topo-input-tj-default.xml": null,
+    "/opt/dtk/rccl/lib/topo_mapping_default.xml": "df33b6afeaeea09144c3b2a304aa2348c74ce50b230afb6bdb7cddd549b55c3f"
+  },
+  "elapsed_ns": 98506299
+}

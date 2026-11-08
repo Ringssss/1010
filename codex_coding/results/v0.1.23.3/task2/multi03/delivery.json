@@ -1,0 +1,442 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "passed": true,
+  "cpu_tests_passed": 74,
+  "step1_full_model": [
+    {
+      "phase": "managed_restore",
+      "load_s": 1.836311949,
+      "last_copy_rank": "1",
+      "segments_s": {
+        "entry_and_start_skew": 0.002254393,
+        "layout": 0.319036979,
+        "export": 0.035028545,
+        "detect_plan_dispatch": 0.083285434,
+        "map": 0.058535747,
+        "execute_dispatch": 0.0969094,
+        "last_copy_worker_execute": 1.215323136,
+        "after_all_copies_until_ready": 0.025938315
+      },
+      "workers": [
+        {
+          "worker": 4,
+          "execute_s": 1.2046450562775135,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 13958643712,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.5466275373473763
+            },
+            {
+              "op_id": 2,
+              "bytes": 2147483648,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.08777463296428323
+            },
+            {
+              "op_id": 4,
+              "bytes": 9663676416,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.380198891274631
+            },
+            {
+              "op_id": 6,
+              "bytes": 2147483648,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.08796867495402694
+            },
+            {
+              "op_id": 8,
+              "bytes": 1073741824,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.06611498584970832
+            },
+            {
+              "op_id": 10,
+              "bytes": 805120688,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.03569978196173906
+            }
+          ]
+        },
+        {
+          "worker": 5,
+          "execute_s": 1.2146782660856843,
+          "ops": [
+            {
+              "op_id": 11,
+              "bytes": 7516192768,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.2978965980000794
+            },
+            {
+              "op_id": 13,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.13078941497951746
+            },
+            {
+              "op_id": 15,
+              "bytes": 3221225472,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.13451382610946894
+            },
+            {
+              "op_id": 17,
+              "bytes": 6442450944,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.27758707478642464
+            },
+            {
+              "op_id": 19,
+              "bytes": 9395055280,
+              "role": "source",
+              "kind": "network",
+              "elapsed_s": 0.37366769975051284
+            }
+          ]
+        },
+        {
+          "worker": 6,
+          "execute_s": 1.2087426991201937,
+          "ops": [
+            {
+              "op_id": 0,
+              "bytes": 13958643712,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.5452801296487451
+            },
+            {
+              "op_id": 1,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004469744861125946
+            },
+            {
+              "op_id": 2,
+              "bytes": 2147483648,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.08326412411406636
+            },
+            {
+              "op_id": 3,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.0044450052082538605
+            },
+            {
+              "op_id": 4,
+              "bytes": 9663676416,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.3759661759249866
+            },
+            {
+              "op_id": 5,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004427965264767408
+            },
+            {
+              "op_id": 6,
+              "bytes": 2147483648,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.083277293946594
+            },
+            {
+              "op_id": 7,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.02447353582829237
+            },
+            {
+              "op_id": 8,
+              "bytes": 1073741824,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.04159266222268343
+            },
+            {
+              "op_id": 9,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004365574102848768
+            },
+            {
+              "op_id": 10,
+              "bytes": 805120688,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.032330439891666174
+            }
+          ]
+        },
+        {
+          "worker": 7,
+          "execute_s": 1.2164133018814027,
+          "ops": [
+            {
+              "op_id": 11,
+              "bytes": 7516192768,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.296407753136009
+            },
+            {
+              "op_id": 12,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.004418785218149424
+            },
+            {
+              "op_id": 13,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.1262857737019658
+            },
+            {
+              "op_id": 14,
+              "bytes": 2147483648,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.00824688607826829
+            },
+            {
+              "op_id": 15,
+              "bytes": 3221225472,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.12622167402878404
+            },
+            {
+              "op_id": 16,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_dram",
+              "elapsed_s": 0.024285954888910055
+            },
+            {
+              "op_id": 17,
+              "bytes": 6442450944,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.2532734111882746
+            },
+            {
+              "op_id": 18,
+              "bytes": 1073741824,
+              "role": "both",
+              "kind": "local_hbm",
+              "elapsed_s": 0.0040781027637422085
+            },
+            {
+              "op_id": 19,
+              "bytes": 9395055280,
+              "role": "target",
+              "kind": "network",
+              "elapsed_s": 0.3705592048354447
+            }
+          ]
+        }
+      ],
+      "copy_finish_skew_s": 0.010518378,
+      "predicted_transfer_s": 1.2401971948019457,
+      "execute_wall_s": 1.223125432152301,
+      "prediction_error_s": -0.017071762649644606,
+      "verified_bytes": 70329718112,
+      "generation_checks": 3,
+      "actual_strategy": "resource_lp",
+      "fallback_reason": null,
+      "source_bytes": {
+        "model/remote/0": 29796149936,
+        "managed/00077064c7ef8ea01843a8a52043366e": 1073741824,
+        "managed/80b023ca89a51634a0b41c950d91967d": 1073741824,
+        "managed/1cd650e1a5b2aeee4c6eb23bbf49d07e": 1073741824,
+        "managed/b4dca41e9d7aeb7af491e3732164767a": 1073741824,
+        "managed/46e7d6ba75d441d708a21b27316cf57a": 1073741824,
+        "model/remote/1": 29796149936,
+        "managed/b0d29fccddb0fde85b008f7337e217db": 1073741824,
+        "managed/0e7c617900a67018747c1bce9538b169": 2147483648,
+        "managed/f203e4598a896de7e3afbc228e645773": 1073741824,
+        "managed/3b3cd0549c31e619db84b495868cf234": 1073741824
+      }
+    }
+  ],
+  "step2_paths": {
+    "admitted": [
+      "2:dram:2->2",
+      "2:hbm:2->2",
+      "2:dram:2->6",
+      "2:hbm:2->6",
+      "3:dram:1->3",
+      "3:hbm:1->3",
+      "3:dram:1->7",
+      "3:hbm:1->7",
+      "4:dram:2->2",
+      "4:hbm:2->2",
+      "4:dram:2->6",
+      "4:hbm:2->6",
+      "5:dram:1->3",
+      "5:hbm:1->3",
+      "5:dram:1->7",
+      "5:hbm:1->7",
+      "6:dram:0->2",
+      "6:hbm:0->2",
+      "6:dram:0->6",
+      "6:hbm:0->6",
+      "7:dram:3->3",
+      "7:hbm:3->3",
+      "7:dram:3->7",
+      "7:hbm:3->7"
+    ],
+    "rejected": {},
+    "rate_paths": [
+      "2:dram:2->2",
+      "2:dram:2->6",
+      "2:hbm:2->2",
+      "2:hbm:2->6",
+      "3:dram:1->3",
+      "3:dram:1->7",
+      "3:hbm:1->3",
+      "3:hbm:1->7",
+      "4:dram:2->2",
+      "4:dram:2->6",
+      "4:hbm:2->2",
+      "4:hbm:2->6",
+      "5:dram:1->3",
+      "5:dram:1->7",
+      "5:hbm:1->3",
+      "5:hbm:1->7",
+      "6:dram:0->2",
+      "6:dram:0->6",
+      "6:hbm:0->2",
+      "6:hbm:0->6",
+      "7:dram:3->3",
+      "7:dram:3->7",
+      "7:hbm:3->3",
+      "7:hbm:3->7"
+    ],
+    "scope": "isolated one-sample evidence; shared-link concurrent capacity remains separately modeled"
+  },
+  "step3_objective": "expected",
+  "step3_scenario_costs": {
+    "node29": {
+      "before_s": 0.037824398560983234,
+      "after_s": 0.02545821177721779
+    },
+    "node27": {
+      "before_s": 0.04850228541014213,
+      "after_s": 0.03256658698788807
+    }
+  },
+  "step3_restores": [
+    {
+      "scenario": "node29",
+      "verified_bytes": 201326626,
+      "predicted_transfer_s": 0.02545821177721779,
+      "execute_s": 0.7711663818918169
+    },
+    {
+      "scenario": "node27",
+      "verified_bytes": 201326626,
+      "predicted_transfer_s": 0.03256658698788807,
+      "execute_s": 0.7843272858299315
+    }
+  ],
+  "step3_final_usage": {
+    "tiers": {
+      "dram": 0,
+      "hbm": 67108864
+    },
+    "locations": {
+      "2:hbm": 33554432,
+      "7:hbm": 33554432
+    },
+    "physical": {
+      "hbm:2": 33554432,
+      "hbm:7": 33554432
+    }
+  },
+  "step4_economics": {
+    "allowed": true,
+    "reason": "amortized_gain",
+    "build_bytes": 67108864,
+    "transfer_s": 0.028775556464097463,
+    "verification_s": 0.134217728,
+    "fixed_s": 0.02,
+    "migration_cost_s": 0.18299328446409746,
+    "saving_per_restore_s": 0.013437040275312024,
+    "expected_benefit_s": 134.37040275312023,
+    "net_benefit_s": 134.18740946865614,
+    "break_even_restores": 13.6185708098466,
+    "policy": {
+      "expected_restores": 10000,
+      "uncertainty_s": 0.0,
+      "minimum_net_s": 0.0,
+      "build_fixed_s": 0.01,
+      "retire_fixed_s": 0.001,
+      "verify_GBps": 1.0,
+      "cooldown_s": 0.0,
+      "since_last_change_s": 100.0,
+      "provenance": "conservative fixture cost assumptions; not a production calibration"
+    },
+    "scope": "amortized modeled transfer benefit; not an end-to-end latency guarantee"
+  },
+  "step4_old_profile_rejected": true,
+  "step4_feedback": {
+    "before_profile_hash": "4dc86f74ec841abbfe229ce05f9e355aa9e681a9eff20954dd43a11596fe656c",
+    "after_profile_hash": "fe3ceb0091379d888690ad51cea475a48337d17540ebbfbff48d67f847954dba",
+    "revision": 1,
+    "sample": {
+      "kind": "isolated_path",
+      "path": "4:dram:2->6",
+      "nbytes": 1073741824,
+      "execute_s": 0.0460686138831079,
+      "verified": true,
+      "executor": "serial",
+      "measured_at": 1790701693.2861462,
+      "profile_id": "c0fa3e97615db1f8c5c272727d75198ab6364119302c615c6685f4bb74231b53",
+      "sample_id": "511bad55d27118604b992a96a91acfa8b43f7698143fd110abf9edffc855725e",
+      "previous_GBps": 2.98641608328912,
+      "measured_GBps": 23.30744803228629,
+      "updated_GBps": 8.066674070538411,
+      "alpha": 0.25
+    },
+    "requires_replan": true
+  },
+  "step4_replanned_decision": "replace",
+  "step4_verified_bytes": 201326626,
+  "archive_files_changed": [],
+  "current_source_matches_multi_run": true,
+  "limitations": [
+    "full model validated in step1; later multi-target changes validated with synthetic complete snapshots",
+    "mutually exclusive future targets, not concurrent multi-target recovery",
+    "one-sample isolated bandwidth; concurrent link capacities still provisional",
+    "migration gate uses explicit cost assumptions; online demand prediction is not implemented",
+    "migration benefit gate evaluates the restore-optimal proposal; it does not globally optimize amortized migration cost",
+    "immutable complete base and single coordinator; no process-loss HA or global atomic rollback",
+    "feedback is explicitly ingested; expiry requires rediscovery rather than silent stale-path reuse"
+  ]
+}

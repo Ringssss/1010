@@ -1,0 +1,1777 @@
+{
+  "schema_version": "topology_preview.v1",
+  "rows": [
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_a",
+      "method": "janus_host",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "source_offset": 0,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "source_offset": 0,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 1.0047102587428571,
+        "planning_s": 6.250850856304169e-05,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 1.0047102587428571,
+          "1": 1.0047102587428571
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "f68e84feb46ed1857cf81b9bad2dd8f378e11d23d02aab08f209da5bee0532fd",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_a",
+      "method": "fastest",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "1:hbm:3->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/4",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 6442450944,
+            "n": 28722408112,
+            "source_offset": 6442450944,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 0.9701971286857143,
+        "planning_s": 0.00013772770762443542,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 0.9011708685714286,
+          "1": 0.9701971286857143
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "ad25d8e6906da34d3dca4d3c386d46e25407f43dab86190908e0e957002531d5",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_a",
+      "method": "resource_lp",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "1:hbm:3->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/4",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 6442450944,
+            "n": 28722408112,
+            "source_offset": 6442450944,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          }
+        ],
+        "strategy": "resource_lp",
+        "requested_strategy": "resource_lp",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": 0.9701971286857143,
+        "estimated_transfer_s": 0.9701971286857143,
+        "planning_s": 0.0017334800213575363,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 0.9011708685714286,
+          "1": 0.9701971286857143
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "ad25d8e6906da34d3dca4d3c386d46e25407f43dab86190908e0e957002531d5",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_a",
+      "method": "sglang_ipc_hip",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_hbm_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "hip_adaptation",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_b",
+      "method": "janus_host",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_host_cache_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_b",
+      "method": "fastest",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 2
+          },
+          {
+            "key": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 3
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 3,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "1:hbm:3->3",
+            "resources": [
+              "in:3",
+              "out:1",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 3,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "network",
+            "path": "1:dram:3->3",
+            "resources": [
+              "in:3",
+              "dram:node27:3",
+              "out:1",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/4",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 6442450944,
+            "n": 28722408112,
+            "source_offset": 6442450944,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "network",
+            "path": "0:dram:0->2",
+            "resources": [
+              "in:2",
+              "dram:node27:0",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 2.3443239370666666,
+        "planning_s": 0.00014946237206459045,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "2": 1.7582429528,
+          "3": 1.7582429528
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "c6b3d36bfc2741f6d00cffb3ceffc95b0689b97093c2b8c0cb06e8f81c2b30e3",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_b",
+      "method": "resource_lp",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 2
+          },
+          {
+            "key": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 3
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 3,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "1:hbm:3->3",
+            "resources": [
+              "in:3",
+              "out:1",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 3,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "network",
+            "path": "1:dram:3->3",
+            "resources": [
+              "in:3",
+              "dram:node27:3",
+              "out:1",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/4",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 6442450944,
+            "n": 28722408112,
+            "source_offset": 6442450944,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "network",
+            "path": "0:dram:0->2",
+            "resources": [
+              "in:2",
+              "dram:node27:0",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          }
+        ],
+        "strategy": "resource_lp",
+        "requested_strategy": "resource_lp",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": 2.3443239370666666,
+        "estimated_transfer_s": 2.3443239370666666,
+        "planning_s": 0.001785513013601303,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "2": 1.7582429528,
+          "3": 1.7582429528
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "c6b3d36bfc2741f6d00cffb3ceffc95b0689b97093c2b8c0cb06e8f81c2b30e3",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_b",
+      "method": "sglang_ipc_hip",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_hbm_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "hip_adaptation",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_a",
+      "method": "janus_host",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "source_offset": 0,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "source_offset": 0,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 1.0047102587428571,
+        "planning_s": 6.104167550802231e-05,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 1.0047102587428571,
+          "1": 1.0047102587428571
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "f68e84feb46ed1857cf81b9bad2dd8f378e11d23d02aab08f209da5bee0532fd",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_a",
+      "method": "fastest",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "1:hbm:3->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 30869891760,
+            "source_offset": 4294967296,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 0.9701971286857143,
+        "planning_s": 0.00015092920511960983,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 0.9356839986285715,
+          "1": 0.9701971286857143
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "dd07b567846d3d25dd08082db1b332af8f8c8cc25d20c0a1b19218f9bc280eb9",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_a",
+      "method": "resource_lp",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 0
+          },
+          {
+            "key": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 1
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/1/0",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "1:hbm:3->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": null,
+            "kind": "local_hbm",
+            "path": "0:hbm:0->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_a/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "local_dram",
+            "path": "1:dram:3->1",
+            "resources": [
+              "in:1",
+              "dram:node27:3"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_a/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 30869891760,
+            "source_offset": 4294967296,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "local_dram",
+            "path": "0:dram:0->0",
+            "resources": [
+              "in:0",
+              "dram:node27:0"
+            ]
+          }
+        ],
+        "strategy": "resource_lp",
+        "requested_strategy": "resource_lp",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": 0.9701971286857143,
+        "estimated_transfer_s": 0.9701971286857143,
+        "planning_s": 0.0019048722460865974,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "0": 0.9356839986285715,
+          "1": 0.9701971286857143
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "dd07b567846d3d25dd08082db1b332af8f8c8cc25d20c0a1b19218f9bc280eb9",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_a",
+      "method": "sglang_ipc_hip",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_hbm_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "hip_adaptation",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_b",
+      "method": "janus_host",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_host_cache_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_b",
+      "method": "fastest",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 2
+          },
+          {
+            "key": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 3
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 3,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->3",
+            "resources": [
+              "in:3",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 3,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "network",
+            "path": "1:dram:3->3",
+            "resources": [
+              "in:3",
+              "dram:node27:3",
+              "out:1",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 30869891760,
+            "source_offset": 4294967296,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "network",
+            "path": "0:dram:0->2",
+            "resources": [
+              "in:2",
+              "dram:node27:0",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          }
+        ],
+        "strategy": "fastest",
+        "requested_strategy": "fastest",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": null,
+        "estimated_transfer_s": 2.3443239370666666,
+        "planning_s": 0.00013668090105056763,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "2": 1.7582429528,
+          "3": 1.7582429528
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "ccf21135d164db3b0b05fb4cd726fd3a7fc9172e892d7ac703dde9e98b951ddf",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_b",
+      "method": "resource_lp",
+      "status": "applicable",
+      "reasons": [],
+      "plan": {
+        "targets": [
+          {
+            "key": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 2
+          },
+          {
+            "key": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 35164859056,
+            "tier": "hbm",
+            "worker": 3
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 0,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/1/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 3,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->3",
+            "resources": [
+              "in:3",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 2147483648,
+            "n": 2147483648,
+            "source_offset": 0,
+            "replica_id": "preview/T2_uneven_budget/0/0/2",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": null,
+            "kind": "network",
+            "path": "0:hbm:0->2",
+            "resources": [
+              "in:2",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "target_b/rank1",
+            "tp": 1,
+            "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+            "off": 2147483648,
+            "n": 33017375408,
+            "source_offset": 2147483648,
+            "replica_id": "qwen_bootstrap_r01/base/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 3,
+            "source_epoch": "qwen_bootstrap_r01/node27/1/136/7817fc9a68be4aba9947155d934d9896",
+            "kind": "network",
+            "path": "1:dram:3->3",
+            "resources": [
+              "in:3",
+              "dram:node27:3",
+              "out:1",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "target_b/rank0",
+            "tp": 0,
+            "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+            "off": 4294967296,
+            "n": 30869891760,
+            "source_offset": 4294967296,
+            "replica_id": "qwen_bootstrap_r01/base/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 2,
+            "source_epoch": "qwen_bootstrap_r01/node27/0/118/d04b6bb1fddf4fbcba41d4e8503133b3",
+            "kind": "network",
+            "path": "0:dram:0->2",
+            "resources": [
+              "in:2",
+              "dram:node27:0",
+              "out:0",
+              "net_out:node27",
+              "net_in:node29"
+            ]
+          }
+        ],
+        "strategy": "resource_lp",
+        "requested_strategy": "resource_lp",
+        "fallback_reason": null,
+        "bandwidth_lower_bound_s": 2.3443239370666666,
+        "estimated_transfer_s": 2.3443239370666666,
+        "planning_s": 0.0017685415223240852,
+        "profile": {
+          "rates": {
+            "local_dram": 35,
+            "local_hbm": 80,
+            "peer": 35,
+            "network": 20
+          },
+          "gpu_ingress_GBps": 80,
+          "gpu_egress_GBps": 80,
+          "dram_GBps": 50,
+          "network_node_GBps": 30,
+          "provenance": "conservative provisional capacities for functional planning, not calibrated cluster predictions",
+          "serial_target_execution": true
+        },
+        "scope": "resource bounds plus additive target service demand using measured end-to-end path rates; excludes setup and cross-pair scheduling waits",
+        "serial_target_times_s": {
+          "2": 1.7582429528,
+          "3": 1.7582429528
+        },
+        "shared_schedule": "rank_interleaved"
+      },
+      "operation_signature": "ccf21135d164db3b0b05fb4cd726fd3a7fc9172e892d7ac703dde9e98b951ddf",
+      "identity": "mechanism",
+      "measurement_status": "not_measured"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_b",
+      "method": "sglang_ipc_hip",
+      "status": "infeasible",
+      "reasons": [
+        "complete_target_hbm_missing"
+      ],
+      "plan": null,
+      "operation_signature": null,
+      "identity": "hip_adaptation",
+      "measurement_status": "not_measured"
+    }
+  ],
+  "decision_aliases": [
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_a",
+      "method": "resource_lp",
+      "same_decision_as": [
+        "fastest"
+      ],
+      "action": "do_not_repeat_GPU_without_other_mechanism_difference"
+    },
+    {
+      "layout": "rank0_6plus_rank1_2",
+      "scenario": "target_b",
+      "method": "resource_lp",
+      "same_decision_as": [
+        "fastest"
+      ],
+      "action": "do_not_repeat_GPU_without_other_mechanism_difference"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_a",
+      "method": "resource_lp",
+      "same_decision_as": [
+        "fastest"
+      ],
+      "action": "do_not_repeat_GPU_without_other_mechanism_difference"
+    },
+    {
+      "layout": "split_rank_prefix",
+      "scenario": "target_b",
+      "method": "resource_lp",
+      "same_decision_as": [
+        "fastest"
+      ],
+      "action": "do_not_repeat_GPU_without_other_mechanism_difference"
+    }
+  ],
+  "joint": {
+    "selected": [
+      {
+        "id": "preview/T2_uneven_budget/0/0/0",
+        "identity": "960863b68520357bfc01131856aa86683c04504f00ab7a8b89517fd1fc27bdc9",
+        "tp": 0,
+        "off": 0,
+        "n": 2147483648,
+        "tier": "hbm",
+        "worker": 0,
+        "node": "node27",
+        "gpu": 0,
+        "numa": 0,
+        "state": "VALID",
+        "generation": 1,
+        "leases": 0,
+        "preview_only": true
+      },
+      {
+        "id": "preview/T2_uneven_budget/1/1/0",
+        "identity": "d0fa4a02c47a002b8f0616faaa976e76bd86265757da01cb1394333e0ca696a9",
+        "tp": 1,
+        "off": 0,
+        "n": 2147483648,
+        "tier": "hbm",
+        "worker": 1,
+        "node": "node27",
+        "gpu": 1,
+        "numa": 3,
+        "state": "VALID",
+        "generation": 1,
+        "leases": 0,
+        "preview_only": true
+      }
+    ],
+    "objective_s": 1.6572605328761902,
+    "rounded_plan_s": 1.6572605328761905,
+    "scenario_times_s": {
+      "target_a": 0.9701971286857143,
+      "target_b": 2.3443239370666666
+    },
+    "objective": "expected",
+    "status": "optimal",
+    "mip_gap": 0.0,
+    "dual_bound_s": 1.6572605328761902,
+    "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+    "solve_wall_s": 0.006920862011611462,
+    "candidate_count": 8,
+    "flow_variables": 32,
+    "scope": "finite candidates, mutually exclusive scenarios, approximate service model; not simultaneous restores",
+    "measurement_status": "not_measured",
+    "capability_boundary": "joint may replicate a region; fixed layout controls are not a strong replication-aware greedy comparator"
+  },
+  "cpu_preview_wall_s": 0.024350161664187908,
+  "new_GPU_samples": 0,
+  "scope": "CPU adapters only; hypothetical candidates are not live source evidence",
+  "profile_source": "functional_provisional_assumption",
+  "estimated_values_are_performance_evidence": false
+}

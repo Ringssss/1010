@@ -1,0 +1,4343 @@
+{
+  "calibration_run_ids": [
+    "C0_prime",
+    "C0_cal"
+  ],
+  "calibration_incarnation_digests": [
+    "ecd329b4fb27c90e54e9544fcfdff9d29e449739c537230f805a2c2661d9b671"
+  ],
+  "scenarios": {
+    "Hremote": {
+      "plan": {
+        "targets": [
+          {
+            "key": "CPU_current_session_Hremote/rank0",
+            "id": "CPU_current_session_Hremote/rank0",
+            "mode": "live",
+            "worker": 0,
+            "tier": "hbm",
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 0,
+            "n": 35164859056,
+            "meta": {
+              "model_identity": "CPU_fixture_no_weights",
+              "tp_size": "2",
+              "tp_rank": 0
+            },
+            "index": {
+              "CPU_storage": [
+                0,
+                35164859056
+              ]
+            },
+            "tag": "CPU_current_session_Hremote",
+            "metrics_directory": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/runtime/metrics/CPU_current_session_Hremote"
+          },
+          {
+            "key": "CPU_current_session_Hremote/rank1",
+            "id": "CPU_current_session_Hremote/rank1",
+            "mode": "live",
+            "worker": 1,
+            "tier": "hbm",
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 0,
+            "n": 35164859056,
+            "meta": {
+              "model_identity": "CPU_fixture_no_weights",
+              "tp_size": "2",
+              "tp_rank": 1
+            },
+            "index": {
+              "CPU_storage": [
+                0,
+                35164859056
+              ]
+            },
+            "tag": "CPU_current_session_Hremote",
+            "metrics_directory": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/runtime/metrics/CPU_current_session_Hremote"
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/hbm/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_hbm",
+            "path": "0:hbm:4->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/hbm/1/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_hbm",
+            "path": "1:hbm:7->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 1073741824,
+            "n": 1073741824,
+            "source_offset": 1073741824,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 1073741824,
+            "n": 1073741824,
+            "source_offset": 1073741824,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 2147483648,
+            "n": 1073741824,
+            "source_offset": 2147483648,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 2147483648,
+            "n": 1073741824,
+            "source_offset": 2147483648,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 6,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 3221225472,
+            "n": 1073741824,
+            "source_offset": 3221225472,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 7,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 3221225472,
+            "n": 1073741824,
+            "source_offset": 3221225472,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 8,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 4294967296,
+            "n": 1073741824,
+            "source_offset": 4294967296,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 9,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 4294967296,
+            "n": 1073741824,
+            "source_offset": 4294967296,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 10,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 5368709120,
+            "n": 1073741824,
+            "source_offset": 5368709120,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 11,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 5368709120,
+            "n": 1073741824,
+            "source_offset": 5368709120,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 12,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 6442450944,
+            "n": 1073741824,
+            "source_offset": 6442450944,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 13,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 6442450944,
+            "n": 1073741824,
+            "source_offset": 6442450944,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 14,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 7516192768,
+            "n": 1073741824,
+            "source_offset": 7516192768,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 15,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 7516192768,
+            "n": 1073741824,
+            "source_offset": 7516192768,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 16,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 8589934592,
+            "n": 1073741824,
+            "source_offset": 8589934592,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 17,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 8589934592,
+            "n": 1073741824,
+            "source_offset": 8589934592,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 18,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 9663676416,
+            "n": 1073741824,
+            "source_offset": 9663676416,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 19,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 9663676416,
+            "n": 1073741824,
+            "source_offset": 9663676416,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 20,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 10737418240,
+            "n": 1073741824,
+            "source_offset": 10737418240,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 21,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 10737418240,
+            "n": 1073741824,
+            "source_offset": 10737418240,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 22,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 11811160064,
+            "n": 1073741824,
+            "source_offset": 11811160064,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 23,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 11811160064,
+            "n": 1073741824,
+            "source_offset": 11811160064,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 24,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 12884901888,
+            "n": 1073741824,
+            "source_offset": 12884901888,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 25,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 12884901888,
+            "n": 1073741824,
+            "source_offset": 12884901888,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 26,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 13958643712,
+            "n": 1073741824,
+            "source_offset": 13958643712,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 27,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 13958643712,
+            "n": 1073741824,
+            "source_offset": 13958643712,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 28,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 15032385536,
+            "n": 1073741824,
+            "source_offset": 15032385536,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 29,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 15032385536,
+            "n": 1073741824,
+            "source_offset": 15032385536,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 30,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 16106127360,
+            "n": 1073741824,
+            "source_offset": 16106127360,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 31,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 16106127360,
+            "n": 1073741824,
+            "source_offset": 16106127360,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 32,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 17179869184,
+            "n": 1073741824,
+            "source_offset": 17179869184,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 33,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 17179869184,
+            "n": 1073741824,
+            "source_offset": 17179869184,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 34,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 18253611008,
+            "n": 1073741824,
+            "source_offset": 18253611008,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 35,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 18253611008,
+            "n": 1073741824,
+            "source_offset": 18253611008,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 36,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 19327352832,
+            "n": 1073741824,
+            "source_offset": 19327352832,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 37,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 19327352832,
+            "n": 1073741824,
+            "source_offset": 19327352832,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 38,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 20401094656,
+            "n": 1073741824,
+            "source_offset": 20401094656,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 39,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 20401094656,
+            "n": 1073741824,
+            "source_offset": 20401094656,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 40,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 21474836480,
+            "n": 1073741824,
+            "source_offset": 21474836480,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 41,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 21474836480,
+            "n": 1073741824,
+            "source_offset": 21474836480,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 42,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 22548578304,
+            "n": 1073741824,
+            "source_offset": 22548578304,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 43,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 22548578304,
+            "n": 1073741824,
+            "source_offset": 22548578304,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 44,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 23622320128,
+            "n": 1073741824,
+            "source_offset": 23622320128,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 45,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 23622320128,
+            "n": 1073741824,
+            "source_offset": 23622320128,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 46,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 24696061952,
+            "n": 1073741824,
+            "source_offset": 24696061952,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 47,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 24696061952,
+            "n": 1073741824,
+            "source_offset": 24696061952,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 48,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 25769803776,
+            "n": 1073741824,
+            "source_offset": 25769803776,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 49,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 25769803776,
+            "n": 1073741824,
+            "source_offset": 25769803776,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 50,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 26843545600,
+            "n": 1073741824,
+            "source_offset": 26843545600,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 51,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 26843545600,
+            "n": 1073741824,
+            "source_offset": 26843545600,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 52,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 27917287424,
+            "n": 1073741824,
+            "source_offset": 27917287424,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 53,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 27917287424,
+            "n": 1073741824,
+            "source_offset": 27917287424,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 54,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 28991029248,
+            "n": 1073741824,
+            "source_offset": 28991029248,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 55,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 28991029248,
+            "n": 1073741824,
+            "source_offset": 28991029248,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 56,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 30064771072,
+            "n": 1073741824,
+            "source_offset": 30064771072,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 57,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 30064771072,
+            "n": 1073741824,
+            "source_offset": 30064771072,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 58,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 31138512896,
+            "n": 1073741824,
+            "source_offset": 31138512896,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 59,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 31138512896,
+            "n": 1073741824,
+            "source_offset": 31138512896,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 60,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 32212254720,
+            "n": 1073741824,
+            "source_offset": 32212254720,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 61,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 32212254720,
+            "n": 1073741824,
+            "source_offset": 32212254720,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 62,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 33285996544,
+            "n": 1073741824,
+            "source_offset": 33285996544,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 63,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 33285996544,
+            "n": 1073741824,
+            "source_offset": 33285996544,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 64,
+            "target": "CPU_current_session_Hremote/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 34359738368,
+            "n": 805120688,
+            "source_offset": 34359738368,
+            "replica_id": "CPU/dram/2/0",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node30:4",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          },
+          {
+            "op_id": 65,
+            "target": "CPU_current_session_Hremote/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 34359738368,
+            "n": 805120688,
+            "source_offset": 34359738368,
+            "replica_id": "CPU/dram/3/1",
+            "generation": 1,
+            "src_w": 2,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch2",
+            "kind": "network",
+            "path": "2:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node30:7",
+              "out:2",
+              "net_out:node30",
+              "net_in:node27"
+            ]
+          }
+        ],
+        "executor": "serial",
+        "chunk_bytes": 33554432,
+        "strategy": "fixed_source_assignment",
+        "estimated_transfer_s": 35.164859056,
+        "profile": {
+          "rates": {
+            "local_dram": 1.0,
+            "local_hbm": 1.0,
+            "local_ssd": 0.5,
+            "peer": 1.0,
+            "network": 1.0
+          },
+          "gpu_ingress_GBps": 1.0,
+          "gpu_egress_GBps": 1.0,
+          "dram_GBps": 1.0,
+          "network_node_GBps": 1.0,
+          "serial_target_execution": true
+        },
+        "control_context": {
+          "endpoints": [
+            "CPU",
+            "CPU",
+            "CPU"
+          ],
+          "session": "CPU_fixture",
+          "epochs": {
+            "0": "CPU_epoch0",
+            "1": "CPU_epoch1",
+            "2": "CPU_epoch2"
+          }
+        },
+        "workflow": "simple_two_node_single_sender_v1",
+        "scope": "Native worker DAG; one sender shares both rank streams; fixed source assignment."
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "node": "node27",
+          "gpu": 4,
+          "numa": 4,
+          "session": "CPU_fixture",
+          "epoch": "CPU_epoch0",
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "network",
+            "peer",
+            "local_ssd"
+          ],
+          "runtime_identity": {
+            "actual_bdf": "CPU_BDF0"
+          },
+          "transactions": []
+        },
+        {
+          "worker": 1,
+          "node": "node27",
+          "gpu": 5,
+          "numa": 7,
+          "session": "CPU_fixture",
+          "epoch": "CPU_epoch1",
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "network",
+            "peer",
+            "local_ssd"
+          ],
+          "runtime_identity": {
+            "actual_bdf": "CPU_BDF1"
+          },
+          "transactions": []
+        },
+        {
+          "worker": 2,
+          "node": "node30",
+          "gpu": 4,
+          "numa": 4,
+          "session": "CPU_fixture",
+          "epoch": "CPU_epoch2",
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "network",
+            "peer",
+            "local_ssd"
+          ],
+          "runtime_identity": {
+            "actual_bdf": "CPU_BDF2"
+          },
+          "transactions": []
+        }
+      ],
+      "state": {
+        "incarnations": [
+          [
+            "CPU_fixture",
+            "CPU_epoch0"
+          ],
+          [
+            "CPU_fixture",
+            "CPU_epoch1"
+          ],
+          [
+            "CPU_fixture",
+            "CPU_epoch2"
+          ]
+        ],
+        "warm_pairs": [
+          "0:2",
+          "1:2"
+        ],
+        "fresh_binding_verified": true,
+        "load_state": "warm",
+        "config_sha256": "2076f1f985e125cb2fb231ab71965b3f1ff7dc2f20844f3d50a24ff6f02734cc",
+        "worker_BDF": {
+          "0": "CPU_BDF0",
+          "1": "CPU_BDF1",
+          "2": "CPU_BDF2"
+        },
+        "binding_source_refs": [
+          {
+            "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_current_binding.json",
+            "sha256": "4a5e3fce9b794231f30ca344c58b47a8c69d1c201800cd762e6710bce519c1db"
+          }
+        ],
+        "source_lineage": {
+          "CPU/base/0/0": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/1073741824": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/2147483648": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/3221225472": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/4294967296": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/5368709120": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/6442450944": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/7516192768": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/8589934592": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/9663676416": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/10737418240": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/11811160064": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/12884901888": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/13958643712": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/15032385536": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/16106127360": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/17179869184": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/18253611008": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/19327352832": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/20401094656": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/21474836480": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/22548578304": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/23622320128": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/24696061952": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/25769803776": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/26843545600": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/27917287424": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/28991029248": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/30064771072": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/31138512896": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/32212254720": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/33285996544": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/34359738368": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/hbm/0/0": {
+            "worker": 0,
+            "tier": "hbm",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/dram/2/0": {
+            "worker": 2,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch2"
+          },
+          "CPU/base/1/0": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/1073741824": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/2147483648": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/3221225472": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/4294967296": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/5368709120": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/6442450944": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/7516192768": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/8589934592": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/9663676416": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/10737418240": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/11811160064": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/12884901888": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/13958643712": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/15032385536": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/16106127360": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/17179869184": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/18253611008": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/19327352832": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/20401094656": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/21474836480": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/22548578304": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/23622320128": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/24696061952": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/25769803776": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/26843545600": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/27917287424": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/28991029248": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/30064771072": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/31138512896": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/32212254720": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/33285996544": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/34359738368": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/hbm/1/1": {
+            "worker": 1,
+            "tier": "hbm",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/dram/3/1": {
+            "worker": 2,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch2"
+          }
+        },
+        "outer_domain": "post_one_fullrestore_samecontroller",
+        "controller_pid": 2600992,
+        "current_session": "CPU_current_session",
+        "prior_complete_restores": 2,
+        "prime_ref": {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_prime_record.json",
+          "sha256": "19947b9cb0581c4d3ce6f4d84caea7004ccc07d5e789ad8c8883e75b117d6eff"
+        }
+      }
+    },
+    "Hnear": {
+      "plan": {
+        "targets": [
+          {
+            "key": "CPU_current_session_Hnear/rank0",
+            "id": "CPU_current_session_Hnear/rank0",
+            "mode": "live",
+            "worker": 0,
+            "tier": "hbm",
+            "identity": "CPU_rank0",
+            "tp": 0,
+            "off": 0,
+            "n": 35164859056,
+            "meta": {
+              "model_identity": "CPU_fixture_no_weights",
+              "tp_size": "2",
+              "tp_rank": 0
+            },
+            "index": {
+              "CPU_storage": [
+                0,
+                35164859056
+              ]
+            },
+            "tag": "CPU_current_session_Hnear",
+            "metrics_directory": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/runtime/metrics/CPU_current_session_Hnear"
+          },
+          {
+            "key": "CPU_current_session_Hnear/rank1",
+            "id": "CPU_current_session_Hnear/rank1",
+            "mode": "live",
+            "worker": 1,
+            "tier": "hbm",
+            "identity": "CPU_rank1",
+            "tp": 1,
+            "off": 0,
+            "n": 35164859056,
+            "meta": {
+              "model_identity": "CPU_fixture_no_weights",
+              "tp_size": "2",
+              "tp_rank": 1
+            },
+            "index": {
+              "CPU_storage": [
+                0,
+                35164859056
+              ]
+            },
+            "tag": "CPU_current_session_Hnear",
+            "metrics_directory": "codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/runtime/metrics/CPU_current_session_Hnear"
+          }
+        ],
+        "ops": [
+          {
+            "op_id": 0,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/hbm/0/0",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_hbm",
+            "path": "0:hbm:4->0",
+            "resources": [
+              "in:0"
+            ]
+          },
+          {
+            "op_id": 1,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 0,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/hbm/1/1",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_hbm",
+            "path": "1:hbm:7->1",
+            "resources": [
+              "in:1"
+            ]
+          },
+          {
+            "op_id": 2,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 1073741824,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/1073741824",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 3,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 1073741824,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/1073741824",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 4,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 2147483648,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/2147483648",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 5,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 2147483648,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/2147483648",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 6,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 3221225472,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/3221225472",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 7,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 3221225472,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/3221225472",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 8,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 4294967296,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/4294967296",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 9,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 4294967296,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/4294967296",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 10,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 5368709120,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/5368709120",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 11,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 5368709120,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/5368709120",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 12,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 6442450944,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/6442450944",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 13,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 6442450944,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/6442450944",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 14,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 7516192768,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/7516192768",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 15,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 7516192768,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/7516192768",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 16,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 8589934592,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/8589934592",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 17,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 8589934592,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/8589934592",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 18,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 9663676416,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/9663676416",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 19,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 9663676416,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/9663676416",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 20,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 10737418240,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/10737418240",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 21,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 10737418240,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/10737418240",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 22,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 11811160064,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/11811160064",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 23,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 11811160064,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/11811160064",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 24,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 12884901888,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/12884901888",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 25,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 12884901888,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/12884901888",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 26,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 13958643712,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/13958643712",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 27,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 13958643712,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/13958643712",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 28,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 15032385536,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/15032385536",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 29,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 15032385536,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/15032385536",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 30,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 16106127360,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/16106127360",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 31,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 16106127360,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/16106127360",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 32,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 17179869184,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/17179869184",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 33,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 17179869184,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/17179869184",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 34,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 18253611008,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/18253611008",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 35,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 18253611008,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/18253611008",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 36,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 19327352832,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/19327352832",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 37,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 19327352832,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/19327352832",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 38,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 20401094656,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/20401094656",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 39,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 20401094656,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/20401094656",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 40,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 21474836480,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/21474836480",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 41,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 21474836480,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/21474836480",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 42,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 22548578304,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/22548578304",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 43,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 22548578304,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/22548578304",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 44,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 23622320128,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/23622320128",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 45,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 23622320128,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/23622320128",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 46,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 24696061952,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/24696061952",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 47,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 24696061952,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/24696061952",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 48,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 25769803776,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/25769803776",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 49,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 25769803776,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/25769803776",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 50,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 26843545600,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/26843545600",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 51,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 26843545600,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/26843545600",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 52,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 27917287424,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/27917287424",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 53,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 27917287424,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/27917287424",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 54,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 28991029248,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/28991029248",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 55,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 28991029248,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/28991029248",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 56,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 30064771072,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/30064771072",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 57,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 30064771072,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/30064771072",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 58,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 31138512896,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/31138512896",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 59,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 31138512896,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/31138512896",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 60,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 32212254720,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/32212254720",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 61,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 32212254720,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/32212254720",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 62,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 33285996544,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/33285996544",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 63,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 33285996544,
+            "n": 1073741824,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/33285996544",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          },
+          {
+            "op_id": 64,
+            "target": "CPU_current_session_Hnear/rank0",
+            "tp": 0,
+            "identity": "CPU_rank0",
+            "off": 34359738368,
+            "n": 805120688,
+            "source_offset": 0,
+            "replica_id": "CPU/base/0/34359738368",
+            "generation": 1,
+            "src_w": 0,
+            "dst_w": 0,
+            "source_epoch": "CPU_epoch0",
+            "kind": "local_dram",
+            "path": "0:dram:4->0",
+            "resources": [
+              "in:0",
+              "dram:node27:4"
+            ]
+          },
+          {
+            "op_id": 65,
+            "target": "CPU_current_session_Hnear/rank1",
+            "tp": 1,
+            "identity": "CPU_rank1",
+            "off": 34359738368,
+            "n": 805120688,
+            "source_offset": 0,
+            "replica_id": "CPU/base/1/34359738368",
+            "generation": 1,
+            "src_w": 1,
+            "dst_w": 1,
+            "source_epoch": "CPU_epoch1",
+            "kind": "local_dram",
+            "path": "1:dram:7->1",
+            "resources": [
+              "in:1",
+              "dram:node27:7"
+            ]
+          }
+        ],
+        "executor": "serial",
+        "chunk_bytes": 33554432,
+        "strategy": "fixed_source_assignment",
+        "estimated_transfer_s": 35.164859056,
+        "profile": {
+          "rates": {
+            "local_dram": 1.0,
+            "local_hbm": 1.0,
+            "local_ssd": 0.5,
+            "peer": 1.0,
+            "network": 1.0
+          },
+          "gpu_ingress_GBps": 1.0,
+          "gpu_egress_GBps": 1.0,
+          "dram_GBps": 1.0,
+          "network_node_GBps": 1.0,
+          "serial_target_execution": true
+        },
+        "control_context": {
+          "endpoints": [
+            "CPU",
+            "CPU",
+            "CPU"
+          ],
+          "session": "CPU_fixture",
+          "epochs": {
+            "0": "CPU_epoch0",
+            "1": "CPU_epoch1",
+            "2": "CPU_epoch2"
+          }
+        },
+        "workflow": "simple_two_node_single_sender_v1",
+        "scope": "Native worker DAG; one sender shares both rank streams; fixed source assignment."
+      },
+      "workers": [
+        {
+          "worker": 0,
+          "node": "node27",
+          "gpu": 4,
+          "numa": 4,
+          "session": "CPU_fixture",
+          "epoch": "CPU_epoch0",
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "network",
+            "peer",
+            "local_ssd"
+          ],
+          "runtime_identity": {
+            "actual_bdf": "CPU_BDF0"
+          },
+          "transactions": []
+        },
+        {
+          "worker": 1,
+          "node": "node27",
+          "gpu": 5,
+          "numa": 7,
+          "session": "CPU_fixture",
+          "epoch": "CPU_epoch1",
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "network",
+            "peer",
+            "local_ssd"
+          ],
+          "runtime_identity": {
+            "actual_bdf": "CPU_BDF1"
+          },
+          "transactions": []
+        },
+        {
+          "worker": 2,
+          "node": "node30",
+          "gpu": 4,
+          "numa": 4,
+          "session": "CPU_fixture",
+          "epoch": "CPU_epoch2",
+          "capabilities": [
+            "local_dram",
+            "local_hbm",
+            "network",
+            "peer",
+            "local_ssd"
+          ],
+          "runtime_identity": {
+            "actual_bdf": "CPU_BDF2"
+          },
+          "transactions": []
+        }
+      ],
+      "state": {
+        "incarnations": [
+          [
+            "CPU_fixture",
+            "CPU_epoch0"
+          ],
+          [
+            "CPU_fixture",
+            "CPU_epoch1"
+          ],
+          [
+            "CPU_fixture",
+            "CPU_epoch2"
+          ]
+        ],
+        "warm_pairs": [
+          "0:2",
+          "1:2"
+        ],
+        "fresh_binding_verified": true,
+        "load_state": "warm",
+        "config_sha256": "2076f1f985e125cb2fb231ab71965b3f1ff7dc2f20844f3d50a24ff6f02734cc",
+        "worker_BDF": {
+          "0": "CPU_BDF0",
+          "1": "CPU_BDF1",
+          "2": "CPU_BDF2"
+        },
+        "binding_source_refs": [
+          {
+            "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_current_binding.json",
+            "sha256": "4a5e3fce9b794231f30ca344c58b47a8c69d1c201800cd762e6710bce519c1db"
+          }
+        ],
+        "source_lineage": {
+          "CPU/base/0/0": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/1073741824": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/2147483648": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/3221225472": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/4294967296": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/5368709120": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/6442450944": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/7516192768": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/8589934592": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/9663676416": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/10737418240": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/11811160064": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/12884901888": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/13958643712": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/15032385536": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/16106127360": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/17179869184": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/18253611008": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/19327352832": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/20401094656": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/21474836480": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/22548578304": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/23622320128": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/24696061952": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/25769803776": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/26843545600": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/27917287424": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/28991029248": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/30064771072": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/31138512896": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/32212254720": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/33285996544": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/base/0/34359738368": {
+            "worker": 0,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/hbm/0/0": {
+            "worker": 0,
+            "tier": "hbm",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch0"
+          },
+          "CPU/dram/2/0": {
+            "worker": 2,
+            "tier": "dram",
+            "numa": 4,
+            "identity": "CPU_rank0",
+            "generation": 1,
+            "source_epoch": "CPU_epoch2"
+          },
+          "CPU/base/1/0": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/1073741824": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/2147483648": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/3221225472": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/4294967296": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/5368709120": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/6442450944": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/7516192768": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/8589934592": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/9663676416": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/10737418240": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/11811160064": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/12884901888": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/13958643712": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/15032385536": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/16106127360": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/17179869184": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/18253611008": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/19327352832": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/20401094656": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/21474836480": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/22548578304": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/23622320128": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/24696061952": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/25769803776": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/26843545600": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/27917287424": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/28991029248": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/30064771072": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/31138512896": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/32212254720": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/33285996544": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/base/1/34359738368": {
+            "worker": 1,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/hbm/1/1": {
+            "worker": 1,
+            "tier": "hbm",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch1"
+          },
+          "CPU/dram/3/1": {
+            "worker": 2,
+            "tier": "dram",
+            "numa": 7,
+            "identity": "CPU_rank1",
+            "generation": 1,
+            "source_epoch": "CPU_epoch2"
+          }
+        },
+        "outer_domain": "post_one_fullrestore_samecontroller",
+        "controller_pid": 2600992,
+        "current_session": "CPU_current_session",
+        "prior_complete_restores": 2,
+        "prime_ref": {
+          "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/C0_prime_record.json",
+          "sha256": "19947b9cb0581c4d3ce6f4d84caea7004ccc07d5e789ad8c8883e75b117d6eff"
+        }
+      }
+    }
+  }
+}

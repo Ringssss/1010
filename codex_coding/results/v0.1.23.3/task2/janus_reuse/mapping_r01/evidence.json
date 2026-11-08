@@ -1,0 +1,788 @@
+{
+  "schema_version": 1,
+  "development": "v0.1.23.3/task2",
+  "scope": "local_readonly_source_and_prior_results_audit",
+  "janus": {
+    "head": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+    "pinned": "ec1beca2dbef5628b38e266fdc9afa0dba451678",
+    "status_porcelain": "",
+    "origin": "https://github.com/Janus2026/Janus.git"
+  },
+  "parent": {
+    "head": "c67b1fa45043fb9be0e70b8c98c953d2a85a436a",
+    "status_porcelain": "M .gitignore\n M BACKUP_SCOPE.md\n M code_building/key_conclusion.md\n M code_building/key_files_index.md\n M code_building/progress_diff_summary.md\n M docx/00_docx_storage_and_lookup_guide.md\n M docx/context_index/00_document_registry.md\n M docx/context_index/01_stage_summary.md\n M docx/context_index/02_active_threads.md\n M docx/context_index/03_current_required_process_docs.md\n M docx/context_index/04_insight_ledger.md\n M docx/next_step.txt\n M history-chat.txt\n?? AGENTS.md\n?? code_building/history_chat/\n?? code_building/process_docs/v0.1-init-project/v0.1.23.1-project_restructure_and_spec_migration.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_glm_three_node_execution_20261004.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_lifecycle_design_audit_20261003.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_lifecycle_execution_20261003.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.2-task2_system_profiling_joint_placement.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.3-task2_basic_scenarios_20261006.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.3-task2_e1_e8_document_protocol_20261004.md\n?? code_building/process_docs/v0.1-init-project/v0.1.23.3-task2_topology_literature_reference_20261006.md\n?? codex_coding/\n?? docx/01_paper_scope_management_guide.md\n?? docx/articles/2026-09-27_glm53_model_freeze.md\n?? docx/articles/2026-09-27_glm53_startup_vmfault_forensics.md\n?? docx/articles/2026-09-27_multinode_transport_findings.md\n?? docx/articles/2026-09-27_node27_resource_profile.md\n?? docx/articles/2026-09-29_task2_joint_placement_findings.md\n?? docx/articles/2026-10-03_lifecycle_results.md\n?? docx/articles/2026-10-04_hll_and_recall_planning.md\n?? docx/articles/2026-10-06_baselines_delta_and_research_roadmap.md\n?? docx/articles/2026-10-06_weight_placement_and_topology_literature.md\n?? docx/articles/2026-10-10_joint_planning_necessity_and_boundaries.md\n?? docx/articles/2026-10-10_multitier_breakdown_and_cost_model_alignment.md\n?? docx/articles/2026-10-11_local_hbm_first_operation_cost.md\n?? docx/cites/2026-09-27_fluidckpt_scope_and_positioning.md\n?? docx/cites/2026-10-04_fluidckpt_paper_claim_audit.md\n?? docx/experiments/\n?? docx/papers/\n?? docx/plans/2026-09-28_task2_numa_flow_loading_plan.md\n?? docx/plans/2026-09-28_task2_stage2_replica_multipath_plan.md\n?? docx/plans/2026-09-29_task2_joint_planning_control_plan.md\n?? docx/plans/2026-10-03_fluidckpt_lifecycle_design.md\n?? docx/plans/2026-10-03_three_node_glm_followup.md\n?? docx/plans/2026-10-04_recall_pressure_motivation.md\n?? docx/plans/2026-10-04_v0.1.23.3_task2_paper_e1_e8_plan.md\n?? docx/plans/2026-10-10_multiple_placement_competition.md\n?? docx/plans/2026-10-10_three_node_multitier_scenario.md\n?? docx/plans/2026-10-10_tp4_layered_scenario_contract.md\n?? lib_cite/\n?? main_lib/"
+  },
+  "source_refs": [
+    {
+      "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/instance_mgr.cpp",
+      "sha256": "8e8b7bc860008fbe64ed7f52cd8420a76bd4c5b1708e2b997a286a9d3f775fbe",
+      "size_bytes": 161044,
+      "line_count": 4353,
+      "anchors": [
+        {
+          "line": 68,
+          "text": "static double compute_cos_similarity("
+        },
+        {
+          "line": 162,
+          "text": "void InstanceMgr::init() {"
+        },
+        {
+          "line": 1864,
+          "text": "bool InstanceMgr::send_model_wakeup(const std::string& instance_name,"
+        },
+        {
+          "line": 2943,
+          "text": "std::optional<D2DWakeupInfo> InstanceMgr::find_d2d_source("
+        },
+        {
+          "line": 2953,
+          "text": "  // Atomically get awake instances and lock all of them"
+        },
+        {
+          "line": 3029,
+          "text": "  // Prefer the most heavily-loaded instance (highest EPDT) as D2D source."
+        },
+        {
+          "line": 3042,
+          "text": "  for (size_t i = 0; i < best.p2p_addrs.size(); ++i) {"
+        },
+        {
+          "line": 3053,
+          "text": "  // Unlock all instances except the selected source"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_service/janus_service/scheduler/managers/model_instance_mgr.cpp",
+      "sha256": "c34ff33679399b6739532294413db7ef5fe838af4e1c8079850c316c251318f1",
+      "size_bytes": 28792,
+      "line_count": 761,
+      "anchors": [
+        {
+          "line": 258,
+          "text": "bool ModelInstanceMgr::send_model_wakeup_d2d(const std::string& instance_name,"
+        },
+        {
+          "line": 400,
+          "text": "bool ModelInstanceMgr::set_model_state(const std::string& instance_name, ModelState new_state) {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_service/janus_service/common/types.h",
+      "sha256": "0b4f7414ef4e9b1a9989d22eda79e5d69ec983acaf8c39dfdec1e81447b71a58",
+      "size_bytes": 19007,
+      "line_count": 592,
+      "anchors": [
+        {
+          "line": 470,
+          "text": "struct WeightSegment {"
+        },
+        {
+          "line": 478,
+          "text": "struct InstanceXTensorInfo {"
+        },
+        {
+          "line": 492,
+          "text": "  uint64_t get_min_free_bytes() const {"
+        },
+        {
+          "line": 516,
+          "text": "struct D2DWakeupInfo {"
+        },
+        {
+          "line": 524,
+          "text": "  bool is_valid() const {"
+        },
+        {
+          "line": 529,
+          "text": "struct GpuHardwareSpec {"
+        },
+        {
+          "line": 556,
+          "text": "struct ResourceNeeds {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/llm_engine.cpp",
+      "sha256": "a770d186116c9b970dcdde9841a2c1e245e021ed932238547a312fcea9249e37",
+      "size_bytes": 58218,
+      "line_count": 1496,
+      "anchors": [
+        {
+          "line": 1298,
+          "text": "bool LLMEngine::sleep(MasterStatus master_status) {"
+        },
+        {
+          "line": 1327,
+          "text": "  for (auto& worker : worker_clients_) {"
+        },
+        {
+          "line": 1353,
+          "text": "bool LLMEngine::wakeup(const WakeupOptions& options) {"
+        },
+        {
+          "line": 1381,
+          "text": "  if (!options.remote_addrs.empty() &&"
+        },
+        {
+          "line": 1394,
+          "text": "  } else {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/remote_worker.cpp",
+      "sha256": "2ba8135d1b20217288f90b3e4add9ae38fa903262c9d35a2dfb59ae00e78954e",
+      "size_bytes": 12769,
+      "line_count": 374,
+      "anchors": [
+        {
+          "line": 344,
+          "text": "folly::SemiFuture<bool> RemoteWorker::sleep_async(MasterStatus master_status) {"
+        },
+        {
+          "line": 359,
+          "text": "folly::SemiFuture<bool> RemoteWorker::wakeup_async("
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/comm_channel.cpp",
+      "sha256": "a5659b5a706621737c6961e6fd4e0de644cc3958e5671fb12dc58f3d97848aa0",
+      "size_bytes": 19584,
+      "line_count": 641,
+      "anchors": [
+        {
+          "line": 402,
+          "text": "bool CommChannel::sleep(MasterStatus master_status) {"
+        },
+        {
+          "line": 416,
+          "text": "bool CommChannel::wakeup(const WakeupOptions& options) {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/worker_service.cpp",
+      "sha256": "dd179804227b0e03364ef3d6d2cabfca4b104265e09f710609f3eb5a647d2290",
+      "size_bytes": 30168,
+      "line_count": 753,
+      "anchors": [
+        {
+          "line": 24,
+          "text": "WorkerService::WorkerService(runtime::Options options,"
+        },
+        {
+          "line": 577,
+          "text": "void WorkerService::Sleep(::google::protobuf::RpcController* controller,"
+        },
+        {
+          "line": 590,
+          "text": "void WorkerService::Wakeup(::google::protobuf::RpcController* controller,"
+        },
+        {
+          "line": 609,
+          "text": "    bool status = worker_->wakeup(options);"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/worker_server.cpp",
+      "sha256": "31f0e9995bf826b9aab9bb17d5d8c087a360f3c2b63bd774fe889704a2224bc6",
+      "size_bytes": 14696,
+      "line_count": 377,
+      "anchors": [
+        {
+          "line": 69,
+          "text": "#if defined(USE_CUDA)"
+        },
+        {
+          "line": 261,
+          "text": "  if (worker_type == WorkerType::LLM || worker_type == WorkerType::ELM ||"
+        },
+        {
+          "line": 284,
+          "text": "      // start worker in a thread."
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/master.cpp",
+      "sha256": "4a27cbe305bf067d51dd5beafa9147f20c7bfaa71f08ee0fadc2479f559e6286",
+      "size_bytes": 17647,
+      "line_count": 427,
+      "anchors": [
+        {
+          "line": 376,
+          "text": "std::unique_ptr<Master> fork_master(Master* master, const Options& options) {"
+        },
+        {
+          "line": 414,
+          "text": "    if (new_options.node_rank() != 0) {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/runtime/worker.cpp",
+      "sha256": "482921b82c543b4766ebda50e51e96b71bd70e38dc6afdbc7884a112375b5529",
+      "size_bytes": 7746,
+      "line_count": 226,
+      "anchors": [
+        {
+          "line": 210,
+          "text": "bool Worker::sleep(MasterStatus master_status) {"
+        },
+        {
+          "line": 214,
+          "text": "bool Worker::wakeup(const WakeupOptions& options) {"
+        },
+        {
+          "line": 218,
+          "text": "folly::SemiFuture<bool> Worker::wakeup_async(const WakeupOptions& options) {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/runtime/worker_client.cpp",
+      "sha256": "9f282cdd9b8e3754855e93abf030d754a34f3d2bd08d599aacf3b8a7b17140e4",
+      "size_bytes": 7160,
+      "line_count": 200,
+      "anchors": [
+        {
+          "line": 171,
+          "text": "folly::SemiFuture<bool> WorkerClient::sleep_async(MasterStatus master_status) {"
+        },
+        {
+          "line": 175,
+          "text": "folly::SemiFuture<bool> WorkerClient::wakeup_async("
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/runtime/worker_impl.cpp",
+      "sha256": "e64f41e73786283332f4164bd7a733edd7b5fa01c727ff3bc3dae1786bcb1647",
+      "size_bytes": 41304,
+      "line_count": 1136,
+      "anchors": [
+        {
+          "line": 726,
+          "text": "bool WorkerImpl::sleep(MasterStatus master_status) {"
+        },
+        {
+          "line": 740,
+          "text": "bool WorkerImpl::wakeup(const WakeupOptions& options) {"
+        },
+        {
+          "line": 752,
+          "text": "bool WorkerImpl::wakeup_local(const WakeupOptions& options) {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/util/threadpool.cpp",
+      "sha256": "dc99d77e05c282c629e4c1816e30b9a19fa2b9d0af48ed4d8108326e94c5e70d",
+      "size_bytes": 1944,
+      "line_count": 77,
+      "anchors": [
+        {
+          "line": 8,
+          "text": "ThreadPool::ThreadPool(size_t num_threads, Runnable init_func)"
+        },
+        {
+          "line": 34,
+          "text": "int32_t ThreadPool::schedule(Runnable runnable) {"
+        },
+        {
+          "line": 66,
+          "text": "  while (true) {"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/framework/parallel_state/cuda_process_group.h",
+      "sha256": "50536434cc22818177cd71179b41d633ef4fe96cbe4b3de7e60827ecd62b909e",
+      "size_bytes": 1259,
+      "line_count": 40,
+      "anchors": [
+        {
+          "line": 20,
+          "text": "    c10::intrusive_ptr<c10d::ProcessGroupNCCL::Options> pg_options ="
+        },
+        {
+          "line": 35,
+          "text": "    pg_ = std::make_unique<c10d::ProcessGroupNCCL>("
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/framework/parallel_state/process_group.cpp",
+      "sha256": "cf961cb9da1995e33e5b5b829f5be443818f30c19287e7cc3f6ce573c3536849",
+      "size_bytes": 3908,
+      "line_count": 110,
+      "anchors": [
+        {
+          "line": 53,
+          "text": "c10::intrusive_ptr<c10d::Store> create_tcp_store(const std::string& host,"
+        }
+      ]
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/CMakeLists.txt",
+      "sha256": "b4e1305da48bab2aedfda99489302ea5701e118929c496b36c42d502c7afa0f0",
+      "size_bytes": 23721,
+      "line_count": 655,
+      "anchors": [
+        {
+          "line": 4,
+          "text": "option(USE_NPU \"Enable NPU support\" OFF)"
+        },
+        {
+          "line": 7,
+          "text": "option(USE_CUDA \"Enable CUDA support\" OFF)"
+        },
+        {
+          "line": 216,
+          "text": "if(USE_CUDA)"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/benchmarks/basic_scenarios.py",
+      "sha256": "6c75cd8a09f1fe7f378f0f2937cdac62531a6092369457e4cf1ccde665b5837c",
+      "size_bytes": 20776,
+      "line_count": 360,
+      "anchors": [
+        {
+          "line": 27,
+          "text": "def method_catalog(lock_path=None):"
+        },
+        {
+          "line": 42,
+          "text": "    add('janus_host', 'mechanism', 'implemented', 'Janus', scope='目标主机完整host权重，本地NUMA/H2D共同执行器近似')"
+        },
+        {
+          "line": 43,
+          "text": "    add('janus_d2d', 'mechanism', 'implemented', 'Janus', scope='最高EPDT单逻辑active源，TP对应；完整host后备')"
+        },
+        {
+          "line": 135,
+          "text": "def _host_sources(rows, targets, workers, profile, rejections):"
+        },
+        {
+          "line": 155,
+          "text": "def _active_groups(case, admitted, rejections, exclude_target=False):"
+        },
+        {
+          "line": 222,
+          "text": "def assess_case(case, method_id, lock_path=None):"
+        },
+        {
+          "line": 320,
+          "text": "    if method_id == 'janus_host':"
+        },
+        {
+          "line": 343,
+          "text": "def build_method_plan(case, method_id, lock_path=None):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/catalog.py",
+      "sha256": "ee92437f234849523bc8cff1362a912e08357599e67a23f479c190817dd0906d",
+      "size_bytes": 3301,
+      "line_count": 79,
+      "anchors": [
+        {
+          "line": 20,
+          "text": "    def reserve(self, desc, allocate):"
+        },
+        {
+          "line": 43,
+          "text": "    def acquire(self, tx, ops):"
+        },
+        {
+          "line": 62,
+          "text": "    def release(self, tx):"
+        },
+        {
+          "line": 68,
+          "text": "    def retire(self, rid):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/control.py",
+      "sha256": "3dfa23b478831752e42d6dc9aaf16d4e0d60eaff6c3a00f69b6048df9cf06fed",
+      "size_bytes": 12896,
+      "line_count": 232,
+      "anchors": [
+        {
+          "line": 129,
+          "text": "    def transfer(self, plan, verify_before_ready=True, retain=False):"
+        },
+        {
+          "line": 155,
+          "text": "                self.call_all(\"prepare\", bodies, telemetry=prepare_rpc)"
+        },
+        {
+          "line": 157,
+          "text": "                execution = self.call_all(\"execute\", [{\"tx\": tx} for _ in participants], telemetry=execute_rpc)"
+        },
+        {
+          "line": 164,
+          "text": "                verified = self.verify(tx) if verify_before_ready else None"
+        },
+        {
+          "line": 185,
+          "text": "            except BaseException as exc:"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/worker.py",
+      "sha256": "267429220f7a3f2fe46d9a3ab36bdf1822e3f2d0604a4924244b61c2b1a752d9",
+      "size_bytes": 24867,
+      "line_count": 455,
+      "anchors": [
+        {
+          "line": 44,
+          "text": "    def init_mesh(self):"
+        },
+        {
+          "line": 90,
+          "text": "    def allocate(self, desc):"
+        },
+        {
+          "line": 217,
+          "text": "    def _execute(self, body):"
+        },
+        {
+          "line": 375,
+          "text": "    def export_ipc(self, body):"
+        },
+        {
+          "line": 390,
+          "text": "def main(args):"
+        },
+        {
+          "line": 443,
+          "text": "    ThreadingHTTPServer((\"0.0.0.0\", args.port_base+args.gpu), Handler).serve_forever()"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/planning.py",
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024",
+      "size_bytes": 14621,
+      "line_count": 269,
+      "anchors": [
+        {
+          "line": 13,
+          "text": "def covers(rows, identity, rank, begin, end):"
+        },
+        {
+          "line": 34,
+          "text": "def path_for(replica, target, workers, profile):"
+        },
+        {
+          "line": 47,
+          "text": "    resources = {f\"in:{dst['worker']}\": profile[\"gpu_ingress_GBps\"]}"
+        },
+        {
+          "line": 71,
+          "text": "def validate_plan(plan):"
+        },
+        {
+          "line": 93,
+          "text": "def restore_plan(replicas, targets, worker_rows, profile, strategy=\"nearest\", quantum=4 << 20):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/path_catalog.py",
+      "sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+      "size_bytes": 5240,
+      "line_count": 97,
+      "anchors": [
+        {
+          "line": 50,
+          "text": "def admitted_profile(catalog, workers, profile, max_age_s=3600, now=None, min_rate_bytes=1 << 30):"
+        },
+        {
+          "line": 93,
+          "text": "def check_profile_evidence(workers, profile):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/service_cost.py",
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14",
+      "size_bytes": 6608,
+      "line_count": 121,
+      "anchors": [
+        {
+          "line": 59,
+          "text": "def estimate_execution(plan, workers, model, state):"
+        },
+        {
+          "line": 94,
+          "text": "def fit_request_model(workers, samples):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/joint.py",
+      "sha256": "fa6ef74c6ef631c190e0c04a30005e1e109860856dd42cb87016a7932b51c1cd",
+      "size_bytes": 6999,
+      "line_count": 113,
+      "anchors": [
+        {
+          "line": 8,
+          "text": "def joint_placement(base, candidates, targets, workers, profile, tier_budgets, location_budgets,"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/multi_joint.py",
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657",
+      "size_bytes": 7415,
+      "line_count": 127,
+      "anchors": [
+        {
+          "line": 17,
+          "text": "def joint_scenarios(base, candidates, scenarios, workers, profile, tier_budgets, location_budgets,"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/topology/resource_map.py",
+      "sha256": "88dde80e3ac43e2a4973f70a4ae9e1f79c64a68c9983bf16c8f49e888d7f45e4",
+      "size_bytes": 19368,
+      "line_count": 346,
+      "anchors": [
+        {
+          "line": 123,
+          "text": "def finite_workpoint_evidence(mapping, request, *, now=None, max_age_s=300, require_profile=True):"
+        },
+        {
+          "line": 242,
+          "text": "def planner_readiness(mapping, request=None, *, now=None, max_age_s=300):"
+        },
+        {
+          "line": 327,
+          "text": "def planning_input(mapping, request, *, now=None, max_age_s=300):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/topology/discover.py",
+      "sha256": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+      "size_bytes": 4250,
+      "line_count": 88,
+      "anchors": [
+        {
+          "line": 35,
+          "text": "def discover():"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/replicas.py",
+      "sha256": "6d9283e3dad55d7ef2fb7b13eeb43f51e156aa32390c429f866ad78a0f948566",
+      "size_bytes": 7408,
+      "line_count": 160,
+      "anchors": [
+        {
+          "line": 10,
+          "text": "def identity(meta, index):"
+        },
+        {
+          "line": 40,
+          "text": "class ReplicaCatalog:"
+        },
+        {
+          "line": 70,
+          "text": "    def _validate(self, op):"
+        },
+        {
+          "line": 84,
+          "text": "    def acquire(self, ops):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/ipc_attach.py",
+      "sha256": "3f249dc8f11a6e7548aa36cc29e73ae0ce8e4ccc5fdaac1975f4f957a3aea9b4",
+      "size_bytes": 5775,
+      "line_count": 113,
+      "anchors": [
+        {
+          "line": 41,
+          "text": "def attach(model, pkl_path, gpu_id, log=None):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/lifecycle.py",
+      "sha256": "fe2b035eff0c5e5ce9feef6d67ca11857767fed410beb54798f239b506f890a9",
+      "size_bytes": 4289,
+      "line_count": 84,
+      "anchors": [
+        {
+          "line": 20,
+          "text": "    def release(self, req):"
+        },
+        {
+          "line": 45,
+          "text": "    def resume(self, req):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/serving/handoff.py",
+      "sha256": "43619da2af5eabfeafe1108ab86c2021b05e1c2296239213d8b4253b90418f42",
+      "size_bytes": 802,
+      "line_count": 19,
+      "anchors": [
+        {
+          "line": 6,
+          "text": "def wait_for_exports(directory, ranks=2, timeout=600, poll_s=0.01):"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/memory/owned_host.py",
+      "sha256": "3b1e73e8386df5b67a038ac50002c2e66cdb66513d75c0c4834a81e5316aae15",
+      "size_bytes": 2493,
+      "line_count": 58,
+      "anchors": [
+        {
+          "line": 17,
+          "text": "class OwnedHostAllocation:"
+        }
+      ]
+    },
+    {
+      "path": "main_lib/fluidckpt/memory/ssd.py",
+      "sha256": "3b78bc04537108129045350e642bd2e5e68b308984fd0dab06bcbfb8ce6eecf5",
+      "size_bytes": 1706,
+      "line_count": 43,
+      "anchors": [
+        {
+          "line": 8,
+          "text": "class RemoteExtent:"
+        }
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "84dcd9d2d45c391c5bc28d0658dcc8db592b64fdc8976142ab5751d46d0710e6",
+      "size_bytes": 3212,
+      "line_count": 27,
+      "anchors": []
+    },
+    {
+      "path": "docx/next_step.txt",
+      "sha256": "611bd50b46310e15c2f8f9b080a9ef899163db1d54421ef397db28bb078a295f",
+      "size_bytes": 72193,
+      "line_count": 330,
+      "anchors": []
+    },
+    {
+      "path": "docx/debug_philosophy.md",
+      "sha256": "00ae060d427fbd37e0777a28dfc0deb0b88dc59d350eccf9f3dc9bc886f6d1c4",
+      "size_bytes": 15812,
+      "line_count": 300,
+      "anchors": []
+    },
+    {
+      "path": "docx/01_paper_scope_management_guide.md",
+      "sha256": "d398b5cb5d9221d6fb4a918a939c5e1ec567dd3bba4ec8db38810a3685216321",
+      "size_bytes": 12889,
+      "line_count": 179,
+      "anchors": []
+    },
+    {
+      "path": "docx/articles/2026-10-06_baselines_delta_and_research_roadmap.md",
+      "sha256": "5f044b43ffbebe2a1a6beecf505747d41364cfbbfda027f692411ab9bbeaf745",
+      "size_bytes": 30067,
+      "line_count": 231,
+      "anchors": []
+    },
+    {
+      "path": "lib_cite/baselines.lock.json",
+      "sha256": "0798a0d887d49bd61a157a645c61803e06f49132fb651bccf6b5569e8d8a5409",
+      "size_bytes": 11615,
+      "line_count": 203,
+      "anchors": []
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/basic_scenarios/README.md",
+      "sha256": "bc47cec6fa8d4b0795c18a3690a073235ed9600f690f9b8294bb7a5698d18d09",
+      "size_bytes": 5748,
+      "line_count": 50,
+      "anchors": []
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/basic_scenarios/complete_table_r01/review_r02/report.md",
+      "sha256": "1d9c971afe0930d85574d569885150543322613dd42b5c8e835ef43457c4e759",
+      "size_bytes": 9044,
+      "line_count": 81,
+      "anchors": []
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/multitier_runtime/review_final_r02/qualification.json",
+      "sha256": "019e98081d841b2cb94414941c1bce82a32fd701b54092ef9412d799e7d9aeb0",
+      "size_bytes": 10773,
+      "line_count": 186,
+      "anchors": []
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/bounded_cost/review_final_r03/qualification.json",
+      "sha256": "0204699073d8dc08236bd6fca883f186aa3704d4d44065f711f595e2b34cf7a0",
+      "size_bytes": 25743,
+      "line_count": 721,
+      "anchors": []
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/local_slope/review_final_r01/report.md",
+      "sha256": "23e35b877c2567e066b8080da4b0839a217882319746464892fe6c28a97c5949",
+      "size_bytes": 2234,
+      "line_count": 13,
+      "anchors": []
+    },
+    {
+      "path": "lib_cite/Janus/janus_engine/janus/core/distributed_runtime/dist_manager.cpp",
+      "sha256": "f85d459b1a1ef334cacaa9101a0968409103177b6c51016fe2ffb5ca9920b5f8",
+      "size_bytes": 12368,
+      "line_count": 322,
+      "anchors": [
+        {
+          "line": 77,
+          "text": "#if defined(USE_CUDA)"
+        },
+        {
+          "line": 107,
+          "text": "    if (numa::bind_process_to_numa_node(engine_numa_node) != 0) {"
+        },
+        {
+          "line": 113,
+          "text": "    if (unique_numa_nodes.size() > 1) {"
+        },
+        {
+          "line": 238,
+          "text": "#if defined(USE_CUDA)"
+        },
+        {
+          "line": 247,
+          "text": "    bool use_spawn_worker = options.enable_offline_inference() && i > 0;"
+        }
+      ]
+    }
+  ],
+  "source_claim_scope": "static source paths; no runtime Janus validation",
+  "new_gpu_samples": 0
+}

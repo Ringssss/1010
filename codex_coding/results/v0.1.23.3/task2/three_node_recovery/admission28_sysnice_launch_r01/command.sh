@@ -1,0 +1,4 @@
+#!/bin/bash
+set -u
+ulimit -c 0
+timeout --signal=TERM 35s ssh -T -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o ServerAliveInterval=3 -o ServerAliveCountMax=1 -o Hostname=12.11.3.28 node28 'docker exec -e OMP_NUM_THREADS=1 -e MKL_NUM_THREADS=1 -e PYTHONDONTWRITEBYTECODE=1 bcee43e68fc88a6bcea76cc58a11241646bd5b2d5605aaab7a7cda156a675d99 python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/three_node_recovery/probe/init_gate.py --node node28 --container-id bcee43e68fc88a6bcea76cc58a11241646bd5b2d5605aaab7a7cda156a675d99 --container-started-at 2026-10-09T06:36:37.844554212Z --host-boot-id 5313e6f8-1712-45dc-9855-4c47358b6c4b --expected-container-hostname m03r2n08 --gpu 2 --bdf 0000:55:00.0 --visibility selected --stage init --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_node28_sysnice_r01'

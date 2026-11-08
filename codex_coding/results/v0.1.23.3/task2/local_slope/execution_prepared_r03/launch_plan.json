@@ -1,0 +1,700 @@
+{
+  "aggregate_budget": {
+    "application_margin": 268435456,
+    "dram": 6442450944,
+    "hbm": 2147483648
+  },
+  "bindings_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_deploy_r02/setup.json",
+    "sha256": "43fb2488c56eca1fa734794bb839a91501bd945e979401601c7f43ff4b0d605d"
+  },
+  "controller_timeout_s": 1440,
+  "dump_scope": "per-worker necessary pair communicator observation; w3/w5 rank1, others rank0; not proof of every pair",
+  "frozen_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "inventory_mode_file": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+  "lifetime_s": 1800,
+  "model_consumed": false,
+  "paired_query_holdout": false,
+  "partial_stage_repair": {
+    "GPU_launches": 0,
+    "actual_node28_append_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_stage_r02/append_node28/stdout.json",
+      "sha256": "2ae9c9f084fa0cb493b943833846e42f1e008120f3fa9034aeaf9613f613090d"
+    },
+    "modefile_failure_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_stage_r02/modefile_node28/command.json",
+      "sha256": "87eb718d2832c7ffd7c5522545aeddca1b44ef7d5b56e2fcaa66f699148865cb"
+    },
+    "node_state": {
+      "node27": "actual predecessor prior assets unchanged",
+      "node28": "predecessor 9 task source assets appended; mode file absent",
+      "node30": "actual predecessor prior assets unchanged"
+    },
+    "predecessor_plan_ref": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_prepared_r02/launch_plan.json",
+      "sha256": "5f0893f8711f0626f378a1ff8efc6cddf47c9d0cd156a96e3c4d6e39983792cb"
+    }
+  },
+  "physical_ready": false,
+  "prior_plan_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_prepared_r04/launch_plan.json",
+    "sha256": "2047caeab3e24cf73803a5790d9e81ced20dbfb5010ae4dc8839ae20971a6a5e"
+  },
+  "prior_setup_directory": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/execution_prepared_r04",
+  "processes": [
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+        "--node",
+        "node28",
+        "--gpu",
+        "0",
+        "--numa",
+        "0",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+        "--master",
+        "12.11.3.28:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "local_slope_runtime_r01",
+        "--dram-budget",
+        "3221225472",
+        "--hbm-budget",
+        "1006632960",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:09:00.0",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+      "container_started_at": "2026-10-10T11:21:19.374728572Z",
+      "endpoint": "http://12.11.3.28:35100",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_local_slope_runtime_r01/w0.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "0",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node28.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 0,
+      "key": "w0",
+      "kind": "worker",
+      "node": "node28",
+      "numa": 0,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_w0",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 0
+    },
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+        "--node",
+        "node28",
+        "--gpu",
+        "1",
+        "--numa",
+        "3",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+        "--master",
+        "12.11.3.28:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "local_slope_runtime_r01",
+        "--dram-budget",
+        "3221225472",
+        "--hbm-budget",
+        "1006632960",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:36:00.0",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+      "container_started_at": "2026-10-10T11:21:19.374728572Z",
+      "endpoint": "http://12.11.3.28:35101",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_local_slope_runtime_r01/w1.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "0",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node28.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 1,
+      "key": "w1",
+      "kind": "worker",
+      "node": "node28",
+      "numa": 3,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_w1",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 1
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "fluidckpt.serving.ssd_store",
+        "--directory",
+        "/task_ssd",
+        "--port",
+        "35400"
+      ],
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+      "container_started_at": "2026-10-10T11:21:19.374728572Z",
+      "env": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "key": "ssd_n0",
+      "kind": "ssd",
+      "node": "node28",
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_ssd_n0",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ]
+    },
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+        "--node",
+        "node30",
+        "--gpu",
+        "4",
+        "--numa",
+        "4",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+        "--master",
+        "12.11.3.28:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "local_slope_runtime_r01",
+        "--dram-budget",
+        "3221225472",
+        "--hbm-budget",
+        "1006632960",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:85:00.0",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+      "container_started_at": "2026-10-10T11:21:20.779169598Z",
+      "endpoint": "http://12.11.3.30:35104",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_local_slope_runtime_r01/w2.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "0",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node30.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 4,
+      "key": "w2",
+      "kind": "worker",
+      "node": "node30",
+      "numa": 4,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_w2",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 2
+    },
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+        "--node",
+        "node30",
+        "--gpu",
+        "5",
+        "--numa",
+        "7",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+        "--master",
+        "12.11.3.28:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "local_slope_runtime_r01",
+        "--dram-budget",
+        "3221225472",
+        "--hbm-budget",
+        "1006632960",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:b5:00.0",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+      "container_started_at": "2026-10-10T11:21:20.779169598Z",
+      "endpoint": "http://12.11.3.30:35105",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_local_slope_runtime_r01/w3.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "1",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node30.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 5,
+      "key": "w3",
+      "kind": "worker",
+      "node": "node30",
+      "numa": 7,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_w3",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 3
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "fluidckpt.serving.ssd_store",
+        "--directory",
+        "/task_ssd",
+        "--port",
+        "35401"
+      ],
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+      "container_started_at": "2026-10-10T11:21:20.779169598Z",
+      "env": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "key": "ssd_n1",
+      "kind": "ssd",
+      "node": "node30",
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_ssd_n1",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ]
+    },
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/local_slope/execution/worker.py",
+        "--node",
+        "node27",
+        "--gpu",
+        "0",
+        "--numa",
+        "0",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+        "--master",
+        "12.11.3.28:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "local_slope_runtime_r01",
+        "--dram-budget",
+        "3221225472",
+        "--hbm-budget",
+        "1006632960",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:09:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "container_started_at": "2026-10-10T11:21:21.579805181Z",
+      "endpoint": "http://12.11.3.27:35100",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_local_slope_runtime_r01/w4.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "0",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 0,
+      "key": "w4",
+      "kind": "worker",
+      "node": "node27",
+      "numa": 0,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_w4",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 4
+    },
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_calibration/inventory/worker.py",
+        "--node",
+        "node27",
+        "--gpu",
+        "4",
+        "--numa",
+        "4",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node28:0-1,node30:4-5,node27:0-0,node27:4-4",
+        "--master",
+        "12.11.3.28:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "local_slope_runtime_r01",
+        "--dram-budget",
+        "3221225472",
+        "--hbm-budget",
+        "1006632960",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/local_slope_runtime_r01.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:85:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "container_started_at": "2026-10-10T11:21:21.579805181Z",
+      "endpoint": "http://12.11.3.27:35104",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_local_slope_runtime_r01/w5.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "1",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 4,
+      "key": "w5",
+      "kind": "worker",
+      "node": "node27",
+      "numa": 4,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_w5",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 5
+    },
+    {
+      "argv": [
+        "python3",
+        "-m",
+        "fluidckpt.serving.ssd_store",
+        "--directory",
+        "/task_ssd",
+        "--port",
+        "35402"
+      ],
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "container_started_at": "2026-10-10T11:21:21.579805181Z",
+      "env": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "key": "ssd_n2",
+      "kind": "ssd",
+      "node": "node27",
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_local_slope_runtime_r01_ssd_n2",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ]
+    }
+  ],
+  "protocol": {
+    "cases": [
+      {
+        "label": "native_0_4MiB",
+        "mode": "native",
+        "nbytes": 4194304,
+        "operations": 1,
+        "order_index": 0,
+        "source_offset": 0
+      },
+      {
+        "label": "native_1_16MiB",
+        "mode": "native",
+        "nbytes": 16777216,
+        "operations": 1,
+        "order_index": 1,
+        "source_offset": 0
+      },
+      {
+        "label": "native_2_16MiB",
+        "mode": "native",
+        "nbytes": 16777216,
+        "operations": 1,
+        "order_index": 2,
+        "source_offset": 0
+      },
+      {
+        "label": "native_3_4MiB",
+        "mode": "native",
+        "nbytes": 4194304,
+        "operations": 1,
+        "order_index": 3,
+        "source_offset": 0
+      },
+      {
+        "label": "diagnostic_0_4MiB",
+        "mode": "diagnostic",
+        "nbytes": 4194304,
+        "operations": 1,
+        "order_index": 0,
+        "source_offset": 0
+      },
+      {
+        "label": "diagnostic_1_16MiB",
+        "mode": "diagnostic",
+        "nbytes": 16777216,
+        "operations": 1,
+        "order_index": 1,
+        "source_offset": 0
+      },
+      {
+        "label": "diagnostic_2_16MiB",
+        "mode": "diagnostic",
+        "nbytes": 16777216,
+        "operations": 1,
+        "order_index": 2,
+        "source_offset": 0
+      },
+      {
+        "label": "diagnostic_3_4MiB",
+        "mode": "diagnostic",
+        "nbytes": 4194304,
+        "operations": 1,
+        "order_index": 3,
+        "source_offset": 0
+      }
+    ],
+    "chunk_bytes": 33554432,
+    "diagnostic_executor": "expanded single local slice/copy/sync branch; native land dispatch checks bypassed; observer included",
+    "diagnostic_prepare": "timing events created, recorded, device synchronized before execute request; extra preparation intervention",
+    "executor": "serial",
+    "fits": 0,
+    "mode": "cached",
+    "model_updates": 0,
+    "necessary_pairs": [
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "ordering_limit": "native block precedes diagnostic block; time drift is not controlled",
+    "size_repeats_per_mode": 2,
+    "source_bytes": 16777216,
+    "source_tier": "hbm",
+    "source_worker": 4,
+    "target_allocation": "fresh exact size",
+    "target_tier": "hbm",
+    "target_worker": 4,
+    "training_requests": 0
+  },
+  "retry_reason": null,
+  "session": "local_slope_runtime_r01",
+  "setup_directory": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_prepared_r03",
+  "ssd": {
+    "n0": {
+      "backing_evidence_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_deploy_r02/setup.json",
+        "sha256": "43fb2488c56eca1fa734794bb839a91501bd945e979401601c7f43ff4b0d605d"
+      },
+      "container_directory": "/task_ssd",
+      "directory": "/data/node28/shared/multitier_runtime_r02",
+      "endpoint": "http://12.11.3.28:35400",
+      "storage_node": "node28"
+    },
+    "n1": {
+      "backing_evidence_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_deploy_r02/setup.json",
+        "sha256": "43fb2488c56eca1fa734794bb839a91501bd945e979401601c7f43ff4b0d605d"
+      },
+      "container_directory": "/task_ssd",
+      "directory": "/data/node30/shared/multitier_runtime_r02",
+      "endpoint": "http://12.11.3.30:35401",
+      "storage_node": "node30"
+    },
+    "n2": {
+      "backing_evidence_ref": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_deploy_r02/setup.json",
+        "sha256": "43fb2488c56eca1fa734794bb839a91501bd945e979401601c7f43ff4b0d605d"
+      },
+      "container_directory": "/task_ssd",
+      "directory": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/multitier_runtime_r02",
+      "endpoint": "http://12.11.3.27:35402",
+      "storage_node": "node27"
+    }
+  },
+  "startup_s": 90,
+  "workers": [
+    {
+      "bdf": "0000:09:00.0",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+      "endpoint": "http://12.11.3.28:35100",
+      "gpu": 0,
+      "node": "node28",
+      "numa": 0,
+      "worker": 0
+    },
+    {
+      "bdf": "0000:36:00.0",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "container_id": "12a659cb7966b54f0a2803a037434cdbea875bcfa7fb3a7b7bf3548a648114a6",
+      "endpoint": "http://12.11.3.28:35101",
+      "gpu": 1,
+      "node": "node28",
+      "numa": 3,
+      "worker": 1
+    },
+    {
+      "bdf": "0000:85:00.0",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+      "endpoint": "http://12.11.3.30:35104",
+      "gpu": 4,
+      "node": "node30",
+      "numa": 4,
+      "worker": 2
+    },
+    {
+      "bdf": "0000:b5:00.0",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "container_id": "38dd48e68ab339b2f9b2347335bd1994b5c56aff1cdd90c055fba0b6d091a8c8",
+      "endpoint": "http://12.11.3.30:35105",
+      "gpu": 5,
+      "node": "node30",
+      "numa": 7,
+      "worker": 3
+    },
+    {
+      "bdf": "0000:09:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "endpoint": "http://12.11.3.27:35100",
+      "gpu": 0,
+      "node": "node27",
+      "numa": 0,
+      "worker": 4
+    },
+    {
+      "bdf": "0000:85:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "endpoint": "http://12.11.3.27:35104",
+      "gpu": 4,
+      "node": "node27",
+      "numa": 4,
+      "worker": 5
+    }
+  ]
+}

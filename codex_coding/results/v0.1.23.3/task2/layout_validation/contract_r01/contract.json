@@ -1,0 +1,190 @@
+{
+  "schema_version": "layout_validation.v1",
+  "development": "v0.1.23.3/task2",
+  "block_bytes": 16777216,
+  "layouts": {
+    "A": {
+      "label": "target_local",
+      "cache_workers": [
+        0,
+        1
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "tp": 0,
+          "src_w": 0,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "local_hbm",
+          "worker_roles": {
+            "0": "both"
+          }
+        },
+        {
+          "op_id": 1,
+          "tp": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "local_hbm",
+          "worker_roles": {
+            "1": "both"
+          }
+        }
+      ],
+      "cache_bytes_by_worker": {
+        "0": 16777216,
+        "1": 16777216
+      },
+      "network_payload_bytes": 0
+    },
+    "B": {
+      "label": "concentrated28",
+      "cache_workers": [
+        0,
+        0
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "tp": 0,
+          "src_w": 0,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "local_hbm",
+          "worker_roles": {
+            "0": "both"
+          }
+        },
+        {
+          "op_id": 1,
+          "tp": 1,
+          "src_w": 0,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "network",
+          "worker_roles": {
+            "0": "source",
+            "1": "target"
+          }
+        }
+      ],
+      "cache_bytes_by_worker": {
+        "0": 33554432,
+        "1": 0
+      },
+      "network_payload_bytes": 16777216
+    },
+    "C": {
+      "label": "concentrated30",
+      "cache_workers": [
+        1,
+        1
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "tp": 0,
+          "src_w": 1,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "network",
+          "worker_roles": {
+            "0": "target",
+            "1": "source"
+          }
+        },
+        {
+          "op_id": 1,
+          "tp": 1,
+          "src_w": 1,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "local_hbm",
+          "worker_roles": {
+            "1": "both"
+          }
+        }
+      ],
+      "cache_bytes_by_worker": {
+        "0": 0,
+        "1": 33554432
+      },
+      "network_payload_bytes": 16777216
+    },
+    "D": {
+      "label": "crossed",
+      "cache_workers": [
+        1,
+        0
+      ],
+      "ops": [
+        {
+          "op_id": 0,
+          "tp": 0,
+          "src_w": 1,
+          "dst_w": 0,
+          "n": 16777216,
+          "kind": "network",
+          "worker_roles": {
+            "0": "target",
+            "1": "source"
+          }
+        },
+        {
+          "op_id": 1,
+          "tp": 1,
+          "src_w": 0,
+          "dst_w": 1,
+          "n": 16777216,
+          "kind": "network",
+          "worker_roles": {
+            "0": "source",
+            "1": "target"
+          }
+        }
+      ],
+      "cache_bytes_by_worker": {
+        "0": 16777216,
+        "1": 16777216
+      },
+      "network_payload_bytes": 33554432
+    }
+  },
+  "order": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "cache_hbm_bytes": 33554432,
+  "cache_location_cap_bytes": 33554432,
+  "base_dram_bytes": 33554432,
+  "base_worker": 0,
+  "target_hbm_bytes": 33554432,
+  "staging_hbm_bytes_per_worker": 67108864,
+  "chunk_bytes": 33554432,
+  "executor": "serial",
+  "verification_position": "before_replica_publish",
+  "dynamic_margin_bytes": 8388608,
+  "physical_task_budget_bytes": 2147483648,
+  "weak_time_hypothesis": {
+    "A": "usually shorter filled window",
+    "D": "usually longer filled window",
+    "B_vs_C": "unknown"
+  },
+  "dependency_order": {
+    "A": "independent local ops",
+    "B": "local0 then forward1",
+    "C": "reverse0 then local1",
+    "D": "reverse0 then forward1"
+  },
+  "simultaneous_bidirectional": false,
+  "prediction_ready": false,
+  "absolute_time_prediction": null,
+  "model_weights_ready_measured": false,
+  "formal_performance_ready": false,
+  "no_solver_delta": true,
+  "contract_sha256": "bdac1f344e05050d2e644fec46de0d2fad76c59bf5b33142303a7be4a5f21029"
+}

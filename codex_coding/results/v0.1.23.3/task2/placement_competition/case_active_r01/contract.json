@@ -1,0 +1,862 @@
+{
+  "baseline_rules": {
+    "balanced_exchange": "Start from bottleneck_balanced; inspect removal of 0..2 selected and addition of 0..2 unselected candidates, requiring at least one removal; feasible one-swap or two-exchange neighborhoods. Accept strict same lexicographic key improvement, IDs break ties; repeat until no improvement. No oracle, full-layout enumeration or tunable rounds.",
+    "base_only": "Full immutable DRAM base only, no extra HBM.",
+    "bottleneck_balanced": "From empty, choose feasible single addition minimizing (original service_cost worker-order DAG all-target completion, descending four target last receiver finish times, allocation bytes), rounded to 10 decimals; accept strict lexicographic improvement; IDs break ties. Common original resource_lp routing; no oracle.",
+    "capacity_aware_fastest": "Rank order 0,1,2,3; for each whole block choose fastest candidate with feasible global/location allocation, tie by path distance (local first), worker then ID. Build only if strictly faster than the best full DRAM fallback. One copy/content; no global optimization. Reevaluate with common original resource_lp including full DRAM.",
+    "existing_joint": "Unmodified multi_joint.joint_scenarios with full DRAM and same eight candidates/caps; original byte-rounded resource_lp plan; no secondary objective.",
+    "existing_strong_simple": "Unmodified frozen_layout.strong_simple singleton/paired and joint_greedy controls; all eight candidates and full DRAM; common resource_lp final score.",
+    "finite_reference": "Enumerate all 256 subsets, keep 121 capacity-feasible; fixed original resource_lp/4MiB route rounding/rank_interleaved queue. Reference only, not a baseline or finite execution optimum."
+  },
+  "budget_ledger": {
+    "allocation_quantum_bytes": 4096,
+    "base_dram_bytes": 16777216,
+    "block_bytes": 4194304,
+    "cache_pool_caps_bytes": [
+      8388608,
+      8388608
+    ],
+    "max_cache_hbm_bytes": 16777216,
+    "physical_budget_admitted": false,
+    "physical_payload_allocated_bytes": 0,
+    "physical_peak_bytes": null,
+    "routing_quantum_bytes": 4194304,
+    "runtime_bytes": null,
+    "staging_hbm_bytes": 402653184,
+    "target_hbm_bytes": 16777216
+  },
+  "case": {
+    "base": [
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_4",
+        "generation": 1,
+        "gpu": 4,
+        "id": "base/0",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_U",
+        "numa": 4,
+        "off": 0,
+        "preview_only": false,
+        "state": "VALID",
+        "tier": "dram",
+        "tp": 0,
+        "worker": 4
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_5",
+        "generation": 1,
+        "gpu": 5,
+        "id": "base/1",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_U",
+        "numa": 5,
+        "off": 0,
+        "preview_only": false,
+        "state": "VALID",
+        "tier": "dram",
+        "tp": 1,
+        "worker": 5
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_4",
+        "generation": 1,
+        "gpu": 4,
+        "id": "base/2",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_U",
+        "numa": 4,
+        "off": 0,
+        "preview_only": false,
+        "state": "VALID",
+        "tier": "dram",
+        "tp": 2,
+        "worker": 4
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_5",
+        "generation": 1,
+        "gpu": 5,
+        "id": "base/3",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_U",
+        "numa": 5,
+        "off": 0,
+        "preview_only": false,
+        "state": "VALID",
+        "tier": "dram",
+        "tp": 3,
+        "worker": 5
+      }
+    ],
+    "budget": {
+      "base_dram_bytes": 16777216,
+      "location_budgets": {
+        "0:hbm": 8388608,
+        "1:hbm": 8388608,
+        "2:hbm": 0,
+        "3:hbm": 0,
+        "4:hbm": 0,
+        "5:hbm": 0
+      },
+      "staging_bytes": 402653184,
+      "target_allocation_bytes": 16777216,
+      "tier_budgets": {
+        "hbm": 16777216
+      }
+    },
+    "candidates": [
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_0",
+        "generation": 1,
+        "gpu": 0,
+        "id": "cache/r0/pool0",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_0",
+        "numa": 0,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 0,
+        "worker": 0
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_1",
+        "generation": 1,
+        "gpu": 1,
+        "id": "cache/r0/pool1",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_1",
+        "numa": 1,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 0,
+        "worker": 1
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_0",
+        "generation": 1,
+        "gpu": 0,
+        "id": "cache/r1/pool0",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_0",
+        "numa": 0,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 1,
+        "worker": 0
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_1",
+        "generation": 1,
+        "gpu": 1,
+        "id": "cache/r1/pool1",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_1",
+        "numa": 1,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 1,
+        "worker": 1
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_0",
+        "generation": 1,
+        "gpu": 0,
+        "id": "cache/r2/pool0",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_0",
+        "numa": 0,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 2,
+        "worker": 0
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_1",
+        "generation": 1,
+        "gpu": 1,
+        "id": "cache/r2/pool1",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_1",
+        "numa": 1,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 2,
+        "worker": 1
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_0",
+        "generation": 1,
+        "gpu": 0,
+        "id": "cache/r3/pool0",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_0",
+        "numa": 0,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 3,
+        "worker": 0
+      },
+      {
+        "allocated_bytes": 4194304,
+        "epoch": "placement_symbolic_1",
+        "generation": 1,
+        "gpu": 1,
+        "id": "cache/r3/pool1",
+        "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+        "leases": 0,
+        "n": 4194304,
+        "node": "symbolic_pool_1",
+        "numa": 1,
+        "off": 0,
+        "preview_only": true,
+        "state": "VALID",
+        "tier": "hbm",
+        "tp": 3,
+        "worker": 1
+      }
+    ],
+    "case_id": "scarce_pool_flexible_rank",
+    "objective": "expected",
+    "restore_scenarios": [
+      {
+        "name": "all_four_ranks_required",
+        "targets": [
+          {
+            "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+            "key": "target/0",
+            "n": 4194304,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 0,
+            "worker": 0
+          },
+          {
+            "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+            "key": "target/1",
+            "n": 4194304,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 1,
+            "worker": 1
+          },
+          {
+            "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+            "key": "target/2",
+            "n": 4194304,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 2,
+            "worker": 2
+          },
+          {
+            "identity": "synthetic_tp4_one4MiB_block_per_rank_not_model_weights",
+            "key": "target/3",
+            "n": 4194304,
+            "off": 0,
+            "tier": "hbm",
+            "tp": 3,
+            "worker": 3
+          }
+        ],
+        "weight": 1
+      }
+    ],
+    "workers": [
+      {
+        "budget_bytes": {
+          "dram": 8388608,
+          "hbm": 8388608
+        },
+        "capabilities": [
+          "local_dram",
+          "local_hbm",
+          "network"
+        ],
+        "epoch": "placement_symbolic_0",
+        "gpu": 0,
+        "node": "symbolic_pool_0",
+        "numa": 0,
+        "session": "offline_placement_competition",
+        "used_bytes": {
+          "dram": 0,
+          "hbm": 0
+        },
+        "worker": 0
+      },
+      {
+        "budget_bytes": {
+          "dram": 8388608,
+          "hbm": 8388608
+        },
+        "capabilities": [
+          "local_dram",
+          "local_hbm",
+          "network"
+        ],
+        "epoch": "placement_symbolic_1",
+        "gpu": 1,
+        "node": "symbolic_pool_1",
+        "numa": 1,
+        "session": "offline_placement_competition",
+        "used_bytes": {
+          "dram": 0,
+          "hbm": 0
+        },
+        "worker": 1
+      },
+      {
+        "budget_bytes": {
+          "dram": 8388608,
+          "hbm": 0
+        },
+        "capabilities": [
+          "local_dram",
+          "local_hbm",
+          "network"
+        ],
+        "epoch": "placement_symbolic_2",
+        "gpu": 2,
+        "node": "symbolic_target_2",
+        "numa": 2,
+        "session": "offline_placement_competition",
+        "used_bytes": {
+          "dram": 0,
+          "hbm": 0
+        },
+        "worker": 2
+      },
+      {
+        "budget_bytes": {
+          "dram": 8388608,
+          "hbm": 0
+        },
+        "capabilities": [
+          "local_dram",
+          "local_hbm",
+          "network"
+        ],
+        "epoch": "placement_symbolic_3",
+        "gpu": 3,
+        "node": "symbolic_target_3",
+        "numa": 3,
+        "session": "offline_placement_competition",
+        "used_bytes": {
+          "dram": 0,
+          "hbm": 0
+        },
+        "worker": 3
+      },
+      {
+        "budget_bytes": {
+          "dram": 8388608,
+          "hbm": 0
+        },
+        "capabilities": [
+          "local_dram",
+          "local_hbm",
+          "network"
+        ],
+        "epoch": "placement_symbolic_4",
+        "gpu": 4,
+        "node": "symbolic_U",
+        "numa": 4,
+        "session": "offline_placement_competition",
+        "used_bytes": {
+          "dram": 8388608,
+          "hbm": 0
+        },
+        "worker": 4
+      },
+      {
+        "budget_bytes": {
+          "dram": 8388608,
+          "hbm": 0
+        },
+        "capabilities": [
+          "local_dram",
+          "local_hbm",
+          "network"
+        ],
+        "epoch": "placement_symbolic_5",
+        "gpu": 5,
+        "node": "symbolic_U",
+        "numa": 5,
+        "session": "offline_placement_competition",
+        "used_bytes": {
+          "dram": 8388608,
+          "hbm": 0
+        },
+        "worker": 5
+      }
+    ]
+  },
+  "competition_witness": {
+    "capacity_units": 2,
+    "demand_units": 3,
+    "dependent_alternative_rates": [
+      1.5,
+      1.5
+    ],
+    "flexible_alternative_rate": 3,
+    "flexible_rank": 0,
+    "high_quality_dependent_ranks": [
+      0,
+      2,
+      3
+    ],
+    "inequalities": [
+      "3 high-quality block demands > 2 pool0 slots",
+      "r0 alternative3 > r2/r3 alternative1.5",
+      "1 < v=3/2 < 12/7"
+    ],
+    "role_reuse": "Target0/1 also cache source pools; cross-role worker dependencies differ from previous eight-worker TP4.",
+    "scarce_pool": 0
+  },
+  "contract_sha256": "e8a780d2fc6a1d1fda2d1676049830fb968ced9657f8c802e6c7954a07a3c427",
+  "created_at_utc": "2026-10-10T09:39:17.206551+00:00",
+  "decision_contract": {
+    "duplicate_copies_allowed": true,
+    "full_dram_fallback_for_all": true,
+    "primary": "Common original service_cost isolated worker-order DAG all-target receiver completion, symbolic dimensionless; resource bound separately reported",
+    "relay": false,
+    "route_choice": "All legal base plus chosen caches participate; candidate selection does not force cache use",
+    "schedule": "Original rank_interleaved ops with shared source/destination worker ready dependencies",
+    "secondary": "Descending target last receiver finish vector then cache bytes; later source use is not target weight readiness",
+    "shared_exit": "Two DRAM source workers share net_out:symbolic_U at4units/time; not claimed isolated cause of gain"
+  },
+  "development": "v0.1.23.3/task2",
+  "failure_conditions": [
+    "Only IDs differ or strong simple equals joint: report no primary joint increment",
+    "Fallback makes added caches unused: report unused allocation; do not force HBM use",
+    "Shared bound and worker DAG differ: neither certifies finite shared schedule",
+    "Physical runtime/source epochs/calibration/model binding absent: retain readiness false",
+    "Any failure preserves run; no parameter sweep or changes to obtain joint win"
+  ],
+  "gpu_command": null,
+  "gpu_launches": 0,
+  "path_contract": [
+    {
+      "kind": "network",
+      "path": "4:dram:4->0",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "base/0",
+      "resources": {
+        "dram:symbolic_U:4": 100.0,
+        "in:0": 100.0,
+        "net_in:symbolic_pool_0": 4.0,
+        "net_out:symbolic_U": 4.0,
+        "out:4": 100.0
+      },
+      "source_worker": 4,
+      "symbolic_rate_units_per_time": 1.0,
+      "target_rank": 0,
+      "target_worker": 0
+    },
+    {
+      "kind": "network",
+      "path": "5:dram:5->1",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "base/1",
+      "resources": {
+        "dram:symbolic_U:5": 100.0,
+        "in:1": 100.0,
+        "net_in:symbolic_pool_1": 4.0,
+        "net_out:symbolic_U": 4.0,
+        "out:5": 100.0
+      },
+      "source_worker": 5,
+      "symbolic_rate_units_per_time": 1.0,
+      "target_rank": 1,
+      "target_worker": 1
+    },
+    {
+      "kind": "network",
+      "path": "4:dram:4->2",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "base/2",
+      "resources": {
+        "dram:symbolic_U:4": 100.0,
+        "in:2": 100.0,
+        "net_in:symbolic_target_2": 4.0,
+        "net_out:symbolic_U": 4.0,
+        "out:4": 100.0
+      },
+      "source_worker": 4,
+      "symbolic_rate_units_per_time": 1.0,
+      "target_rank": 2,
+      "target_worker": 2
+    },
+    {
+      "kind": "network",
+      "path": "5:dram:5->3",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "base/3",
+      "resources": {
+        "dram:symbolic_U:5": 100.0,
+        "in:3": 100.0,
+        "net_in:symbolic_target_3": 4.0,
+        "net_out:symbolic_U": 4.0,
+        "out:5": 100.0
+      },
+      "source_worker": 5,
+      "symbolic_rate_units_per_time": 1.0,
+      "target_rank": 3,
+      "target_worker": 3
+    },
+    {
+      "kind": "local_hbm",
+      "path": "0:hbm:0->0",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r0/pool0",
+      "resources": {
+        "in:0": 100.0
+      },
+      "source_worker": 0,
+      "symbolic_rate_units_per_time": 4.0,
+      "target_rank": 0,
+      "target_worker": 0
+    },
+    {
+      "kind": "network",
+      "path": "1:hbm:1->0",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r0/pool1",
+      "resources": {
+        "in:0": 100.0,
+        "net_in:symbolic_pool_0": 4.0,
+        "net_out:symbolic_pool_1": 4.0,
+        "out:1": 100.0
+      },
+      "source_worker": 1,
+      "symbolic_rate_units_per_time": 3.0,
+      "target_rank": 0,
+      "target_worker": 0
+    },
+    {
+      "kind": "network",
+      "path": "0:hbm:0->1",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r1/pool0",
+      "resources": {
+        "in:1": 100.0,
+        "net_in:symbolic_pool_1": 4.0,
+        "net_out:symbolic_pool_0": 4.0,
+        "out:0": 100.0
+      },
+      "source_worker": 0,
+      "symbolic_rate_units_per_time": 4.0,
+      "target_rank": 1,
+      "target_worker": 1
+    },
+    {
+      "kind": "local_hbm",
+      "path": "1:hbm:1->1",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r1/pool1",
+      "resources": {
+        "in:1": 100.0
+      },
+      "source_worker": 1,
+      "symbolic_rate_units_per_time": 4.0,
+      "target_rank": 1,
+      "target_worker": 1
+    },
+    {
+      "kind": "network",
+      "path": "0:hbm:0->2",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r2/pool0",
+      "resources": {
+        "in:2": 100.0,
+        "net_in:symbolic_target_2": 4.0,
+        "net_out:symbolic_pool_0": 4.0,
+        "out:0": 100.0
+      },
+      "source_worker": 0,
+      "symbolic_rate_units_per_time": 4.0,
+      "target_rank": 2,
+      "target_worker": 2
+    },
+    {
+      "kind": "network",
+      "path": "1:hbm:1->2",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r2/pool1",
+      "resources": {
+        "in:2": 100.0,
+        "net_in:symbolic_target_2": 4.0,
+        "net_out:symbolic_pool_1": 4.0,
+        "out:1": 100.0
+      },
+      "source_worker": 1,
+      "symbolic_rate_units_per_time": 1.5,
+      "target_rank": 2,
+      "target_worker": 2
+    },
+    {
+      "kind": "network",
+      "path": "0:hbm:0->3",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r3/pool0",
+      "resources": {
+        "in:3": 100.0,
+        "net_in:symbolic_target_3": 4.0,
+        "net_out:symbolic_pool_0": 4.0,
+        "out:0": 100.0
+      },
+      "source_worker": 0,
+      "symbolic_rate_units_per_time": 4.0,
+      "target_rank": 3,
+      "target_worker": 3
+    },
+    {
+      "kind": "network",
+      "path": "1:hbm:1->3",
+      "physical_capacity_GBps": null,
+      "physical_rate_GBps": null,
+      "replica_id": "cache/r3/pool1",
+      "resources": {
+        "in:3": 100.0,
+        "net_in:symbolic_target_3": 4.0,
+        "net_out:symbolic_pool_1": 4.0,
+        "out:1": 100.0
+      },
+      "source_worker": 1,
+      "symbolic_rate_units_per_time": 1.5,
+      "target_rank": 3,
+      "target_worker": 3
+    }
+  ],
+  "product_changes": 0,
+  "readiness": {
+    "finite_execution": false,
+    "model_binding": false,
+    "physical_capacity": false,
+    "physical_mapping": false,
+    "real_performance": false
+  },
+  "revision_contract": {
+    "changes": [
+      {
+        "candidate_id": "cache/r2/pool1",
+        "new_symbolic_rate": 1.5,
+        "old_symbolic_rate": 0.5
+      },
+      {
+        "candidate_id": "cache/r3/pool1",
+        "new_symbolic_rate": 1.5,
+        "old_symbolic_rate": 0.5
+      }
+    ],
+    "derivation_path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_active_preregister_r01/derivation.md",
+    "derivation_sha256": "b6af0e371723e6add3df4102432a82a174dd5d3461734cb6eae534c74c34c39e",
+    "joint_win_required": false,
+    "parameter_sweep": false,
+    "preregistered_expected_exchange_fixed_cache_queue": 0.8333333333333334,
+    "preregistered_expected_fastest_fixed_cache_queue": 0.9166666666666666,
+    "prior_contract_path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_cpu_r03/contract.json",
+    "prior_contract_sha256": "19210b8947627b9ababb350a7e8540e82f59dec71d06a64af44a1bfd6c58aa6c",
+    "reason": "Prior rigid-pool1 rates were dominated by full DRAM fallback; satisfy two meaningful save locations per block without changing caps, rules, source opportunities or queue.",
+    "route_witness_rules": {
+      "flexible_rank_exchange": [
+        "cache/r0/pool1",
+        "cache/r1/pool1",
+        "cache/r2/pool0",
+        "cache/r3/pool0"
+      ],
+      "routing": "Original restore_plan fastest, rank_interleaved, full DRAM retained; two fixed preregistered route witnesses only, not baseline substitution or result selection.",
+      "sequential_full_cache": [
+        "cache/r0/pool0",
+        "cache/r1/pool1",
+        "cache/r2/pool0",
+        "cache/r3/pool1"
+      ]
+    },
+    "routes_must_be_independently_verified": true
+  },
+  "schema_version": "placement_competition.symbolic_contract.v1",
+  "source_refs": [
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/placement_competition/case/build_active_case.py",
+      "sha256": "af58b39af389c45aa1c7ddd23f41f3203b28c2e9a887419f054f5c87fd9269d7"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/tp4_scenarios/contract/build_contract.py",
+      "sha256": "1105aa5d56f1f38ed308eb08c4d8bf868d1a02ebbf9b488a0f66461e0c38ee41"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/tp4_scenarios/contract_cpu_r03/contract.json",
+      "sha256": "7af9e088682f25a89e6c18f88875c74bd8489a5d3d69b23cda2fae0fa3e14081"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_cpu_r03/contract.json",
+      "sha256": "e92af8cf65b76bfbde3009a70e7d184933407c45d8f3b8a5f6743de73b0292fb"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_active_preregister_r01/derivation.md",
+      "sha256": "b6af0e371723e6add3df4102432a82a174dd5d3461734cb6eae534c74c34c39e"
+    },
+    {
+      "path": "codex_coding/results/v0.1.23.3/task2/placement_competition/case_active_preregister_r01/route_witness.md",
+      "sha256": "9e0002b682212d31931f50eb7c291c995a391b0d9cdd01748e5aace706f5ebf3"
+    },
+    {
+      "path": "codex_coding/src/v0.1.23.3/task2/placement_competition/case/build_case.py",
+      "sha256": "c0bd83cf7e33482fc91a5616b3acfb9fbd7cfd5b3ef288567c29c5263ddb1f59"
+    },
+    {
+      "path": "main_lib/fluidckpt/benchmarks/frozen_layout.py",
+      "sha256": "8655ec85138d54aff98cdd2044c98c555ba0acf6b929b7ceee9d873a490b8e64"
+    },
+    {
+      "path": "main_lib/fluidckpt/benchmarks/topology_cases.py",
+      "sha256": "9ea2287c7f3748ebf43adbd44d24b3002b22ca359399152af9fb0c728755fc39"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/planning.py",
+      "sha256": "085fca232073c760025908fbf156ee4c5d64abf95f0b96045e52338e7c1ff024"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/multi_joint.py",
+      "sha256": "0a0e5e3eb1da510a210067e9420fae41c1b17175b89a45a5354d1ec0410a7657"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/service_cost.py",
+      "sha256": "e78f2d1e6ce14a5a8689f98b5538a9a7f6443cdec56344888e481c6313635c14"
+    },
+    {
+      "path": "main_lib/fluidckpt/cluster/path_catalog.py",
+      "sha256": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43"
+    }
+  ],
+  "ssh_operations": 0,
+  "stage": "preregistered_before_first_solve",
+  "symbolic_profile": {
+    "directed_path_rates": {
+      "0:hbm:0->0": 0.016777216,
+      "0:hbm:0->1": 0.016777216,
+      "0:hbm:0->2": 0.016777216,
+      "0:hbm:0->3": 0.016777216,
+      "1:hbm:1->0": 0.012582912,
+      "1:hbm:1->1": 0.016777216,
+      "1:hbm:1->2": 0.006291456,
+      "1:hbm:1->3": 0.006291456,
+      "4:dram:4->0": 0.004194304,
+      "4:dram:4->2": 0.004194304,
+      "5:dram:5->1": 0.004194304,
+      "5:dram:5->3": 0.004194304
+    },
+    "dram_GBps": 0.4194304,
+    "gpu_egress_GBps": 0.4194304,
+    "gpu_ingress_GBps": 0.4194304,
+    "network_node_GBps": 0.016777216,
+    "network_pairs": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        3
+      ]
+    ],
+    "provenance": "SYMBOLIC_ONLY: 4MiB/unit, no hardware calibration",
+    "rates": {
+      "local_dram": 0.016777216,
+      "local_hbm": 0.016777216,
+      "network": 0.004194304
+    },
+    "serial_target_execution": true
+  },
+  "synthetic": true
+}

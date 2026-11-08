@@ -1,0 +1,352 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a4d31d0 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)>:
+ a4d31d0:	41 57                	push   %r15
+ a4d31d2:	41 56                	push   %r14
+ a4d31d4:	41 55                	push   %r13
+ a4d31d6:	41 54                	push   %r12
+ a4d31d8:	53                   	push   %rbx
+ a4d31d9:	48 81 ec 40 10 00 00 	sub    $0x1040,%rsp
+ a4d31e0:	48 89 f3             	mov    %rsi,%rbx
+ a4d31e3:	48 89 7c 24 38       	mov    %rdi,0x38(%rsp)
+ a4d31e8:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4d31ed:	ba 00 10 00 00       	mov    $0x1000,%edx
+ a4d31f2:	31 f6                	xor    %esi,%esi
+ a4d31f4:	e8 37 87 05 00       	call   a52b930 <memset@plt>
+ a4d31f9:	48 8d 3d f3 20 b4 f5 	lea    -0xa4bdf0d(%rip),%rdi        # 152f3 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x15103>
+ a4d3200:	e8 0b a7 01 00       	call   a4ed910 <ncclGetEnv(char const*)>
+ a4d3205:	48 85 c0             	test   %rax,%rax
+ a4d3208:	74 24                	je     a4d322e <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5e>
+ a4d320a:	c6 05 df 49 14 00 01 	movb   $0x1,0x1449df(%rip)        # a617bf0 <isTopoMappingDefaultFile>
+ a4d3211:	48 8d 15 d5 34 b4 f5 	lea    -0xa4bcb2b(%rip),%rdx        # 166ed <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x164fd>
+ a4d3218:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4d321d:	be 00 10 00 00       	mov    $0x1000,%esi
+ a4d3222:	48 89 c1             	mov    %rax,%rcx
+ a4d3225:	31 c0                	xor    %eax,%eax
+ a4d3227:	e8 a4 89 05 00       	call   a52bbd0 <snprintf@plt>
+ a4d322c:	eb 3e                	jmp    a4d326c <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x9c>
+ a4d322e:	48 8d 3d fd 04 b5 f5 	lea    -0xa4afb03(%rip),%rdi        # 23732 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23542>
+ a4d3235:	e8 16 8a 05 00       	call   a52bc50 <getenv@plt>
+ a4d323a:	48 85 c0             	test   %rax,%rax
+ a4d323d:	0f 84 b2 02 00 00    	je     a4d34f5 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x325>
+ a4d3243:	48 8d 15 05 5f b4 f5 	lea    -0xa4ba0fb(%rip),%rdx        # 1914f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x18f5f>
+ a4d324a:	4c 8d 05 96 d3 b3 f5 	lea    -0xa4c2c6a(%rip),%r8        # 105e7 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x103f7>
+ a4d3251:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4d3256:	be 00 10 00 00       	mov    $0x1000,%esi
+ a4d325b:	48 89 c1             	mov    %rax,%rcx
+ a4d325e:	31 c0                	xor    %eax,%eax
+ a4d3260:	e8 6b 89 05 00       	call   a52bbd0 <snprintf@plt>
+ a4d3265:	c6 05 84 49 14 00 00 	movb   $0x0,0x144984(%rip)        # a617bf0 <isTopoMappingDefaultFile>
+ a4d326c:	48 8d 44 24 38       	lea    0x38(%rsp),%rax
+ a4d3271:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4d3276:	4c 8d 64 24 08       	lea    0x8(%rsp),%r12
+ a4d327b:	4c 89 64 24 10       	mov    %r12,0x10(%rsp)
+ a4d3280:	66 48 8d 3d 50 9e 0c 	data16 lea 0xc9e50(%rip),%rdi        # a59d0d8 <std::__once_callable@GLIBCXX_3.4.11>
+ a4d3287:	00 
+ a4d3288:	66 66 48 e8 f0 86 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d328f:	00 
+ a4d3290:	49 89 c6             	mov    %rax,%r14
+ a4d3293:	48 8d 44 24 10       	lea    0x10(%rsp),%rax
+ a4d3298:	49 89 06             	mov    %rax,(%r14)
+ a4d329b:	66 48 8d 3d 45 9e 0c 	data16 lea 0xc9e45(%rip),%rdi        # a59d0e8 <std::__once_call@GLIBCXX_3.4.11>
+ a4d32a2:	00 
+ a4d32a3:	66 66 48 e8 d5 86 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d32aa:	00 
+ a4d32ab:	49 89 c7             	mov    %rax,%r15
+ a4d32ae:	48 8d 05 0b 8a 00 00 	lea    0x8a0b(%rip),%rax        # a4dbcc0 <std::call_once<ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)::{lambda()#1}>(std::once_flag&, ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)::{lambda()#1}&&)::{lambda()#2}::__invoke()>
+ a4d32b5:	49 89 07             	mov    %rax,(%r15)
+ a4d32b8:	48 83 3d 30 9d 0c 00 	cmpq   $0x0,0xc9d30(%rip)        # a59cff0 <__pthread_key_create@GLIBC_2.2.5>
+ a4d32bf:	00 
+ a4d32c0:	0f 84 b3 04 00 00    	je     a4d3779 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5a9>
+ a4d32c6:	48 8d 3d 27 49 14 00 	lea    0x144927(%rip),%rdi        # a617bf4 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)::init_flag>
+ a4d32cd:	48 8b 35 24 9e 0c 00 	mov    0xc9e24(%rip),%rsi        # a59d0f8 <__once_proxy@GLIBCXX_3.4.11>
+ a4d32d4:	e8 e7 85 05 00       	call   a52b8c0 <pthread_once@plt>
+ a4d32d9:	85 c0                	test   %eax,%eax
+ a4d32db:	0f 85 9d 04 00 00    	jne    a4d377e <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5ae>
+ a4d32e1:	48 83 3d ef 48 14 00 	cmpq   $0x0,0x1448ef(%rip)        # a617bd8 <g_busIdSet+0x58>
+ a4d32e8:	00 
+ a4d32e9:	0f 84 ad 00 00 00    	je     a4d339c <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x1cc>
+ a4d32ef:	0f 57 c0             	xorps  %xmm0,%xmm0
+ a4d32f2:	0f 29 44 24 20       	movaps %xmm0,0x20(%rsp)
+ a4d32f7:	0f 29 44 24 10       	movaps %xmm0,0x10(%rsp)
+ a4d32fc:	48 8d 44 24 07       	lea    0x7(%rsp),%rax
+ a4d3301:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+ a4d3306:	4d 89 26             	mov    %r12,(%r14)
+ a4d3309:	48 8d 05 d0 91 00 00 	lea    0x91d0(%rip),%rax        # a4dc4e0 <std::call_once<envTypeInfo::getEnvTypeInfoStr[abi:cxx11]()::{lambda()#1}>(std::once_flag&, envTypeInfo::getEnvTypeInfoStr[abi:cxx11]()::{lambda()#1}&&)::{lambda()#2}::__invoke()>
+ a4d3310:	49 89 07             	mov    %rax,(%r15)
+ a4d3313:	48 83 3d d5 9c 0c 00 	cmpq   $0x0,0xc9cd5(%rip)        # a59cff0 <__pthread_key_create@GLIBC_2.2.5>
+ a4d331a:	00 
+ a4d331b:	0f 84 64 04 00 00    	je     a4d3785 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5b5>
+ a4d3321:	48 8d 3d b8 48 14 00 	lea    0x1448b8(%rip),%rdi        # a617be0 <envTypeInfo::init_flag>
+ a4d3328:	48 8b 35 c9 9d 0c 00 	mov    0xc9dc9(%rip),%rsi        # a59d0f8 <__once_proxy@GLIBCXX_3.4.11>
+ a4d332f:	e8 8c 85 05 00       	call   a52b8c0 <pthread_once@plt>
+ a4d3334:	85 c0                	test   %eax,%eax
+ a4d3336:	0f 85 4e 04 00 00    	jne    a4d378a <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5ba>
+ a4d333c:	48 8b 05 a5 48 14 00 	mov    0x1448a5(%rip),%rax        # a617be8 <envTypeInfo::_inst>
+ a4d3343:	4c 8d 6c 24 20       	lea    0x20(%rsp),%r13
+ a4d3348:	4c 89 6c 24 10       	mov    %r13,0x10(%rsp)
+ a4d334d:	4c 8b b0 d8 00 00 00 	mov    0xd8(%rax),%r14
+ a4d3354:	4c 8b b8 e0 00 00 00 	mov    0xe0(%rax),%r15
+ a4d335b:	4c 89 7c 24 08       	mov    %r15,0x8(%rsp)
+ a4d3360:	4c 89 e8             	mov    %r13,%rax
+ a4d3363:	49 83 ff 10          	cmp    $0x10,%r15
+ a4d3367:	72 20                	jb     a4d3389 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x1b9>
+ a4d3369:	48 8d 7c 24 10       	lea    0x10(%rsp),%rdi
+ a4d336e:	48 8d 74 24 08       	lea    0x8(%rsp),%rsi
+ a4d3373:	31 d2                	xor    %edx,%edx
+ a4d3375:	e8 86 8d 05 00       	call   a52c100 <std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_create(unsigned long&, unsigned long)@plt>
+ a4d337a:	48 89 44 24 10       	mov    %rax,0x10(%rsp)
+ a4d337f:	48 8b 4c 24 08       	mov    0x8(%rsp),%rcx
+ a4d3384:	48 89 4c 24 20       	mov    %rcx,0x20(%rsp)
+ a4d3389:	4d 85 ff             	test   %r15,%r15
+ a4d338c:	74 43                	je     a4d33d1 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x201>
+ a4d338e:	49 83 ff 01          	cmp    $0x1,%r15
+ a4d3392:	75 2f                	jne    a4d33c3 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x1f3>
+ a4d3394:	41 0f b6 0e          	movzbl (%r14),%ecx
+ a4d3398:	88 08                	mov    %cl,(%rax)
+ a4d339a:	eb 35                	jmp    a4d33d1 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x201>
+ a4d339c:	48 8d 15 aa 93 b4 f5 	lea    -0xa4b6c56(%rip),%rdx        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d33a3:	4c 8d 05 61 46 b4 f5 	lea    -0xa4bb99f(%rip),%r8        # 17a0b <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1781b>
+ a4d33aa:	45 31 f6             	xor    %r14d,%r14d
+ a4d33ad:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d33b2:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d33b9:	b9 bb 04 00 00       	mov    $0x4bb,%ecx
+ a4d33be:	e9 52 01 00 00       	jmp    a4d3515 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x345>
+ a4d33c3:	48 89 c7             	mov    %rax,%rdi
+ a4d33c6:	4c 89 f6             	mov    %r14,%rsi
+ a4d33c9:	4c 89 fa             	mov    %r15,%rdx
+ a4d33cc:	e8 2f 89 05 00       	call   a52bd00 <memcpy@plt>
+ a4d33d1:	48 8b 44 24 08       	mov    0x8(%rsp),%rax
+ a4d33d6:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+ a4d33db:	48 8b 4c 24 10       	mov    0x10(%rsp),%rcx
+ a4d33e0:	c6 04 01 00          	movb   $0x0,(%rcx,%rax,1)
+ a4d33e4:	48 83 7c 24 18 00    	cmpq   $0x0,0x18(%rsp)
+ a4d33ea:	0f 84 d7 00 00 00    	je     a4d34c7 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x2f7>
+ a4d33f0:	4c 8b 4c 24 10       	mov    0x10(%rsp),%r9
+ a4d33f5:	48 8d 15 93 d2 b4 f5 	lea    -0xa4b2d6d(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d33fc:	4c 8d 05 97 f6 b3 f5 	lea    -0xa4c0969(%rip),%r8        # 12a9a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x128aa>
+ a4d3403:	be 20 00 00 00       	mov    $0x20,%esi
+ a4d3408:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d340d:	b9 c5 04 00 00       	mov    $0x4c5,%ecx
+ a4d3412:	31 c0                	xor    %eax,%eax
+ a4d3414:	e8 e7 b7 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d3419:	48 8d 35 08 c3 b4 f5 	lea    -0xa4b3cf8(%rip),%rsi        # 1f728 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f538>
+ a4d3420:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+ a4d3425:	e8 a6 85 05 00       	call   a52b9d0 <fopen@plt>
+ a4d342a:	48 85 c0             	test   %rax,%rax
+ a4d342d:	0f 84 ee 00 00 00    	je     a4d3521 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x351>
+ a4d3433:	49 89 c7             	mov    %rax,%r15
+ a4d3436:	48 8d 15 52 d2 b4 f5 	lea    -0xa4b2dae(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d343d:	4c 8d 05 f8 02 b5 f5 	lea    -0xa4afd08(%rip),%r8        # 2373c <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2354c>
+ a4d3444:	4c 8d 4c 24 40       	lea    0x40(%rsp),%r9
+ a4d3449:	be 20 00 00 00       	mov    $0x20,%esi
+ a4d344e:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d3453:	b9 cd 04 00 00       	mov    $0x4cd,%ecx
+ a4d3458:	31 c0                	xor    %eax,%eax
+ a4d345a:	e8 a1 b7 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d345f:	c7 03 00 00 00 00    	movl   $0x0,(%rbx)
+ a4d3465:	48 8d 0d b4 97 0c 00 	lea    0xc97b4(%rip),%rcx        # a59cc20 <rome_model_68+0x2938>
+ a4d346c:	45 31 f6             	xor    %r14d,%r14d
+ a4d346f:	4c 89 ff             	mov    %r15,%rdi
+ a4d3472:	48 89 de             	mov    %rbx,%rsi
+ a4d3475:	31 d2                	xor    %edx,%edx
+ a4d3477:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+ a4d347d:	e8 ce 88 ff ff       	call   a4cbd50 <xmlLoadSub(_IO_FILE*, ncclXml*, ncclXmlNode*, xmlHandler*, int)>
+ a4d3482:	41 89 c4             	mov    %eax,%r12d
+ a4d3485:	85 c0                	test   %eax,%eax
+ a4d3487:	0f 84 1b 01 00 00    	je     a4d35a8 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x3d8>
+ a4d348d:	41 83 fc 07          	cmp    $0x7,%r12d
+ a4d3491:	0f 84 11 01 00 00    	je     a4d35a8 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x3d8>
+ a4d3497:	48 83 3d 59 9b 0c 00 	cmpq   $0x0,0xc9b59(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d349e:	00 
+ a4d349f:	74 05                	je     a4d34a6 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x2d6>
+ a4d34a1:	e8 ca 84 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d34a6:	66 48 8d 3d 52 9b 0c 	data16 lea 0xc9b52(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d34ad:	00 
+ a4d34ae:	66 66 48 e8 ca 84 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d34b5:	00 
+ a4d34b6:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d34b9:	0f 84 ae 00 00 00    	je     a4d356d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x39d>
+ a4d34bf:	45 89 e6             	mov    %r12d,%r14d
+ a4d34c2:	e9 e1 00 00 00       	jmp    a4d35a8 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x3d8>
+ a4d34c7:	45 31 f6             	xor    %r14d,%r14d
+ a4d34ca:	48 8d 15 7c 92 b4 f5 	lea    -0xa4b6d84(%rip),%rdx        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d34d1:	4c 8d 05 d5 d1 b4 f5 	lea    -0xa4b2e2b(%rip),%r8        # 206ad <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x204bd>
+ a4d34d8:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d34dd:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d34e4:	b9 c2 04 00 00       	mov    $0x4c2,%ecx
+ a4d34e9:	31 c0                	xor    %eax,%eax
+ a4d34eb:	e8 10 b7 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d34f0:	e9 30 02 00 00       	jmp    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d34f5:	48 8d 15 93 d1 b4 f5 	lea    -0xa4b2e6d(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d34fc:	4c 8d 05 a2 49 b5 f5 	lea    -0xa4ab65e(%rip),%r8        # 27ea5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27cb5>
+ a4d3503:	45 31 f6             	xor    %r14d,%r14d
+ a4d3506:	be 80 00 00 00       	mov    $0x80,%esi
+ a4d350b:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d3510:	b9 b0 04 00 00       	mov    $0x4b0,%ecx
+ a4d3515:	31 c0                	xor    %eax,%eax
+ a4d3517:	e8 e4 b6 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d351c:	e9 13 02 00 00       	jmp    a4d3734 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x564>
+ a4d3521:	e8 4a 82 05 00       	call   a52b770 <__errno_location@plt>
+ a4d3526:	8b 38                	mov    (%rax),%edi
+ a4d3528:	e8 63 84 05 00       	call   a52b990 <strerror@plt>
+ a4d352d:	49 89 c2             	mov    %rax,%r10
+ a4d3530:	45 31 f6             	xor    %r14d,%r14d
+ a4d3533:	48 83 ec 08          	sub    $0x8,%rsp
+ a4d3537:	48 8d 15 0f 92 b4 f5 	lea    -0xa4b6df1(%rip),%rdx        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d353e:	4c 8d 05 6b 92 b4 f5 	lea    -0xa4b6d95(%rip),%r8        # 1c7b0 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c5c0>
+ a4d3545:	4c 8d 4c 24 48       	lea    0x48(%rsp),%r9
+ a4d354a:	bf 02 00 00 00       	mov    $0x2,%edi
+ a4d354f:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d3556:	b9 ca 04 00 00       	mov    $0x4ca,%ecx
+ a4d355b:	31 c0                	xor    %eax,%eax
+ a4d355d:	41 52                	push   %r10
+ a4d355f:	e8 9c b6 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d3564:	48 83 c4 10          	add    $0x10,%rsp
+ a4d3568:	e9 b8 01 00 00       	jmp    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d356d:	48 8d 15 1b d1 b4 f5 	lea    -0xa4b2ee5(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d3574:	4c 8d 05 8d 8b b4 f5 	lea    -0xa4b7473(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d357b:	4c 8d 0d cb 91 b4 f5 	lea    -0xa4b6e35(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d3582:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d3587:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d358e:	b9 d0 04 00 00       	mov    $0x4d0,%ecx
+ a4d3593:	31 c0                	xor    %eax,%eax
+ a4d3595:	41 54                	push   %r12
+ a4d3597:	68 d0 04 00 00       	push   $0x4d0
+ a4d359c:	e8 5f b6 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d35a1:	48 83 c4 10          	add    $0x10,%rsp
+ a4d35a5:	45 89 e6             	mov    %r12d,%r14d
+ a4d35a8:	41 83 fc 07          	cmp    $0x7,%r12d
+ a4d35ac:	74 09                	je     a4d35b7 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x3e7>
+ a4d35ae:	45 85 e4             	test   %r12d,%r12d
+ a4d35b1:	0f 85 6e 01 00 00    	jne    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d35b7:	4c 89 ff             	mov    %r15,%rdi
+ a4d35ba:	e8 31 84 05 00       	call   a52b9f0 <fclose@plt>
+ a4d35bf:	48 8d 35 08 49 b5 f5 	lea    -0xa4ab6f8(%rip),%rsi        # 27ece <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x27cde>
+ a4d35c6:	48 89 df             	mov    %rbx,%rdi
+ a4d35c9:	e8 82 03 00 00       	call   a4d3950 <ncclxmlRemoveAllNodeByName(ncclXml*, char const*)>
+ a4d35ce:	41 89 c6             	mov    %eax,%r14d
+ a4d35d1:	85 c0                	test   %eax,%eax
+ a4d35d3:	74 65                	je     a4d363a <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x46a>
+ a4d35d5:	48 83 3d 1b 9a 0c 00 	cmpq   $0x0,0xc9a1b(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d35dc:	00 
+ a4d35dd:	74 05                	je     a4d35e4 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x414>
+ a4d35df:	e8 8c 83 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d35e4:	66 48 8d 3d 14 9a 0c 	data16 lea 0xc9a14(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d35eb:	00 
+ a4d35ec:	66 66 48 e8 8c 83 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d35f3:	00 
+ a4d35f4:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d35f7:	0f 85 28 01 00 00    	jne    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d35fd:	48 8d 15 8b d0 b4 f5 	lea    -0xa4b2f75(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d3604:	4c 8d 05 fd 8a b4 f5 	lea    -0xa4b7503(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d360b:	4c 8d 0d 3b 91 b4 f5 	lea    -0xa4b6ec5(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d3612:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d3617:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d361e:	b9 d4 04 00 00       	mov    $0x4d4,%ecx
+ a4d3623:	31 c0                	xor    %eax,%eax
+ a4d3625:	41 56                	push   %r14
+ a4d3627:	68 d4 04 00 00       	push   $0x4d4
+ a4d362c:	e8 cf b5 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d3631:	48 83 c4 10          	add    $0x10,%rsp
+ a4d3635:	e9 eb 00 00 00       	jmp    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d363a:	48 8d 35 ab 27 b4 f5 	lea    -0xa4bd855(%rip),%rsi        # 15dec <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x15bfc>
+ a4d3641:	48 89 df             	mov    %rbx,%rdi
+ a4d3644:	e8 07 03 00 00       	call   a4d3950 <ncclxmlRemoveAllNodeByName(ncclXml*, char const*)>
+ a4d3649:	41 89 c6             	mov    %eax,%r14d
+ a4d364c:	85 c0                	test   %eax,%eax
+ a4d364e:	74 62                	je     a4d36b2 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x4e2>
+ a4d3650:	48 83 3d a0 99 0c 00 	cmpq   $0x0,0xc99a0(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a4d3657:	00 
+ a4d3658:	74 05                	je     a4d365f <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x48f>
+ a4d365a:	e8 11 83 05 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a4d365f:	66 48 8d 3d 99 99 0c 	data16 lea 0xc9999(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a4d3666:	00 
+ a4d3667:	66 66 48 e8 11 83 05 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a4d366e:	00 
+ a4d366f:	83 38 00             	cmpl   $0x0,(%rax)
+ a4d3672:	0f 85 ad 00 00 00    	jne    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d3678:	48 8d 15 10 d0 b4 f5 	lea    -0xa4b2ff0(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d367f:	4c 8d 05 82 8a b4 f5 	lea    -0xa4b757e(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a4d3686:	4c 8d 0d c0 90 b4 f5 	lea    -0xa4b6f40(%rip),%r9        # 1c74d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c55d>
+ a4d368d:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d3692:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a4d3699:	b9 d5 04 00 00       	mov    $0x4d5,%ecx
+ a4d369e:	31 c0                	xor    %eax,%eax
+ a4d36a0:	41 56                	push   %r14
+ a4d36a2:	68 d5 04 00 00       	push   $0x4d5
+ a4d36a7:	e8 54 b5 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d36ac:	48 83 c4 10          	add    $0x10,%rsp
+ a4d36b0:	eb 73                	jmp    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d36b2:	48 8d 3d 3e 9d b4 f5 	lea    -0xa4b62c2(%rip),%rdi        # 1d3f7 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1d207>
+ a4d36b9:	e8 52 a2 01 00       	call   a4ed910 <ncclGetEnv(char const*)>
+ a4d36be:	49 89 c7             	mov    %rax,%r15
+ a4d36c1:	45 31 f6             	xor    %r14d,%r14d
+ a4d36c4:	48 85 c0             	test   %rax,%rax
+ a4d36c7:	74 5c                	je     a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d36c9:	48 8b 44 24 38       	mov    0x38(%rsp),%rax
+ a4d36ce:	4c 63 a0 a0 8a 0b 00 	movslq 0xb8aa0(%rax),%r12
+ a4d36d5:	48 8b 05 6c b3 0c 00 	mov    0xcb36c(%rip),%rax        # a59ea48 <ncclParamBasicTopoDumpFileRank()::cache>
+ a4d36dc:	48 b9 00 00 00 00 00 	movabs $0x8000000000000000,%rcx
+ a4d36e3:	00 00 80 
+ a4d36e6:	48 39 c8             	cmp    %rcx,%rax
+ a4d36e9:	74 5d                	je     a4d3748 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x578>
+ a4d36eb:	4c 39 e0             	cmp    %r12,%rax
+ a4d36ee:	75 35                	jne    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d36f0:	48 8d 15 98 cf b4 f5 	lea    -0xa4b3068(%rip),%rdx        # 2068f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2049f>
+ a4d36f7:	4c 8d 05 5f 00 b5 f5 	lea    -0xa4affa1(%rip),%r8        # 2375d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x2356d>
+ a4d36fe:	45 31 f6             	xor    %r14d,%r14d
+ a4d3701:	be 80 00 00 00       	mov    $0x80,%esi
+ a4d3706:	bf 03 00 00 00       	mov    $0x3,%edi
+ a4d370b:	b9 d9 04 00 00       	mov    $0x4d9,%ecx
+ a4d3710:	4d 89 f9             	mov    %r15,%r9
+ a4d3713:	31 c0                	xor    %eax,%eax
+ a4d3715:	e8 e6 b4 f9 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a4d371a:	4c 89 ff             	mov    %r15,%rdi
+ a4d371d:	48 89 de             	mov    %rbx,%rsi
+ a4d3720:	e8 ab 8d ff ff       	call   a4cc4d0 <ncclTopoDumpXmlToFile(char const*, ncclXml*)>
+ a4d3725:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ a4d372a:	4c 39 ef             	cmp    %r13,%rdi
+ a4d372d:	74 05                	je     a4d3734 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x564>
+ a4d372f:	e8 4c 83 05 00       	call   a52ba80 <operator delete(void*)@plt>
+ a4d3734:	44 89 f0             	mov    %r14d,%eax
+ a4d3737:	48 81 c4 40 10 00 00 	add    $0x1040,%rsp
+ a4d373e:	5b                   	pop    %rbx
+ a4d373f:	41 5c                	pop    %r12
+ a4d3741:	41 5d                	pop    %r13
+ a4d3743:	41 5e                	pop    %r14
+ a4d3745:	41 5f                	pop    %r15
+ a4d3747:	c3                   	ret    
+ a4d3748:	48 8d 3d 8b 4d b4 f5 	lea    -0xa4bb275(%rip),%rdi        # 184da <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x182ea>
+ a4d374f:	48 8d 0d f2 b2 0c 00 	lea    0xcb2f2(%rip),%rcx        # a59ea48 <ncclParamBasicTopoDumpFileRank()::cache>
+ a4d3756:	48 ba 00 00 00 00 00 	movabs $0x8000000000000000,%rdx
+ a4d375d:	00 00 80 
+ a4d3760:	31 f6                	xor    %esi,%esi
+ a4d3762:	e8 99 a0 01 00       	call   a4ed800 <ncclLoadParam(char const*, long, long, long*)>
+ a4d3767:	48 8b 05 da b2 0c 00 	mov    0xcb2da(%rip),%rax        # a59ea48 <ncclParamBasicTopoDumpFileRank()::cache>
+ a4d376e:	4c 39 e0             	cmp    %r12,%rax
+ a4d3771:	0f 84 79 ff ff ff    	je     a4d36f0 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x520>
+ a4d3777:	eb ac                	jmp    a4d3725 <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x555>
+ a4d3779:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4d377e:	89 c7                	mov    %eax,%edi
+ a4d3780:	e8 ab 8a 05 00       	call   a52c230 <std::__throw_system_error(int)@plt>
+ a4d3785:	b8 ff ff ff ff       	mov    $0xffffffff,%eax
+ a4d378a:	89 c7                	mov    %eax,%edi
+ a4d378c:	e8 9f 8a 05 00       	call   a52c230 <std::__throw_system_error(int)@plt>
+ a4d3791:	eb 0a                	jmp    a4d379d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5cd>
+ a4d3793:	eb 08                	jmp    a4d379d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5cd>
+ a4d3795:	eb 06                	jmp    a4d379d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5cd>
+ a4d3797:	eb 04                	jmp    a4d379d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5cd>
+ a4d3799:	eb 02                	jmp    a4d379d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5cd>
+ a4d379b:	eb 00                	jmp    a4d379d <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5cd>
+ a4d379d:	48 89 c3             	mov    %rax,%rbx
+ a4d37a0:	48 8b 7c 24 10       	mov    0x10(%rsp),%rdi
+ a4d37a5:	4c 39 ef             	cmp    %r13,%rdi
+ a4d37a8:	74 05                	je     a4d37af <ncclTopoGetXmlFromMappingFile(ncclComm*, ncclXml*)+0x5df>
+ a4d37aa:	e8 d1 82 05 00       	call   a52ba80 <operator delete(void*)@plt>
+ a4d37af:	48 89 df             	mov    %rbx,%rdi
+ a4d37b2:	e8 d9 82 05 00       	call   a52ba90 <_Unwind_Resume@plt>

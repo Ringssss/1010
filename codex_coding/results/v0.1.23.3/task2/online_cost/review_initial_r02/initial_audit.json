@@ -1,0 +1,485 @@
+{
+  "status": "passed_static_and_historical_audit",
+  "development": "v0.1.23.3/task2",
+  "GPU_launches": 0,
+  "SSH_commands": 0,
+  "new_performance_samples": 0,
+  "online_prediction_qualified": false,
+  "primary_gate": {
+    "metric": "whole_online_weights_ready",
+    "max_relative_error": 0.1,
+    "per_scenario": true,
+    "per_term_thresholds_required": false,
+    "complexity_upgrade_gate_required": false
+  },
+  "historical_live_cases": [
+    {
+      "run": "basic_scenarios/s2_r01/summary.json",
+      "phase": "basic_3edadcae_s2_r01_janus_host_0",
+      "target_host": "m03r2n07",
+      "logical_bytes": 70329718112,
+      "operations": 2,
+      "T_ready_s": 1.503805855,
+      "request_to_ready_ack_s": 1.6606506314128637,
+      "post_ready_verification_s": 85.67360577266663,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "basic_scenarios/s2_r01/summary.json",
+      "phase": "basic_3edadcae_s2_r01_resource_lp_0",
+      "target_host": "m03r2n07",
+      "logical_bytes": 70329718112,
+      "operations": 2,
+      "T_ready_s": 1.330876237,
+      "request_to_ready_ack_s": 1.4158743973821402,
+      "post_ready_verification_s": 84.82109819259495,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "basic_scenarios/s3_r01/summary.json",
+      "phase": "basic_3edadcae_s3_r01_janus_d2d_0",
+      "target_host": "m03r2n09",
+      "logical_bytes": 70329718112,
+      "operations": 2,
+      "T_ready_s": 2.559228948,
+      "request_to_ready_ack_s": 2.7161452751606703,
+      "post_ready_verification_s": 46.89499242696911,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "basic_scenarios/s3_r01/summary.json",
+      "phase": "basic_3edadcae_s3_r01_resource_lp_0",
+      "target_host": "m03r2n09",
+      "logical_bytes": 70329718112,
+      "operations": 2,
+      "T_ready_s": 2.443636225,
+      "request_to_ready_ack_s": 2.5962202791124582,
+      "post_ready_verification_s": 52.93494385201484,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "paper_e1_e8/e3/e3_c02_qwen_r01/summary.json",
+      "phase": "paper_e3_c02_qwen_r01_concentrated_target_a_resource_lp",
+      "target_host": "m03r2n07",
+      "logical_bytes": 70329718112,
+      "operations": 262,
+      "T_ready_s": 1.277976811,
+      "request_to_ready_ack_s": 1.293181641958654,
+      "post_ready_verification_s": null,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "paper_e1_e8/e3/e3_c02_qwen_r01/summary.json",
+      "phase": "paper_e3_c02_qwen_r01_concentrated_target_b_resource_lp",
+      "target_host": "m03r2n09",
+      "logical_bytes": 70329718112,
+      "operations": 262,
+      "T_ready_s": 3.798325372,
+      "request_to_ready_ack_s": 3.825441686436534,
+      "post_ready_verification_s": null,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "paper_e1_e8/e3/e3_c02_qwen_r01/summary.json",
+      "phase": "paper_e3_c02_qwen_r01_distributed_target_b_resource_lp",
+      "target_host": "m03r2n09",
+      "logical_bytes": 70329718112,
+      "operations": 262,
+      "T_ready_s": 2.624750835,
+      "request_to_ready_ack_s": 2.660915791988373,
+      "post_ready_verification_s": null,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    },
+    {
+      "run": "paper_e1_e8/e3/e3_c02_qwen_r01/summary.json",
+      "phase": "paper_e3_c02_qwen_r01_distributed_target_a_resource_lp",
+      "target_host": "m03r2n07",
+      "logical_bytes": 70329718112,
+      "operations": 262,
+      "T_ready_s": 1.237442493,
+      "request_to_ready_ack_s": 1.2820803122594953,
+      "post_ready_verification_s": null,
+      "ordered_records_and_full_byte_SHA_passed": true,
+      "exact_reference_output_passed": true,
+      "evidence_class": "historical_reference",
+      "new_performance_samples": 0
+    }
+  ],
+  "source_anchors": {
+    "main_lib/fluidckpt/serving/lifecycle.py": [
+      {
+        "pattern": "def resume",
+        "lines": [
+          45
+        ]
+      },
+      {
+        "pattern": "'load_begin'",
+        "lines": [
+          51
+        ]
+      },
+      {
+        "pattern": "materialize(runner.model",
+        "lines": [
+          35,
+          71
+        ]
+      },
+      {
+        "pattern": "export_storages",
+        "lines": [
+          17,
+          73
+        ]
+      },
+      {
+        "pattern": "_wait_done",
+        "lines": [
+          17,
+          74
+        ]
+      },
+      {
+        "pattern": "torch.cuda.synchronize()",
+        "lines": [
+          26,
+          39,
+          77
+        ]
+      },
+      {
+        "pattern": "torch.distributed.barrier",
+        "lines": [
+          40,
+          78
+        ]
+      },
+      {
+        "pattern": "'weights_ready'",
+        "lines": [
+          80
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/serving/measure.py": [
+      {
+        "pattern": "def summarize",
+        "lines": [
+          53
+        ]
+      },
+      {
+        "pattern": "cross-host monotonic",
+        "lines": [
+          68
+        ]
+      },
+      {
+        "pattern": "max(r[",
+        "lines": [
+          69,
+          70
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/serving/keeper.py": [
+      {
+        "pattern": "class HbmTarget",
+        "lines": [
+          73
+        ]
+      },
+      {
+        "pattern": "metadata_compare",
+        "lines": [
+          92
+        ]
+      },
+      {
+        "pattern": "index_validation",
+        "lines": [
+          100
+        ]
+      },
+      {
+        "pattern": "def scatter",
+        "lines": [
+          124
+        ]
+      },
+      {
+        "pattern": "def done",
+        "lines": [
+          154
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/serving/sglang_hook.py": [
+      {
+        "pattern": "def export_storages",
+        "lines": [
+          94
+        ]
+      },
+      {
+        "pattern": "def _wait_done",
+        "lines": [
+          205
+        ]
+      },
+      {
+        "pattern": "time.sleep(0.005)",
+        "lines": [
+          211
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/cluster/catalog.py": [
+      {
+        "pattern": "def publish",
+        "lines": [
+          35
+        ]
+      },
+      {
+        "pattern": "def acquire",
+        "lines": [
+          43
+        ]
+      },
+      {
+        "pattern": "def release",
+        "lines": [
+          62
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/cluster/planning.py": [
+      {
+        "pattern": "def validate_plan",
+        "lines": [
+          71
+        ]
+      },
+      {
+        "pattern": "incomplete target coverage",
+        "lines": [
+          90
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/cluster/control.py": [
+      {
+        "pattern": "def transfer",
+        "lines": [
+          129
+        ]
+      },
+      {
+        "pattern": "verified = self.verify",
+        "lines": [
+          164
+        ]
+      },
+      {
+        "pattern": "actual target bytes",
+        "lines": [
+          163
+        ]
+      },
+      {
+        "pattern": "def finish",
+        "lines": [
+          194
+        ]
+      }
+    ],
+    "main_lib/fluidckpt/cluster/worker.py": [
+      {
+        "pattern": "def prepare",
+        "lines": [
+          133
+        ]
+      },
+      {
+        "pattern": "self.catalog.acquire",
+        "lines": [
+          147
+        ]
+      },
+      {
+        "pattern": "torch.cuda.synchronize(self.dev)",
+        "lines": [
+          260
+        ]
+      },
+      {
+        "pattern": "def complete",
+        "lines": [
+          323
+        ]
+      },
+      {
+        "pattern": "new replicas require complete content verification",
+        "lines": [
+          329
+        ]
+      },
+      {
+        "pattern": "target.done",
+        "lines": [
+          336
+        ]
+      }
+    ],
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/run_scenarios.py": [
+      {
+        "pattern": "def start_resume",
+        "lines": [
+          177
+        ]
+      },
+      {
+        "pattern": "def run_restore",
+        "lines": []
+      },
+      {
+        "pattern": "stamp =",
+        "lines": [
+          216
+        ]
+      },
+      {
+        "pattern": "verify_before_ready=False",
+        "lines": [
+          235
+        ]
+      },
+      {
+        "pattern": "post_ready_verification_s",
+        "lines": [
+          248
+        ]
+      },
+      {
+        "pattern": "self.cluster.finish",
+        "lines": [
+          252,
+          279
+        ]
+      }
+    ],
+    "codex_coding/src/v0.1.23.3/task2/multitier_runtime/operations/host_readback.py": [
+      {
+        "pattern": "gpu_api_calls=0",
+        "lines": [
+          49
+        ]
+      },
+      {
+        "pattern": "if spec['node'] in ('node28', 'node30')",
+        "lines": [
+          96,
+          99
+        ]
+      },
+      {
+        "pattern": "root = Path('/sys/bus/pci/devices')",
+        "lines": [
+          94
+        ]
+      }
+    ],
+    "codex_coding/src/v0.1.23.3/task2/multitier_runtime/operations/control.py": [
+      {
+        "pattern": "def readback",
+        "lines": [
+          32
+        ]
+      },
+      {
+        "pattern": "def bind",
+        "lines": [
+          133
+        ]
+      },
+      {
+        "pattern": "choices=['readonly'",
+        "lines": [
+          191
+        ]
+      }
+    ],
+    "codex_coding/src/v0.1.23.3/task2/bounded_cost/execution/common.py": [
+      {
+        "pattern": "def quiet_readback",
+        "lines": [
+          33
+        ]
+      }
+    ],
+    "codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/prepare.py": [
+      {
+        "pattern": "a.mode=='metadata'",
+        "lines": [
+          24
+        ]
+      },
+      {
+        "pattern": "'node27:4-4'",
+        "lines": [
+          45
+        ]
+      },
+      {
+        "pattern": "0000:85:00.0",
+        "lines": [
+          72
+        ]
+      }
+    ],
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/inspect_runtime.py": [
+      {
+        "pattern": "hy-smi",
+        "lines": [
+          34,
+          42
+        ]
+      },
+      {
+        "pattern": "def inspect",
+        "lines": [
+          11
+        ]
+      }
+    ]
+  },
+  "unresolved": [
+    "fresh GPU4/5 mapping and capacity",
+    "real model/source placement and budgets",
+    "final measured start boundary",
+    "finite representative scenario calibration and held-out protocol"
+  ]
+}

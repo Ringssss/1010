@@ -1,0 +1,134 @@
+{
+  "original_contract_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r01/session.mesh.spec.json",
+    "sha256": "7927729f770f7b0b255e564e26d42fef1677863302a1495ec76037731beece6f"
+  },
+  "actual_worker_launch_plan_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json",
+    "sha256": "1f63a9b35227b4f02f9fbd48770ff9166c7a9cb737631a16b8e4621060df4241"
+  },
+  "source_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/orchestrate_integration.py",
+    "sha256": "e5532a1da29664bd2bc006bb9dc78246a347c1d4a6be509e2f5914fa42f65a3e"
+  },
+  "worker_launch_by_parent": true,
+  "execute": true,
+  "application_passed": true,
+  "formal_performance_ready": false,
+  "status": "application_completed_pending_independent_review",
+  "stop": {
+    "node28": {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.28",
+        "node28",
+        "docker exec -i 1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6 tee /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_worker_node28_r02/STOP.json"
+      ],
+      "timeout_s": 12,
+      "returncode": 0,
+      "timed_out": false,
+      "elapsed_s": 0.22304034899934777
+    },
+    "node30": {
+      "argv": [
+        "ssh",
+        "-T",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.30",
+        "node30",
+        "docker exec -i 7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1 tee /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_worker_node30_r02/STOP.json"
+      ],
+      "timeout_s": 12,
+      "returncode": 0,
+      "timed_out": false,
+      "elapsed_s": 0.21988845799933188
+    }
+  },
+  "worker_ready_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_integration_controller_r02/ready_node28/summary.json",
+      "sha256": "3a48541a7bf7621a262b68b432a366f6a0eeb722b23bca7cc825db2fc62b7d28"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_integration_controller_r02/ready_node30/summary.json",
+      "sha256": "8da71283c169574e77cb1e699f192e44b71c0cd40e8dc4ff563a1b86efc5eac1"
+    }
+  ],
+  "mesh_process": {
+    "argv": [
+      "/usr/bin/python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/orchestrate_integration.py",
+      "--step",
+      "mesh",
+      "--spec",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_integration_controller_r02/fresh.mesh.spec.json",
+      "--plan",
+      "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_mesh_r02"
+    ],
+    "timeout_s": 90,
+    "returncode": 0,
+    "timed_out": false,
+    "elapsed_s": 6.220546655997168
+  },
+  "mesh_execution_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_mesh_r02/execution.json",
+    "sha256": "e3ba1c77b657900bc27153297476bb05fd30e59c3a5cbd982ee5c26ea16203aa"
+  },
+  "app_process": {
+    "argv": [
+      "/usr/bin/python3",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/measure/orchestrate_integration.py",
+      "--step",
+      "app",
+      "--spec",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_integration_controller_r02/fresh.app.spec.json",
+      "--plan",
+      "codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json",
+      "--out",
+      "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_product_r02"
+    ],
+    "timeout_s": 90,
+    "returncode": 0,
+    "timed_out": false,
+    "elapsed_s": 0.7298046110008727
+  },
+  "app_execution_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_product_r02/execution.json",
+    "sha256": "2eac8f6e0f91e60d9a1cb8d22e3f50f7ee32fe28e4137208eb51024423f20e67"
+  },
+  "application_status": null,
+  "elapsed_s": 23.76117773000078,
+  "stop_cleanup_verified": false
+}

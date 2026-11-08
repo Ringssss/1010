@@ -1,0 +1,417 @@
+{
+  "schema_version": "fluidckpt.calibrated_recovery_protocol.v1",
+  "development": "v0.1.23.3/task2",
+  "case_sha256": "1d09d2dbfd18a89b88c573fce9fa5df840b253bbac459d749dcac2b0ef6fff42",
+  "physical_budget": {
+    "tier_budgets": {
+      "hbm": 33554432
+    },
+    "location_budgets": {
+      "0:hbm": 33554432,
+      "1:hbm": 33554432
+    },
+    "base_dram_bytes": 33554432,
+    "target_allocation_bytes": 33554432,
+    "staging_bytes": 134217728,
+    "staging_by_location": {
+      "0:hbm": 67108864,
+      "1:hbm": 67108864
+    },
+    "budget_origin": "externally_assigned_scenario_constraints"
+  },
+  "layouts": {
+    "source_concentrated": {
+      "selected": [
+        {
+          "id": "CPU-cache/0/0",
+          "identity": "synthetic-blocks/rank0",
+          "tp": 0,
+          "worker": 0,
+          "node": "node28",
+          "gpu": 0,
+          "numa": 0,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "state": "VALID",
+          "leases": 0,
+          "allocated_bytes": 16777216,
+          "epoch": "CPU-unbound",
+          "generation": 1,
+          "preview_only": true
+        },
+        {
+          "id": "CPU-cache/1/0",
+          "identity": "synthetic-blocks/rank1",
+          "tp": 1,
+          "worker": 0,
+          "node": "node28",
+          "gpu": 0,
+          "numa": 0,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "state": "VALID",
+          "leases": 0,
+          "allocated_bytes": 16777216,
+          "epoch": "CPU-unbound",
+          "generation": 1,
+          "preview_only": true
+        }
+      ],
+      "ledger": {
+        "allocated_hbm_bytes": 33554432,
+        "location_bytes": {
+          "0:hbm": 33554432,
+          "1:hbm": 0
+        },
+        "cache_build_logical_bytes": 33554432,
+        "unique_logical_bytes": 33554432,
+        "duplicated_logical_bytes": 0,
+        "base_dram_bytes": 33554432,
+        "target_allocation_bytes": 33554432,
+        "staging_bytes": 134217728,
+        "peak_dram_bytes": 33554432,
+        "peak_hbm_bytes": 201326592,
+        "physical_peak_verified": false,
+        "peak_hbm_by_location": {
+          "0:hbm": 117440512,
+          "1:hbm": 83886080
+        },
+        "base_dram_by_location": {
+          "0:dram": 33554432,
+          "1:dram": 0
+        }
+      },
+      "plans": {
+        "both_targets": {
+          "targets": [
+            {
+              "key": "CPU-target/0",
+              "identity": "synthetic-blocks/rank0",
+              "tp": 0,
+              "worker": 0,
+              "tier": "hbm",
+              "off": 0,
+              "n": 16777216,
+              "mode": "replica"
+            },
+            {
+              "key": "CPU-target/1",
+              "identity": "synthetic-blocks/rank1",
+              "tp": 1,
+              "worker": 1,
+              "tier": "hbm",
+              "off": 0,
+              "n": 16777216,
+              "mode": "replica"
+            }
+          ],
+          "ops": [
+            {
+              "op_id": 0,
+              "target": "CPU-target/0",
+              "tp": 0,
+              "identity": "synthetic-blocks/rank0",
+              "off": 0,
+              "n": 16777216,
+              "source_offset": 0,
+              "replica_id": "CPU-base/0",
+              "generation": 1,
+              "src_w": 0,
+              "dst_w": 0,
+              "source_epoch": "CPU-unbound",
+              "kind": "local_dram",
+              "path": "0:dram:0->0",
+              "resources": [
+                "in:0",
+                "dram:node28:0"
+              ]
+            },
+            {
+              "op_id": 1,
+              "target": "CPU-target/1",
+              "tp": 1,
+              "identity": "synthetic-blocks/rank1",
+              "off": 0,
+              "n": 16777216,
+              "source_offset": 0,
+              "replica_id": "CPU-base/1",
+              "generation": 1,
+              "src_w": 0,
+              "dst_w": 1,
+              "source_epoch": "CPU-unbound",
+              "kind": "network",
+              "path": "0:dram:0->1",
+              "resources": [
+                "in:1",
+                "dram:node28:0",
+                "out:0",
+                "net_out:node28",
+                "net_in:node30"
+              ]
+            }
+          ],
+          "strategy": "nearest",
+          "requested_strategy": "nearest",
+          "fallback_reason": null,
+          "planning_s": 8.80210027389694e-05,
+          "profile": {
+            "rates": {
+              "local_dram": 1,
+              "local_hbm": 1,
+              "peer": 1,
+              "network": 1
+            },
+            "gpu_ingress_GBps": 1,
+            "gpu_egress_GBps": 1,
+            "dram_GBps": 1,
+            "network_node_GBps": 1,
+            "serial_target_execution": true,
+            "provenance": "CPU functional placeholders; no measured rate"
+          },
+          "scope": "functional provisional route ordering; no measured-rate prediction",
+          "shared_schedule": "rank_interleaved",
+          "executor": "serial",
+          "chunk_bytes": 33554432,
+          "profile_source": "CPU_functional_placeholders",
+          "prediction_ready": false
+        }
+      },
+      "decision_signature": "dfc6e75d21ba273a1c4805fc33c9feebea32501a4a43a61c190544a06e312606"
+    },
+    "target_local_distributed": {
+      "selected": [
+        {
+          "id": "CPU-cache/0/0",
+          "identity": "synthetic-blocks/rank0",
+          "tp": 0,
+          "worker": 0,
+          "node": "node28",
+          "gpu": 0,
+          "numa": 0,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "state": "VALID",
+          "leases": 0,
+          "allocated_bytes": 16777216,
+          "epoch": "CPU-unbound",
+          "generation": 1,
+          "preview_only": true
+        },
+        {
+          "id": "CPU-cache/1/1",
+          "identity": "synthetic-blocks/rank1",
+          "tp": 1,
+          "worker": 1,
+          "node": "node30",
+          "gpu": 0,
+          "numa": 4,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "state": "VALID",
+          "leases": 0,
+          "allocated_bytes": 16777216,
+          "epoch": "CPU-unbound",
+          "generation": 1,
+          "preview_only": true
+        }
+      ],
+      "ledger": {
+        "allocated_hbm_bytes": 33554432,
+        "location_bytes": {
+          "0:hbm": 16777216,
+          "1:hbm": 16777216
+        },
+        "cache_build_logical_bytes": 33554432,
+        "unique_logical_bytes": 33554432,
+        "duplicated_logical_bytes": 0,
+        "base_dram_bytes": 33554432,
+        "target_allocation_bytes": 33554432,
+        "staging_bytes": 134217728,
+        "peak_dram_bytes": 33554432,
+        "peak_hbm_bytes": 201326592,
+        "physical_peak_verified": false,
+        "peak_hbm_by_location": {
+          "0:hbm": 100663296,
+          "1:hbm": 100663296
+        },
+        "base_dram_by_location": {
+          "0:dram": 33554432,
+          "1:dram": 0
+        }
+      },
+      "plans": {
+        "both_targets": {
+          "targets": [
+            {
+              "key": "CPU-target/0",
+              "identity": "synthetic-blocks/rank0",
+              "tp": 0,
+              "worker": 0,
+              "tier": "hbm",
+              "off": 0,
+              "n": 16777216,
+              "mode": "replica"
+            },
+            {
+              "key": "CPU-target/1",
+              "identity": "synthetic-blocks/rank1",
+              "tp": 1,
+              "worker": 1,
+              "tier": "hbm",
+              "off": 0,
+              "n": 16777216,
+              "mode": "replica"
+            }
+          ],
+          "ops": [
+            {
+              "op_id": 0,
+              "target": "CPU-target/0",
+              "tp": 0,
+              "identity": "synthetic-blocks/rank0",
+              "off": 0,
+              "n": 16777216,
+              "source_offset": 0,
+              "replica_id": "CPU-base/0",
+              "generation": 1,
+              "src_w": 0,
+              "dst_w": 0,
+              "source_epoch": "CPU-unbound",
+              "kind": "local_dram",
+              "path": "0:dram:0->0",
+              "resources": [
+                "in:0",
+                "dram:node28:0"
+              ]
+            },
+            {
+              "op_id": 1,
+              "target": "CPU-target/1",
+              "tp": 1,
+              "identity": "synthetic-blocks/rank1",
+              "off": 0,
+              "n": 16777216,
+              "source_offset": 0,
+              "replica_id": "CPU-cache/1/1",
+              "generation": 1,
+              "src_w": 1,
+              "dst_w": 1,
+              "source_epoch": "CPU-unbound",
+              "kind": "local_hbm",
+              "path": "1:hbm:4->1",
+              "resources": [
+                "in:1"
+              ]
+            }
+          ],
+          "strategy": "nearest",
+          "requested_strategy": "nearest",
+          "fallback_reason": null,
+          "planning_s": 6.589100303244777e-05,
+          "profile": {
+            "rates": {
+              "local_dram": 1,
+              "local_hbm": 1,
+              "peer": 1,
+              "network": 1
+            },
+            "gpu_ingress_GBps": 1,
+            "gpu_egress_GBps": 1,
+            "dram_GBps": 1,
+            "network_node_GBps": 1,
+            "serial_target_execution": true,
+            "provenance": "CPU functional placeholders; no measured rate"
+          },
+          "scope": "functional provisional route ordering; no measured-rate prediction",
+          "shared_schedule": "rank_interleaved",
+          "executor": "serial",
+          "chunk_bytes": 33554432,
+          "profile_source": "CPU_functional_placeholders",
+          "prediction_ready": false
+        }
+      },
+      "decision_signature": "1b8b42a3e450ace57bcb5961da9eb3f7c5764fc5df3687a7854543fd35459709"
+    }
+  },
+  "format_contract": {
+    "model_version": "synthetic_only",
+    "dtype": "uint8",
+    "quantization": "none",
+    "tp": 2,
+    "processed_snapshot_id": [
+      "synthetic-blocks/rank0",
+      "synthetic-blocks/rank1"
+    ]
+  },
+  "objective": "worst",
+  "targets": [
+    {
+      "name": "both_targets",
+      "weight": 1,
+      "targets": [
+        {
+          "key": "CPU-target/0",
+          "identity": "synthetic-blocks/rank0",
+          "tp": 0,
+          "worker": 0,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "mode": "replica"
+        },
+        {
+          "key": "CPU-target/1",
+          "identity": "synthetic-blocks/rank1",
+          "tp": 1,
+          "worker": 1,
+          "tier": "hbm",
+          "off": 0,
+          "n": 16777216,
+          "mode": "replica"
+        }
+      ]
+    }
+  ],
+  "chunk_bytes": 33554432,
+  "load_state": "preregistered; real warm/cold state pending session binding",
+  "executor": "serial",
+  "schedule": "rank_interleaved",
+  "verification_position": "before_replica_publish",
+  "metric": {
+    "begin": "controller immediately before loading dispatch",
+    "filled_end": "controller observed every synchronized target execute complete",
+    "published_end": "controller observed every verified target publish complete",
+    "clock": "one controller monotonic domain"
+  },
+  "preparation_cost": "measured independently before loading",
+  "prediction_ready": false,
+  "performance_ready": false,
+  "measurement_status": "CPU_contract_only",
+  "new_GPU_samples": 0,
+  "decisions_equal": false,
+  "strong_nearest_target_decision_signature": "1b8b42a3e450ace57bcb5961da9eb3f7c5764fc5df3687a7854543fd35459709",
+  "strong_nearest_target_alias": "target_local_distributed",
+  "no_solver_delta": true,
+  "duplicate_execution_policy": "do not rerun identical strong-nearest-target layout",
+  "physical_binding_by_worker": {
+    "0": {
+      "logical_gpu": 0,
+      "physical_gpu": 0,
+      "resource_id": "node28/pci/0000:09:00.0",
+      "numa": 0
+    },
+    "1": {
+      "logical_gpu": 0,
+      "physical_gpu": 4,
+      "resource_id": "node30/pci/0000:85:00.0",
+      "numa": 4
+    }
+  },
+  "execution_authorized": true,
+  "execution_scope": "two 16MiB blocks after mesh budget gate only",
+  "protocol_sha256": "b1bab8749eedeabb543be1a5024dba77d1872e503fcf530c135f1985bd710f8a"
+}

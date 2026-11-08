@@ -1,0 +1,57 @@
+{
+  "status": "failed",
+  "scope": "native SGLang memory_saver + weights_cpu_backup; isolated DTK compatibility patch, no FluidCKPT loading/lifecycle hook",
+  "args": {
+    "run": "qwen35b02",
+    "model": "/data/node28/shared/zhujianian/Qwen3.6-35B-A3B",
+    "node": 27,
+    "gpu_base": 0,
+    "port": 32540,
+    "timeout": 1200,
+    "repeats": 3,
+    "memory_saver_package": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/tms_dtk_fixed2/package"
+  },
+  "events": [
+    {
+      "time": 1791072619.3222103,
+      "event": "started",
+      "process": {
+        "pid": 139727,
+        "start_time": "439851292",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/native_cpu_backup/qwen35b02/server.process.json"
+      }
+    },
+    {
+      "time": 1791072619.3250525,
+      "event": "loading",
+      "elapsed_s": 0.1565802227705717
+    },
+    {
+      "time": 1791072649.3657792,
+      "event": "loading",
+      "elapsed_s": 30.19730548374355
+    },
+    {
+      "time": 1791072679.4076715,
+      "event": "loading",
+      "elapsed_s": 60.23919780552387
+    },
+    {
+      "time": 1791072709.4495354,
+      "event": "loading",
+      "elapsed_s": 90.28106184117496
+    },
+    {
+      "time": 1791072718.4627721,
+      "event": "failed",
+      "error": "RuntimeError('native CPU-backup startup failed; inspect server.log')"
+    },
+    {
+      "time": 1791072718.822912,
+      "event": "finished"
+    }
+  ],
+  "roundtrips": [],
+  "error": "RuntimeError('native CPU-backup startup failed; inspect server.log')",
+  "cleanup": "{\"stopped\": 139727}\n"
+}

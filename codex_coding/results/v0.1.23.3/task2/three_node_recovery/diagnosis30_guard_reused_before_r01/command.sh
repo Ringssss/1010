@@ -1,0 +1,4 @@
+#!/bin/bash
+set -u
+ulimit -c 0
+timeout 35s ssh -T -o BatchMode=yes -o ConnectTimeout=5 -o ConnectionAttempts=1 -o StrictHostKeyChecking=yes -o UpdateHostKeys=no -o ServerAliveInterval=3 -o ServerAliveCountMax=1 -o Hostname=12.11.3.30 node30 'python3 /tmp/fluidckpt_three_node_bootstrap.node30.hSZPRU/fresh_host.source.py guard /tmp/fluidckpt_three_node_bootstrap.node30.hSZPRU/effective.spec.json'

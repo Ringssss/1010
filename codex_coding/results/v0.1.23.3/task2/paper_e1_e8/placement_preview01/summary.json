@@ -1,0 +1,138 @@
+{
+  "status": "planning_only",
+  "layout_signatures_equal": false,
+  "base_logical_bytes": 70329718112,
+  "extra_hbm_budget_bytes": 8589934592,
+  "candidate_block_bytes": 4294967296,
+  "candidate_count": 8,
+  "scenarios": [
+    {
+      "name": "target_a",
+      "weight": 1,
+      "targets": [
+        {
+          "key": "future/target_a/0",
+          "worker": 0,
+          "tier": "hbm",
+          "identity": "8bbf6e9920015677bfa0c4bf999ff4631cfac5809bea040906bc30c6f7c1fd5d",
+          "tp": 0,
+          "off": 0,
+          "n": 35164859056
+        },
+        {
+          "key": "future/target_a/1",
+          "worker": 1,
+          "tier": "hbm",
+          "identity": "8440f127343eaa9b1a11b7f061348146cebefe64b236b1b4d2ae8db6b5f8f872",
+          "tp": 1,
+          "off": 0,
+          "n": 35164859056
+        }
+      ]
+    },
+    {
+      "name": "target_b",
+      "weight": 1,
+      "targets": [
+        {
+          "key": "future/target_b/0",
+          "worker": 8,
+          "tier": "hbm",
+          "identity": "8bbf6e9920015677bfa0c4bf999ff4631cfac5809bea040906bc30c6f7c1fd5d",
+          "tp": 0,
+          "off": 0,
+          "n": 35164859056
+        },
+        {
+          "key": "future/target_b/1",
+          "worker": 9,
+          "tier": "hbm",
+          "identity": "8440f127343eaa9b1a11b7f061348146cebefe64b236b1b4d2ae8db6b5f8f872",
+          "tp": 1,
+          "off": 0,
+          "n": 35164859056
+        }
+      ]
+    }
+  ],
+  "inputs": {
+    "codex_coding/results/v0.1.23.3/task2/paper_e1_e8/retained_preflight01/summary.json": "5d7322ef85860d9407a2627e0665e75ab07276e4577611fe99222fcce6772e92",
+    "codex_coding/results/v0.1.23.3/task2/paper_e1_e8/runtime/qwen_bootstrap_r01/session.json": "2284d9b826501656c3aaef5304e806bf5f958f752991e9ea95d4fd4601dbef30",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/paper_e1_e8/placement/solve_matrix.py": "21ee0aadb23d157c6aa6fa2f757a8384ec43d9b7de175f9bd7e237db09871d6e"
+  },
+  "scope": "recorded inventory and provisional bandwidth profile; no GPU operation, current admission, or performance evidence",
+  "policies": {
+    "greedy": {
+      "selected": [
+        {
+          "tp": 0,
+          "worker": 8,
+          "tier": "hbm",
+          "off": 0,
+          "n": 4294967296
+        },
+        {
+          "tp": 0,
+          "worker": 8,
+          "tier": "hbm",
+          "off": 4294967296,
+          "n": 4294967296
+        }
+      ],
+      "allocated_hbm_bytes": 8589934592,
+      "predicted_expected_s": {
+        "fastest": 1.5313515213714286,
+        "resource_lp": 1.5313515213714286
+      },
+      "scenario_predicted_s": {
+        "fastest": {
+          "target_a": 1.0047102587428571,
+          "target_b": 2.057992784
+        },
+        "resource_lp": {
+          "target_a": 1.0047102587428571,
+          "target_b": 2.057992784
+        }
+      },
+      "solve_wall_s": 0.5473819952458143,
+      "solver_status": null,
+      "mip_gap": null
+    },
+    "joint": {
+      "selected": [
+        {
+          "tp": 0,
+          "worker": 8,
+          "tier": "hbm",
+          "off": 0,
+          "n": 4294967296
+        },
+        {
+          "tp": 1,
+          "worker": 9,
+          "tier": "hbm",
+          "off": 0,
+          "n": 4294967296
+        }
+      ],
+      "allocated_hbm_bytes": 8589934592,
+      "predicted_expected_s": {
+        "fastest": 1.5313515213714286,
+        "resource_lp": 1.5313515213714286
+      },
+      "scenario_predicted_s": {
+        "fastest": {
+          "target_a": 1.0047102587428571,
+          "target_b": 2.057992784
+        },
+        "resource_lp": {
+          "target_a": 1.0047102587428571,
+          "target_b": 2.057992784
+        }
+      },
+      "solve_wall_s": 0.10959535464644432,
+      "solver_status": "optimal",
+      "mip_gap": 0.0
+    }
+  }
+}

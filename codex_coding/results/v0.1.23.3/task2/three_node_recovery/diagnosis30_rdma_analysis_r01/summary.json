@@ -1,0 +1,191 @@
+{
+  "historical_actual_transport": "NET/IBext_v8 over shca_0:1 (non-GDR empty_seed run)",
+  "historical_env": {
+    "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+    "NCCL_IB_HCA": "shca_0",
+    "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+    "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:"
+  },
+  "historical_plugin": {
+    "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+    "resolved": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+    "exists": true,
+    "bytes": 752144,
+    "sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+  },
+  "historical_owned_log_lines": [
+    "m03r2n07:12142:12180 [0] NCCL INFO NET/Plugin: Plugin name set by env to librccl-net-shca.so",
+    "m03r2n07:12142:12180 [0] NCCL INFO Plugin Path : /opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+    "m03r2n07:12142:12180 [0] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>",
+    "m03r2n07:12142:12180 [0] NCCL INFO Using network IBext_v8",
+    "m03r2n07:12142:12180 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+    "m03r2n07:12142:12180 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02"
+  ],
+  "current_nodes": [
+    {
+      "node": "node28",
+      "plugin": {
+        "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+        "exists": true,
+        "resolved": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "bytes": 752144,
+        "mode": "0o755",
+        "sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+      },
+      "same_plugin_sha_as_historical_success": true,
+      "base_container_env": {
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "NCCL_NET_PLUGIN": null,
+        "NCCL_NET": null,
+        "NCCL_IB_HCA": null,
+        "HSA_FORCE_FINE_GRAIN_PCIE": null,
+        "NCCL_IB_DISABLE": null,
+        "NCCL_SOCKET_IFNAME": null
+      },
+      "other_library_metadata": [
+        {
+          "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+          "exists": true,
+          "resolved": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+          "bytes": 752144,
+          "mode": "0o755",
+          "sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+        },
+        {
+          "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net.so",
+          "exists": false,
+          "error": "FileNotFoundError",
+          "errno": 2,
+          "message": "[Errno 2] No such file or directory: '/opt/rccl-rdma-sharp-plugins/lib/librccl-net.so'"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "exists": true,
+          "resolved": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "bytes": 692352,
+          "mode": "0o755",
+          "sha256": "781c787953e5c57d178407b50223d61f3521ae7bcae436eefdbe01a4c48f4515"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libibverbs.so.1",
+          "exists": true,
+          "resolved": "/usr/lib/x86_64-linux-gnu/libibverbs.so.1.14.44.0",
+          "bytes": 589464,
+          "mode": "0o755",
+          "sha256": "a57430a6ab66c3fcbbfde8b5e4fed0232016207fe017a49e88b83b4091e631c9"
+        }
+      ],
+      "current_owned_log_lines": [
+        "m03r2n08:101:101 [0] /data/jenkins_workspace/workspace/rccl_release/build/hipify/src/init.cc:196 NCCL WARN Missing \"HSA_FORCE_FINE_GRAIN_PCIE=1\" from environment which can lead to low RCCL performance, system instablity or hang!",
+        "m03r2n08:101:101 [0] /data/jenkins_workspace/workspace/rccl_release/build/hipify/src/init.cc:196 NCCL WARN Missing \"HSA_FORCE_FINE_GRAIN_PCIE=1\" from environment which can lead to low RCCL performance, system instablity or hang!",
+        "m03r2n08:101:115 [0] NCCL INFO NET/Plugin: Could not find: librccl-net.so. Using internal network plugin.",
+        "m03r2n08:101:115 [0] NCCL INFO NCCL_IB_HCA set to =shca_0:1",
+        "m03r2n08:101:115 [0] NCCL INFO NET/IB : No device found.",
+        "m03r2n08:101:115 [0] NCCL INFO Using network Socket"
+      ],
+      "metadata_read_only": true
+    },
+    {
+      "node": "node30",
+      "plugin": {
+        "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+        "exists": true,
+        "resolved": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+        "bytes": 752144,
+        "mode": "0o755",
+        "sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+      },
+      "same_plugin_sha_as_historical_success": true,
+      "base_container_env": {
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "NCCL_NET_PLUGIN": null,
+        "NCCL_NET": null,
+        "NCCL_IB_HCA": null,
+        "HSA_FORCE_FINE_GRAIN_PCIE": null,
+        "NCCL_IB_DISABLE": null,
+        "NCCL_SOCKET_IFNAME": null
+      },
+      "other_library_metadata": [
+        {
+          "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so",
+          "exists": true,
+          "resolved": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net-shca.so.0.0.0",
+          "bytes": 752144,
+          "mode": "0o755",
+          "sha256": "e0c3fd25c91cdb19c078b8350dd9daadded89d66600b0e5ed298840658af3af6"
+        },
+        {
+          "path": "/opt/rccl-rdma-sharp-plugins/lib/librccl-net.so",
+          "exists": false,
+          "error": "FileNotFoundError",
+          "errno": 2,
+          "message": "[Errno 2] No such file or directory: '/opt/rccl-rdma-sharp-plugins/lib/librccl-net.so'"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "exists": true,
+          "resolved": "/usr/lib/x86_64-linux-gnu/libshca.so",
+          "bytes": 692352,
+          "mode": "0o755",
+          "sha256": "781c787953e5c57d178407b50223d61f3521ae7bcae436eefdbe01a4c48f4515"
+        },
+        {
+          "path": "/usr/lib/x86_64-linux-gnu/libibverbs.so.1",
+          "exists": true,
+          "resolved": "/usr/lib/x86_64-linux-gnu/libibverbs.so.1.14.44.0",
+          "bytes": 589464,
+          "mode": "0o755",
+          "sha256": "a57430a6ab66c3fcbbfde8b5e4fed0232016207fe017a49e88b83b4091e631c9"
+        }
+      ],
+      "current_owned_log_lines": [
+        "m03r2n10:119:119 [0] /data/jenkins_workspace/workspace/rccl_release/build/hipify/src/init.cc:196 NCCL WARN Missing \"HSA_FORCE_FINE_GRAIN_PCIE=1\" from environment which can lead to low RCCL performance, system instablity or hang!",
+        "m03r2n10:119:131 [0] NCCL INFO NET/Plugin: Could not find: librccl-net.so. Using internal network plugin.",
+        "m03r2n10:119:131 [0] NCCL INFO NCCL_IB_HCA set to =shca_0:1",
+        "m03r2n10:119:131 [0] NCCL INFO NET/IB : No device found.",
+        "m03r2n10:119:131 [0] NCCL INFO Using network Socket"
+      ],
+      "metadata_read_only": true
+    }
+  ],
+  "current_r01_transport": "Socket; full 1MiB payload SHA success is not RDMA evidence",
+  "observed_fallback_chain": "default librccl-net.so missing -> internal network plugin -> NET/IB no device with requested selector -> Socket",
+  "supported_small_fix": "restore explicit librccl-net-shca.so and HSA_FORCE_FINE_GRAIN_PCIE=1; parent may request IBext_v8 explicitly to refuse Socket fallback",
+  "selector_boundary": "historical shca_0 -> actual port1; current =shca_0:1 handling by vendor plugin not yet measured; no renamed alias established",
+  "interpretation": "platform compatibility repair, not a single-variable performance experiment; actual next-rank plugin load and channels decide IB acceptance",
+  "gdr_policy": "owned physical XML remains gdr0; IB success would not certify GDR",
+  "raw_refs": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.environment.json",
+      "sha256": "e66dbbbee8f4ddf8c3d5d4e9c0b0d70f15cb09803be1cda84fda1db3ea3730b2"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.nccl.12142.log",
+      "sha256": "e5cc1e1767f206f83abaf61dac495569cecd1feaa758905579b9cbf8ad34f0e1"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/provenance_r01/node27/container.json",
+      "sha256": "9015260f728f5db2a197ef070acb8c9f607e899f774f2880e2d6c6dc68cacb06"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_rdma_metadata_node28_r01/stdout.json",
+      "sha256": "6099a19affb5d903d951863c6765f96498dda0e617918de7348c38b9baad1357"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_nccl_2830_node28_r01/nccl.log",
+      "sha256": "86e28636760695c22d9fc0b49b8416e16c81ea3dc7187bd0bf35485723aa97d2"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/diagnosis30_rdma_metadata_node30_r01/stdout.json",
+      "sha256": "a525d30b837ddd8d9261a1408bab9c6b8c4b1af8311f905c11d4fe1d644c1da7"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/three_node_recovery/probe_nccl_2830_node30_r01/nccl.log",
+      "sha256": "311b10271bf2b5c0bc669dd28eac2660051a614731f406a221b1e5bbc8c4bded"
+    }
+  ],
+  "new_gpu_operations": 0,
+  "library_loads": 0,
+  "verbs_queries": 0,
+  "remote_file_writes": 0
+}

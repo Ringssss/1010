@@ -1,0 +1,111 @@
+{
+  "physical_gate_passed": true,
+  "config_verified": true,
+  "source_lineage_verified": true,
+  "control_mode": "cached",
+  "executor": "serial",
+  "chunk_bytes": 33554432,
+  "worker_physical": [
+    {
+      "worker": 0,
+      "node": "node28",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 1,
+      "node": "node28",
+      "gpu": 1,
+      "numa": 3
+    },
+    {
+      "worker": 2,
+      "node": "node30",
+      "gpu": 4,
+      "numa": 4
+    },
+    {
+      "worker": 3,
+      "node": "node30",
+      "gpu": 5,
+      "numa": 7
+    },
+    {
+      "worker": 4,
+      "node": "node27",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 5,
+      "node": "node27",
+      "gpu": 4,
+      "numa": 4
+    }
+  ],
+  "worker_incarnations": [
+    [
+      "review_cpu_fixture_not_physical",
+      "fixture_epoch_0"
+    ],
+    [
+      "review_cpu_fixture_not_physical",
+      "fixture_epoch_1"
+    ],
+    [
+      "review_cpu_fixture_not_physical",
+      "fixture_epoch_2"
+    ],
+    [
+      "review_cpu_fixture_not_physical",
+      "fixture_epoch_3"
+    ],
+    [
+      "review_cpu_fixture_not_physical",
+      "fixture_epoch_4"
+    ],
+    [
+      "review_cpu_fixture_not_physical",
+      "fixture_epoch_5"
+    ]
+  ],
+  "model_source_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "warm_pairs": [
+    "2:4",
+    "4:5"
+  ],
+  "source_lineage": {
+    "2:dram:4->4": {
+      "replica_id": "review_fixture_source_2:dram:4->4",
+      "identity": "review_fixture_identity_2:dram:4->4",
+      "generation": 1,
+      "source_epoch": "fixture_epoch_2",
+      "worker": 2,
+      "tier": "dram",
+      "numa": 4
+    },
+    "4:hbm:0->4": {
+      "replica_id": "review_fixture_source_4:hbm:0->4",
+      "identity": "review_fixture_identity_4:hbm:0->4",
+      "generation": 1,
+      "source_epoch": "fixture_epoch_4",
+      "worker": 4,
+      "tier": "hbm",
+      "numa": 0
+    },
+    "4:ssd:0->5": {
+      "replica_id": "review_fixture_source_4:ssd:0->5",
+      "identity": "review_fixture_identity_4:ssd:0->5",
+      "generation": 1,
+      "source_epoch": "fixture_epoch_4",
+      "worker": 4,
+      "tier": "ssd",
+      "numa": 0
+    }
+  },
+  "fixture_only": true,
+  "physical_execution_certified": false
+}

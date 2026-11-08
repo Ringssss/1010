@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "ssh",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=5",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UpdateHostKeys=no",
+    "-o",
+    "ServerAliveInterval=3",
+    "-o",
+    "ServerAliveCountMax=1",
+    "-o",
+    "Hostname=12.11.3.30",
+    "node30",
+    "docker exec cd2bc791f465c967cae6324805d5aa20b894edbfbe5bb26b2ee9d70cd3f7c9d0 python3 -c 'from pathlib import Path;import sys,json;p=Path(sys.argv[1]);p.parent.mkdir(parents=True,exist_ok=True);p.open('\"'\"'x'\"'\"').write(json.dumps({'\"'\"'plan_sha256'\"'\"':sys.argv[2]}))' /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_runtime_online_qwen_two_node_r01/operations_process_worker_node30_5/STOP.json 47e429d07cfc1089321757555e94e88629e0b8820e24cfcde1c208c2fa91d319"
+  ],
+  "timeout_s": 15,
+  "returncode": 0,
+  "timed_out": false,
+  "elapsed_s": 0.259927585022524
+}

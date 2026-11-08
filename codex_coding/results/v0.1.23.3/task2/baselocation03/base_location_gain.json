@@ -1,0 +1,136 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "passed": true,
+  "cases": [
+    {
+      "variant": "remote_base",
+      "load_s": 2.572175391,
+      "segments_s": {
+        "entry_and_start_skew": 0.009813092,
+        "layout": 0.310523367,
+        "export": 0.031420698,
+        "detect_plan_dispatch": 0.023637216,
+        "map": 0.094781858,
+        "execute_dispatch": 0.004610137,
+        "last_copy_worker_execute": 2.078873397,
+        "after_all_copies_until_ready": 0.018515626
+      },
+      "execute_s": 2.0835260679014027,
+      "preplanning_s": 0.04016534611582756,
+      "path_GiB": {
+        "local_hbm": 8.0,
+        "local_dram": 2.0,
+        "network": 55.49965414404869
+      },
+      "steady_bytes": {
+        "dram": 72477204480,
+        "hbm": 8589934592
+      },
+      "verified_bytes": 70329718112,
+      "generation_checks": 3
+    },
+    {
+      "variant": "local_base",
+      "load_s": 4.647307896,
+      "segments_s": {
+        "entry_and_start_skew": 0.019304353,
+        "layout": 0.308613464,
+        "export": 0.030817891,
+        "detect_plan_dispatch": 0.01793468,
+        "map": 3.502940622,
+        "execute_dispatch": 0.005420584,
+        "last_copy_worker_execute": 0.741331987,
+        "after_all_copies_until_ready": 0.020944315
+      },
+      "execute_s": 0.746293708216399,
+      "preplanning_s": 0.039666674099862576,
+      "path_GiB": {
+        "local_hbm": 8.0,
+        "local_dram": 57.49965414404869
+      },
+      "steady_bytes": {
+        "dram": 72477204480,
+        "hbm": 8589934592
+      },
+      "verified_bytes": 70329718112,
+      "generation_checks": 3
+    }
+  ],
+  "validation_topology": {
+    "members": [
+      [
+        "node27",
+        4
+      ],
+      [
+        "node27",
+        5
+      ],
+      [
+        "node28",
+        2
+      ],
+      [
+        "node28",
+        3
+      ]
+    ],
+    "target_gpus": [
+      4,
+      5
+    ],
+    "target_node": "node27",
+    "matched_hca": true,
+    "reason": "original node27 GPU0-3 and all node29 GPUs occupied",
+    "scope": "GPU4/5 may access a non-nearest NIC; compare within this run only"
+  },
+  "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+  "load_saved_s": -2.075132505,
+  "load_reduction_pct": -80.67616665103223,
+  "speedup": 0.5534764316377457,
+  "execute_saved_s": 1.3372323596850038,
+  "segment_saved_s": {
+    "entry_and_start_skew": -0.009491260999999999,
+    "layout": 0.0019099029999999906,
+    "export": 0.0006028069999999969,
+    "detect_plan_dispatch": 0.005702535999999998,
+    "map": -3.408158764,
+    "execute_dispatch": -0.0008104469999999997,
+    "last_copy_worker_execute": 1.33754141,
+    "after_all_copies_until_ready": -0.0024286890000000012
+  },
+  "base_preparation": {
+    "base/remote": {
+      "wall_s": 170.38799990527332,
+      "execute_s": 4.048331691883504,
+      "copied_bytes": 70329718112,
+      "peak_catalog_bytes": {
+        "dram": 105494581248,
+        "hbm": 0
+      }
+    },
+    "base/local": {
+      "wall_s": 167.18343312339857,
+      "execute_s": 5.9826694037765265,
+      "copied_bytes": 70329718112,
+      "peak_catalog_bytes": {
+        "dram": 107642064896,
+        "hbm": 8589934592
+      }
+    }
+  },
+  "cache_build_wall_s": 8.699855126906186,
+  "migration_amortization_restores": null,
+  "migration_amortization_scope": "if the full verified experimental relocation is paid at runtime; not a deployment cost estimate",
+  "archive_files_changed": [],
+  "limitations": [
+    "one restore per layout, fixed remote-then-local order; not a statistical guarantee",
+    "read validation_topology: occupied original GPUs may require a different target and explicitly matched non-nearest NICs",
+    "known target and nearest-NUMA capacity required; other target nodes can become slower",
+    "same steady global budgets and fixed replicas; node-level DRAM distribution changes",
+    "full-rank preparation temporarily duplicates a base; no bounded online migration claim",
+    "catalog peak excludes model skeleton and allocator reserve; these are not device-wide high-water marks",
+    "this validates manually specified initial-base locations, not automatic base-placement optimization"
+  ]
+}

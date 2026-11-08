@@ -1,0 +1,92 @@
+{
+  "schema": "online_cost_validation_v1",
+  "scenario_results": {
+    "Hremote": {
+      "observations": [
+        {
+          "run_id": "Hremote",
+          "session": "CPU_current_session",
+          "estimated_online_ns": 4844955092,
+          "actual_online_ns": 4844955091,
+          "signed_error_ns": 1,
+          "absolute_error_ns": 1,
+          "relative_error": 2.0640026196684514e-10,
+          "error_gate_passed": true,
+          "source_refs": [
+            {
+              "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/Hremote_raw.json",
+              "sha256": "62234937d2b7277e86f4a43aaee0bbb4b33250a676a138672dab99164c6cf11c"
+            }
+          ]
+        }
+      ],
+      "scenario_gate_passed": true
+    },
+    "Hnear": {
+      "observations": [
+        {
+          "run_id": "Hnear",
+          "session": "CPU_current_session",
+          "estimated_online_ns": 2258242953,
+          "actual_online_ns": 2258242953,
+          "signed_error_ns": 0,
+          "absolute_error_ns": 0,
+          "relative_error": 0.0,
+          "error_gate_passed": true,
+          "source_refs": [
+            {
+              "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_outer_core_cpu_r01/CPU_sequence/Hnear_raw.json",
+              "sha256": "5c056bae1293a25d3bbbbb30fe81ba3ffd03080bf304df9644f4ce8a8124573b"
+            }
+          ]
+        }
+      ],
+      "scenario_gate_passed": true
+    }
+  },
+  "all_scenario_error_gates_passed": true,
+  "actual_model_online_qualified": false,
+  "evidence_kind": "CPU_or_nonmodel_fixture",
+  "ranking": [
+    {
+      "left": "Hnear",
+      "right": "Hremote",
+      "predicted_delta_ns": -2586712139,
+      "observed_delta_ns": -2586712138,
+      "ordering_agrees": true,
+      "rank_claim": "left_faster",
+      "rank_claim_agrees": true
+    }
+  ],
+  "all_pairwise_rankings_agree": true,
+  "ranking_claims_made": 1,
+  "all_nonabstained_rank_claims_agree": true,
+  "rank_abstention_scope": "Overlapping intervals implied by the protocol's 10% scale abstain; this is not a confidence interval or certified future error bound.",
+  "prediction_payload_sha256": "82e7da930ce70016bb864b3f9f7b2757136f91119f54f91693be777a0a0b0218",
+  "calibration_sessions": [
+    "CPU_current_session"
+  ],
+  "independence_mode": "new_request_current_incarnation",
+  "validation_incarnation_digests": [
+    "ecd329b4fb27c90e54e9544fcfdff9d29e449739c537230f805a2c2661d9b671"
+  ],
+  "holdouts_used_for_fitting": false,
+  "physical_capacity_certified": false,
+  "scope": "Only preregistered complete online scenarios; ranking is reported separately from per-scenario accuracy.",
+  "outer_domain": "post_one_fullrestore_samecontroller",
+  "persistent_controller": {
+    "pid": 2600992,
+    "clock_domain": "CPU_current_clock"
+  },
+  "complete_request_order": [
+    "C0_prime",
+    "C0_cal",
+    "Hremote",
+    "Hnear"
+  ],
+  "complete_requests": 4,
+  "inherited_path_service": true,
+  "current_path_calibration_samples": 0,
+  "prime_used_for_fitting": false,
+  "historical_holdouts_used_for_fitting": false
+}

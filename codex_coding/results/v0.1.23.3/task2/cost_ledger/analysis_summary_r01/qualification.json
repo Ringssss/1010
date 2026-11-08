@@ -1,0 +1,45 @@
+{
+  "status": "cpu_protocol_qualified",
+  "hardware_measurements": false,
+  "protocol": "analysis_predeclared_r02/predeclared_protocol.json",
+  "latest_cpu": "analysis_cpu_r03/cpu_qualification.json",
+  "tests_run": 20,
+  "tests_passed": 20,
+  "sources": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/README.md",
+      "sha256": "b9c479986224ad1e8f0cde2ad509b752e22542f0eed5962728bdd5e524ef901a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/analyze.py",
+      "sha256": "fce806534a3871894f657cac2765ead0ecf0c70857776df97e9d5609ad19a29a"
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/analysis/test_analysis.py",
+      "sha256": "e9c388ed080639ee421ab3241f3c24f0287770b2f8cdf99a295753e34b171521"
+    }
+  ],
+  "prior_runs": [
+    {
+      "run": "analysis_cpu_r01",
+      "tests_run": 19,
+      "failures": 1,
+      "reason": "Synthetic d=20us made three-term max residual exactly 2E=10us; implementation correctly selected simpler a_bN_cK, test incorrectly expected four-term. Changed synthetic full-required fixture d to60us; no gate relaxation."
+    },
+    {
+      "run": "analysis_cpu_r02",
+      "tests_run": 19,
+      "failures": 0
+    },
+    {
+      "run": "analysis_cpu_r03",
+      "tests_run": 20,
+      "failures": 0,
+      "added": "Failed prereg simpler model cannot automatically promote finer model without each-layer improvement."
+    }
+  ],
+  "remaining": [
+    "Final execution-source freeze and independent raw-ledger audit before any GPU launch",
+    "Real calibration and conditional holdout are not yet observed by this CPU artifact"
+  ]
+}

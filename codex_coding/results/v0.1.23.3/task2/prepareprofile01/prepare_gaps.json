@@ -1,0 +1,2617 @@
+{
+  "reports": [
+    {
+      "phase": "load_remote_base",
+      "rank": 0,
+      "worker": 0,
+      "mapping_window_s": 0.1543169,
+      "before_trace_s": 0.002597497,
+      "leaf_wall_s": 0.12774477099999995,
+      "remaining_bookkeeping_and_instrumentation_s": 0.02397463200000005,
+      "stages": {
+        "identity_hash": {
+          "wall_s": 0.004561944,
+          "cpu_s": 0.00455565,
+          "calls": 1,
+          "max_s": 0.004561944
+        },
+        "wait_skeleton": {
+          "wall_s": 0.006587784,
+          "cpu_s": 0.006589245,
+          "calls": 1,
+          "max_s": 0.006587784
+        },
+        "pickle_read": {
+          "wall_s": 0.002583249,
+          "cpu_s": 0.002583296,
+          "calls": 1,
+          "max_s": 0.002583249
+        },
+        "metadata_compare": {
+          "wall_s": 0.000331191,
+          "cpu_s": 0.000330834,
+          "calls": 1,
+          "max_s": 0.000331191
+        },
+        "index_validation": {
+          "wall_s": 0.000449015,
+          "cpu_s": 0.000449136,
+          "calls": 1,
+          "max_s": 0.000449015
+        },
+        "set_device": {
+          "wall_s": 2.0813e-05,
+          "cpu_s": 2.005e-05,
+          "calls": 1,
+          "max_s": 2.0813e-05
+        },
+        "ipc_import": {
+          "wall_s": 0.09916888399999997,
+          "cpu_s": 0.09895775799999991,
+          "calls": 1009,
+          "max_s": 0.006024717
+        },
+        "tensor_bind": {
+          "wall_s": 0.013848427999999998,
+          "cpu_s": 0.013846918000000003,
+          "calls": 1009,
+          "max_s": 0.000119221
+        },
+        "sort_segments": {
+          "wall_s": 0.000193463,
+          "cpu_s": 0.000194393,
+          "calls": 1,
+          "max_s": 0.000193463
+        }
+      },
+      "slowest_calls": [
+        {
+          "stage": "wait_skeleton",
+          "begin_ns": 4105492804790837,
+          "end_ns": 4105492811378621,
+          "wall_s": 0.006587784,
+          "thread_cpu_s": 0.006589245,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492896637424,
+          "end_ns": 4105492902662141,
+          "wall_s": 0.006024717,
+          "thread_cpu_s": 0.006011757,
+          "minor_faults": 1,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 837,
+          "name": "model.layers.35.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492907416570,
+          "end_ns": 4105492912407973,
+          "wall_s": 0.004991403,
+          "thread_cpu_s": 0.00498574,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 854,
+          "name": "model.layers.36.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492917255642,
+          "end_ns": 4105492922120771,
+          "wall_s": 0.004865129,
+          "thread_cpu_s": 0.004850447,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 869,
+          "name": "model.layers.37.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492927468928,
+          "end_ns": 4105492932301929,
+          "wall_s": 0.004833001,
+          "thread_cpu_s": 0.004817098,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 884,
+          "name": "model.layers.38.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "identity_hash",
+          "begin_ns": 4105492800090326,
+          "end_ns": 4105492804652270,
+          "wall_s": 0.004561944,
+          "thread_cpu_s": 0.00455565,
+          "minor_faults": 58,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492935833773,
+          "end_ns": 4105492940345012,
+          "wall_s": 0.004511239,
+          "thread_cpu_s": 0.004492769,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 2,
+          "entry": 894,
+          "name": "model.layers.39.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492912464266,
+          "end_ns": 4105492916026002,
+          "wall_s": 0.003561736,
+          "thread_cpu_s": 0.00354821,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 855,
+          "name": "model.layers.36.mlp.experts.w2_weight",
+          "nbytes": 268435456
+        }
+      ],
+      "gc_events": [
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805057634,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805095977,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805333929,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805362424,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805609805,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805639139,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805919205,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492805950914,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492806195570,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492806223857,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492806504482,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492806537098,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492806770860,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492806803965,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492807109594,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492807142210,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492807412848,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492807445953,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492808248369,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492808283429,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492808527527,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492808556372,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105492808815207,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105492809186627,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492809431214,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492809460059,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492809791739,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492809833854,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492810207090,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492810255839,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492810632987,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492810684949,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492811732441,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492811770365,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812007339,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812034857,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812294530,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812322047,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812560907,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812588425,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812917730,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492812956912,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492813334478,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492813385114,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492813763099,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492813811918,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105492821242766,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105492821714968,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492829304287,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492829329360,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492839526652,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492839553123,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492855565465,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492855589631,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492871622368,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492871646952,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492887560957,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492887586101,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492948182830,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105492948224455,
+          "collected": 0,
+          "uncollectable": 0
+        }
+      ],
+      "trace_file": "codex_coding/results/v0.1.23.3/task2/prepareprofile01/prepare_profiles/worker0_70a9be16df654ee898541697a2950395.json",
+      "caution": "before_trace includes accepted-event emission and trace initialization, not IPC import; GC intervals can overlap stages"
+    },
+    {
+      "phase": "load_local_base",
+      "rank": 0,
+      "worker": 0,
+      "mapping_window_s": 0.246618996,
+      "before_trace_s": 0.00027874,
+      "leaf_wall_s": 0.22173540200000022,
+      "remaining_bookkeeping_and_instrumentation_s": 0.024604853999999787,
+      "stages": {
+        "identity_hash": {
+          "wall_s": 0.004671108,
+          "cpu_s": 0.004668651,
+          "calls": 1,
+          "max_s": 0.004671108
+        },
+        "wait_skeleton": {
+          "wall_s": 0.007284179,
+          "cpu_s": 0.00728619,
+          "calls": 1,
+          "max_s": 0.007284179
+        },
+        "pickle_read": {
+          "wall_s": 0.002562925,
+          "cpu_s": 0.002564026,
+          "calls": 1,
+          "max_s": 0.002562925
+        },
+        "metadata_compare": {
+          "wall_s": 0.000331121,
+          "cpu_s": 0.000329784,
+          "calls": 1,
+          "max_s": 0.000331121
+        },
+        "index_validation": {
+          "wall_s": 0.00048638,
+          "cpu_s": 0.000488085,
+          "calls": 1,
+          "max_s": 0.00048638
+        },
+        "set_device": {
+          "wall_s": 1.9835e-05,
+          "cpu_s": 1.965e-05,
+          "calls": 1,
+          "max_s": 1.9835e-05
+        },
+        "ipc_import": {
+          "wall_s": 0.1923179410000003,
+          "cpu_s": 0.18975991100000003,
+          "calls": 1009,
+          "max_s": 0.00748246
+        },
+        "tensor_bind": {
+          "wall_s": 0.013807896999999996,
+          "cpu_s": 0.013769522999999999,
+          "calls": 1009,
+          "max_s": 0.000210155
+        },
+        "sort_segments": {
+          "wall_s": 0.000254016,
+          "cpu_s": 0.000255443,
+          "calls": 1,
+          "max_s": 0.000254016
+        }
+      },
+      "slowest_calls": [
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105887005970281,
+          "end_ns": 4105887013452741,
+          "wall_s": 0.00748246,
+          "thread_cpu_s": 0.007482817,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 455,
+          "name": "model.layers.8.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "wait_skeleton",
+          "begin_ns": 4105886916521582,
+          "end_ns": 4105886923805761,
+          "wall_s": 0.007284179,
+          "thread_cpu_s": 0.00728619,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105886996337033,
+          "end_ns": 4105887001770886,
+          "wall_s": 0.005433853,
+          "thread_cpu_s": 0.004896813,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 438,
+          "name": "model.layers.7.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105887098179767,
+          "end_ns": 4105887103235565,
+          "wall_s": 0.005055798,
+          "thread_cpu_s": 0.0050441,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 656,
+          "name": "model.layers.22.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105887089368770,
+          "end_ns": 4105887094381965,
+          "wall_s": 0.005013195,
+          "thread_cpu_s": 0.005012408,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 641,
+          "name": "model.layers.21.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "identity_hash",
+          "begin_ns": 4105886911708974,
+          "end_ns": 4105886916380082,
+          "wall_s": 0.004671108,
+          "thread_cpu_s": 0.004668651,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105887115455343,
+          "end_ns": 4105887120035726,
+          "wall_s": 0.004580383,
+          "thread_cpu_s": 0.004581997,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 683,
+          "name": "model.layers.24.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105887107266081,
+          "end_ns": 4105887111813778,
+          "wall_s": 0.004547697,
+          "thread_cpu_s": 0.004549733,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 666,
+          "name": "model.layers.23.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        }
+      ],
+      "gc_events": [
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886917006006,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886917045746,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886917290892,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886917320645,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886917591283,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886917622991,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105886917869045,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105886918336428,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886918601409,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886918633117,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886918930225,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886918967172,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886919242419,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886919279436,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886919574099,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886919610557,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886919904801,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886919938954,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886920565298,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886920598473,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886920845854,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886920874768,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886921139749,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886921168105,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886921416952,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886921447194,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886921822455,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886921861637,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886922291724,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886922341452,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105886922755476,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105886923090857,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924161117,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924199810,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924438320,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924468562,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924722228,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924753867,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886924996638,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886925024505,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886925348642,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886925390268,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886925757428,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886925807993,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886926177039,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886926227185,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886933853940,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886933895566,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886941291003,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886941315588,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886972596176,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105886972655262,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105887042978548,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105887043046644,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105887105268179,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 140007861372480,
+          "time_ns": 4105887106339277,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105887140648287,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105887140685164,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105887154310165,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 140007861372480,
+          "time_ns": 4105887154335797,
+          "collected": 0,
+          "uncollectable": 0
+        }
+      ],
+      "trace_file": "codex_coding/results/v0.1.23.3/task2/prepareprofile01/prepare_profiles/worker0_ac5843b64f724ebeb76ae80df14446ab.json",
+      "caution": "before_trace includes accepted-event emission and trace initialization, not IPC import; GC intervals can overlap stages"
+    },
+    {
+      "phase": "load_remote_base",
+      "rank": 1,
+      "worker": 1,
+      "mapping_window_s": 0.149755025,
+      "before_trace_s": 0.003084855,
+      "leaf_wall_s": 0.12415804800000008,
+      "remaining_bookkeeping_and_instrumentation_s": 0.02251212199999994,
+      "stages": {
+        "identity_hash": {
+          "wall_s": 0.004482884,
+          "cpu_s": 0.004481063,
+          "calls": 1,
+          "max_s": 0.004482884
+        },
+        "wait_skeleton": {
+          "wall_s": 0.006759037,
+          "cpu_s": 0.006759627,
+          "calls": 1,
+          "max_s": 0.006759037
+        },
+        "pickle_read": {
+          "wall_s": 0.002561598,
+          "cpu_s": 0.002562125,
+          "calls": 1,
+          "max_s": 0.002561598
+        },
+        "metadata_compare": {
+          "wall_s": 0.000325883,
+          "cpu_s": 0.000328165,
+          "calls": 1,
+          "max_s": 0.000325883
+        },
+        "index_validation": {
+          "wall_s": 0.000474996,
+          "cpu_s": 0.000475932,
+          "calls": 1,
+          "max_s": 0.000474996
+        },
+        "set_device": {
+          "wall_s": 2.2768e-05,
+          "cpu_s": 2.2771e-05,
+          "calls": 1,
+          "max_s": 2.2768e-05
+        },
+        "ipc_import": {
+          "wall_s": 0.09602390799999998,
+          "cpu_s": 0.09597546700000002,
+          "calls": 1009,
+          "max_s": 0.006043155
+        },
+        "tensor_bind": {
+          "wall_s": 0.013314489999999991,
+          "cpu_s": 0.013282141000000015,
+          "calls": 1009,
+          "max_s": 0.000177399
+        },
+        "sort_segments": {
+          "wall_s": 0.000192484,
+          "cpu_s": 0.000192383,
+          "calls": 1,
+          "max_s": 0.000192484
+        }
+      },
+      "slowest_calls": [
+        {
+          "stage": "wait_skeleton",
+          "begin_ns": 4105492804802640,
+          "end_ns": 4105492811561677,
+          "wall_s": 0.006759037,
+          "thread_cpu_s": 0.006759627,
+          "minor_faults": 2,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492910746431,
+          "end_ns": 4105492916789586,
+          "wall_s": 0.006043155,
+          "thread_cpu_s": 0.006024294,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 2,
+          "entry": 869,
+          "name": "model.layers.37.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492920617211,
+          "end_ns": 4105492926306965,
+          "wall_s": 0.005689754,
+          "thread_cpu_s": 0.005675591,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 884,
+          "name": "model.layers.38.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492893289544,
+          "end_ns": 4105492898293798,
+          "wall_s": 0.005004254,
+          "thread_cpu_s": 0.004992063,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 837,
+          "name": "model.layers.35.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492936959348,
+          "end_ns": 4105492941536867,
+          "wall_s": 0.004577519,
+          "thread_cpu_s": 0.004562676,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 905,
+          "name": "lm_head.weight",
+          "nbytes": 508559360
+        },
+        {
+          "stage": "identity_hash",
+          "begin_ns": 4105492800179723,
+          "end_ns": 4105492804662607,
+          "wall_s": 0.004482884,
+          "thread_cpu_s": 0.004481063,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492929582838,
+          "end_ns": 4105492933932742,
+          "wall_s": 0.004349904,
+          "thread_cpu_s": 0.00433411,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 894,
+          "name": "model.layers.39.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105492903454150,
+          "end_ns": 4105492907224504,
+          "wall_s": 0.003770354,
+          "thread_cpu_s": 0.003768605,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 854,
+          "name": "model.layers.36.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        }
+      ],
+      "gc_events": [
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492805272957,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492805317376,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492805560636,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492805588992,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492805873319,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492805905516,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492806154433,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492806181812,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492806440576,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492806471796,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492806732097,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492806766110,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492807063288,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492807099187,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492807374086,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492807410543,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492807666514,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492807699620,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492808365214,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492808399856,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492808643884,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492808672869,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105492808945881,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105492809304870,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492809555184,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492809583121,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492809927582,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492809969208,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492810348101,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492810397828,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492810783845,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492810832595,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492811915078,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492811952024,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492812190046,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492812217424,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492812477167,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492812506570,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492812749201,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492812778605,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492813102602,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492813142412,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492813504893,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492813555877,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492813927298,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492813975628,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105492821352977,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105492821825598,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492829081910,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492829105098,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492839563040,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492839590069,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492854697329,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492854722402,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492869641437,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492869666091,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492884624308,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492884645610,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492943173826,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105492943217826,
+          "collected": 0,
+          "uncollectable": 0
+        }
+      ],
+      "trace_file": "codex_coding/results/v0.1.23.3/task2/prepareprofile01/prepare_profiles/worker1_70a9be16df654ee898541697a2950395.json",
+      "caution": "before_trace includes accepted-event emission and trace initialization, not IPC import; GC intervals can overlap stages"
+    },
+    {
+      "phase": "load_local_base",
+      "rank": 1,
+      "worker": 1,
+      "mapping_window_s": 0.280518872,
+      "before_trace_s": 0.000264003,
+      "leaf_wall_s": 0.257614634000001,
+      "remaining_bookkeeping_and_instrumentation_s": 0.022640234999998954,
+      "stages": {
+        "identity_hash": {
+          "wall_s": 0.004469614,
+          "cpu_s": 0.004466476,
+          "calls": 1,
+          "max_s": 0.004469614
+        },
+        "wait_skeleton": {
+          "wall_s": 0.00668242,
+          "cpu_s": 0.006684649,
+          "calls": 1,
+          "max_s": 0.00668242
+        },
+        "pickle_read": {
+          "wall_s": 0.00257424,
+          "cpu_s": 0.002573168,
+          "calls": 1,
+          "max_s": 0.00257424
+        },
+        "metadata_compare": {
+          "wall_s": 0.000335032,
+          "cpu_s": 0.000333535,
+          "calls": 1,
+          "max_s": 0.000335032
+        },
+        "index_validation": {
+          "wall_s": 0.000454671,
+          "cpu_s": 0.000453296,
+          "calls": 1,
+          "max_s": 0.000454671
+        },
+        "set_device": {
+          "wall_s": 1.8508e-05,
+          "cpu_s": 1.854e-05,
+          "calls": 1,
+          "max_s": 1.8508e-05
+        },
+        "ipc_import": {
+          "wall_s": 0.22714277499999988,
+          "cpu_s": 0.22422807899999983,
+          "calls": 1009,
+          "max_s": 0.007564735
+        },
+        "tensor_bind": {
+          "wall_s": 0.015717791000000026,
+          "cpu_s": 0.015414497999999985,
+          "calls": 1009,
+          "max_s": 0.002311703
+        },
+        "sort_segments": {
+          "wall_s": 0.000219583,
+          "cpu_s": 0.000218671,
+          "calls": 1,
+          "max_s": 0.000219583
+        }
+      },
+      "slowest_calls": [
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105887005797631,
+          "end_ns": 4105887013362366,
+          "wall_s": 0.007564735,
+          "thread_cpu_s": 0.007567079,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 438,
+          "name": "model.layers.7.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "wait_skeleton",
+          "begin_ns": 4105886915984566,
+          "end_ns": 4105886922666986,
+          "wall_s": 0.00668242,
+          "thread_cpu_s": 0.006684649,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105886996456743,
+          "end_ns": 4105887002139373,
+          "wall_s": 0.00568263,
+          "thread_cpu_s": 0.005168126,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 1,
+          "entry": 428,
+          "name": "model.layers.6.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "identity_hash",
+          "begin_ns": 4105886911380995,
+          "end_ns": 4105886915850609,
+          "wall_s": 0.004469614,
+          "thread_cpu_s": 0.004466476,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105886974490083,
+          "end_ns": 4105886978840895,
+          "wall_s": 0.004350812,
+          "thread_cpu_s": 0.004349068,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 381,
+          "name": "model.layers.3.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105886967085776,
+          "end_ns": 4105886971426112,
+          "wall_s": 0.004340336,
+          "thread_cpu_s": 0.004339998,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 371,
+          "name": "model.layers.2.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105886981988119,
+          "end_ns": 4105886986321470,
+          "wall_s": 0.004333351,
+          "thread_cpu_s": 0.004334749,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 398,
+          "name": "model.layers.4.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        },
+        {
+          "stage": "ipc_import",
+          "begin_ns": 4105886951976980,
+          "end_ns": 4105886956280928,
+          "wall_s": 0.004303948,
+          "thread_cpu_s": 0.004306419,
+          "minor_faults": 0,
+          "major_faults": 0,
+          "voluntary_switches": 0,
+          "involuntary_switches": 0,
+          "entry": 341,
+          "name": "model.layers.0.mlp.experts.w13_weight",
+          "nbytes": 536870912
+        }
+      ],
+      "gc_events": [
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886916451041,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886916487010,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886916729781,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886916758556,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886917024933,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886917055245,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105886917302626,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105886917779088,
+          "collected": 5,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918035129,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918065860,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918316593,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918350606,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918613701,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918649600,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918934067,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886918969476,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886919862268,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886919898236,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886920144220,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886920174532,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886920436719,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886920465005,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886920710639,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886920737529,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886921074866,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886921115165,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886921488401,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886921538966,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886921908082,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886921960114,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105886923052025,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105886923093232,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886923332162,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886923361495,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886923616070,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886923644425,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886923883844,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886923913178,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886924233474,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886924273633,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886924633738,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886924683885,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886925048181,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886925099725,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886934470436,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886934512551,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886941444306,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886941470777,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886973741167,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105886973784190,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105887047658665,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105887047739053,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105887112601596,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105887112680518,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105887173708242,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 1,
+          "thread": 139884482258496,
+          "time_ns": 4105887174435927,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "start",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105887188073290,
+          "collected": 0,
+          "uncollectable": 0
+        },
+        {
+          "phase": "stop",
+          "generation": 0,
+          "thread": 139884482258496,
+          "time_ns": 4105887188098363,
+          "collected": 0,
+          "uncollectable": 0
+        }
+      ],
+      "trace_file": "codex_coding/results/v0.1.23.3/task2/prepareprofile01/prepare_profiles/worker1_ac5843b64f724ebeb76ae80df14446ab.json",
+      "caution": "before_trace includes accepted-event emission and trace initialization, not IPC import; GC intervals can overlap stages"
+    }
+  ],
+  "scope": "same-host event reconciliation; no cross-host clock subtraction"
+}

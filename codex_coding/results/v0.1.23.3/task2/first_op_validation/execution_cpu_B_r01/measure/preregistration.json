@@ -1,0 +1,913 @@
+{
+  "measurements": 0,
+  "protocol": {
+    "CUDA_events": 0,
+    "bootstrap_separate": true,
+    "cell_order": [
+      2,
+      3,
+      4,
+      1
+    ],
+    "cells": {
+      "1": {
+        "executor_mode": "F",
+        "target_state": "fresh"
+      },
+      "2": {
+        "executor_mode": "P",
+        "target_state": "fresh"
+      },
+      "3": {
+        "executor_mode": "F",
+        "target_state": "pretouched"
+      },
+      "4": {
+        "executor_mode": "P",
+        "target_state": "pretouched"
+      }
+    },
+    "chunk_bytes": 33554432,
+    "copy_rounds_per_request": 2,
+    "executor": "serial",
+    "fixed_bytes": 8388608,
+    "fixture_source_total_bytes": 41943040,
+    "full_scope": "fresh inventory through filled; includes cell allocation/create/prepare intervention/dispatch/join/diagnostics",
+    "intervention_copy_bytes": 67108864,
+    "logical_SHA_bytes": 67108864,
+    "max_requests": 16,
+    "max_stages": 2,
+    "measurement_copy_bytes": 134217728,
+    "mode": "cached",
+    "necessary_pairs": [
+      [
+        2,
+        4
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "old_model_prediction": null,
+    "published_prediction": null,
+    "requests": 8,
+    "schema_version": "first_op_validation.v1",
+    "source_bytes": 16777216,
+    "source_worker": 4,
+    "stage": "B",
+    "target_fixture_bytes": 25165824,
+    "target_worker": 4
+  },
+  "registered": [
+    {
+      "buffers": {
+        "A": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/A",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/A",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "B": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/B",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/B",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "scratch": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/scratch",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/scratch",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      },
+      "cell_id": 2,
+      "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2",
+      "plans": [
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 2,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2",
+            "executor_mode": "P",
+            "request_ordinal": 1,
+            "target_state": "fresh"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/A",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/A",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/A",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        },
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 2,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2",
+            "executor_mode": "P",
+            "request_ordinal": 2,
+            "target_state": "fresh"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/B",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/B",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell2/B",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "buffers": {
+        "A": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/A",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/A",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "B": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/B",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/B",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "scratch": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/scratch",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/scratch",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      },
+      "cell_id": 3,
+      "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3",
+      "plans": [
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 3,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3",
+            "executor_mode": "F",
+            "request_ordinal": 1,
+            "target_state": "pretouched"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/A",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/A",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/A",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        },
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 3,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3",
+            "executor_mode": "F",
+            "request_ordinal": 2,
+            "target_state": "pretouched"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/B",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/B",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell3/B",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "buffers": {
+        "A": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/A",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/A",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "B": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/B",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/B",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "scratch": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/scratch",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/scratch",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      },
+      "cell_id": 4,
+      "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4",
+      "plans": [
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 4,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4",
+            "executor_mode": "P",
+            "request_ordinal": 1,
+            "target_state": "pretouched"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/A",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/A",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/A",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        },
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 4,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4",
+            "executor_mode": "P",
+            "request_ordinal": 2,
+            "target_state": "pretouched"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/B",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/B",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell4/B",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "buffers": {
+        "A": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/A",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/A",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "B": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/B",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/B",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        },
+        "scratch": {
+          "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/scratch",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/scratch",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 8388608,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      },
+      "cell_id": 1,
+      "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1",
+      "plans": [
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 1,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1",
+            "executor_mode": "F",
+            "request_ordinal": 1,
+            "target_state": "fresh"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/A",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/A",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/A",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        },
+        {
+          "chunk_bytes": 33554432,
+          "executor": "serial",
+          "first_op_validation": {
+            "cell_id": 1,
+            "cell_key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1",
+            "executor_mode": "F",
+            "request_ordinal": 2,
+            "target_state": "fresh"
+          },
+          "ops": [
+            {
+              "dst_w": 4,
+              "generation": 1,
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "kind": "local_hbm",
+              "n": 8388608,
+              "off": 0,
+              "op_id": 0,
+              "path": "4:hbm:0->4",
+              "replica_id": "first_op_runtime_B_cpu_execution_cpu_B_r01/source0/hbm",
+              "resources": [],
+              "source_epoch": "cpu_B/4",
+              "source_offset": 0,
+              "src_w": 4,
+              "target": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/B",
+              "tp": 0
+            }
+          ],
+          "targets": [
+            {
+              "id": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/B",
+              "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+              "index": {
+                "t0": [
+                  0,
+                  1048576
+                ],
+                "t1": [
+                  1048576,
+                  15728640
+                ]
+              },
+              "key": "first_op_runtime_B_cpu_execution_cpu_B_r01/cell1/B",
+              "meta": {
+                "model_identity": "fixture:3100",
+                "synthetic": true,
+                "tp_rank": 0,
+                "tp_size": 4
+              },
+              "mode": "replica",
+              "n": 8388608,
+              "numa": 0,
+              "off": 0,
+              "tier": "hbm",
+              "tp": 0,
+              "worker": 4
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "saved_ns": 207282160433228
+}

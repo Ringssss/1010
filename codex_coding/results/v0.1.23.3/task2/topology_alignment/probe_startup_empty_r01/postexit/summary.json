@@ -1,0 +1,2528 @@
+{
+  "schema_version": "topology_calibration.v1",
+  "status": "passed",
+  "session": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+  "session_overlay_sha256": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+  "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit",
+  "observations": [
+    {
+      "case_id": "network_pair",
+      "kind": "network",
+      "node": null,
+      "mode": "concurrent",
+      "flows": [
+        {
+          "flow_id": 0,
+          "src": 0,
+          "dst": 2,
+          "role": "target",
+          "node": "node29",
+          "gpu": 0,
+          "numa": 0,
+          "buffer_bytes": 1048576,
+          "iterations": 1,
+          "bytes": 1048576,
+          "receiver_start_ns": 4755207139368095,
+          "receiver_end_ns": 4755207139849518,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4755207139372285,
+              4755207139848528
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "bc56a8800998369cdaaa7ebf45562be47370bdf936fffc907ffdd3ba8aeaf89f",
+            "expected_sha256": "bc56a8800998369cdaaa7ebf45562be47370bdf936fffc907ffdd3ba8aeaf89f",
+            "verified_bytes": 1048576,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 1048576,
+            "start_ns": 4755206411972978,
+            "end_ns": 4755207134519867,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4755207138730891,
+            "snapshot_end_ns": 4755207140424421,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 12784,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2116796,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1136,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1112,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4755206210048966,
+            "snapshot_end_ns": 4755206411225133,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1596,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2376,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 924,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1316,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 130397856,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 191213061,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 777748349247,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4036674525808,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4755207138730891,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 130401052,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 191742260,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 777748350383,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4036674526920,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4755207140424421,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 11232346112,
+          "numa_host_placement": null,
+          "service_s": 0.000481423,
+          "empirical_effective_GBps": 2.178076244799272,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "bc56a8800998369cdaaa7ebf45562be47370bdf936fffc907ffdd3ba8aeaf89f",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4755200143201754,
+            "receiver_end_ns": 4755200143593429,
+            "chunk_intervals": [
+              [
+                4755200143208320,
+                4755200143591124
+              ]
+            ]
+          }
+        },
+        {
+          "flow_id": 1,
+          "src": 1,
+          "dst": 3,
+          "role": "target",
+          "node": "node29",
+          "gpu": 1,
+          "numa": 3,
+          "buffer_bytes": 1048576,
+          "iterations": 1,
+          "bytes": 1048576,
+          "receiver_start_ns": 4755207139328785,
+          "receiver_end_ns": 4755207139768877,
+          "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+          "completion": "cuda_stream_synchronize",
+          "chunk_intervals": [
+            [
+              4755207139333165,
+              4755207139767797
+            ]
+          ],
+          "receiver_reset_before_timing": true,
+          "correctness": {
+            "passed": true,
+            "sha256": "f954ac8b009f965c052519c4e1e395a9f15328596a2b1eaf373d74fe7e169a5f",
+            "expected_sha256": "f954ac8b009f965c052519c4e1e395a9f15328596a2b1eaf373d74fe7e169a5f",
+            "verified_bytes": 1048576,
+            "scope": "all bytes in the reused synthetic allocation; final iteration",
+            "transferred_bytes_scope": "the same verified buffer is transferred once per iteration"
+          },
+          "warmup": {
+            "bytes": 1048576,
+            "start_ns": 4755206411935927,
+            "end_ns": 4755207136986322,
+            "excluded_from_timing": true
+          },
+          "nic_counter_delta": {
+            "snapshot_start_ns": 4755207138660211,
+            "snapshot_end_ns": 4755207140335770,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 12784,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2116796,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1136,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1112,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "idle_background_counter_delta": {
+            "snapshot_start_ns": 4755206209975786,
+            "snapshot_end_ns": 4755206410944402,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+            "deltas": [
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 1596,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+                "unit_bytes": 4,
+                "valid": true,
+                "delta_bytes": 2376,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/tx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 924,
+                "scope": "shared port/device counter; background traffic not attributed"
+              },
+              {
+                "counter": "/sys/class/net/ib0/statistics/rx_bytes",
+                "unit_bytes": 1,
+                "valid": true,
+                "delta_bytes": 1316,
+                "scope": "shared port/device counter; background traffic not attributed"
+              }
+            ],
+            "background_excluded": false,
+            "boundary_valid": true
+          },
+          "nic_snapshot_before": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 130397856,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 191213061,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 777748349247,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4036674525808,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4755207138660211,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "nic_snapshot_after": {
+            "values": {
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_xmit_data": {
+                "raw": 130401052,
+                "unit_bytes": 4
+              },
+              "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data": {
+                "raw": 191742260,
+                "unit_bytes": 4
+              },
+              "/sys/class/net/ib0/statistics/tx_bytes": {
+                "raw": 777748350383,
+                "unit_bytes": 1
+              },
+              "/sys/class/net/ib0/statistics/rx_bytes": {
+                "raw": 4036674526920,
+                "unit_bytes": 1
+              }
+            },
+            "monotonic_ns": 4755207140335770,
+            "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns"
+          },
+          "free_hbm_after_case_bytes": 10655629312,
+          "numa_host_placement": null,
+          "service_s": 0.000440092,
+          "empirical_effective_GBps": 2.3826290866455198,
+          "rate_kind": "empirical_effective",
+          "capacity_is_physical_upper_bound": false,
+          "source_sha256": "f954ac8b009f965c052519c4e1e395a9f15328596a2b1eaf373d74fe7e169a5f",
+          "source_timing": {
+            "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+            "receiver_start_ns": 4755200143117455,
+            "receiver_end_ns": 4755200143531968,
+            "chunk_intervals": [
+              [
+                4755200143125068,
+                4755200143528615
+              ]
+            ]
+          }
+        }
+      ],
+      "overlap": {
+        "status": "observed",
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "overlap_ns": 400782,
+        "overlap_fraction": 0.9106777673759123,
+        "scope": "synchronous operation windows; not individual hardware kernel occupancy"
+      },
+      "samples": 1,
+      "rate_kind": "empirical_effective",
+      "capacity_is_physical_upper_bound": false,
+      "timing_scope": "receiver host synchronous completed operation window; not device kernel occupancy",
+      "actual_nic_payload_evidence": {
+        "passed": true,
+        "per_port": [
+          {
+            "passed": true,
+            "actual_hca_port": {
+              "hca": "shca_0",
+              "port": 1
+            },
+            "counter": "/sys/class/infiniband/shca_0/ports/1/counters/port_rcv_data",
+            "direction": "receive",
+            "expected_payload_bytes": 2097152,
+            "actual_counter_delta_bytes": 2116796,
+            "background_fraction_estimate": 9.843310396876186e-06,
+            "background_excluded": false,
+            "scope": "one shared receiving port, union of measured per-flow snapshot windows; counted once",
+            "limitation": "idle baseline estimates background; unrelated traffic cannot be individually subtracted",
+            "flow_ids": [
+              0,
+              1
+            ]
+          }
+        ],
+        "expected_payload_bytes": 2097152,
+        "actual_counter_delta_bytes": 2116796,
+        "background_fraction_estimate": 9.843310396876186e-06,
+        "background_excluded": false,
+        "scope": "union of per-flow snapshots within each actual receiver port; each distinct port counted once"
+      }
+    }
+  ],
+  "measurement_status": "measured",
+  "processes": [
+    {
+      "node": "node27",
+      "rank": 0,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.process.json",
+      "spec_sha256": "9f8e1906bdfdd021ff1161c3e275cb3e50cd3a6496e7ebb71177f2425b5915e3",
+      "start_reply": {
+        "pid": 12142,
+        "start_time": "475515289",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.process.json"
+      },
+      "stop_reply": "{\"stopped\": 12142}\n"
+    },
+    {
+      "node": "node27",
+      "rank": 1,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.process.json",
+      "spec_sha256": "50db36674e6b4fdc368c1d1152421538c2a641a3583f5b4c543d799e2adbb1fd",
+      "start_reply": {
+        "pid": 12160,
+        "start_time": "475515305",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.process.json"
+      },
+      "stop_reply": "{\"stopped\": 12160}\n"
+    },
+    {
+      "node": "node29",
+      "rank": 2,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.process.json",
+      "spec_sha256": "d24413f2ff8e6e9c4a5b5c4e5e28bccce65503fba1848c1155f8a1dda19dd9c4",
+      "start_reply": {
+        "pid": 20562,
+        "start_time": "475516034",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.process.json"
+      },
+      "stop_reply": "{\"stopped\": 20562}\n"
+    },
+    {
+      "node": "node29",
+      "rank": 3,
+      "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.process.json",
+      "spec_sha256": "d1ef837cba6a40c4ab62faf455c5d41590ac0c7d5f1839d1fc9052b0b37b5645",
+      "start_reply": {
+        "pid": 20580,
+        "start_time": "475516062",
+        "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.process.json"
+      },
+      "stop_reply": "{\"stopped\": 20580}\n"
+    }
+  ],
+  "cleanup": {
+    "passed": true,
+    "errors": [],
+    "process_states": {
+      "node27": [
+        {
+          "registered": {
+            "pid": 12142,
+            "start_time": "475515289",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 12142,
+            "state": "Z",
+            "start_time": "475515289"
+          }
+        },
+        {
+          "registered": {
+            "pid": 12160,
+            "start_time": "475515305",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 12160,
+            "state": "Z",
+            "start_time": "475515305"
+          }
+        }
+      ],
+      "node29": [
+        {
+          "registered": {
+            "pid": 20562,
+            "start_time": "475516034",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 20562,
+            "state": "Z",
+            "start_time": "475516034"
+          }
+        },
+        {
+          "registered": {
+            "pid": 20580,
+            "start_time": "475516062",
+            "spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.process.json"
+          },
+          "actual": {
+            "live": false,
+            "pid": 20580,
+            "state": "Z",
+            "start_time": "475516062"
+          }
+        }
+      ]
+    },
+    "physical_hbm_reclamation": {
+      "rows": [
+        {
+          "worker": 0,
+          "headroom_before_bytes": 13757841408,
+          "headroom_after_bytes": 13757841408,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 1,
+          "headroom_before_bytes": 13579583488,
+          "headroom_after_bytes": 13579583488,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 2,
+          "headroom_before_bytes": 11551113216,
+          "headroom_after_bytes": 11551113216,
+          "unreclaimed_bytes": 0
+        },
+        {
+          "worker": 3,
+          "headroom_before_bytes": 10974396416,
+          "headroom_after_bytes": 10974396416,
+          "unreclaimed_bytes": 0
+        }
+      ],
+      "tolerance_bytes": 134217728,
+      "passed": true,
+      "scope": "total free-HBM before/after; concurrent unrelated changes remain confounded"
+    },
+    "status": "passed"
+  },
+  "capacity_is_physical_upper_bound": false,
+  "command": [
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/run_probe.py",
+    "--session",
+    "codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+    "--out",
+    "codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01",
+    "--port",
+    "34111",
+    "--topology-mode",
+    "xml",
+    "--xml",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+    "--stage",
+    "startup",
+    "--timeout",
+    "180",
+    "--protect-session",
+    "codex_coding/results/motivation/fig4_lanes11/session.json",
+    "--execute"
+  ],
+  "code_sha256": {
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/inventory.py": "de76e06040f086647889982ab1ffd2081683169e042839de06d701a90d1d3f23",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/probe_rank.py": "fbbe137b77296b1b37c74a8dcee1d1692d577488e9361e7912e08d7026f9fbb5",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py": "96fa75c51395fd8905ad102a988cdfd7b9f552cbb335dd3125fbb18908204034",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/test_calibration.py": "c9e1ca615aeb6b63c9331e59e354fe27b15e4b6233b586825741eaa280a494bf",
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/test_probe.py": "b470415de901b3e422031273885d26814196f14beedfa036c9cde9f06fde8768",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/run_probe.py": "715ab9595985dc045f7338a75744d333350a96b4034ea2f23333331c806ac57a",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/rank_entry.py": "19ed50cf5333725d9138b59abca3bd748cb4db31a18a1ff03523aa19eb0223e9",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/read_evidence.py": "2f51e7ed8b35acb6b6dd6e59d3aef726df58e9642d1a819b2d3e2cf07ec1ae6b",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/cpu_environment.py": "81e54811df26500970f981f178a5e64bf6f91b7398281f155bf4128db095dc0d",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/run_diagnosis.py": "a2b91f867d4edd0a306a71eecdd8e702835bd40af773ec7e1f6c3ff22570b6ba",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/test_diagnosis.py": "4f0ef1226f1d5d80f7f1f4c29e7f73b3d904fc78e1abf247758a1481f77f3124",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/recollect.py": "aadf3df5e176d5b291f1ba0fe54a7b7c693d148ba8e4492dc9fbb53e6de0ad70",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/read_inventory.py": "0ec6ea2b3906259dccf6839d9bb345650688c95c4dd87e60313b4d1d9f94ae30"
+  },
+  "resource_admission": {
+    "status": "passed",
+    "passed": true,
+    "errors": [],
+    "gpu_required_headroom_bytes": 2147483648,
+    "host_required_headroom_bytes_per_node": 2751463424
+  },
+  "workers": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "gpu": 1,
+      "numa": 3
+    },
+    {
+      "worker": 2,
+      "node": "node29",
+      "gpu": 0,
+      "numa": 0
+    },
+    {
+      "worker": 3,
+      "node": "node29",
+      "gpu": 1,
+      "numa": 3
+    }
+  ],
+  "topology_id": "379dadc65c4afb8e67369ddb11cc0c3d52ee0add440e218754680a1362088a16",
+  "calibration_executor": "isolated_pair_rccl_broadcast",
+  "application_executor": "keeper_serial",
+  "protocol": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/protocol.json",
+  "input_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/protocol.json": "630eb7143178d0874800cfb246df23a3416f46cb5edb7b54eeb363d6d2da8149",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.process.json": "9f8e1906bdfdd021ff1161c3e275cb3e50cd3a6496e7ebb71177f2425b5915e3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.process.json": "50db36674e6b4fdc368c1d1152421538c2a641a3583f5b4c543d799e2adbb1fd",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.process.json": "d24413f2ff8e6e9c4a5b5c4e5e28bccce65503fba1848c1155f8a1dda19dd9c4",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.process.json": "d1ef837cba6a40c4ab62faf455c5d41590ac0c7d5f1839d1fc9052b0b37b5645"
+  },
+  "binding": [
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n07:12142:12180 [0] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 0,
+      "gdr_decision_lines": [
+        "m03r2n07:12142:12180 [0] NCCL INFO NET/IBext_v8 : GPU Direct RDMA Disabled for HCA 0 'shca_0'"
+      ],
+      "gdr_enabled_observed": false,
+      "gdr_disabled_observed": false,
+      "gdr_channel_lines": [],
+      "all_channel_transport_lines": [
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 08/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 09/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 10/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 11/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 12/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 13/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 14/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 15/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 16/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 17/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 18/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 19/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 20/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 21/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 22/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 23/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 24/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 25/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 26/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 27/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 28/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 29/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 30/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 31/0 : 1[9000] -> 0[9000] [receive] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 01/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 02/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 03/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 04/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 05/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 06/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 07/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 08/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 09/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 10/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 11/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 12/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 13/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 14/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 15/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 16/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 17/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 18/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 19/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 20/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 21/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 22/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 23/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 24/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 25/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 26/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 27/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 28/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 29/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 30/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02",
+        "m03r2n07:12142:12180 [0] NCCL INFO Channel 31/0 : 0[9000] -> 1[9000] [send] via NET/IBext_v8/0 comm 0x55850882f970 nRanks 02"
+      ],
+      "affinity_lines": [
+        "m03r2n07:12142:12180 [0] NCCL INFO Setting affinity for GPU 0 to ffff"
+      ],
+      "topology_file_lines": [
+        "m03r2n07:12142:12180 [0] NCCL INFO Loading topology file /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "m03r2n07:12142:12180 [0] NCCL INFO Loading unnamed topology",
+        "m03r2n07:12142:12180 [0] NCCL INFO Rank:0 Get link topo from rocmDev:0 linkNum:8 link:0 linkState:1 remote type:1 bdf:0x9b00 topoType:2",
+        "m03r2n07:12142:12180 [0] NCCL INFO Transport init rank 0 useXdp 0 linkTopoType 2",
+        "m03r2n07:12142:12180 [0] NCCL INFO Init timings: rank 0 nranks 2 total 0.67 (kernels 0.07, bootstrap 0.25, allgathers 0.00, topo 0.07, graphs 0.00, connections 0.28, rest 0.00)"
+      ],
+      "initialization_core_lines": [
+        "m03r2n07:12142:12180 [0] NCCL INFO ncclCommInitRank comm 0x55850882f970 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 9000 commId 0xccb2ec03c9cb1045 localSize 480 used 34193776 bytes on core 0 - Init COMPLETE"
+      ]
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n07:12160:12181 [1] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.27<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 1,
+      "gdr_decision_lines": [
+        "m03r2n07:12160:12181 [1] NCCL INFO NET/IBext_v8 : GPU Direct RDMA Disabled for HCA 0 'shca_0'"
+      ],
+      "gdr_enabled_observed": false,
+      "gdr_disabled_observed": false,
+      "gdr_channel_lines": [],
+      "all_channel_transport_lines": [
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 08/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 09/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 10/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 11/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 12/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 13/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 14/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 15/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 16/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 17/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 18/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 19/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 20/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 21/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 22/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 23/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 24/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 25/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 26/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 27/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 28/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 29/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 30/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 31/0 : 1[36000] -> 0[36000] [receive] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 00/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 01/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 02/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 03/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 04/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 05/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 06/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 07/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 08/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 09/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 10/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 11/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 12/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 13/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 14/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 15/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 16/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 17/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 18/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 19/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 20/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 21/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 22/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 23/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 24/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 25/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 26/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 27/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 28/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 29/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 30/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02",
+        "m03r2n07:12160:12181 [1] NCCL INFO Channel 31/0 : 0[36000] -> 1[36000] [send] via NET/IBext_v8/0 comm 0x55f947ea4200 nRanks 02"
+      ],
+      "affinity_lines": [
+        "m03r2n07:12160:12181 [1] NCCL INFO Setting affinity for GPU 1 to ffff0000,00000000"
+      ],
+      "topology_file_lines": [
+        "m03r2n07:12160:12181 [1] NCCL INFO Loading topology file /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "m03r2n07:12160:12181 [1] NCCL INFO Loading unnamed topology",
+        "m03r2n07:12160:12181 [1] NCCL INFO Rank:0 Get link topo from rocmDev:0 linkNum:8 link:0 linkState:1 remote type:1 bdf:0x9b00 topoType:2",
+        "m03r2n07:12160:12181 [1] NCCL INFO Transport init rank 0 useXdp 0 linkTopoType 2",
+        "m03r2n07:12160:12181 [1] NCCL INFO Init timings: rank 0 nranks 2 total 0.69 (kernels 0.07, bootstrap 0.25, allgathers 0.00, topo 0.07, graphs 0.00, connections 0.29, rest 0.00)"
+      ],
+      "initialization_core_lines": [
+        "m03r2n07:12160:12181 [1] NCCL INFO ncclCommInitRank comm 0x55f947ea4200 rank 0 nranks 2 cudaDev 1 nvmlDev 1 busId 36000 commId 0xd2b45922a9465da6 localSize 480 used 34193776 bytes on core 55 - Init COMPLETE"
+      ]
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n09:20562:20597 [0] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.29<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 01/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 02/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 03/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 04/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 05/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 06/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 07/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 2,
+      "gdr_decision_lines": [
+        "m03r2n09:20562:20597 [0] NCCL INFO NET/IBext_v8 : GPU Direct RDMA Disabled for HCA 0 'shca_0'"
+      ],
+      "gdr_enabled_observed": false,
+      "gdr_disabled_observed": false,
+      "gdr_channel_lines": [],
+      "all_channel_transport_lines": [
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 00/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 01/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 02/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 03/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 04/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 05/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 06/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 07/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 08/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 09/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 10/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 11/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 12/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 13/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 14/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 15/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 16/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 17/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 18/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 19/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 20/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 21/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 22/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 23/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 24/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 25/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 26/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 27/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 28/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 29/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 30/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 31/0 : 0[9000] -> 1[9000] [receive] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 00/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 01/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 02/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 03/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 04/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 05/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 06/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 07/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 08/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 09/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 10/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 11/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 12/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 13/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 14/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 15/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 16/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 17/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 18/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 19/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 20/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 21/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 22/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 23/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 24/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 25/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 26/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 27/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 28/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 29/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 30/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02",
+        "m03r2n09:20562:20597 [0] NCCL INFO Channel 31/0 : 1[9000] -> 0[9000] [send] via NET/IBext_v8/0 comm 0x55aaea50edc0 nRanks 02"
+      ],
+      "affinity_lines": [
+        "m03r2n09:20562:20597 [0] NCCL INFO Setting affinity for GPU 0 to ffff"
+      ],
+      "topology_file_lines": [
+        "m03r2n09:20562:20597 [0] NCCL INFO Loading topology file /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "m03r2n09:20562:20597 [0] NCCL INFO Loading unnamed topology",
+        "m03r2n09:20562:20597 [0] NCCL INFO Rank:1 Get link topo from rocmDev:0 linkNum:8 link:0 linkState:1 remote type:1 bdf:0x9b00 topoType:2",
+        "m03r2n09:20562:20597 [0] NCCL INFO Transport init rank 1 useXdp 0 linkTopoType 2",
+        "m03r2n09:20562:20597 [0] NCCL INFO Init timings: rank 1 nranks 2 total 0.67 (kernels 0.11, bootstrap 0.20, allgathers 0.00, topo 0.07, graphs 0.00, connections 0.28, rest 0.00)"
+      ],
+      "initialization_core_lines": [
+        "m03r2n09:20562:20597 [0] NCCL INFO ncclCommInitRank comm 0x55aaea50edc0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 9000 commId 0xccb2ec03c9cb1045 localSize 480 used 34193776 bytes on core 0 - Init COMPLETE"
+      ]
+    },
+    {
+      "requested_hca": "shca_0",
+      "requested_ifname": "ib0",
+      "actual_hca_ports": [
+        {
+          "hca": "shca_0",
+          "port": 1
+        }
+      ],
+      "actual_oob_ifnames": [
+        "ib0"
+      ],
+      "selected_lines": [
+        "m03r2n09:20580:20598 [1] NCCL INFO NET/IB : Using [0]shca_0:1/IB ; OOB ib0:12.11.3.29<0>"
+      ],
+      "transport_evidence": [
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 00/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 01/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 02/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 03/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 04/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 05/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 06/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 07/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02"
+      ],
+      "passed": true,
+      "scope": "communicator-selected NIC and channel transport; per-flow NIC usage not independently instrumented",
+      "rank": 3,
+      "gdr_decision_lines": [
+        "m03r2n09:20580:20598 [1] NCCL INFO NET/IBext_v8 : GPU Direct RDMA Disabled for HCA 0 'shca_0'"
+      ],
+      "gdr_enabled_observed": false,
+      "gdr_disabled_observed": false,
+      "gdr_channel_lines": [],
+      "all_channel_transport_lines": [
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 00/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 01/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 02/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 03/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 04/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 05/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 06/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 07/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 08/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 09/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 10/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 11/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 12/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 13/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 14/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 15/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 16/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 17/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 18/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 19/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 20/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 21/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 22/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 23/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 24/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 25/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 26/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 27/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 28/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 29/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 30/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 31/0 : 0[36000] -> 1[36000] [receive] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 00/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 01/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 02/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 03/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 04/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 05/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 06/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 07/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 08/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 09/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 10/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 11/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 12/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 13/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 14/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 15/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 16/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 17/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 18/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 19/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 20/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 21/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 22/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 23/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 24/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 25/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 26/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 27/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 28/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 29/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 30/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02",
+        "m03r2n09:20580:20598 [1] NCCL INFO Channel 31/0 : 1[36000] -> 0[36000] [send] via NET/IBext_v8/0 comm 0x55ce3e7593e0 nRanks 02"
+      ],
+      "affinity_lines": [
+        "m03r2n09:20580:20598 [1] NCCL INFO Setting affinity for GPU 1 to ffff0000,00000000"
+      ],
+      "topology_file_lines": [
+        "m03r2n09:20580:20598 [1] NCCL INFO Loading topology file /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "m03r2n09:20580:20598 [1] NCCL INFO Loading unnamed topology",
+        "m03r2n09:20580:20598 [1] NCCL INFO Rank:1 Get link topo from rocmDev:0 linkNum:8 link:0 linkState:1 remote type:1 bdf:0x9b00 topoType:2",
+        "m03r2n09:20580:20598 [1] NCCL INFO Transport init rank 1 useXdp 0 linkTopoType 2",
+        "m03r2n09:20580:20598 [1] NCCL INFO Init timings: rank 1 nranks 2 total 0.68 (kernels 0.11, bootstrap 0.20, allgathers 0.00, topo 0.07, graphs 0.00, connections 0.29, rest 0.00)"
+      ],
+      "initialization_core_lines": [
+        "m03r2n09:20580:20598 [1] NCCL INFO ncclCommInitRank comm 0x55ce3e7593e0 rank 1 nranks 2 cudaDev 1 nvmlDev 1 busId 36000 commId 0xd2b45922a9465da6 localSize 480 used 34193776 bytes on core 51 - Init COMPLETE"
+      ]
+    }
+  ],
+  "rank_resource_sampling": [
+    {
+      "rank": 0,
+      "sampling": {
+        "free_before_buffer_bytes": 13742637056,
+        "free_after_buffer_bytes": 13587447808,
+        "synthetic_buffer_bytes": 1048576,
+        "torch_allocated_bytes": 1048576,
+        "torch_reserved_bytes": 2097152,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    },
+    {
+      "rank": 1,
+      "sampling": {
+        "free_before_buffer_bytes": 13564379136,
+        "free_after_buffer_bytes": 13409189888,
+        "synthetic_buffer_bytes": 1048576,
+        "torch_allocated_bytes": 1048576,
+        "torch_reserved_bytes": 2097152,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    },
+    {
+      "rank": 2,
+      "sampling": {
+        "free_before_buffer_bytes": 11549016064,
+        "free_after_buffer_bytes": 11393826816,
+        "synthetic_buffer_bytes": 1048576,
+        "torch_allocated_bytes": 1048576,
+        "torch_reserved_bytes": 2097152,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    },
+    {
+      "rank": 3,
+      "sampling": {
+        "free_before_buffer_bytes": 10972299264,
+        "free_after_buffer_bytes": 10817110016,
+        "synthetic_buffer_bytes": 1048576,
+        "torch_allocated_bytes": 1048576,
+        "torch_reserved_bytes": 2097152,
+        "runtime_overhead_scope": "free memory includes communicator/context and all protected users; paired pre/post driver samples provided"
+      },
+      "host_buffer": null
+    }
+  ],
+  "before_after_preservation": {
+    "status": "passed",
+    "passed": true,
+    "checks": {
+      "catalog_unchanged": true,
+      "protected_processes_unchanged": true,
+      "parked_commands_unchanged": true,
+      "legacy_accessible_catalogs_unchanged": true
+    },
+    "scope": "catalog identities/generations, registered processes and parked command files; no GPU content reread"
+  },
+  "code_sha256_after": {
+    "codex_coding/src/task2/cluster/process.py": "445ddd7e88aa328b76c1057dd60524b19c349565c7365b79bfd3356b3231b4eb",
+    "codex_coding/src/v0.1.23.3/task2/basic_scenarios/runtime_support.py": "8bf44e3044419870122dd21e75f297452b8efae56744b73a889d9737b70b8e4e",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/inventory.py": "de76e06040f086647889982ab1ffd2081683169e042839de06d701a90d1d3f23",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/probe_rank.py": "fbbe137b77296b1b37c74a8dcee1d1692d577488e9361e7912e08d7026f9fbb5",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/run_calibration.py": "96fa75c51395fd8905ad102a988cdfd7b9f552cbb335dd3125fbb18908204034",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/calibration/test_calibration.py": "c9e1ca615aeb6b63c9331e59e354fe27b15e4b6233b586825741eaa280a494bf",
+    "main_lib/fluidckpt/benchmarks/topology_calibration.py": "b913172191412bbf059a65862c47b9aafec033b5cf1a13d5b563d2568a361a3c",
+    "main_lib/fluidckpt/cluster/path_catalog.py": "0aae79ed672189ae8b80e37069a69bef212a81205c5fded7a34b1a7cb4996a43",
+    "main_lib/fluidckpt/memory/numa.py": "406307019dc544a1219605d820a18346cf12bb47d72f7de248a74b8c0f9f39f9",
+    "main_lib/fluidckpt/profiler/numa.py": "ddc78ef8a48b5f0b3843273cfeef603cc708a4c56680f119b2af60ea68d84bc5",
+    "main_lib/fluidckpt/topology/discover.py": "accd5e17a85ae8020bcd087fa0a5ebcd50433b1abb4e8cfe1030a7188d07bc66",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/test_probe.py": "b470415de901b3e422031273885d26814196f14beedfa036c9cde9f06fde8768",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/run_probe.py": "715ab9595985dc045f7338a75744d333350a96b4034ea2f23333331c806ac57a",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/rank_entry.py": "19ed50cf5333725d9138b59abca3bd748cb4db31a18a1ff03523aa19eb0223e9",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/read_evidence.py": "2f51e7ed8b35acb6b6dd6e59d3aef726df58e9642d1a819b2d3e2cf07ec1ae6b",
+    "codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/cpu_environment.py": "81e54811df26500970f981f178a5e64bf6f91b7398281f155bf4128db095dc0d",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/run_diagnosis.py": "a2b91f867d4edd0a306a71eecdd8e702835bd40af773ec7e1f6c3ff22570b6ba",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/test_diagnosis.py": "4f0ef1226f1d5d80f7f1f4c29e7f73b3d904fc78e1abf247758a1481f77f3124",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/recollect.py": "aadf3df5e176d5b291f1ba0fe54a7b7c693d148ba8e4492dc9fbb53e6de0ad70",
+    "codex_coding/src/v0.1.23.3/task2/topology_scenarios/diagnosis/read_inventory.py": "0ec6ea2b3906259dccf6839d9bb345650688c95c4dd87e60313b4d1d9f94ae30"
+  },
+  "code_preservation": {
+    "changed": [],
+    "passed": true,
+    "status": "passed"
+  },
+  "input_preservation": {
+    "passed": true,
+    "status": "passed",
+    "changed": []
+  },
+  "shared_resource": {
+    "resources": [],
+    "application_attribution": "not_established",
+    "capacity_is_physical_upper_bound": false,
+    "independence_completion_threshold": 0.85,
+    "application_executor_contention_verified": false,
+    "gate_status": "blocked",
+    "reason": "network matrix incomplete"
+  },
+  "profile": {
+    "status": "empirical_effective_partial",
+    "capacity_is_physical_upper_bound": false,
+    "application_executor_compatible": false,
+    "rates": {},
+    "directed_path_rates": {},
+    "unmeasured_paths": "peer, SSD, reverse network, DRAM-staged network",
+    "provenance": "isolated broadcast/H2D microprobes; no serial keeper service-capacity extrapolation"
+  },
+  "raw_stage_status": "passed",
+  "source_summary_sha256": "d22d9ceb8dce6e75b1fb34d756fd113d43027134c64ee5d11456b16304ae8bcd",
+  "environment": [
+    {
+      "rank": 0,
+      "pid": 12142,
+      "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+      "captured_monotonic_ns": 4755152988044763,
+      "effective_environment": {
+        "AMD_SERIALIZE_KERNEL": "0",
+        "CUDA_VISIBLE_DEVICES": "0,1",
+        "GLOO_SOCKET_IFNAME": "ib0",
+        "HIP_PATH": "/opt/dtk/hip",
+        "HIP_VISIBLE_DEVICES": "0,1",
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.nccl.%p.log",
+        "NCCL_DEBUG_SUBSYS": "INIT,NET,GRAPH",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.topology.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "0",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+        "ROCM_PATH": "/opt/dtk"
+      },
+      "torch_imported": false,
+      "pre_torch_import": true,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "core_dump_limit": [
+        0,
+        0
+      ],
+      "requested_topology_input": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "sha256": "3c320d361ec07cbbf69851fc0dc69873dc3f4bfb1b5056f2829c61ca0b6b94a5",
+        "bytes": 30
+      },
+      "vendor_candidate_files": [
+        {
+          "path": "/usr/local/built-in-508-topo-input-tj-default.xml",
+          "sha256": "5a10dbdec6e762ceb18861e98a556422e197a3351cf2d17df3246415fb4236ef",
+          "bytes": 10475,
+          "scope": "candidate file presence only; not proof it was loaded"
+        }
+      ]
+    },
+    {
+      "rank": 1,
+      "pid": 12160,
+      "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+      "captured_monotonic_ns": 4755153142184267,
+      "effective_environment": {
+        "AMD_SERIALIZE_KERNEL": "0",
+        "CUDA_VISIBLE_DEVICES": "0,1",
+        "GLOO_SOCKET_IFNAME": "ib0",
+        "HIP_PATH": "/opt/dtk/hip",
+        "HIP_VISIBLE_DEVICES": "0,1",
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.nccl.%p.log",
+        "NCCL_DEBUG_SUBSYS": "INIT,NET,GRAPH",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.topology.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "0",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+        "ROCM_PATH": "/opt/dtk"
+      },
+      "torch_imported": false,
+      "pre_torch_import": true,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "core_dump_limit": [
+        0,
+        0
+      ],
+      "requested_topology_input": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "sha256": "3c320d361ec07cbbf69851fc0dc69873dc3f4bfb1b5056f2829c61ca0b6b94a5",
+        "bytes": 30
+      },
+      "vendor_candidate_files": [
+        {
+          "path": "/usr/local/built-in-508-topo-input-tj-default.xml",
+          "sha256": "5a10dbdec6e762ceb18861e98a556422e197a3351cf2d17df3246415fb4236ef",
+          "bytes": 10475,
+          "scope": "candidate file presence only; not proof it was loaded"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "pid": 20562,
+      "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+      "captured_monotonic_ns": 4755160424847843,
+      "effective_environment": {
+        "AMD_SERIALIZE_KERNEL": "0",
+        "CUDA_VISIBLE_DEVICES": "0,1",
+        "GLOO_SOCKET_IFNAME": "ib0",
+        "HIP_PATH": "/opt/dtk/hip",
+        "HIP_VISIBLE_DEVICES": "0,1",
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.nccl.%p.log",
+        "NCCL_DEBUG_SUBSYS": "INIT,NET,GRAPH",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.topology.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "1",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+        "ROCM_PATH": "/opt/dtk"
+      },
+      "torch_imported": false,
+      "pre_torch_import": true,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "core_dump_limit": [
+        0,
+        0
+      ],
+      "requested_topology_input": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "sha256": "3c320d361ec07cbbf69851fc0dc69873dc3f4bfb1b5056f2829c61ca0b6b94a5",
+        "bytes": 30
+      },
+      "vendor_candidate_files": [
+        {
+          "path": "/usr/local/built-in-508-topo-input-tj-default.xml",
+          "sha256": "5a10dbdec6e762ceb18861e98a556422e197a3351cf2d17df3246415fb4236ef",
+          "bytes": 10475,
+          "scope": "candidate file presence only; not proof it was loaded"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "pid": 20580,
+      "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+      "captured_monotonic_ns": 4755160706822731,
+      "effective_environment": {
+        "AMD_SERIALIZE_KERNEL": "0",
+        "CUDA_VISIBLE_DEVICES": "0,1",
+        "GLOO_SOCKET_IFNAME": "ib0",
+        "HIP_PATH": "/opt/dtk/hip",
+        "HIP_VISIBLE_DEVICES": "0,1",
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "LD_LIBRARY_PATH": "/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/dtk/.hyhal/rocm_smi/lib:/usr/local/lib/:/usr/local/lib64/:/opt/mpi/lib:/opt/hwloc/lib:/opt/dtk/dcc/gcvm/lib:/opt/dtk/hip/lib:/opt/dtk/llvm/lib:/opt/dtk/lib:/opt/dtk/lib64:/opt/hyhal/lib:/opt/hyhal/lib64:/opt/dtk/dushmem/lib:/opt/dtk/opencl/lib:/opt/rccl-rdma-sharp-plugins/lib:/opt/dtk/rccl/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/ucx/lib:/opt/mpi/lib:/opt/hwloc/lib:",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.nccl.%p.log",
+        "NCCL_DEBUG_SUBSYS": "INIT,NET,GRAPH",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.topology.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "1",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib",
+        "ROCM_PATH": "/opt/dtk"
+      },
+      "torch_imported": false,
+      "pre_torch_import": true,
+      "cpu_affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120,
+        121,
+        122,
+        123,
+        124,
+        125,
+        126,
+        127
+      ],
+      "core_dump_limit": [
+        0,
+        0
+      ],
+      "requested_topology_input": {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+        "sha256": "3c320d361ec07cbbf69851fc0dc69873dc3f4bfb1b5056f2829c61ca0b6b94a5",
+        "bytes": 30
+      },
+      "vendor_candidate_files": [
+        {
+          "path": "/usr/local/built-in-508-topo-input-tj-default.xml",
+          "sha256": "5a10dbdec6e762ceb18861e98a556422e197a3351cf2d17df3246415fb4236ef",
+          "bytes": 10475,
+          "scope": "candidate file presence only; not proof it was loaded"
+        }
+      ]
+    }
+  ],
+  "runtime_topology": {
+    "graphs": [
+      {
+        "root_tag": "system",
+        "gpu_count": 1,
+        "nic_count": 1,
+        "cpu_nodes": [
+          {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          }
+        ],
+        "gpu_attributes": [
+          {
+            "dev": "0",
+            "sm": "80",
+            "gcn": "gfx936",
+            "arch": "169983",
+            "rank": "0",
+            "gdr": "0"
+          }
+        ],
+        "net_attributes": [
+          {
+            "name": "shca_0",
+            "dev": "0",
+            "speed": "400000",
+            "port": "1",
+            "latency": "0.000000",
+            "guid": "0x9a86651a61e808e5",
+            "maxconn": "1",
+            "gdr": "0"
+          }
+        ],
+        "xml_parse_passed": true,
+        "rank": 0,
+        "sha256": "cd8866059476e78f89755ef09d3682a4f56771af5ab5a207edc46065c39c0a6f",
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_0.topology.xml"
+      },
+      {
+        "root_tag": "system",
+        "gpu_count": 1,
+        "nic_count": 1,
+        "cpu_nodes": [
+          {
+            "numaid": "3",
+            "affinity": "00000000,00000000,ffff0000,00000000",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          },
+          {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          }
+        ],
+        "gpu_attributes": [
+          {
+            "dev": "1",
+            "sm": "80",
+            "gcn": "gfx936",
+            "arch": "169983",
+            "rank": "0",
+            "gdr": "0"
+          }
+        ],
+        "net_attributes": [
+          {
+            "name": "shca_0",
+            "dev": "0",
+            "speed": "400000",
+            "port": "1",
+            "latency": "0.000000",
+            "guid": "0x9a86651a61e808e5",
+            "maxconn": "1",
+            "gdr": "0"
+          }
+        ],
+        "xml_parse_passed": true,
+        "rank": 1,
+        "sha256": "9b783dd781aa070a4973313342d8059b50f20692b784e78cf3bfc664d98af085",
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_1.topology.xml"
+      },
+      {
+        "root_tag": "system",
+        "gpu_count": 1,
+        "nic_count": 1,
+        "cpu_nodes": [
+          {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          }
+        ],
+        "gpu_attributes": [
+          {
+            "dev": "0",
+            "sm": "80",
+            "gcn": "gfx936",
+            "arch": "169983",
+            "rank": "1",
+            "gdr": "0"
+          }
+        ],
+        "net_attributes": [
+          {
+            "name": "shca_0",
+            "dev": "0",
+            "speed": "400000",
+            "port": "1",
+            "latency": "0.000000",
+            "guid": "0x9e86651a61e808e5",
+            "maxconn": "1",
+            "gdr": "0"
+          }
+        ],
+        "xml_parse_passed": true,
+        "rank": 2,
+        "sha256": "92c577dde503eeb9a5110c135bc26380caaed6cfeef3db51898fddbc4514c33e",
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_2.topology.xml"
+      },
+      {
+        "root_tag": "system",
+        "gpu_count": 1,
+        "nic_count": 1,
+        "cpu_nodes": [
+          {
+            "numaid": "3",
+            "affinity": "00000000,00000000,ffff0000,00000000",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          },
+          {
+            "numaid": "0",
+            "affinity": "00000000,00000000,00000000,0000ffff",
+            "arch": "x86_64",
+            "vendor": "HygonGenuine",
+            "familyid": "159",
+            "modelid": "7"
+          }
+        ],
+        "gpu_attributes": [
+          {
+            "dev": "1",
+            "sm": "80",
+            "gcn": "gfx936",
+            "arch": "169983",
+            "rank": "1",
+            "gdr": "0"
+          }
+        ],
+        "net_attributes": [
+          {
+            "name": "shca_0",
+            "dev": "0",
+            "speed": "400000",
+            "port": "1",
+            "latency": "0.000000",
+            "guid": "0x9e86651a61e808e5",
+            "maxconn": "1",
+            "gdr": "0"
+          }
+        ],
+        "xml_parse_passed": true,
+        "rank": 3,
+        "sha256": "40cc3db82e605350c7c6fd32bc9a13ad07d4624865a7a6508ddb8b3ce2294670",
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_3.topology.xml"
+      }
+    ],
+    "dump_missing_ranks": [],
+    "coverage": "all_ranks",
+    "discovery_classification": "not_inferred_from_unset; inspect vendor input/fallback log lines and dump",
+    "receiver_graph_certified": {
+      "2": true,
+      "3": true
+    }
+  },
+  "postexit": {
+    "checks": {
+      "owned_cleanup_passed": true,
+      "protected_state_preserved": true,
+      "code_preserved": true,
+      "inputs_preserved": true,
+      "rank_0_preimport_environment": true,
+      "rank_0_owned_pid_in_log": true,
+      "rank_1_preimport_environment": true,
+      "rank_1_owned_pid_in_log": true,
+      "rank_2_preimport_environment": true,
+      "rank_2_owned_pid_in_log": true,
+      "rank_3_preimport_environment": true,
+      "rank_3_owned_pid_in_log": true,
+      "all_rank_bindings_passed": true,
+      "all_actual_port_payloads_passed": true,
+      "all_background_estimates_below_5pct": true,
+      "all_rank_environment_records": true,
+      "actual_graph_dump_available": true,
+      "all_four_rank_dumps_available": true,
+      "original_summary_unchanged": true,
+      "all_rank_content_and_timing": true,
+      "all_library_fingerprints_available": true
+    },
+    "artifacts": [
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.environment.json",
+        "sha256": "e66dbbbee8f4ddf8c3d5d4e9c0b0d70f15cb09803be1cda84fda1db3ea3730b2",
+        "bytes": 3515,
+        "stat": {
+          "device": 66305,
+          "inode": 14827924,
+          "mtime_ns": 1791429259376044376
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755210869622759,
+        "process": {
+          "live": false,
+          "pid": 12142,
+          "state": "Z",
+          "start_time": "475515289"
+        },
+        "exists": true,
+        "rank": 0,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_0.environment.json",
+        "local_sha256": "e66dbbbee8f4ddf8c3d5d4e9c0b0d70f15cb09803be1cda84fda1db3ea3730b2",
+        "saved_sha256": "e66dbbbee8f4ddf8c3d5d4e9c0b0d70f15cb09803be1cda84fda1db3ea3730b2"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.libraries.json",
+        "sha256": "a58804fb8a463e0453a131d2d0d934edb7d1c2fd0784a93612c45242a36ec973",
+        "bytes": 1497,
+        "stat": {
+          "device": 66305,
+          "inode": 14827959,
+          "mtime_ns": 1791429309220856564
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755211116098445,
+        "process": {
+          "live": false,
+          "pid": 12142,
+          "state": "Z",
+          "start_time": "475515289"
+        },
+        "exists": true,
+        "rank": 0,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_0.libraries.json",
+        "local_sha256": "a58804fb8a463e0453a131d2d0d934edb7d1c2fd0784a93612c45242a36ec973",
+        "saved_sha256": "a58804fb8a463e0453a131d2d0d934edb7d1c2fd0784a93612c45242a36ec973"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.topology.xml",
+        "sha256": "cd8866059476e78f89755ef09d3682a4f56771af5ab5a207edc46065c39c0a6f",
+        "bytes": 1673,
+        "stat": {
+          "device": 66305,
+          "inode": 14827953,
+          "mtime_ns": 1791429306192807223
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755211316740201,
+        "process": {
+          "live": false,
+          "pid": 12142,
+          "state": "Z",
+          "start_time": "475515289"
+        },
+        "exists": true,
+        "rank": 0,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_0.topology.xml",
+        "local_sha256": "cd8866059476e78f89755ef09d3682a4f56771af5ab5a207edc46065c39c0a6f",
+        "saved_sha256": "cd8866059476e78f89755ef09d3682a4f56771af5ab5a207edc46065c39c0a6f"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_0.nccl.12142.log",
+        "sha256": "e5cc1e1767f206f83abaf61dac495569cecd1feaa758905579b9cbf8ad34f0e1",
+        "bytes": 36730,
+        "stat": {
+          "device": 66305,
+          "inode": 14827949,
+          "mtime_ns": 1791429306612814067
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755211539125889,
+        "process": {
+          "live": false,
+          "pid": 12142,
+          "state": "Z",
+          "start_time": "475515289"
+        },
+        "exists": true,
+        "rank": 0,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_0.nccl.12142.log",
+        "local_sha256": "e5cc1e1767f206f83abaf61dac495569cecd1feaa758905579b9cbf8ad34f0e1",
+        "saved_sha256": "e5cc1e1767f206f83abaf61dac495569cecd1feaa758905579b9cbf8ad34f0e1"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.environment.json",
+        "sha256": "a47228101154dcdaebbc314c368beaaf9316776e627121c4572c70bfca57d8e6",
+        "bytes": 3515,
+        "stat": {
+          "device": 66305,
+          "inode": 14827933,
+          "mtime_ns": 1791429259528046852
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755211733431222,
+        "process": {
+          "live": false,
+          "pid": 12160,
+          "state": "Z",
+          "start_time": "475515305"
+        },
+        "exists": true,
+        "rank": 1,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_1.environment.json",
+        "local_sha256": "a47228101154dcdaebbc314c368beaaf9316776e627121c4572c70bfca57d8e6",
+        "saved_sha256": "a47228101154dcdaebbc314c368beaaf9316776e627121c4572c70bfca57d8e6"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.libraries.json",
+        "sha256": "7e54fdfc04ce2b63a7902675960587be57059acd892650cbc27f0e76566d3707",
+        "bytes": 1497,
+        "stat": {
+          "device": 66305,
+          "inode": 14827958,
+          "mtime_ns": 1791429309220856564
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755211952687147,
+        "process": {
+          "live": false,
+          "pid": 12160,
+          "state": "Z",
+          "start_time": "475515305"
+        },
+        "exists": true,
+        "rank": 1,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_1.libraries.json",
+        "local_sha256": "7e54fdfc04ce2b63a7902675960587be57059acd892650cbc27f0e76566d3707",
+        "saved_sha256": "7e54fdfc04ce2b63a7902675960587be57059acd892650cbc27f0e76566d3707"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.topology.xml",
+        "sha256": "9b783dd781aa070a4973313342d8059b50f20692b784e78cf3bfc664d98af085",
+        "bytes": 1998,
+        "stat": {
+          "device": 66305,
+          "inode": 14827954,
+          "mtime_ns": 1791429306192807223
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755212146014971,
+        "process": {
+          "live": false,
+          "pid": 12160,
+          "state": "Z",
+          "start_time": "475515305"
+        },
+        "exists": true,
+        "rank": 1,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_1.topology.xml",
+        "local_sha256": "9b783dd781aa070a4973313342d8059b50f20692b784e78cf3bfc664d98af085",
+        "saved_sha256": "9b783dd781aa070a4973313342d8059b50f20692b784e78cf3bfc664d98af085"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_1.nccl.12160.log",
+        "sha256": "8ccba973424039c97f841211417cb4d594d2b58e76bef94f743989ed187cd88d",
+        "bytes": 37589,
+        "stat": {
+          "device": 66305,
+          "inode": 14827948,
+          "mtime_ns": 1791429306604813937
+        },
+        "clock_domain": "m03r2n07/c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b/monotonic_ns",
+        "collected_monotonic_ns": 4755212329236855,
+        "process": {
+          "live": false,
+          "pid": 12160,
+          "state": "Z",
+          "start_time": "475515305"
+        },
+        "exists": true,
+        "rank": 1,
+        "node": "node27",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_1.nccl.12160.log",
+        "local_sha256": "8ccba973424039c97f841211417cb4d594d2b58e76bef94f743989ed187cd88d",
+        "saved_sha256": "8ccba973424039c97f841211417cb4d594d2b58e76bef94f743989ed187cd88d"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.environment.json",
+        "sha256": "d8e6ab3c84898a23cebe94e7596e9907ab5122e50559bd059d93e3a8a3a06d18",
+        "bytes": 3515,
+        "stat": {
+          "device": 51,
+          "inode": 14827936,
+          "mtime_ns": 1791429259816051545
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755219667377083,
+        "process": {
+          "live": false,
+          "pid": 20562,
+          "state": "Z",
+          "start_time": "475516034"
+        },
+        "exists": true,
+        "rank": 2,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_2.environment.json",
+        "local_sha256": "d8e6ab3c84898a23cebe94e7596e9907ab5122e50559bd059d93e3a8a3a06d18",
+        "saved_sha256": "d8e6ab3c84898a23cebe94e7596e9907ab5122e50559bd059d93e3a8a3a06d18"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.libraries.json",
+        "sha256": "801257ede795f11966ffdf69ce74af29fcef356394a311151e5b8e2dee928334",
+        "bytes": 1497,
+        "stat": {
+          "device": 51,
+          "inode": 14827957,
+          "mtime_ns": 1791429309144855325
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755220043285957,
+        "process": {
+          "live": false,
+          "pid": 20562,
+          "state": "Z",
+          "start_time": "475516034"
+        },
+        "exists": true,
+        "rank": 2,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_2.libraries.json",
+        "local_sha256": "801257ede795f11966ffdf69ce74af29fcef356394a311151e5b8e2dee928334",
+        "saved_sha256": "801257ede795f11966ffdf69ce74af29fcef356394a311151e5b8e2dee928334"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.topology.xml",
+        "sha256": "92c577dde503eeb9a5110c135bc26380caaed6cfeef3db51898fddbc4514c33e",
+        "bytes": 1673,
+        "stat": {
+          "device": 51,
+          "inode": 14827955,
+          "mtime_ns": 1791429306196807289
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755220410710262,
+        "process": {
+          "live": false,
+          "pid": 20562,
+          "state": "Z",
+          "start_time": "475516034"
+        },
+        "exists": true,
+        "rank": 2,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_2.topology.xml",
+        "local_sha256": "92c577dde503eeb9a5110c135bc26380caaed6cfeef3db51898fddbc4514c33e",
+        "saved_sha256": "92c577dde503eeb9a5110c135bc26380caaed6cfeef3db51898fddbc4514c33e"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_2.nccl.20562.log",
+        "sha256": "a9b111301e2b6263bc3e4a4fb3b7a5f93901de66b318a431d46ebd1d98a801fb",
+        "bytes": 34519,
+        "stat": {
+          "device": 51,
+          "inode": 14827951,
+          "mtime_ns": 1791429308816849980
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755220772785866,
+        "process": {
+          "live": false,
+          "pid": 20562,
+          "state": "Z",
+          "start_time": "475516034"
+        },
+        "exists": true,
+        "rank": 2,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_2.nccl.20562.log",
+        "local_sha256": "a9b111301e2b6263bc3e4a4fb3b7a5f93901de66b318a431d46ebd1d98a801fb",
+        "saved_sha256": "a9b111301e2b6263bc3e4a4fb3b7a5f93901de66b318a431d46ebd1d98a801fb"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.environment.json",
+        "sha256": "46c4861a0b30eeba0bb6e5efe012df89fa5f09886259c63b38f2d3cc327708b7",
+        "bytes": 3515,
+        "stat": {
+          "device": 51,
+          "inode": 14827939,
+          "mtime_ns": 1791429260096056108
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755221111873499,
+        "process": {
+          "live": false,
+          "pid": 20580,
+          "state": "Z",
+          "start_time": "475516062"
+        },
+        "exists": true,
+        "rank": 3,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_3.environment.json",
+        "local_sha256": "46c4861a0b30eeba0bb6e5efe012df89fa5f09886259c63b38f2d3cc327708b7",
+        "saved_sha256": "46c4861a0b30eeba0bb6e5efe012df89fa5f09886259c63b38f2d3cc327708b7"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.libraries.json",
+        "sha256": "c0d6c0e3cf3137dedde81a34815c08d8bceb894bed6f2d77396b2076e81e02f8",
+        "bytes": 1497,
+        "stat": {
+          "device": 51,
+          "inode": 14827956,
+          "mtime_ns": 1791429309144855325
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755221440863645,
+        "process": {
+          "live": false,
+          "pid": 20580,
+          "state": "Z",
+          "start_time": "475516062"
+        },
+        "exists": true,
+        "rank": 3,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_3.libraries.json",
+        "local_sha256": "c0d6c0e3cf3137dedde81a34815c08d8bceb894bed6f2d77396b2076e81e02f8",
+        "saved_sha256": "c0d6c0e3cf3137dedde81a34815c08d8bceb894bed6f2d77396b2076e81e02f8"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.topology.xml",
+        "sha256": "40cc3db82e605350c7c6fd32bc9a13ad07d4624865a7a6508ddb8b3ce2294670",
+        "bytes": 1998,
+        "stat": {
+          "device": 51,
+          "inode": 14827952,
+          "mtime_ns": 1791429306192807223
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755221779577996,
+        "process": {
+          "live": false,
+          "pid": 20580,
+          "state": "Z",
+          "start_time": "475516062"
+        },
+        "exists": true,
+        "rank": 3,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_3.topology.xml",
+        "local_sha256": "40cc3db82e605350c7c6fd32bc9a13ad07d4624865a7a6508ddb8b3ce2294670",
+        "saved_sha256": "40cc3db82e605350c7c6fd32bc9a13ad07d4624865a7a6508ddb8b3ce2294670"
+      },
+      {
+        "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/rank_3.nccl.20580.log",
+        "sha256": "acf7216d5f59a8cfb00cd42b0d91d860423477d18e41a7e37708faffb6d65e2f",
+        "bytes": 35361,
+        "stat": {
+          "device": 51,
+          "inode": 14827950,
+          "mtime_ns": 1791429308816849980
+        },
+        "clock_domain": "m03r2n09/a5bc9009-f911-406d-aa56-30a8d08f01f5/monotonic_ns",
+        "collected_monotonic_ns": 4755222145651013,
+        "process": {
+          "live": false,
+          "pid": 20580,
+          "state": "Z",
+          "start_time": "475516062"
+        },
+        "exists": true,
+        "rank": 3,
+        "node": "node29",
+        "saved_path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/topology_alignment/probe_startup_empty_r01/postexit/rank_3.nccl.20580.log",
+        "local_sha256": "acf7216d5f59a8cfb00cd42b0d91d860423477d18e41a7e37708faffb6d65e2f",
+        "saved_sha256": "acf7216d5f59a8cfb00cd42b0d91d860423477d18e41a7e37708faffb6d65e2f"
+      }
+    ],
+    "new_gpu_observations": 0
+  },
+  "topology_control": {
+    "mode": "xml",
+    "stage": "startup",
+    "xml_requested": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/topology_alignment/probe/empty_seed.xml",
+    "flow_a_hca": "shca_0",
+    "flow_b_hca": "shca_0",
+    "measurement_scope": "startup mechanism only"
+  }
+}

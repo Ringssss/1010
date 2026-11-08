@@ -1,0 +1,312 @@
+
+/opt/dtk/lib/librccl.so.1:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+000000000a519c70 <ncclIbGdrSupport()>:
+ a519c70:	41 57                	push   %r15
+ a519c72:	41 56                	push   %r14
+ a519c74:	41 54                	push   %r12
+ a519c76:	53                   	push   %rbx
+ a519c77:	48 81 ec 08 02 00 00 	sub    $0x208,%rsp
+ a519c7e:	48 bb 00 00 00 00 00 	movabs $0x8000000000000000,%rbx
+ a519c85:	00 00 80 
+ a519c88:	48 8b 05 69 51 08 00 	mov    0x85169(%rip),%rax        # a59edf8 <rcclParamForceEnableGdrdma()::cache>
+ a519c8f:	48 39 d8             	cmp    %rbx,%rax
+ a519c92:	74 17                	je     a519cab <ncclIbGdrSupport()+0x3b>
+ a519c94:	48 83 f8 01          	cmp    $0x1,%rax
+ a519c98:	74 3b                	je     a519cd5 <ncclIbGdrSupport()+0x65>
+ a519c9a:	8b 05 60 51 08 00    	mov    0x85160(%rip),%eax        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519ca0:	83 f8 ff             	cmp    $0xffffffff,%eax
+ a519ca3:	0f 85 59 02 00 00    	jne    a519f02 <ncclIbGdrSupport()+0x292>
+ a519ca9:	eb 67                	jmp    a519d12 <ncclIbGdrSupport()+0xa2>
+ a519cab:	48 8d 3d d4 8f af f5 	lea    -0xa50702c(%rip),%rdi        # 12c86 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x12a96>
+ a519cb2:	48 8d 0d 3f 51 08 00 	lea    0x8513f(%rip),%rcx        # a59edf8 <rcclParamForceEnableGdrdma()::cache>
+ a519cb9:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a519cc0:	48 89 da             	mov    %rbx,%rdx
+ a519cc3:	e8 38 3b fd ff       	call   a4ed800 <ncclLoadParam(char const*, long, long, long*)>
+ a519cc8:	48 8b 05 29 51 08 00 	mov    0x85129(%rip),%rax        # a59edf8 <rcclParamForceEnableGdrdma()::cache>
+ a519ccf:	48 83 f8 01          	cmp    $0x1,%rax
+ a519cd3:	75 c5                	jne    a519c9a <ncclIbGdrSupport()+0x2a>
+ a519cd5:	c7 05 21 51 08 00 01 	movl   $0x1,0x85121(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519cdc:	00 00 00 
+ a519cdf:	48 8d 15 8a 9d b0 f5 	lea    -0xa4f6276(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a519ce6:	4c 8d 05 4a 2e b0 f5 	lea    -0xa4fd1b6(%rip),%r8        # 1cb37 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1c947>
+ a519ced:	be 01 00 00 00       	mov    $0x1,%esi
+ a519cf2:	bf 03 00 00 00       	mov    $0x3,%edi
+ a519cf7:	b9 78 02 00 00       	mov    $0x278,%ecx
+ a519cfc:	31 c0                	xor    %eax,%eax
+ a519cfe:	e8 fd 4e f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a519d03:	8b 05 f7 50 08 00    	mov    0x850f7(%rip),%eax        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519d09:	83 f8 ff             	cmp    $0xffffffff,%eax
+ a519d0c:	0f 85 f0 01 00 00    	jne    a519f02 <ncclIbGdrSupport()+0x292>
+ a519d12:	4c 8d 35 26 56 b0 f5 	lea    -0xa4fa9da(%rip),%r14        # 1f33f <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f14f>
+ a519d19:	4c 89 f7             	mov    %r14,%rdi
+ a519d1c:	31 f6                	xor    %esi,%esi
+ a519d1e:	e8 9d 2a 01 00       	call   a52c7c0 <access@plt>
+ a519d23:	85 c0                	test   %eax,%eax
+ a519d25:	74 4a                	je     a519d71 <ncclIbGdrSupport()+0x101>
+ a519d27:	c7 05 cf 50 08 00 00 	movl   $0x0,0x850cf(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519d2e:	00 00 00 
+ a519d31:	4c 8d 35 ca 6c b0 f5 	lea    -0xa4f9336(%rip),%r14        # 20a02 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x20812>
+ a519d38:	4c 89 f7             	mov    %r14,%rdi
+ a519d3b:	31 f6                	xor    %esi,%esi
+ a519d3d:	e8 7e 2a 01 00       	call   a52c7c0 <access@plt>
+ a519d42:	85 c0                	test   %eax,%eax
+ a519d44:	74 2b                	je     a519d71 <ncclIbGdrSupport()+0x101>
+ a519d46:	c7 05 b0 50 08 00 00 	movl   $0x0,0x850b0(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519d4d:	00 00 00 
+ a519d50:	4c 8d 35 32 d0 af f5 	lea    -0xa502fce(%rip),%r14        # 16d89 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x16b99>
+ a519d57:	4c 89 f7             	mov    %r14,%rdi
+ a519d5a:	31 f6                	xor    %esi,%esi
+ a519d5c:	e8 5f 2a 01 00       	call   a52c7c0 <access@plt>
+ a519d61:	85 c0                	test   %eax,%eax
+ a519d63:	74 0c                	je     a519d71 <ncclIbGdrSupport()+0x101>
+ a519d65:	c7 05 91 50 08 00 00 	movl   $0x0,0x85091(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519d6c:	00 00 00 
+ a519d6f:	eb 31                	jmp    a519da2 <ncclIbGdrSupport()+0x132>
+ a519d71:	c7 05 85 50 08 00 01 	movl   $0x1,0x85085(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519d78:	00 00 00 
+ a519d7b:	48 8d 15 ee 9c b0 f5 	lea    -0xa4f6312(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a519d82:	4c 8d 05 e1 55 b0 f5 	lea    -0xa4faa1f(%rip),%r8        # 1f36a <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f17a>
+ a519d89:	be 01 00 00 00       	mov    $0x1,%esi
+ a519d8e:	bf 03 00 00 00       	mov    $0x3,%edi
+ a519d93:	b9 8c 02 00 00       	mov    $0x28c,%ecx
+ a519d98:	4d 89 f1             	mov    %r14,%r9
+ a519d9b:	31 c0                	xor    %eax,%eax
+ a519d9d:	e8 5e 4e f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a519da2:	66 0f ef c0          	pxor   %xmm0,%xmm0
+ a519da6:	f3 0f 7f 84 24 ef 00 	movdqu %xmm0,0xef(%rsp)
+ a519dad:	00 00 
+ a519daf:	66 0f 7f 84 24 e0 00 	movdqa %xmm0,0xe0(%rsp)
+ a519db6:	00 00 
+ a519db8:	66 0f 7f 84 24 d0 00 	movdqa %xmm0,0xd0(%rsp)
+ a519dbf:	00 00 
+ a519dc1:	66 0f 7f 84 24 c0 00 	movdqa %xmm0,0xc0(%rsp)
+ a519dc8:	00 00 
+ a519dca:	66 0f 7f 84 24 b0 00 	movdqa %xmm0,0xb0(%rsp)
+ a519dd1:	00 00 
+ a519dd3:	66 0f 7f 84 24 a0 00 	movdqa %xmm0,0xa0(%rsp)
+ a519dda:	00 00 
+ a519ddc:	66 0f 7f 84 24 90 00 	movdqa %xmm0,0x90(%rsp)
+ a519de3:	00 00 
+ a519de5:	66 0f 7f 84 24 80 00 	movdqa %xmm0,0x80(%rsp)
+ a519dec:	00 00 
+ a519dee:	66 0f 7f 44 24 70    	movdqa %xmm0,0x70(%rsp)
+ a519df4:	66 0f 7f 44 24 60    	movdqa %xmm0,0x60(%rsp)
+ a519dfa:	66 0f 7f 44 24 50    	movdqa %xmm0,0x50(%rsp)
+ a519e00:	66 0f 7f 44 24 40    	movdqa %xmm0,0x40(%rsp)
+ a519e06:	66 0f 7f 44 24 30    	movdqa %xmm0,0x30(%rsp)
+ a519e0c:	66 0f 7f 44 24 20    	movdqa %xmm0,0x20(%rsp)
+ a519e12:	66 0f 7f 44 24 10    	movdqa %xmm0,0x10(%rsp)
+ a519e18:	66 0f 7f 04 24       	movdqa %xmm0,(%rsp)
+ a519e1d:	48 8d 3d ea e3 af f5 	lea    -0xa501c16(%rip),%rdi        # 1820e <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1801e>
+ a519e24:	48 8d 35 ec 63 b0 f5 	lea    -0xa4f9c14(%rip),%rsi        # 20217 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x20027>
+ a519e2b:	48 89 e2             	mov    %rsp,%rdx
+ a519e2e:	e8 0d 37 fb ff       	call   a4cd540 <ncclTopoGetStrFromSys(char const*, char const*, char*)>
+ a519e33:	41 89 c6             	mov    %eax,%r14d
+ a519e36:	85 c0                	test   %eax,%eax
+ a519e38:	0f 84 8c 00 00 00    	je     a519eca <ncclIbGdrSupport()+0x25a>
+ a519e3e:	41 83 fe 07          	cmp    $0x7,%r14d
+ a519e42:	0f 84 82 00 00 00    	je     a519eca <ncclIbGdrSupport()+0x25a>
+ a519e48:	48 83 3d a8 31 08 00 	cmpq   $0x0,0x831a8(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a519e4f:	00 
+ a519e50:	75 20                	jne    a519e72 <ncclIbGdrSupport()+0x202>
+ a519e52:	66 48 8d 3d a6 31 08 	data16 lea 0x831a6(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a519e59:	00 
+ a519e5a:	66 66 48 e8 1e 1b 01 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a519e61:	00 
+ a519e62:	83 38 00             	cmpl   $0x0,(%rax)
+ a519e65:	74 25                	je     a519e8c <ncclIbGdrSupport()+0x21c>
+ a519e67:	41 83 fe 07          	cmp    $0x7,%r14d
+ a519e6b:	74 5d                	je     a519eca <ncclIbGdrSupport()+0x25a>
+ a519e6d:	e9 c1 00 00 00       	jmp    a519f33 <ncclIbGdrSupport()+0x2c3>
+ a519e72:	e8 f9 1a 01 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a519e77:	66 48 8d 3d 81 31 08 	data16 lea 0x83181(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a519e7e:	00 
+ a519e7f:	66 66 48 e8 f9 1a 01 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a519e86:	00 
+ a519e87:	83 38 00             	cmpl   $0x0,(%rax)
+ a519e8a:	75 db                	jne    a519e67 <ncclIbGdrSupport()+0x1f7>
+ a519e8c:	48 8d 15 dd 9b b0 f5 	lea    -0xa4f6423(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a519e93:	4c 8d 05 6e 22 b0 f5 	lea    -0xa4fdd92(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a519e9a:	4c 8d 0d 37 5e af f5 	lea    -0xa50a1c9(%rip),%r9        # fcd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xfae8>
+ a519ea1:	bf 03 00 00 00       	mov    $0x3,%edi
+ a519ea6:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a519ead:	b9 95 02 00 00       	mov    $0x295,%ecx
+ a519eb2:	31 c0                	xor    %eax,%eax
+ a519eb4:	41 56                	push   %r14
+ a519eb6:	68 95 02 00 00       	push   $0x295
+ a519ebb:	e8 40 4d f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a519ec0:	48 83 c4 10          	add    $0x10,%rsp
+ a519ec4:	41 83 fe 07          	cmp    $0x7,%r14d
+ a519ec8:	75 69                	jne    a519f33 <ncclIbGdrSupport()+0x2c3>
+ a519eca:	66 0f 6f 04 24       	movdqa (%rsp),%xmm0
+ a519ecf:	66 0f 6e 4c 24 10    	movd   0x10(%rsp),%xmm1
+ a519ed5:	66 0f 74 0d a3 55 af 	pcmpeqb -0xa50aa5d(%rip),%xmm1        # f480 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xf290>
+ a519edc:	f5 
+ a519edd:	66 0f 74 05 eb 55 af 	pcmpeqb -0xa50aa15(%rip),%xmm0        # f4d0 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xf2e0>
+ a519ee4:	f5 
+ a519ee5:	66 0f db c1          	pand   %xmm1,%xmm0
+ a519ee9:	66 0f d7 c0          	pmovmskb %xmm0,%eax
+ a519eed:	3d ff ff 00 00       	cmp    $0xffff,%eax
+ a519ef2:	74 51                	je     a519f45 <ncclIbGdrSupport()+0x2d5>
+ a519ef4:	8b 05 06 4f 08 00    	mov    0x84f06(%rip),%eax        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519efa:	85 c0                	test   %eax,%eax
+ a519efc:	0f 84 0b 01 00 00    	je     a51a00d <ncclIbGdrSupport()+0x39d>
+ a519f02:	45 31 f6             	xor    %r14d,%r14d
+ a519f05:	85 c0                	test   %eax,%eax
+ a519f07:	75 2a                	jne    a519f33 <ncclIbGdrSupport()+0x2c3>
+ a519f09:	48 8d 15 60 9b b0 f5 	lea    -0xa4f64a0(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a519f10:	4c 8d 05 87 e3 b0 f5 	lea    -0xa4f1c79(%rip),%r8        # 2829e <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x280ae>
+ a519f17:	be 01 00 00 00       	mov    $0x1,%esi
+ a519f1c:	bf 03 00 00 00       	mov    $0x3,%edi
+ a519f21:	b9 b9 02 00 00       	mov    $0x2b9,%ecx
+ a519f26:	31 c0                	xor    %eax,%eax
+ a519f28:	e8 d3 4c f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a519f2d:	41 be 02 00 00 00    	mov    $0x2,%r14d
+ a519f33:	44 89 f0             	mov    %r14d,%eax
+ a519f36:	48 81 c4 08 02 00 00 	add    $0x208,%rsp
+ a519f3d:	5b                   	pop    %rbx
+ a519f3e:	41 5c                	pop    %r12
+ a519f40:	41 5e                	pop    %r14
+ a519f42:	41 5f                	pop    %r15
+ a519f44:	c3                   	ret    
+ a519f45:	4c 8b 3d 74 4e 08 00 	mov    0x84e74(%rip),%r15        # a59edc0 <ncclParamIbPciRelaxedOrdering()::cache>
+ a519f4c:	49 39 df             	cmp    %rbx,%r15
+ a519f4f:	0f 84 23 02 00 00    	je     a51a178 <ncclIbGdrSupport()+0x508>
+ a519f55:	48 8d 3d c1 9f b0 f5 	lea    -0xa4f603f(%rip),%rdi        # 23f1d <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23d2d>
+ a519f5c:	48 8d 35 54 ba af f5 	lea    -0xa5045ac(%rip),%rsi        # 159b7 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x157c7>
+ a519f63:	48 89 e2             	mov    %rsp,%rdx
+ a519f66:	e8 d5 35 fb ff       	call   a4cd540 <ncclTopoGetStrFromSys(char const*, char const*, char*)>
+ a519f6b:	89 c3                	mov    %eax,%ebx
+ a519f6d:	85 c0                	test   %eax,%eax
+ a519f6f:	74 63                	je     a519fd4 <ncclIbGdrSupport()+0x364>
+ a519f71:	83 fb 07             	cmp    $0x7,%ebx
+ a519f74:	74 5e                	je     a519fd4 <ncclIbGdrSupport()+0x364>
+ a519f76:	48 83 3d 7a 30 08 00 	cmpq   $0x0,0x8307a(%rip)        # a59cff8 <TLS init function for ncclDebugNoWarn@Base>
+ a519f7d:	00 
+ a519f7e:	74 05                	je     a519f85 <ncclIbGdrSupport()+0x315>
+ a519f80:	e8 eb 19 01 00       	call   a52b970 <TLS init function for ncclDebugNoWarn@plt>
+ a519f85:	66 48 8d 3d 73 30 08 	data16 lea 0x83073(%rip),%rdi        # a59d000 <_DYNAMIC+0x278>
+ a519f8c:	00 
+ a519f8d:	66 66 48 e8 eb 19 01 	data16 data16 rex.W call a52b980 <__tls_get_addr@plt>
+ a519f94:	00 
+ a519f95:	83 38 00             	cmpl   $0x0,(%rax)
+ a519f98:	75 37                	jne    a519fd1 <ncclIbGdrSupport()+0x361>
+ a519f9a:	48 8d 15 cf 9a b0 f5 	lea    -0xa4f6531(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a519fa1:	4c 8d 05 60 21 b0 f5 	lea    -0xa4fdea0(%rip),%r8        # 1c108 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1bf18>
+ a519fa8:	4c 8d 0d 29 5d af f5 	lea    -0xa50a2d7(%rip),%r9        # fcd8 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0xfae8>
+ a519faf:	bf 03 00 00 00       	mov    $0x3,%edi
+ a519fb4:	48 c7 c6 ff ff ff ff 	mov    $0xffffffffffffffff,%rsi
+ a519fbb:	b9 98 02 00 00       	mov    $0x298,%ecx
+ a519fc0:	31 c0                	xor    %eax,%eax
+ a519fc2:	53                   	push   %rbx
+ a519fc3:	68 98 02 00 00       	push   $0x298
+ a519fc8:	e8 33 4c f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a519fcd:	48 83 c4 10          	add    $0x10,%rsp
+ a519fd1:	41 89 de             	mov    %ebx,%r14d
+ a519fd4:	83 fb 07             	cmp    $0x7,%ebx
+ a519fd7:	74 08                	je     a519fe1 <ncclIbGdrSupport()+0x371>
+ a519fd9:	85 db                	test   %ebx,%ebx
+ a519fdb:	0f 85 52 ff ff ff    	jne    a519f33 <ncclIbGdrSupport()+0x2c3>
+ a519fe1:	45 85 ff             	test   %r15d,%r15d
+ a519fe4:	75 11                	jne    a519ff7 <ncclIbGdrSupport()+0x387>
+ a519fe6:	66 83 3c 24 31       	cmpw   $0x31,(%rsp)
+ a519feb:	75 0a                	jne    a519ff7 <ncclIbGdrSupport()+0x387>
+ a519fed:	c7 05 09 4e 08 00 00 	movl   $0x0,0x84e09(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a519ff4:	00 00 00 
+ a519ff7:	83 fb 07             	cmp    $0x7,%ebx
+ a519ffa:	0f 84 f4 fe ff ff    	je     a519ef4 <ncclIbGdrSupport()+0x284>
+ a51a000:	85 db                	test   %ebx,%ebx
+ a51a002:	0f 84 ec fe ff ff    	je     a519ef4 <ncclIbGdrSupport()+0x284>
+ a51a008:	e9 26 ff ff ff       	jmp    a519f33 <ncclIbGdrSupport()+0x2c3>
+ a51a00d:	66 0f ef c0          	pxor   %xmm0,%xmm0
+ a51a011:	66 0f 7f 84 24 f0 01 	movdqa %xmm0,0x1f0(%rsp)
+ a51a018:	00 00 
+ a51a01a:	66 0f 7f 84 24 e0 01 	movdqa %xmm0,0x1e0(%rsp)
+ a51a021:	00 00 
+ a51a023:	66 0f 7f 84 24 d0 01 	movdqa %xmm0,0x1d0(%rsp)
+ a51a02a:	00 00 
+ a51a02c:	66 0f 7f 84 24 c0 01 	movdqa %xmm0,0x1c0(%rsp)
+ a51a033:	00 00 
+ a51a035:	66 0f 7f 84 24 b0 01 	movdqa %xmm0,0x1b0(%rsp)
+ a51a03c:	00 00 
+ a51a03e:	66 0f 7f 84 24 a0 01 	movdqa %xmm0,0x1a0(%rsp)
+ a51a045:	00 00 
+ a51a047:	66 0f 7f 84 24 90 01 	movdqa %xmm0,0x190(%rsp)
+ a51a04e:	00 00 
+ a51a050:	66 0f 7f 84 24 80 01 	movdqa %xmm0,0x180(%rsp)
+ a51a057:	00 00 
+ a51a059:	66 0f 7f 84 24 70 01 	movdqa %xmm0,0x170(%rsp)
+ a51a060:	00 00 
+ a51a062:	66 0f 7f 84 24 60 01 	movdqa %xmm0,0x160(%rsp)
+ a51a069:	00 00 
+ a51a06b:	66 0f 7f 84 24 50 01 	movdqa %xmm0,0x150(%rsp)
+ a51a072:	00 00 
+ a51a074:	66 0f 7f 84 24 40 01 	movdqa %xmm0,0x140(%rsp)
+ a51a07b:	00 00 
+ a51a07d:	66 0f 7f 84 24 30 01 	movdqa %xmm0,0x130(%rsp)
+ a51a084:	00 00 
+ a51a086:	66 0f 7f 84 24 20 01 	movdqa %xmm0,0x120(%rsp)
+ a51a08d:	00 00 
+ a51a08f:	66 0f 7f 84 24 10 01 	movdqa %xmm0,0x110(%rsp)
+ a51a096:	00 00 
+ a51a098:	66 0f 7f 84 24 00 01 	movdqa %xmm0,0x100(%rsp)
+ a51a09f:	00 00 
+ a51a0a1:	48 8d 3d fd bd b0 f5 	lea    -0xa4f4203(%rip),%rdi        # 25ea5 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x25cb5>
+ a51a0a8:	48 8d 35 79 56 b0 f5 	lea    -0xa4fa987(%rip),%rsi        # 1f728 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x1f538>
+ a51a0af:	e8 1c 19 01 00       	call   a52b9d0 <fopen@plt>
+ a51a0b4:	48 85 c0             	test   %rax,%rax
+ a51a0b7:	0f 84 81 00 00 00    	je     a51a13e <ncclIbGdrSupport()+0x4ce>
+ a51a0bd:	48 89 c3             	mov    %rax,%rbx
+ a51a0c0:	4c 8d b4 24 00 01 00 	lea    0x100(%rsp),%r14
+ a51a0c7:	00 
+ a51a0c8:	4c 8d 3d 27 81 af f5 	lea    -0xa507ed9(%rip),%r15        # 121f6 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x12006>
+ a51a0cf:	4c 8d 25 fd a5 b0 f5 	lea    -0xa4f5a03(%rip),%r12        # 246d3 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x244e3>
+ a51a0d6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+ a51a0dd:	00 00 00 
+ a51a0e0:	4c 89 f7             	mov    %r14,%rdi
+ a51a0e3:	be 00 01 00 00       	mov    $0x100,%esi
+ a51a0e8:	48 89 da             	mov    %rbx,%rdx
+ a51a0eb:	e8 d0 27 01 00       	call   a52c8c0 <fgets@plt>
+ a51a0f0:	48 85 c0             	test   %rax,%rax
+ a51a0f3:	74 6d                	je     a51a162 <ncclIbGdrSupport()+0x4f2>
+ a51a0f5:	4c 89 f7             	mov    %r14,%rdi
+ a51a0f8:	4c 89 fe             	mov    %r15,%rsi
+ a51a0fb:	e8 c0 1c 01 00       	call   a52bdc0 <strstr@plt>
+ a51a100:	48 85 c0             	test   %rax,%rax
+ a51a103:	75 10                	jne    a51a115 <ncclIbGdrSupport()+0x4a5>
+ a51a105:	4c 89 f7             	mov    %r14,%rdi
+ a51a108:	4c 89 e6             	mov    %r12,%rsi
+ a51a10b:	e8 b0 1c 01 00       	call   a52bdc0 <strstr@plt>
+ a51a110:	48 85 c0             	test   %rax,%rax
+ a51a113:	74 cb                	je     a51a0e0 <ncclIbGdrSupport()+0x470>
+ a51a115:	c7 05 e1 4c 08 00 01 	movl   $0x1,0x84ce1(%rip)        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a51a11c:	00 00 00 
+ a51a11f:	48 8d 15 4a 99 b0 f5 	lea    -0xa4f66b6(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a51a126:	4c 8d 05 3a e1 b0 f5 	lea    -0xa4f1ec6(%rip),%r8        # 28267 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x28077>
+ a51a12d:	be 01 00 00 00       	mov    $0x1,%esi
+ a51a132:	bf 03 00 00 00       	mov    $0x3,%edi
+ a51a137:	b9 ab 02 00 00       	mov    $0x2ab,%ecx
+ a51a13c:	eb 1d                	jmp    a51a15b <ncclIbGdrSupport()+0x4eb>
+ a51a13e:	48 8d 15 2b 99 b0 f5 	lea    -0xa4f66d5(%rip),%rdx        # 23a70 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x23880>
+ a51a145:	4c 8d 05 fd e0 b0 f5 	lea    -0xa4f1f03(%rip),%r8        # 28249 <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x28059>
+ a51a14c:	be 01 00 00 00       	mov    $0x1,%esi
+ a51a151:	bf 03 00 00 00       	mov    $0x3,%edi
+ a51a156:	b9 a5 02 00 00       	mov    $0x2a5,%ecx
+ a51a15b:	31 c0                	xor    %eax,%eax
+ a51a15d:	e8 9e 4a f5 ff       	call   a46ec00 <ncclDebugLog(ncclDebugLogLevel, unsigned long, char const*, int, char const*, ...)>
+ a51a162:	8b 05 98 4c 08 00    	mov    0x84c98(%rip),%eax        # a59ee00 <ncclIbGdrSupport()::moduleLoaded>
+ a51a168:	45 31 f6             	xor    %r14d,%r14d
+ a51a16b:	85 c0                	test   %eax,%eax
+ a51a16d:	0f 85 c0 fd ff ff    	jne    a519f33 <ncclIbGdrSupport()+0x2c3>
+ a51a173:	e9 91 fd ff ff       	jmp    a519f09 <ncclIbGdrSupport()+0x299>
+ a51a178:	48 8d 3d 6c e7 af f5 	lea    -0xa501894(%rip),%rdi        # 188eb <ncclIbRegMrDmaBufInternal(ncclIbNetCommDevBase*, void*, unsigned long, int, unsigned long, int, ibv_mr**)::pageSize+0x186fb>
+ a51a17f:	48 8d 0d 3a 4c 08 00 	lea    0x84c3a(%rip),%rcx        # a59edc0 <ncclParamIbPciRelaxedOrdering()::cache>
+ a51a186:	be 02 00 00 00       	mov    $0x2,%esi
+ a51a18b:	48 89 da             	mov    %rbx,%rdx
+ a51a18e:	e8 6d 36 fd ff       	call   a4ed800 <ncclLoadParam(char const*, long, long, long*)>
+ a51a193:	44 8b 3d 26 4c 08 00 	mov    0x84c26(%rip),%r15d        # a59edc0 <ncclParamIbPciRelaxedOrdering()::cache>
+ a51a19a:	e9 b6 fd ff ff       	jmp    a519f55 <ncclIbGdrSupport()+0x2e5>

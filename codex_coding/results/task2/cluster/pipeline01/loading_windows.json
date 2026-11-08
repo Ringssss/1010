@@ -1,0 +1,86 @@
+{
+  "run": "cluster/pipeline01",
+  "status": "passed",
+  "samples": [
+    {
+      "phase": "pipeline_serial",
+      "node": "node29",
+      "strategy": "resource_lp",
+      "load_s": 2.105820911,
+      "critical_rank": "1",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.004239413,
+        "loader_entry_s": 0.002342103,
+        "model_layout_s": 0.314392786,
+        "export_s": 0.035497037,
+        "target_wait_s": 1.734376879,
+        "finalize_s": 0.014972693
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.041690541,
+        "target_mapping_s": 0.073362278,
+        "execute_dispatch_wait_s": 0.007714872,
+        "worker_execution_s": 1.350093526,
+        "completion_coordination_s": 0.25764362,
+        "ready_notice_wait_s": 0.003872042
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.09468861389905214,
+        "execute_wall_s": 1.6062317183241248,
+        "verify_and_publish_s": 0.009596301708370447,
+        "coordinator_wall_s": 1.7105166339315474
+      },
+      "coordinator_plan_s": 0.01792992977425456,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "passed": true
+    },
+    {
+      "phase": "pipeline_double_buffer",
+      "node": "node29",
+      "strategy": "resource_lp",
+      "load_s": 2.090149964,
+      "critical_rank": "0",
+      "segments_s": {
+        "critical_rank_start_skew_s": 0.0,
+        "loader_entry_s": 0.002522204,
+        "model_layout_s": 0.316513018,
+        "export_s": 0.034987694,
+        "target_wait_s": 1.724116622,
+        "finalize_s": 0.012010426
+      },
+      "wait_details_s": {
+        "detection_planning_dispatch_s": 0.038827975,
+        "target_mapping_s": 0.070273041,
+        "execute_dispatch_wait_s": 0.007780883,
+        "worker_execution_s": 1.368105975,
+        "completion_coordination_s": 0.228909791,
+        "ready_notice_wait_s": 0.010218957
+      },
+      "coordinator_durations_s": {
+        "prepare_s": 0.09234569082036614,
+        "execute_wall_s": 1.595941187813878,
+        "verify_and_publish_s": 0.011617462150752544,
+        "coordinator_wall_s": 1.6999043407849967
+      },
+      "coordinator_plan_s": 0.017883204855024815,
+      "source_bytes": {
+        "model/remote/0": 30869891760,
+        "model/joint/0": 1073741824,
+        "model/gpu/0": 3221225472,
+        "model/remote/1": 30869891760,
+        "model/joint/1": 1073741824,
+        "model/gpu/1": 3221225472
+      },
+      "passed": true
+    }
+  ],
+  "summary_sha256": "397e58541f029c71415b4cb76a2f7e42e645e54ebec1334aeee5e3fb1ccbad19",
+  "scope": "exact additive target-host segments; coordinator durations are nested diagnostics, not extra load time"
+}

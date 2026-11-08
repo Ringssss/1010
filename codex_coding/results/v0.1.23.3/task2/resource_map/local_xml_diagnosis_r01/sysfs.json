@@ -1,0 +1,65 @@
+{
+  "gpus": [
+    {
+      "gpu": 0,
+      "bdf": "0000:09:00.0",
+      "sysfs_path": "/sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/0000:02:06.0/0000:07:00.0/0000:08:00.0/0000:09:00.0",
+      "drm_cards": [
+        "card1"
+      ],
+      "numa_node": "0",
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "63693697024",
+      "render_nodes": [
+        "renderD128"
+      ],
+      "sample_monotonic_ns": 4768684243866239,
+      "total_minus_used_bytes": 5009002496
+    },
+    {
+      "gpu": 1,
+      "bdf": "0000:36:00.0",
+      "sysfs_path": "/sys/devices/pci0000:30/0000:30:01.1/0000:31:00.0/0000:32:04.0/0000:34:00.0/0000:35:00.0/0000:36:00.0",
+      "drm_cards": [
+        "card2"
+      ],
+      "numa_node": "3",
+      "mem_info_vram_total": "68702699520",
+      "mem_info_vram_used": "63147364352",
+      "render_nodes": [
+        "renderD129"
+      ],
+      "sample_monotonic_ns": 4768684246165161,
+      "total_minus_used_bytes": 5555335168
+    }
+  ],
+  "kfd": [
+    {
+      "node": "8",
+      "bdf_from_location_id": "0000:09:00.0",
+      "gpu_id": "22078",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147487744\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 2304\ndomain 0\ndrm_render_minor 128\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5842441246091297\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 1\nmax_engine_clk_ccompute 0",
+      "memory_banks": [
+        {
+          "name": "0",
+          "properties": "heap_type 1\nsize_in_bytes 68702699520\nflags 0\nwidth 4096\nmem_clk_max 1800\necc_status 65535",
+          "used_memory": "63693697024"
+        }
+      ]
+    },
+    {
+      "node": "9",
+      "bdf_from_location_id": "0000:36:00.0",
+      "gpu_id": "34430",
+      "properties": "cpu_cores_count 0\nsimd_count 320\nmem_banks_count 1\ncaches_count 241\nio_links_count 8\np2p_links_count 7\ncpu_core_id_base 0\nsimd_id_base 2147487832\nmax_waves_per_simd 10\nlds_size_in_kb 64\ngds_size_in_kb 0\nnum_gws 64\nwave_front_size 64\narray_count 8\nsimd_arrays_per_engine 1\ncu_per_simd_array 11\nsimd_per_cu 4\nmax_slots_scratch_cu 32\ngfx_target_version 90306\nvendor_id 7572\ndevice_id 25376\nsubsystem_vendor 7572\nsubsystem_device 25392\nlocation_id 13824\ndomain 0\ndrm_render_minor 129\nhive_id 1\nnum_sdma_engines 2\nnum_sdma_xgmi_engines 7\nnum_sdma_queues_per_engine 8\nnum_cp_queues 28\nmax_engine_clk_fcompute 1600\nlocal_mem_size 0\nfw_version 50\ncapability 745775744\ncc_mode 0\ndebug_prop 1494\nsdma_fw_version 12\nunique_id 5842441116336257\ndp4x_status 1\nvgpr_size_per_cu 786432\nsgpr_size_per_cu 16384\neco_info 0\nphysical_node 2\nmax_engine_clk_ccompute 0",
+      "memory_banks": [
+        {
+          "name": "0",
+          "properties": "heap_type 1\nsize_in_bytes 68702699520\nflags 0\nwidth 4096\nmem_clk_max 1800\necc_status 65535",
+          "used_memory": "63147364352"
+        }
+      ]
+    }
+  ],
+  "sampling": "live sysfs/KFD reads; no SMI/HIP"
+}

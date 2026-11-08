@@ -1,0 +1,60 @@
+{
+  "development": "v0.1.23.3",
+  "task": "task2",
+  "registered_date": "2026-10-06",
+  "plan_version": "1.2",
+  "authorization": "User requested execution through e6; reuse existing infrastructure and subagent builders under parent supervision",
+  "primary_metric": "same-host max(weights_ready)-min(load_begin)",
+  "cross_host_metric": "per-host local windows plus separately named coordinator request through all-rank ready acknowledgment; never subtract cross-host monotonic clocks",
+  "preparation": "bootstrap and owner/cache construction outside recovery windows; fresh IPC export inside coordinator request window, separately reported; model layout and transfer planning during restore remain in window",
+  "scope": "existing eager initialized engines, immutable processed weight snapshots, fixed TP; no fresh-engine startup speedup claim",
+  "e1": {
+    "models": ["Qwen3.6-35B-A3B TP2", "GLM-5.3 TP16"],
+    "cycles_per_model": 2,
+    "criterion": "correct generation in both fresh-export/import/release cycles and final physical/allocator/catalog recovery; preserve DRAM sources",
+    "allocation_tolerance_mib": 32,
+    "physical_free_tolerance_mib": 256
+  },
+  "e3": {
+    "model": "Qwen3.6-35B-A3B TP2",
+    "target_groups": {"target_a": [0, 1], "target_b": [8, 9]},
+    "target_nodes": {"target_a": "node27", "target_b": "node29"},
+    "scenario_weights": {"target_a": 0.5, "target_b": 0.5},
+    "complete_dram_base_bytes": 70329718112,
+    "extra_hbm_budget_gib": 8,
+    "layouts_first": ["concentrated", "distributed"],
+    "optional_layouts": ["replicated", "hybrid"],
+    "repetitions": 1,
+    "hypothesis": "Equal total extra HBM with different placement changes selected sources and real readiness; report per-target regression and uncertainty",
+    "warmup": "4MiB transfers on all relevant HBM source/target pairs before timed cases; setup reported separately"
+  },
+  "e4": {
+    "extra_hbm_budget_gib": 8,
+    "candidate_block_gib": 4,
+    "placement_policies": ["paired-and-single marginal greedy", "finite-candidate joint MILP"],
+    "routing_policies": ["remote-aware fastest", "resource_lp"],
+    "hypothesis": "Joint placement and routing outperform a strong feasible simple policy in actual readiness, not just predicted objective",
+    "same_candidate_space": true,
+    "same_executor": "serial",
+    "identical_decision_policy": "Deduplicate identical physical layout and routing; record no policy increment, do not fabricate improvement",
+    "profile": "inherited provisional capacities with serial-target constraint; solver performance claims require hardware verification"
+  },
+  "e5": {
+    "selection_rule": "Use e4 observations to freeze strongest feasible simple routing and candidate; keep selection data distinct from confirmatory run",
+    "models": ["Qwen TP2", "GLM TP16 representative case if capacity and valid baseline permit"],
+    "repetitions_per_configuration": 1,
+    "identical_decision_policy": "No incremental algorithm claim; keep simpler policy and explicitly mark redundant comparison skipped"
+  },
+  "e6": {
+    "fixed_dram_base_bytes": 70329718112,
+    "extra_hbm_budget_gib_points": [0, 8, 16],
+    "repetitions_per_configuration": 1,
+    "purpose": "Representative HBM-budget curve at a fixed complete DRAM base; not a full two-dimensional Pareto sweep",
+    "gate": "Correct comparable recovery and interpretable e5 outcome; if joint adds no value use selected simple policy and narrow algorithm claim; stop on correctness/budget violations"
+  },
+  "correctness": "Full build SHA; each model restore generation matches frozen reference and full transfer SHA recorded with its actual validation time",
+  "resource_accounting": "Complete DRAM base, extra HBM, target allocations, staging, initialized engine/KV, background owners; physical 1s monitor samples are sampled peaks, not exact high water",
+  "statistics": "Exploratory single observations; second only for failure/uncertainty, no five-repeat sweep or stable-tail claim",
+  "failure_policy": "Keep failed run directories; new run IDs for retries; never edit measured code while active",
+  "retained_state": "CPU owners and valid source snapshots preserved; own model/cache resources are tracked explicitly"
+}

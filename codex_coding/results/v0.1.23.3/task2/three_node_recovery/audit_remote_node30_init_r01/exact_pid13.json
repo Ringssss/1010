@@ -1,0 +1,29 @@
+{
+  "label": "exact_pid13",
+  "argv": [
+    "ssh",
+    "-T",
+    "-o",
+    "BatchMode=yes",
+    "-o",
+    "ConnectTimeout=3",
+    "-o",
+    "ConnectionAttempts=1",
+    "-o",
+    "StrictHostKeyChecking=yes",
+    "-o",
+    "UpdateHostKeys=no",
+    "-o",
+    "ServerAliveInterval=2",
+    "-o",
+    "ServerAliveCountMax=1",
+    "-o",
+    "Hostname=12.11.3.30",
+    "node30",
+    "docker exec 7d3143da42c4c16a9f48e61189035e48a2dc3d9f177cd6207cb9b7f447120695 cat /proc/13/stat"
+  ],
+  "started_utc": "2026-10-08T08:33:51.821661+00:00",
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "cat: /proc/13/stat: No such file or directory\n"
+}

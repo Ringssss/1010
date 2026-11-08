@@ -1,0 +1,239 @@
+{
+  "aggregate_budget": {
+    "application_margin": 268435456,
+    "dram": 6442450944,
+    "hbm": 2147483648
+  },
+  "analysis_predeclared_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_cpu_r01/predeclared_protocol.json",
+    "sha256": "5c6921e8710cb67f2f4f5c1ec6a0e7ad10fbac26fb00b0b1a5101dfafe4a6973"
+  },
+  "bindings_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_deploy_r02/setup.json",
+    "sha256": "43fb2488c56eca1fa734794bb839a91501bd945e979401601c7f43ff4b0d605d"
+  },
+  "calibration_review_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_C2_protocol_cpu_r01/CPU_ONLY_review_fixture.json",
+    "sha256": "f53fab65be264705fe2ec07bcd1e01e52a6c37ddaf54b4048ecdbadbdb432ae4"
+  },
+  "controller_timeout_s": 1440,
+  "dump_scope": "single worker no pair communicator",
+  "experiment_stage": "C2",
+  "first_actual_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_actual_r01/summary.json",
+    "sha256": "9d793e135177622b0821c6df2f6cae08c395e1df7d7f4af2a95793184d64e144"
+  },
+  "frozen_model_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "inventory_mode_file": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/cost_ledger_runtime_gpu4_C2_build_cpu.inventory_mode.json",
+  "lifetime_s": 1800,
+  "model_consumed": false,
+  "necessary_pairs": [],
+  "paired_query_holdout": false,
+  "physical_ready": false,
+  "physical_role_mapping_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/first_op_validation/execution_prepared_A_r02/launch_plan.json",
+    "sha256": "5315e50b24ab6c1ba830de01f961019ab72205d2dec995db73e354040ab2771f"
+  },
+  "prediction_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_C2_protocol_cpu_r01/synthetic_CPU_ONLY_frozen.json",
+    "sha256": "77e469dfd96dbfbfc7dd93ef4f5fb5a6ccf2982a8d6861fa9c46c8e60dfd1035"
+  },
+  "prior_plan_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_C2_protocol_cpu_r01_build_C1/launch_plan.json",
+    "sha256": "ea9c48611b787ca66c7a51fef88d863f99e4875cafc1e544d66f466714bb5629"
+  },
+  "prior_setup_directory": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_C2_protocol_cpu_r01_build_C1",
+  "processes": [
+    {
+      "argv": [
+        "python3",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/cost_ledger/execution_gpu4/worker.py",
+        "--node",
+        "node27",
+        "--gpu",
+        "4",
+        "--numa",
+        "4",
+        "--port-base",
+        "35100",
+        "--mesh",
+        "node27:4-4",
+        "--master",
+        "12.11.3.27:29981",
+        "--handoff",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/handoff_own_session",
+        "--session",
+        "cost_ledger_runtime_gpu4_C2_build_cpu",
+        "--dram-budget",
+        "268435456",
+        "--hbm-budget",
+        "402653184",
+        "--inventory-mode-file",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/cost_ledger_runtime_gpu4_C2_build_cpu.inventory_mode.json",
+        "--allow-static-cache"
+      ],
+      "bdf": "0000:85:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "container_started_at": "2026-10-10T11:21:21.579805181Z",
+      "endpoint": "http://12.11.3.27:35104",
+      "env": {
+        "HSA_FORCE_FINE_GRAIN_PCIE": "1",
+        "MKL_NUM_THREADS": "1",
+        "NCCL_DEBUG": "INFO",
+        "NCCL_DEBUG_SUBSYS": "INIT,GRAPH,NET",
+        "NCCL_IB_HCA": "shca_0",
+        "NCCL_NET": "IBext_v8",
+        "NCCL_NET_PLUGIN": "librccl-net-shca.so",
+        "NCCL_SOCKET_IFNAME": "ib0",
+        "NCCL_TOPO_DUMP_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_dump_cost_ledger_runtime_gpu4_C2_build_cpu/w5.runtime.dump.xml",
+        "NCCL_TOPO_DUMP_FILE_RANK": "1",
+        "NCCL_TOPO_FILE": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_setup_r03/node27.physical.gdr0.xml",
+        "OMP_NUM_THREADS": "1",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "PYTHONPATH": "/home/zhujianian/zhujianian/fluidckpt_zjn/main_lib"
+      },
+      "gpu": 4,
+      "key": "w5",
+      "kind": "worker",
+      "node": "node27",
+      "numa": 4,
+      "out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/multitier_runtime/operations_process_cost_ledger_runtime_gpu4_C2_build_cpu_w5",
+      "unset_env": [
+        "HIP_VISIBLE_DEVICES",
+        "CUDA_VISIBLE_DEVICES",
+        "ROCR_VISIBLE_DEVICES"
+      ],
+      "worker": 0
+    }
+  ],
+  "protocol": {
+    "anchor_id": "L3_repeat",
+    "bootstrap_bytes": 100663296,
+    "cases": [
+      {
+        "K": 3,
+        "N_mib": 80,
+        "expected_chunk_mib": [
+          32,
+          8,
+          24,
+          16
+        ],
+        "id": "V2",
+        "op_mib": [
+          40,
+          24,
+          16
+        ]
+      },
+      {
+        "K": 3,
+        "N_mib": 48,
+        "expected_chunk_mib": [
+          16,
+          16,
+          16
+        ],
+        "id": "V1",
+        "op_mib": [
+          16,
+          16,
+          16
+        ]
+      }
+    ],
+    "gates": {
+      "drift": {
+        "anchor_relative": 0.1,
+        "floor_ns": 20000,
+        "observation_floor_ns": 5000
+      },
+      "independent": {
+        "controller_execute_abs_ns": 1000000,
+        "controller_execute_relative": 0.2,
+        "full_filled_abs_ns": 2000000,
+        "full_filled_relative": 0.2,
+        "service_abs_ns": 50000,
+        "service_relative": 0.2,
+        "worker_abs_ns": 250000,
+        "worker_relative": 0.2
+      },
+      "ledger": {
+        "exact_integer_closure": true,
+        "legacy_float_tolerance_ns": 1000
+      },
+      "no_more_than_eight_requests": true,
+      "published_prediction": null,
+      "structure": {
+        "byte32_E": 4,
+        "c_E": 2,
+        "d_E": 2,
+        "fifth_consistency_E": 4,
+        "max_residual_E": 2
+      },
+      "weights_ready_prediction": null
+    },
+    "measurement_mode": "native_serial_thread_scoped_noevents_v1",
+    "new_session_holdout": true,
+    "order": [
+      "V2",
+      "V1"
+    ],
+    "repetitions": 1,
+    "schema_version": "cost-ledger-v1",
+    "source_reused_within_session": true,
+    "stage": "C2",
+    "state_contract": {
+      "CUDA_events": 0,
+      "chunk_bytes": 33554432,
+      "configuration_id": "singleworker_node27_gpu4_local_native_v1",
+      "control_mode": "compact",
+      "copy_rounds": 1,
+      "executor": "serial",
+      "handler": "native_ThreadingHTTPServer_request_thread",
+      "inventory_mode": "cached",
+      "logger": "native_json_stdout",
+      "path": "local_hbm",
+      "pretouch": false,
+      "profile_execute": false,
+      "queues": 0,
+      "source_bytes": 100663296,
+      "source_tier": "hbm",
+      "source_worker": 0,
+      "target_allocation": "fresh_exact_size_each_request",
+      "target_mode": "replica",
+      "target_tier": "hbm",
+      "target_worker": 0,
+      "target_writes_before": 0,
+      "topology": "single_worker_node27_gpu4_world1"
+    },
+    "training_ids": [
+      "L3",
+      "L1",
+      "L4",
+      "L2",
+      "L5"
+    ]
+  },
+  "retry_reason": null,
+  "session": "cost_ledger_runtime_gpu4_C2_build_cpu",
+  "setup_directory": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/cost_ledger/execution_gpu4_C2_protocol_cpu_r01_build_C2",
+  "ssd": {},
+  "startup_s": 120,
+  "workers": [
+    {
+      "bdf": "0000:85:00.0",
+      "boot_id": "359fdde8-1501-43e0-a58a-c5b9b08e6f75",
+      "container_id": "fa96f68fe75d55869cd5fb79f95ab892b844edb84e391a917cafb21b8682b6c9",
+      "endpoint": "http://12.11.3.27:35104",
+      "gpu": 4,
+      "node": "node27",
+      "numa": 4,
+      "worker": 0
+    }
+  ]
+}

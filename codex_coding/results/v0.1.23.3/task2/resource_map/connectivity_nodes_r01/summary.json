@@ -1,0 +1,1468 @@
+{
+  "started_at": "2026-10-08T07:15:32.839015+00:00",
+  "source_host": "m03r2n07",
+  "source_boot_id": "c9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b",
+  "signals": 0,
+  "gpu_operations": 0,
+  "targets": [
+    {
+      "node": "node27",
+      "ip": "10.211.3.27",
+      "plane": "management"
+    },
+    {
+      "node": "node27",
+      "ip": "12.11.3.27",
+      "plane": "data"
+    },
+    {
+      "node": "node28",
+      "ip": "10.211.3.28",
+      "plane": "management"
+    },
+    {
+      "node": "node28",
+      "ip": "12.11.3.28",
+      "plane": "data"
+    },
+    {
+      "node": "node29",
+      "ip": "10.211.3.29",
+      "plane": "management"
+    },
+    {
+      "node": "node29",
+      "ip": "12.11.3.29",
+      "plane": "data"
+    },
+    {
+      "node": "node30",
+      "ip": "10.211.3.30",
+      "plane": "management"
+    },
+    {
+      "node": "node30",
+      "ip": "12.11.3.30",
+      "plane": "data"
+    }
+  ],
+  "observations": [
+    {
+      "kind": "icmp",
+      "node": "node27",
+      "target": "10.211.3.27",
+      "started_at": "2026-10-08T07:15:32.913004+00:00",
+      "resolved_address": "10.211.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:32.903530+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"10.211.3.27\",\"dev\":\"lo\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.912982+00:00",
+        "elapsed_s": 0.00946576613932848
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "10.211.3.27"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 10.211.3.27 (10.211.3.27) 56(84) bytes of data.\n64 bytes from 10.211.3.27: icmp_seq=1 ttl=64 time=0.050 ms\n\n--- 10.211.3.27 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.050/0.050/0.050/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:32.917674+00:00",
+      "elapsed_s": 0.004681584425270557,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node27",
+      "target": "10.211.3.27",
+      "started_at": "2026-10-08T07:15:32.945409+00:00",
+      "resolved_address": "10.211.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:32.938847+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"10.211.3.27\",\"dev\":\"lo\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.945386+00:00",
+        "elapsed_s": 0.006553213112056255
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=10.211.3.27",
+        "node27",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 0,
+      "stdout": "m03r2n07\nc9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b\n4769626.71 601628635.72\n",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 10.211.3.27 [10.211.3.27] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3 pat OpenSSH* compat 0x04000000\ndebug1: Authenticating to 10.211.3.27:22 as 'zhujianian'\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: SSH2_MSG_KEXINIT sent\ndebug1: SSH2_MSG_KEXINIT received\ndebug1: kex: algorithm: curve25519-sha256\ndebug1: kex: host key algorithm: ssh-ed25519\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\ndebug1: Server host key: ssh-ed25519 SHA256:YLNQrzxr95ioGBhMsXGjuaE26LBgWHR1DEcc3amO0M8\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: Host '10.211.3.27' is known and matches the ED25519 host key.\ndebug1: Found key in /home/zhujianian/.ssh/known_hosts:10\ndebug1: rekey out after 134217728 blocks\ndebug1: SSH2_MSG_NEWKEYS sent\ndebug1: expecting SSH2_MSG_NEWKEYS\ndebug1: SSH2_MSG_NEWKEYS received\ndebug1: rekey in after 134217728 blocks\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519 ED25519 SHA256:+4QzCE/dss4st2bDAtQUGHX9SceChPJHTfktiBRndSA\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_xmss \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_dsa \ndebug1: SSH2_MSG_EXT_INFO received\ndebug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com>\ndebug1: kex_input_ext_info: publickey-hostbound@openssh.com=<0>\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\ndebug1: Authentications that can continue: publickey,password\ndebug1: Next authentication method: publickey\ndebug1: Offering public key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Server accepts key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\nAuthenticated to 10.211.3.27 ([10.211.3.27]:22) using \"publickey\".\ndebug1: channel 0: new [client-session]\ndebug1: Requesting no-more-sessions@openssh.com\ndebug1: Entering interactive session.\ndebug1: pledge: network\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Sending environment.\ndebug1: channel 0: setting env LANG = \"en_US.UTF-8\"\ndebug1: channel 0: setting env LC_CTYPE = \"C.UTF-8\"\ndebug1: channel 0: setting env LC_ALL = \"C.UTF-8\"\ndebug1: Sending command: hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\ndebug1: client_input_channel_req: channel 0 rtype exit-status reply 0\ndebug1: channel 0: free: client-session, nchannels 1\nTransferred: sent 3508, received 3260 bytes, in 0.1 seconds\nBytes per second: sent 37080.7, received 34459.3\ndebug1: Exit status 0\n",
+      "finished_at": "2026-10-08T07:15:33.105469+00:00",
+      "elapsed_s": 0.1600899240002036,
+      "status": "remote_exec_ok"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node27",
+      "target": "10.211.3.27",
+      "started_at": "2026-10-08T07:15:32.917690+00:00",
+      "resolved_address": "10.211.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:32.917699+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"10.211.3.27\",\"dev\":\"lo\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.928667+00:00",
+        "elapsed_s": 0.01098315604031086
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": true,
+      "connected_after_s": 0.00026588793843984604,
+      "actual_local_address": [
+        "10.211.3.27",
+        37698
+      ],
+      "actual_peer_address": [
+        "10.211.3.27",
+        22
+      ],
+      "status": "ssh_banner",
+      "elapsed_s": 0.010138625279068947,
+      "finished_at": "2026-10-08T07:15:32.938827+00:00"
+    },
+    {
+      "kind": "http_inventory",
+      "node": "node27",
+      "target": "12.11.3.27",
+      "started_at": "2026-10-08T07:15:47.104011+00:00",
+      "resolved_address": "12.11.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:47.093316+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"12.11.3.27\",\"dev\":\"lo\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:47.103953+00:00",
+        "elapsed_s": 0.010650497861206532
+      },
+      "source_node": "node27",
+      "port": 33000,
+      "url": "http://12.11.3.27:33000/inventory?compact=1",
+      "argv": [
+        "curl",
+        "--noproxy",
+        "*",
+        "--connect-timeout",
+        "4",
+        "--max-time",
+        "4",
+        "-sS",
+        "-D",
+        "-",
+        "-o",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/node27_33000.inventory.raw",
+        "-w",
+        "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+        "http://12.11.3.27:33000/inventory?compact=1"
+      ],
+      "timeout_s": 5,
+      "returncode": 0,
+      "stdout": "HTTP/1.0 200 OK\nServer: BaseHTTP/0.6 Python/3.10.12\nDate: Thu, 08 Oct 2026 07:15:47 GMT\nContent-Length: 5325\nContent-Type: application/json\n\n\nhttp_status=200\nlocal_ip=12.11.3.27\nremote_ip=12.11.3.27\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:47.116289+00:00",
+      "elapsed_s": 0.0123064536601305,
+      "status": "http_ok",
+      "body_file": "node27_33000.inventory.raw",
+      "body_sha256": "4204b8bbd38a521c94718c73c0460cf199cb26c75955c34d3a5c9f01ab926904",
+      "body_bytes": 5325
+    },
+    {
+      "kind": "http_inventory",
+      "node": "node27",
+      "target": "12.11.3.27",
+      "started_at": "2026-10-08T07:15:47.106886+00:00",
+      "resolved_address": "12.11.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:47.093403+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"12.11.3.27\",\"dev\":\"lo\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:47.106831+00:00",
+        "elapsed_s": 0.013444251380860806
+      },
+      "source_node": "node27",
+      "port": 33001,
+      "url": "http://12.11.3.27:33001/inventory?compact=1",
+      "argv": [
+        "curl",
+        "--noproxy",
+        "*",
+        "--connect-timeout",
+        "4",
+        "--max-time",
+        "4",
+        "-sS",
+        "-D",
+        "-",
+        "-o",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/node27_33001.inventory.raw",
+        "-w",
+        "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+        "http://12.11.3.27:33001/inventory?compact=1"
+      ],
+      "timeout_s": 5,
+      "returncode": 0,
+      "stdout": "HTTP/1.0 200 OK\nServer: BaseHTTP/0.6 Python/3.10.12\nDate: Thu, 08 Oct 2026 07:15:47 GMT\nContent-Length: 4561\nContent-Type: application/json\n\n\nhttp_status=200\nlocal_ip=12.11.3.27\nremote_ip=12.11.3.27\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:47.121782+00:00",
+      "elapsed_s": 0.014909469522535801,
+      "status": "http_ok",
+      "body_file": "node27_33001.inventory.raw",
+      "body_sha256": "ab50821ff5136d2da2b921333c0b168ad0babe22db03e02f942a39c72087c26d",
+      "body_bytes": 4561
+    },
+    {
+      "kind": "icmp",
+      "node": "node27",
+      "target": "12.11.3.27",
+      "started_at": "2026-10-08T07:15:33.109032+00:00",
+      "resolved_address": "12.11.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:33.105523+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"12.11.3.27\",\"dev\":\"lo\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:33.108998+00:00",
+        "elapsed_s": 0.0035006245598196983
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "12.11.3.27"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 12.11.3.27 (12.11.3.27) 56(84) bytes of data.\n64 bytes from 12.11.3.27: icmp_seq=1 ttl=64 time=0.037 ms\n\n--- 12.11.3.27 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.037/0.037/0.037/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:33.113528+00:00",
+      "elapsed_s": 0.004510332830250263,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node27",
+      "target": "12.11.3.27",
+      "started_at": "2026-10-08T07:15:33.129704+00:00",
+      "resolved_address": "12.11.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:33.126697+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"12.11.3.27\",\"dev\":\"lo\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:33.129685+00:00",
+        "elapsed_s": 0.0030005555599927902
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.27",
+        "node27",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 0,
+      "stdout": "m03r2n07\nc9bb3504-f2c9-41ac-ab5d-4bd3ce5a7f6b\n4769626.90 601628658.78\n",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 12.11.3.27 [12.11.3.27] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3 pat OpenSSH* compat 0x04000000\ndebug1: Authenticating to 12.11.3.27:22 as 'zhujianian'\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: SSH2_MSG_KEXINIT sent\ndebug1: SSH2_MSG_KEXINIT received\ndebug1: kex: algorithm: curve25519-sha256\ndebug1: kex: host key algorithm: ssh-ed25519\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\ndebug1: Server host key: ssh-ed25519 SHA256:YLNQrzxr95ioGBhMsXGjuaE26LBgWHR1DEcc3amO0M8\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: Host '12.11.3.27' is known and matches the ED25519 host key.\ndebug1: Found key in /home/zhujianian/.ssh/known_hosts:6\ndebug1: rekey out after 134217728 blocks\ndebug1: SSH2_MSG_NEWKEYS sent\ndebug1: expecting SSH2_MSG_NEWKEYS\ndebug1: SSH2_MSG_NEWKEYS received\ndebug1: rekey in after 134217728 blocks\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519 ED25519 SHA256:+4QzCE/dss4st2bDAtQUGHX9SceChPJHTfktiBRndSA\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_xmss \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_dsa \ndebug1: SSH2_MSG_EXT_INFO received\ndebug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com>\ndebug1: kex_input_ext_info: publickey-hostbound@openssh.com=<0>\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\ndebug1: Authentications that can continue: publickey,password\ndebug1: Next authentication method: publickey\ndebug1: Offering public key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Server accepts key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\nAuthenticated to 12.11.3.27 ([12.11.3.27]:22) using \"publickey\".\ndebug1: channel 0: new [client-session]\ndebug1: Requesting no-more-sessions@openssh.com\ndebug1: Entering interactive session.\ndebug1: pledge: network\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Sending environment.\ndebug1: channel 0: setting env LANG = \"en_US.UTF-8\"\ndebug1: channel 0: setting env LC_CTYPE = \"C.UTF-8\"\ndebug1: channel 0: setting env LC_ALL = \"C.UTF-8\"\ndebug1: Sending command: hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\ndebug1: client_input_channel_req: channel 0 rtype exit-status reply 0\ndebug1: channel 0: free: client-session, nchannels 1\nTransferred: sent 3508, received 3260 bytes, in 0.1 seconds\nBytes per second: sent 33248.6, received 30898.1\ndebug1: Exit status 0\n",
+      "finished_at": "2026-10-08T07:15:33.297345+00:00",
+      "elapsed_s": 0.16766939591616392,
+      "status": "remote_exec_ok"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node27",
+      "target": "12.11.3.27",
+      "started_at": "2026-10-08T07:15:33.113545+00:00",
+      "resolved_address": "12.11.3.27",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.27"
+        ],
+        "started_at": "2026-10-08T07:15:33.113553+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"type\":\"local\",\"dst\":\"12.11.3.27\",\"dev\":\"lo\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[\"local\"]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:33.116646+00:00",
+        "elapsed_s": 0.0031042005866765976
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": true,
+      "connected_after_s": 0.00012774113565683365,
+      "actual_local_address": [
+        "12.11.3.27",
+        40618
+      ],
+      "actual_peer_address": [
+        "12.11.3.27",
+        22
+      ],
+      "status": "ssh_banner",
+      "elapsed_s": 0.010015075094997883,
+      "finished_at": "2026-10-08T07:15:33.126678+00:00"
+    },
+    {
+      "kind": "icmp",
+      "node": "node28",
+      "target": "10.211.3.28",
+      "started_at": "2026-10-08T07:15:32.910941+00:00",
+      "resolved_address": "10.211.3.28",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.28"
+        ],
+        "started_at": "2026-10-08T07:15:32.905915+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.28\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.910922+00:00",
+        "elapsed_s": 0.0050208065658807755
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "10.211.3.28"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 10.211.3.28 (10.211.3.28) 56(84) bytes of data.\n64 bytes from 10.211.3.28: icmp_seq=1 ttl=64 time=0.113 ms\n\n--- 10.211.3.28 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.113/0.113/0.113/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:32.920037+00:00",
+      "elapsed_s": 0.00910908356308937,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node28",
+      "target": "10.211.3.28",
+      "started_at": "2026-10-08T07:15:32.945323+00:00",
+      "resolved_address": "10.211.3.28",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.28"
+        ],
+        "started_at": "2026-10-08T07:15:32.938717+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.28\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.945302+00:00",
+        "elapsed_s": 0.006599586457014084
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=10.211.3.28",
+        "node28",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 10.211.3.28 [10.211.3.28] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3 pat OpenSSH* compat 0x04000000\ndebug1: Authenticating to 10.211.3.28:22 as 'zhujianian'\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: SSH2_MSG_KEXINIT sent\ndebug1: SSH2_MSG_KEXINIT received\ndebug1: kex: algorithm: curve25519-sha256\ndebug1: kex: host key algorithm: ssh-ed25519\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\ndebug1: Server host key: ssh-ed25519 SHA256:YLNQrzxr95ioGBhMsXGjuaE26LBgWHR1DEcc3amO0M8\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\nNo ED25519 host key is known for 10.211.3.28 and you have requested strict checking.\nHost key verification failed.\n",
+      "finished_at": "2026-10-08T07:15:32.970864+00:00",
+      "elapsed_s": 0.025569885037839413,
+      "status": "hostkey_rejected"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node28",
+      "target": "10.211.3.28",
+      "started_at": "2026-10-08T07:15:32.920055+00:00",
+      "resolved_address": "10.211.3.28",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.28"
+        ],
+        "started_at": "2026-10-08T07:15:32.920066+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.28\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.928785+00:00",
+        "elapsed_s": 0.008732425980269909
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": true,
+      "connected_after_s": 0.00020449701696634293,
+      "actual_local_address": [
+        "10.211.3.27",
+        53136
+      ],
+      "actual_peer_address": [
+        "10.211.3.28",
+        22
+      ],
+      "status": "ssh_banner",
+      "elapsed_s": 0.009885448031127453,
+      "finished_at": "2026-10-08T07:15:32.938691+00:00"
+    },
+    {
+      "kind": "icmp",
+      "node": "node28",
+      "target": "12.11.3.28",
+      "started_at": "2026-10-08T07:15:32.974452+00:00",
+      "resolved_address": "12.11.3.28",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.28"
+        ],
+        "started_at": "2026-10-08T07:15:32.970920+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.28\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.974417+00:00",
+        "elapsed_s": 0.003526187501847744
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "12.11.3.28"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 12.11.3.28 (12.11.3.28) 56(84) bytes of data.\n64 bytes from 12.11.3.28: icmp_seq=1 ttl=64 time=0.087 ms\n\n--- 12.11.3.28 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.087/0.087/0.087/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:32.979037+00:00",
+      "elapsed_s": 0.004597843624651432,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node28",
+      "target": "12.11.3.28",
+      "started_at": "2026-10-08T07:15:32.995897+00:00",
+      "resolved_address": "12.11.3.28",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.28"
+        ],
+        "started_at": "2026-10-08T07:15:32.992983+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.28\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.995879+00:00",
+        "elapsed_s": 0.0029078051447868347
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.28",
+        "node28",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 0,
+      "stdout": "m03r2n08\n5313e6f8-1712-45dc-9855-4c47358b6c4b\n4769624.77 602049429.89\n",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 12.11.3.28 [12.11.3.28] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3 pat OpenSSH* compat 0x04000000\ndebug1: Authenticating to 12.11.3.28:22 as 'zhujianian'\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: SSH2_MSG_KEXINIT sent\ndebug1: SSH2_MSG_KEXINIT received\ndebug1: kex: algorithm: curve25519-sha256\ndebug1: kex: host key algorithm: ssh-ed25519\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\ndebug1: Server host key: ssh-ed25519 SHA256:YLNQrzxr95ioGBhMsXGjuaE26LBgWHR1DEcc3amO0M8\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: Host '12.11.3.28' is known and matches the ED25519 host key.\ndebug1: Found key in /home/zhujianian/.ssh/known_hosts:7\ndebug1: rekey out after 134217728 blocks\ndebug1: SSH2_MSG_NEWKEYS sent\ndebug1: expecting SSH2_MSG_NEWKEYS\ndebug1: SSH2_MSG_NEWKEYS received\ndebug1: rekey in after 134217728 blocks\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519 ED25519 SHA256:+4QzCE/dss4st2bDAtQUGHX9SceChPJHTfktiBRndSA\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_xmss \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_dsa \ndebug1: SSH2_MSG_EXT_INFO received\ndebug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com>\ndebug1: kex_input_ext_info: publickey-hostbound@openssh.com=<0>\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\ndebug1: Authentications that can continue: publickey,password\ndebug1: Next authentication method: publickey\ndebug1: Offering public key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Server accepts key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\nAuthenticated to 12.11.3.28 ([12.11.3.28]:22) using \"publickey\".\ndebug1: channel 0: new [client-session]\ndebug1: Requesting no-more-sessions@openssh.com\ndebug1: Entering interactive session.\ndebug1: pledge: network\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Sending environment.\ndebug1: channel 0: setting env LANG = \"en_US.UTF-8\"\ndebug1: channel 0: setting env LC_CTYPE = \"C.UTF-8\"\ndebug1: channel 0: setting env LC_ALL = \"C.UTF-8\"\ndebug1: Sending command: hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\ndebug1: client_input_channel_req: channel 0 rtype exit-status reply 0\ndebug1: channel 0: free: client-session, nchannels 1\nTransferred: sent 3508, received 3260 bytes, in 0.1 seconds\nBytes per second: sent 31316.9, received 29102.9\ndebug1: Exit status 0\n",
+      "finished_at": "2026-10-08T07:15:33.169293+00:00",
+      "elapsed_s": 0.17342215031385422,
+      "status": "remote_exec_ok"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node28",
+      "target": "12.11.3.28",
+      "started_at": "2026-10-08T07:15:32.979056+00:00",
+      "resolved_address": "12.11.3.28",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.28"
+        ],
+        "started_at": "2026-10-08T07:15:32.979066+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.28\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.983678+00:00",
+        "elapsed_s": 0.0046261996030807495
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": true,
+      "connected_after_s": 0.00012529734522104263,
+      "actual_local_address": [
+        "12.11.3.27",
+        33102
+      ],
+      "actual_peer_address": [
+        "12.11.3.28",
+        22
+      ],
+      "status": "ssh_banner",
+      "elapsed_s": 0.009257568046450615,
+      "finished_at": "2026-10-08T07:15:32.992958+00:00"
+    },
+    {
+      "kind": "icmp",
+      "node": "node29",
+      "target": "10.211.3.29",
+      "started_at": "2026-10-08T07:15:32.919934+00:00",
+      "resolved_address": "10.211.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:32.906128+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.919916+00:00",
+        "elapsed_s": 0.013801983557641506
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "10.211.3.29"
+      ],
+      "timeout_s": 3,
+      "returncode": 1,
+      "stdout": "PING 10.211.3.29 (10.211.3.29) 56(84) bytes of data.\n\n--- 10.211.3.29 ping statistics ---\n1 packets transmitted, 0 received, 100% packet loss, time 0ms\n\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:34.926423+00:00",
+      "elapsed_s": 2.0065217996016145,
+      "status": "no_reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node29",
+      "target": "10.211.3.29",
+      "started_at": "2026-10-08T07:15:35.980593+00:00",
+      "resolved_address": "10.211.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:35.976781+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:35.980565+00:00",
+        "elapsed_s": 0.003804437816143036
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=10.211.3.29",
+        "node29",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 10.211.3.29 [10.211.3.29] port 22.\ndebug1: connect to address 10.211.3.29 port 22: Connection timed out\nssh: connect to host 10.211.3.29 port 22: Connection timed out\n",
+      "finished_at": "2026-10-08T07:15:39.050104+00:00",
+      "elapsed_s": 3.0695457998663187,
+      "status": "connect_timeout"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node29",
+      "target": "10.211.3.29",
+      "started_at": "2026-10-08T07:15:34.926463+00:00",
+      "resolved_address": "10.211.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:34.926473+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.29\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:34.930374+00:00",
+        "elapsed_s": 0.003934483975172043
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "",
+      "stderr": "OSError(113, 'No route to host')",
+      "connect_ok": false,
+      "banner_ok": false,
+      "status": "connect_error",
+      "elapsed_s": 1.0463330708444118,
+      "finished_at": "2026-10-08T07:15:35.976750+00:00"
+    },
+    {
+      "kind": "http_inventory",
+      "node": "node29",
+      "target": "12.11.3.29",
+      "started_at": "2026-10-08T07:15:47.104566+00:00",
+      "resolved_address": "12.11.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:47.093671+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:47.104438+00:00",
+        "elapsed_s": 0.010800519026815891
+      },
+      "source_node": "node27",
+      "port": 33000,
+      "url": "http://12.11.3.29:33000/inventory?compact=1",
+      "argv": [
+        "curl",
+        "--noproxy",
+        "*",
+        "--connect-timeout",
+        "4",
+        "--max-time",
+        "4",
+        "-sS",
+        "-D",
+        "-",
+        "-o",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/node29_33000.inventory.raw",
+        "-w",
+        "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+        "http://12.11.3.29:33000/inventory?compact=1"
+      ],
+      "timeout_s": 5,
+      "returncode": 28,
+      "stdout": "\nhttp_status=000\nlocal_ip=12.11.3.27\nremote_ip=12.11.3.29\n",
+      "stderr": "curl: (28) Operation timed out after 4001 milliseconds with 0 bytes received\n",
+      "finished_at": "2026-10-08T07:15:51.118253+00:00",
+      "elapsed_s": 4.01371247600764,
+      "status": "http_failed"
+    },
+    {
+      "kind": "http_inventory",
+      "node": "node29",
+      "target": "12.11.3.29",
+      "started_at": "2026-10-08T07:15:47.112037+00:00",
+      "resolved_address": "12.11.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:47.099020+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:47.111993+00:00",
+        "elapsed_s": 0.012988671660423279
+      },
+      "source_node": "node27",
+      "port": 33001,
+      "url": "http://12.11.3.29:33001/inventory?compact=1",
+      "argv": [
+        "curl",
+        "--noproxy",
+        "*",
+        "--connect-timeout",
+        "4",
+        "--max-time",
+        "4",
+        "-sS",
+        "-D",
+        "-",
+        "-o",
+        "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/resource_map/connectivity_nodes_r01/node29_33001.inventory.raw",
+        "-w",
+        "\nhttp_status=%{http_code}\nlocal_ip=%{local_ip}\nremote_ip=%{remote_ip}\n",
+        "http://12.11.3.29:33001/inventory?compact=1"
+      ],
+      "timeout_s": 5,
+      "returncode": 28,
+      "stdout": "\nhttp_status=000\nlocal_ip=12.11.3.27\nremote_ip=12.11.3.29\n",
+      "stderr": "curl: (28) Operation timed out after 4001 milliseconds with 0 bytes received\n",
+      "finished_at": "2026-10-08T07:15:51.122454+00:00",
+      "elapsed_s": 4.01044840645045,
+      "status": "http_failed"
+    },
+    {
+      "kind": "icmp",
+      "node": "node29",
+      "target": "12.11.3.29",
+      "started_at": "2026-10-08T07:15:39.054047+00:00",
+      "resolved_address": "12.11.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:39.050164+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:39.054010+00:00",
+        "elapsed_s": 0.0038781212642788887
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "12.11.3.29"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 12.11.3.29 (12.11.3.29) 56(84) bytes of data.\n64 bytes from 12.11.3.29: icmp_seq=1 ttl=64 time=0.105 ms\n\n--- 12.11.3.29 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.105/0.105/0.105/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:39.058990+00:00",
+      "elapsed_s": 0.0049545979127287865,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node29",
+      "target": "12.11.3.29",
+      "started_at": "2026-10-08T07:15:42.069566+00:00",
+      "resolved_address": "12.11.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:42.065444+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:42.069522+00:00",
+        "elapsed_s": 0.004111881367862225
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.29",
+        "node29",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 12.11.3.29 [12.11.3.29] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\nConnection timed out during banner exchange\nConnection to 12.11.3.29 port 22 timed out\n",
+      "finished_at": "2026-10-08T07:15:47.083494+00:00",
+      "elapsed_s": 5.013962832279503,
+      "status": "banner_timeout"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node29",
+      "target": "12.11.3.29",
+      "started_at": "2026-10-08T07:15:39.059006+00:00",
+      "resolved_address": "12.11.3.29",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.29"
+        ],
+        "started_at": "2026-10-08T07:15:39.059013+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.29\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:39.062027+00:00",
+        "elapsed_s": 0.003028002567589283
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "",
+      "stderr": "TimeoutError('timed out')",
+      "connect_ok": true,
+      "banner_ok": false,
+      "connected_after_s": 0.000165596604347229,
+      "actual_local_address": [
+        "12.11.3.27",
+        50234
+      ],
+      "actual_peer_address": [
+        "12.11.3.29",
+        22
+      ],
+      "status": "banner_timeout",
+      "elapsed_s": 3.0033277552574873,
+      "finished_at": "2026-10-08T07:15:42.065383+00:00"
+    },
+    {
+      "kind": "icmp",
+      "node": "node30",
+      "target": "10.211.3.30",
+      "started_at": "2026-10-08T07:15:32.919841+00:00",
+      "resolved_address": "10.211.3.30",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.30"
+        ],
+        "started_at": "2026-10-08T07:15:32.910575+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.30\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.919823+00:00",
+        "elapsed_s": 0.009259942919015884
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "10.211.3.30"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 10.211.3.30 (10.211.3.30) 56(84) bytes of data.\n64 bytes from 10.211.3.30: icmp_seq=1 ttl=64 time=0.117 ms\n\n--- 10.211.3.30 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.117/0.117/0.117/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:32.926420+00:00",
+      "elapsed_s": 0.006591555662453175,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node30",
+      "target": "10.211.3.30",
+      "started_at": "2026-10-08T07:15:32.950163+00:00",
+      "resolved_address": "10.211.3.30",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.30"
+        ],
+        "started_at": "2026-10-08T07:15:32.940976+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.30\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.950145+00:00",
+        "elapsed_s": 0.009181440807878971
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=10.211.3.30",
+        "node30",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 255,
+      "stdout": "",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 10.211.3.30 [10.211.3.30] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3 pat OpenSSH* compat 0x04000000\ndebug1: Authenticating to 10.211.3.30:22 as 'zhujianian'\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: SSH2_MSG_KEXINIT sent\ndebug1: SSH2_MSG_KEXINIT received\ndebug1: kex: algorithm: curve25519-sha256\ndebug1: kex: host key algorithm: ssh-ed25519\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\ndebug1: Server host key: ssh-ed25519 SHA256:YLNQrzxr95ioGBhMsXGjuaE26LBgWHR1DEcc3amO0M8\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\nNo ED25519 host key is known for 10.211.3.30 and you have requested strict checking.\nHost key verification failed.\n",
+      "finished_at": "2026-10-08T07:15:32.976871+00:00",
+      "elapsed_s": 0.026724373921751976,
+      "status": "hostkey_rejected"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node30",
+      "target": "10.211.3.30",
+      "started_at": "2026-10-08T07:15:32.926437+00:00",
+      "resolved_address": "10.211.3.30",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "10.211.3.30"
+        ],
+        "started_at": "2026-10-08T07:15:32.926444+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"10.211.3.30\",\"dev\":\"eth0\",\"prefsrc\":\"10.211.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.929737+00:00",
+        "elapsed_s": 0.003306184895336628
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": true,
+      "connected_after_s": 0.0001798439770936966,
+      "actual_local_address": [
+        "10.211.3.27",
+        42430
+      ],
+      "actual_peer_address": [
+        "10.211.3.30",
+        22
+      ],
+      "status": "ssh_banner",
+      "elapsed_s": 0.011195126920938492,
+      "finished_at": "2026-10-08T07:15:32.940953+00:00"
+    },
+    {
+      "kind": "icmp",
+      "node": "node30",
+      "target": "12.11.3.30",
+      "started_at": "2026-10-08T07:15:32.981476+00:00",
+      "resolved_address": "12.11.3.30",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.30"
+        ],
+        "started_at": "2026-10-08T07:15:32.976910+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.30\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.981458+00:00",
+        "elapsed_s": 0.004560898058116436
+      },
+      "source_node": "node27",
+      "argv": [
+        "ping",
+        "-n",
+        "-c",
+        "1",
+        "-W",
+        "2",
+        "12.11.3.30"
+      ],
+      "timeout_s": 3,
+      "returncode": 0,
+      "stdout": "PING 12.11.3.30 (12.11.3.30) 56(84) bytes of data.\n64 bytes from 12.11.3.30: icmp_seq=1 ttl=64 time=0.111 ms\n\n--- 12.11.3.30 ping statistics ---\n1 packets transmitted, 1 received, 0% packet loss, time 0ms\nrtt min/avg/max/mdev = 0.111/0.111/0.111/0.000 ms\n",
+      "stderr": "",
+      "finished_at": "2026-10-08T07:15:32.985894+00:00",
+      "elapsed_s": 0.004433225840330124,
+      "status": "reply"
+    },
+    {
+      "kind": "ssh",
+      "node": "node30",
+      "target": "12.11.3.30",
+      "started_at": "2026-10-08T07:15:33.001419+00:00",
+      "resolved_address": "12.11.3.30",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.30"
+        ],
+        "started_at": "2026-10-08T07:15:32.998376+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.30\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:33.001402+00:00",
+        "elapsed_s": 0.003038410097360611
+      },
+      "source_node": "node27",
+      "argv": [
+        "ssh",
+        "-T",
+        "-n",
+        "-v",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=2",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.30",
+        "node30",
+        "hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime"
+      ],
+      "timeout_s": 8,
+      "returncode": 0,
+      "stdout": "m03r2n10\nd9d6a6fb-013f-49ac-98f9-e77eca67952e\n4769632.95 609332714.40\n",
+      "stderr": "OpenSSH_8.9p1 Ubuntu-3, OpenSSL 3.0.2 15 Mar 2022\ndebug1: Reading configuration data /home/zhujianian/.ssh/config\ndebug1: /home/zhujianian/.ssh/config line 13: Applying options for *\ndebug1: Reading configuration data /etc/ssh/ssh_config\ndebug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files\ndebug1: /etc/ssh/ssh_config line 21: Applying options for *\ndebug1: Connecting to 12.11.3.30 [12.11.3.30] port 22.\ndebug1: fd 3 clearing O_NONBLOCK\ndebug1: Connection established.\ndebug1: identity file /home/zhujianian/.ssh/id_rsa type 0\ndebug1: identity file /home/zhujianian/.ssh/id_rsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ecdsa_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519 type 3\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk type -1\ndebug1: identity file /home/zhujianian/.ssh/id_ed25519_sk-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss type -1\ndebug1: identity file /home/zhujianian/.ssh/id_xmss-cert type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa type -1\ndebug1: identity file /home/zhujianian/.ssh/id_dsa-cert type -1\ndebug1: Local version string SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\ndebug1: Remote protocol version 2.0, remote software version OpenSSH_8.9p1 Ubuntu-3\ndebug1: compat_banner: match: OpenSSH_8.9p1 Ubuntu-3 pat OpenSSH* compat 0x04000000\ndebug1: Authenticating to 12.11.3.30:22 as 'zhujianian'\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: SSH2_MSG_KEXINIT sent\ndebug1: SSH2_MSG_KEXINIT received\ndebug1: kex: algorithm: curve25519-sha256\ndebug1: kex: host key algorithm: ssh-ed25519\ndebug1: kex: server->client cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: kex: client->server cipher: chacha20-poly1305@openssh.com MAC: <implicit> compression: none\ndebug1: expecting SSH2_MSG_KEX_ECDH_REPLY\ndebug1: SSH2_MSG_KEX_ECDH_REPLY received\ndebug1: Server host key: ssh-ed25519 SHA256:YLNQrzxr95ioGBhMsXGjuaE26LBgWHR1DEcc3amO0M8\ndebug1: load_hostkeys: fopen /home/zhujianian/.ssh/known_hosts2: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts: No such file or directory\ndebug1: load_hostkeys: fopen /etc/ssh/ssh_known_hosts2: No such file or directory\ndebug1: Host '12.11.3.30' is known and matches the ED25519 host key.\ndebug1: Found key in /home/zhujianian/.ssh/known_hosts:9\ndebug1: rekey out after 134217728 blocks\ndebug1: SSH2_MSG_NEWKEYS sent\ndebug1: expecting SSH2_MSG_NEWKEYS\ndebug1: SSH2_MSG_NEWKEYS received\ndebug1: rekey in after 134217728 blocks\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ecdsa_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519 ED25519 SHA256:+4QzCE/dss4st2bDAtQUGHX9SceChPJHTfktiBRndSA\ndebug1: Will attempt key: /home/zhujianian/.ssh/id_ed25519_sk \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_xmss \ndebug1: Will attempt key: /home/zhujianian/.ssh/id_dsa \ndebug1: SSH2_MSG_EXT_INFO received\ndebug1: kex_input_ext_info: server-sig-algs=<ssh-ed25519,sk-ssh-ed25519@openssh.com,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,sk-ecdsa-sha2-nistp256@openssh.com,webauthn-sk-ecdsa-sha2-nistp256@openssh.com>\ndebug1: kex_input_ext_info: publickey-hostbound@openssh.com=<0>\ndebug1: SSH2_MSG_SERVICE_ACCEPT received\ndebug1: Authentications that can continue: publickey,password\ndebug1: Next authentication method: publickey\ndebug1: Offering public key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\ndebug1: Server accepts key: /home/zhujianian/.ssh/id_rsa RSA SHA256:rSHk9isaBMKjHkgB18qZwq/TmtQg/FVlkKnZvTssREg\nAuthenticated to 12.11.3.30 ([12.11.3.30]:22) using \"publickey\".\ndebug1: channel 0: new [client-session]\ndebug1: Requesting no-more-sessions@openssh.com\ndebug1: Entering interactive session.\ndebug1: pledge: network\ndebug1: client_input_global_request: rtype hostkeys-00@openssh.com want_reply 0\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Remote: /home/zhujianian/.ssh/authorized_keys:2: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding\ndebug1: Sending environment.\ndebug1: channel 0: setting env LANG = \"en_US.UTF-8\"\ndebug1: channel 0: setting env LC_CTYPE = \"C.UTF-8\"\ndebug1: channel 0: setting env LC_ALL = \"C.UTF-8\"\ndebug1: Sending command: hostname; cat /proc/sys/kernel/random/boot_id; cat /proc/uptime\ndebug1: client_input_channel_req: channel 0 rtype exit-status reply 0\ndebug1: channel 0: free: client-session, nchannels 1\nTransferred: sent 3508, received 3260 bytes, in 0.3 seconds\nBytes per second: sent 12766.1, received 11863.6\ndebug1: Exit status 0\n",
+      "finished_at": "2026-10-08T07:15:33.338981+00:00",
+      "elapsed_s": 0.33759266696870327,
+      "status": "remote_exec_ok"
+    },
+    {
+      "kind": "tcp22_banner",
+      "node": "node30",
+      "target": "12.11.3.30",
+      "started_at": "2026-10-08T07:15:32.985915+00:00",
+      "resolved_address": "12.11.3.30",
+      "route": {
+        "argv": [
+          "ip",
+          "-j",
+          "route",
+          "get",
+          "12.11.3.30"
+        ],
+        "started_at": "2026-10-08T07:15:32.985927+00:00",
+        "timeout_s": 2,
+        "returncode": 0,
+        "stdout": "[{\"dst\":\"12.11.3.30\",\"dev\":\"ib0\",\"prefsrc\":\"12.11.3.27\",\"flags\":[],\"uid\":1020,\"cache\":[]}]\n",
+        "stderr": "",
+        "finished_at": "2026-10-08T07:15:32.988978+00:00",
+        "elapsed_s": 0.0030648112297058105
+      },
+      "source_node": "node27",
+      "timeout_s": 3,
+      "port": 22,
+      "stdout": "SSH-2.0-OpenSSH_8.9p1 Ubuntu-3\r\n",
+      "stderr": "",
+      "connect_ok": true,
+      "banner_ok": true,
+      "connected_after_s": 0.00012543611228466034,
+      "actual_local_address": [
+        "12.11.3.27",
+        35382
+      ],
+      "actual_peer_address": [
+        "12.11.3.30",
+        22
+      ],
+      "status": "ssh_banner",
+      "elapsed_s": 0.009358839131891727,
+      "finished_at": "2026-10-08T07:15:32.998356+00:00"
+    }
+  ],
+  "known_hosts_before": {
+    "/home/zhujianian/.ssh/known_hosts": "0e0a8728b26410df714a16f7ded83b98853b1aa39efa88d037f1c44204910ab6",
+    "/home/zhujianian/.ssh/known_hosts2": null
+  },
+  "source_metadata": {
+    "argv": [
+      "ip",
+      "-j",
+      "address",
+      "show"
+    ],
+    "started_at": "2026-10-08T07:15:32.839146+00:00",
+    "timeout_s": 2,
+    "returncode": 0,
+    "stdout": "[{\"ifindex\":1,\"ifname\":\"lo\",\"flags\":[\"LOOPBACK\",\"UP\",\"LOWER_UP\"],\"mtu\":65536,\"qdisc\":\"noqueue\",\"operstate\":\"UNKNOWN\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"loopback\",\"address\":\"00:00:00:00:00:00\",\"broadcast\":\"00:00:00:00:00:00\",\"addr_info\":[{\"family\":\"inet\",\"local\":\"127.0.0.1\",\"prefixlen\":8,\"scope\":\"host\",\"label\":\"lo\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"::1\",\"prefixlen\":128,\"scope\":\"host\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":2,\"ifname\":\"eth0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"mq\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"e8:61:1a:4b:42:8e\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"eno1\",\"enp17s0f4\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"10.211.3.27\",\"prefixlen\":16,\"broadcast\":\"10.211.255.255\",\"scope\":\"global\",\"label\":\"eth0\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::ea61:1aff:fe4b:428e\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":3,\"ifname\":\"eth1\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"mq\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":1000,\"link_type\":\"ether\",\"address\":\"e8:61:1a:4b:42:8f\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"altnames\":[\"eno2\",\"enp161s0f4\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"11.211.3.27\",\"prefixlen\":16,\"broadcast\":\"11.211.255.255\",\"scope\":\"global\",\"label\":\"eth1\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::ea61:1aff:fe4b:428f\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":4,\"ifname\":\"ib0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":2044,\"qdisc\":\"fq_codel\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":256,\"link_type\":\"infiniband\",\"address\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:86:9a\",\"broadcast\":\"00:ff:ff:ff:ff:12:40:1b:ff:ff:00:00:00:00:00:00:ff:ff:ff:ff\",\"altnames\":[\"ibp3s0\",\"ibs2\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"12.11.3.27\",\"prefixlen\":8,\"broadcast\":\"12.255.255.255\",\"scope\":\"global\",\"label\":\"ib0\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::e708:e861:1a65:869a\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":5,\"ifname\":\"ib1\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":2044,\"qdisc\":\"fq_codel\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":256,\"link_type\":\"infiniband\",\"address\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:28:2c\",\"broadcast\":\"00:ff:ff:ff:ff:12:40:1b:ff:ff:00:00:00:00:00:00:ff:ff:ff:ff\",\"altnames\":[\"ibp115s0\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"13.11.3.27\",\"prefixlen\":8,\"broadcast\":\"13.255.255.255\",\"scope\":\"global\",\"label\":\"ib1\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::e708:e861:1a65:282c\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":6,\"ifname\":\"ib2\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":2044,\"qdisc\":\"fq_codel\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":256,\"link_type\":\"infiniband\",\"address\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:28:32\",\"broadcast\":\"00:ff:ff:ff:ff:12:40:1b:ff:ff:00:00:00:00:00:00:ff:ff:ff:ff\",\"altnames\":[\"ibp134s0\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"14.11.3.27\",\"prefixlen\":8,\"broadcast\":\"14.255.255.255\",\"scope\":\"global\",\"label\":\"ib2\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::e708:e861:1a65:2832\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":7,\"ifname\":\"ib3\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":2044,\"qdisc\":\"fq_codel\",\"operstate\":\"UP\",\"group\":\"default\",\"txqlen\":256,\"link_type\":\"infiniband\",\"address\":\"80:00:00:03:fe:80:00:00:00:00:00:00:e5:08:e8:61:1a:65:86:98\",\"broadcast\":\"00:ff:ff:ff:ff:12:40:1b:ff:ff:00:00:00:00:00:00:ff:ff:ff:ff\",\"altnames\":[\"ibp246s0\"],\"addr_info\":[{\"family\":\"inet\",\"local\":\"15.11.3.27\",\"prefixlen\":8,\"broadcast\":\"15.255.255.255\",\"scope\":\"global\",\"label\":\"ib3\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::e708:e861:1a65:8698\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":8,\"ifname\":\"docker0\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"operstate\":\"UP\",\"group\":\"default\",\"link_type\":\"ether\",\"address\":\"02:42:9c:ae:dc:4c\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"addr_info\":[{\"family\":\"inet\",\"local\":\"172.17.0.1\",\"prefixlen\":16,\"broadcast\":\"172.17.255.255\",\"scope\":\"global\",\"label\":\"docker0\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295},{\"family\":\"inet6\",\"local\":\"fe80::42:9cff:feae:dc4c\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]},{\"ifindex\":10,\"link_index\":9,\"ifname\":\"veth40c696b\",\"flags\":[\"BROADCAST\",\"MULTICAST\",\"UP\",\"LOWER_UP\"],\"mtu\":1500,\"qdisc\":\"noqueue\",\"master\":\"docker0\",\"operstate\":\"UP\",\"group\":\"default\",\"link_type\":\"ether\",\"address\":\"92:6b:e0:bb:7d:da\",\"broadcast\":\"ff:ff:ff:ff:ff:ff\",\"link_netnsid\":0,\"addr_info\":[{\"family\":\"inet6\",\"local\":\"fe80::906b:e0ff:febb:7dda\",\"prefixlen\":64,\"scope\":\"link\",\"valid_life_time\":4294967295,\"preferred_life_time\":4294967295}]}]\n",
+    "stderr": "",
+    "finished_at": "2026-10-08T07:15:32.843967+00:00",
+    "elapsed_s": 0.004852278158068657
+  },
+  "ssh_configs": [
+    {
+      "node": "node27",
+      "ip": "10.211.3.27",
+      "effective": {
+        "hostname": "10.211.3.27",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node27",
+      "ip": "12.11.3.27",
+      "effective": {
+        "hostname": "12.11.3.27",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node28",
+      "ip": "10.211.3.28",
+      "effective": {
+        "hostname": "10.211.3.28",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node28",
+      "ip": "12.11.3.28",
+      "effective": {
+        "hostname": "12.11.3.28",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node29",
+      "ip": "10.211.3.29",
+      "effective": {
+        "hostname": "10.211.3.29",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node29",
+      "ip": "12.11.3.29",
+      "effective": {
+        "hostname": "12.11.3.29",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node30",
+      "ip": "10.211.3.30",
+      "effective": {
+        "hostname": "10.211.3.30",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    },
+    {
+      "node": "node30",
+      "ip": "12.11.3.30",
+      "effective": {
+        "hostname": "12.11.3.30",
+        "user": "zhujianian",
+        "port": "22",
+        "proxycommand": null,
+        "proxyjump": null,
+        "hostkeyalias": null
+      }
+    }
+  ],
+  "finished_at": "2026-10-08T07:15:51.124682+00:00",
+  "status": "read_only_complete",
+  "known_hosts_after": {
+    "/home/zhujianian/.ssh/known_hosts": "0e0a8728b26410df714a16f7ded83b98853b1aa39efa88d037f1c44204910ab6",
+    "/home/zhujianian/.ssh/known_hosts2": null
+  },
+  "known_hosts_unchanged": true
+}

@@ -1,0 +1,234 @@
+{
+  "status": "passed",
+  "reviewed_at_utc": "2026-10-06T17:16:37.754528+00:00",
+  "input_run": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03",
+  "summary_status": "passed",
+  "error": null,
+  "checks": {
+    "pinned_upstream_commit": true,
+    "full_source_frozen_S2_SHA": true,
+    "rank0_prepared_exact_layout": true,
+    "rank0_prepared_partition_size": true,
+    "rank0_full_IPC_geometry": true,
+    "rank0_IPC_frame66_and_offsets_exercised": true,
+    "rank1_prepared_exact_layout": true,
+    "rank1_prepared_partition_size": true,
+    "rank1_full_IPC_geometry": true,
+    "rank1_IPC_frame66_and_offsets_exercised": true,
+    "66GiB_pool_before_request": true,
+    "actual_upstream_backend_from_isolated_worktree": true,
+    "actual_disk_pinned_dispatch_device_log": true,
+    "separate_frame66_gate_passed": true,
+    "code_freeze_equal_at_run_end": true,
+    "protected_catalog_unchanged_at_snapshot": true,
+    "primary_same_target_host": true,
+    "primary_independently_matches_summary": true,
+    "complete_engine_weights_ready": true,
+    "full_destination_SHA_proven": true,
+    "exact_32token_output_proven": true,
+    "target_release_and_physical_cleanup_completed": true,
+    "temporary_loader_container_removed": true,
+    "owned_overlay_matches_actual_target_identity": true,
+    "actual_target_900s_timeout": true,
+    "recovery_did_not_change_frozen_source": true,
+    "target_physical_free_restored_independently": true,
+    "keeper_transactions_empty": true,
+    "target_release_events_recorded": true,
+    "normal_worker_exit_and_no_pending_cleanup": true,
+    "released_engine_allocator_matches_parked_baseline": true,
+    "upstream_host_models_unloaded_before_normal_exit": true,
+    "controlled_set_device_probe_139_to_normal_SHA_PASS": true,
+    "probe_observes_uninitialized_vs_initialized_IPC_import": true,
+    "actual_Store_adapter_class_unchanged": true,
+    "hash_semantics_only_add_set_device_besides_trace": true,
+    "compiled_actual_Store_unchanged_since_full_r02": true,
+    "rank0_all1009_storages_hashed_and_released_initialized": true,
+    "rank1_all1009_storages_hashed_and_released_initialized": true
+  },
+  "source_logical_bytes": 70329718112,
+  "upstream_partition_bytes": 70329720832,
+  "frozen_source_rank_SHA": {
+    "0": "50886ec38c6a85911072eba148e0717dfd34144f99e1863bc016757eb5ea67cd",
+    "1": "fd0f438bcb07669eb3f39f0b4742ea4c15ae94a37c330e31dad04dfa2a5d9311"
+  },
+  "frame66_gate": {
+    "status": "passed",
+    "scope": "separate 24576-byte shared-allocation offset/guard gate"
+  },
+  "geometry": [
+    {
+      "tp_rank": 0,
+      "logical_bytes": 35164859056,
+      "file_bytes": 35164860416,
+      "padding_bytes": 1360,
+      "storage_count": 1009,
+      "allocation_count": 209,
+      "nonzero_allocation_offsets": 801,
+      "ipc_handle_formats": {
+        "pytorch_version2_malloc_66": 1009
+      },
+      "load_begin_unix_s": 1791306551.2251077,
+      "store_ready_unix_s": 1791306681.9647274,
+      "store_load_s": 130.73961973190308
+    },
+    {
+      "tp_rank": 1,
+      "logical_bytes": 35164859056,
+      "file_bytes": 35164860416,
+      "padding_bytes": 1360,
+      "storage_count": 1009,
+      "allocation_count": 209,
+      "nonzero_allocation_offsets": 801,
+      "ipc_handle_formats": {
+        "pytorch_version2_malloc_66": 1009
+      },
+      "load_begin_unix_s": 1791306551.230404,
+      "store_ready_unix_s": 1791306682.0587711,
+      "store_load_s": 130.82836723327637
+    }
+  ],
+  "independent_primary_T_ready_s": 131.121134861,
+  "store_window_wall_clock_s": 130.83366346359253,
+  "pool_setup_outside_request_s": 40.270198583602905,
+  "pool_bytes": 70866960384,
+  "format_setup_rank_s": {
+    "0": 128.56750917434692,
+    "1": 128.0060317516327
+  },
+  "engine_handoff_timeout_s": 900.0,
+  "engine_timeout_log_lines": [],
+  "actual_engine_timeout_admission": {
+    "pid": 15145,
+    "start_time": "463222570",
+    "process_state": "S",
+    "handoff_timeout_s": 900.0,
+    "source": "actual /proc/PID/environ; recorded PID/starttime checked",
+    "process_spec": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.json",
+    "spec_sha256": "fbad4fc27cadb78ba5d76492336e51c9203d9009524995bf274fed40adb52b71"
+  },
+  "owned_overlay": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json",
+  "set_device_control_evidence": {
+    "current_exit": 139,
+    "set_device_exit": 0,
+    "same_payload_bytes": 24576,
+    "set_device_probe_SHA": "86f98d4c69f6c9156b448e1fff87f7805e3d5a44fd9454b7f0938dc35666cfcf",
+    "owner_guards_unchanged": true,
+    "full_trace_storage_coverage": {
+      "0": 1009,
+      "1": 1009
+    },
+    "intervention_scope": "torch.cuda.set_device initializes Torch and selects the target device together; the probe does not separately isolate these two internal effects"
+  },
+  "full_SHA_records": [
+    {
+      "tp_rank": 0,
+      "logical_bytes": 35164859056,
+      "target_sha256": "50886ec38c6a85911072eba148e0717dfd34144f99e1863bc016757eb5ea67cd",
+      "source_sha256": "50886ec38c6a85911072eba148e0717dfd34144f99e1863bc016757eb5ea67cd",
+      "full_sha256_equal": true,
+      "verification_s": 49.901177406311035
+    },
+    {
+      "tp_rank": 1,
+      "logical_bytes": 35164859056,
+      "target_sha256": "fd0f438bcb07669eb3f39f0b4742ea4c15ae94a37c330e31dad04dfa2a5d9311",
+      "source_sha256": "fd0f438bcb07669eb3f39f0b4742ea4c15ae94a37c330e31dad04dfa2a5d9311",
+      "full_sha256_equal": true,
+      "verification_s": 50.21391797065735
+    }
+  ],
+  "observed_physical_snapshot": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "free_HBM_delta": 0,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "free_HBM_delta": 0,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    },
+    {
+      "worker": 2,
+      "node": "node29",
+      "free_HBM_delta": -6291456,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    },
+    {
+      "worker": 3,
+      "node": "node29",
+      "free_HBM_delta": -6291456,
+      "keeper_allocated_delta": 0,
+      "keeper_reserved_delta": 0,
+      "transactions_after": []
+    }
+  ],
+  "cleanup_snapshot": {
+    "container_removed": true,
+    "worker_final_exit_code": 0,
+    "original_command_restored": true
+  },
+  "source_path_origin": {
+    "adapter": "main_lib/fluidckpt/benchmarks/serverless_adapter.py::UpstreamStoreLoader",
+    "file_to_pinned": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/model.cpp::ToHost pread→host_buffers→host_ptr_vector enqueue",
+    "pinned_pool": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/pinned_memory_pool.cpp::aligned_alloc+cudaHostRegister (HIP compilation)",
+    "dispatch": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/model.cpp::DispatchToGpu",
+    "IPC_open": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/checkpoint_store.cpp::GetDeviceMemPtr/cudaIpcOpenMemHandle",
+    "pinned_to_IPC": "lib_cite/ServerlessLLM-hip/sllm_store/csrc/sllm_store/model.cpp::ToGpu cudaMemcpy host_buffer+chunk_offset→device_ptr[handle_idx]+gpu_offset"
+  },
+  "limitations": [
+    "Store completion is not engine weights_ready, full SHA, correct output or completed cleanup",
+    "66GiB pinned pool is built before measured request; its setup/space are separate costs",
+    "runtime OS/NFS cache is uncontrolled/unmeasured; no observed fallback log does not prove uncached physical media reads",
+    "processed payload 70.329718112GB differs from native raw checkpoint approximately71.904GB; do not attribute speed directly to Store/native algorithms",
+    "after-inventory compares endpoint samples; pending consumers/importers do not count as completed cleanup",
+    "small frame66 gate does not substitute for full-rank SHA/inference"
+  ],
+  "worker_result_present": true,
+  "store_completion_artifact_present": true,
+  "worker_exit_code": 0,
+  "exact_output_observed": true,
+  "target_last_event": {
+    "0": "release_end",
+    "1": "release_end"
+  },
+  "target_release_allocated_bytes": {
+    "0": 1315794944,
+    "1": 1315794944
+  },
+  "verification_trigger_present": true,
+  "cache_state": "uncontrolled_unmeasured; direct-I/O attempt with upstream fallback",
+  "odirect_fallback_log_present": false,
+  "input_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/summary.json": "3a658865e8906e65e02996327fb2d398aabc1cc5ffcb63e2c1a0dad405055174",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/worker/pool_ready.json": "02bda0a0f392dfc8151a68ba4f55a12c187b04a446610fa4e17485229c436dcd",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/metrics/serverless_qwen_full_r03_restore/rank0.jsonl": "a0e25544e98f53e9565923077c5db956cd36c9ed19fdb398b553774735a5d199",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/metrics/serverless_qwen_full_r03_restore/rank1.jsonl": "67c8ce1481c8f393dca518de2a3b531b805394420c5c84e285c7dfa706fa6ec9",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/loader.log": "1566c2f4a9a84c2091a89f909a44f79bd2584dea09c8d3aa4f5fe4bd646e5434",
+    "/data/node28/shared/zhujianian/fluidckpt_zjn_baseline_data/v0.1.23.3/task2/serverless_data_r01/generation_r02/rank_0/processed_layout.json": "537677280a4e8c2e2bb46a7c251cb3d35bc192ba8d23c16711b0f838cbba2e46",
+    "/data/node28/shared/zhujianian/fluidckpt_zjn_baseline_data/v0.1.23.3/task2/serverless_data_r01/generation_r02/rank_1/processed_layout.json": "79f98b040657c200b6fa621719966192a2f07da6fc6e48fd2f3f4b61eba93eda",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/session_overlay_owned.json": "84b0cb91e1ce030ff643248a5b71141f1f9b91e69bdd0d86ef3c7730f0aa5c04",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.pid.json": "9b98f4740533d8b3d4da6bd9667a0152e3ef9b858eaf6bde2aafb856e40ed06f",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_current_r01/summary.json": "c55e02ae6a8944f2ac1f0f021e738a37ec153ab505c31859789ecaaced2e07a6",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_set_device_r01/summary.json": "6af8ffd4c161d0a97f91165286d19dc3df439c7eb0844dc6fff1220a6bae8579",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_set_device_r01/worker/result.json": "3bde16427f5e805e7cb6a832124ae8a4c2abf293c68adadd4464836673c293ba",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_current_r01/worker.log": "9316734916236e9f3c2477d3253669d51591404b771cdcd7804d4b820bd27cab",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_set_device_r01/worker.log": "bbf1069291e97c349f958f2cab214b00a73db4acf93102d4f6cdd1cab0b39eed",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_hash_probe_sources_r01/source_before/serverless_adapter.py": "3429a10b80d052d54dfe1ed11ba86ee3f9d5b8ee2404e9736e9143bd4d8fffbf",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/s2_r01/summary.json": "4a8081c086cf8ee15036e2f8ed98f8bc617568bea93f37c1e8467f3502053d97",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/basic_scenarios/qwen_bootstrap_r01/session.json": "3edadcaebb96b8923037cecba6f42b95ee1cf4d55603f9481f7d1c7539dee1c9",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_offset_gate_r03/worker/result.json": "1434368edaaebfcb56c763736503580338a9666d60d81c1a41187a900a9aa96e",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.process.json": "fbad4fc27cadb78ba5d76492336e51c9203d9009524995bf274fed40adb52b71",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_target_recovery_r03/fresh_engine_node29.log": "8ad66fa4dec519ebf801b13705f9fe8609f23929e4227e62167ea2e84b62f9d5",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/worker/store_ready.json": "31d48fd24a8305b1dc36e3b13da021cbd49845a41a9fc8d053f503ddab5a1ba3",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/baseline_loading/serverless_qwen_full_r03/worker/result.json": "cec0cbec247f4ff18ba1b1917b68e3758f9d036b9b2cc6809343975eb502def5"
+  }
+}

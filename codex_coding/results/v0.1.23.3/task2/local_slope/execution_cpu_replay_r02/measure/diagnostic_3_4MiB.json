@@ -1,0 +1,407 @@
+{
+  "case": {
+    "label": "diagnostic_3_4MiB",
+    "mode": "diagnostic",
+    "nbytes": 4194304,
+    "operations": 1,
+    "order_index": 3,
+    "source_offset": 0
+  },
+  "clock_scope": "controller single monotonic clock for request; worker durations independently recorded",
+  "fit": null,
+  "flow": {
+    "control_mode": "compact",
+    "controller_timing": {
+      "all_targets_filled_ns": 195177112731627,
+      "all_targets_published_ns": 195177130965792,
+      "clock_domain": "controller/m03r2n07/967179/9791b6776d574549840346642c1717ae",
+      "load_begin_ns": 195177102434910
+    },
+    "coordinator_wall_s": 0.028529162023914978,
+    "epoch_snapshot_reused": false,
+    "execute_wall_s": 0.009163962007733062,
+    "execution": [
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 3.6399869713932276e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 0
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 2.4600012693554163e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 1
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 2.1799933165311813e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 2
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 2.0700099412351847e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 3
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 0.009086431993637234,
+        "executor": "serial",
+        "executor_source": "expanded_single_local_branch_with_timing_observer",
+        "local_slope_prepare": {
+          "bytes": 4194304,
+          "event_prepare_elapsed_ns": 6031,
+          "event_prepare_native_tid": 967179,
+          "events_created_and_initialized_in_prepare": true,
+          "extra_prepare_event_initialization_sync": true,
+          "manifest_is_copy_path": false,
+          "memory_after_target_allocate": {
+            "allocated_bytes": 0,
+            "hip_free_bytes": 16106127360,
+            "hip_total_bytes": 17179869184,
+            "reserved_bytes": 0
+          },
+          "metadata_outside_service": true,
+          "mode": "diagnostic",
+          "pid": 967179,
+          "prepare_native_tid": 967179,
+          "prepare_thread_ident": 23225001742784,
+          "prepare_thread_name": "MainThread",
+          "source": {
+            "alignment_remainders": {
+              "2097152": 1191952,
+              "256": 16,
+              "4096": 16
+            },
+            "contiguous": true,
+            "data_ptr": 23224929890320,
+            "device": "cuda:0",
+            "dtype": "torch.uint8",
+            "numel": 16777216,
+            "shape": [
+              16777216
+            ],
+            "storage_offset": 0,
+            "stride": [
+              1
+            ]
+          },
+          "source_identity": {
+            "epoch": "cpu_replay/4",
+            "generation": 1,
+            "id": "local_slope_runtime_cpu_replay/source0/hbm",
+            "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+            "n": 16777216,
+            "off": 0
+          },
+          "source_offset": 0,
+          "target": {
+            "alignment_remainders": {
+              "2097152": 418032,
+              "256": 240,
+              "4096": 240
+            },
+            "contiguous": true,
+            "data_ptr": 94429663092976,
+            "device": "cuda:0",
+            "dtype": "torch.uint8",
+            "numel": 4194304,
+            "shape": [
+              4194304
+            ],
+            "storage_offset": 0,
+            "stride": [
+              1
+            ]
+          },
+          "target_offset": 0,
+          "tensor_manifest_index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          }
+        },
+        "records": [
+          {
+            "bytes": 4194304,
+            "elapsed_s": 0.009072342,
+            "kind": "local_hbm",
+            "local_slope_diagnosis": {
+              "control_limitation": "native block precedes diagnostic block; instrumentation and temporal drift confounded",
+              "execute_native_tid": 967179,
+              "execute_thread_ident": 23225001742784,
+              "execute_thread_name": "MainThread",
+              "executor_difference": "expanded single local branch bypasses native land dispatch checks; timestamps/events add observer work",
+              "extra_execute_sync_before_service": false,
+              "extra_prepare_event_initialization_sync": true,
+              "gpu_event_elapsed_ms": 9.049521,
+              "gpu_event_scope": "stream event window includes copy submission/host gaps; not a pure kernel duration",
+              "host_phase_sum_ns": 9072342,
+              "host_phases": {
+                "begin_log": {
+                  "thread_cpu_ns": 4740,
+                  "wall_ns": 8410
+                },
+                "copy_submit": {
+                  "thread_cpu_ns": 9047449,
+                  "wall_ns": 9046851
+                },
+                "device_sync": {
+                  "thread_cpu_ns": 1640,
+                  "wall_ns": 1680
+                },
+                "event_begin_record": {
+                  "thread_cpu_ns": 1540,
+                  "wall_ns": 1560
+                },
+                "event_end_record": {
+                  "thread_cpu_ns": 2200,
+                  "wall_ns": 2780
+                },
+                "source_slice": {
+                  "thread_cpu_ns": 7100,
+                  "wall_ns": 7170
+                },
+                "target_slice": {
+                  "thread_cpu_ns": 3870,
+                  "wall_ns": 3891
+                }
+              },
+              "host_residual_ns": 0,
+              "host_thread_cpu_ns": 9068539,
+              "memory_after_sync": {
+                "allocated_bytes": 0,
+                "hip_free_bytes": 16106127360,
+                "hip_total_bytes": 17179869184,
+                "reserved_bytes": 0
+              },
+              "metadata_outside_service": true,
+              "phase_boundary_clock": "monotonic_ns and thread_time_ns, same ordered boundary pairs",
+              "phase_observer_overhead_included": true,
+              "post_service_diagnosis_scope": "included in HTTP/controller execute wall; excluded from reported worker execute_s and op service_s; not controller dispatch cost",
+              "post_service_diagnosis_wall_ns": 31570,
+              "residual_scope": "adjacent phase boundaries telescope; zero is not proof of zero observer overhead",
+              "service_begin_ns": 195177103603265,
+              "service_end_ns": 195177112675607,
+              "source_view": {
+                "alignment_remainders": {
+                  "2097152": 1191952,
+                  "256": 16,
+                  "4096": 16
+                },
+                "contiguous": true,
+                "data_ptr": 23224929890320,
+                "device": "cuda:0",
+                "dtype": "torch.uint8",
+                "numel": 4194304,
+                "shape": [
+                  4194304
+                ],
+                "storage_offset": 0,
+                "stride": [
+                  1
+                ]
+              },
+              "stream": 0,
+              "target_view": {
+                "alignment_remainders": {
+                  "2097152": 418032,
+                  "256": 240,
+                  "4096": 240
+                },
+                "contiguous": true,
+                "data_ptr": 94429663092976,
+                "device": "cuda:0",
+                "dtype": "torch.uint8",
+                "numel": 4194304,
+                "shape": [
+                  4194304
+                ],
+                "storage_offset": 0,
+                "stride": [
+                  1
+                ]
+              }
+            },
+            "op_id": 0,
+            "pipeline": {},
+            "replica_id": "local_slope_runtime_cpu_replay/source0/hbm",
+            "role": "both"
+          }
+        ],
+        "staging_bytes": 67108864,
+        "worker": 4
+      },
+      {
+        "chunk_bytes": 33554432,
+        "execute_s": 3.489985829219222e-06,
+        "executor": "serial",
+        "records": [],
+        "staging_bytes": 67108864,
+        "worker": 5
+      }
+    ],
+    "executor": "serial",
+    "inventory_rpc_s": 0.0006966690125409514,
+    "plan": {
+      "chunk_bytes": 33554432,
+      "executor": "serial",
+      "local_slope_label": "diagnostic_3_4MiB",
+      "local_slope_mode": "diagnostic",
+      "ops": [
+        {
+          "dst_w": 4,
+          "generation": 1,
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "kind": "local_hbm",
+          "n": 4194304,
+          "off": 0,
+          "op_id": 0,
+          "path": "4:hbm:0->4",
+          "replica_id": "local_slope_runtime_cpu_replay/source0/hbm",
+          "resources": [],
+          "source_epoch": "cpu_replay/4",
+          "source_offset": 0,
+          "src_w": 4,
+          "target": "local_slope_runtime_cpu_replay/diagnostic_3_4MiB/target0",
+          "tp": 0
+        }
+      ],
+      "targets": [
+        {
+          "id": "local_slope_runtime_cpu_replay/diagnostic_3_4MiB/target0",
+          "identity": "81940606ee84d4180b51392c1819e095df979863a19982f6a16b2b95d8b7f066",
+          "index": {
+            "t0": [
+              0,
+              1048576
+            ],
+            "t1": [
+              1048576,
+              15728640
+            ]
+          },
+          "key": "local_slope_runtime_cpu_replay/diagnostic_3_4MiB/target0",
+          "meta": {
+            "model_identity": "fixture:3100",
+            "synthetic": true,
+            "tp_rank": 0,
+            "tp_size": 4
+          },
+          "mode": "replica",
+          "n": 4194304,
+          "numa": 0,
+          "off": 0,
+          "tier": "hbm",
+          "tp": 0,
+          "worker": 4
+        }
+      ]
+    },
+    "prepare_rpc_s": 0.0004353359981905669,
+    "prepare_s": 0.0011320050107315183,
+    "rpc": {
+      "execute": [],
+      "inventory": [],
+      "prepare": [],
+      "publish": []
+    },
+    "source_bytes": {
+      "local_slope_runtime_cpu_replay/source0/hbm": 4194304
+    },
+    "timing_scope": "coordinator wall; excludes model layout before handoff",
+    "tx": "cda1a18175df4391a5fba6e9a627873e",
+    "verification": {
+      "algorithm": "SHA256 of every logical byte per operation",
+      "checked_bytes": 4194304,
+      "operations": {
+        "0": {
+          "n": 4194304,
+          "op_id": 0,
+          "source_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed",
+          "target_sha256": "f4198c06e96bcf0f61b2593b4570cd0f30204cb3c77f6c557881c057380693ed"
+        }
+      },
+      "passed": true
+    },
+    "verify_and_publish_s": 0.018233195005450398
+  },
+  "fresh_query_rpc": [],
+  "gate": {
+    "node27": {
+      "dram_current_bytes": 4227129344,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1811939328,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 335544320,
+      "require_idle": true,
+      "transactions": {
+        "4": [],
+        "5": []
+      }
+    },
+    "node28": {
+      "dram_current_bytes": 3482779648,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1124073472,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 1023410176,
+      "require_idle": true,
+      "transactions": {
+        "0": [],
+        "1": []
+      }
+    },
+    "node30": {
+      "dram_current_bytes": 3975860224,
+      "dram_limit_bytes": 6442450944,
+      "hbm_absolute_upper_bytes": 1281359872,
+      "hbm_limit_bytes": 2147483648,
+      "hbm_scope": "same-HIP selected-device absolute total-free; includes other allocations conservatively",
+      "peak_measured": false,
+      "planned_incremental_upper_bytes": 67108864,
+      "remaining_hbm_bytes": 866123776,
+      "require_idle": true,
+      "transactions": {
+        "2": [],
+        "3": []
+      }
+    }
+  },
+  "inventory_end_ns": 195177101487617,
+  "model_frozen_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/bounded_cost/model_frozen_r01/frozen_model.json",
+    "sha256": "e98bbed04d5ce502439acea4fd8fabd554dd67e69ca2b94ebba784ab8535734f"
+  },
+  "prediction": null,
+  "preregistration_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/local_slope/execution_cpu_replay_r02/measure/preregistration.json",
+    "sha256": "83cfd84a3e42175ba7560be255ec067bf0ddef6dc7c20c07ad6b29689c689edd"
+  },
+  "request_begin_ns": 195177100784657,
+  "request_to_filled_s": 0.01194697,
+  "request_to_published_s": 0.030181135,
+  "service_s": 0.009072342,
+  "worker_execute_s": 0.009086431993637234
+}

@@ -1,0 +1,128 @@
+{
+  "schema_version": "fluidckpt.integration_retry_plan.v1",
+  "development": "v0.1.23.3/task2",
+  "session": "minimal_calibration_r01",
+  "launch_plan_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json",
+    "sha256": "1f63a9b35227b4f02f9fbd48770ff9166c7a9cb737631a16b8e4621060df4241"
+  },
+  "base_launch_plan_ref": {
+    "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_launch_cpu_r05/launch_plan.json",
+    "sha256": "d068c07c0911baad0e1bd97fb4b2e45d1795b6998a336ddfff5e56703165941b"
+  },
+  "configuration_changes": [
+    {
+      "node": "node28",
+      "field": "env.NCCL_TOPO_DUMP_FILE",
+      "before": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r01/node28.runtime.dump.xml",
+      "after": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r02/node28.runtime.dump.xml"
+    },
+    {
+      "node": "node30",
+      "field": "env.NCCL_TOPO_DUMP_FILE",
+      "before": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r01/node30.runtime.dump.xml",
+      "after": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r02/node30.runtime.dump.xml"
+    }
+  ],
+  "prior_exact_cleanup": {
+    "node28": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node28_r01/raw/integration_worker_node28_r01/supervisor.summary.json",
+      "sha256": "150a7e28b99c08f6dd9451efd8cc0f75e1b8ff0ca341bdc812ab08aab92d504d",
+      "passed": true,
+      "child_state": "absent"
+    },
+    "node30": {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/measure_worker_collect_node30_r01/raw/integration_worker_node30_r01/supervisor.summary.json",
+      "sha256": "04106ae43a5f7ffd18739c91e12ec694264c396d0882049e04fb0e1625d7f34f",
+      "passed": true,
+      "child_state": "absent"
+    }
+  },
+  "commands": [
+    {
+      "node": "node28",
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "320s",
+        "ssh",
+        "-T",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.28",
+        "node28",
+        "docker exec -e PYTHONDONTWRITEBYTECODE=1 1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6 python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/supervise_worker.py --plan /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json --node node28 --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_worker_node28_r02 --startup-budget-s 60 --lifetime-s 300"
+      ],
+      "worker_out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_worker_node28_r02",
+      "dump_file": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r02/node28.runtime.dump.xml",
+      "lifetime_s": 300,
+      "startup_budget_s": 60,
+      "native_outer_s": 320,
+      "container_id": "1dfa8364dca889d0dbcc71cc0e4da4fe0558876d109ce80704bb9b030dc3d1e6",
+      "container_started_at": "2026-10-09T10:57:19.204876643Z",
+      "boot_id": "5313e6f8-1712-45dc-9855-4c47358b6c4b",
+      "executed": false
+    },
+    {
+      "node": "node30",
+      "argv": [
+        "timeout",
+        "--signal=TERM",
+        "--kill-after=5s",
+        "320s",
+        "ssh",
+        "-T",
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "ConnectTimeout=5",
+        "-o",
+        "ConnectionAttempts=1",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "UpdateHostKeys=no",
+        "-o",
+        "ServerAliveInterval=3",
+        "-o",
+        "ServerAliveCountMax=1",
+        "-o",
+        "Hostname=12.11.3.30",
+        "node30",
+        "docker exec -e PYTHONDONTWRITEBYTECODE=1 7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1 python3 /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/minimal_calibration/integration/supervise_worker.py --plan /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_actual_plan_r02/launch_plan.json --node node30 --out /home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_worker_node30_r02 --startup-budget-s 60 --lifetime-s 300"
+      ],
+      "worker_out": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/integration_worker_node30_r02",
+      "dump_file": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/minimal_calibration/worker_session_r02/node30.runtime.dump.xml",
+      "lifetime_s": 300,
+      "startup_budget_s": 60,
+      "native_outer_s": 320,
+      "container_id": "7ee3d926c34932d90c7006a7ad613284c60f4c0251d34fa93e80a523d8f23ba1",
+      "container_started_at": "2026-10-09T10:57:42.068061805Z",
+      "boot_id": "d9d6a6fb-013f-49ac-98f9-e77eca67952e",
+      "executed": false
+    }
+  ],
+  "source_changes": [],
+  "GPU_operations": 0,
+  "remote_operations": 0,
+  "notes": [
+    "A orchestrator obtains fresh guards immediately before mesh; no old current guards reused.",
+    "Parent starts both new supervisors, then immediately runs prepared A orchestration; same 300s window.",
+    "Warm budget rejection is a valid stopping result; no budget expansion.",
+    "STOP marker must go only to each new r02 worker output directory."
+  ]
+}

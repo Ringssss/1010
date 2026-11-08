@@ -1,0 +1,11 @@
+--- r01/prepare.py
++++ r02/prepare.py
+@@ -48,7 +48,7 @@
+                 merged[row['relative_path']] = {k: v for k, v in row.items() if k != 'base64'}
+             spec['assets'] = list(merged.values())
+             write(out / (spec['node'] + '.setup.spec.json'), spec)
+-        write(out / 'append_assets.json', dict(assets=assets, revision=out.name, inventory_mode_file=str(mode_path)))
++        write(out / 'append_assets.json', dict(assets=assets, revision='bounded_cost_' + out.name, inventory_mode_file=str(mode_path)))
+         write(out / 'launch_plan.json', plan)
+         write(out / 'manifest.json', dict(GPU_launches=0, remote_writes=0, append_only=True, plan_ref=ref(out / 'launch_plan.json'), frozen_model_ref=ref(model_path), prior_plan_ref=ref(old_path)))
+         print(json.dumps(dict(plan=str(out / 'launch_plan.json'), GPU_launches=0, remote_writes=0)))

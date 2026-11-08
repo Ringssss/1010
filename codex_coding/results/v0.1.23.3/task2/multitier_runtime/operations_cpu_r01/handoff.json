@@ -1,0 +1,29 @@
+{
+  "setup_failure_retained": "operations_deploy_r01/node28/setup PermissionError before stage/docker",
+  "correction": "local ext4 writable shared children and new session multitier_runtime_r02",
+  "successful_setup": "operations_deploy_r02/setup.json",
+  "readonly": "operations_preflight_r02",
+  "final_source_deployment": "operations_source_r02",
+  "final_launch": "operations_launch_r01/launch_plan.json",
+  "authorized_parent_execution": "operations_actual_r01",
+  "supervisor_hard_lifetime_s": 1800,
+  "controller_total_timeout_s": 1440,
+  "stages_timeout_s": {
+    "mesh": 300,
+    "qualify": 600,
+    "cases": 300
+  },
+  "startup_s": 90,
+  "all_processes_stop_on_failure": true,
+  "main_gpu_execution_required": true,
+  "child_gpu_launches": 0,
+  "dump_pair_rank_policy": {
+    "w0": 0,
+    "w1": 0,
+    "w2": 0,
+    "w3": 1,
+    "w4": 0,
+    "w5": 1
+  },
+  "budget_scope": "shared absolute cgroup+256MiB <=6GiB; selected GPUs conservative prelaunch->postwarm increment+256MiB <=2GiB; sampled lower bound not complete peak"
+}

@@ -1,0 +1,25 @@
+# 有界成本模型独立审查协议
+
+编号保持v0.1.23.3/task2。审查仅读本地源码与原始证据，不启动GPU、不SSH、不写远端。当前依据为计划18.28、正式报告43与cost_calibration/review_final_r01；原完整模型未识别状态保持。
+
+## 数据与有效域
+
+拟合仅可使用costcal_runtime_r02的九个原训练观测和本地路径事前规定的三次反序补测。本地各配置用两次算术均值，保留负原始斜率和原fitter拒绝证据。旧36MiB混合请求、r01失败partial、任何新holdout均不可作为训练点。
+
+本地固定成本只用于已warm的w4 HBM→w4 HBM单op4–16MiB。1MiB×4是训练固定项的锚点，不认证1MiB单op或任意nops4组合。其他两路径保持原warm正斜率形式，限定到既有硬件/primitive及4–16MiB单op。cold、未测pair、超范围尺寸、共享流容量、live模型handoff均无资格。
+
+本次形式明确为：local四个原单op的service_s算术均值常数，remoteDRAM/SSD复用原fit_path的service_s系数，共享worker request项为六个聚合单op(target_s−service_s)的中位数，controller dispatch项为九个聚合配置dispatch_s的中位数。共享request与dispatch各加一次，worker既含等待的观测不再以单独等待项重复相加。保存各path差量分布；这一worker外层残差的组合是待holdout验证的近似，不宣称识别了物理setup成本。
+
+## 冻结与新会话
+
+训练数据引用和SHA、模型形式和有效域、源码SHA、两条事前预测先写入新结果目录，模型与预测SHA先于首holdout request_begin_ns。新session必须重新验证六worker的实际BDF、node/NUMA/HCA、boot/epoch、配置与输入XML指纹、源内容身份与完整SHA，以及实际warm pair24/45。迁移模型时显式记录旧训练session与新执行session；不能把旧epoch或warmstate直接当当前状态。
+
+holdout固定为local单op8MiB和local/remoteDRAM/SSD各单op8MiB组成的24MiB混合恢复，各一次。混合顺序和source/target ready依赖预先固定；目标区间满足真实API覆盖约束。新结果不回填fit，不以误差追求正斜率或追加扫描；模型失败和holdout失败保持独立状态。
+
+## 时钟、判据与保护
+
+完整controller主窗从必要fresh inventory、预算gate和plan之前开始，分别到filled与published。内层execute、worker/operation、verify/publish分列。只同一clock_domain内相减；controller与worker时长差仅为residual。来源构建、bootstrap、模型冻结、进程启动若在窗外单列。
+
+事前分别报告service/execute误差与full-filled误差，避免公共查询项掩盖服务误差。训练verify_publish中位数不具备按字节与目标数外推依据，正式published预测置null，完整实际published及verify/publish耗时仍保留。full-filled控制中位数仅作为待新会话验证的粗假说。本轮两种请求不是同预算候选的排序对照，因此即使holdout通过也不直接认证placement decision_ready；可形成下一步同预算strong-simple与现有joint比较的有界准入依据。
+
+沿用每node DRAM6GiB/HBM2GiB聚合配额，runtime/staging不重复计。fresh gate、active monitor的idle语义保持区分；确定失败立即STOP当前九进程，按PID/starttime/PGID与own journal精确清理。保留旧keeper、旧容器/目录、原厂及自有输入XML与旧结果，node29不访问。原始运行和失败/重试目录不覆盖；一配置一次。

@@ -1,0 +1,13 @@
+# node28原private配置第2次针对性复现的观察计划
+
+固定新run为probe_node28_observed_r01；同private容器完整ID e693e946828a37dbf4daa3bc25855b1c28f88bd02cdd93ce0d2e95f33e37d3ba、StartedAt 2026-10-09T06:19:44.292587393Z、boot5313e6f8-1712-45dc-9855-4c47358b6c4b及PID namespace4026541407，原LD继承、GPU2/BDF55 selected、OMP/MKL1、原probe SHA927f543e.../15秒不改。LD与hostIPC变体均超时后，父安排本原配置第2次有目的复现；不继续cap配置扫描。唯一新增观察条件为一个独立CPU读者，其输出放diagnosis30_node28_observer_r01，不混进probe精确归档目录。
+
+observer只等待这个新run的registration、owner及set_device_enter事件，核boot/PID namespace/完整PIDstart/PGID/SID/argv，事件后约2秒、6秒各一份线程和FD快照；前后身份均通过才接受。最多32TID读取stat/status/wchan/syscall，最多16FD仅readlink，不打开symlink目标，不GPU/ptrace/signal/KFD/sysfs/vramtbl。读不到、权限拒绝、线程退出均原样error记录，不猜补值。元数据字段含实际采样时刻及相对set_device时间，不把计划2/6秒当实际时间。
+
+20秒为observer软件总期限，单次/proc读取没有alarm硬中断；外层SSH25秒限时也不能单独证明容器reader退出。父核观察者summary中的本次owner与容器相同PIDnamespace，按PID/start/argv确认退出；没有远程退出证据时记录pending，不把杀SSH客户端写成CPU reader已回收。原GPU supervisor仍唯一负责GPU child，15秒期限不变。
+
+父先stage.sh上传此独立新.py，再将command.sh读者与admission28_observed_launch_r01/command.sh原GPU命令并行启动。父保存stdout/stderr/返回码，收集观察者source.py、summary.json及最多两份snapshot；运行后再核原GPU清理与保护guard。当前计划由子agent备好，子agent未远程或GPU执行；最终实测在后续独立delta记录，不覆盖此准备快照。
+
+CPU5项通过：新CPU child自然退出且exact可读、线程/FD数量限制、错start拒绝并不读取细项、child退出拒绝、缺文件显式error。未发signal/GPU/SSH。独立C源码审查通过。源快照见source.py；两shell脚本语法检查通过。
+
+预期只区分等待层：R并持续增长utime/运行态syscall支持用户态旋转；S及futex/wchan支持同步等待；ioctl关联FD或D态+wchan支持内核/驱动等待。syscall权限不足保持未知，wchan单个symbol不认证唯一机制或永久GPU故障。

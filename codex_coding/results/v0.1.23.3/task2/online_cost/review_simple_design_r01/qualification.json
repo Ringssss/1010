@@ -1,0 +1,56 @@
+{
+  "source_review_passed": true,
+  "launch_critical_blockers": [],
+  "main_fresh_freeze_setup_admission_launch_permitted": true,
+  "actual_model_online_qualified": false,
+  "concurrent_multiNIC_qualified": false,
+  "actual_gpu_result_review_pending": true,
+  "task_hbm_attribution_complete": false,
+  "task_hbm_actual_bytes": null,
+  "review_scope": "单发送端3worker新源码、CPU证据与资源准入协议独审；GPU实验由主统一启动。",
+  "fixed_findings": [
+    {
+      "issue": "Catalog.entries为dict，entry.buf会在非空Catalog时失败",
+      "resolution": "entry.get('tensor')，ops CPU非空Catalog测试通过"
+    },
+    {
+      "issue": "在线资源门仅暂停前后，未检查完整权重驻留阶段",
+      "resolution": "raw ready时钟先落盘，再ready_resource_gate，SHA与park随后执行"
+    },
+    {
+      "issue": "helper watcher仅失败报警，缺正常采样证据",
+      "resolution": "每0.5s有界helper_memory_guard.jsonl与inventory minfree/maxreserved/samplecount，连续峰值仍未知"
+    }
+  ],
+  "cpu_evidence": [
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/review_simple_cpu_r02/qualification.json",
+      "sha256": "9202bfd4291f6fdd0bd2b106e1fa599984fbe9e7f8166a126931d5ccbe935c29",
+      "check_count": 14,
+      "passed": true
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/simple_core_cpu_r03/qualification.json",
+      "sha256": "64423f586df8148daf5059c5ed835ca6c120fccf199a1bfca6b59b66d57e93ec",
+      "check_count": 49,
+      "passed": true
+    },
+    {
+      "path": "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/results/v0.1.23.3/task2/online_cost/execution_simple_ops_cpu_r03/qualification.json",
+      "sha256": "c8c94f7cfd211ea6c498e35f7840afd5bea521b52180786ffeec8b16502d96d0",
+      "check_count": 23,
+      "passed": true
+    }
+  ],
+  "current_source_sha256": {
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_contracts.py": "489762553ccdc32b6db7c15d39121d1c7d3b8f51405217b0cfb7aabdaf18124a",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_controller.py": "258c34dc8f4f1e263468edf719ff8ac5bd2f8f5956f74de6f93ccdc85c7ba53d",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_model.py": "8e00a1bed780a809a59554bb91bbb664cc7a7e63f20d031f7f1ed1b0a2083b87",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_resources.py": "eb4406ce57fbd95d1a789b903e2111c631fb4b0aa008d0cc6f3867f17dd6595e",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_worker.py": "a0b95d1eaeb1dbb7bb358f8e9cb370bc81634a2abaa39aaca79e85fdb1ba5d8d",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/simple_host.py": "2d9db31954828aad81d3e34bb29cc77d6bcd6a6479a9be692c077f1fc1e9bad5",
+    "/home/zhujianian/zhujianian/fluidckpt_zjn/codex_coding/src/v0.1.23.3/task2/online_cost/execution/prepare.py": "d1a3b525e322d392357de77c99bebfb07995da4f7729638780d5600b8664dfd5"
+  },
+  "validation_command": "python3 codex_coding/src/v0.1.23.3/task2/online_cost/review/simple_cpu_review.py --out codex_coding/results/v0.1.23.3/task2/online_cost/review_simple_cpu_r02",
+  "reviewer_new_GPU_SSH_Docker_actions": 0
+}

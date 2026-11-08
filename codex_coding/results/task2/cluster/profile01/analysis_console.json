@@ -1,0 +1,178 @@
+{
+  "development": "v0.1.23.2",
+  "status": "passed",
+  "limitations": [
+    "single diagnostic observation with profiler overhead",
+    "RCCL kernel residency includes waiting for peer/data, not pure network transmission",
+    "host API, GPU activities and parallel workers overlap and must not be added",
+    "cross-node absolute clocks are not aligned; only within-process intervals used"
+  ],
+  "byte_plan_matches_baseline": true,
+  "cleanup_errors": [],
+  "source_hash_mismatches_at_run_end": [],
+  "analyzer_sha256": "04d4036d739dc3be7089a73eae804e24b6c0ad1899d2fc04f7a30a30019e7519",
+  "verified_bytes": [
+    70329718112
+  ],
+  "planner": [
+    {
+      "requested_strategy": "resource_lp",
+      "strategy": "resource_lp",
+      "fallback_reason": null
+    }
+  ],
+  "summary_sha256": "ac3608b7478e60cddb1da521a450a39fc53796fa2afb7085fd3745212c687914",
+  "windows": [
+    {
+      "phase": "pipeline_serial",
+      "load_s": 2.105820911,
+      "segments_s": {
+        "entry_and_start_skew": 0.002313493,
+        "layout": 0.305598927,
+        "export": 0.035395416,
+        "detect_plan_dispatch": 0.054545803,
+        "map": 0.073463667,
+        "execute_dispatch": 0.007731613,
+        "last_copy_worker_execute": 1.598504835,
+        "after_all_copies_until_ready": 0.028267157
+      },
+      "copy_finish_skew_s": 0.248221198
+    },
+    {
+      "phase": "pipeline_double_buffer",
+      "load_s": 2.090149964,
+      "segments_s": {
+        "entry_and_start_skew": 0.003440449,
+        "layout": 0.309447259,
+        "export": 0.034564081,
+        "detect_plan_dispatch": 0.046426468,
+        "map": 0.069943238,
+        "execute_dispatch": 0.007428882,
+        "last_copy_worker_execute": 1.588361208,
+        "after_all_copies_until_ready": 0.030538379
+      },
+      "copy_finish_skew_s": 0.220600795
+    },
+    {
+      "phase": "profile_serial",
+      "load_s": 2.439569523,
+      "segments_s": {
+        "entry_and_start_skew": 0.010605339,
+        "layout": 0.310903606,
+        "export": 0.035408847,
+        "detect_plan_dispatch": 0.046634708,
+        "map": 0.069894719,
+        "execute_dispatch": 0.012553899,
+        "last_copy_worker_execute": 1.919693427,
+        "after_all_copies_until_ready": 0.033874978
+      },
+      "copy_finish_skew_s": 0.164957596
+    }
+  ],
+  "profiles": [
+    {
+      "worker": 0,
+      "node": "node27",
+      "gpu": 0,
+      "execute_wall_s": 0.000260162,
+      "thread_cpu_s": 0.000258564,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 0,
+      "involuntary_switches": 0,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 1,
+      "node": "node27",
+      "gpu": 1,
+      "execute_wall_s": 0.000273921,
+      "thread_cpu_s": 0.000270634,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 0,
+      "involuntary_switches": 0,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 2,
+      "node": "node27",
+      "gpu": 2,
+      "execute_wall_s": 0.577701167,
+      "thread_cpu_s": 0.075309795,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 97,
+      "involuntary_switches": 0,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 3,
+      "node": "node27",
+      "gpu": 3,
+      "execute_wall_s": 0.557417,
+      "thread_cpu_s": 0.078819237,
+      "scheduler_runqueue_wait_s": 0.0,
+      "voluntary_switches": 96,
+      "involuntary_switches": 0,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 4,
+      "node": "node28",
+      "gpu": 2,
+      "execute_wall_s": 1.751293268,
+      "thread_cpu_s": 0.431521185,
+      "scheduler_runqueue_wait_s": 0.000118772,
+      "voluntary_switches": 7779,
+      "involuntary_switches": 1,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 5,
+      "node": "node28",
+      "gpu": 3,
+      "execute_wall_s": 1.916278808,
+      "thread_cpu_s": 0.408221924,
+      "scheduler_runqueue_wait_s": 0.000289984,
+      "voluntary_switches": 6958,
+      "involuntary_switches": 2,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 6,
+      "node": "node29",
+      "gpu": 0,
+      "execute_wall_s": 1.757714098,
+      "thread_cpu_s": 0.648572491,
+      "scheduler_runqueue_wait_s": 0.000111397,
+      "voluntary_switches": 7941,
+      "involuntary_switches": 1,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    },
+    {
+      "worker": 7,
+      "node": "node29",
+      "gpu": 1,
+      "execute_wall_s": 1.921868889,
+      "thread_cpu_s": 0.648214619,
+      "scheduler_runqueue_wait_s": 7.4727e-05,
+      "voluntary_switches": 6944,
+      "involuntary_switches": 0,
+      "trace_events": 0,
+      "device_trace_available": false,
+      "trace_categories": []
+    }
+  ]
+}
