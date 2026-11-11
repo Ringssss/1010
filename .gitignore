@@ -77,3 +77,12 @@ temp/
 # keep this repo/subdir tracked
 !/lib_cite/dInfer/
 !/lib_cite/dInfer/**
+
+# live_graph: model copies and chunk stores are reproducible from the source models
+/codex_coding/results/v0.1.23.3/task2/live_graph/**/*.safetensors
+/codex_coding/results/v0.1.23.3/task2/live_graph/**/chunkstore/
+*.so
+*.o
+# root-owned model copies written from inside containers
+/codex_coding/results/v0.1.23.3/task2/live_graph/gpu_r01/sglang_matched/model/
+/codex_coding/results/v0.1.23.3/task2/live_graph/gpu_r01/*/model/

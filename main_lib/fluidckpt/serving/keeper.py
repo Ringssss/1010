@@ -581,6 +581,8 @@ class Worker:
         copy = torch.cuda.Stream(self.dev)
         stats = {"ib_bytes": 0, "ssd_bytes": 0, "h2d_bytes": 0}
         local_timing = {}
+        self.log(ev="flow_begin", rank=self.rank, my_dst=my_dst, ib_ops=len([o for o in ops if o["kind"] == "ib"]),
+                 local_ops=len([o for o in ops if o["kind"] in ("ssd", "h2d")]), prep_s=round(t_ready - t0, 4))
 
         def land(tp, off, gpu_src, stream):
             """gpu_src holds bytes [off, off+len) of shard tp; put them at the destination."""
@@ -708,6 +710,10 @@ class Worker:
 
 
 def serve(a):
+    import faulthandler
+    import signal
+
+    faulthandler.register(signal.SIGUSR1)      # kill -USR1 <pid> dumps every thread's stack
     w = Worker(a)
 
     class H(BaseHTTPRequestHandler):

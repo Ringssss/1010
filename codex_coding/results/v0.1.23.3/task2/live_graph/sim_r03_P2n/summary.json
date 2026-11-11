@@ -1,0 +1,114 @@
+{
+ "args": {
+  "rdir": "codex_coding/results/v0.1.23.3/task2/live_graph/sim_r03_P2n",
+  "horizon": 1800.0,
+  "seeds": 5,
+  "levels": "none,moderate,heavy",
+  "policies": "P2n"
+ },
+ "models": [
+  {
+   "name": "qwen3-0.6b",
+   "bytes": 1500000000,
+   "tp": 1,
+   "durable": "n27/ssd/nvme0n1",
+   "home": [
+    "n27/hbm/6"
+   ]
+  },
+  {
+   "name": "llama-8b",
+   "bytes": 16000000000,
+   "tp": 1,
+   "durable": "n28/ssd/nvme0n1",
+   "home": [
+    "n28/hbm/5"
+   ]
+  },
+  {
+   "name": "qwen-32b",
+   "bytes": 65000000000,
+   "tp": 2,
+   "durable": "n28/ssd/nvme0n1",
+   "home": [
+    "n27/hbm/4",
+    "n27/hbm/5"
+   ]
+  },
+  {
+   "name": "qwen3.6-35b-a3b",
+   "bytes": 70000000000,
+   "tp": 2,
+   "durable": "n28/ssd/nvme0n1",
+   "home": [
+    "n30/hbm/0",
+    "n30/hbm/1"
+   ]
+  },
+  {
+   "name": "clover-35b",
+   "bytes": 70000000000,
+   "tp": 4,
+   "durable": "n29/ssd/nvme0n1",
+   "home": [
+    "n29/hbm/4",
+    "n29/hbm/5",
+    "n29/hbm/6",
+    "n29/hbm/7"
+   ]
+  }
+ ],
+ "table": {
+  "none": {
+   "P2n": {
+    "restores": 281,
+    "mean_s": 0.3418149466190048,
+    "p50_s": 0.29999999999972715,
+    "p90_s": 0.5999999999994543,
+    "big_mean_s": 0.4631736526943322,
+    "big_p90_s": 0.6999999999993634,
+    "cold_frac": 0.0,
+    "durable_bytes_frac": 0.022719214904322486,
+    "evicted_GB_mean": 19.2199786496,
+    "unfinished_at_horizon": 0,
+    "fetch_plan_p50_s": 0.01421363465487957,
+    "fetch_plan_p99_s": 0.027294571045786142,
+    "park_plan_p50_s": 0.17114072805270553
+   }
+  },
+  "moderate": {
+   "P2n": {
+    "restores": 280,
+    "mean_s": 0.6805357142852941,
+    "p50_s": 0.5999999999994543,
+    "p90_s": 1.3499999999987722,
+    "big_mean_s": 1.0093939393933287,
+    "big_p90_s": 1.899999999998272,
+    "cold_frac": 0.0,
+    "durable_bytes_frac": 0.04578268112579052,
+    "evicted_GB_mean": 82.85380858879999,
+    "unfinished_at_horizon": 0,
+    "fetch_plan_p50_s": 0.008182630874216557,
+    "fetch_plan_p99_s": 0.02271139295771718,
+    "park_plan_p50_s": 0.16050209989771247
+   }
+  },
+  "heavy": {
+   "P2n": {
+    "restores": 276,
+    "mean_s": 2.032065217390123,
+    "p50_s": 1.4499999999986812,
+    "p90_s": 4.449999999995953,
+    "big_mean_s": 3.062804878047022,
+    "big_p90_s": 5.700000000001296,
+    "cold_frac": 0.0,
+    "durable_bytes_frac": 0.08795721649799794,
+    "evicted_GB_mean": 180.0629462528,
+    "unfinished_at_horizon": 0,
+    "fetch_plan_p50_s": 0.006307229865342379,
+    "fetch_plan_p99_s": 0.02026105299592018,
+    "park_plan_p50_s": 0.13569048512727022
+   }
+  }
+ }
+}

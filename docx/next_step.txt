@@ -1,3 +1,10 @@
+【2026-11-08 新方向 Phase 1：实时资源图保活（live graph）——CPU+四节点只读实测+模拟，无GPU搬运】
+- 首读docx/experiments/2026-11-08_live_graph_phase1_report.md与docx/plans/2026-11-08_live_graph_keepalive_plan.md。用户新要求：以SGLang release/resume+weights_cpu_backup（单模型、仅本机HBM/DRAM）为参照，把node27及直连node28/29/30全部HBM/DRAM(NUMA)/SSD建成实时动态图，PCIe/IB/NVMe为边；第二组件为safetensors/GGUF用户无感知分块、碎片化放置、最大流取回。编号暂沿用v0.1.23.3/task2，是否换新编号待用户确认。
+- 新代码main_lib/fluidckpt/live/{types,probe,agent,graph,formats,chunks,flow,placement}.py；脚本/测试/模拟在codex_coding/src/v0.1.23.3/task2/live_graph/，27项单测全过。子agent本会话5次全部失败（524或自称无工具），已停止，改由主agent直接实现，本轮无独立审计，需补。
+- 实测：librocm_smi64查8卡HBM约0.5ms（hy-smi 8.3s弃用），快速采样约2.5ms/节点，PCIe 1Hz（单位unverified待GPU校准）；四节点全图68顶点/2336边/240资源，状态更新+快照0.22ms。各NUMA MemFree近0、主要为可回收页缓存；node27/29 GPU0-3有他人约43.5GiB占用；node27 /home 91%不用于保活。Qwen3-0.6B分块64/16/4MiB全部字节级一致，tied embedding自动去重约297MB。
+- 模拟（5模型、30min、5种子）：P0 SGLang式比全局策略慢6-13倍（49-74%恢复被迫冷启动）。实时信息只宜用于取回：放置也用瞬时快照的P2在中负载比静态多场景P1s慢9%；P2n（名义放置+实时取回+重规划+窃取）比P1s在中/重负载均+15%，各5种子中4正1负，恰在预登记15%门槛，不算稳健。多源收益贪心也能拿到，不是LP本身的价值。
+- 下一步需用户授权GPU：keeper执行flow计划验证H2D+P2P中转多入口、PCIe计数器单位校准、真实背景下P1s vs P2n。不覆盖history-chat.txt；未推送GitHub。
+
 【2026-10-25 18.36 阶段 1–2 完成：门 2 未过，整轮停止于 CPU，不启动实机】
 - 本轮 0 GPU / 0 SSH / 0 Docker，全部结论来自已归档精确服务点模型，无新测量。首读docx/experiments/2026-10-25_decision_value_cpu_gate2_result.md。
 - 结果：登记预算（per-card HBM 47GiB，每 rank 32.75GiB，余 14.25GiB）下六策略选出**相同布局、预测差 0**。扫 8/12/16/24/32/36/47 GiB/card，极差均 ≤5.7ms，Δ=100ms 全不通过。joint MILP 每点 optimal、无 fallback、与 fastest_seq 逐位相同。唯一分歧 strong_simple 多留 0.5GiB 未用、慢 5.4–5.7ms，属其 zero-gain plateau，按计划不得放宽。按计划 7.3 停止规则 1：停止，不启动实机，记负结果。
