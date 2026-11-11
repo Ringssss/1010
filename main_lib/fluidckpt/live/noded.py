@@ -187,6 +187,7 @@ class Sched:
         self.meas = {}                                 # class -> {worker: EWMA GB/s}
         self.stats = collections.defaultdict(lambda: {"bytes": 0, "chunks": 0, "stolen": 0})
         self.failed, self.error, self.why = 0, None, []
+        self.nworkers = collections.Counter()          # class -> workers (set by the executor)
         self.claim = {}                                # chunk -> class moving it right now
         self.inflight = collections.Counter()          # class -> chunks whose source is still read
         order = sorted(range(len(chunks)), key=lambda i: len(chunks[i]["classes"]))
@@ -214,7 +215,8 @@ class Sched:
                         return self._claim(i, cls, False)
                 if self.steal:
                     best, best_t = None, 0.0
-                    mine = max(self.rate.get(cls, 1.0), 0.05) * 1e9
+                    # one worker moves one chunk at the class rate divided by its workers
+                    mine = max(self.rate.get(cls, 1.0), 0.05) * 1e9 / max(1, self.nworkers[cls])
                     for v, vq in self.planned.items():
                         if v == cls or not vq:
                             continue
@@ -671,6 +673,17 @@ class NodeD:
                     return s.regs[port], s.addr
         raise KeyError("address not in a registered region")
 
+    def op_reset(self, ssd=True):
+        """Forget everything this daemon holds (between experiments)."""
+        for j in list(self.jobs):
+            self.op_job_release(j)
+        with self.lock:
+            d, h, sd = list(self.dram), list(self.hbm), list(self.ssd)
+        out = {"dram": self.op_drop(d, "dram")["freed"], "hbm": self.op_drop(h, "hbm")["freed"]}
+        if ssd:
+            out["ssd"] = self.op_drop(sd, "ssd")["freed"]
+        return out
+
     def op_locate(self, ids):
         with self.lock:
             return {cid: self._locator(cid) for cid in ids if cid in self.dram}
@@ -888,11 +901,13 @@ class NodeD:
             if kind == "dram":
                 for p in ports:
                     threads.append(threading.Thread(target=worker, args=(cl, w, p), daemon=True))
+                    sched.nworkers[cl] += 1
                     w += 1
             else:
                 reps = {"lssd": ssd_readers, "file": file_readers, "rstage": 4}.get(kind, 2)
                 for _ in range(reps):
                     threads.append(threading.Thread(target=worker, args=(cl, w), daemon=True))
+                    sched.nworkers[cl] += 1
                     w += 1
         nland = len(bufs)
         [x.start() for x in threads]
@@ -1021,6 +1036,10 @@ def main(argv=None):
     p.add_argument("--slab-mib", type=int, default=256)
     p.add_argument("--spare-slabs", type=int, default=0)
     a = p.parse_args(argv)
+    try:                                                # keep-alive must never outlive a tenant
+        open("/proc/self/oom_score_adj", "w").write("900")
+    except OSError:
+        pass
     cards = [int(x) for x in a.cards.split(",") if x != ""]
     d = NodeD(a.node, a.ip, a.ssd or None, cards, int(a.stage_gib * GiB), a.chunk_mib * MiB,
               a.slab_mib * MiB, a.spare_slabs)

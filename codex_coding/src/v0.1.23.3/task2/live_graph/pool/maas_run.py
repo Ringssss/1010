@@ -24,6 +24,7 @@ import csv
 import json
 import os
 import sys
+import threading
 import time
 
 from fluidckpt.live.graph import Policy
@@ -109,10 +110,15 @@ class Bursts:
         if self.dram_now.get(node) == gib:
             return
         t0 = time.time()
-        for nu in numas:
-            self.t[node].call("dram", numa=nu, gib=gib)
+        held = {}
+
+        def one(nu):                                     # the NUMA nodes fill in parallel
+            held[nu] = Client(NODES[node], 18770).call("dram", numa=nu, gib=gib)["held_GiB"]
+        th = [threading.Thread(target=one, args=(nu,)) for nu in numas]
+        [x.start() for x in th]
+        [x.join() for x in th]
         self.dram_now[node] = gib
-        self.log(event="tenant_dram", node=node, numas=numas, GiB_each=gib, s=round(time.time() - t0, 2), t=t0)
+        self.log(event="tenant_dram", node=node, wanted_GiB_each=gib, held_GiB=held, s=round(time.time() - t0, 2), t=t0)
 
 
 # ---------------------------------------------------------------- systems
@@ -195,13 +201,23 @@ class Fluid(System):
         return self._go(m, cards, "fluid", allow=("dram", "ssd", "hbm", "file"))
 
     def background(self):
-        """Re-protect: models that lost DRAM chunks get them back wherever there is room now."""
+        """Re-protect one model per call: chunks that lost their DRAM copy get one back wherever
+        there is room now. If the budget is full, redundancy pays for coverage: second copies of
+        other chunks are dropped first."""
         p = self.pool
         if p.pressure():
             return
         for m in RANK:
-            if p.coverage(m, tiers=("dram",)) < 0.999:
-                r = p.park(m, copies=1, tiers=("dram",), pin_nodes=(HOME,), budget=self.cap_all)
+            if p.coverage(m, tiers=("dram",)) >= 0.999:
+                continue
+            r = p.park(m, copies=1, tiers=("dram",), pin_nodes=(HOME,), budget=self.cap_all)
+            if r["GiB"] == 0 and r["short"]:
+                missing = int((1 - p.coverage(m, tiers=("dram",))) * p.models[m].nbytes)
+                freed = p.trim(missing)
+                if freed:
+                    r = p.park(m, copies=1, tiers=("dram",), pin_nodes=(HOME,), budget=self.cap_all)
+                self.log(event="trim", model=m, freed_GiB=round(freed / GiB, 2))
+            if r["GiB"] > 0:
                 self.log(event="repair", model=m, GiB=r["GiB"], s=r["s"], short=r["short"])
                 return
 
@@ -304,11 +320,10 @@ def run(system_name, a):
     for m in RANK:
         pool.register(m, os.path.join(a.manifests, m + ".json"), HOME)
     for n in NODES:                                      # start from an empty pool
-        st = pool.rpc[n].call("stat")
-        if st["dram_chunks"] or st["hbm_chunks"] or st["jobs"]:
-            raise SystemExit(f"{n} is not empty: restart the node daemons first ({st})")
+        pool.rpc[n].call("reset")
     bursts = Bursts(a.amp, log)
     bursts.clear()
+    log(event="paths_warmed", s=pool.warm_paths(HOME, SERVE_CARDS))
     sysm = SYSTEMS[system_name](pool, int(a.cap * GiB), log)
     t0 = time.time()
     sysm.setup()
@@ -380,6 +395,8 @@ def run(system_name, a):
     bursts.clear()
     for m, (cards, job) in active.items():
         pool.rpc[HOME].call("job_release", job=job)
+    for m in RANK:                                       # leave the cluster as we found it
+        pool.drop_model(m, tiers=("dram", "ssd", "hbm"))
     summary = summarize(recs, system_name, hits, pool.events)
     log(event="summary", **summary)
     json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w"), indent=1)
@@ -417,7 +434,7 @@ if __name__ == "__main__":
     ap.add_argument("--manifests", required=True)
     ap.add_argument("--cap", type=float, default=8, help="GiB of DRAM keep-alive may hold per NUMA vertex")
     ap.add_argument("--headroom", type=float, default=0.30, help="share of each NUMA node left to others")
-    ap.add_argument("--amp", type=float, default=32, help="peak GiB a tenant burst takes per NUMA node")
+    ap.add_argument("--amp", type=float, default=28, help="peak GiB a tenant burst takes per NUMA node")
     ap.add_argument("--per-phase", type=int, default=24)
     ap.add_argument("--warmup", type=int, default=12)
     ap.add_argument("--step", type=int, default=4, help="restores between tenant level changes")

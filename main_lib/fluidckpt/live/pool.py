@@ -25,7 +25,7 @@ from .chunks import load_manifest
 from .flow import plan_fetch
 from .graph import GiB, LiveGraph, Policy, build_topology
 from .noded import Client
-from .types import Snapshot
+from .types import Path, Snapshot
 
 MiB = 1 << 20
 TIER_CLASS = {"dram": "ldram", "ssd": "lssd", "hbm": "lhbm"}
@@ -77,6 +77,7 @@ class Pool:
         self.reserved = collections.Counter()            # vertex -> bytes of puts in flight
         self.active = {}                                 # job -> destination node (running restores)
         self.place_margin = 2 * GiB
+        self.plan_paths = 6                              # candidate paths per (source, card)
         self.events = []
         self._stop = threading.Event()
         self._thr = None
@@ -123,6 +124,16 @@ class Pool:
         self._stop.set()
         for t in self._thr or []:
             t.join(2)
+
+    def warm_paths(self, node, cards):
+        """Enumerate (and cache) the paths into the given cards before the first restore needs
+        them; enumeration is per topology, not per request."""
+        t, fn = time.time(), self._paths_fn()
+        for card in cards:
+            for vid in self.topology.vertices:
+                if vid != f"{node}/hbm/{card}":
+                    fn(vid, f"{node}/hbm/{card}")
+        return round(time.time() - t, 3)
 
     def snapshot(self):
         return self.graph.snapshot(now=time.time())
@@ -345,11 +356,22 @@ class Pool:
             key = (src, dst)
             if key not in cache:
                 keep = []
-                for p in self.graph.paths(src, dst):
+                for p in self.graph.paths(src, dst, k=self.plan_paths):
                     # The data plane moves bytes between host memories; GPU-direct IB is not built.
                     if any(e.kind == "ib" and V[e.src].kind == "hbm" for e in p.edges):
                         continue
                     keep.append(p)
+                if not keep and V[src].kind == "hbm" and V[src].node != V[dst].node:
+                    # The graph prunes HBM -> DRAM -> (IB) -> DRAM -> HBM as dominated by the
+                    # GPU-direct edge it assumes; without that edge it is the only real route.
+                    pair = self.graph._pair
+                    a = f"{V[src].node}/dram/{V[src].numa}"
+                    for b in (v.id for v in V.values() if v.node == V[dst].node and v.kind == "dram"):
+                        e1, e2, e3 = pair.get((src, a)), pair.get((a, b)), pair.get((b, dst))
+                        if e1 and e2 and e3:
+                            keep.append(Path((e1[0], e2[0], e3[0])))
+                            if len(keep) >= 2:
+                                break
                 cache[key] = keep
             return cache[key]
         return fn
@@ -484,6 +506,23 @@ class Pool:
                  if any(self._vparts(v)[1] in tiers and (nodes is None or self._vparts(v)[0] in nodes)
                         for v in self.rep[c.id]))
         return ok / max(m.nbytes, 1)
+
+    def trim(self, need_bytes, tier="dram"):
+        """Free `need_bytes` of budget by dropping redundant replicas: chunks that have two or
+        more copies in `tier` lose one. Coverage of every model is untouched; only redundancy
+        is traded for room (used when a model has chunks with no fast copy at all)."""
+        per, freed = collections.defaultdict(list), 0
+        with self.lock:
+            for cid, reps in self.rep.items():
+                if freed >= need_bytes:
+                    break
+                vs = [v for v in reps if self._vparts(v)[1] == tier]
+                if len(vs) >= 2:
+                    v = max(vs, key=lambda v: self.held[v])       # thin out the fullest vertex
+                    per[v].append(cid)
+                    freed += self.size[cid]
+        self._drop(per)
+        return freed
 
     def drop_model(self, name, tiers=("dram",), nodes=None):
         """Drop the model's replicas in `tiers` (on `nodes`); chunks other models share stay."""

@@ -55,34 +55,39 @@ class Tenant:
         return self.torch
 
     # ---- occupancy -----------------------------------------------------------------------
-    def op_dram(self, numa, gib):
-        """Grow or shrink the locked memory held on `numa` to `gib` GiB. Returns when done."""
+    def _numa_room(self, numa):
+        """Bytes this NUMA node can still give without the kernel running out: free + clean cache."""
+        m = {}
+        for line in open(f"/sys/devices/system/node/node{int(numa)}/meminfo"):
+            f = line.split()
+            m[f[2].rstrip(":")] = int(f[3]) * 1024
+        return m["MemFree"] + max(0, m["FilePages"] - m.get("Shmem", 0) - m.get("Dirty", 0) - m.get("Writeback", 0))
+
+    def op_dram(self, numa, gib, reserve_gib=16):
+        """Grow or shrink the memory held on `numa` towards `gib` GiB, bound to that node (as a
+        NUMA-pinned job would be), one GiB at a time. Before every GiB the node's real room is
+        read; the tenant stops while `reserve_gib` are still left, so it squeezes the node but can
+        never drive it out of memory (a blind 32 GiB bound+locked request did exactly that once
+        and the OOM killer took the daemons on that node)."""
         t0 = time.time()
         blocks = self.dram.setdefault(int(numa), [])
         want = int(gib)
         while len(blocks) > want:
-            b = blocks.pop()
-            b.close()
-        need = want - len(blocks)
-        new, errs = [], []
-
-        def grab():
+            blocks.pop().close()
+        stopped = False
+        while len(blocks) < want:
+            if self._numa_room(numa) < (reserve_gib + 1) * GiB:
+                stopped = True
+                break
             prefer_numa(numa, strict=True)
             try:
                 m = mmap.mmap(-1, GiB)
-                addr = ctypes.addressof(ctypes.c_char.from_buffer(m))
-                ctypes.memset(addr, 1, GiB)             # touch: this is what takes the memory
-                if libc.mlock(ctypes.c_void_p(addr), ctypes.c_size_t(GiB)) != 0:
-                    errs.append(os.strerror(ctypes.get_errno()))
-                new.append(m)
+                ctypes.memset(ctypes.addressof(ctypes.c_char.from_buffer(m)), 1, GiB)   # touch = take
+                blocks.append(m)
             finally:
                 prefer_numa(None)
-        th = [threading.Thread(target=grab) for _ in range(need)]
-        [x.start() for x in th]
-        [x.join() for x in th]
-        blocks += new
-        return {"numa": numa, "held_GiB": len(blocks), "s": round(time.time() - t0, 3), "t_done": time.time(),
-                "t_start": t0, "mlock_errors": errs[:1]}
+        return {"numa": numa, "held_GiB": len(blocks), "wanted_GiB": want, "stopped_at_reserve": stopped,
+                "s": round(time.time() - t0, 3), "t_done": time.time(), "t_start": t0}
 
     def op_hbm(self, card, gib):
         torch = self._torch()
@@ -235,5 +240,9 @@ class Tenant:
 
 
 if __name__ == "__main__":
+    try:                                                # if memory ever runs out, die first
+        open("/proc/self/oom_score_adj", "w").write("1000")
+    except OSError:
+        pass
     ip = sys.argv[1]
     Tenant(ip, sys.argv[2] if len(sys.argv) > 2 else "/ssdpool/tenant", []).serve()

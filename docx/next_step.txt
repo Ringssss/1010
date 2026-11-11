@@ -1,3 +1,10 @@
+【2026-11-12 FluidPool:图→规划→真实搬运闭环已接上,三套系统真机对比完成】
+- 首读docx/experiments/2026-11-12_fluidpool_cluster_keepalive_report.md(取代gpu_r01/COMPARISON.md)。分支live-graph。新代码main_lib/fluidckpt/live/{rdma/,noded.py,pool.py};驱动codex_coding/src/v0.1.23.3/task2/live_graph/pool/;原始记录results/.../live_graph/pool_r01/{maas_r01,burst_r01,rdma_bench,pin_probe,smoke}。
+- 数据面由RCCL广播改为主机内存RDMA READ(rdma_cm):1/2/4口24-27/35/70GB/s,源端零CPU零GPU。发现PCIe同根干扰:HCA口与GPU同NUMA时该卡H2D由47降至9-30GB/s,协调器按拓扑避开同根口。
+- clusterdata GenAI请求轨迹+9组真实权重(225GiB),每套112次恢复:fluidpool均值0.68s/p95 2.26s,janus式3.35/16.78,sglang式3.54/14.23,即4.9x/5.2x;叠加突发阶段8.7x/7.9x。优势主要来自容量(四节点256GiB对单节点64GiB)与SSD流量下冷启动变慢,不是同等资源下的速度。
+- 负结果与缺口:远端DRAM双卡33GB/s,比本机锁页DRAM(85GB/s)慢2.6倍;三源不比单源快;IB流量突发下实时计划与静态计划无差别;DRAM突发未能挤掉baseline备份,该项未被充分检验;同等内存预算对比未跑;每配置仅一遍。
+- 事故:租户模拟器严格NUMA绑定+锁页一次要32GiB,node28触发OOM杀掉本项目noded/tenantd,已改为逐GiB并留16GiB余量。守护进程已停,/ssdpool已清。未推送GitHub。
+
 【2026-11-08 新方向 Phase 1：实时资源图保活（live graph）——CPU+四节点只读实测+模拟，无GPU搬运】
 - 首读docx/experiments/2026-11-08_live_graph_phase1_report.md与docx/plans/2026-11-08_live_graph_keepalive_plan.md。用户新要求：以SGLang release/resume+weights_cpu_backup（单模型、仅本机HBM/DRAM）为参照，把node27及直连node28/29/30全部HBM/DRAM(NUMA)/SSD建成实时动态图，PCIe/IB/NVMe为边；第二组件为safetensors/GGUF用户无感知分块、碎片化放置、最大流取回。编号暂沿用v0.1.23.3/task2，是否换新编号待用户确认。
 - 新代码main_lib/fluidckpt/live/{types,probe,agent,graph,formats,chunks,flow,placement}.py；脚本/测试/模拟在codex_coding/src/v0.1.23.3/task2/live_graph/，27项单测全过。子agent本会话5次全部失败（524或自称无工具），已停止，改由主agent直接实现，本轮无独立审计，需补。
