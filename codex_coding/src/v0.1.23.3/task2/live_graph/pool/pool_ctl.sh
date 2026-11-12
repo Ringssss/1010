@@ -5,7 +5,7 @@
 set -u
 REPO=/home/zhujianian/zhujianian/fluidckpt_zjn
 declare -A IP=([node27]=12.11.3.27 [node28]=12.11.3.28 [node29]=12.11.3.29 [node30]=12.11.3.30)
-declare -A CARDS=([node27]=4,5 [node28]=0,1,2,3,4 [node29]=4,5 [node30]=0,1)
+declare -A CARDS=([node27]=0,1,2,3,4,5,6,7 [node28]=0,1,2,3,4,5,6,7 [node29]=0,1,2,3,4,5,6,7 [node30]=0,1,2,3,4,5,6,7)
 PAT='fluidckpt[.]live[.]noded'
 cmd=${1:-status}
 case "$cmd" in

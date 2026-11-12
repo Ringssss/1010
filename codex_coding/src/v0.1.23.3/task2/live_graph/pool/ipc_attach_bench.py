@@ -19,8 +19,8 @@ pool = Pool(NODES, log=lambda **k: None); pool.start(react=False)
 m = pool.register(name, f"{man}/{name}.json", "node28")
 r = pool.restore(name, "node28", [card], allow=("file",), release=False)
 say(event="keeper_loaded", model=name, GiB=r["GiB"], cold_load_s=r["total_s"])
-h = pool.rpc["node28"].call("job_export", job=r["job"])[str(card)]
-handle = tuple(base64.b64decode(x) if isinstance(x, str) else x for x in h)
+exp = pool.rpc["node28"].call("job_export", job=r["job"])[str(card)]
+handle = tuple(base64.b64decode(x) if isinstance(x, str) else x for x in exp["handle"])
 dev = f"cuda:{card}"
 t = time.time(); torch.zeros(1, device=dev); say(event="consumer_context", s=round(time.time() - t, 2))
 base, _ = pool.layout(m, [card])
@@ -30,7 +30,7 @@ times = []
 for i in range(20):
     t = time.perf_counter()
     st = torch.UntypedStorage._new_shared_cuda(*handle)
-    x = torch.empty(0, dtype=torch.uint8, device=dev).set_(st)
+    x = torch.empty(0, dtype=torch.uint8, device=dev).set_(st)[exp["offset"]:exp["offset"] + exp["nbytes"]]
     first = int(x[off0]); torch.cuda.synchronize(dev)       # the mapping is usable
     times.append(time.perf_counter() - t)
     if i == 0:

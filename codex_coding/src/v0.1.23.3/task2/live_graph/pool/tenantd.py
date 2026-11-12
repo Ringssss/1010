@@ -63,7 +63,7 @@ class Tenant:
             m[f[2].rstrip(":")] = int(f[3]) * 1024
         return m["MemFree"] + max(0, m["FilePages"] - m.get("Shmem", 0) - m.get("Dirty", 0) - m.get("Writeback", 0))
 
-    def op_dram(self, numa, gib, reserve_gib=16):
+    def op_dram(self, numa, gib, reserve_gib=16, patience_s=0.0):
         """Grow or shrink the memory held on `numa` towards `gib` GiB, bound to that node (as a
         NUMA-pinned job would be), one GiB at a time. Before every GiB the node's real room is
         read; the tenant stops while `reserve_gib` are still left, so it squeezes the node but can
@@ -74,11 +74,15 @@ class Tenant:
         want = int(gib)
         while len(blocks) > want:
             blocks.pop().close()
-        stopped = False
+        stopped, waited = False, 0.0
         while len(blocks) < want:
             if self._numa_room(numa) < (reserve_gib + 1) * GiB:
-                stopped = True
-                break
+                if waited >= patience_s:                # a tenant waits a while for memory, not forever
+                    stopped = True
+                    break
+                time.sleep(0.2)
+                waited += 0.2
+                continue
             prefer_numa(numa, strict=True)
             try:
                 m = mmap.mmap(-1, GiB)

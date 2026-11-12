@@ -176,7 +176,7 @@ def read_into(fd, view, off):
 class Sched:
     """Chunk -> path-class assignment that adapts while the restore runs (see module docstring)."""
 
-    def __init__(self, chunks, steal, prior):
+    def __init__(self, chunks, steal, prior, key=None):
         self.chunks, self.steal = chunks, steal
         self.cv = threading.Condition()
         self.state = [0] * len(chunks)                 # 0 unclaimed, 1 claimed, 2 done
@@ -188,9 +188,11 @@ class Sched:
         self.stats = collections.defaultdict(lambda: {"bytes": 0, "chunks": 0, "stolen": 0})
         self.failed, self.error, self.why = 0, None, []
         self.nworkers = collections.Counter()          # class -> workers (set by the executor)
+        self.edge = {}                                 # (class, card) -> GB/s, when paths differ by card
+        self.busy = collections.Counter()              # card -> direct streams writing it right now
         self.claim = {}                                # chunk -> class moving it right now
         self.inflight = collections.Counter()          # class -> chunks whose source is still read
-        order = sorted(range(len(chunks)), key=lambda i: len(chunks[i]["classes"]))
+        order = sorted(range(len(chunks)), key=key or (lambda i: len(chunks[i]["classes"])))
         for i in order:
             self._plan(i, chunks[i]["plan"])
 
@@ -217,6 +219,7 @@ class Sched:
                     best, best_t = None, 0.0
                     # one worker moves one chunk at the class rate divided by its workers
                     mine = max(self.rate.get(cls, 1.0), 0.05) * 1e9 / max(1, self.nworkers[cls])
+                    edge = self.edge
                     for v, vq in self.planned.items():
                         if v == cls or not vq:
                             continue
@@ -225,8 +228,15 @@ class Sched:
                             # take from the tail: the head is what the victim reaches next
                             for k in range(len(vq) - 1, max(-1, len(vq) - 33), -1):
                                 i = vq[k]
+                                # a port's speed depends on the card it writes: judge the pair
+                                card = self.chunks[i].get("card")
+                                me = edge.get((cls, card), 0) * 1e9 or mine
+                                # a card takes ~47 GB/s in all: a second port on a card that is
+                                # already being written gets 3-6 GB/s and helps nobody
+                                if cls.startswith("net:") and self.busy[card] > 0:
+                                    continue
                                 if self.state[i] == 0 and cls in self.chunks[i]["classes"] \
-                                        and self.chunks[i]["n"] / mine < t:
+                                        and self.chunks[i]["n"] / me < t:
                                     best, best_t = (v, k, i), t
                                     break
                     if best:
@@ -239,24 +249,59 @@ class Sched:
         self.state[i] = 1
         self.claim[i] = cls
         self.inflight[cls] += 1
+        if cls.startswith("net:"):
+            self.busy[self.chunks[i].get("card")] += 1
         self.rem[self.chunks[i]["plan"]] -= self.chunks[i]["n"]
         if stolen:
             self.stats[cls]["stolen"] += 1
         return i
 
-    def fetched(self, cls, worker, i, dt):
-        n = self.chunks[i]["n"]
+    def observe(self, cls, key, gbps):
+        """Rate of a class measured somewhere else than its fetch (local sources are 'fetched'
+        instantly; what limits them is the H2D that follows, seen by the lander)."""
         with self.cv:
             m = self.meas.setdefault(cls, {})
-            r = n / max(dt, 1e-6) / 1e9
-            m[worker] = r if worker not in m else 0.5 * m[worker] + 0.5 * r
+            m[key] = gbps if key not in m else 0.5 * m[key] + 0.5 * gbps
             self.rate[cls] = sum(m.values())
+
+    def retire(self, idxs, classes):
+        """Chunks `idxs` can no longer be served by `classes` (their last source there is gone).
+        Unclaimed ones that were planned on them move to their best remaining class."""
+        dead, moved = set(classes), 0
+        with self.cv:
+            for i in idxs:
+                c = self.chunks[i]
+                c["classes"] = [x for x in c["classes"] if x not in dead]
+                if self.state[i] == 0 and c["plan"] in dead:
+                    try:
+                        self.planned[c["plan"]].remove(i)
+                        self.rem[c["plan"]] -= c["n"]
+                    except ValueError:
+                        pass
+                    if not c["classes"]:
+                        self.error = f"chunk {c['id'][:12]} lost its last source"
+                        break
+                    self._plan(i, min(c["classes"], key=self._est))
+                    moved += 1
+            self.cv.notify_all()
+        return moved
+
+    def fetched(self, cls, worker, i, dt, rate=True):
+        n = self.chunks[i]["n"]
+        with self.cv:
+            if rate:
+                m = self.meas.setdefault(cls, {})
+                r = n / max(dt, 1e-6) / 1e9
+                m[worker] = r if worker not in m else 0.5 * m[worker] + 0.5 * r
+                self.rate[cls] = sum(m.values())
             s = self.stats[cls]
             s["bytes"] += n
             s["chunks"] += 1
             if not cls.startswith("l"):                # remote bytes now sit in our staging slot
                 self.inflight[cls] -= 1
                 self.claim.pop(i, None)
+                if cls.startswith("net:"):
+                    self.busy[self.chunks[i].get("card")] -= 1
                 self.cv.notify_all()
 
     def landed(self, idxs):
@@ -270,16 +315,19 @@ class Sched:
                     self.inflight[cls] -= 1
             self.cv.notify_all()
 
-    def fail(self, cls, i, why):
+    def fail(self, cls, i, why, also=()):
         """A path lost a chunk (source evicted it, link error): hand it to another class."""
         with self.cv:
             c = self.chunks[i]
-            c["classes"] = [x for x in c["classes"] if x != cls]
+            gone = {cls, *also}
+            c["classes"] = [x for x in c["classes"] if x not in gone]
             self.failed += 1
             if len(self.why) < 4:
                 self.why.append(f"{cls}: {why}"[:200])
             if self.claim.pop(i, None) is not None:
                 self.inflight[cls] -= 1
+                if cls.startswith("net:"):
+                    self.busy[c.get("card")] -= 1
             if not c["classes"]:
                 self.error = f"chunk {c['id'][:12]} has no source left ({why})"
             else:
@@ -324,7 +372,7 @@ class Sched:
 # ---------------------------------------------------------------- the daemon
 class NodeD:
     def __init__(self, node, ip, ssd_dir, cards, stage_bytes=6 * GiB, chunk_bytes=64 * MiB,
-                 slab_bytes=256 * MiB, spare_slabs=0, log=None):
+                 slab_bytes=256 * MiB, spare_slabs=0, log=None, arena_bytes=0):
         import torch
         self.torch, self.node, self.ip, self.ssd_dir = torch, node, ip, ssd_dir
         self.cards = list(cards)
@@ -336,9 +384,14 @@ class NodeD:
         self.jobs, self.exposed, self.active = {}, {}, {}
         self.traffic = collections.Counter()            # bytes we moved, by kind (for the graph)
         self.conns, self.rpcs, self.conn_lock = {}, {}, threading.Lock()
+        # One direct stream per HCA port at a time, across ALL restores running on this node:
+        # concurrent jobs take turns chunk by chunk instead of multiplexing a port (which
+        # collapses it: 70 GB/s all-to-all vs 187 GB/s one stream per port).
+        self.port_lock = [threading.Lock() for _ in range(rdma.PORTS)]
         t = time.time()
-        for c in self.cards:                            # contexts cost ~14 s each on first touch
-            torch.zeros(1, device=f"cuda:{c}")
+        th = [threading.Thread(target=lambda c=c: torch.zeros(1, device=f"cuda:{c}")) for c in self.cards]
+        [x.start() for x in th]                         # contexts cost ~14 s each on first touch
+        [x.join() for x in th]
         self.log(event="contexts", cards=self.cards, s=round(time.time() - t, 2))
         # Staging: GPU-pinned and RDMA-registered once, reused by every restore and expose.
         # One pool per HCA port, allocated on that port's NUMA node, so the NIC writes into local
@@ -368,6 +421,16 @@ class NodeD:
                                         for p in range(rdma.PORTS)]})
         self._rr = 0
         nslot = self.per * rdma.PORTS
+        # HBM arenas: one long-lived, RDMA-registered device buffer per serving card. Restores
+        # land in ranges of it instead of freshly allocated memory, because direct RDMA into a
+        # device buffer warms up per registration (70 -> 165+ GB/s over tens of seconds of
+        # traffic, kept while idle, lost when the buffer is freed; pool_r02/affinity/
+        # gpudirect_range_node28.log). The daemon is the card's page pool; engines attach by IPC.
+        self.arena = {}                                 # card -> {"t", "regs", "free": [(off, len)], "nbytes"}
+        self.arena_lock = threading.Lock()
+        for c in self.cards:
+            if arena_bytes:
+                self._arena_make(c, arena_bytes)
         for p in range(rdma.PORTS):
             rdma.serve(rdma.port_ip(ip, p), RDMA_PORT)
         if ssd_dir:
@@ -384,6 +447,114 @@ class NodeD:
     # ---- helpers -------------------------------------------------------------------------
     def _ssd_path(self, cid):
         return os.path.join(self.ssd_dir, cid[:2], cid)
+
+    # HBM arenas ---------------------------------------------------------------------------
+    def _arena_make(self, card, nbytes):
+        t = self.torch.empty(int(nbytes), dtype=self.torch.uint8, device=f"cuda:{card}")
+        regs = {p: rdma.Region(p, t.data_ptr(), t.numel(), True) for p in range(rdma.PORTS)}
+        with self.arena_lock:
+            self.arena[card] = {"t": t, "regs": regs, "free": [(0, t.numel())], "nbytes": t.numel(), "warm_GBps": None}
+
+    def _arena_alloc(self, card, n):
+        """First fit, 2 MiB aligned. Returns the offset or None (no arena / no room)."""
+        need = (int(n) + (2 * MiB - 1)) & ~(2 * MiB - 1)
+        with self.arena_lock:
+            a = self.arena.get(card)
+            if a is None:
+                return None
+            for i, (off, ln) in enumerate(a["free"]):
+                if ln >= need:
+                    if ln == need:
+                        a["free"].pop(i)
+                    else:
+                        a["free"][i] = (off + need, ln - need)
+                    return off
+        return None
+
+    def _arena_free(self, card, off, n):
+        need = (int(n) + (2 * MiB - 1)) & ~(2 * MiB - 1)
+        with self.arena_lock:
+            a = self.arena.get(card)
+            if a is None:
+                return
+            a["free"].append((off, need))
+            a["free"].sort()
+            merged = [a["free"][0]]
+            for o, ln in a["free"][1:]:
+                po, pl = merged[-1]
+                if po + pl == o:
+                    merged[-1] = (po, pl + ln)
+                else:
+                    merged.append((o, ln))
+            a["free"] = merged
+
+    def op_arena(self, card, gib):
+        """Create (gib > 0) or give back (gib == 0) the arena of a card -- e.g. another tenant
+        needs the card. Refused while a restored model still lives in it."""
+        card = int(card)
+        with self.arena_lock:
+            a = self.arena.get(card)
+            if a is not None:
+                if a["free"] != [(0, a["nbytes"])]:
+                    raise RuntimeError(f"arena of card {card} is in use")
+                del self.arena[card]
+        if a is not None:
+            for r in a["regs"].values():
+                r.close()
+            a["t"] = None
+            self.torch.cuda.empty_cache()
+        if gib > 0:
+            self._arena_make(card, int(gib * GiB))
+        return {"card": card, "GiB": gib}
+
+    def op_stage_region(self):
+        """A registered host region a peer may read from (used as the source of arena warm-up)."""
+        return [{"addr": pool["addr"], "rkeys": [r.rkey for r in pool["regs"]], "nbytes": pool["t"].numel()}
+                for pool in self.pools]
+
+    def op_warm_hbm(self, peer_ip, region, seconds=60.0, pairs=None, target_GBps=40.0):
+        """Run direct RDMA traffic from a peer's host region into the free arenas until every
+        (port, card) stream reaches `target_GBps` or `seconds` pass. pairs: [[port, card]] --
+        one stream per port at a time; a port walks its cards in turn."""
+        by_port = collections.defaultdict(list)
+        for p, c in (pairs or []):
+            if int(c) in self.arena:
+                by_port[int(p)].append(int(c))
+        out, lock = {}, threading.Lock()
+        src = region[0]
+        span = min(src["nbytes"], 1 * GiB) // (64 * MiB) * (64 * MiB)
+
+        def one(p, cards):
+            t_end = time.time() + seconds
+            rates = {c: 0.0 for c in cards}
+            hist = {c: [] for c in cards}
+            while time.time() < t_end and min(rates.values()) < target_GBps:
+                for c in cards:
+                    a = self.arena[c]
+                    with self.arena_lock:
+                        fr = max(a["free"], key=lambda e: e[1], default=None)
+                    if not fr or fr[1] < 64 * MiB:
+                        rates[c] = target_GBps
+                        continue
+                    off, ln = fr
+                    t0, moved = time.time(), 0
+                    with self.port_lock[p]:
+                        while time.time() - t0 < 1.0:
+                            m = 64 * MiB
+                            self._rread(peer_ip, p, src["addr"] + (moved % span), src["rkeys"][p],
+                                        a["t"].data_ptr() + off + (moved % (ln // m * m)), a["regs"][p].lkey, m)
+                            moved += m
+                    rates[c] = moved / (time.time() - t0) / 1e9
+                    hist[c].append(round(rates[c], 1))
+            with lock:
+                for c in cards:
+                    out[f"{p}:{c}"] = hist[c]
+                    self.arena[c]["warm_GBps"] = rates[c]
+        th = [threading.Thread(target=one, args=(p, cs)) for p, cs in by_port.items()]
+        t0 = time.time()
+        [x.start() for x in th]
+        [x.join() for x in th]
+        return {"s": round(time.time() - t0, 1), "GBps_per_second": out}
 
     # staging slots ------------------------------------------------------------------------
     def _sget(self, prefer=None):
@@ -516,6 +687,7 @@ class NodeD:
     # ---- storage ops ---------------------------------------------------------------------
     def op_hello(self):
         return {"node": self.node, "ip": self.ip, "cards": self.cards, "chunk_bytes": self.chunk_bytes,
+                "arena_GiB": {str(c): round(a["nbytes"] / GiB, 1) for c, a in self.arena.items()},
                 "slot_bytes": self.slot_bytes, "pid": os.getpid(), "nic_numa": self.nic_numa}
 
     def op_stat(self):
@@ -524,7 +696,7 @@ class NodeD:
             for s in self.slabs:
                 by_numa[str(s.numa)] += s.used
             by_card = collections.Counter()
-            for cid, (card, t) in self.hbm.items():
+            for cid, (card, t, _) in self.hbm.items():
                 by_card[str(card)] += t.numel()
             return {"node": self.node, "dram_chunks": len(self.dram), "dram_bytes": dict(by_numa),
                     "slab_bytes": sum(s.nbytes for s in self.slabs), "spare_bytes": sum(s.nbytes for s in self.spare),
@@ -556,7 +728,7 @@ class NodeD:
                     fds[path] = os.open(path, os.O_RDONLY | os.O_DIRECT)
                 return fds[path]
 
-        def fill(view, addr, it, w):
+        def fill(view, addr, it, w, dst_t=None):
             src = it["src"]
             if src["k"] == "file":
                 # O_DIRECT through an aligned staging slot: a buffered read would turn free
@@ -571,6 +743,11 @@ class NodeD:
             elif src["k"] == "local":
                 s, off, n = self.dram[it["id"]]
                 view[:] = s.view[off:off + n]
+            elif src["k"] == "job":                         # weights still in this node's HBM: D2H
+                g = self.jobs[src["job"]]["bufs"][int(src["card"])][src["off"]:src["off"] + it["n"]]
+                host = self.torch.frombuffer(view, dtype=self.torch.uint8) if dst_t is None else dst_t
+                host.copy_(g)
+                self.traffic["d2h"] += it["n"]
             elif src["k"] == "rfile":                       # a peer's durable file, via its staging
                 port = w % rdma.PORTS
                 reg, _ = self._region_of(addr, port)
@@ -600,7 +777,7 @@ class NodeD:
                             have = cid in self.dram
                         if not have:
                             s, off = self._slab_alloc(n, numa, pin)
-                            fill(s.view[off:off + n], s.addr + off, it, w)
+                            fill(s.view[off:off + n], s.addr + off, it, w, s.t[off:off + n] if s.t is not None else None)
                             with self.lock:
                                 self.dram[cid] = (s, off, n)
                         with lock:
@@ -641,10 +818,12 @@ class NodeD:
                                 g.copy_(self._sten(slot)[:n])
                             finally:
                                 self._sput(slot)
+                            regs = [rdma.Region(p, g.data_ptr(), n, True) for p in range(rdma.PORTS)]
                             with self.lock:
-                                self.hbm[cid] = (card, g)
+                                self.hbm[cid] = (card, g, regs)
                         with lock:
-                            out[cid] = True
+                            card_, g_, regs_ = self.hbm[cid]     # peers RDMA-READ device memory directly
+                            out[cid] = {"addr": g_.data_ptr(), "rkeys": [r.rkey for r in regs_], "card": card_}
                     else:
                         raise ValueError(tier)
                 except Exception as e:                      # noqa: BLE001
@@ -704,7 +883,10 @@ class NodeD:
                     except OSError:
                         pass
                 elif tier == "hbm" and cid in self.hbm:
-                    freed += self.hbm.pop(cid)[1].numel()
+                    _, g, regs = self.hbm.pop(cid)
+                    for r in regs:
+                        r.close()
+                    freed += g.numel()
             if tier == "dram":
                 for s in [s for s in self.slabs if s.used == 0]:
                     self.slabs.remove(s)
@@ -736,7 +918,7 @@ class NodeD:
                     os.close(fd)
                 self.traffic["ssd_rd" if tier == "ssd" else "file_rd"] += n
             else:
-                card, g = self.hbm[cid]
+                card, g, _ = self.hbm[cid]
                 n = g.numel()
                 self._sten(slot)[:n].copy_(g)
         except Exception:
@@ -770,35 +952,104 @@ class NodeD:
 
     # ---- restore -------------------------------------------------------------------------
     def op_restore(self, job, cards, chunks, steal=True, prior=None, ssd_readers=4, file_readers=8,
-                   rdma_window=8, ports=None):
+                   rdma_window=8, ports=None, direct=True, local_inflight=24, edge=None, use_arena=True):
         """Land `chunks` into fresh HBM buffers. cards: {card: nbytes}. Each chunk:
-             {id, n, card, off, cands: [cand], plan: index into cands}
-        cand: {"k": "ldram"} | {"k": "lssd"} | {"k": "lhbm"} | {"k": "dram", "node", "ip", "addr",
-               "rkeys"} | {"k": "rstage", "node", "ip", "tier"} | {"k": "file", "path", "off"}.
-        ports: HCA ports this restore may receive on. A port that shares a PCIe root (NUMA node)
-        with a destination card throttles that card's H2D (measured: 47 -> 9..30 GB/s), so the
-        coordinator leaves those out."""
+             {id, n, card, off, cands: [cand], plan_cls: class name (or plan: index into cands)}
+        cand: {"k": "ldram"} | {"k": "lssd"} | {"k": "lhbm"} | {"k": "file", "path", "off"} |
+              {"k": "dram" | "rhbm", "node", "ip", "addr", "rkeys"}   a peer's DRAM / HBM region |
+              {"k": "rstage", "node", "ip", "tier"}                  a peer stages it (SSD, file).
+
+        direct=True: the destination buffers are registered with the HCA and a peer's memory is
+        RDMA-READ straight into device memory -- no host staging, no H2D. One worker per HCA
+        port ("net:<p>"), one stream at a time, walking its planned chunks card by card: a port and
+        a card each carry ~48 GB/s and a port that multiplexes several cards at once collapses
+        (measured 187 GB/s matched vs 70 GB/s all-to-all on 4+ cards). Local DRAM goes through
+        host H2D at the same time; the two ingress paths add up (235 GB/s into 8 cards).
+        direct=False: the earlier host relay (peer -> pinned staging -> H2D), kept for comparison;
+        it is capped near 35 GB/s per node because both halves share the host's DMA budget."""
         ports = list(ports) if ports else list(range(rdma.PORTS))
         torch = self.torch
         t0 = time.time()
-        bufs = {int(c): torch.empty(int(n), dtype=torch.uint8, device=f"cuda:{int(c)}") for c, n in cards.items()}
+        bufs, regs, in_arena, own_regs = {}, {}, {}, {}
+        for c, n in cards.items():
+            c, n = int(c), int(n)
+            off = self._arena_alloc(c, n) if use_arena else None
+            if off is not None:                         # a range of the long-lived, warmed arena
+                a = self.arena[c]
+                bufs[c] = a["t"][off:off + n]
+                regs[c] = a["regs"]
+                in_arena[c] = (off, n)
+            else:
+                bufs[c] = torch.empty(n, dtype=torch.uint8, device=f"cuda:{c}")
+                if direct:
+                    regs[c] = own_regs[c] = {p: rdma.Region(p, bufs[c].data_ptr(), n, True) for p in ports}
+        base = {c: b.data_ptr() for c, b in bufs.items()}
         alloc_s = time.time() - t0
+        NET = ("dram", "rhbm")
+        net_classes = [f"net:{p}" for p in ports]
 
         def cls_of(c):
             k = c["k"]
-            return f"{k}:{c['node']}" if k in ("dram", "rstage") else k
+            if k in NET:
+                return f"dram:{c['node']}"
+            return f"{k}:{c['node']}" if k == "rstage" else k
 
-        for c in chunks:
-            c["by"] = {}
+        for i, c in enumerate(chunks):
+            c["by"], c["net"] = {}, []
             for cand in c["cands"]:
-                c["by"].setdefault(cls_of(cand), cand)
-            c["classes"] = list(c["by"])
-            c["plan"] = cls_of(c["cands"][c.get("plan", 0)])
-        sched = Sched(chunks, steal, prior or {})
-        self.active[job] = sched
+                if direct and cand["k"] in NET:
+                    c["net"].append(cand)
+                else:
+                    c["by"].setdefault(cls_of(cand), cand)
+            c["classes"] = list(c["by"]) + (net_classes if c["net"] else [])
+            pc = c.get("plan_cls")
+            if pc is None:
+                cand = c["cands"][c.get("plan", 0)]
+                pc = net_classes[i % len(ports)] if (direct and cand["k"] in NET) else cls_of(cand)
+            c["plan"] = pc if pc in c["classes"] else c["classes"][0]
+        # a port walks one card after another; other classes keep 'fewest alternatives first'
+        # A port walks its chunks one card after another. Which card matters: the capacity of
+        # a (port, card) pair is 47 GB/s for the two cards near the port and half or less for the
+        # others (measured, pool_r02/affinity/gpudirect_repro_node28.log), and a card takes ~47
+        # GB/s in total. `edge` {"p:c": GB/s} is the coordinator's current estimate; each port
+        # serves its best cards first. Without it the ports just start on different cards.
+        edge = {(int(k.split(":")[0]), int(k.split(":")[1])): v for k, v in (edge or {}).items()}
+        card_ix = {c: k for k, c in enumerate(sorted(bufs))}
+        stride = max(1, len(bufs) // len(ports))
+
+        def order(i):
+            c = chunks[i]
+            if c["plan"].startswith("net:"):
+                p = int(c["plan"].split(":")[1])
+                if edge:
+                    return (0, -edge.get((p, c["card"]), 0.0), c["card"], c["off"])
+                return (0, (card_ix[c["card"]] - ports.index(p) * stride) % len(bufs), c["off"])
+            return (1, len(c["classes"]), 0)
+        sched = Sched(chunks, steal, prior or {}, key=order)
+        sched.edge = {(f"net:{p}", c): v for (p, c), v in edge.items()}
+        pair = collections.defaultdict(lambda: [0, 0.0])        # (port, card) -> [bytes, seconds]
         landq = {c: queue.Queue() for c in bufs}
         first = [None]
         prof = collections.Counter()                    # where the wall time of this restore went
+        node_load, dead_nodes, rr_lock = collections.Counter(), set(), threading.Lock()
+        local_sem = threading.Semaphore(local_inflight * len(bufs))
+
+        def drop_node(node, timeout=10.0):
+            """`node` is about to free its DRAM/HBM copies: stop reading them, wait for reads in flight."""
+            t = time.time()
+            gone = []
+            with rr_lock:
+                dead_nodes.add(node)
+                for i, c in enumerate(chunks):
+                    if any(cd["node"] == node for cd in c["net"]):
+                        c["net"] = [cd for cd in c["net"] if cd["node"] != node]
+                        if not c["net"]:
+                            gone.append(i)
+            moved = sched.retire(gone, net_classes)
+            while node_load[node] > 0 and time.time() - t < timeout and sched.left and not sched.error:
+                time.sleep(0.002)
+            return {"moved": moved, "wait_s": round(time.time() - t, 5)}
+        self.active[job] = {"sched": sched, "drop_node": drop_node, "direct": direct}
 
         def lander(card):
             dev, q, buf = f"cuda:{card}", landq[card], bufs[card]
@@ -817,23 +1068,83 @@ class NodeD:
                         break
                     batch.append(nxt)
                 tl = time.time()
-                for i, src, slot in batch:
+                for i, src, slot, cls in batch:
                     c = chunks[i]
                     buf[c["off"]:c["off"] + c["n"]].copy_(src, non_blocking=True)
                 torch.cuda.synchronize(dev)
-                prof["land_s"] += time.time() - tl
+                dt = time.time() - tl
+                prof["land_s"] += dt
                 prof["land_batches"] += 1
                 if first[0] is None:
                     first[0] = time.time() - t0
-                for i, src, slot in batch:
+                local = collections.Counter()
+                for i, src, slot, cls in batch:
                     if slot is not None:
                         self._sput(slot)
+                    else:
+                        local[cls] += chunks[i]["n"]
+                        local_sem.release()
+                for cls, nb in local.items():
+                    sched.observe(cls, card, nb / max(dt, 1e-6) / 1e9)
                 sched.landed([b[0] for b in batch])
 
-        def worker(cls, w, port=None):
+        def net_worker(p):
+            """Direct path: peer memory -> this card's HBM over port p, one chunk after another."""
+            cls = f"net:{p}"
             while True:
                 i = sched.next(cls)
                 if i is None:
+                    return
+                c = chunks[i]
+                n, t, ok, why = c["n"], time.time(), False, "no remote source"
+                while True:
+                    with rr_lock:
+                        live = [cd for cd in c["net"] if cd["node"] not in dead_nodes]
+                        if not live:
+                            break
+                        cand = min(live, key=lambda cd: node_load[cd["node"]])
+                        node_load[cand["node"]] += 1
+                    try:
+                        with self.port_lock[p]:
+                            tr = time.time()
+                            self._rread(cand["ip"], p, cand["addr"], cand["rkeys"][p], base[c["card"]] + c["off"],
+                                        regs[c["card"]][p].lkey, n, rdma_window)
+                            wire = time.time() - tr
+                        ok = True
+                    except Exception as e:              # noqa: BLE001 -- that source lost the chunk
+                        why = repr(e)
+                        with rr_lock:
+                            c["net"] = [cd for cd in c["net"] if cd is not cand]
+                    finally:
+                        with rr_lock:
+                            node_load[cand["node"]] -= 1
+                    if ok:
+                        break
+                if not ok:
+                    sched.fail(cls, i, why, also=net_classes)
+                    continue
+                dt = time.time() - t
+                self.traffic["rdma_rx"] += n
+                pr = pair[(p, c["card"])]
+                pr[0] += n
+                pr[1] += wire                           # time on the wire, not waiting for the port
+                prof["fetch_s:net"] += dt
+                if first[0] is None:
+                    first[0] = time.time() - t0
+                sched.fetched(cls, 0, i, dt)
+                sched.landed([i])
+
+        def worker(cls, w, port=None):
+            is_local = cls in ("ldram", "lhbm")
+            while True:
+                if is_local:                            # claim only what the lander can take soon
+                    while not local_sem.acquire(timeout=0.05):
+                        if sched.left == 0 or sched.error:
+                            return
+                i = sched.next(cls)
+                if i is None:
+                    if is_local:
+                        local_sem.release()
                     return
                 c = chunks[i]
                 cand, n = c["by"][cls], c["n"]
@@ -852,7 +1163,7 @@ class NodeD:
                         prof["slot_wait_s"] += time.time() - t
                         t = time.time()
                         delta = 0
-                        if k == "dram":
+                        if k in NET:
                             self._rread(cand["ip"], port, cand["addr"], cand["rkeys"][port],
                                         self._saddr(slot), self._slkey(slot, port), n, rdma_window)
                             self.traffic["rdma_rx"] += n
@@ -886,19 +1197,24 @@ class NodeD:
                 except Exception as e:                      # noqa: BLE001 -- shed to another path
                     if slot is not None:
                         self._sput(slot)
+                    if is_local:
+                        local_sem.release()
                     sched.fail(cls, i, repr(e))
                     continue
                 dt = time.time() - t
                 prof["fetch_s:" + cls] += dt
-                sched.fetched(cls, w, i, dt)
-                landq[c["card"]].put((i, src, slot))
+                sched.fetched(cls, w, i, dt, rate=not is_local)
+                landq[c["card"]].put((i, src, slot, cls))
 
         threads = [threading.Thread(target=lander, args=(c,), daemon=True) for c in bufs]
         classes = {cl for c in chunks for cl in c["classes"]}
         w = 0
         for cl in sorted(classes):
             kind = cl.split(":")[0]
-            if kind == "dram":
+            if kind == "net":
+                threads.append(threading.Thread(target=net_worker, args=(int(cl.split(":")[1]),), daemon=True))
+                sched.nworkers[cl] += 1
+            elif kind == "dram":
                 for p in ports:
                     threads.append(threading.Thread(target=worker, args=(cl, w, p), daemon=True))
                     sched.nworkers[cl] += 1
@@ -915,32 +1231,59 @@ class NodeD:
         for q in landq.values():
             q.put(None)
         [x.join() for x in threads[:nland]]
+        for c in bufs:                                  # RDMA wrote device memory behind the runtime
+            torch.cuda.synchronize(f"cuda:{c}")
         total = time.time() - t0
         self.active.pop(job, None)
         if sched.error:
+            for rr in own_regs.values():
+                for r in rr.values():
+                    r.close()
+            for c, (off, n) in in_arena.items():
+                self._arena_free(c, off, n)
             del bufs
             torch.cuda.empty_cache()
             raise RuntimeError(sched.error)
-        self.jobs[job] = {"bufs": bufs, "chunks": [(c["id"], c["card"], c["off"], c["n"]) for c in chunks]}
+        self.jobs[job] = {"bufs": bufs, "regs": regs, "own_regs": own_regs, "arena": in_arena,
+                          "chunks": [(c["id"], c["card"], c["off"], c["n"]) for c in chunks]}
         nbytes = sum(c["n"] for c in chunks)
         return {"job": job, "bytes": nbytes, "total_s": round(total, 4), "alloc_s": round(alloc_s, 4),
                 "first_land_s": None if first[0] is None else round(first[0], 4),
                 "GBps": round(nbytes / max(total, 1e-9) / 1e9, 2), "failed_fetches": sched.failed, "fail_why": sched.why,
+                "arena_cards": sorted(in_arena),
                 "paths": {k: v for k, v in sched.stats.items()},
                 "prof": {k: round(v, 4) for k, v in prof.items()}, "workers": len(threads) - nland,
+                "pair_GBps": {f"{p}:{c}": [round(b / max(sec, 1e-9) / 1e9, 1), b] for (p, c), (b, sec) in pair.items()},
                 "rates_GBps": {k: round(v, 2) for k, v in sched.rate.items()}}
 
     def op_revoke(self, node, tiers=("dram",)):
         """Called before `node` drops chunks: every running restore stops reading from it."""
         out = {}
-        for job, sched in list(self.active.items()):
-            classes = []
-            for t in tiers:
-                if node == self.node:
-                    classes.append({"dram": "ldram", "ssd": "lssd", "hbm": "lhbm"}[t])
-                else:
-                    classes.append(f"dram:{node}" if t == "dram" else f"rstage:{node}")
-            out[job] = sched.revoke(classes)
+        for job, a in list(self.active.items()):
+            sched = a["sched"]
+            if node == self.node:
+                out[job] = sched.revoke([{"dram": "ldram", "ssd": "lssd", "hbm": "lhbm"}[t] for t in tiers])
+                continue
+            res = {}
+            if a["direct"] and any(t in ("dram", "hbm") for t in tiers):
+                res = a["drop_node"](node)
+            legacy = ([f"dram:{node}"] if not a["direct"] else []) + ([f"rstage:{node}"] if "ssd" in tiers else [])
+            if legacy:
+                res = {**sched.revoke(legacy), **res}
+            out[job] = res
+        return out
+
+    def op_job_locators(self, job):
+        """Where each chunk of a restored model sits in this node's HBM, as RDMA regions a peer
+        can read directly (HBM -> HBM, no host on either side). {chunk id: {addr, rkeys, card}}."""
+        j = self.jobs[job]
+        if not j.get("regs"):
+            return {}
+        out = {}
+        for cid, card, off, n in j["chunks"]:
+            rr = j["regs"][card]
+            out[cid] = {"addr": j["bufs"][card].data_ptr() + off, "card": card,
+                        "rkeys": [rr[p].rkey if p in rr else 0 for p in range(rdma.PORTS)]}
         return out
 
     def op_job_export(self, job):
@@ -949,7 +1292,10 @@ class NodeD:
         out = {}
         for card, buf in self.jobs[job]["bufs"].items():
             h = buf.untyped_storage()._share_cuda_()
-            out[str(card)] = [base64.b64encode(x).decode() if isinstance(x, bytes) else x for x in h]
+            # the buffer may be a range of the card's arena: the consumer maps the storage and
+            # starts at `offset`
+            out[str(card)] = {"handle": [base64.b64encode(x).decode() if isinstance(x, bytes) else x for x in h],
+                              "offset": buf.storage_offset(), "nbytes": buf.numel()}
         return out
 
     def _rpc(self, ip, w):
@@ -986,7 +1332,12 @@ class NodeD:
         n = 0
         if j:
             n = sum(b.numel() for b in j["bufs"].values())
+            for rr in j.get("own_regs", {}).values():
+                for r in rr.values():
+                    r.close()
             j["bufs"].clear()
+            for c, (off, ln) in j.get("arena", {}).items():
+                self._arena_free(c, off, ln)
             self.torch.cuda.empty_cache()
         return {"freed": n}
 
@@ -1035,6 +1386,7 @@ def main(argv=None):
     p.add_argument("--chunk-mib", type=int, default=64)
     p.add_argument("--slab-mib", type=int, default=256)
     p.add_argument("--spare-slabs", type=int, default=0)
+    p.add_argument("--arena-gib", type=float, default=0, help="HBM arena per card (0 = restores allocate fresh)")
     a = p.parse_args(argv)
     try:                                                # keep-alive must never outlive a tenant
         open("/proc/self/oom_score_adj", "w").write("900")
@@ -1042,7 +1394,7 @@ def main(argv=None):
         pass
     cards = [int(x) for x in a.cards.split(",") if x != ""]
     d = NodeD(a.node, a.ip, a.ssd or None, cards, int(a.stage_gib * GiB), a.chunk_mib * MiB,
-              a.slab_mib * MiB, a.spare_slabs)
+              a.slab_mib * MiB, a.spare_slabs, arena_bytes=int(a.arena_gib * GiB))
     d.serve()
 
 

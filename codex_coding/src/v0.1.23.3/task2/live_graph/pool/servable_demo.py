@@ -32,9 +32,9 @@ say(event="parked", model=name, GiB=p["GiB"], fragments={v: g for v, g in p["ver
 t0 = time.time()
 r = pool.restore(name, HOME, [card], allow=("dram",), release=False)
 t_restore = time.time() - t0
-h = pool.rpc[HOME].call("job_export", job=r["job"])[str(card)]
-st = torch.UntypedStorage._new_shared_cuda(*tuple(base64.b64decode(x) if isinstance(x, str) else x for x in h))
-buf = torch.empty(0, dtype=torch.uint8, device=dev).set_(st)
+exp = pool.rpc[HOME].call("job_export", job=r["job"])[str(card)]
+st = torch.UntypedStorage._new_shared_cuda(*tuple(base64.b64decode(x) if isinstance(x, str) else x for x in exp["handle"]))
+buf = torch.empty(0, dtype=torch.uint8, device=dev).set_(st)[exp["offset"]:exp["offset"] + exp["nbytes"]]
 base, _ = pool.layout(m, [card])
 state, copied = {}, 0
 for tname, t in m.manifest.tensors.items():

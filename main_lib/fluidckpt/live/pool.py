@@ -31,8 +31,13 @@ MiB = 1 << 20
 TIER_CLASS = {"dram": "ldram", "ssd": "lssd", "hbm": "lhbm"}
 # Rate priors for the executor's stealing rule (GB/s per path class), all measured on this
 # cluster (pool_r01/pin_probe, pool_r01/rdma_bench); the executor replaces them with what it sees.
-PRIOR = {"ldram": 47.0, "ldram_pageable": 13.5, "lhbm": 100.0, "dram": 60.0, "lssd": 5.0,
+PRIOR = {"ldram": 47.0, "ldram_pageable": 13.5, "lhbm": 100.0, "dram": 30.0, "rhbm": 30.0, "lssd": 5.0,
          "rstage": 5.0, "file": 5.0}
+# Capacities of the direct data plane, measured on node28 (pool_r02/affinity/*.log), GB/s.
+PORT_GBPS = 47.0        # one HCA port writing device memory, one stream (line rate is 50)
+CARD_GBPS = 47.0        # ingress of one card (H2D or direct RDMA, they share it)
+HOST_DMA_GBPS = 88.0    # all host->device copies of a node together (H2D alone: 85-95 on 2-8 cards)
+NVME_GBPS = 6.5         # one NVMe pool, O_DIRECT, 4-8 readers
 
 
 class Model:
@@ -77,6 +82,7 @@ class Pool:
         self.reserved = collections.Counter()            # vertex -> bytes of puts in flight
         self.active = {}                                 # job -> destination node (running restores)
         self.place_margin = 2 * GiB
+        self._own_net = {}                               # node -> when our last transfer into it ended
         self.plan_paths = 6                              # candidate paths per (source, card)
         self.events = []
         self._stop = threading.Event()
@@ -84,6 +90,27 @@ class Pool:
         self.info = {n: self.rpc[n].call("hello") for n in nodes}
         for n in nodes:                                  # every pair connected before any restore
             self.rpc[n].call("warm", peers=[ip for m, ip in nodes.items() if m != n])
+        # Direct data plane: capacity of every (HCA port, card) pair of every node, GB/s. Seeded
+        # from the topology (the port's own NUMA node and its sibling carry line rate, the rest of
+        # the socket half of it, the other socket about a quarter) and corrected by every restore.
+        V = self.topology.vertices
+        self.direct_cap = {}
+        for n in self.nodes:
+            nic = self.info[n].get("nic_numa") or [0, 1, 4, 5]
+            self.direct_cap[n] = {}
+            for p, pn in enumerate(nic):
+                self.direct_cap[n][p] = {}
+                for c in self.info[n]["cards"]:
+                    cn = V[f"{n}/hbm/{c}"].numa
+                    if cn is None or pn is None:
+                        g = PORT_GBPS / 2
+                    elif cn == pn or (cn // 4 == pn // 4 and abs(cn - pn) == 2):
+                        g = PORT_GBPS
+                    elif cn // 4 == pn // 4:
+                        g = PORT_GBPS / 2
+                    else:
+                        g = PORT_GBPS / 3.5
+                    self.direct_cap[n][p][c] = g
 
     # ---- graph loop ----------------------------------------------------------------------
     def start(self, period=0.1, react=True):
@@ -124,6 +151,29 @@ class Pool:
         self._stop.set()
         for t in self._thr or []:
             t.join(2)
+
+    def warm_arenas(self, seconds=60.0):
+        """Warm every node's HBM arenas with direct RDMA traffic from a peer, each port feeding
+        its two near cards (the pairs the capacity table rates at line speed)."""
+        out = {}
+
+        def one(n):
+            names = list(self.nodes)                       # a ring: every node feeds exactly one other
+            peer = names[(names.index(n) + 1) % len(names)]
+            region = self.rpc[peer].call("stage_region")
+            cap = self.direct_cap[n]
+            pairs = []
+            for c in self.info[n]["cards"]:
+                p = max(cap, key=lambda p: cap[p][c])
+                pairs.append([p, c])
+            out[n] = Client(self.nodes[n]).call("warm_hbm", peer_ip=self.nodes[peer], region=region,
+                                                seconds=seconds, pairs=pairs)
+        th = [threading.Thread(target=one, args=(n,)) for n in self.nodes if self.info[n].get("arena_GiB")]
+        [x.start() for x in th]
+        [x.join() for x in th]
+        for n in out:
+            self._own_net[n] = time.time()
+        return out
 
     def warm_paths(self, node, cards):
         """Enumerate (and cache) the paths into the given cards before the first restore needs
@@ -207,7 +257,7 @@ class Pool:
         return out, short
 
     def park(self, name, copies=2, tiers=("dram",), prefer=None, pin_nodes=(), avoid_nodes=(),
-             budget=None, threads=8, all_or_nothing=False):
+             budget=None, threads=8, all_or_nothing=False, from_job=None):
         """Place and store. A chunk's first replica is filled from the durable file (read locally
         on the durable node, or staged there and pulled over RDMA); further replicas are pulled
         from an existing DRAM replica, so the durable disk is read once."""
@@ -232,7 +282,10 @@ class Pool:
                                     if "/dram/" in v and not v.startswith(node + "/")), None)
                         here = any(v.startswith(node + "/dram/") for v in self.rep[c.id])
                     path = os.path.join(model.dir, c.file)
-                    if here and kind != "dram":
+                    if from_job and from_job[0] == node and c.id in from_job[2]:
+                        card, off = from_job[2][c.id]        # still in this node's HBM: D2H, no disk
+                        src = {"k": "job", "job": from_job[1], "card": card, "off": off}
+                    elif here and kind != "dram":
                         src = {"k": "local"}                     # this node's DRAM copy feeds its SSD/HBM
                     elif loc:
                         src = {"k": "rdma", "ip": self.nodes[self._vparts(loc[0])[0]], "addr": loc[1]["addr"],
@@ -310,6 +363,11 @@ class Pool:
         return out
 
     # ---- restore -------------------------------------------------------------------------
+    def where(self, model, cards):
+        """{chunk id: (card, offset)} of a model restored onto `cards` (same rule as restore)."""
+        base, _ = self.layout(model, cards)
+        return {c.id: (base[c.file][0], base[c.file][1] + c.offset) for c in model.chunks}
+
     def layout(self, model, cards):
         """Weight files -> cards (largest first onto the emptiest card); file bases page aligned."""
         m = model.manifest
@@ -331,8 +389,10 @@ class Pool:
                 continue
             if n == node:
                 cand = {"k": TIER_CLASS[kind]}
-            elif kind == "dram":
-                cand = {"k": "dram", "node": n, "ip": self.nodes[n], "addr": loc["addr"], "rkeys": loc["rkeys"]}
+            elif kind in ("dram", "hbm") and isinstance(loc, dict):
+                # a peer's DRAM slab or device memory: both are RDMA regions the HCA reads directly
+                cand = {"k": "dram" if kind == "dram" else "rhbm", "node": n, "ip": self.nodes[n],
+                        "addr": loc["addr"], "rkeys": loc["rkeys"]}
             else:
                 cand = {"k": "rstage", "node": n, "ip": self.nodes[n], "tier": kind}
             cands.append(cand)
@@ -376,15 +436,155 @@ class Pool:
             return cache[key]
         return fn
 
-    def restore(self, name, node, cards, allow=("dram", "ssd", "hbm", "file"), strategy="greedy",
+    def flow_plan(self, chunks, node, cards, ports, snap, mode="lp", use_matrix=True):
+        """Assign every chunk to an ingress path of the destination node and return the predicted
+        time. The destination is a small flow network:
+
+            HCA port p --(<= port residual)--> card c      peers' DRAM/HBM, straight into HBM
+            host DMA   --(<= host budget)----> card c      local DRAM (H2D), and every slow source
+            NVMe       --(<= disk residual)--> host DMA    local/remote SSD copies, durable files
+            card c takes <= its PCIe ingress in total
+
+        mode "lp": min T  s.t. all bytes delivered and every capacity * T respected (a max
+        concurrent flow); capacities are the live residuals of the snapshot, so a port another
+        tenant is using, or a card whose PCIe is busy, gets less. The fractional flow is rounded
+        to chunks; each port receives its share as contiguous per-card runs.
+        mode "rr": no flow reasoning -- local copy if there is one, else ports round-robin per
+        chunk. Used as the ablation."""
+        t0 = time.time()
+        NETK, LOCK = ("dram", "rhbm"), ("ldram", "lhbm")
+
+        def slow_cls(cd):
+            return f"rstage:{cd['node']}" if cd["k"] == "rstage" else cd["k"]
+        meta = []
+        for ch in chunks:
+            ks = [cd["k"] for cd in ch["cands"]]
+            loc = next((k for k in ks if k in LOCK), None)
+            net = any(k in NETK for k in ks)
+            slow = [slow_cls(cd) for cd in ch["cands"] if cd["k"] not in NETK + LOCK]
+            meta.append((loc, net, slow))
+        res = lambda rid, nominal: (snap.residual_GBps(rid) / nominal) if rid in self.topology.resources else 1.0
+        share = {p: res(f"{node}/ib_rx/shca_{p}", 50.0) for p in ports}        # of the port's time
+        if time.time() - self._own_net.get(node, 0) < 1.5:
+            # The counters (100 ms samples, EWMA) still carry our own last transfer into this
+            # node; reading that as another tenant would steer us away from our best ports.
+            share = {p: 1.0 for p in ports}
+        e = {p: {c: (self.direct_cap[node][p][c] if use_matrix else PORT_GBPS) for c in cards} for p in ports}
+        cap_port = {p: PORT_GBPS * share[p] for p in ports}
+        cap_card = {c: CARD_GBPS * res(f"{node}/pcie_in/{c}", 47.5) for c in cards}
+        disks = {(node if cl in ("file", "lssd") else cl.split(":")[1]) for _, _, sl in meta for cl in sl}
+        cap_slow = sum(NVME_GBPS * res(f"{d}/nvme_rd/{self.ssd_disk.get(d)}", 7.0) for d in disks) or NVME_GBPS
+        GB = 1e9
+        B, L, N, U, S = ({c: 0.0 for c in cards} for _ in range(5))
+        for ch, (loc, net, slow) in zip(chunks, meta):
+            c, g = ch["card"], ch["n"] / GB
+            B[c] += g
+            L[c] += g if loc else 0
+            N[c] += g if net else 0
+            U[c] += g if (loc or net) else 0
+            S[c] += g if slow else 0
+        info = {"mode": mode, "use_matrix": use_matrix, "cap_port": {p: round(v, 1) for p, v in cap_port.items()},
+                "cap_card": {c: round(v, 1) for c, v in cap_card.items()}, "cap_slow": round(cap_slow, 1)}
+        quota = {c: {} for c in cards}                  # card -> {class: GB}
+        pred = None
+        if mode == "lp":
+            import numpy as np
+            from scipy.optimize import linprog
+            P, C = list(ports), list(cards)
+            nx = len(P) * len(C)
+            iy, iz, iT = nx, nx + len(C), nx + 2 * len(C)
+            nv = iT + 1
+            X = lambda a, j: a * len(C) + j
+            Aub, bub, Aeq, beq = [], [], [], []
+            row = lambda: np.zeros(nv)
+            for j, c in enumerate(C):
+                r = row(); r[[X(a, j) for a in range(len(P))]] = 1; r[iy + j] = 1; r[iz + j] = 1
+                Aeq.append(r); beq.append(B[c])                           # every byte of the card
+                r2 = r.copy(); r2[iT] = -cap_card[c]; Aub.append(r2); bub.append(0)   # card ingress
+                r = row(); r[iy + j] = 1; Aub.append(r); bub.append(L[c])
+                r = row(); r[iz + j] = 1; Aub.append(r); bub.append(S[c])       # only what has a slow copy
+                r = row(); r[[X(a, j) for a in range(len(P))]] = 1; Aub.append(r); bub.append(N[c])
+                r = row(); r[[X(a, j) for a in range(len(P))]] = 1; r[iy + j] = 1; Aub.append(r); bub.append(U[c])
+            for a, p in enumerate(P):
+                # the port is one pipe: bytes to card c cost 1/e[p][c] seconds of it each
+                r = row()
+                for j, c in enumerate(C):
+                    r[X(a, j)] = 1.0 / e[p][c]
+                r[iT] = -share[p]; Aub.append(r); bub.append(0)
+            r = row(); r[iy:iT] = 1; r[iT] = -HOST_DMA_GBPS; Aub.append(r); bub.append(0)      # host DMA budget
+            r = row(); r[iz:iT] = 1; r[iT] = -cap_slow; Aub.append(r); bub.append(0)           # disks
+            cost = row(); cost[iT] = 1.0; cost[iz:iT] = 1e-4               # same T: prefer the fast copy
+            for a, p in enumerate(P):                                      # ... and the fast pairs
+                for j, c in enumerate(C):
+                    cost[X(a, j)] = 1e-6 / e[p][c]
+            sol = linprog(cost, A_ub=np.array(Aub), b_ub=bub, A_eq=np.array(Aeq), b_eq=beq, bounds=(0, None), method="highs")
+            if sol.success:
+                pred = float(sol.x[iT])
+                for j, c in enumerate(C):
+                    for a, p in enumerate(P):
+                        if sol.x[X(a, j)] > 1e-6:
+                            quota[c][f"net:{p}"] = float(sol.x[X(a, j)])
+                    quota[c]["local"] = float(sol.x[iy + j])
+                    quota[c]["slow"] = float(sol.x[iz + j])
+                info["flow_GB"] = {f"c{c}": {k: round(v, 1) for k, v in q.items() if v > 0.05} for c, q in quota.items()}
+            else:
+                mode = "rr"
+                info["lp_failed"] = sol.message
+        rr = 0
+        by_card = collections.defaultdict(list)
+        for i, ch in enumerate(chunks):
+            by_card[ch["card"]].append(i)
+        for c, idxs in by_card.items():
+            q = quota[c]
+            idxs.sort(key=lambda i: chunks[i]["off"])
+            # least flexible chunks first, so the flexible ones absorb what is left of each quota
+            for i in sorted(idxs, key=lambda i: (meta[i][0] is not None) + meta[i][1]):
+                loc, net, slow = meta[i]
+                g = chunks[i]["n"] / GB
+                if mode != "lp":
+                    if loc:
+                        cls = loc
+                    elif net:
+                        cls = f"net:{ports[rr % len(ports)]}"; rr += 1
+                    else:
+                        cls = slow[rr % len(slow)]; rr += 1
+                else:
+                    opts = []
+                    if loc:
+                        opts.append(("local", loc))
+                    if net:
+                        opts += [(k, k) for k in q if k.startswith("net:")]
+                    opts = [(q.get(k, 0.0), k, cls) for k, cls in opts]
+                    best = max(opts, default=(0.0, None, None))
+                    if best[1] is None or (best[0] < g * 0.5 and slow and q.get("slow", 0.0) >= g * 0.5):
+                        k, cls = "slow", (slow[rr % len(slow)] if slow else None); rr += 1
+                    else:
+                        k, cls = best[1], best[2]
+                    if cls is None:                      # only fast copies, quotas exhausted by rounding
+                        k, cls = best[1], best[2]
+                    q[k] = q.get(k, 0.0) - g
+                chunks[i]["plan_cls"] = cls
+        if pred is None:                                 # bottleneck estimate of the rr assignment
+            load = collections.Counter()
+            for ch in chunks:
+                cls = ch["plan_cls"]
+                load[cls if cls.startswith("net:") else ("local" if cls in LOCK else "slow")] += ch["n"] / GB
+            pred = max([load[f"net:{p}"] / (cap_port[p] * 0.5) for p in ports] +
+                       [(load["local"] + load["slow"]) / HOST_DMA_GBPS, load["slow"] / cap_slow] +
+                       [B[c] / cap_card[c] for c in cards])
+        info["plan_ms"] = round((time.time() - t0) * 1e3, 2)
+        return pred, info
+
+    def restore(self, name, node, cards, allow=("dram", "ssd", "hbm", "file"), strategy="lp",
                 steal=True, live=True, job=None, verify=False, release=True, single_source=None,
-                avoid_shared_root=True):
+                avoid_shared_root=True, direct=True, learn=False, use_arena=True):
         """Bring the model's weights into HBM on `node`'s `cards`. Returns timings and path stats.
 
         live=False plans on nominal capacities (what a static system would assume).
         single_source: restrict remote candidates to one node (D2D-fork style baselines)."""
         model = self.models[name]
         t0 = time.time()
+        edge = None
         snap = self.snapshot() if live else Snapshot(self.topology, {}, {}, -1, time.time())
         base, used = self.layout(model, cards)
         demands, replicas, chunks = [], {}, []
@@ -402,38 +602,62 @@ class Pool:
                 replicas[key] = list(dict.fromkeys(verts))
                 chunks.append({"id": c.id, "n": c.nbytes, "card": card, "off": fb + c.offset,
                                "cands": cands, "_verts": verts})
-        plan = plan_fetch(snap, demands, replicas, self._paths_fn(), strategy=strategy)
-        src_of = {t.chunk_id: t.path.src for t in plan.transfers}
-        for ch, (key, _, _) in zip(chunks, demands):
-            verts = ch.pop("_verts")
-            ch["plan"] = verts.index(src_of[key]) if key in src_of and src_of[key] in verts else 0
-        # Receive only on HCA ports that do not share a NUMA node (PCIe root) with a target card.
         V = self.topology.vertices
-        card_numa = {V[f"{node}/hbm/{c}"].numa for c in cards}
         nic_numa = self.info[node].get("nic_numa") or []
-        ports = [p for p, nu in enumerate(nic_numa) if nu not in card_numa] if avoid_shared_root else []
-        if len(ports) < 2:
-            ports = list(range(len(nic_numa))) or None
-        prior = {}
+        all_ports = list(range(len(nic_numa))) or [0, 1, 2, 3]
+        if direct:
+            # Direct landing: every port is usable (a port writing device memory does not go
+            # through the host, so the shared-root penalty of the relay does not apply).
+            ports = all_ports
+            for ch in chunks:
+                ch.pop("_verts", None)
+            predicted, plan_info = self.flow_plan(chunks, node, list(cards), ports, snap,
+                                                  mode="lp" if strategy in ("lp", "lp_blind") else "rr",
+                                                  use_matrix=strategy == "lp")
+            prior = {f"net:{p}": plan_info["cap_port"][p] for p in ports}
+            if strategy == "lp":
+                edge = {f"{p}:{c}": self.direct_cap[node][p][c] for p in ports for c in cards}
+        else:
+            plan = plan_fetch(snap, demands, replicas, self._paths_fn(),
+                              strategy=strategy if strategy in ("lp", "greedy", "fastest") else "greedy")
+            predicted, plan_info = plan.predicted_s, {"mode": "relay:" + strategy}
+            src_of = {t.chunk_id: t.path.src for t in plan.transfers}
+            for ch, (key, _, _) in zip(chunks, demands):
+                verts = ch.pop("_verts")
+                ch["plan"] = verts.index(src_of[key]) if key in src_of and src_of[key] in verts else 0
+            # Relay: receive only on ports that do not share a NUMA node (PCIe root) with a target card.
+            card_numa = {V[f"{node}/hbm/{c}"].numa for c in cards}
+            ports = [p for p, nu in enumerate(nic_numa) if nu not in card_numa] if avoid_shared_root else []
+            if len(ports) < 2:
+                ports = all_ports
+            prior = {}
         for ch in chunks:
             for cd in ch["cands"]:
                 k = cd["k"]
-                cls = f"{k}:{cd['node']}" if k in ("dram", "rstage") else k
+                cls = f"dram:{cd['node']}" if k in ("dram", "rhbm") else (f"rstage:{cd['node']}" if k == "rstage" else k)
                 prior.setdefault(cls, PRIOR[k])
         plan_s = time.time() - t0
         job = job or f"{name}-{int(time.time() * 1000)}"
         self.active[job] = node
         try:
             r = Client(self.nodes[node]).call("restore", job=job, cards={str(c): n for c, n in used.items() if n},
-                                              chunks=chunks, steal=steal, prior=prior, ports=ports)
+                                              chunks=chunks, steal=steal, prior=prior, ports=ports, direct=direct, edge=edge,
+                                              use_arena=use_arena)
         finally:
             self.active.pop(job, None)
         total = time.time() - t0
+        self._own_net[node] = time.time()
+        for k, (gbps, nb) in (r.get("pair_GBps") or {}).items():          # learn the pair capacities
+            if nb >= 2 * GiB and learn:
+                pp, cc = (int(x) for x in k.split(":"))
+                old = self.direct_cap[node][pp][cc]
+                self.direct_cap[node][pp][cc] = min(PORT_GBPS + 2, 0.5 * old + 0.5 * max(gbps, 3.0))
         out = {"model": name, "node": node, "cards": list(cards), "GiB": round(model.nbytes / GiB, 2),
                "total_s": round(total, 4), "plan_s": round(plan_s, 4), "exec_s": r["total_s"],
                "alloc_s": r["alloc_s"], "GBps": round(model.nbytes / total / 1e9, 2),
-               "predicted_s": round(plan.predicted_s, 4), "strategy": strategy, "steal": steal, "live": live,
-               "failed_fetches": r["failed_fetches"], "fail_why": r.get("fail_why"), "paths": r["paths"], "rates": r["rates_GBps"], "prof": r["prof"], "ports": ports, "job": job}
+               "predicted_s": round(predicted, 4), "strategy": strategy, "steal": steal, "live": live,
+               "direct": direct, "plan": plan_info,
+               "failed_fetches": r["failed_fetches"], "fail_why": r.get("fail_why"), "paths": r["paths"], "rates": r["rates_GBps"], "prof": r["prof"], "ports": ports, "pair_GBps": {k: v[0] for k, v in (r.get("pair_GBps") or {}).items()}, "job": job}
         if verify:
             out["verify"] = self.rpc[node].call("job_verify", job=job)
         if release:
@@ -506,6 +730,20 @@ class Pool:
                  if any(self._vparts(v)[1] in tiers and (nodes is None or self._vparts(v)[0] in nodes)
                         for v in self.rep[c.id]))
         return ok / max(m.nbytes, 1)
+
+    def publish(self, name, node, job):
+        """An active instance is a replica too: its HBM is registered, peers can read it."""
+        loc = Client(self.nodes[node]).call("job_locators", job=job)
+        with self.lock:
+            for cid, l in loc.items():
+                self.rep[cid][f"{node}/hbm/{l['card']}"] = {"addr": l["addr"], "rkeys": l["rkeys"], "job": job}
+        return len(loc)
+
+    def unpublish(self, node, job):
+        with self.lock:
+            for cid, reps in self.rep.items():
+                for v in [v for v, l in reps.items() if isinstance(l, dict) and l.get("job") == job]:
+                    del reps[v]
 
     def trim(self, need_bytes, tier="dram"):
         """Free `need_bytes` of budget by dropping redundant replicas: chunks that have two or
