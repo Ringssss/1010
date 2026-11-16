@@ -612,3 +612,8 @@
 - `code_building/process_docs/v0.1-init-project/v0.1.23.3-task2_online_cost_calibration_detailed_20261023.md`：12节详尽专题，逐函数行号/控制变量/来源冻结/7段账/rank等待/park实际字节/失败原文/资格和完整命令。恢复实现细节首读。
 - `code_building/history_chat/v0.1-init-project/v0.1.23.3-task2_outer_calibration_recovery_detailed_20261023.txt`：本次补强后恢复快照，新增专题和计时边界；首版固定快照仍保留。
 - `docx/experiments/2026-10-12_outer_online_calibration_report.md`第4节：实际begin之前前置项排除的源码说明，登记误差不变。
+
+- 2026-11-16 `docx/plans/2026-11-16_fluidpool_overview_and_next_plan.md`：项目总览与 W1–W8 计划（英文）。
+- 2026-11-16 `docx/experiments/2026-11-16_relay_borrowed_ingress.md`：xGMI 中继 go/no-go、实现、死锁修复、smoke（英文）。
+- 2026-11-16 `codex_coding/src/v0.1.23.3/task2/live_graph/pool/{relay_probe,relay_lp_check,relay_smoke}.py`：中继微基准、离线 LP 检查、硬件冒烟。
+- 2026-11-16 `codex_coding/results/v0.1.23.3/task2/live_graph/pool_r03/{relay_r01,formal_r400_p1_hung,formal_r400_p1b}/`：结果目录。

@@ -714,3 +714,20 @@ cmp history-chat.txt code_building/history_chat/v0.1-init-project/v0.1.23.3-task
 ```
 
 补强验收：548行专题的代码锚、所有数值和来源经两agent核查；6链接/22围栏通过，文档与空白检查通过。history及详细版快照SHA=29db9aa16571db62b933e8ce2246fccf79de5a36a732274eab8b217ca2e4a0df，旧两份快照保持。没有新增实验。
+
+
+## 2026-11-16｜v0.1.23.3/task2：xGMI 中继（借入口）、put 死锁修复、正式对比 1b 启动
+
+- 新增：`pool.relay_pick`/`flow_plan(relay)`（中继路径 + lhbm 走 xGMI）、`noded` relay 通道（槽环 + hipMemcpyAsync 目标端拉取）、lander 的 lhbm 独立流、每线程 RPC 客户端；驱动新增系统 `fluidpool_relay`。
+- 实测：relay_r01（go/no-go 184 GB/s 进单卡；租户降速 20–27%）、smoke3（2.6× / 1.8×，全部校验通过）。
+- 失败记录：formal_r400_p1_hung（put 死锁，已中止并保留）；smoke1（`_hip` 重名导致 worker 崩溃、恢复挂起）；smoke2（远卡直写与中继抢端口锁）。
+- 进行中：formal_r400_p1b（四系统 × 400 请求，seed 1）；MaaS trace 动机分析（W6）；SGLang IPC 接入准备（W5）。
+
+【本轮命令】
+```
+python3 codex_coding/src/v0.1.23.3/task2/live_graph/pool/affinity_probe.py src <R>/src_nodeNN.json 1200
+python3 codex_coding/src/v0.1.23.3/task2/live_graph/pool/relay_probe.py <srcs> <R>/relay_node28_t1_pull.log --target 1 --warm 45 --copy pull
+python3 codex_coding/src/v0.1.23.3/task2/live_graph/pool/relay_lp_check.py <manifests> <R>/lp_check.jsonl
+python3 codex_coding/src/v0.1.23.3/task2/live_graph/pool/relay_smoke.py <manifests> <R>/smoke3 3
+SYSTEMS="fluidpool fluidpool_relay janus sglang" codex_coding/src/v0.1.23.3/task2/live_graph/pool/run_maas3_frozen.sh <R>/formal_r400_p1b --requests 400 --calm 15 --seed 1 --warm-arenas 60
+```

@@ -1,5 +1,14 @@
 # Key Conclusions
 
+## 2026-11-16｜单卡入口墙可破：邻卡中继+xGMI 实测 184 GB/s 进一张卡；远端文件 put 死锁已修
+
+- 诊断：pilot 中 1–2 卡模型未命中全部钉在单卡 PCIe 入口 ~47 GB/s（8B 下限 0.35 s，35B 两卡 0.77 s），fluidpool 与 janus 平静段打平是结构性的。
+- go/no-go（relay_r01，node28 卡1）：直写 48.3；直写+3 口中继经 xGMI（目标端 pull）183.4 GB/s（3.8×）；再加 2 路 H2D 中继 210.8；xGMI 单对 168–173、扇入 ~165。
+- 借卡代价：中继卡上 HBM 密集租户降速 20–27%（只有网卡写入时 55–75%）→ 只借无人用的卡（owner first）。
+- 真实执行器（smoke3，全部 sha 校验通过）：9g-8b 单卡 0.39→0.15 s（2.6×）；qwen36-35b 两卡 0.88→0.48–0.51 s（1.8×）；同节点停放 HBM（lhbm 走 xGMI 的建模修正）0.17–0.19 s。
+- 正确性：noded 对端 RPC 客户端按 (ip, worker 序号) 共享导致 expose/unexpose 互等、node28 124 个 staging 槽耗尽死锁（formal_r400_p1_hung）；改为每线程客户端并在线程结束时关闭。
+- 详见 docx/experiments/2026-11-16_relay_borrowed_ingress.md；计划 docx/plans/2026-11-16_fluidpool_overview_and_next_plan.md。
+
 ## 2026-10-12｜成本计费已闭合，操作数有局部价值，控制段决定整体迁移
 
 native单worker GPU4六校准+两新会话留出完成；GPU0资源拒绝0样本独立保留。三项worker经验T(us)=235.052833+3.02440625N(MiB)+95.451833K，在两留出点误差+.45/−6.16%，简单只按N在V1低估27.66%。这是有限域经验预测证据，不能称物理BW或唯一op固定费；独立chunk/首状态费用仍未识别。
