@@ -128,7 +128,7 @@ class Bursts:
             t0, held = time.time(), {}
 
             def one(nu):
-                held[nu] = self.t(node).call("dram", numa=nu, gib=gib, reserve_gib=8, patience_s=8.0)["held_GiB"]
+                held[nu] = self.t(node).call("dram", numa=nu, gib=gib, reserve_gib=4, patience_s=8.0)["held_GiB"]
             th = [threading.Thread(target=one, args=(nu,)) for nu in range(8)]
             [x.start() for x in th]
             while any(x.is_alive() for x in th):         # the tenant waits for memory; whole-model
@@ -495,7 +495,7 @@ if __name__ == "__main__":
     ap.add_argument("--out", required=True)
     ap.add_argument("--manifests", required=True)
     ap.add_argument("--cap", type=float, default=30, help="GiB of DRAM per NUMA vertex (x8 per node), same for all systems")
-    ap.add_argument("--headroom", type=float, default=0.20, help="share of each NUMA node left to others")
+    ap.add_argument("--headroom", type=float, default=0.15, help="share of each NUMA node left to others")
     ap.add_argument("--amp", type=float, default=36, help="peak GiB a tenant asks for per NUMA node")
     ap.add_argument("--per-phase", type=int, default=10)
     ap.add_argument("--warmup", type=int, default=8)

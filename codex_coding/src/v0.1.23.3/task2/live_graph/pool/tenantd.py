@@ -4,10 +4,12 @@ Runs next to the node daemon (same container) and does what other users of the c
 live graph sees it through the ordinary probes and nothing in FluidPool is told about it:
 
   dram  numa, gib      hold `gib` GiB of locked anonymous memory on a NUMA node (0 releases)
-  hbm   card, gib      hold `gib` GiB of device memory on a card (0 releases)
+  hbm   card, gib      hold `gib` GiB of device memory on a card (0 releases); with patience_s > 0
+                       it grows GiB by GiB and waits for room like `dram` does
   ssd   mode, seconds  O_DIRECT sequential write or read traffic on the node's NVMe pool
   ib    peer, ports, seconds   RDMA READ traffic from a peer's tenant region into this node
   h2d   card, seconds  continuous H2D copies into a card (PCIe traffic)
+  stop  name           end one traffic job (ssd / ib / h2d take an optional job `name`)
   status / clear
 
 RPC: same framing as noded (length-prefixed JSON), port 18770.
@@ -93,17 +95,56 @@ class Tenant:
         return {"numa": numa, "held_GiB": len(blocks), "wanted_GiB": want, "stopped_at_reserve": stopped,
                 "s": round(time.time() - t0, 3), "t_done": time.time(), "t_start": t0}
 
-    def op_hbm(self, card, gib):
+    def op_hbm(self, card, gib, patience_s=0.0, reserve_gib=1.0):
+        """Hold `gib` GiB of device memory on a card (0 releases).
+
+        patience_s == 0 (the original behaviour): one allocation, fails if it does not fit.
+        patience_s > 0: grow GiB by GiB like op_dram -- before every GiB the card's free memory
+        is read, and while less than `reserve_gib` + 1 GiB is free the tenant waits (up to
+        patience_s in total) for whoever holds the card to give it back. `t_first_wait` /
+        `waited_s` tell how long it was held up."""
         torch = self._torch()
+        card = int(card)
+        dev = f"cuda:{card}"
         t0 = time.time()
-        self.hbm.pop(int(card), None)
-        torch.cuda.empty_cache()
-        if gib > 0:
-            t = torch.empty(int(gib * GiB), dtype=torch.uint8, device=f"cuda:{int(card)}")
-            t.fill_(1)
-            torch.cuda.synchronize(f"cuda:{int(card)}")
-            self.hbm[int(card)] = t
-        return {"card": card, "held_GiB": gib, "s": round(time.time() - t0, 3), "t_start": t0, "t_done": time.time()}
+        if patience_s <= 0:
+            self.hbm.pop(card, None)
+            torch.cuda.empty_cache()
+            if gib > 0:
+                t = torch.empty(int(gib * GiB), dtype=torch.uint8, device=dev)
+                t.fill_(1)
+                torch.cuda.synchronize(dev)
+                self.hbm[card] = [t]
+            return {"card": card, "held_GiB": gib, "wanted_GiB": gib, "s": round(time.time() - t0, 3),
+                    "t_start": t0, "t_done": time.time()}
+        blocks = self.hbm.setdefault(card, [])
+        want = int(gib)
+        if len(blocks) > want:
+            del blocks[want:]
+            torch.cuda.empty_cache()
+        stopped, waited, t_first_wait = False, 0.0, None
+        while len(blocks) < want:
+            free, _ = torch.cuda.mem_get_info(card)
+            ok = free >= (reserve_gib + 1) * GiB
+            if ok:
+                try:
+                    t = torch.empty(GiB, dtype=torch.uint8, device=dev)
+                    t.fill_(1)
+                    blocks.append(t)
+                    continue
+                except RuntimeError:                    # lost a race for the last GiB
+                    torch.cuda.empty_cache()
+            if t_first_wait is None:
+                t_first_wait = time.time() - t0
+            if waited >= patience_s:
+                stopped = True
+                break
+            time.sleep(0.1)
+            waited += 0.1
+        torch.cuda.synchronize(dev)
+        return {"card": card, "held_GiB": len(blocks), "wanted_GiB": want, "stopped_at_reserve": stopped,
+                "waited_s": round(waited, 2), "t_first_wait": None if t_first_wait is None else round(t_first_wait, 3),
+                "s": round(time.time() - t0, 3), "t_start": t0, "t_done": time.time()}
 
     # ---- traffic -------------------------------------------------------------------------
     def _job(self, name, fn, seconds):
@@ -121,7 +162,7 @@ class Tenant:
         th.start()
         return {"job": name, "t_start": stats["t_start"]}
 
-    def op_ssd(self, mode, seconds, streams=4):
+    def op_ssd(self, mode, seconds, streams=4, name=None):
         os.makedirs(self.ssd_dir, exist_ok=True)
         buf = mmap.mmap(-1, 64 * MiB)
         buf.write(os.urandom(MiB) * 64)
@@ -149,9 +190,9 @@ class Tenant:
             th = [threading.Thread(target=one, args=(k, stop, stats, until)) for k in range(streams)]
             [x.start() for x in th]
             [x.join() for x in th]
-        return self._job(f"ssd_{mode}", fn, seconds)
+        return self._job(name or f"ssd_{mode}", fn, seconds)
 
-    def op_ib(self, peer, ports, seconds):
+    def op_ib(self, peer, ports, seconds, name=None):
         """Pull from `peer`'s tenant region on the given HCA ports (traffic INTO this node)."""
         cl = socket.create_connection((peer, PORT), timeout=10)
         send_msg(cl, {"op": "region"})
@@ -169,12 +210,12 @@ class Tenant:
             th = [threading.Thread(target=one, args=(p,)) for p in ports]
             [x.start() for x in th]
             [x.join() for x in th]
-        return self._job("ib_" + "".join(map(str, ports)), fn, seconds)
+        return self._job(name or ("ib_" + "".join(map(str, ports))), fn, seconds)
 
     def op_region(self):
         return {"addr": self.src_addr, "rkeys": [r.rkey for r in self.src_regs]}
 
-    def op_h2d(self, card, seconds, gib=2):
+    def op_h2d(self, card, seconds, gib=2, name=None):
         torch = self._torch()
         dev = f"cuda:{int(card)}"
         g = torch.empty(int(gib * GiB), dtype=torch.uint8, device=dev)
@@ -185,13 +226,28 @@ class Tenant:
                 g.copy_(h, non_blocking=True)
                 torch.cuda.synchronize(dev)
                 stats["bytes"] += h.numel()
-        return self._job(f"h2d_{card}", fn, seconds)
+        return self._job(name or f"h2d_{card}", fn, seconds)
+
+    def op_stop(self, name):
+        """End one traffic job and report what it moved (jobs started without a name use the
+        default names: ssd_read, ssd_write, ib_<ports>, h2d_<card>)."""
+        with self.lock:
+            job = self.jobs.pop(name, None)
+        if job is None:
+            return {"job": name, "found": False}
+        th, stop, stats = job
+        stop.set()
+        th.join(15)
+        dt = max(stats.get("t_end", time.time()) - stats["t_start"], 1e-6)
+        return {"job": name, "found": True, "bytes": stats["bytes"], "s": round(dt, 3),
+                "GBps": round(stats["bytes"] / dt / 1e9, 2), "error": stats.get("error"), "alive": th.is_alive()}
 
     def op_status(self):
         with self.lock:
             jobs = {k: {**v[2], "alive": v[0].is_alive()} for k, v in self.jobs.items()}
         return {"dram_GiB": {k: len(v) for k, v in self.dram.items() if v},
-                "hbm_GiB": {k: v.numel() / GiB for k, v in self.hbm.items()}, "jobs": jobs, "t": time.time()}
+                "hbm_GiB": {k: sum(t.numel() for t in v) / GiB for k, v in self.hbm.items() if v},
+                "jobs": jobs, "t": time.time()}
 
     def op_clear(self):
         with self.lock:
