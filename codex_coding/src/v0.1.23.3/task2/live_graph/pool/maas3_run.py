@@ -70,6 +70,36 @@ KIND_W = collections.OrderedDict([("dram", .25), ("ib", .20), ("ssd_rd", .15), (
 NUMA_GIB = 64                                                   # one NUMA node of these machines
 
 
+# Stress catalog: byte-distinct variants (make_variants.py) of the 35B and 8B checkpoints, standing in
+# for full fine-tunes -- no chunk is shared with the base model, so content addressing gains nothing.
+# (name, base, durable node, homes, size GiB); ranks 10-16 of the trace's model popularity.
+VARIANTS = [
+    ("qwen36-35b-v1", "qwen36-35b", "node28", ["node27", "node29", "node28"], 66.97),
+    ("9g-8b-v1", "9g-8b", "node28", ["node27", "node28", "node29"], 15.25),
+    ("clover-35b-v1", "clover-35b", "node30", ["node29", "node30"], 64.56),
+    ("qwen36-35b-v2", "qwen36-35b", "node29", ["node29", "node27", "node30"], 66.97),
+    ("9g-8b-v2", "9g-8b", "node29", ["node30", "node29", "node27"], 15.25),
+    ("clover-35b-v2", "clover-35b", "node28", ["node27", "node28"], 64.56),   # node29's host cannot read node30's disk
+    ("qwen36-35b-v3", "qwen36-35b", "node30", ["node27", "node30", "node29"], 66.97),
+]
+
+
+def apply_catalog(name):
+    """Extend the module-level catalog in place (everything below reads these globals)."""
+    if name == "base":
+        return
+    assert name == "big", name
+    for v, base, durable, homes, gib in VARIANTS:
+        CARDS[v] = CARDS[base]
+        DURABLE[v] = durable
+        HOMES[v] = list(homes)
+        SIZE_GIB[v] = gib
+        RANK.append(v)
+    glm = [m for m in HEAT_ORDER if m.startswith("glm53")]
+    del HEAT_ORDER[len(HEAT_ORDER) - len(glm):]
+    HEAT_ORDER.extend([v for v, *_ in VARIANTS] + glm)   # GLM stays coldest: its deficit goes last
+
+
 def home_pairs():
     """Every (model, node) a request can name."""
     out = [(m, n) for m in HOMES for n in dict.fromkeys(HOMES[m])]
@@ -696,7 +726,76 @@ ABLATIONS = {
     "fluidpool_nostripe": _ablation("fluidpool_nostripe", stripe_durable_only=True),                    # slow tier on one disk
     "fluidpool_age": _ablation("fluidpool_age", evict_order="age"),                                     # LRU, no replica value
 }
-SYSTEMS = {"fluidpool": Fluid, "fluidpool_relay": FluidRelay, **ABLATIONS, "janus": Janus, "sglang": SGLang}
+class FluidV2(FluidAblation):
+    """FluidPool v2 (2026-11-16): everything of fluidpool plus
+      relay      borrowed ingress through idle near cards and xGMI, revoked the moment a tenant
+                 takes a borrowed card (noded op_relay_release, called by every arena release);
+      hbm_first  a model leaving its cards lands its only-copy chunks in pre-registered HBM arenas
+                 first (same node over xGMI, then peers' idle arenas) -- no slab pinning on the
+                 critical path -- and Pool.settle() gives them a DRAM copy in the background;
+      prestage   node-level prediction: an EWMA of requests per (model, node) ranks the models of
+                 each node with idle cards, and Pool.prestage() keeps an extra replica of the top
+                 ones in that node's idle HBM, so their restores pull over xGMI;
+      volatile   copies in lent (idle-card) HBM never make a DRAM copy look redundant to eviction.
+    Each flag can be switched off for the ablations below."""
+    name = "fluidpool_v2"
+    relay, hbm_first, prestage = True, True, True
+    ring_reserve = 1 * GiB                               # arena bytes per idle card kept for a relay ring
+
+    def setup(self):
+        P = self.A.pool
+        if hasattr(P, "relay_policy"):
+            P.relay_policy = self.a.relay_policy if self.relay else "off"
+            P.demote_hbm_first = self.hbm_first
+            P.hbm_volatile = self.hbm_first or self.prestage
+        self.demand = collections.Counter()
+        super().setup()
+        for n, cards in IDLE.items():                    # leave room for a relay ring on every idle card
+            for c in cards:
+                self.budget[f"{n}/hbm/{c}"] = int(self.a.arena * GiB) - self.ring_reserve
+        if self.prestage and hasattr(P, "prestage"):     # same warm start as the baselines' pre-warm
+            for n in IDLE:
+                for m in homed_on(n):
+                    if not m.startswith("glm53"):
+                        for _ in range(64):
+                            if not P.prestage(m, n, budget=self.budget, max_bytes=16 * GiB):
+                                break
+
+    def touch(self, m, node):
+        super().touch(m, node)
+        for k in list(self.demand):
+            self.demand[k] *= 0.97
+        self.demand[(m, node)] += 1.0
+
+    def background(self):
+        super().background()
+        P = self.A.pool
+        if self.hbm_first and hasattr(P, "settle"):
+            P.settle(budget=self.budget, max_bytes=8 * GiB, order=HEAT_ORDER)
+        if self.prestage and hasattr(P, "prestage"):
+            for n in IDLE:
+                ranked = sorted({m for m in homed_on(n) if not m.startswith("glm53")},
+                                key=lambda m: (-self.demand.get((m, n), 0.0), HEAT_ORDER.index(m)))
+                for m in ranked:
+                    if P.staged(m, n) < 0.999:
+                        P.prestage(m, n, budget=self.budget, max_bytes=8 * GiB)
+                        break
+
+
+def _v2(name, **attrs):
+    return type(name, (FluidV2,), {"name": name, **attrs})
+
+
+V2 = {
+    "fluidpool_v2": FluidV2,
+    "fluidpool_v2_norelay": _v2("fluidpool_v2_norelay", relay=False),
+    "fluidpool_v2_noprestage": _v2("fluidpool_v2_noprestage", prestage=False),
+    "fluidpool_v2_nohbmfirst": _v2("fluidpool_v2_nohbmfirst", hbm_first=False),
+    "fluidpool_v2_noplan": _v2("fluidpool_v2_noplan", restore_kw={"strategy": "rr", "live": False}, relay=False),
+    "fluidpool_v2_nodemote": _v2("fluidpool_v2_nodemote", demote=False),
+    "fluidpool_v2_age": _v2("fluidpool_v2_age", evict_order="age"),
+}
+SYSTEMS = {"fluidpool": Fluid, "fluidpool_relay": FluidRelay, **ABLATIONS, **V2, "janus": Janus, "sglang": SGLang}
 
 
 # ---------------------------------------------------------------- bursts at run time
@@ -1307,6 +1406,7 @@ def summarize(recs):
 
 
 def run(a):
+    apply_catalog(a.catalog)
     os.makedirs(a.out, exist_ok=True)
     # ---- the schedule: one file per out dir, the same for every system that runs into it
     series, container = tenant_series()
@@ -1465,6 +1565,8 @@ if __name__ == "__main__":
     ap.add_argument("--stripe-nodes", default="node28,node29,node30", help="disks fluidpool stripes its slow tier over")
     ap.add_argument("--local-frac", default="auto", help="fluidpool: share of a single-home model kept on its home's DRAM")
     ap.add_argument("--janus-plan", choices=["static", "rr", "live"], default="static")
+    ap.add_argument("--catalog", choices=["base", "big"], default="base",
+                    help="big: + 7 byte-distinct 35B/8B variants (VARIANTS), ~1.2 TiB in all")
     ap.add_argument("--relay-policy", choices=["idle", "loose"], default="idle",
                     help="fluidpool_relay: which near cards may be borrowed (Pool.relay_pick)")
     ap.add_argument("--janus-order", choices=["d2d_first", "h2d_first"], default="d2d_first")

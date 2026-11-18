@@ -256,11 +256,31 @@ def read_into(fd, view, off):
 
 
 # ---------------------------------------------------------------- restore scheduling
+def _tier(cls):
+    """Speed tier of a path class: 0 parked HBM of this node (xGMI), 1 memory anywhere (local DRAM,
+    a peer's DRAM/HBM directly or through a relay card), 2 a disk (local NVMe, durable file, a
+    peer's staging of its NVMe/file)."""
+    k = cls.split(":")[0]
+    if k == "lhbm":
+        return 0
+    if k in ("lssd", "file", "rstage"):
+        return 2
+    return 1
+
+
 class Sched:
-    """Chunk -> path-class assignment that adapts while the restore runs (see module docstring)."""
+    """Chunk -> path-class assignment that adapts while the restore runs (see module docstring).
+    Stealing never goes up the tiers: a lane takes another lane's chunk only if that lane is of
+    the same or a slower tier (p1b: NVMe/staging lanes stole chunks that had a fast copy and set
+    ~71% of fluidpool's miss time; relay/net lanes stole the xGMI lane's chunks in v2_smoke1) --
+    unless the faster lane has collapsed: after UP_AFTER_S of the restore, a lane may take from a
+    faster tier whose *measured* rate has fallen below its own (formal_r400_v2 i=270: both GLM
+    halves at 0.1-6 GB/s per port during a DRAM squeeze on a source node, 28 s, with the disks idle)."""
+    UP_AFTER_S = 2.0
 
     def __init__(self, chunks, steal, prior, key=None):
         self.chunks, self.steal = chunks, steal
+        self.t0 = time.time()
         self.cv = threading.Condition()
         self.state = [0] * len(chunks)                 # 0 unclaimed, 1 claimed, 2 done
         self.left = len(chunks)
@@ -303,8 +323,12 @@ class Sched:
                     # one worker moves one chunk at the class rate divided by its workers
                     mine = max(self.rate.get(cls, 1.0), 0.05) * 1e9 / max(1, self.nworkers[cls])
                     edge = self.edge
+                    late = time.time() - self.t0 > self.UP_AFTER_S
                     for v, vq in self.planned.items():
                         if v == cls or not vq:
+                            continue
+                        if _tier(v) < _tier(cls) and not (late and v in self.meas and
+                                                          self.rate.get(v, 1e9) < self.rate.get(cls, 0.0)):
                             continue
                         t = self._est(v)
                         if t > best_t:
@@ -585,10 +609,30 @@ class NodeD:
                     merged.append((o, ln))
             a["free"] = merged
 
+    def op_relay_release(self, card, timeout=2.0):
+        """Owner first, while a restore runs: stop borrowing `card` as a relay. Its relay lanes are
+        revoked (unclaimed chunks move to other lanes, chunks in flight finish) and its slot ring
+        goes back to the arena at once, so the card can be handed to a tenant mid-restore."""
+        card, t0, out = int(card), time.time(), {}
+        for job, a in list(self.active.items()):
+            for p, r in list((a.get("rings") or {}).items()):
+                if r["card"] != card or r.get("gone"):
+                    continue
+                out[job] = a["sched"].revoke([f"relay:{p}"], timeout=timeout)
+                with self.arena_lock:
+                    gone = r.get("gone")
+                    r["gone"] = True
+                if not gone:
+                    self._arena_free(r["card"], r["off"], r["n"])
+        return {"card": card, "jobs": out, "s": round(time.time() - t0, 4)}
+
     def op_arena(self, card, gib):
         """Create (gib > 0) or give back (gib == 0) the arena of a card -- e.g. another tenant
-        needs the card. Refused while a restored model still lives in it."""
+        needs the card. Refused while a restored model still lives in it. A relay ring that a
+        running restore borrowed on the card is revoked first (op_relay_release)."""
         card = int(card)
+        if gib == 0:
+            self.op_relay_release(card)
         with self.arena_lock:
             a = self.arena.get(card)
             if a is not None:
@@ -1328,6 +1372,7 @@ class NodeD:
         pair = collections.defaultdict(lambda: [0, 0.0])        # (port, card) -> [bytes, seconds]
         spair = collections.defaultdict(lambda: [0, 0.0])       # (source node, port) -> [bytes, seconds]
         landq = {c: queue.Queue() for c in bufs}
+        xlandq = {c: queue.Queue() for c in bufs}       # chunks parked on another card: xGMI pulls
         first = [None]
         prof = collections.Counter()                    # where the wall time of this restore went
         node_load, dead_nodes, rr_lock = collections.Counter(), set(), threading.Lock()
@@ -1361,7 +1406,7 @@ class NodeD:
             while busy() and time.time() - t < timeout and sched.left and not sched.error:
                 time.sleep(0.002)
             return {"moved": moved, "wait_s": round(time.time() - t, 5)}
-        self.active[job] = {"sched": sched, "drop_node": drop_node, "direct": direct,
+        self.active[job] = {"sched": sched, "drop_node": drop_node, "direct": direct, "rings": rings,
                             "cards": sorted(bufs) + sorted(r["card"] for r in rings.values())}
 
         def lander(card):
@@ -1623,9 +1668,55 @@ class NodeD:
                 dt = time.time() - t
                 prof["fetch_s:" + cls] += dt
                 sched.fetched(cls, w, i, dt, rate=not is_local)
-                landq[c["card"]].put((i, src, slot, cls))
+                if cls == "lhbm" and slot is None and getattr(src, "device", None) is not None \
+                        and src.device.index != c["card"]:
+                    xlandq[c["card"]].put((i, src, slot, cls))
+                else:
+                    landq[c["card"]].put((i, src, slot, cls))
 
-        threads = [threading.Thread(target=lander, args=(c,), daemon=True) for c in bufs]
+        def xlander(card):
+            """xGMI lane of a card: target-side pulls of parked chunks on their own stream, never
+            waiting behind the H2D copies of the PCIe lander."""
+            q, buf = xlandq[card], bufs[card]
+            xs = torch.cuda.Stream(device=f"cuda:{card}")
+            while True:
+                item = q.get()
+                if item is None:
+                    return
+                batch = [item]
+                while len(batch) < 16:
+                    try:
+                        nxt = q.get_nowait()
+                    except queue.Empty:
+                        break
+                    if nxt is None:
+                        q.put(None)
+                        break
+                    batch.append(nxt)
+                tl = time.time()
+                with torch.cuda.device(card):
+                    for i, src, slot, cls in batch:
+                        c = chunks[i]
+                        rc = _hip_pull().hipMemcpyAsync(ctypes.c_void_p(buf.data_ptr() + c["off"]),
+                                                        ctypes.c_void_p(src.data_ptr()), c["n"], 3,
+                                                        ctypes.c_void_p(xs.cuda_stream))
+                        if rc != 0:
+                            with torch.cuda.stream(xs):
+                                buf[c["off"]:c["off"] + c["n"]].copy_(src, non_blocking=True)
+                    xs.synchronize()
+                dt = time.time() - tl
+                prof["xland_s"] += dt
+                nb = 0
+                for i, src, slot, cls in batch:
+                    nb += chunks[i]["n"]
+                    local_sem.release()
+                sched.observe("lhbm", card, nb / max(dt, 1e-6) / 1e9)
+                if first[0] is None:
+                    first[0] = time.time() - t0
+                sched.landed([b[0] for b in batch])
+
+        threads = [threading.Thread(target=lander, args=(c,), daemon=True) for c in bufs] + \
+            [threading.Thread(target=xlander, args=(c,), daemon=True) for c in bufs]
         classes = {cl for c in chunks for cl in c["classes"]}
         w = 0
         for cl in sorted(classes):
@@ -1648,16 +1739,20 @@ class NodeD:
                     threads.append(self._thread(worker, cl, w, daemon=True))
                     sched.nworkers[cl] += 1
                     w += 1
-        nland = len(bufs)
+        nland = 2 * len(bufs)
         [x.start() for x in threads]
         [x.join() for x in threads[nland:]]
-        for q in landq.values():
+        for q in list(landq.values()) + list(xlandq.values()):
             q.put(None)
         [x.join() for x in threads[:nland]]
         for c in bufs:                                  # RDMA wrote device memory behind the runtime
             torch.cuda.synchronize(f"cuda:{c}")
         for r in rings.values():                        # the relay rings go back to their arenas
-            self._arena_free(r["card"], r["off"], r["n"])
+            with self.arena_lock:
+                gone = r.get("gone")
+                r["gone"] = True
+            if not gone:
+                self._arena_free(r["card"], r["off"], r["n"])
         total = time.time() - t0
         self.active.pop(job, None)
         if sched.error:

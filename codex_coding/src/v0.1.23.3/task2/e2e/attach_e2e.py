@@ -40,10 +40,7 @@ ap.add_argument("--max-new", type=int, default=32)
 ap.add_argument("--mem-frac", type=float, default=0.45)
 ap.add_argument("--no-reference", action="store_true")
 ap.add_argument("--restore-arena-gib", type=float, default=48, help="re-create the card's arena at the end (0: leave)")
-a = ap.parse_args()
-os.makedirs(a.out, exist_ok=True)
-logp = os.path.join(a.out, "attach_e2e.jsonl")
-attach_log = os.path.join(a.out, "attach_loader.jsonl")
+logp = attach_log = a = None
 
 
 def say(**k):
@@ -54,75 +51,91 @@ def say(**k):
     print(line[:400], flush=True)
 
 
-import sglang as sgl  # noqa: E402
-
-man = json.load(open(os.path.join(a.manifests, a.model + ".json")))
-model_dir = man["build"]["model_dir"]
-say(event="config", **vars(a), model_dir=model_dir)
-greedy = {"temperature": 0.0, "max_new_tokens": a.max_new}
-
-
-def engine(**kw):
-    t = time.time()
-    e = sgl.Engine(model_path=model_dir, tp_size=1, base_gpu_id=a.card, mem_fraction_static=a.mem_frac,
-                   log_level="error", **kw)
-    return e, time.time() - t
+def main():
+    """Everything runs under the __main__ guard: SGLang starts its workers with spawn, which
+    re-imports this module."""
+    global a, logp, attach_log
+    a = ap.parse_args()
+    os.makedirs(a.out, exist_ok=True)
+    logp = os.path.join(a.out, "attach_e2e.jsonl")
+    attach_log = os.path.join(a.out, "attach_loader.jsonl")
 
 
-def gen(e, n=None):
-    sp = dict(greedy) if n is None else {"temperature": 0.0, "max_new_tokens": n}
-    t = time.time()
-    o = e.generate(PROMPT, sp)
-    return o, time.time() - t
+
+    import sglang as sgl  # noqa: E402
+
+    man = json.load(open(os.path.join(a.manifests, a.model + ".json")))
+    model_dir = man["build"]["model_dir"]
+    say(event="config", **vars(a), model_dir=model_dir)
+    greedy = {"temperature": 0.0, "max_new_tokens": a.max_new}
 
 
-def ids(o):
-    return o.get("output_ids") or o.get("meta_info", {}).get("output_ids")
+    def engine(**kw):
+        t = time.time()
+        e = sgl.Engine(model_path=model_dir, tp_size=1, base_gpu_id=a.card, mem_fraction_static=a.mem_frac,
+                       log_level="error", attention_backend="triton", page_size=1,   # gfx936: as in
+                       disable_cuda_graph=True, **kw)                                 # native_loading.py
+        return e, time.time() - t
 
 
-pool = Pool(NODES, log=lambda **k: None)
-pool.start(react=False)
-pool.register(a.model, os.path.join(a.manifests, a.model + ".json"), DURABLE[a.model])
-cl = pool.rpc[a.node]
-try:
-    cl.call("arena", card=a.card, gib=0)
-    say(event="arena_released", card=a.card)
-except Exception as e:                                   # noqa: BLE001
-    say(event="arena_release_failed", card=a.card, error=repr(e)[:200])
+    def gen(e, n=None):
+        sp = dict(greedy) if n is None else {"temperature": 0.0, "max_new_tokens": n}
+        t = time.time()
+        o = e.generate(PROMPT, sp)
+        return o, time.time() - t
 
-ref = None
-if not a.no_reference:
-    e, s = engine()
-    o, dt = gen(e)
-    ref = {"text": o["text"], "ids": ids(o)}
-    say(event="reference", engine_start_s=round(s, 2), gen_s=round(dt, 3), text=o["text"][:200])
-    e.shutdown()
 
-e, s = engine(load_format="dummy", custom_weight_loader=[SA.LOADER])
-o, _ = gen(e)
-say(event="dummy_engine", engine_start_s=round(s, 2), differs_from_reference=None if ref is None else o["text"] != ref["text"],
-    text=o["text"][:120])
+    def ids(o):
+        return o.get("output_ids") or o.get("meta_info", {}).get("output_ids")
 
-p = pool.park(a.model, copies=1, tiers=("dram",), avoid_nodes=(a.node,))
-say(event="parked_remote", GiB=p.get("GiB"), short=p.get("short"))
-for k in range(a.reps):
-    r = pool.restore(a.model, a.node, [a.card], allow=("dram", "file"), release=False, use_arena=False)
-    desc = SA.describe_job(pool, a.model, a.node, [a.card], r["job"], log_path=attach_log)
-    t = time.time()
-    res = e.update_weights_from_tensor(SA.request(desc), load_format=SA.LOADER)
-    attach_s = time.time() - t
-    cl.call("job_release", job=r["job"])
-    o1, ft = gen(e, 1)
+
+    pool = Pool(NODES, log=lambda **k: None)
+    pool.start(react=False)
+    pool.register(a.model, os.path.join(a.manifests, a.model + ".json"), DURABLE[a.model])
+    cl = pool.rpc[a.node]
+    try:
+        cl.call("arena", card=a.card, gib=0)
+        say(event="arena_released", card=a.card)
+    except Exception as e:                                   # noqa: BLE001
+        say(event="arena_release_failed", card=a.card, error=repr(e)[:200])
+
+    ref = None
+    if not a.no_reference:
+        e, s = engine()
+        o, dt = gen(e)
+        ref = {"text": o["text"], "ids": ids(o)}
+        say(event="reference", engine_start_s=round(s, 2), gen_s=round(dt, 3), text=o["text"][:200])
+        e.shutdown()
+
+    e, s = engine(load_format="dummy", custom_weight_loader=[SA.LOADER])
     o, _ = gen(e)
-    match = None if ref is None else (o["text"] == ref["text"] and (ids(o) == ref["ids"] if ref["ids"] else True))
-    say(event="activation", rep=k, GiB=r["GiB"], restore_s=r["total_s"], restore_GBps=r["GBps"],
-        attach_s=round(attach_s, 4), first_token_s=round(ft, 4),
-        activation_ttft_s=round(r["total_s"] + attach_s + ft, 4), match=match, update_result=str(res)[:120],
-        paths_GiB={kk: round(v["bytes"] / GiB, 2) for kk, v in r["paths"].items()})
-    if match is False:
-        say(event="MISMATCH", text=o["text"][:300], ref=ref["text"][:300])
-e.shutdown()
-if a.restore_arena_gib > 0:
-    cl.call("arena", card=a.card, gib=a.restore_arena_gib)
-say(event="done")
-pool.stop()
+    say(event="dummy_engine", engine_start_s=round(s, 2), differs_from_reference=None if ref is None else o["text"] != ref["text"],
+        text=o["text"][:120])
+
+    p = pool.park(a.model, copies=1, tiers=("dram",), avoid_nodes=(a.node,))
+    say(event="parked_remote", GiB=p.get("GiB"), short=p.get("short"))
+    for k in range(a.reps):
+        r = pool.restore(a.model, a.node, [a.card], allow=("dram", "file"), release=False, use_arena=False)
+        desc = SA.describe_job(pool, a.model, a.node, [a.card], r["job"], log_path=attach_log)
+        t = time.time()
+        res = e.update_weights_from_tensor(SA.request(desc), load_format=SA.LOADER)
+        attach_s = time.time() - t
+        cl.call("job_release", job=r["job"])
+        o1, ft = gen(e, 1)
+        o, _ = gen(e)
+        match = None if ref is None else (o["text"] == ref["text"] and (ids(o) == ref["ids"] if ref["ids"] else True))
+        say(event="activation", rep=k, GiB=r["GiB"], restore_s=r["total_s"], restore_GBps=r["GBps"],
+            attach_s=round(attach_s, 4), first_token_s=round(ft, 4),
+            activation_ttft_s=round(r["total_s"] + attach_s + ft, 4), match=match, update_result=str(res)[:120],
+            paths_GiB={kk: round(v["bytes"] / GiB, 2) for kk, v in r["paths"].items()})
+        if match is False:
+            say(event="MISMATCH", text=o["text"][:300], ref=ref["text"][:300])
+    e.shutdown()
+    if a.restore_arena_gib > 0:
+        cl.call("arena", card=a.card, gib=a.restore_arena_gib)
+    say(event="done")
+    pool.stop()
+
+
+if __name__ == "__main__":
+    main()

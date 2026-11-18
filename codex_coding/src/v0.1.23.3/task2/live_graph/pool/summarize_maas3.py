@@ -10,8 +10,10 @@ import os
 import sys
 
 d = sys.argv[1]
-SYS = ["fluidpool", "fluidpool_relay", "fluidpool_noplan", "fluidpool_static", "fluidpool_nodemote",
-       "fluidpool_nostripe", "fluidpool_age", "janus", "sglang"]
+SYS = ["fluidpool", "fluidpool_relay", "fluidpool_v2", "fluidpool_v2_norelay", "fluidpool_v2_noprestage",
+       "fluidpool_v2_nohbmfirst", "fluidpool_v2_noplan", "fluidpool_v2_nodemote", "fluidpool_v2_age",
+       "fluidpool_noplan", "fluidpool_static", "fluidpool_nodemote", "fluidpool_nostripe", "fluidpool_age",
+       "janus", "sglang"]
 F = "fluidpool"
 KINDS = ["dram", "ib", "ssd_rd", "ssd_wr", "hbm_idle", "hbm_serve", "h2d"]
 
@@ -51,6 +53,7 @@ def mean(xs):
 ev = {s: load(s) for s in SYS}
 ev = {s: v for s, v in ev.items() if v}
 req = {s: [r for r in v if r.get("event") == "request" and r["phase"] != "warmup"] for s, v in ev.items()}
+F = F if F in req else next((x for x in req if x.startswith("fluidpool")), F)   # the reference system
 miss = lambda r: r["kind"] != "ipc_hit"
 on = lambda r: bool(r.get("burst_kinds_on_node"))
 GROUPS = collections.OrderedDict([
@@ -72,9 +75,9 @@ md = []
 
 def table(key, title):
     md.append(f"\n### {title}\n")
-    cmp_ = [b for b in ("janus", "sglang", "fluidpool_relay") if b in req]
+    cmp_ = [b for b in ("janus", "sglang", "fluidpool_relay", "fluidpool_v2") if b in req and b != F]
     md.append("| requests | n | " + " | ".join(f"{s} mean / p50 / p95 / p99 (s)" for s in req) +
-              "".join(f" | {b} / fluidpool (mean, p95)" for b in cmp_) + " |")
+              "".join(f" | {b} / {F} (mean, p95)" for b in cmp_) + " |")
     md.append("|---|---|" + "---|" * (len(req) + len(cmp_)))
     for g, pred in GROUPS.items():
         S = {s: stat([r for r in req[s] if pred(r)], key) for s in req}
@@ -98,6 +101,33 @@ def table(key, title):
 
 table("latency_s", "Activation latency: restore only")
 table("total_s", "Activation latency: making room on the cards + restore")
+
+# Cold bytes: the share of an activation's bytes read from a slow tier (durable file, local NVMe,
+# a peer's NVMe/file staging) -- "partly cold" activations, beyond the binary cold-start count.
+SLOW_PATHS = ("file", "lssd", "rstage")
+md.append("\n### Cold bytes per activation (file + NVMe + peer staging) / all bytes, misses only\n")
+md.append("| system | mean | p50 | p95 | max | activations with any cold byte | cold GiB total |")
+md.append("|---|---|---|---|---|---|---|")
+out["cold_bytes"] = {}
+for sname in req:
+    fr, gib = [], 0.0
+    for r in req[sname]:
+        if not miss(r):
+            continue
+        pg = r.get("paths_GiB") or {}
+        tot = sum(pg.values()) or r.get("GiB") or 0
+        cold = sum(v for k, v in pg.items() if k in SLOW_PATHS)
+        if not pg and r["kind"] == "cold":
+            cold = tot = r.get("GiB") or 1.0
+        if tot:
+            fr.append(cold / tot)
+            gib += cold
+    if fr:
+        st = {"mean": round(sum(fr) / len(fr), 4), "p50": pct(fr, 0.5), "p95": pct(fr, 0.95), "max": max(fr),
+              "any": sum(1 for x in fr if x > 0.001), "n": len(fr), "GiB": round(gib, 1)}
+        out["cold_bytes"][sname] = st
+        md.append(f"| {sname} | {st['mean']:.3f} | {st['p50']:.3f} | {st['p95']:.3f} | {st['max']:.3f} | "
+                  f"{st['any']}/{st['n']} | {st['GiB']} |")
 
 md.append("\n### How each request was served\n")
 md.append("| requests | " + " | ".join(req) + " |")

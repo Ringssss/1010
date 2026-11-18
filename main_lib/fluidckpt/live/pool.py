@@ -103,6 +103,14 @@ class Pool:
         # Ablation knob: "value" (chunks with another fast replica first, then the coldest model)
         # or "age" (whole models' chunks, least recently used model first -- no replica reasoning).
         self.evict_order = "value"
+        # v2 knobs. hbm_volatile: when choosing what to evict from DRAM, a copy parked in idle
+        # HBM does not count as "another fast replica" (a tenant may take that card at any moment,
+        # so the DRAM copy is the one that keeps the chunk fast). demote_hbm_first: a model
+        # leaving its cards lands its only-copy chunks in pre-registered HBM arenas first (same
+        # node over xGMI, then peers' idle arenas over RDMA) -- no slab allocation or pinning on
+        # the critical path -- and settle() moves them to DRAM in the background.
+        self.hbm_volatile = False
+        self.demote_hbm_first = False
         self.inflight_cards = {}                         # job -> (node, {cards targeted or borrowed})
         self.plan_lock = threading.Lock()                # plans are made one at a time against the ledger
         self._tl = threading.local()
@@ -325,8 +333,10 @@ class Pool:
         return room
 
     def place(self, model, copies=2, tiers=("dram",), avoid_nodes=(), prefer=None, pin_nodes=(),
-              snap=None, budget=None, chunks=None, local_frac=None, spread=False, within=None):
+              snap=None, budget=None, chunks=None, local_frac=None, spread=False, within=None,
+              hbm_first=False):
         """Choose vertices for each chunk that still lacks `copies` replicas in `tiers`.
+        hbm_first: rank HBM arenas above DRAM (fast landing for demotion); default DRAM first.
 
         Water-filling over the live room of every vertex of those tiers: each chunk goes to the
         vertex with the most room left that does not already hold it and whose node holds none
@@ -372,8 +382,10 @@ class Pool:
                     if v.kind == "hbm" and c.nbytes < self.hbm_min_chunk:
                         continue
                     at_home = v.node in homes
-                    key = (at_home if want_local is None else at_home == want_local, v.kind != "hbm",
-                           -put[vid] if spread else 0, r)
+                    home_ok = at_home if want_local is None else at_home == want_local
+                    # hbm_first: any idle arena (home first) before any DRAM; else home first
+                    key = ((v.kind == "hbm", home_ok) if hbm_first else (home_ok, v.kind != "hbm")) + \
+                        (-put[vid] if spread else 0, r)
                     if best is None or key > best_key:
                         best, best_key = vid, key
                 if best is None:
@@ -432,7 +444,7 @@ class Pool:
 
     def park(self, name, copies=2, tiers=("dram",), prefer=None, pin_nodes=None, avoid_nodes=(),
              budget=None, threads=8, all_or_nothing=False, from_job=None, chunks=None, local_frac=None,
-             spread=False, quiet=False, within=None):
+             spread=False, quiet=False, within=None, hbm_first=False):
         """Place and store. A chunk's first replica is filled from the fastest copy that exists
         (an instance in HBM, a DRAM / parked-HBM replica, an NVMe copy, the durable file);
         further replicas are pulled from an existing replica, so the durable disk is read once.
@@ -447,7 +459,8 @@ class Pool:
             pin_nodes = tuple(self.nodes)
         with self.lock:
             plan, short = self.place(model, copies, tiers, avoid_nodes, prefer, pin_nodes, budget=budget,
-                                     chunks=chunks, local_frac=local_frac, spread=spread, within=within)
+                                     chunks=chunks, local_frac=local_frac, spread=spread, within=within,
+                                     hbm_first=hbm_first)
             if all_or_nothing and short:
                 return None                              # whole-model systems cannot keep a part
             for vid, cs in plan.items():
@@ -864,8 +877,8 @@ class Pool:
                     var[(k, "local")] = len(var)
                 if has_lh:
                     var[(k, "lhbm")] = len(var)
-                if has_slow:
-                    var[(k, "slow")] = len(var)
+                if has_slow and not (srcs or has_ld or has_lh):
+                    var[(k, "slow")] = len(var)          # a disk only when no fast copy exists
             iT = len(var)
             nv = iT + 1
             Aub, bub, Aeq, beq = [], [], [], []
@@ -1250,6 +1263,9 @@ class Pool:
             if skip_models and self.owners[cid] & set(skip_models):
                 continue
             sole = not self._fast(cid, but=vid)
+            if not sole and self.hbm_volatile and self._vparts(vid)[1] == "dram":
+                sole = not any(v != vid and self._vparts(v)[1] == "dram" for v in self.rep[cid]) and \
+                    not any(isinstance(l, dict) and l.get("job") for l in self.rep[cid].values())
             heat = self._cheat(cid)
             if below is not None and sole and heat[0] >= below:
                 continue
@@ -1396,7 +1412,7 @@ class Pool:
         return freed, dict(lost)
 
     def _store_fast(self, model, chunks, tiers=("dram", "hbm"), budget=None, from_job=None, displace=True,
-                    pin_nodes=None, prefer=None, local_frac=None):
+                    pin_nodes=None, prefer=None, local_frac=None, hbm_first=False):
         """Give `chunks` a fast replica wherever there is room; make room when there is none:
         first redundancy (trim), then colder models' copies (displace). Returns stats."""
         name = model.name
@@ -1408,7 +1424,8 @@ class Pool:
 
         def put(cs):
             r = self.park(name, copies=1, tiers=tiers, budget=budget, from_job=from_job, chunks=cs,
-                          pin_nodes=pin_nodes, prefer=prefer, local_frac=local_frac, quiet=True)
+                          pin_nodes=pin_nodes, prefer=prefer, local_frac=local_frac, quiet=True,
+                          hbm_first=hbm_first)
             out["stored"] += int(r["GiB"] * GiB)
             out["errors"] += r["errors"]
         todo = missing()
@@ -1454,8 +1471,10 @@ class Pool:
         nbytes = sum(c.nbytes for c in need)
         st = {"stored": 0, "left": nbytes, "trimmed": 0, "displaced": 0, "displaced_models": {}, "errors": []}
         if demote and need:
+            fast_land = self.demote_hbm_first and "hbm" in tiers
             st = self._store_fast(model, need, tiers, budget, from_job=(node, job, where, loc), displace=displace,
-                                  pin_nodes=pin_nodes)
+                                  pin_nodes=pin_nodes, prefer=node if fast_land else None,
+                                  local_frac=1.0 if fast_land else None, hbm_first=fast_land)
         t_dem = time.time() - t0
         if release:
             # Nobody may still be reading device memory that is about to be reused.
@@ -1479,6 +1498,68 @@ class Pool:
                "demote_s": round(t_dem, 4), "s": round(time.time() - t0, 4)}
         self._event("demote", **out)
         return out
+
+    def settle(self, budget=None, max_bytes=16 * GiB, order=None):
+        """Chunks whose only fast copies sit in parked HBM get a DRAM copy (bounded per call):
+        demotion lands in HBM arenas for speed, and HBM of an idle card is lent, not owned."""
+        moved, t0 = 0, time.time()
+        for name in order or list(self.models):
+            if moved >= max_bytes:
+                break
+            m = self.models[name]
+            with self.lock:
+                todo = [c for c in {c.id: c for c in m.chunks}.values()
+                        if self._fast(c.id) and not any(self._vparts(v)[1] == "dram" for v in self.rep[c.id])
+                        and not any(isinstance(l, dict) and l.get("job") for l in self.rep[c.id].values())]
+            if not todo:
+                continue
+            take, acc = [], 0
+            for c in todo:
+                if moved + acc >= max_bytes:
+                    break
+                take.append(c)
+                acc += c.nbytes
+            r = self.park(name, copies=1, tiers=("dram",), budget=budget, chunks=take, quiet=True)
+            moved += int(r["GiB"] * GiB)
+        if moved:
+            self._event("settle", GiB=round(moved / GiB, 2), s=round(time.time() - t0, 3))
+        return moved
+
+    def prestage(self, name, node, budget=None, max_bytes=16 * GiB):
+        """An extra replica of `name` in `node`'s idle HBM (hbm_park cards): a restore there then
+        pulls those chunks over xGMI (~140-170 GB/s into a card) instead of through the card's
+        own PCIe link. Extra copies only -- dropping one never costs coverage when hbm_volatile.
+        Bounded per call; returns bytes stored."""
+        if not self.hbm_park.get(node):
+            return 0
+        m = self.models[name]
+        vids = {f"{node}/hbm/{c}" for c in self.hbm_park[node]}
+        with self.lock:
+            todo = [c for c in {c.id: c for c in m.chunks}.values() if not vids & set(self.rep[c.id])]
+        if not todo:
+            return 0
+        take, acc = [], 0
+        for c in todo:
+            if acc >= max_bytes:
+                break
+            take.append(c)
+            acc += c.nbytes
+        t0 = time.time()
+        r = self.park(name, copies=1, tiers=("hbm",), budget=budget, chunks=take, within=(node,), quiet=True)
+        got = int(r["GiB"] * GiB)
+        if got:
+            self._event("prestage", model=name, node=node, GiB=round(got / GiB, 2), s=round(time.time() - t0, 3),
+                        short=r.get("short"))
+        return got
+
+    def staged(self, name, node):
+        """Share of `name`'s bytes with a copy in `node`'s parked HBM."""
+        vids = {f"{node}/hbm/{c}" for c in self.hbm_park.get(node, ())}
+        m = self.models[name]
+        with self.lock:
+            uniq = {c.id: c for c in m.chunks}.values()
+            have = sum(c.nbytes for c in uniq if vids & set(self.rep[c.id]))
+        return have / max(1, m.nbytes)
 
     def rebalance(self, order=None, budget=None, tiers=("dram", "hbm"), max_bytes=64 * GiB, displace=True,
                   pin_nodes=None, homes=None):
