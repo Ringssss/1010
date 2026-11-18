@@ -1,0 +1,110 @@
+{
+ "system": "fluidpool_v2",
+ "served": 300,
+ "skipped": 14,
+ "hits": 237,
+ "misses": 63,
+ "bursts": 196,
+ "latency": {
+  "all": {
+   "n": 300,
+   "mean_s": 0.14,
+   "p50_s": 0.012,
+   "p95_s": 0.795,
+   "p99_s": 0.795,
+   "max_s": 2.873,
+   "kinds": {
+    "fluid": 63,
+    "ipc_hit": 237
+   }
+  },
+  "misses": {
+   "n": 63,
+   "mean_s": 0.632,
+   "p50_s": 0.767,
+   "p95_s": 0.795,
+   "p99_s": 2.873,
+   "max_s": 2.873,
+   "kinds": {
+    "fluid": 63
+   }
+  },
+  "calm:all": {
+   "n": 15,
+   "mean_s": 0.245,
+   "p50_s": 0.012,
+   "p95_s": 0.795,
+   "p99_s": 0.795,
+   "max_s": 0.795,
+   "kinds": {
+    "fluid": 5,
+    "ipc_hit": 10
+   }
+  },
+  "calm:misses": {
+   "n": 5,
+   "mean_s": 0.712,
+   "p50_s": 0.795,
+   "p95_s": 0.795,
+   "p99_s": 0.795,
+   "max_s": 0.795,
+   "kinds": {
+    "fluid": 5
+   }
+  },
+  "burst:all": {
+   "n": 285,
+   "mean_s": 0.135,
+   "p50_s": 0.012,
+   "p95_s": 0.795,
+   "p99_s": 0.795,
+   "max_s": 2.873,
+   "kinds": {
+    "ipc_hit": 227,
+    "fluid": 58
+   }
+  },
+  "burst:misses": {
+   "n": 58,
+   "mean_s": 0.625,
+   "p50_s": 0.767,
+   "p95_s": 0.795,
+   "p99_s": 2.873,
+   "max_s": 2.873,
+   "kinds": {
+    "fluid": 58
+   }
+  }
+ },
+ "graph": {
+  "poll_ms_p50": 0.5,
+  "poll_ms_p99": 0.9,
+  "polls": 3,
+  "events": {
+   "evict": 182,
+   "repair": 227,
+   "demote": 6
+  },
+  "slab_GiB": {
+   "node27": 202.2,
+   "node28": 168.4,
+   "node29": 109.5,
+   "node30": 228.4
+  },
+  "fast_coverage_all": 1.0
+ },
+ "warm_servable_burst": {
+  "pairs_mean": 0.9662,
+  "pairs_min": 0.6471,
+  "bytes_mean": 0.8978,
+  "bytes_min": 0.3749
+ },
+ "cold_burst": 0,
+ "calls": {
+  "park": 246,
+  "rebalance": 308,
+  "restore_wave": 70,
+  "restore": 98,
+  "retire": 88
+ }
+}

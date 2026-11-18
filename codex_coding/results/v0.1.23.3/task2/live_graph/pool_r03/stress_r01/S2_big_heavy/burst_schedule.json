@@ -1,0 +1,2880 @@
+{
+ "meta": {
+  "seed": 1,
+  "requests": 300,
+  "calm": 15,
+  "burst_load": 4.0,
+  "amp": 60.0,
+  "kinds": [
+   "dram",
+   "ib",
+   "ssd_rd",
+   "ssd_wr",
+   "hbm_idle",
+   "hbm_serve",
+   "h2d"
+  ],
+  "tenant_container": "6ebc62069627eabf9bf6659d9a78d228",
+  "sha256": "fd69c9ab289e2ed79ed90f6dbfdf9f3488ed2a17351c29f2380f839a0588323c",
+  "events": 196,
+  "by_kind": {
+   "ssd_rd": 33,
+   "hbm_idle": 18,
+   "hbm_serve": 23,
+   "dram": 46,
+   "h2d": 21,
+   "ib": 42,
+   "ssd_wr": 13
+  },
+  "during": 57,
+  "mean_concurrency": 3.31,
+  "max_concurrency": 8,
+  "requests_without_burst": 7
+ },
+ "events": [
+  {
+   "id": "b000",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 16,
+   "end_req": 21,
+   "during": false
+  },
+  {
+   "id": "b001",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     4,
+     5
+    ],
+    "gib": 56
+   },
+   "start_req": 16,
+   "end_req": 21,
+   "during": false
+  },
+  {
+   "id": "b002",
+   "kind": "hbm_serve",
+   "node": "node27",
+   "params": {
+    "cards": [
+     0,
+     3
+    ],
+    "gib": 56
+   },
+   "start_req": 17,
+   "end_req": 19,
+   "during": false
+  },
+  {
+   "id": "b003",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 59,
+    "level": 0.9758
+   },
+   "start_req": 17,
+   "end_req": 20,
+   "during": false
+  },
+  {
+   "id": "b004",
+   "kind": "h2d",
+   "node": "node27",
+   "params": {
+    "card": 1
+   },
+   "start_req": 18,
+   "end_req": 25,
+   "during": false
+  },
+  {
+   "id": "b005",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     1,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 58,
+    "level": 0.9674
+   },
+   "start_req": 18,
+   "end_req": 23,
+   "during": false
+  },
+  {
+   "id": "b006",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node27",
+    "ports": [
+     0,
+     3
+    ]
+   },
+   "start_req": 18,
+   "end_req": 24,
+   "during": false
+  },
+  {
+   "id": "b007",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node29",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 20,
+   "end_req": 26,
+   "during": true
+  },
+  {
+   "id": "b008",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 3
+   },
+   "start_req": 23,
+   "end_req": 28,
+   "during": false
+  },
+  {
+   "id": "b009",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 23,
+   "end_req": 29,
+   "during": false
+  },
+  {
+   "id": "b010",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     0,
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 24,
+   "end_req": 30,
+   "during": false
+  },
+  {
+   "id": "b011",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 31,
+    "level": 0.516
+   },
+   "start_req": 25,
+   "end_req": 27,
+   "during": false
+  },
+  {
+   "id": "b012",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node27",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 26,
+   "end_req": 30,
+   "during": true
+  },
+  {
+   "id": "b013",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     1,
+     3
+    ]
+   },
+   "start_req": 28,
+   "end_req": 30,
+   "during": true
+  },
+  {
+   "id": "b014",
+   "kind": "ssd_wr",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 33,
+   "end_req": 36,
+   "during": true
+  },
+  {
+   "id": "b015",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     3,
+     4,
+     6,
+     7
+    ],
+    "gib_each": 31,
+    "level": 0.5171
+   },
+   "start_req": 33,
+   "end_req": 38,
+   "during": false
+  },
+  {
+   "id": "b016",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 34,
+   "end_req": 38,
+   "during": true
+  },
+  {
+   "id": "b017",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 13,
+    "level": 0.2155
+   },
+   "start_req": 34,
+   "end_req": 37,
+   "during": false
+  },
+  {
+   "id": "b018",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node27",
+    "ports": [
+     1,
+     3
+    ]
+   },
+   "start_req": 35,
+   "end_req": 37,
+   "during": true
+  },
+  {
+   "id": "b019",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     1,
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 35,
+   "end_req": 39,
+   "during": false
+  },
+  {
+   "id": "b020",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     1
+    ],
+    "gib": 56
+   },
+   "start_req": 36,
+   "end_req": 43,
+   "during": false
+  },
+  {
+   "id": "b021",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4,
+     5,
+     7
+    ],
+    "gib_each": 13,
+    "level": 0.2154
+   },
+   "start_req": 36,
+   "end_req": 40,
+   "during": true
+  },
+  {
+   "id": "b022",
+   "kind": "ib",
+   "node": "node27",
+   "params": {
+    "src": "node28",
+    "ports": [
+     3
+    ]
+   },
+   "start_req": 39,
+   "end_req": 42,
+   "during": true
+  },
+  {
+   "id": "b023",
+   "kind": "h2d",
+   "node": "node30",
+   "params": {
+    "card": 4
+   },
+   "start_req": 42,
+   "end_req": 48,
+   "during": true
+  },
+  {
+   "id": "b024",
+   "kind": "ssd_wr",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 43,
+   "end_req": 45,
+   "during": true
+  },
+  {
+   "id": "b025",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 44,
+   "end_req": 49,
+   "during": true
+  },
+  {
+   "id": "b026",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9572
+   },
+   "start_req": 46,
+   "end_req": 48,
+   "during": false
+  },
+  {
+   "id": "b027",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node27",
+    "ports": [
+     0,
+     2
+    ]
+   },
+   "start_req": 46,
+   "end_req": 52,
+   "during": false
+  },
+  {
+   "id": "b028",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 46,
+   "end_req": 49,
+   "during": true
+  },
+  {
+   "id": "b029",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     3,
+     5,
+     6
+    ],
+    "gib_each": 57,
+    "level": 0.9566
+   },
+   "start_req": 49,
+   "end_req": 51,
+   "during": false
+  },
+  {
+   "id": "b030",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4,
+     5,
+     7
+    ],
+    "gib_each": 43,
+    "level": 0.7148
+   },
+   "start_req": 50,
+   "end_req": 53,
+   "during": true
+  },
+  {
+   "id": "b031",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node27",
+    "ports": [
+     2,
+     3
+    ]
+   },
+   "start_req": 51,
+   "end_req": 54,
+   "during": true
+  },
+  {
+   "id": "b032",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     6,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 52,
+   "end_req": 57,
+   "during": false
+  },
+  {
+   "id": "b033",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     3
+    ]
+   },
+   "start_req": 53,
+   "end_req": 59,
+   "during": true
+  },
+  {
+   "id": "b034",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 54,
+   "end_req": 58,
+   "during": false
+  },
+  {
+   "id": "b035",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     2,
+     4,
+     7
+    ],
+    "gib_each": 8,
+    "level": 0.0558
+   },
+   "start_req": 56,
+   "end_req": 63,
+   "during": false
+  },
+  {
+   "id": "b036",
+   "kind": "ssd_wr",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 59,
+   "end_req": 66,
+   "during": true
+  },
+  {
+   "id": "b037",
+   "kind": "ssd_wr",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 59,
+   "end_req": 61,
+   "during": false
+  },
+  {
+   "id": "b038",
+   "kind": "ssd_wr",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 59,
+   "end_req": 62,
+   "during": false
+  },
+  {
+   "id": "b039",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node30",
+    "ports": [
+     1,
+     2
+    ]
+   },
+   "start_req": 60,
+   "end_req": 67,
+   "during": false
+  },
+  {
+   "id": "b040",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 61,
+   "end_req": 64,
+   "during": true
+  },
+  {
+   "id": "b041",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 53,
+    "level": 0.882
+   },
+   "start_req": 61,
+   "end_req": 67,
+   "during": false
+  },
+  {
+   "id": "b042",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node29",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 61,
+   "end_req": 67,
+   "during": false
+  },
+  {
+   "id": "b043",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 63,
+   "end_req": 66,
+   "during": false
+  },
+  {
+   "id": "b044",
+   "kind": "ssd_wr",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 65,
+   "end_req": 71,
+   "during": false
+  },
+  {
+   "id": "b045",
+   "kind": "hbm_serve",
+   "node": "node27",
+   "params": {
+    "cards": [
+     0
+    ],
+    "gib": 56
+   },
+   "start_req": 69,
+   "end_req": 75,
+   "during": false
+  },
+  {
+   "id": "b046",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 8,
+    "level": 0.056
+   },
+   "start_req": 70,
+   "end_req": 77,
+   "during": false
+  },
+  {
+   "id": "b047",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node28",
+    "ports": [
+     0,
+     2
+    ]
+   },
+   "start_req": 70,
+   "end_req": 75,
+   "during": false
+  },
+  {
+   "id": "b048",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     6,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 71,
+   "end_req": 78,
+   "during": false
+  },
+  {
+   "id": "b049",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node29",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 71,
+   "end_req": 77,
+   "during": true
+  },
+  {
+   "id": "b050",
+   "kind": "hbm_serve",
+   "node": "node27",
+   "params": {
+    "cards": [
+     1,
+     2
+    ],
+    "gib": 56
+   },
+   "start_req": 75,
+   "end_req": 82,
+   "during": false
+  },
+  {
+   "id": "b051",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 56,
+    "level": 0.9281
+   },
+   "start_req": 75,
+   "end_req": 83,
+   "during": false
+  },
+  {
+   "id": "b052",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 76,
+   "end_req": 82,
+   "during": false
+  },
+  {
+   "id": "b053",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 76,
+   "end_req": 82,
+   "during": false
+  },
+  {
+   "id": "b054",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 78,
+   "end_req": 85,
+   "during": true
+  },
+  {
+   "id": "b055",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node27",
+    "ports": [
+     0,
+     2
+    ]
+   },
+   "start_req": 79,
+   "end_req": 81,
+   "during": false
+  },
+  {
+   "id": "b056",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     5,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 80,
+   "end_req": 86,
+   "during": false
+  },
+  {
+   "id": "b057",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 80,
+   "end_req": 88,
+   "during": false
+  },
+  {
+   "id": "b058",
+   "kind": "ssd_wr",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 81,
+   "end_req": 89,
+   "during": false
+  },
+  {
+   "id": "b059",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 4
+   },
+   "start_req": 82,
+   "end_req": 85,
+   "during": true
+  },
+  {
+   "id": "b060",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 82,
+   "end_req": 87,
+   "during": false
+  },
+  {
+   "id": "b061",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     5
+    ],
+    "gib": 56
+   },
+   "start_req": 85,
+   "end_req": 92,
+   "during": false
+  },
+  {
+   "id": "b062",
+   "kind": "hbm_serve",
+   "node": "node27",
+   "params": {
+    "cards": [
+     0
+    ],
+    "gib": 56
+   },
+   "start_req": 89,
+   "end_req": 94,
+   "during": false
+  },
+  {
+   "id": "b063",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     0,
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 89,
+   "end_req": 95,
+   "during": false
+  },
+  {
+   "id": "b064",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     3,
+     4,
+     5,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9571
+   },
+   "start_req": 92,
+   "end_req": 95,
+   "during": false
+  },
+  {
+   "id": "b065",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     6,
+     7
+    ],
+    "gib_each": 13,
+    "level": 0.2156
+   },
+   "start_req": 94,
+   "end_req": 98,
+   "during": false
+  },
+  {
+   "id": "b066",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 58,
+    "level": 0.9718
+   },
+   "start_req": 95,
+   "end_req": 98,
+   "during": true
+  },
+  {
+   "id": "b067",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     5,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 96,
+   "end_req": 103,
+   "during": true
+  },
+  {
+   "id": "b068",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 98,
+   "end_req": 101,
+   "during": false
+  },
+  {
+   "id": "b069",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 99,
+   "end_req": 103,
+   "during": false
+  },
+  {
+   "id": "b070",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     5,
+     7
+    ],
+    "gib_each": 13,
+    "level": 0.2155
+   },
+   "start_req": 100,
+   "end_req": 106,
+   "during": false
+  },
+  {
+   "id": "b071",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 101,
+   "end_req": 108,
+   "during": true
+  },
+  {
+   "id": "b072",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 103,
+   "end_req": 107,
+   "during": false
+  },
+  {
+   "id": "b073",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     5,
+     6
+    ],
+    "gib_each": 57,
+    "level": 0.9572
+   },
+   "start_req": 103,
+   "end_req": 111,
+   "during": true
+  },
+  {
+   "id": "b074",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     4,
+     5
+    ],
+    "gib": 56
+   },
+   "start_req": 104,
+   "end_req": 112,
+   "during": false
+  },
+  {
+   "id": "b075",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node30",
+    "ports": [
+     0
+    ]
+   },
+   "start_req": 105,
+   "end_req": 108,
+   "during": true
+  },
+  {
+   "id": "b076",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node27",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 106,
+   "end_req": 108,
+   "during": false
+  },
+  {
+   "id": "b077",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     5,
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 106,
+   "end_req": 112,
+   "during": false
+  },
+  {
+   "id": "b078",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "gib_each": 28,
+    "level": 0.4739
+   },
+   "start_req": 107,
+   "end_req": 110,
+   "during": true
+  },
+  {
+   "id": "b079",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 28,
+    "level": 0.4723
+   },
+   "start_req": 108,
+   "end_req": 115,
+   "during": false
+  },
+  {
+   "id": "b080",
+   "kind": "ssd_wr",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 110,
+   "end_req": 118,
+   "during": false
+  },
+  {
+   "id": "b081",
+   "kind": "h2d",
+   "node": "node27",
+   "params": {
+    "card": 0
+   },
+   "start_req": 113,
+   "end_req": 121,
+   "during": true
+  },
+  {
+   "id": "b082",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 114,
+   "end_req": 118,
+   "during": false
+  },
+  {
+   "id": "b083",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 114,
+   "end_req": 118,
+   "during": true
+  },
+  {
+   "id": "b084",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node30",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 114,
+   "end_req": 121,
+   "during": true
+  },
+  {
+   "id": "b085",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node30",
+    "ports": [
+     0
+    ]
+   },
+   "start_req": 116,
+   "end_req": 118,
+   "during": false
+  },
+  {
+   "id": "b086",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node28",
+    "ports": [
+     0,
+     3
+    ]
+   },
+   "start_req": 118,
+   "end_req": 123,
+   "during": false
+  },
+  {
+   "id": "b087",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 2
+   },
+   "start_req": 123,
+   "end_req": 130,
+   "during": false
+  },
+  {
+   "id": "b088",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     3
+    ]
+   },
+   "start_req": 123,
+   "end_req": 128,
+   "during": false
+  },
+  {
+   "id": "b089",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     3,
+     6,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9486
+   },
+   "start_req": 126,
+   "end_req": 134,
+   "during": true
+  },
+  {
+   "id": "b090",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     3,
+     4,
+     5,
+     7
+    ],
+    "gib_each": 32,
+    "level": 0.5274
+   },
+   "start_req": 128,
+   "end_req": 132,
+   "during": false
+  },
+  {
+   "id": "b091",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     1,
+     2,
+     3,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 31,
+    "level": 0.516
+   },
+   "start_req": 130,
+   "end_req": 136,
+   "during": false
+  },
+  {
+   "id": "b092",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 130,
+   "end_req": 138,
+   "during": false
+  },
+  {
+   "id": "b093",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 2
+   },
+   "start_req": 132,
+   "end_req": 134,
+   "during": false
+  },
+  {
+   "id": "b094",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node29",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 134,
+   "end_req": 138,
+   "during": true
+  },
+  {
+   "id": "b095",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 134,
+   "end_req": 136,
+   "during": false
+  },
+  {
+   "id": "b096",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     1,
+     2
+    ]
+   },
+   "start_req": 135,
+   "end_req": 138,
+   "during": false
+  },
+  {
+   "id": "b097",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 60,
+    "level": 0.9999
+   },
+   "start_req": 136,
+   "end_req": 142,
+   "during": false
+  },
+  {
+   "id": "b098",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 142,
+   "end_req": 144,
+   "during": true
+  },
+  {
+   "id": "b099",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     5
+    ],
+    "gib_each": 57,
+    "level": 0.9568
+   },
+   "start_req": 144,
+   "end_req": 148,
+   "during": false
+  },
+  {
+   "id": "b100",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 144,
+   "end_req": 146,
+   "during": true
+  },
+  {
+   "id": "b101",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 1
+   },
+   "start_req": 147,
+   "end_req": 149,
+   "during": false
+  },
+  {
+   "id": "b102",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node27",
+    "ports": [
+     1,
+     2
+    ]
+   },
+   "start_req": 147,
+   "end_req": 155,
+   "during": true
+  },
+  {
+   "id": "b103",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 149,
+   "end_req": 155,
+   "during": false
+  },
+  {
+   "id": "b104",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4,
+     5,
+     6
+    ],
+    "gib_each": 13,
+    "level": 0.2156
+   },
+   "start_req": 154,
+   "end_req": 157,
+   "during": false
+  },
+  {
+   "id": "b105",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 157,
+   "end_req": 163,
+   "during": false
+  },
+  {
+   "id": "b106",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 3
+   },
+   "start_req": 160,
+   "end_req": 165,
+   "during": false
+  },
+  {
+   "id": "b107",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 161,
+   "end_req": 169,
+   "during": false
+  },
+  {
+   "id": "b108",
+   "kind": "ssd_wr",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 163,
+   "end_req": 169,
+   "during": false
+  },
+  {
+   "id": "b109",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 164,
+   "end_req": 168,
+   "during": false
+  },
+  {
+   "id": "b110",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 166,
+   "end_req": 173,
+   "during": false
+  },
+  {
+   "id": "b111",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 171,
+   "end_req": 173,
+   "during": false
+  },
+  {
+   "id": "b112",
+   "kind": "hbm_serve",
+   "node": "node29",
+   "params": {
+    "cards": [
+     0,
+     2
+    ],
+    "gib": 56
+   },
+   "start_req": 174,
+   "end_req": 179,
+   "during": false
+  },
+  {
+   "id": "b113",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 174,
+   "end_req": 176,
+   "during": false
+  },
+  {
+   "id": "b114",
+   "kind": "ssd_wr",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 176,
+   "end_req": 184,
+   "during": false
+  },
+  {
+   "id": "b115",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 177,
+   "end_req": 184,
+   "during": false
+  },
+  {
+   "id": "b116",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 13,
+    "level": 0.2157
+   },
+   "start_req": 179,
+   "end_req": 183,
+   "during": false
+  },
+  {
+   "id": "b117",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node27",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 186,
+   "end_req": 188,
+   "during": false
+  },
+  {
+   "id": "b118",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     0,
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 186,
+   "end_req": 194,
+   "during": false
+  },
+  {
+   "id": "b119",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 190,
+   "end_req": 193,
+   "during": true
+  },
+  {
+   "id": "b120",
+   "kind": "ib",
+   "node": "node27",
+   "params": {
+    "src": "node30",
+    "ports": [
+     0
+    ]
+   },
+   "start_req": 191,
+   "end_req": 194,
+   "during": false
+  },
+  {
+   "id": "b121",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9422
+   },
+   "start_req": 192,
+   "end_req": 197,
+   "during": true
+  },
+  {
+   "id": "b122",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node29",
+    "ports": [
+     1,
+     2
+    ]
+   },
+   "start_req": 194,
+   "end_req": 199,
+   "during": false
+  },
+  {
+   "id": "b123",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     1,
+     5
+    ],
+    "gib": 56
+   },
+   "start_req": 194,
+   "end_req": 198,
+   "during": false
+  },
+  {
+   "id": "b124",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 195,
+   "end_req": 199,
+   "during": true
+  },
+  {
+   "id": "b125",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 58,
+    "level": 0.9747
+   },
+   "start_req": 195,
+   "end_req": 202,
+   "during": true
+  },
+  {
+   "id": "b126",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 196,
+   "end_req": 201,
+   "during": false
+  },
+  {
+   "id": "b127",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 198,
+   "end_req": 206,
+   "during": false
+  },
+  {
+   "id": "b128",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     2,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 200,
+   "end_req": 205,
+   "during": false
+  },
+  {
+   "id": "b129",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4,
+     7
+    ],
+    "gib_each": 29,
+    "level": 0.4813
+   },
+   "start_req": 200,
+   "end_req": 206,
+   "during": false
+  },
+  {
+   "id": "b130",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 202,
+   "end_req": 204,
+   "during": false
+  },
+  {
+   "id": "b131",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     3,
+     6,
+     7
+    ],
+    "gib_each": 49,
+    "level": 0.8211
+   },
+   "start_req": 203,
+   "end_req": 211,
+   "during": false
+  },
+  {
+   "id": "b132",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 208,
+   "end_req": 211,
+   "during": true
+  },
+  {
+   "id": "b133",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 6
+   },
+   "start_req": 209,
+   "end_req": 213,
+   "during": false
+  },
+  {
+   "id": "b134",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 213,
+   "end_req": 221,
+   "during": true
+  },
+  {
+   "id": "b135",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 1
+   },
+   "start_req": 215,
+   "end_req": 217,
+   "during": false
+  },
+  {
+   "id": "b136",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 219,
+   "end_req": 223,
+   "during": true
+  },
+  {
+   "id": "b137",
+   "kind": "ib",
+   "node": "node27",
+   "params": {
+    "src": "node29",
+    "ports": [
+     3
+    ]
+   },
+   "start_req": 219,
+   "end_req": 221,
+   "during": false
+  },
+  {
+   "id": "b138",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6
+    ],
+    "gib_each": 57,
+    "level": 0.957
+   },
+   "start_req": 222,
+   "end_req": 227,
+   "during": false
+  },
+  {
+   "id": "b139",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node27",
+    "ports": [
+     0,
+     2
+    ]
+   },
+   "start_req": 224,
+   "end_req": 232,
+   "during": false
+  },
+  {
+   "id": "b140",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node29",
+    "ports": [
+     0
+    ]
+   },
+   "start_req": 224,
+   "end_req": 226,
+   "during": false
+  },
+  {
+   "id": "b141",
+   "kind": "ib",
+   "node": "node27",
+   "params": {
+    "src": "node30",
+    "ports": [
+     0,
+     1
+    ]
+   },
+   "start_req": 226,
+   "end_req": 233,
+   "during": true
+  },
+  {
+   "id": "b142",
+   "kind": "h2d",
+   "node": "node27",
+   "params": {
+    "card": 1
+   },
+   "start_req": 227,
+   "end_req": 231,
+   "during": false
+  },
+  {
+   "id": "b143",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node28",
+    "ports": [
+     2,
+     3
+    ]
+   },
+   "start_req": 229,
+   "end_req": 233,
+   "during": true
+  },
+  {
+   "id": "b144",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 0
+   },
+   "start_req": 231,
+   "end_req": 233,
+   "during": false
+  },
+  {
+   "id": "b145",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 3
+   },
+   "start_req": 231,
+   "end_req": 233,
+   "during": true
+  },
+  {
+   "id": "b146",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4,
+     5,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9491
+   },
+   "start_req": 232,
+   "end_req": 240,
+   "during": false
+  },
+  {
+   "id": "b147",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node27",
+    "ports": [
+     2,
+     3
+    ]
+   },
+   "start_req": 233,
+   "end_req": 235,
+   "during": true
+  },
+  {
+   "id": "b148",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 235,
+   "end_req": 242,
+   "during": false
+  },
+  {
+   "id": "b149",
+   "kind": "ib",
+   "node": "node28",
+   "params": {
+    "src": "node27",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 235,
+   "end_req": 241,
+   "during": false
+  },
+  {
+   "id": "b150",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     6,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 236,
+   "end_req": 243,
+   "during": false
+  },
+  {
+   "id": "b151",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 237,
+   "end_req": 241,
+   "during": false
+  },
+  {
+   "id": "b152",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4
+    ],
+    "gib_each": 57,
+    "level": 0.9491
+   },
+   "start_req": 237,
+   "end_req": 240,
+   "during": false
+  },
+  {
+   "id": "b153",
+   "kind": "h2d",
+   "node": "node27",
+   "params": {
+    "card": 1
+   },
+   "start_req": 239,
+   "end_req": 245,
+   "during": true
+  },
+  {
+   "id": "b154",
+   "kind": "h2d",
+   "node": "node30",
+   "params": {
+    "card": 7
+   },
+   "start_req": 240,
+   "end_req": 244,
+   "during": true
+  },
+  {
+   "id": "b155",
+   "kind": "h2d",
+   "node": "node30",
+   "params": {
+    "card": 5
+   },
+   "start_req": 243,
+   "end_req": 247,
+   "during": true
+  },
+  {
+   "id": "b156",
+   "kind": "ssd_rd",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 245,
+   "end_req": 251,
+   "during": false
+  },
+  {
+   "id": "b157",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 245,
+   "end_req": 252,
+   "during": false
+  },
+  {
+   "id": "b158",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node29",
+    "ports": [
+     1,
+     2
+    ]
+   },
+   "start_req": 245,
+   "end_req": 247,
+   "during": false
+  },
+  {
+   "id": "b159",
+   "kind": "dram",
+   "node": "node30",
+   "params": {
+    "numas": [
+     1,
+     2,
+     5,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9572
+   },
+   "start_req": 247,
+   "end_req": 255,
+   "during": false
+  },
+  {
+   "id": "b160",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     4,
+     5
+    ],
+    "gib": 56
+   },
+   "start_req": 248,
+   "end_req": 253,
+   "during": true
+  },
+  {
+   "id": "b161",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9456
+   },
+   "start_req": 250,
+   "end_req": 255,
+   "during": false
+  },
+  {
+   "id": "b162",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 31,
+    "level": 0.5156
+   },
+   "start_req": 250,
+   "end_req": 253,
+   "during": false
+  },
+  {
+   "id": "b163",
+   "kind": "ssd_wr",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 255,
+   "end_req": 259,
+   "during": false
+  },
+  {
+   "id": "b164",
+   "kind": "hbm_idle",
+   "node": "node29",
+   "params": {
+    "cards": [
+     4,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 256,
+   "end_req": 263,
+   "during": true
+  },
+  {
+   "id": "b165",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node28",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 257,
+   "end_req": 265,
+   "during": false
+  },
+  {
+   "id": "b166",
+   "kind": "hbm_serve",
+   "node": "node29",
+   "params": {
+    "cards": [
+     0,
+     2
+    ],
+    "gib": 56
+   },
+   "start_req": 262,
+   "end_req": 264,
+   "during": false
+  },
+  {
+   "id": "b167",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     3,
+     5
+    ],
+    "gib_each": 31,
+    "level": 0.5217
+   },
+   "start_req": 263,
+   "end_req": 268,
+   "during": false
+  },
+  {
+   "id": "b168",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     1,
+     4,
+     6,
+     7
+    ],
+    "gib_each": 13,
+    "level": 0.2155
+   },
+   "start_req": 264,
+   "end_req": 267,
+   "during": true
+  },
+  {
+   "id": "b169",
+   "kind": "hbm_serve",
+   "node": "node28",
+   "params": {
+    "cards": [
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 265,
+   "end_req": 267,
+   "during": false
+  },
+  {
+   "id": "b170",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node27",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 266,
+   "end_req": 272,
+   "during": false
+  },
+  {
+   "id": "b171",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     1,
+     3,
+     4,
+     7
+    ],
+    "gib_each": 58,
+    "level": 0.9629
+   },
+   "start_req": 267,
+   "end_req": 274,
+   "during": true
+  },
+  {
+   "id": "b172",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     6,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 270,
+   "end_req": 275,
+   "during": false
+  },
+  {
+   "id": "b173",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     0,
+     3
+    ]
+   },
+   "start_req": 271,
+   "end_req": 276,
+   "during": false
+  },
+  {
+   "id": "b174",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     2,
+     4
+    ],
+    "gib": 56
+   },
+   "start_req": 271,
+   "end_req": 278,
+   "during": false
+  },
+  {
+   "id": "b175",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 2
+   },
+   "start_req": 273,
+   "end_req": 278,
+   "during": false
+  },
+  {
+   "id": "b176",
+   "kind": "ib",
+   "node": "node30",
+   "params": {
+    "src": "node28",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 273,
+   "end_req": 276,
+   "during": true
+  },
+  {
+   "id": "b177",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     2,
+     4,
+     7
+    ],
+    "gib_each": 56,
+    "level": 0.935
+   },
+   "start_req": 276,
+   "end_req": 280,
+   "during": false
+  },
+  {
+   "id": "b178",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node28",
+    "ports": [
+     1
+    ]
+   },
+   "start_req": 278,
+   "end_req": 285,
+   "during": true
+  },
+  {
+   "id": "b179",
+   "kind": "dram",
+   "node": "node27",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "gib_each": 31,
+    "level": 0.516
+   },
+   "start_req": 279,
+   "end_req": 282,
+   "during": false
+  },
+  {
+   "id": "b180",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     0,
+     1,
+     2,
+     6,
+     7
+    ],
+    "gib_each": 56,
+    "level": 0.9348
+   },
+   "start_req": 282,
+   "end_req": 289,
+   "during": false
+  },
+  {
+   "id": "b181",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     1,
+     2,
+     4,
+     5
+    ],
+    "gib_each": 53,
+    "level": 0.882
+   },
+   "start_req": 282,
+   "end_req": 285,
+   "during": true
+  },
+  {
+   "id": "b182",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     1,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 283,
+   "end_req": 289,
+   "during": false
+  },
+  {
+   "id": "b183",
+   "kind": "dram",
+   "node": "node28",
+   "params": {
+    "numas": [
+     0,
+     1,
+     3,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9572
+   },
+   "start_req": 285,
+   "end_req": 288,
+   "during": true
+  },
+  {
+   "id": "b184",
+   "kind": "hbm_serve",
+   "node": "node27",
+   "params": {
+    "cards": [
+     1,
+     2
+    ],
+    "gib": 56
+   },
+   "start_req": 287,
+   "end_req": 291,
+   "during": false
+  },
+  {
+   "id": "b185",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 5
+   },
+   "start_req": 288,
+   "end_req": 293,
+   "during": false
+  },
+  {
+   "id": "b186",
+   "kind": "h2d",
+   "node": "node29",
+   "params": {
+    "card": 3
+   },
+   "start_req": 288,
+   "end_req": 294,
+   "during": false
+  },
+  {
+   "id": "b187",
+   "kind": "ssd_wr",
+   "node": "node30",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 289,
+   "end_req": 296,
+   "during": false
+  },
+  {
+   "id": "b188",
+   "kind": "ssd_rd",
+   "node": "node29",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 290,
+   "end_req": 298,
+   "during": true
+  },
+  {
+   "id": "b189",
+   "kind": "dram",
+   "node": "node29",
+   "params": {
+    "numas": [
+     1,
+     2,
+     7
+    ],
+    "gib_each": 57,
+    "level": 0.9422
+   },
+   "start_req": 290,
+   "end_req": 294,
+   "during": false
+  },
+  {
+   "id": "b190",
+   "kind": "ssd_wr",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 293,
+   "end_req": 295,
+   "during": false
+  },
+  {
+   "id": "b191",
+   "kind": "h2d",
+   "node": "node28",
+   "params": {
+    "card": 4
+   },
+   "start_req": 293,
+   "end_req": 297,
+   "during": false
+  },
+  {
+   "id": "b192",
+   "kind": "ib",
+   "node": "node29",
+   "params": {
+    "src": "node30",
+    "ports": [
+     2
+    ]
+   },
+   "start_req": 294,
+   "end_req": 297,
+   "during": false
+  },
+  {
+   "id": "b193",
+   "kind": "hbm_serve",
+   "node": "node30",
+   "params": {
+    "cards": [
+     2,
+     6
+    ],
+    "gib": 56
+   },
+   "start_req": 296,
+   "end_req": 300,
+   "during": false
+  },
+  {
+   "id": "b194",
+   "kind": "hbm_idle",
+   "node": "node27",
+   "params": {
+    "cards": [
+     6,
+     7
+    ],
+    "gib": 56
+   },
+   "start_req": 298,
+   "end_req": 300,
+   "during": false
+  },
+  {
+   "id": "b195",
+   "kind": "ssd_rd",
+   "node": "node28",
+   "params": {
+    "streams": 4
+   },
+   "start_req": 299,
+   "end_req": 300,
+   "during": false
+  }
+ ]
+}

@@ -1,0 +1,5 @@
+2026-11-16 W5 hardware attempts (node28 card 6, qwen3-0.6b):
+attach_r01_fail_nomain: SGLang spawn re-imported the script (no __main__ guard) -> fixed.
+attach_r02_fail_pagesize: flash_attn "Paged KV cache block size must be 64" -> switched to attention_backend=triton, page_size=1, disable_cuda_graph (as native_loading.py).
+attach_r03: the disk-loaded REFERENCE engine's scheduler aborted (exit -6) in the first forward (qwen3.py:579 -> qwen2.py:421).
+Not an attach-path failure (the dummy engine never started). Next: copy native_loading.py's exact engine args (context-length 4096, max-running-requests 4, disable-custom-all-reduce, moe/attention backends) and rerun.
